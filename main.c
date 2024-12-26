@@ -44,7 +44,7 @@ void quitSDL(int codeError, SDL_Window* window) {
     SDL_Quit();
 }
 
-
+// mettre dans un fichier différent
 #include <stdio.h>
 
 void handleInputs(SDL_Window* window)
