@@ -44,9 +44,6 @@ void quitSDL(int codeError, SDL_Window* window) {
     SDL_Quit();
 }
 
-// mettre dans un fichier différent
-#include <stdio.h>
-
 void handleInputs(SDL_Window* window)
 {
     SDL_Event event;
@@ -63,24 +60,24 @@ void handleInputs(SDL_Window* window)
             case SDL_KEYDOWN:
                 switch (event.key.keysym.sym)
                 {
-                    case SDLK_UP:
-                        // Move the player up
-                        printf("Up arrow pressed\n");
+                    case SDLK_a:
+                        // Action button when A pressed || attack 1
+                        printf("A pressed\n");
                         break;
-                    case SDLK_DOWN:
-                        // Move the player down
-                        printf("Down arrow pressed\n");
+                    case SDLK_z:
+                        // Action button when Z pressed || attack 2
+                        printf("Z pressed\n");
                         break;
-                    case SDLK_LEFT:
-                        // Move the player left
-                        printf("Left arrow pressed\n");
+                    case SDLK_e:
+                        // Action button when E pressed || attack 3
+                        printf("E pressed\n");
                         break;
-                    case SDLK_RIGHT:
-                        // Move the player right
-                        printf("Right arrow pressed\n");
+                    case SDLK_r:
+                        // Action button when R pressed || attack 4
+                        printf("R pressed\n");
                         break;
                     case SDLK_ESCAPE:
-                        // Pause the game
+                        // Pause the game when ESCAPE pressed
                         printf("Pause the game\n");
                         break;
                     
