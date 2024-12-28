@@ -3,16 +3,19 @@
 #include <stdio.h>
 
 void quitSDL(int codeError, SDL_Window* window);
-void handleInputs(SDL_Window* window);
+void handleInputs(SDL_Window* window, int* backgroundColor, int* highlight);
 void getMousePosition(SDL_Window* window);
+void drawHighlight(SDL_Surface* surface, int x, int y, int width, int height);
 
 int main(int argc, char* argv[]) {
     SDL_Window* window = NULL;
     SDL_Surface* menu = NULL;
+    int backgroundColor = 0; // 0 for black, 1 for white
+    int highlight = 0; // 0 for no highlight, 1 for highlight
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) quitSDL(1,NULL);
 
-    window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 720, 600, SDL_WINDOW_SHOWN);
 
     SDL_Surface* image = IMG_Load("assets/MENU_TEST.png");
     if(!image)
@@ -26,81 +29,70 @@ int main(int argc, char* argv[]) {
     if (window == NULL)quitSDL(0,window);
     while(1){
         menu = SDL_GetWindowSurface(window);
-        SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 0xFF, 0xFF, 0xFF));
+        if (backgroundColor == 0) {
+            SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 0, 0, 0));
+        } else {
+            SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 255, 255, 255));
+        }
         SDL_BlitSurface(image, NULL, menu, &positionImage);
+        if (highlight) {
+            drawHighlight(menu, 100, 100, 100, 100);
+        }
         SDL_UpdateWindowSurface(window);
-        handleInputs(window);
-        
+        handleInputs(window, &backgroundColor, &highlight);
     }
     quitSDL(0,window);
 
     return 0;
 }
 
-
 void quitSDL(int codeError, SDL_Window* window) {
-    switch (codeError)
-    {
-    case 1:
-        printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
-        break;
-    case 2:
-        printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
-        break;
-    default:
-        break;
+    if (window != NULL) {
+        SDL_DestroyWindow(window);
     }
-
-    SDL_DestroyWindow(window);
     SDL_Quit();
+    exit(codeError);
 }
 
-void handleInputs(SDL_Window* window)
-{
+void handleInputs(SDL_Window* window, int* backgroundColor, int* highlight) {
     SDL_Event event;
-    while (SDL_PollEvent(&event))
-    {
-        switch (event.type)
-        {
+    while (SDL_PollEvent(&event)) {
+        switch (event.type) {
             case SDL_QUIT:
-                // Quit the game
-                SDL_DestroyWindow(window);
-                SDL_Quit();
-                exit(0); 
+                quitSDL(0, window);
                 break;
             case SDL_KEYDOWN:
-                switch (event.key.keysym.sym)
-                {
+                switch (event.key.keysym.sym) {
                     case SDLK_a:
-                        // Bouton d'action lorsque A est pressé || attaque 1
                         printf("A pressed\n");
                         break;
                     case SDLK_z:
-                        // Bouton d'action lorsque Z est pressé || attaque 2
                         printf("Z pressed\n");
                         break;
                     case SDLK_e:
-                        // Bouton d'action lorsque E est pressé || attaque 3
                         printf("E pressed\n");
                         break;
                     case SDLK_r:
-                        // Bouton d'action lorsque R est pressé || attaque 4
                         printf("R pressed\n");
                         break;
                     case SDLK_ESCAPE:
-                        // Pause la partie
                         printf("Pause the game\n");
                         break;
-                    
                     default:
                         break;
                 }
-                // 
-                case SDL_MOUSEBUTTONDOWN:
-                        // Donner les coordonnées de la souris lors du clic
-                        printf("Mouse clicked\n");
-                        getMousePosition(window);
-                        break; 
+                break;
+            case SDL_MOUSEBUTTONDOWN:
+                printf("Mouse clicked\n");
+                int x, y;
+                SDL_GetMouseState(&x, &y);
+                printf("Mouse position: (%d, %d)\n", x, y);
+                if (x >= 100 && x <= 200 && y >= 100 && y <= 200) {
+                    *backgroundColor = !(*backgroundColor); // Toggle background color
+                    *highlight = 1; // Enable highlight
+                } else {
+                    *highlight = 0; // Disable highlight
+                }
                 break;
             default:
                 break;
@@ -114,4 +106,9 @@ void getMousePosition(SDL_Window* window)
     int x, y;
     SDL_GetMouseState(&x, &y);
     printf("Mouse position: x=%d y=%d\n", x, y);
+}
+
+void drawHighlight(SDL_Surface* surface, int x, int y, int width, int height) {
+    SDL_Rect rect = { x, y, width, height };
+    SDL_FillRect(surface, &rect, SDL_MapRGB(surface->format, 255, 0, 0)); // Red highlight
 }
