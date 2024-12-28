@@ -1,9 +1,10 @@
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_events.h>
 #include <stdio.h>
 
 void quitSDL(int codeError, SDL_Window* window);
 void handleInputs(SDL_Window* window);
-
+void getMousePosition(SDL_Window* window);
 
 int main(int argc, char* argv[]) {
     SDL_Window* window = NULL;
@@ -61,32 +62,46 @@ void handleInputs(SDL_Window* window)
                 switch (event.key.keysym.sym)
                 {
                     case SDLK_a:
-                        // Action button when A pressed || attack 1
+                        // Bouton d'action lorsque A est pressé || attaque 1
                         printf("A pressed\n");
                         break;
                     case SDLK_z:
-                        // Action button when Z pressed || attack 2
+                        // Bouton d'action lorsque Z est pressé || attaque 2
                         printf("Z pressed\n");
                         break;
                     case SDLK_e:
-                        // Action button when E pressed || attack 3
+                        // Bouton d'action lorsque E est pressé || attaque 3
                         printf("E pressed\n");
                         break;
                     case SDLK_r:
-                        // Action button when R pressed || attack 4
+                        // Bouton d'action lorsque R est pressé || attaque 4
                         printf("R pressed\n");
                         break;
                     case SDLK_ESCAPE:
-                        // Pause the game when ESCAPE pressed
+                        // Pause la partie
                         printf("Pause the game\n");
                         break;
                     
                     default:
                         break;
                 }
+                // 
+                case SDL_MOUSEBUTTONDOWN:
+                        // Donner les coordonnées de la souris lors du clic
+                        printf("Mouse clicked\n");
+                        getMousePosition(window);
+                        break; 
                 break;
             default:
                 break;
         }
     }
+}
+
+// recuperation de coodonnées de la souris 
+void getMousePosition(SDL_Window* window)
+{
+    int x, y;
+    SDL_GetMouseState(&x, &y);
+    printf("Mouse position: x=%d y=%d\n", x, y);
 }
