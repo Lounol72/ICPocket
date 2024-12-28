@@ -1,4 +1,5 @@
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <stdio.h>
 
 void quitSDL(int codeError, SDL_Window* window);
@@ -7,19 +8,29 @@ void getMousePosition(SDL_Window* window);
 
 int main(int argc, char* argv[]) {
     SDL_Window* window = NULL;
-    SDL_Surface* screenSurface = NULL;
+    SDL_Surface* menu = NULL;
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) quitSDL(1,NULL);
 
     window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
 
+    SDL_Surface* image = IMG_Load("assets/MENU_TEST.png");
+    if(!image)
+    {
+        printf("Erreur de chargement de l'image : %s",SDL_GetError());
+        return -1;
+    }
+    SDL_Rect positionImage;
+    positionImage.x = 0;
+    positionImage.y = 0;
     if (window == NULL)quitSDL(0,window);
     while(1){
-        screenSurface = SDL_GetWindowSurface(window);
-        SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 0xFF, 0xFF, 0xFF));
-        handleInputs(window);
+        menu = SDL_GetWindowSurface(window);
+        SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 0xFF, 0xFF, 0xFF));
+        SDL_BlitSurface(image, NULL, menu, &positionImage);
         SDL_UpdateWindowSurface(window);
         handleInputs(window);
+        
     }
     quitSDL(0,window);
 
