@@ -31,6 +31,7 @@ typedef struct{
 	t_Gender gender;
 	int lvl;
 	int nature;
+	int current_pv;
 	int baseStats[6];
 	int iv[6];
 	int stats[6];
@@ -44,7 +45,7 @@ void generatePoke(t_Poke *p){
 	p->nature=rand()%25;
 	for(int i=0;i<6;i++) p->baseStats[i]=rand()%256;
 	for(int i=0;i<6;i++) p->iv[i]=rand()%32;
-	p->stats[0]=((int)(p->baseStats[0]+p->iv[0])*2*p->lvl/100)+p->lvl+10;
+	p->stats[PV]=((int)(p->baseStats[0]+p->iv[0])*2*p->lvl/100)+p->lvl+10;
 	for(int i=1;i<6;i++){
 		p->stats[i]=(int)(((2*p->baseStats[i]+p->iv[i])*p->lvl/100)+5)*tabNature[p->nature].coeff[i];
 	}
@@ -175,15 +176,7 @@ void initNature(){
 	strcpy(tabNature[24].nature,"Sérieux");
 }
 
-int main(){
+void initData(){
 	initNature();
 	srand(time(NULL));
-	t_Poke p;
-	generatePoke(&p);
-	for(int i=0;i<4;i++){
-		t_Move attaque=generateRandomMove();
-		learnMove(&p,&attaque,i);
-	}
-	printPoke(&p);
-	return 0;
 }
