@@ -1,5 +1,4 @@
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_events.h>
 #include <stdio.h>
 
 void quitSDL(int codeError, SDL_Window* window);
