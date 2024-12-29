@@ -11,6 +11,9 @@
 #define SPD 4
 #define SPE 5
 
+#define TRUE 1
+#define FALSE 0
+
 typedef enum{male=0,female} t_Gender;
 
 typedef struct{
@@ -33,6 +36,7 @@ typedef struct{
 	int nature;
 	int current_pv;
 	int baseStats[6];
+	int statChanges[6];
 	int iv[6];
 	int stats[6];
 	t_Move moveList[4];
@@ -45,7 +49,7 @@ void generatePoke(t_Poke *p){
 	p->nature=rand()%25;
 	for(int i=0;i<6;i++) p->baseStats[i]=rand()%256;
 	for(int i=0;i<6;i++) p->iv[i]=rand()%32;
-	p->stats[PV]=((int)(p->baseStats[0]+p->iv[0])*2*p->lvl/100)+p->lvl+10;
+	p->stats[PV]=((int)(2*p->baseStats[0]+p->iv[0])*p->lvl/100)+p->lvl+10;
 	for(int i=1;i<6;i++){
 		p->stats[i]=(int)(((2*p->baseStats[i]+p->iv[i])*p->lvl/100)+5)*tabNature[p->nature].coeff[i];
 	}
