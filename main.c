@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
     SDL_Window* window = NULL;
     SDL_Surface* menu = NULL;
     int backgroundColor = 0; // 0 for black, 1 for white
-    int highlight = 0; // 0 for no highlight, 1 for highlight
+    int highlight = 1; // 0 for no highlight, 1 for highlight
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) quitSDL(1,NULL);
 
@@ -87,12 +87,9 @@ void handleInputs(SDL_Window* window, int* backgroundColor, int* highlight) {
                 int x, y;
                 SDL_GetMouseState(&x, &y);
                 printf("Mouse position: (%d, %d)\n", x, y);
-                if (x >= 100 && x <= 200 && y >= 100 && y <= 200) {
+                if (x >= 100 && x <= 200 && y >= 100 && y <= 200) 
                     *backgroundColor = !(*backgroundColor); // Toggle background color
-                    *highlight = 1; // Enable highlight
-                } else {
-                    *highlight = 0; // Disable highlight
-                }
+                
                 break;
             default:
                 break;
