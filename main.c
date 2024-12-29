@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 void quitSDL(int codeError, SDL_Window* window);
-void handleInputs(SDL_Window* window, int* backgroundColor, int* highlight);
+void handleInputs(SDL_Window* window, int* backgroundColor);
 void getMousePosition(SDL_Window* window);
 void drawHighlight(SDL_Surface* surface, int x, int y, int width, int height);
 int boutons(int x, int y);
@@ -35,11 +35,9 @@ int main(int argc, char* argv[]) {
             SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 255, 255, 255));
         }
         SDL_BlitSurface(image, NULL, menu, &positionImage);
-        if (highlight) {
-            drawHighlight(menu, 100, 100, 100, 100);
-        }
+        drawHighlight(menu, 100, 100, 100, 100);
         SDL_UpdateWindowSurface(window);
-        handleInputs(window, &backgroundColor, &highlight);
+        handleInputs(window, &backgroundColor);
     }
     quitSDL(0,window);
 
@@ -54,7 +52,7 @@ void quitSDL(int codeError, SDL_Window* window) {
     exit(codeError);
 }
 
-void handleInputs(SDL_Window* window, int* backgroundColor, int* highlight) {
+void handleInputs(SDL_Window* window, int* backgroundColor) {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
@@ -87,7 +85,7 @@ void handleInputs(SDL_Window* window, int* backgroundColor, int* highlight) {
                 int x, y;
                 SDL_GetMouseState(&x, &y);
                 printf("Mouse position: (%d, %d)\n", x, y);
-                if (boutons(x, y)) {
+                if (boutons(x, y))
                     *backgroundColor = !(*backgroundColor); // Toggle background color
                 
                 break;
