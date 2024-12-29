@@ -6,12 +6,12 @@ void quitSDL(int codeError, SDL_Window* window);
 void handleInputs(SDL_Window* window, int* backgroundColor, int* highlight);
 void getMousePosition(SDL_Window* window);
 void drawHighlight(SDL_Surface* surface, int x, int y, int width, int height);
+int boutons(int x, int y);
 
 int main(int argc, char* argv[]) {
     SDL_Window* window = NULL;
     SDL_Surface* menu = NULL;
     int backgroundColor = 0; // 0 for black, 1 for white
-    int highlight = 1; // 0 for no highlight, 1 for highlight
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) quitSDL(1,NULL);
 
@@ -87,7 +87,7 @@ void handleInputs(SDL_Window* window, int* backgroundColor, int* highlight) {
                 int x, y;
                 SDL_GetMouseState(&x, &y);
                 printf("Mouse position: (%d, %d)\n", x, y);
-                if (x >= 100 && x <= 200 && y >= 100 && y <= 200) 
+                if (boutons(x, y)) {
                     *backgroundColor = !(*backgroundColor); // Toggle background color
                 
                 break;
@@ -108,4 +108,10 @@ void getMousePosition(SDL_Window* window)
 void drawHighlight(SDL_Surface* surface, int x, int y, int width, int height) {
     SDL_Rect rect = { x, y, width, height };
     SDL_FillRect(surface, &rect, SDL_MapRGB(surface->format, 255, 0, 0)); // Red highlight
+}
+
+int boutons(int x, int y){
+    if (x >= 100 && x <= 200 && y >= 100 && y <= 200) 
+        return 1;
+    return 0;
 }
