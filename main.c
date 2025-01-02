@@ -9,7 +9,7 @@
 
 void mainLoop(SDL_Window* window, SDL_Surface* image, int* backgroundColor, State* currentState);
 
-Bouton param = {100, 100, 100, 100}; // Top-left corner at (100, 100), width and height of 100
+Bouton param = {50, 450, 200, 100}; // x ,y largeur, hauteur
 
 int main(int argc, char* argv[]) {
     SDL_Window* window = NULL;
