@@ -12,6 +12,6 @@
 - regrouper les fichiers dans un dossier & les ranger 
 - page de paramètres (Louis)
 - configurer la page de menu (Louis)
--coder le menu (Alban)
--faire les design des poké (?)
+- coder le menu (Alban)
+- faire les design des poké (?)
 
