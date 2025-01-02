@@ -9,7 +9,7 @@
 
 # TO-DO LIST
 
-- regrouper les fichiers dans un dossier & les ranger 
+- regrouper les fichiers dans un dossier & les ranger Fait
 - page de paramètres (Louis)
 - configurer la page de menu (Louis)
 - coder le menu (Alban)
