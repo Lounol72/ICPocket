@@ -13,5 +13,5 @@
 - page de paramètres (Louis)
 - configurer la page de menu (Louis)
 - coder le menu (Alban)
-- faire les design des poké (?)
+- faire les design des poké (William)
 
