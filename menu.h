@@ -3,6 +3,9 @@
 
 #include <SDL2/SDL.h>
 #include "state.h"
+#include "boutons.h"
+
+extern Bouton pageParam;
 
 void drawMenu(SDL_Surface* surface, SDL_Surface* image);
 void drawParametre(SDL_Surface* surface);

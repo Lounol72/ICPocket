@@ -5,7 +5,7 @@
 #include "boutons.h"
 #include "utils.h"
 
-extern Bouton param;
+extern Bouton pageParam;
 
 void handleInputs(SDL_Window* window, int* backgroundColor, State* currentState) {
     SDL_Event event;
@@ -40,7 +40,7 @@ void handleInputs(SDL_Window* window, int* backgroundColor, State* currentState)
                 int x, y;
                 SDL_GetMouseState(&x, &y);
                 printf("Mouse position: (%d, %d)\n", x, y);
-                if (Cliqued(&param, x, y)) {
+                if (Cliqued(&pageParam, x, y)) {
                     *backgroundColor = !(*backgroundColor); // Toggle background color
                     *currentState = (*currentState == MENU) ? PARAMETRE : MENU; // Toggle state
                 }

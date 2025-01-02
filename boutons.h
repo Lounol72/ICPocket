@@ -8,7 +8,6 @@ typedef struct {
     int height;
 } Bouton;
 
-
 int Cliqued(Bouton *b, int x ,int y);
 
 #endif

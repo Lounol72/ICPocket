@@ -10,12 +10,12 @@
 
 void mainLoop(SDL_Window* window, SDL_Surface* image, int* backgroundColor, State* currentState);
 
-Bouton param = {50, 450, 200, 100}; // x ,y largeur, hauteur
+Bouton pageParam = {50, 450, 200, 100}; // x ,y largeur, hauteur
 
 int main(int argc, char* argv[]) {
     SDL_Window* window = NULL;
     SDL_Surface* menu = NULL;
-    SDL_Surface* parametre = NULL;
+    SDL_Surface* pageParametre = NULL;
     
     int backgroundColor = 0; // 0 for black, 1 for white
     State currentState = MENU;
@@ -37,17 +37,21 @@ int main(int argc, char* argv[]) {
         return -1;
     }
     
-    if (window == NULL)quitSDL(0,window);
+    if (window == NULL) quitSDL(0,window);
     
     mainLoop(window, image, &backgroundColor, &currentState);
 
     SDL_FreeSurface(menu);
-    SDL_FreeSurface(parametre);
+    SDL_FreeSurface(pageParametre);
     SDL_DestroyWindow(window);
     Mix_CloseAudio();
     quitSDL(0,window);
 
     return 0;
+}
+
+void audioCallback(void* userdata, Uint8* stream, int len) {
+    // Envoyez les données dans notre buffer...
 }
 
 void mainLoop(SDL_Window* window, SDL_Surface* image, int* backgroundColor, State* currentState) {
@@ -61,12 +65,9 @@ void mainLoop(SDL_Window* window, SDL_Surface* image, int* backgroundColor, Stat
     spec.format = AUDIO_F32SYS;
     spec.channels = 1;
     spec.samples = 4096; // Oublier pas que ce sa doit être en puissance de deux 2^n
-    spec.callback = [](void* param, Uint8* stream, int len)
-    {
-        // Envoyez les données dans notre buffer...
-    };
+    spec.callback = audioCallback;
 
-    SDL_AudioDeviceID dev = SDL_OpenAudioDevice(nullptr, 0, &spec, &spec, SDL_AUDIO_ALLOW_FREQUENCY_CHANGE);
+    SDL_AudioDeviceID dev = SDL_OpenAudioDevice(NULL, 0, &spec, &spec, SDL_AUDIO_ALLOW_FREQUENCY_CHANGE);
 
     SDL_PauseAudioDevice(dev, SDL_FALSE);
 

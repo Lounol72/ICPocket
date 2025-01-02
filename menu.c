@@ -2,17 +2,16 @@
 #include "menu.h"
 #include "boutons.h"
 
-extern Bouton param;
 
 void drawMenu(SDL_Surface* surface, SDL_Surface* image) {
     SDL_Rect positionImage = {0, 0};
     SDL_BlitSurface(image, NULL, surface, &positionImage);
-    drawHighlight(surface, param.x, param.y, param.width, param.height);
+    drawHighlight(surface, pageParam.x, pageParam.y, pageParam.width, pageParam.height);
 }
 
 void drawParametre(SDL_Surface* surface) {
     SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 100, 100, 100));
-    drawHighlight(surface, param.x, param.y, param.width, param.height);
+    drawHighlight(surface, pageParam.x, pageParam.y, pageParam.width, pageParam.height);
 }
 
 void drawHighlight(SDL_Surface* surface, int x, int y, int width, int height) {
