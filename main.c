@@ -3,17 +3,22 @@
 #include <stdio.h>
 #include "boutons.h"
 
+typedef enum {MENU, PARAMETRE} State;
+
 void quitSDL(int codeError, SDL_Window* window);
-void handleInputs(SDL_Window* window, int* backgroundColor);
+void handleInputs(SDL_Window* window, int* backgroundColor, State* currentState);
 void getMousePosition(SDL_Window* window);
 void drawHighlight(SDL_Surface* surface, int x, int y, int width, int height);
 
-Bouton param = {100, 200, 100, 200};
+Bouton param = {100, 100, 100, 100}; // Top-left corner at (100, 100), width and height of 100
 
 int main(int argc, char* argv[]) {
     SDL_Window* window = NULL;
     SDL_Surface* menu = NULL;
+    SDL_Surface* parametre = NULL;
+    
     int backgroundColor = 0; // 0 for black, 1 for white
+    State currentState = MENU;
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) quitSDL(1,NULL);
 
@@ -29,8 +34,6 @@ int main(int argc, char* argv[]) {
     positionImage.x = 0;
     positionImage.y = 0;
     if (window == NULL)quitSDL(0,window);
-    
-    
     while(1){
         menu = SDL_GetWindowSurface(window);
         if (backgroundColor == 0) {
@@ -38,25 +41,23 @@ int main(int argc, char* argv[]) {
         } else {
             SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 255, 255, 255));
         }
-        SDL_BlitSurface(image, NULL, menu, &positionImage);
-        drawHighlight(menu, 100, 200, 100, 200);
+        if (currentState == MENU) {
+            SDL_BlitSurface(image, NULL, menu, &positionImage);
+            drawHighlight(menu, param.x, param.y, param.width, param.height); // Dessiner le rectangle rouge
+        } else if (currentState == PARAMETRE) {
+            // Afficher les paramètres ici
+            SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 100, 100, 100)); // Exemple de fond pour les paramètres
+            drawHighlight(menu, param.x, param.y, param.width, param.height); // Dessiner le rectangle rouge
+        }
         SDL_UpdateWindowSurface(window);
-        handleInputs(window, &backgroundColor);
+        handleInputs(window, &backgroundColor, &currentState);
     }
     quitSDL(0,window);
 
     return 0;
 }
 
-void quitSDL(int codeError, SDL_Window* window) {
-    if (window != NULL) {
-        SDL_DestroyWindow(window);
-    }
-    SDL_Quit();
-    exit(codeError);
-}
-
-void handleInputs(SDL_Window* window, int* backgroundColor) {
+void handleInputs(SDL_Window* window, int* backgroundColor, State* currentState) {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
@@ -89,9 +90,10 @@ void handleInputs(SDL_Window* window, int* backgroundColor) {
                 int x, y;
                 SDL_GetMouseState(&x, &y);
                 printf("Mouse position: (%d, %d)\n", x, y);
-                if (Cliqued(&param, x, y))
+                if (Cliqued(&param, x, y)) {
                     *backgroundColor = !(*backgroundColor); // Toggle background color
-                
+                    *currentState = (*currentState == MENU) ? PARAMETRE : MENU; // Toggle state
+                }
                 break;
             default:
                 break;
@@ -99,9 +101,15 @@ void handleInputs(SDL_Window* window, int* backgroundColor) {
     }
 }
 
-// recuperation de coodonnées de la souris 
-void getMousePosition(SDL_Window* window)
-{
+void quitSDL(int codeError, SDL_Window* window) {
+    if (window != NULL) {
+        SDL_DestroyWindow(window);
+    }
+    SDL_Quit();
+    exit(codeError);
+}
+
+void getMousePosition(SDL_Window* window) {
     int x, y;
     SDL_GetMouseState(&x, &y);
     printf("Mouse position: x=%d y=%d\n", x, y);
@@ -110,10 +118,4 @@ void getMousePosition(SDL_Window* window)
 void drawHighlight(SDL_Surface* surface, int x, int y, int width, int height) {
     SDL_Rect rect = { x, y, width, height };
     SDL_FillRect(surface, &rect, SDL_MapRGB(surface->format, 255, 0, 0)); // Red highlight
-}
-
-int boutons(int x, int y){
-    if (x >= 100 && x <= 200 && y >= 100 && y <= 200) 
-        return 1;
-    return 0;
 }

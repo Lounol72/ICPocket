@@ -2,10 +2,10 @@
 #define BOUTONS_H
 
 typedef struct {
-    int topleft;
-    int topright;
-    int bottomleft;
-    int bottomright;
+    int x; // Top-left x coordinate
+    int y; // Top-left y coordinate
+    int width;
+    int height;
 } Bouton;
 
 
