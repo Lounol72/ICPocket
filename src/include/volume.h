@@ -2,6 +2,7 @@
 #define VOLUME_H
 
 #include <SDL2/SDL.h>
+#include "boutons.h"
 
 extern Slider volumeSlider;
 

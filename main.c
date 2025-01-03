@@ -13,7 +13,7 @@ void mainLoop(SDL_Window* window, SDL_Surface* image, int* backgroundColor, Stat
 int initialize(SDL_Window** window, SDL_Surface** image, Mix_Music** music);
 
 Bouton pageParam = {50, 450, 200, 100}; // x ,y largeur, hauteur
-Slider volumeSlider = {100, 500, 45, 75};
+Slider volumeSlider = {100, 500, 45, 65};
 
 int main(int argc, char* argv[]) {
     // Delete the warning

@@ -16,7 +16,7 @@ void drawVolumeControl(SDL_Surface* surface, int volume) {
     }
 
     // Load the font
-    TTF_Font* font = TTF_OpenFont("assets/fonts/arial.ttf", 24);
+    TTF_Font* font = TTF_OpenFont("assets/fonts/Pokemon Solid.ttf", 24);
     if (!font) {
         printf("Erreur de chargement de la police : %s\n", TTF_GetError());
         TTF_Quit();
