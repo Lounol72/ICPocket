@@ -1,27 +1,41 @@
-# Attention !
+# ICPocket
 
-Avant chaque make faire attention d'avoir installer chaque librairies 
-- sudo apt-get update
-- sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+## Prérequis
 
-Pour ajouter un son : 
-  Uniquement en mp3 sinon : sudo apt-get install ffmpeg
-  puis : ffmpeg -i assets/audio/background_music.mp4 -q:a 0 -map a assets/audio/background_music.mp3
+Avant de lancer `make`, assurez-vous d'avoir installé toutes les bibliothèques nécessaires :
 
-# idées pour le jeu
+```sh
+sudo apt-get update
+sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+```
 
--> faire une table de types avec de nouveaux types (binaire/machine par exemple...)
--> faire trembler la fenetre du joueur lorsqu'il subit une attaque
--> Loup veut une team de waifus (0 blagues)
--> Poké custom (ex une raspberry qui évolue en pc portable qui évolue en pc gamer)
--> Pas d'objets en combats
--> nous quatres formont les quatres membres qui donne chacun un starter au choix
+## Ajouter un son
 
-# TO-DO LIST
+Les fichiers audio doivent être au format MP3. Si vous avez un fichier dans un autre format, vous pouvez le convertir en MP3 en utilisant `ffmpeg` :
 
-- regrouper les fichiers dans un dossier & les ranger Fait
-- page de paramètres (Louis)
-- configurer la page de menu (Louis)
-- coder le menu (Alban)
-- faire les design des poké (William)
+1. Installez `ffmpeg` si ce n'est pas déjà fait :
+    ```sh
+    sudo apt-get install ffmpeg
+    ```
 
+2. Convertissez le fichier audio :
+    ```sh
+    ffmpeg -i assets/audio/background_music.mp4 -q:a 0 -map a assets/audio/background_music.mp3
+    ```
+
+## Idées pour le jeu
+
+- Faire une table de types avec de nouveaux types (binaire/machine par exemple...)
+- Faire trembler la fenêtre du joueur lorsqu'il subit une attaque
+- Loup veut une team de waifus (0 blagues)
+- Poké custom (ex : une raspberry qui évolue en PC portable qui évolue en PC gamer)
+- Pas d'objets en combats
+- Nous quatre formons les quatre membres qui donnent chacun un starter au choix
+
+## TO-DO LIST
+
+- [x] Regrouper les fichiers dans un dossier & les ranger
+- [ ] Page de paramètres (Louis)
+- [ ] Configurer la page de menu (Louis)
+- [ ] Coder le menu (Alban)
+- [ ] Faire les designs des poké (William)
