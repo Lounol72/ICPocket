@@ -24,8 +24,8 @@ void drawVolumeControl(SDL_Surface* surface, int volume) {
     }
 
     // Create the text surface
-    SDL_Color textColor = {255, 255, 255, 255}; // White color
-    SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Volume de la musique", textColor);
+    SDL_Color textColor = {0,0,0, 0}; // Black color
+    SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Volume de la musique :", textColor);
     if (!textSurface) {
         printf("Erreur de rendu du texte : %s\n", TTF_GetError());
         TTF_CloseFont(font);
