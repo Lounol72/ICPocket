@@ -1,3 +1,13 @@
+# Attention !
+
+Avant chaque make faire attention d'avoir installer chaque librairies 
+- sudo apt-get update
+- sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+
+Pour ajouter un son : 
+  Uniquement en mp3 sinon : sudo apt-get install ffmpeg
+  puis : ffmpeg -i assets/audio/background_music.mp4 -q:a 0 -map a assets/audio/background_music.mp3
+
 # idées pour le jeu
 
 -> faire une table de types avec de nouveaux types (binaire/machine par exemple...)
