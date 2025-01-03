@@ -23,6 +23,32 @@ Les fichiers audio doivent être au format MP3. Si vous avez un fichier dans un 
     ffmpeg -i assets/audio/background_music.mp4 -q:a 0 -map a assets/audio/background_music.mp3
     ```
 
+## Git
+
+### Explications
+
+1. **Commandes Git** :
+    - **Naviguer vers le répertoire du projet** :
+        ```sh
+        cd ~/ICPocket-main
+        ```
+    - **Récupérer les dernières modifications du dépôt distant** :
+        ```sh
+        git pull origin main
+        ```
+    - **Ajouter des fichiers** :
+        ```sh
+        git add .
+        ```
+    - **Commit des modifications** :
+        ```sh
+        git commit -m "Modification qu'apporte le commit"
+        ```
+    - **Push après le commit** :
+        ```sh
+        git push
+        ```
+
 ## Idées pour le jeu
 
 - Faire une table de types avec de nouveaux types (binaire/machine par exemple...)
