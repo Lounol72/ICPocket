@@ -80,6 +80,7 @@ int initialize(SDL_Window** window, SDL_Surface** image, Mix_Music** music, SDL_
 
     // Set the window icon
     SDL_SetWindowIcon(*window, *icon);
+    
 
     // Load the image
     *image = IMG_Load("assets/MENU_TEST.png");
@@ -107,7 +108,7 @@ int initialize(SDL_Window** window, SDL_Surface** image, Mix_Music** music, SDL_
     return 0;
 }
 
-void audioCallback(void* userdata, Uint8* stream, int len) {
+void audioCallback(void* userdata, Uint8* stream, int len) { // A faire
     // Delete the warning
     (void)userdata; 
     (void)len; 
