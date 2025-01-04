@@ -10,39 +10,34 @@
 #include "src/include/volume.h"
 
 void mainLoop(SDL_Window* window, SDL_Surface* image, int* backgroundColor, State* currentState, Mix_Music* music, int* musicVolume);
-int initialize(SDL_Window** window, SDL_Surface** image, Mix_Music** music);
+int initialize(SDL_Window** window, SDL_Surface** image, Mix_Music** music, SDL_Surface** icon);
 
 Bouton pageParam = {50, 450, 200, 100}; // x ,y largeur, hauteur
 Slider volumeSlider = {100, 500, 45, 65};
 
 int main(int argc, char* argv[]) {
     // Delete the warning
-    (void)argc; 
-    (void)argv; 
-    // Initialize the variables
+    (void)argc;
+    (void)argv;
+
     SDL_Window* window = NULL;
     SDL_Surface* image = NULL;
+    SDL_Surface* icon = NULL;
     Mix_Music* music = NULL;
-
-    // Initialize the default volume to 50%
     int musicVolume = MIX_MAX_VOLUME / 2;
-    
-    // Initialize the background color to black (0 for black, 1 for white)
     int backgroundColor = 0;
-
-    // Initialize the current state to MENU
     State currentState = MENU;
 
-    // Initialize the SDL, the image and the music
-    if (initialize(&window, &image, &music) != 0) {
+    if (initialize(&window, &image, &music, &icon) < 0) {
         return -1;
     }
-    
+
     // Main loop
     mainLoop(window, image, &backgroundColor, &currentState, music, &musicVolume);
 
     // Free the memory
     SDL_FreeSurface(image);
+    SDL_FreeSurface(icon);
     SDL_DestroyWindow(window);
     Mix_FreeMusic(music);
     Mix_CloseAudio();
@@ -51,7 +46,7 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
-int initialize(SDL_Window** window, SDL_Surface** image, Mix_Music** music) {
+int initialize(SDL_Window** window, SDL_Surface** image, Mix_Music** music, SDL_Surface** icon) {
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
         SDL_Log("Erreur initialisation SDL : %s", SDL_GetError());
@@ -64,20 +59,10 @@ int initialize(SDL_Window** window, SDL_Surface** image, Mix_Music** music) {
         return -1;
     }
 
-    //Load the music
-    *music = Mix_LoadMUS("assets/audio/Ulysse.mp3");
-    if (!*music) {
-        SDL_Log("Erreur chargement musique : %s", Mix_GetError());
-        Mix_CloseAudio();
-        SDL_Quit();
-        return -1;
-    }
-
-    // Load the image
-    *image = IMG_Load("assets/MENU_TEST.png");
-    if (!*image) {
-        SDL_Log("Erreur de chargement de l'image : %s", SDL_GetError());
-        Mix_FreeMusic(*music);
+    // Load the icon
+    *icon = IMG_Load("assets/Iconjpg.jpg");
+    if (!*icon) {
+        SDL_Log("Erreur chargement icone : %s", SDL_GetError());
         Mix_CloseAudio();
         SDL_Quit();
         return -1;
@@ -87,8 +72,33 @@ int initialize(SDL_Window** window, SDL_Surface** image, Mix_Music** music) {
     *window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 720, 600, SDL_WINDOW_SHOWN);
     if (!*window) {
         SDL_Log("Erreur de création de la fenêtre : %s", SDL_GetError());
+        SDL_FreeSurface(*icon);
+        Mix_CloseAudio();
+        SDL_Quit();
+        return -1;
+    }
+
+    // Set the window icon
+    SDL_SetWindowIcon(*window, *icon);
+
+    // Load the image
+    *image = IMG_Load("assets/MENU_TEST.png");
+    if (!*image) {
+        SDL_Log("Erreur de chargement de l'image : %s", SDL_GetError());
+        SDL_DestroyWindow(*window);
+        SDL_FreeSurface(*icon);
+        Mix_CloseAudio();
+        SDL_Quit();
+        return -1;
+    }
+
+    // Load the music
+    *music = Mix_LoadMUS("assets/audio/Ulysse.mp3");
+    if (!*music) {
+        SDL_Log("Erreur chargement musique : %s", Mix_GetError());
         SDL_FreeSurface(*image);
-        Mix_FreeMusic(*music);
+        SDL_DestroyWindow(*window);
+        SDL_FreeSurface(*icon);
         Mix_CloseAudio();
         SDL_Quit();
         return -1;

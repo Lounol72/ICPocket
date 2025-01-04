@@ -16,7 +16,7 @@ void drawVolumeControl(SDL_Surface* surface, int volume) {
     }
 
     // Load the font
-    TTF_Font* font = TTF_OpenFont("assets/fonts/Pokemon Solid.ttf", 24);
+    TTF_Font* font = TTF_OpenFont("assets/fonts/Pokemon Solid.ttf", 18);
     if (!font) {
         printf("Erreur de chargement de la police : %s\n", TTF_GetError());
         TTF_Quit();
@@ -24,7 +24,7 @@ void drawVolumeControl(SDL_Surface* surface, int volume) {
     }
 
     // Create the text surface
-    SDL_Color textColor = {0,0,0, 0}; // Black color
+    SDL_Color textColor = {0,0,0,0}; // Black color
     SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Volume de la musique :", textColor);
     if (!textSurface) {
         printf("Erreur de rendu du texte : %s\n", TTF_GetError());
