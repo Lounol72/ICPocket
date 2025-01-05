@@ -54,7 +54,7 @@ int initialize(SDL_Window** window, SDL_Surface** image, Mix_Music** music, SDL_
         SDL_Log("Erreur initialisation SDL : %s", SDL_GetError());
         return -1;
     }
-    
+    // Initialize Mixer
     if (Mix_OpenAudio(96000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) < 0) {
         SDL_Log("Erreur initialisation SDL_mixer : %s", Mix_GetError());
         SDL_Quit();

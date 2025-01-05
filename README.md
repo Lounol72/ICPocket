@@ -77,3 +77,5 @@ Les fichiers audio doivent être au format MP3. Si vous avez un fichier dans un 
 - [ ] Configurer la page de menu (Louis)
 - [ ] Coder le menu (Alban)
 - [ ] Faire les designs des poké (William)
+
+## [Table RACI](https://docs.google.com/spreadsheets/d/18GRBhOJjPINtjTH3fe337HzVoUgaLmINAeefcjlDmGY/edit?usp=sharing)
