@@ -12,8 +12,8 @@
 void mainLoop(SDL_Window* window, SDL_Surface* image, int* backgroundColor, State* currentState, Mix_Music* music, int* musicVolume);
 int initialize(SDL_Window** window, SDL_Surface** image, Mix_Music** music, SDL_Surface** icon);
 
-Bouton pageParam = {50, 450, 200, 100}; // x ,y largeur, hauteur
-Slider volumeSlider = {100, 500, 45, 65};
+Bouton pageParam ; 
+Slider volumeSlider ;
 
 int main(int argc, char* argv[]) {
     // Delete the warning
@@ -27,6 +27,8 @@ int main(int argc, char* argv[]) {
     int musicVolume = MIX_MAX_VOLUME / 2;
     int backgroundColor = 0;
     State currentState = MENU;
+    InitBoutons(&pageParam, 50, 450, 200, 100,"Page-Param");
+    InitSlider(&volumeSlider, 100, 500, 45, 65, "Volume-Musique");
 
     if (initialize(&window, &image, &music, &icon) < 0) {
         return -1;

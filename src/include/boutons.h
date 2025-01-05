@@ -6,6 +6,7 @@ typedef struct {
     int y; // Top-left y coordinate
     int width;
     int height;
+    char *text;
 } Bouton;
 
 typedef struct {
@@ -13,8 +14,11 @@ typedef struct {
     int xEnd;
     int yStart;
     int yEnd;
+    char *text;
 } Slider;
 
+void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text);
+void InitSlider(Slider *s, int xStart, int xEnd, int yStart, int yEnd, char *text);
 int Cliqued(Bouton *b, int x ,int y);
 
 #endif
