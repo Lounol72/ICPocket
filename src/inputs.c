@@ -1,18 +1,19 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
 #include <stdio.h>
-#include "menu.h"
-#include "boutons.h"
+#include "include/inputs.h"
+#include "include/menu.h"
+#include "include/volume.h"
+#include "include/boutons.h"
 #include "utils.h"
 #include "state.h"
-#include "inputs.h"
 
 // Set the extern variables
 extern Bouton pageParam;
 extern Slider volumeSlider;
 
 
-void handleInputs(SDL_Window* window, int* backgroundColor, State* currentState, SDL_Event event, int* musicVolume, int* dragging) {
+void handleInputs(SDL_Window* window, State* currentState, SDL_Event event, int* musicVolume, int* dragging) {
     /*The function handleInputs is quite long and handles multiple types of events. Consider splitting it into smaller functions for each event type*/
     switch (event.type) {
         case SDL_QUIT:
@@ -51,8 +52,7 @@ void handleInputs(SDL_Window* window, int* backgroundColor, State* currentState,
                 {
                     printf("Left button clicked\n");
                     if (Cliqued(&pageParam, x, y)) {
-                    *backgroundColor = !(*backgroundColor); // Toggle background color
-                    *currentState = (*currentState == MENU) ? PARAMETRE : MENU; // Toggle state
+                        pageParam.action(pageParam.actionParam); // Call the action function with the parameter
                     }
                 }
             if (*currentState == PARAMETRE && x >= volumeSlider.xStart && x <= volumeSlider.xEnd && y >= volumeSlider.yStart && y <= volumeSlider.yEnd) {

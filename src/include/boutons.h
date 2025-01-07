@@ -7,7 +7,8 @@ typedef struct {
     SDL_Rect rect; // Rectangle representing the button
     char *text; // Text to be displayed on the button
     int color[4]; // r ,g ,b ,a
-    void (*action)(void); // Function to be called when the button is clicked
+    void (*action)(void*); // Function to be called when the button is clicked
+    void* actionParam; // Parameter to be passed to the action function
 } Bouton;
 
 typedef struct {
@@ -18,8 +19,8 @@ typedef struct {
     char *text;
 } Slider;
 
-void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text, int *color, void (*action)(void));
+void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text, int *color, void (*action)(void*), void* actionParam);
 void InitSlider(Slider *s, int xStart, int xEnd, int yStart, int yEnd, char *text);
 int Cliqued(Bouton *b, int x ,int y);
 
-#endif
+#endif // BOUTONS_H

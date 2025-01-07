@@ -1,6 +1,5 @@
-#include <SDL2/SDL.h>
-#include "menu.h"
-#include "boutons.h"
+#include "include/menu.h"
+#include "include/state.h"
 
 /* Draw differents menus on the screen
  * Each menu is represented by a different function
@@ -10,6 +9,9 @@
  * @param image The `image` parameter is a pointer to an SDL_Surface, which represents an image that
  * will be displayed on the window during the main loop of the program.
 */
+
+extern State* currentState;
+
 void drawMenu(SDL_Surface* surface, SDL_Surface* image) {
     SDL_Rect positionImage = {0, 0, 0, 0};
     SDL_BlitSurface(image, NULL, surface, &positionImage);
@@ -25,4 +27,8 @@ void drawParametre(SDL_Surface* surface) {
 void drawHighlight(SDL_Surface* surface, int x, int y, int width, int height) {
     SDL_Rect rect = {x, y, width, height};
     SDL_FillRect(surface, &rect, SDL_MapRGB(surface->format, 255, 0, 0));
+}
+
+void changeState(void* targetState) {
+    *currentState = *(State*)targetState;
 }
