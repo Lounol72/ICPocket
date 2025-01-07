@@ -69,13 +69,4 @@ Les fichiers audio doivent être au format MP3. Si vous avez un fichier dans un 
 - Pas d'objets en combats
 - Nous quatre formons les quatre membres qui donnent chacun un starter au choix
 
-## TO-DO LIST
-
-- [x] Regrouper les fichiers dans un dossier & les ranger
-- [ ] Page de paramètres (Louis)
-- [ ] Gerer l'audio
-- [ ] Configurer la page de menu (Louis)
-- [ ] Coder le menu (Alban)
-- [ ] Faire les designs des poké (William)
-
 ## [Table RACI](https://docs.google.com/spreadsheets/d/18GRBhOJjPINtjTH3fe337HzVoUgaLmINAeefcjlDmGY/edit?usp=sharing)
