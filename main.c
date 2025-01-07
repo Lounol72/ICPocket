@@ -27,12 +27,15 @@ int main(int argc, char* argv[]) {
     int musicVolume = MIX_MAX_VOLUME / 2;
     int backgroundColor = 0;
     State currentState = MENU;
-    InitBoutons(&pageParam, 50, 450, 200, 100,"Page-Param");
     InitSlider(&volumeSlider, 100, 500, 45, 65, "Volume-Musique");
 
     if (initialize(&window, &image, &music, &icon) < 0) {
         return -1;
     }
+
+    // Initialize buttons
+    int color[4] = {255, 255, 255, 255};
+    InitBoutons(&pageParam, 50, 450, 200, 100, "Page-Param", color, NULL);
 
     // Main loop
     mainLoop(window, image, &backgroundColor, &currentState, music, &musicVolume);

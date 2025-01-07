@@ -2,7 +2,7 @@
 
 // Modify the function to take an array of buttons
 
-void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text) {
+void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text, int *color, void (*action)(void)) {
     /**
      * Initialize the button with specified parameters.
      * 
@@ -12,12 +12,18 @@ void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text) {
      * @param width The width of the button.
      * @param height The height of the button.
      * @param text The text to be displayed on the button.
+     * @param color The color of the button.
+     * @param action The function to be called when the button is clicked.
      */
-    b->x = x;
-    b->y = y;
-    b->width = width;
-    b->height = height;
-    b->text = text;
+    b -> rect.x = x;
+    b -> rect.y = y;
+    b -> rect.w = width;
+    b -> rect.h = height;
+    for(int i = 0; i <= 4; i++) {
+        b -> color[i] = color[i];
+    }
+    b -> action = action;
+    b -> text = text;
 }
 
 void InitSlider(Slider *s, int xStart, int xEnd, int yStart, int yEnd, char *text) {
@@ -48,6 +54,8 @@ int Cliqued(Bouton *b, int x, int y) {
      * @param y The y coordinate of the mouse.
      * @return 1 if the mouse is in the button, 0 otherwise.
      */
-    if (x >= b->x && x <= (b->x + b->width) && y >= b->y && y <= (b->y + b->height)) return 1;
+    if(x >= b->rect.x && x <= b->rect.x + b->rect.w && y >= b->rect.y && y <= b->rect.y + b->rect.h) {
+        return 1;
+    }
     return 0;
 }
