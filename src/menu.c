@@ -20,7 +20,7 @@ void drawMenu(SDL_Surface* surface, SDL_Surface* image) {
 
 void drawParametre(SDL_Surface* surface) {
     SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 100, 100, 100));
-    drawHighlight(surface, pageParam.rect.x, pageParam.rect.y, pageParam.rect.w, pageParam.rect.h);
+    drawHighlight(surface, retourMenu.rect.x, retourMenu.rect.y, retourMenu.rect.w, retourMenu.rect.h);
 }
 
 // Draw a red highlight around a rectangle FOR DEBUGGING PURPOSES

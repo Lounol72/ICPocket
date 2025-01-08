@@ -38,10 +38,9 @@ void drawVolumeControl(SDL_Surface* surface, int volume) {
     SDL_BlitSurface(textSurface, NULL, surface, &textRect);
 
     // Draw the volume control using volumeSlider
-    SDL_Rect bar = {volumeSlider.xStart, volumeSlider.yStart, volumeSlider.xEnd - volumeSlider.xStart, volumeSlider.yEnd - volumeSlider.yStart};
     SDL_Rect cursor = {volumeSlider.xStart + (volume * (volumeSlider.xEnd - volumeSlider.xStart) / MIX_MAX_VOLUME), volumeSlider.yStart - 5, 10, 30};
 
-    SDL_FillRect(surface, &bar, SDL_MapRGB(surface->format, 255, 255, 255)); 
+    SDL_FillRect(surface, &volumeSlider.bar, SDL_MapRGB(surface->format, 255, 255, 255)); 
     SDL_FillRect(surface, &cursor, SDL_MapRGB(surface->format, 255, 0, 0)); 
 
     // Free the memory

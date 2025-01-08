@@ -52,10 +52,11 @@ void handleInputs(SDL_Window* window, State* currentState, SDL_Event event, int*
             if (event.button.button == SDL_BUTTON_LEFT) // Left button clicked
                 {
                     printf("Left button clicked\n");
-                    if (Cliqued(&pageParam, x, y) && *currentState == MENU) {
+                    if (Cliqued(&pageParam, x, y)) {
+                        printf("caca\n");
                         pageParam.action(pageParam.actionParam); // Call the action function with the parameter
                     }
-                    if(Cliqued(&retourMenu,x,y) && *currentState == PARAMETRE)
+                    if(Cliqued(&retourMenu,x,y))
                         retourMenu.action(retourMenu.actionParam);
                 }
             if (*currentState == PARAMETRE && x >= volumeSlider.xStart && x <= volumeSlider.xEnd && y >= volumeSlider.yStart && y <= volumeSlider.yEnd) {
