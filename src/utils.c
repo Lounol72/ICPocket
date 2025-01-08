@@ -39,7 +39,7 @@ int initialize(SDL_Window** window, SDL_Surface** image, Mix_Music** music, SDL_
     SDL_SetWindowIcon(*window, *icon);
 
     // Load the image
-    *image = IMG_Load("assets/background.jpg");
+    *image = IMG_Load("assets/MENU_TEST.png");
     if (!*image) {
         SDL_Log("Erreur chargement image : %s", SDL_GetError());
         SDL_DestroyWindow(*window);
@@ -50,7 +50,7 @@ int initialize(SDL_Window** window, SDL_Surface** image, Mix_Music** music, SDL_
     }
 
     // Load the music
-    *music = Mix_LoadMUS("assets/music.mp3");
+    *music = Mix_LoadMUS("assets/audio/Ulysse.mp3");
     if (!*music) {
         SDL_Log("Erreur chargement musique : %s", Mix_GetError());
         SDL_FreeSurface(*image);

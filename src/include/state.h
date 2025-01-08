@@ -7,6 +7,6 @@
  * JEU : The game itself
  * PAUSE : The pause menu
 */
-typedef enum {MENU, PARAMETRE, JEU, PAUSE} State;
+typedef enum {MENU, PARAMETRE, JEU} State;
 
 #endif

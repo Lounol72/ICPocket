@@ -12,20 +12,22 @@
 void mainLoop(SDL_Window* window, SDL_Surface* image, int* backgroundColor, State* currentState, Mix_Music* music, int* musicVolume);
 
 Bouton pageParam;
+Bouton retourMenu;
 Slider volumeSlider;
+State currentStateValue = MENU;
+State paramState = PARAMETRE;
+State menuState = MENU;
+State* currentState = &currentStateValue;
 
-int main(int argc, char* argv[]) {
-    (void)argc; // Marquer comme inutilisé
-    (void)argv; // Marquer comme inutilisé
+// tout foutre en struct
+// et enum
+int main(void) {
 
     SDL_Window* window = NULL;
     SDL_Surface* image = NULL;
     SDL_Surface* icon = NULL;
     Mix_Music* music = NULL;
     int backgroundColor = 0;
-    State currentStateValue = MENU;
-    State paramState = PARAMETRE;
-    State* currentState = &currentStateValue;
     int musicVolume = MIX_MAX_VOLUME / 2;
 
     if (initialize(&window, &image, &music, &icon) != 0) {
@@ -33,8 +35,9 @@ int main(int argc, char* argv[]) {
     }
 
     // Initialize buttons
-    int color[4] = {255, 255, 255, 255};
-    InitBoutons(&pageParam, 50, 450, 200, 100, "Page-Param", color, changeState, &paramState);
+    int color[4] = {0, 0, 0, 0};
+    InitBoutons(&pageParam, 50, 450, 200, 100, "Param", color, changeState, &paramState);
+    InitBoutons(&retourMenu,50,450,200,100,"Menu",color,changeState,&menuState);
 
     // Main loop
     mainLoop(window, image, &backgroundColor, currentState, music, &musicVolume);
@@ -120,7 +123,7 @@ void mainLoop(SDL_Window* window, SDL_Surface* image, int* backgroundColor, Stat
             if (event.type == SDL_QUIT) {
                 quitSDL(0, window);
             }
-            handleInputs(window, backgroundColor, currentState, event, musicVolume, &dragging);
+            handleInputs(window, currentState, event, musicVolume, &dragging);
         }
     }
 }
