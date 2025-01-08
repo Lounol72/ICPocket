@@ -3,16 +3,16 @@
 
 #include <SDL2/SDL.h>
 #include "state.h"
+#include "utils.h"
 
 /**
- * @brief  Handles the inputs for the game.
+ * @brief Handle the inputs of the user
  * 
- * @param window            Window to handle the inputs for.
- * @param currentState      State of the game.
- * @param event             Event of the window.
- * @param musicVolume       The volume of the music.
- * @param dragging          if the slider is being dragged.
+ * @param win           Window of the game
+ * @param currentState  Current state of the game
+ * @param event         Event of the user
+ * @param dragging      Dragging state of the user
  */
-void handleInputs(SDL_Window* window, State* currentState, SDL_Event event, int* musicVolume, int* dragging);
+void handleInputs(Window* win, State* currentState, SDL_Event event, int* dragging);
 
 #endif // INPUTS_H
