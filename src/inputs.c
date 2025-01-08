@@ -52,16 +52,14 @@ void handleInputs(SDL_Window* window, State* currentState, SDL_Event event, int*
             if (event.button.button == SDL_BUTTON_LEFT) // Left button clicked
                 {
                     printf("Left button clicked\n");
-                    if (Cliqued(&pageParam, x, y)) {
-                        printf("caca\n");
+                    if (Cliqued(&pageParam, x, y))
                         pageParam.action(pageParam.actionParam); // Call the action function with the parameter
-                    }
+                    
                     if(Cliqued(&retourMenu,x,y))
                         retourMenu.action(retourMenu.actionParam);
                 }
-            if (*currentState == PARAMETRE && x >= volumeSlider.xStart && x <= volumeSlider.xEnd && y >= volumeSlider.yStart && y <= volumeSlider.yEnd) {
+            if (*currentState == PARAMETRE && SDL_PointInRect(&(SDL_Point){x, y}, &(volumeSlider.bar)))
                 *dragging = 1;
-            }
             break;
         case SDL_MOUSEBUTTONUP:
             *dragging = 0;
@@ -69,10 +67,11 @@ void handleInputs(SDL_Window* window, State* currentState, SDL_Event event, int*
         case SDL_MOUSEMOTION:
             if (*dragging) {
                 int x = event.motion.x;
-                *musicVolume = (x - 100) * MIX_MAX_VOLUME / 400;
-                if (*musicVolume < 0) *musicVolume = 0;
-                if (*musicVolume > MIX_MAX_VOLUME) *musicVolume = MIX_MAX_VOLUME;
+                *musicVolume = SDL_clamp((x - volumeSlider.bar.x) * MIX_MAX_VOLUME / volumeSlider.bar.w, 0, MIX_MAX_VOLUME);
                 Mix_VolumeMusic(*musicVolume);
+
+                // Update the cursor position
+                volumeSlider.cursor.x = volumeSlider.bar.x + (*musicVolume * volumeSlider.bar.w / MIX_MAX_VOLUME) - (volumeSlider.cursor.w / 2);
             }
             break;
         default:

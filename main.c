@@ -34,16 +34,15 @@ int main(void) {
         return -1;
     }
 
-    // Initialize buttons
     int color[4] = {0, 0, 0, 0};
     InitBoutons(&pageParam, 31, 10, 230, 120, "Param", color, changeState, &paramState);
-    InitBoutons(&retourMenu,50,450,200,100,"Menu",color,changeState,&menuState);
-    InitSlider(&volumeSlider, 50, 50, 200, 50, "Volume", color, &musicVolume);
+    InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", color, changeState, &menuState);
+    InitSlider(&volumeSlider, 50, 50, 400, 20, "Volume", color, musicVolume);
 
-    // Main loop
-    mainLoop(window, image, &backgroundColor, currentState, music, musicVolume);
+    // Boucle principale
+    mainLoop(window, image, &backgroundColor, currentState, music, &volumeSlider.volume);
 
-    // Free the memory
+    // Libération de la mémoire
     if (image) SDL_FreeSurface(image);
     if (icon) SDL_FreeSurface(icon);
     if (window) SDL_DestroyWindow(window);

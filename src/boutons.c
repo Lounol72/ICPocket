@@ -7,7 +7,7 @@ void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text, int
     b->rect.y = y;
     b->rect.w = width;
     b->rect.h = height;
-    for(int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; i++) {
         b->color[i] = color[i];
     }
     b->action = action;
@@ -21,8 +21,11 @@ void InitSlider(Slider *s, int x, int y, int width, int height, char *text, int 
     s->bar.w = width;
     s->bar.h = height;
     s->text = text;
-    SDL_Rect cursor = {x + (volume * (width - x) / MIX_MAX_VOLUME), height - 5, 10, 30};
-    s->volume = (*volume);
+    s->cursor.x = x + (volume * width / MIX_MAX_VOLUME) - (height / 4); // Adjust cursor position based on bar width
+    s->cursor.y = y - (height / 4); // Adjust cursor y position to be centered on the bar
+    s->cursor.w = height / 2; // Adjust cursor width
+    s->cursor.h = height + 10; // Adjust cursor height
+    s->volume = volume;
     for(int i = 0; i < 4; i++) {
         s->color[i] = color[i];
     }
@@ -34,4 +37,3 @@ int Cliqued(Bouton *b, int x, int y) {
     }
     return 0;
 }
-
