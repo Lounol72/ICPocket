@@ -37,6 +37,7 @@ int main(void) {
     int color[4] = {0, 0, 0, 0};
     InitBoutons(&pageParam, 31, 10, 230, 120, "Param", color, changeState, &paramState);
     InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", color, changeState, &menuState);
+    
     InitSlider(&volumeSlider, 50, 50, 400, 20, "Volume", color, musicVolume);
 
     // Boucle principale
