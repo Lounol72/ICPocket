@@ -10,17 +10,12 @@
  * will be displayed on the window during the main loop of the program.
 */
 
-extern State* currentState;
+extern State currentState;
 
 void drawMenu(SDL_Surface* surface, SDL_Surface* image) {
     SDL_Rect positionImage = {0, 0, 0, 0};
     SDL_BlitSurface(image, NULL, surface, &positionImage);
     drawHighlight(surface, pageParam.rect.x, pageParam.rect.y, pageParam.rect.w, pageParam.rect.h);
-}
-
-void drawParametre(SDL_Surface* surface) {
-    SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 100, 100, 100));
-    drawHighlight(surface, retourMenu.rect.x, retourMenu.rect.y, retourMenu.rect.w, retourMenu.rect.h);
 }
 
 // Draw a red highlight around a rectangle FOR DEBUGGING PURPOSES
@@ -30,5 +25,5 @@ void drawHighlight(SDL_Surface* surface, int x, int y, int width, int height) {
 }
 
 void changeState(void* targetState) {
-    *currentState = *(State*)targetState;
+    currentState = (State)targetState;
 }

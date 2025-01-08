@@ -6,11 +6,10 @@
 #include "boutons.h"
 
 extern Bouton pageParam;
-extern State* currentState;
+extern State currentState;
 extern Bouton retourMenu;
 
 void drawMenu(SDL_Surface* surface, SDL_Surface* image);
-void drawParametre(SDL_Surface* surface);
 void drawHighlight(SDL_Surface* surface, int x, int y, int width, int height);
 void changeState(void* targetState);
 

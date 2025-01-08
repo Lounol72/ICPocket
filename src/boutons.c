@@ -1,7 +1,7 @@
 #include "include/boutons.h"
 #include "include/state.h"
 
-
+// Function to initialize a button
 void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text, int *color, void (*action)(void*), void* actionParam) {
     b->rect.x = x;
     b->rect.y = y;
@@ -15,6 +15,7 @@ void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text, int
     b->text = text;
 }
 
+// Function to initialize a slider
 void InitSlider(Slider *s, int x, int y, int width, int height, char *text, int *color, int volume) {
     s->bar.x = x;
     s->bar.y = y;

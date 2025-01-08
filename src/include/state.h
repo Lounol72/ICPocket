@@ -9,4 +9,6 @@
 */
 typedef enum {MENU, PARAMETRE, JEU} State;
 
+extern State currentState;
+
 #endif

@@ -9,6 +9,13 @@ int initialize(Window* win) {
         SDL_Log("Erreur initialisation SDL : %s", SDL_GetError());
         return -1;
     }
+    
+    // Initialize SDL_image
+    if (IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG) == 0) {
+        SDL_Log("Erreur initialisation SDL_image : %s", IMG_GetError());
+        SDL_Quit();
+        return -1;
+    }
 
     // Initialize Mixer
     if (Mix_OpenAudio(96000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) < 0) {
@@ -53,6 +60,7 @@ int initialize(Window* win) {
     }
     
     win->musicVolume = MIX_MAX_VOLUME / 2;
+    Mix_VolumeMusic(win->musicVolume);
     win->musicPlaying = 0;
 
     return 0;
@@ -64,6 +72,7 @@ void quitSDL(Window* win, int codeError) {
     if (win->window) SDL_DestroyWindow(win->window);
     if (win->music) Mix_FreeMusic(win->music);
     Mix_CloseAudio();
+    IMG_Quit();
     SDL_Quit();
     exit(codeError);
 }

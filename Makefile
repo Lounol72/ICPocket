@@ -7,8 +7,8 @@ INCLUDE_DIR = $(SRC_DIR)/include
 OBJ_DIR = $(SRC_DIR)/obj
 
 # Fichiers source et objets
-SRCS = main.c $(SRC_DIR)/boutons.c $(SRC_DIR)/inputs.c $(SRC_DIR)/menu.c $(SRC_DIR)/utils.c $(SRC_DIR)/volume.c
-OBJS = $(OBJ_DIR)/main.o $(OBJ_DIR)/boutons.o $(OBJ_DIR)/inputs.o $(OBJ_DIR)/menu.o $(OBJ_DIR)/utils.o $(OBJ_DIR)/volume.o
+SRCS = main.c $(SRC_DIR)/boutons.c $(SRC_DIR)/inputs.c $(SRC_DIR)/menu.c $(SRC_DIR)/utils.c $(SRC_DIR)/parametre.c
+OBJS = $(OBJ_DIR)/main.o $(OBJ_DIR)/boutons.o $(OBJ_DIR)/inputs.o $(OBJ_DIR)/menu.o $(OBJ_DIR)/utils.o $(OBJ_DIR)/parametre.o
 
 # Compilateur et options de compilation
 CC = gcc
@@ -41,8 +41,8 @@ $(OBJ_DIR)/menu.o: $(SRC_DIR)/menu.c | $(OBJ_DIR)
 $(OBJ_DIR)/utils.o: $(SRC_DIR)/utils.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/utils.c -o $(OBJ_DIR)/utils.o
 
-$(OBJ_DIR)/volume.o: $(SRC_DIR)/volume.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $(SRC_DIR)/volume.c -o $(OBJ_DIR)/volume.o
+$(OBJ_DIR)/parametre.o: $(SRC_DIR)/parametre.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/parametre.c -o $(OBJ_DIR)/parametre.o
 
 # Règle pour nettoyer les fichiers objets et l'exécutable
 clean:
