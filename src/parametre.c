@@ -24,9 +24,11 @@ void drawParametre(SDL_Surface* surface) {
         return;
     }
 
+    SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 192, 192, 192)); // RGB for grey
+
     // Create the text surface
     SDL_Color textColor = {0, 0, 0, 255};
-    SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Paramètres", textColor);
+    SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Parametres", textColor);
     if (!textSurface) {
         SDL_Log("Erreur création surface texte : %s", TTF_GetError());
         TTF_CloseFont(font);
@@ -39,7 +41,7 @@ void drawParametre(SDL_Surface* surface) {
     SDL_BlitSurface(textSurface, NULL, surface, &textRect);
 
     // Draw the retourMenu button
-    SDL_Log("Dessin du bouton retourMenu à (%d, %d, %d, %d)", retourMenu.rect.x, retourMenu.rect.y, retourMenu.rect.w, retourMenu.rect.h);
+    
     SDL_FillRect(surface, &retourMenu.rect, SDL_MapRGB(surface->format, retourMenu.color[0], retourMenu.color[1], retourMenu.color[2]));
     SDL_Surface* buttonTextSurface = TTF_RenderText_Solid(font, retourMenu.text, textColor);
     if (!buttonTextSurface) {
@@ -51,7 +53,7 @@ void drawParametre(SDL_Surface* surface) {
     }
 
     // Draw the volume slider
-    SDL_Log("Dessin du slider de volume à (%d, %d, %d, %d)", volumeSlider.bar.x, volumeSlider.bar.y, volumeSlider.bar.w, volumeSlider.bar.h);
+    
     SDL_FillRect(surface, &volumeSlider.bar, SDL_MapRGB(surface->format, 255, 255, 255)); 
     SDL_FillRect(surface, &volumeSlider.cursor, SDL_MapRGB(surface->format, 255, 0, 0)); 
 
@@ -70,7 +72,7 @@ void drawVolumeControl(SDL_Surface* surface, int volume) {
     }
 
     // Load the font
-    TTF_Font* font = TTF_OpenFont("assets/arial.ttf", 24);
+    TTF_Font* font = TTF_OpenFont("assets/fonts/Pokemon Solid.ttf", 24);
     if (!font) {
         SDL_Log("Erreur chargement police : %s", TTF_GetError());
         TTF_Quit();

@@ -9,6 +9,13 @@
 #include "src/include/utils.h"
 #include "src/include/parametre.h"
 
+const int BLACK[] = {0, 0, 0, 255};
+const int WHITE[] = {255, 255, 255, 255};
+const int RED[] = {255, 0, 0, 255};
+const int GREEN[] = {0, 255, 0, 255};
+const int BLUE[] = {0, 0, 255, 255};
+const int GREY[] = {128, 128, 128, 255};
+
 Bouton pageParam;
 Bouton retourMenu;
 Slider volumeSlider;
@@ -33,11 +40,10 @@ int main(void) {
         SDL_Log("Erreur obtention surface de la fenêtre : %s", SDL_GetError());
         quitSDL(&win, -1);
     }
-
-    int color[4] = {0, 0, 0, 0};
-    InitBoutons(&pageParam, 31, 10, 230, 120, "Param", color, changeState, &paramState);
-    InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", color, changeState, &menuState);
-    InitSlider(&volumeSlider, 50, 100, 400, 20, "Volume", color, win.musicVolume);
+    
+    InitBoutons(&pageParam, 31, 10, 230, 120, "Param", BLUE, changeState, &paramState);
+    InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState);
+    InitSlider(&volumeSlider, 50, 100, 400, 20, "Volume", GREY, win.musicVolume);
 
     SDL_Log("Bouton retourMenu initialisé à (%d, %d, %d, %d)", retourMenu.rect.x, retourMenu.rect.y, retourMenu.rect.w, retourMenu.rect.h);
 
@@ -46,7 +52,6 @@ int main(void) {
 
         // Draw the different elements either the menu or the parameters
         if (*currentState == MENU) {
-            printf("TEST2\n");
             if (!win.musicPlaying) {
                 if (Mix_PlayMusic(win.music, -1) == -1) {
                     SDL_Log("Erreur lecture musique : %s", Mix_GetError());
@@ -56,7 +61,6 @@ int main(void) {
             }
             drawMenu(menu, win.image);
         } else {
-            printf("%d\n", *currentState);
             if (win.musicPlaying) {
                 Mix_HaltMusic();
                 win.musicPlaying = 0;
