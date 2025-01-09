@@ -10,7 +10,7 @@
  * will be displayed on the window during the main loop of the program.
 */
 
-extern State currentState;
+extern State* currentState;
 
 void drawMenu(SDL_Surface* surface, SDL_Surface* image) {
     SDL_Rect positionImage = {0, 0, 0, 0};
@@ -25,5 +25,5 @@ void drawHighlight(SDL_Surface* surface, int x, int y, int width, int height) {
 }
 
 void changeState(void* targetState) {
-    currentState = (State)targetState;
+    currentState = (State*)targetState;
 }

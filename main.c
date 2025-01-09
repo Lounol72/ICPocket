@@ -12,9 +12,10 @@
 Bouton pageParam;
 Bouton retourMenu;
 Slider volumeSlider;
+State valuseState = MENU;
 State paramState = PARAMETRE;
 State menuState = MENU;
-State currentState = MENU;
+State* currentState = &valuseState;
 
 // tout foutre en struct
 // et enum
@@ -36,13 +37,16 @@ int main(void) {
     int color[4] = {0, 0, 0, 0};
     InitBoutons(&pageParam, 31, 10, 230, 120, "Param", color, changeState, &paramState);
     InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", color, changeState, &menuState);
-    InitSlider(&volumeSlider, 50, 50, 400, 20, "Volume", color, win.musicVolume);
+    InitSlider(&volumeSlider, 50, 100, 400, 20, "Volume", color, win.musicVolume);
+
+    SDL_Log("Bouton retourMenu initialisé à (%d, %d, %d, %d)", retourMenu.rect.x, retourMenu.rect.y, retourMenu.rect.w, retourMenu.rect.h);
 
     while (1) {
         SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 255, 255, 255));
 
         // Draw the different elements either the menu or the parameters
-        if (currentState == MENU) {
+        if (*currentState == MENU) {
+            printf("TEST2\n");
             if (!win.musicPlaying) {
                 if (Mix_PlayMusic(win.music, -1) == -1) {
                     SDL_Log("Erreur lecture musique : %s", Mix_GetError());
@@ -52,11 +56,14 @@ int main(void) {
             }
             drawMenu(menu, win.image);
         } else {
+            printf("%d\n", *currentState);
             if (win.musicPlaying) {
                 Mix_HaltMusic();
                 win.musicPlaying = 0;
             }
-            if (currentState == PARAMETRE) {
+            
+            if (*currentState == PARAMETRE) {
+                
                 drawParametre(menu);
                 drawVolumeControl(menu, win.musicVolume);
             }
@@ -71,7 +78,7 @@ int main(void) {
             if (event.type == SDL_QUIT) {
                 quitSDL(&win, 0);
             }
-            handleInputs(&win, &currentState, event, &dragging);
+            handleInputs(&win, currentState, event, &dragging);
         }
     }
 
