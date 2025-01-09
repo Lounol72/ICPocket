@@ -41,7 +41,7 @@ int main(void) {
         quitSDL(&win, -1);
     }
     
-    InitBoutons(&pageParam, 31, 10, 230, 120, "Param", BLUE, changeState, &paramState);
+    InitBoutons(&pageParam, 30, 10, 230, 120, "Param", BLUE, changeState, &paramState);
     InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState);
     InitSlider(&volumeSlider, 50, 100, 400, 20, "Volume", GREY, win.musicVolume);
 

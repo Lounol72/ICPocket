@@ -17,7 +17,7 @@ void drawParametre(SDL_Surface* surface) {
     }
 
     // Load the font
-    TTF_Font* font = TTF_OpenFont("assets/fonts/arial.ttf", 24);
+    TTF_Font* font = TTF_OpenFont("assets/fonts/Pokemon Solid.ttf", 24);
     if (!font) {
         SDL_Log("Erreur chargement police : %s", TTF_GetError());
         TTF_Quit();
