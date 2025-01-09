@@ -24,17 +24,20 @@ void handleInputs(Window* win, State* currentState, SDL_Event event, int* draggi
         case SDL_KEYDOWN:
         // Keyboard events
             switch (event.key.keysym.sym) {
-                case SDLK_a:
-                    printf("A pressed\n");
-                    break;
                 case SDLK_z:
-                    printf("Z pressed\n");
+                    printf("Z pressed\n");//Go up
                     break;
-                case SDLK_e:
-                    printf("E pressed\n");
+                case SDLK_q:
+                    printf("Q pressed\n");//go to the left
                     break;
-                case SDLK_r:
-                    printf("R pressed\n");
+                case SDLK_s:
+                    printf("S pressed\n");//go down
+                    break;
+                case SDLK_d:
+                    printf("D pressed\n");//go to the right
+                    break;
+                case SDLK_a:
+                    printf("A pressed\n");//click buton
                     break;
                 case SDLK_ESCAPE:
                     printf("Pause the game\n");
