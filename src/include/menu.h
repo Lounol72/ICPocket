@@ -10,7 +10,7 @@ extern State* currentState;
 extern Bouton retourMenu;
 
 void drawMenu(SDL_Surface* surface, SDL_Surface* image);
-void drawHighlight(SDL_Surface* surface, int x, int y, int width, int height);
+void drawHighlight(SDL_Surface * surface, Bouton * b);
 void changeState(void* targetState);
 
 #endif 

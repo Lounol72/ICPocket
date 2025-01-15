@@ -12,6 +12,7 @@
 extern Bouton pageParam;
 extern Bouton retourMenu;
 extern Slider volumeSlider;
+extern State valuseState;
 
 
 void handleInputs(Window* win, State* currentState, SDL_Event event, int* dragging) {
@@ -55,7 +56,8 @@ void handleInputs(Window* win, State* currentState, SDL_Event event, int* draggi
             if (event.button.button == SDL_BUTTON_LEFT) // Left button clicked
                 {
                     printf("Left button clicked\n");
-                    if (Cliqued(&pageParam, x, y))
+                    printf("%i\n", *currentState);
+                    if (Cliqued(&pageParam, x, y)) // Check if the button is clicked
                         pageParam.action(pageParam.actionParam); // Call the action function with the parameter
                     
                     if(Cliqued(&retourMenu,x,y))

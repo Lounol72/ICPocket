@@ -18,11 +18,14 @@ const int GREY[] = {128, 128, 128, 255};
 
 Bouton pageParam;
 Bouton retourMenu;
+
 Slider volumeSlider;
-State valuseState = MENU;
+
+State valueState = MENU;
 State paramState = PARAMETRE;
 State menuState = MENU;
-State* currentState = &valuseState;
+
+State* currentState = &valueState;
 
 // tout foutre en struct
 // et enum
@@ -41,14 +44,14 @@ int main(void) {
         quitSDL(&win, -1);
     }
     
-    InitBoutons(&pageParam, 30, 10, 230, 120, "Param", BLUE, changeState, &paramState, "assets/Iconjpg.jpg");
-    InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg");
+    InitBoutons(&pageParam, 30, 10, 230, 120, "Param", BLUE, changeState, &paramState, "assets/Iconjpg.jpg", menu);
+    InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg", menu);
     InitSlider(&volumeSlider, 50, 100, 400, 20, "Volume", GREY, win.musicVolume);
 
     SDL_Log("Bouton retourMenu initialisé à (%d, %d, %d, %d)", retourMenu.rect.x, retourMenu.rect.y, retourMenu.rect.w, retourMenu.rect.h);
 
     while (1) {
-        SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 255, 255, 255));
+        SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 255, 255, 255)); 
 
         // Draw the different elements either the menu or the parameters
         if (*currentState == MENU) {

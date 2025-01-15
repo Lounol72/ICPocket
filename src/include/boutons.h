@@ -7,10 +7,11 @@
 typedef struct {
     SDL_Rect rect; // Rectangle representing the button
     char *text; // Text to be displayed on the button
-    int color[4]; // r ,g ,b ,a
+    SDL_Color color; // r ,g ,b ,a
     void (*action)(void*); // Function to be called when the button is clicked
     void* actionParam; // Parameter to be passed to the action function
     SDL_Surface * image; //ajouter une image avec les coodonnées du rect
+    SDL_Surface * surface;
 } Bouton;
 
 typedef struct {
@@ -34,8 +35,9 @@ typedef struct {
  * @param action The function to be called when the button is clicked.
  * @param actionParam The parameter to be passed to the action function.
  * @param image The image to be displayed on the button.
+ * @param surface The surface to be used for the button.
  */
-void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text,int *color, void (*action)(void*), void* actionParam, char *image);
+void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text,const int *color, void (*action)(void*), void* actionParam, char *image, SDL_Surface *surface);
 
 /**
  * @brief Initializes a slider with the given parameters.
@@ -49,7 +51,7 @@ void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text,int 
  * @param color The color of the slider in the format {r, g, b, a}.
  * @param volume The initial volume level of the slider.
  */
-void InitSlider(Slider *s, int x, int y, int width, int height, char *text, int *color, int volume);
+void InitSlider(Slider *s, int x, int y, int width, int height, char *text,const int *color, int volume);
 
 /**
  * @brief Checks if a button was clicked.
