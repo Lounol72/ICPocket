@@ -11,6 +11,7 @@
 // Set the extern variables
 extern Bouton pageParam;
 extern Bouton retourMenu;
+extern Bouton jouer;
 extern Slider volumeSlider;
 extern State valuseState;
 
@@ -62,6 +63,7 @@ void handleInputs(Window* win, State* currentState, SDL_Event event, int* draggi
                     
                     if(Cliqued(&retourMenu,x,y) &&  *currentState == PARAMETRE)
                         retourMenu.action(retourMenu.actionParam);
+                    if(Cliqued(&jouer,x,y) && *currentState == MENU) jouer.action(jouer.actionParam);
                 }
             if (*currentState == PARAMETRE && SDL_PointInRect(&(SDL_Point){x, y}, &(volumeSlider.bar)))
                 *dragging = 1;

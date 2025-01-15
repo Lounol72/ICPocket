@@ -21,13 +21,15 @@ const int HEIGHT = 720;
 
 Bouton pageParam;
 Bouton retourMenu;
-
+Bouton jouer;
 Bouton sauvegarderMenu;
+
 Slider volumeSlider;
 
 State valueState = MENU;
 State paramState = PARAMETRE;
 State menuState = MENU;
+State jouerState = JEU;
 
 State* currentState = &valueState;
 
@@ -47,10 +49,9 @@ int main(void) {
         SDL_Log("Erreur obtention surface de la fenêtre : %s", SDL_GetError());
         quitSDL(&win, -1);
     }
-    
-    InitBoutons(&pageParam, 30, 10, 230, 120, "Param", BLUE, changeState, &paramState, "assets/Iconjpg.jpg", menu);
+    InitBoutons(&jouer,50,540,230,120,"Jouer",RED, changeState, &jouerState, "assets/Iconjpg.jpg", menu);
+    InitBoutons(&pageParam, 525, 540, 230, 120, "Param", BLUE, changeState, &paramState, "assets/Iconjpg.jpg", menu);
     InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg", menu);
-
     InitBoutons(&sauvegarderMenu, 500, 450, 200, 100, "Save", RED, changeState, &menuState, "assets/Iconjpg.jpg", menu);   
     InitSlider(&volumeSlider, 50, 100, 400, 20, "Volume", GREY, win.musicVolume);
 
