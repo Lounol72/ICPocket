@@ -4,6 +4,7 @@
 #include <SDL2/SDL_rect.h>
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 typedef struct {
     SDL_Rect rect; // Rectangle representing the button
     char *text; // Text to be displayed on the button
@@ -62,5 +63,17 @@ void InitSlider(Slider *s, int x, int y, int width, int height, char *text,const
  * @return int Returns 1 if the button was clicked, 0 otherwise.
  */
 int Cliqued(Bouton *b, int x ,int y);
+
+/**
+ * @brief Draws a button on the given surface.
+ * 
+ * @param surface The surface to draw the button on.
+ * @param button The button to draw.
+ * @param font The font to use for the button text.
+ * @param textColor The color of the button text.
+ * 
+ * @note The button text is centered on the button.
+ */
+void drawButton(SDL_Surface* surface, Bouton* button, TTF_Font* font, SDL_Color textColor);
 
 #endif // BOUTONS_H

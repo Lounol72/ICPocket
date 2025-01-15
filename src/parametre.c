@@ -11,17 +11,8 @@ extern Bouton sauvegarderMenu;
 
 // Function to draw the parameters on the given surface
 void drawParametre(SDL_Surface* surface) {
-    // Initialize SDL_ttf
-    if (TTF_Init() == -1) {
-        SDL_Log("Erreur initialisation SDL_ttf : %s", TTF_GetError());
-        return;
-    }
-
-    // Load the font
-    TTF_Font* font = TTF_OpenFont("assets/fonts/arial.ttf", 24);
+    TTF_Font* font = initializeFont("assets/fonts/arial.ttf", 24);
     if (!font) {
-        SDL_Log("Erreur chargement police : %s", TTF_GetError());
-        TTF_Quit();
         return;
     }
 
@@ -42,28 +33,13 @@ void drawParametre(SDL_Surface* surface) {
     SDL_BlitSurface(textSurface, NULL, surface, &textRect);
 
     // Draw the retourMenu button
-    SDL_FillRect(surface, &retourMenu.rect, SDL_MapRGB(surface->format, retourMenu.color.r, retourMenu.color.g, retourMenu.color.b));
-    SDL_Surface* buttonTextSurface = TTF_RenderText_Solid(font, retourMenu.text, textColor);
-    if (!buttonTextSurface) {
-        SDL_Log("Erreur création surface texte bouton : %s", TTF_GetError());
-    } else {
-        SDL_Rect buttonTextRect = {retourMenu.rect.x + (retourMenu.rect.w - buttonTextSurface->w) / 2, retourMenu.rect.y + (retourMenu.rect.h - buttonTextSurface->h) / 2, buttonTextSurface->w, buttonTextSurface->h};
-        SDL_BlitSurface(buttonTextSurface, NULL, surface, &buttonTextRect);
-        SDL_FreeSurface(buttonTextSurface);
-    }
-    SDL_FillRect(surface, &sauvegarderMenu.rect, SDL_MapRGB(surface->format, sauvegarderMenu.color.r, sauvegarderMenu.color.g, sauvegarderMenu.color.b));
-    SDL_Surface* buttonText = TTF_RenderText_Solid(font, sauvegarderMenu.text, textColor);
-    if (!buttonText) {
-        SDL_Log("Erreur création surface texte bouton : %s", TTF_GetError());
-    } else {
-        SDL_Rect buttonTextRect = {sauvegarderMenu.rect.x + (sauvegarderMenu.rect.w - buttonText->w) / 2, sauvegarderMenu.rect.y + (sauvegarderMenu.rect.h - buttonText->h) / 2, buttonText->w, buttonText->h};
-        SDL_BlitSurface(buttonText, NULL, surface, &buttonTextRect); // Corrected line
-        SDL_FreeSurface(buttonText);
-    }
+    drawButton(surface, &retourMenu, font, textColor);
+
+    // Draw the sauvegarderMenu button
+    drawButton(surface, &sauvegarderMenu, font, textColor);
 
     // Draw the volume slider
-    SDL_FillRect(surface, &volumeSlider.bar, SDL_MapRGB(surface->format, 255, 255, 255)); 
-    SDL_FillRect(surface, &volumeSlider.cursor, SDL_MapRGB(surface->format, 255, 0, 0)); 
+    drawVolumeControl(surface, volumeSlider.volume);
 
     // Free the memory
     SDL_FreeSurface(textSurface);
@@ -73,17 +49,8 @@ void drawParametre(SDL_Surface* surface) {
 
 // Function to draw the volume control on the given surface
 void drawVolumeControl(SDL_Surface* surface, int volume) {
-    // Initialize SDL_ttf
-    if (TTF_Init() == -1) {
-        SDL_Log("Erreur initialisation SDL_ttf : %s", TTF_GetError());
-        return;
-    }
-
-    // Load the font
-    TTF_Font* font = TTF_OpenFont("assets/fonts/Pokemon Solid.ttf", 24);
+    TTF_Font* font = initializeFont("assets/fonts/Pokemon Solid.ttf", 24);
     if (!font) {
-        SDL_Log("Erreur chargement police : %s", TTF_GetError());
-        TTF_Quit();
         return;
     }
 
@@ -99,6 +66,10 @@ void drawVolumeControl(SDL_Surface* surface, int volume) {
         return;
     }
 
+    // Clear the area where the volume text will be drawn
+    SDL_Rect clearRect = {100, 50, textSurface->w, textSurface->h};
+    SDL_FillRect(surface, &clearRect, SDL_MapRGB(surface->format, 192, 192, 192)); // Clear with background color
+
     // Position and draw the text
     SDL_Rect textRect = {100, 50, textSurface->w, textSurface->h};
     SDL_BlitSurface(textSurface, NULL, surface, &textRect);
@@ -110,5 +81,22 @@ void drawVolumeControl(SDL_Surface* surface, int volume) {
     // Free the memory
     SDL_FreeSurface(textSurface);
     TTF_CloseFont(font);
-    TTF_Quit();
+    // Remove TTF_Quit() here to avoid quitting TTF prematurely
+}
+
+// Function to initialize SDL_ttf and load the font
+TTF_Font* initializeFont(const char* fontPath, int fontSize) {
+    if (TTF_Init() == -1) {
+        SDL_Log("Erreur initialisation SDL_ttf : %s", TTF_GetError());
+        return NULL;
+    }
+
+    TTF_Font* font = TTF_OpenFont(fontPath, fontSize);
+    if (!font) {
+        SDL_Log("Erreur chargement police : %s", TTF_GetError());
+        TTF_Quit();
+        return NULL;
+    }
+
+    return font;
 }

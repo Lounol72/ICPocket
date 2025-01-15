@@ -57,10 +57,10 @@ void handleInputs(Window* win, State* currentState, SDL_Event event, int* draggi
                 {
                     printf("Left button clicked\n");
                     printf("%i\n", *currentState);
-                    if (Cliqued(&pageParam, x, y)) // Check if the button is clicked
+                    if (Cliqued(&pageParam, x, y) &&  *currentState == MENU ) // Check if the button is clicked
                         pageParam.action(pageParam.actionParam); // Call the action function with the parameter
                     
-                    if(Cliqued(&retourMenu,x,y))
+                    if(Cliqued(&retourMenu,x,y) &&  *currentState == PARAMETRE)
                         retourMenu.action(retourMenu.actionParam);
                 }
             if (*currentState == PARAMETRE && SDL_PointInRect(&(SDL_Point){x, y}, &(volumeSlider.bar)))

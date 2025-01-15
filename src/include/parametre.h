@@ -19,4 +19,13 @@ void drawParametre(SDL_Surface* surface);
  */
 void drawVolumeControl(SDL_Surface* surface, int volume);
 
+/**
+ * @brief Initialise une police de caractères avec le chemin et la taille donnés.
+ * 
+ * @param fontPath Le chemin du fichier de police de caractères.
+ * @param fontSize La taille de la police de caractères.
+ * @return TTF_Font* La police de caractères initialisée.
+ */
+TTF_Font* initializeFont(const char* fontPath, int fontSize);
+
 #endif // VOLUME_H

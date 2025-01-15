@@ -3,6 +3,9 @@
 #include <SDL2/SDL_mixer.h>
 #include "include/utils.h"
 
+extern WIDTH;
+extern HEIGHT;
+
 int initialize(Window* win) {
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
@@ -11,7 +14,7 @@ int initialize(Window* win) {
     }
     
     // Initialize SDL_image
-    if (IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG) == 0) {
+    if ((IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG) & (IMG_INIT_JPG | IMG_INIT_PNG)) == 0) {
         SDL_Log("Erreur initialisation SDL_image : %s", IMG_GetError());
         SDL_Quit();
         return -1;
@@ -27,13 +30,13 @@ int initialize(Window* win) {
     // Load the icon
     win->icon = IMG_Load("assets/Iconjpg.jpg");
     if (!win->icon) {
-        SDL_Log("Erreur chargement icone : %s", SDL_GetError());
+        SDL_Log("Erreur chargement icône : %s", SDL_GetError());
         quitSDL(win, -1);
         return -1;
     }
 
     // Create the window
-    win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 720, 600, SDL_WINDOW_SHOWN);
+    win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
     if (!win->window) {
         SDL_Log("Erreur de création de la fenêtre : %s", SDL_GetError());
         quitSDL(win, -1);

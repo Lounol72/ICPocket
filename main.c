@@ -16,6 +16,9 @@ const int GREEN[] = {0, 255, 0, 255};
 const int BLUE[] = {0, 0, 255, 255};
 const int GREY[] = {128, 128, 128, 255};
 
+const int WIDTH = 1280;
+const int HEIGHT = 720;
+
 Bouton pageParam;
 Bouton retourMenu;
 

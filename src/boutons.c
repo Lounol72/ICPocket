@@ -39,3 +39,16 @@ int Cliqued(Bouton *b, int x, int y) {
     return (x >= b->rect.x && x <= b->rect.x + b->rect.w &&
         y >= b->rect.y && y <= b->rect.y + b->rect.h);
 }
+
+// Function to draw a button on the given surface
+void drawButton(SDL_Surface* surface, Bouton* button, TTF_Font* font, SDL_Color textColor) {
+    SDL_FillRect(surface, &button->rect, SDL_MapRGB(surface->format, button->color.r, button->color.g, button->color.b));
+    SDL_Surface* buttonTextSurface = TTF_RenderText_Solid(font, button->text, textColor);
+    if (!buttonTextSurface) {
+        SDL_Log("Erreur création surface texte bouton : %s", TTF_GetError());
+    } else {
+        SDL_Rect buttonTextRect = {button->rect.x + (button->rect.w - buttonTextSurface->w) / 2, button->rect.y + (buttonTextSurface->h - buttonTextSurface->h) / 2, buttonTextSurface->w, buttonTextSurface->h};
+        SDL_BlitSurface(buttonTextSurface, NULL, surface, &buttonTextRect);
+        SDL_FreeSurface(buttonTextSurface);
+    }
+}
