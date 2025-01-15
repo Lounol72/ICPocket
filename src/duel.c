@@ -1,5 +1,5 @@
 #include "structPoke.c"
-
+/*PITIE ECRIT PAS LES CODES EN UNE LIGNE*/
 #define NEUTRAL_STAT_CHANGE 6
 
 typedef struct{
