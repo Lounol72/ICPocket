@@ -7,6 +7,7 @@
 
 extern Slider volumeSlider;
 extern Bouton retourMenu;
+extern Bouton sauvegarderMenu;
 
 // Function to draw the parameters on the given surface
 void drawParametre(SDL_Surface* surface) {
@@ -17,7 +18,7 @@ void drawParametre(SDL_Surface* surface) {
     }
 
     // Load the font
-    TTF_Font* font = TTF_OpenFont("assets/fonts/Pokemon Solid.ttf", 24);
+    TTF_Font* font = TTF_OpenFont("assets/fonts/arial.ttf", 24);
     if (!font) {
         SDL_Log("Erreur chargement police : %s", TTF_GetError());
         TTF_Quit();
@@ -49,6 +50,15 @@ void drawParametre(SDL_Surface* surface) {
         SDL_Rect buttonTextRect = {retourMenu.rect.x + (retourMenu.rect.w - buttonTextSurface->w) / 2, retourMenu.rect.y + (retourMenu.rect.h - buttonTextSurface->h) / 2, buttonTextSurface->w, buttonTextSurface->h};
         SDL_BlitSurface(buttonTextSurface, NULL, surface, &buttonTextRect);
         SDL_FreeSurface(buttonTextSurface);
+    }
+    SDL_FillRect(surface, &sauvegarderMenu.rect, SDL_MapRGB(surface->format, sauvegarderMenu.color.r, sauvegarderMenu.color.g, sauvegarderMenu.color.b));
+    SDL_Surface* buttonText = TTF_RenderText_Solid(font, sauvegarderMenu.text, textColor);
+    if (!buttonText) {
+        SDL_Log("Erreur création surface texte bouton : %s", TTF_GetError());
+    } else {
+        SDL_Rect buttonTextRect = {sauvegarderMenu.rect.x + (sauvegarderMenu.rect.w - buttonText->w) / 2, sauvegarderMenu.rect.y + (sauvegarderMenu.rect.h - buttonText->h) / 2, buttonText->w, buttonText->h};
+        SDL_BlitSurface(buttonText, NULL, surface, &buttonTextRect); // Corrected line
+        SDL_FreeSurface(buttonText);
     }
 
     // Draw the volume slider
