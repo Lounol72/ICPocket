@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_ttf.h>
 
 /**
  * @brief Structure représentant une fenêtre et ses ressources associées. 
@@ -33,5 +34,14 @@ int initialize(Window* win);
  * @param codeError Code d'erreur à retourner lors de la sortie.
  */
 void quitSDL(Window* win, int codeError);
+
+/**
+ * @brief Initialise une police de caractères avec le chemin et la taille donnés.
+ * 
+ * @param fontPath Le chemin du fichier de police de caractères.
+ * @param fontSize La taille de la police de caractères.
+ * @return TTF_Font* La police de caractères initialisée.
+ */
+TTF_Font* initializeFont(const char* fontPath, int fontSize);
 
 #endif // UTILS_H

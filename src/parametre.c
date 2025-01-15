@@ -1,5 +1,6 @@
 #include "parametre.h"
 #include "boutons.h"
+#include "utils.h"
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL.h>
@@ -84,21 +85,4 @@ void drawVolumeControl(SDL_Surface* surface, int volume) {
     SDL_FreeSurface(textSurface);
     TTF_CloseFont(font);
     // Remove TTF_Quit() here to avoid quitting TTF prematurely
-}
-
-// Function to initialize SDL_ttf and load the font
-TTF_Font* initializeFont(const char* fontPath, int fontSize) {
-    if (TTF_Init() == -1) {
-        SDL_Log("Erreur initialisation SDL_ttf : %s", TTF_GetError());
-        return NULL;
-    }
-
-    TTF_Font* font = TTF_OpenFont(fontPath, fontSize);
-    if (!font) {
-        SDL_Log("Erreur chargement police : %s", TTF_GetError());
-        TTF_Quit();
-        return NULL;
-    }
-
-    return font;
 }

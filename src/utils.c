@@ -77,3 +77,20 @@ void quitSDL(Window* win, int codeError) {
     SDL_Quit();
     exit(codeError);
 }
+
+// Function to initialize SDL_ttf and load the font
+TTF_Font* initializeFont(const char* fontPath, int fontSize) {
+    if (TTF_Init() == -1) {
+        SDL_Log("Erreur initialisation SDL_ttf : %s", TTF_GetError());
+        return NULL;
+    }
+
+    TTF_Font* font = TTF_OpenFont(fontPath, fontSize);
+    if (!font) {
+        SDL_Log("Erreur chargement police : %s", TTF_GetError());
+        TTF_Quit();
+        return NULL;
+    }
+
+    return font;
+}
