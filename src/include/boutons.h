@@ -10,6 +10,7 @@ typedef struct {
     int color[4]; // r ,g ,b ,a
     void (*action)(void*); // Function to be called when the button is clicked
     void* actionParam; // Parameter to be passed to the action function
+    //ajouter une image avec les coodonnées du rect
 } Bouton;
 
 typedef struct {

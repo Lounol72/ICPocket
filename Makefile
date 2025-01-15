@@ -20,6 +20,7 @@ LIBS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 # Règle pour créer l'exécutable
 main: $(OBJ_DIR) $(OBJS)
 	$(CC) -o main $(OBJS) $(LIBS)
+	@echo "Compilation terminée"
 
 # Règle pour créer le dossier obj
 $(OBJ_DIR):
@@ -47,5 +48,6 @@ $(OBJ_DIR)/parametre.o: $(SRC_DIR)/parametre.c | $(OBJ_DIR)
 # Règle pour nettoyer les fichiers objets et l'exécutable
 clean:
 	rm -f main $(OBJ_DIR)/*.o
+	@echo "Nettoyage terminé"
 
 .PHONY: all clean
