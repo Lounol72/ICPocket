@@ -41,8 +41,8 @@ int main(void) {
         quitSDL(&win, -1);
     }
     
-    InitBoutons(&pageParam, 30, 10, 230, 120, "Param", BLUE, changeState, &paramState);
-    InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState);
+    InitBoutons(&pageParam, 30, 10, 230, 120, "Param", BLUE, changeState, &paramState, "assets/Iconjpg.jpg");
+    InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg");
     InitSlider(&volumeSlider, 50, 100, 400, 20, "Volume", GREY, win.musicVolume);
 
     SDL_Log("Bouton retourMenu initialisé à (%d, %d, %d, %d)", retourMenu.rect.x, retourMenu.rect.y, retourMenu.rect.w, retourMenu.rect.h);

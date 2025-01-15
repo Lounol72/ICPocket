@@ -3,14 +3,14 @@
 
 #include <SDL2/SDL_rect.h>
 #include <SDL2/SDL_mixer.h>
-
+#include <SDL2/SDL_image.h>
 typedef struct {
     SDL_Rect rect; // Rectangle representing the button
     char *text; // Text to be displayed on the button
     int color[4]; // r ,g ,b ,a
     void (*action)(void*); // Function to be called when the button is clicked
     void* actionParam; // Parameter to be passed to the action function
-    //ajouter une image avec les coodonnées du rect
+    SDL_Surface * image; //ajouter une image avec les coodonnées du rect
 } Bouton;
 
 typedef struct {
@@ -33,8 +33,9 @@ typedef struct {
  * @param color The color of the button in the format {r, g, b, a}.
  * @param action The function to be called when the button is clicked.
  * @param actionParam The parameter to be passed to the action function.
+ * @param image The image to be displayed on the button.
  */
-void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text, int *color, void (*action)(void*), void* actionParam);
+void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text,int *color, void (*action)(void*), void* actionParam, char *image);
 
 /**
  * @brief Initializes a slider with the given parameters.

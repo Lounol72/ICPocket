@@ -2,7 +2,7 @@
 #include "include/state.h"
 
 // Function to initialize a button
-void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text, int *color, void (*action)(void*), void* actionParam) {
+void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text, int *color, void (*action)(void*), void* actionParam, char *image) {
     b->rect.x = x;
     b->rect.y = y;
     b->rect.w = width;
@@ -13,6 +13,7 @@ void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text, int
     b->action = action;
     b->actionParam = actionParam;
     b->text = text;
+    b->image = IMG_Load(image);
 }
 
 // Function to initialize a slider
