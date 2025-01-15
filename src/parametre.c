@@ -54,9 +54,11 @@ void drawVolumeControl(SDL_Surface* surface, int volume) {
         return;
     }
 
-    // Create the text surface
+    // Convert volume to percentage
+    int volumePercentage = volume * 100 / MIX_MAX_VOLUME;
     char volumeText[20];
-    snprintf(volumeText, sizeof(volumeText), "Volume: %d", volume);
+    snprintf(volumeText, sizeof(volumeText), "Volume: %d", volumePercentage);
+    // Create the text surface
     SDL_Color textColor = {0, 0, 0, 255};
     SDL_Surface* textSurface = TTF_RenderText_Solid(font, volumeText, textColor);
     if (!textSurface) {

@@ -2,9 +2,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
 #include "include/utils.h"
-
-extern WIDTH;
-extern HEIGHT;
+#include "include/constants.h"
 
 int initialize(Window* win) {
     // Initialize SDL
@@ -62,7 +60,7 @@ int initialize(Window* win) {
         return -1;
     }
     
-    win->musicVolume = MIX_MAX_VOLUME / 2;
+    win->musicVolume = MIX_MAX_VOLUME * 50 / 100 ;
     Mix_VolumeMusic(win->musicVolume);
     win->musicPlaying = 0;
 
