@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "include/inputs.h"
 #include "include/menu.h"
-#include "include/volume.h"
+#include "include/parametre.h"
 #include "include/boutons.h"
 #include "utils.h"
 #include "state.h"
