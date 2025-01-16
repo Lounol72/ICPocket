@@ -7,7 +7,8 @@
 #include <SDL2/SDL_ttf.h>
 
 /**
- * @brief Structure représentant une fenêtre et ses ressources associées. 
+ * @brief Structure représentant une fenêtre et ses ressources associées.
+ * 
  */ 
 
 typedef struct {
@@ -23,9 +24,11 @@ typedef struct {
  * @brief Initialise les ressources SDL et crée une fenêtre.
  * 
  * @param win Pointeur vers la structure Window à initialiser.
+ * @param width Largeur de la fenêtre.
+ * @param height Hauteur de la fenêtre.
  * @return int 0 en cas de succès, -1 en cas d'erreur.
  */
-int initialize(Window* win);
+int initialize(Window* win, float w, float h);
 
 /**
  * @brief Libère les ressources SDL et quitte le programme.

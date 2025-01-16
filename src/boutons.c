@@ -2,7 +2,7 @@
 #include "include/state.h"
 
 // Function to initialize a button
-void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text,const int *color, void (*action)(void*), void* actionParam, char *image , SDL_Surface *surface) {
+void InitBoutons(Bouton *b, float x, float y, float width, float height, char *text,const int *color, void (*action)(void*), void* actionParam, char *image , SDL_Surface *surface) {
     b->rect.x = x;
     b->rect.y = y;
     b->rect.w = width;
@@ -40,6 +40,16 @@ int Cliqued(Bouton *b, int x, int y) {
         y >= b->rect.y && y <= b->rect.y + b->rect.h);
 }
 
+void resizeButtons(Bouton* b[],int bSize, float scaleX, float scaleY){
+    for(int i = 0 ; i < bSize; i++)
+    {
+        b[i]->rect.x *= scaleX;
+        b[i]->rect.y *= scaleY;
+        b[i]->rect.w *= scaleX;
+        b[i]->rect.h *= scaleY;
+    }
+}
+
 // Function to draw a button on the given surface
 void drawButton(SDL_Surface* surface, Bouton* button, TTF_Font* font, SDL_Color textColor) {
     SDL_FillRect(surface, &button->rect, SDL_MapRGB(surface->format, button->color.r, button->color.g, button->color.b));
@@ -52,3 +62,4 @@ void drawButton(SDL_Surface* surface, Bouton* button, TTF_Font* font, SDL_Color 
         SDL_FreeSurface(buttonTextSurface);
     }
 }
+

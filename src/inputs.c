@@ -43,6 +43,7 @@ void handleInputs(Window* win, State* currentState, SDL_Event event, int* draggi
                     break;
                 case SDLK_ESCAPE:
                     printf("Pause the game\n");
+                    if(*currentState == JEU) retourMenu.action(retourMenu.actionParam);
                     break;
                 default:
                     break;

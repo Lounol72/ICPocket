@@ -4,13 +4,17 @@
 extern State* currentState;
 extern Bouton pageParam;
 extern Bouton jouer;
+extern Bouton TEST;
 
 void drawMenu(SDL_Surface* surface, SDL_Surface* image) {
     SDL_Rect positionImage = {0, 0, 0, 0};
     SDL_BlitSurface(image, NULL, surface, &positionImage);
     drawHighlight(surface, &pageParam); // Fixed: passing surface to drawHighlight
     drawHighlight(surface, &jouer);
+    drawHighlight(surface, &TEST);
+    
 }
+
 
 // Draw a red highlight around a rectangle FOR DEBUGGING PURPOSES
 void drawHighlight(SDL_Surface* surface, Bouton * b) {
