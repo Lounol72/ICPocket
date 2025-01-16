@@ -76,3 +76,9 @@ void uptadeSizeBoutons(Bouton *b, int x, int y) {
     b->rect.y = y;
 }
 
+void updatePosButtons(Bouton* b[], int bSize, int x, int y) {
+    for(int i = 0; i < bSize; i++) {
+        b[i]->rect.x *= x;
+        b[i]->rect.y *= y;
+    }
+}

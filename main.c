@@ -65,28 +65,8 @@ int main(void) {
         SDL_Log("Erreur obtention surface de la fenêtre : %s", SDL_GetError());
         quitSDL(&win, -1);
     }
-    
-
-
-    SDL_Log("Bouton retourMenu initialisé à (%d, %d, %d, %d)", retourMenu.rect.x, retourMenu.rect.y, retourMenu.rect.w, retourMenu.rect.h);
 
     while (1) {
-        int newWidth, newHeight;
-        SDL_GetWindowSize(win.window, &newWidth, &newHeight);
-
-        if (newWidth != win.w || newHeight != win.h) {
-            scale_width = (float)newWidth / win.w;
-            scale_height = (float)newHeight / win.h;
-
-            resizeButtons(buttons, buttonCount, scale_width, scale_height);
-
-            win.w = newWidth;
-            win.h = newHeight;
-
-            // Mettre à jour la surface de la fenêtre après le redimensionnement
-            menu = SDL_GetWindowSurface(win.window);
-        }
-
         SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 255, 255, 255)); 
 
         // Draw the different elements either the menu or the parameters
@@ -129,8 +109,16 @@ int main(void) {
             if(event.type == SDL_WINDOWEVENT)
             {
                 if (event.window.event == SDL_WINDOWEVENT_RESIZED || event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED) {
-                    int newWidth = event.window.data1;
-                    int newHeight = event.window.data2;
+
+                    float newWidth = event.window.data1;
+                    float newHeight = event.window.data2;
+
+                    scale_width = newWidth / win.w;
+                    scale_height = newHeight / win.h;
+
+                    SDL_Log(" scale_width : %f scale_height : %f", scale_width, scale_height);
+
+                    updatePosButtons(buttons, buttonCount, scale_width, scale_height);
 
                     win.w = newWidth;
                     win.h = newHeight;
