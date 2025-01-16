@@ -136,8 +136,7 @@ int main(void) {
                     win.h = newHeight;
                     
                     menu = SDL_GetWindowSurface(win.window);
-
-                    printf("Window resized to %.2fx%.2f\n",win.w,win.h);
+                    
                 }
             }
             handleInputs(&win, currentState, event, &dragging);
