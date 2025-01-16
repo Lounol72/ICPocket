@@ -9,7 +9,7 @@
 #include "src/include/utils.h"
 #include "src/include/parametre.h"
 
-const int BLACK[] = {0, 0, 0, 255};
+int BLACK[] = {0, 0, 0, 255};
 const int WHITE[] = {255, 255, 255, 255};
 const int RED[] = {255, 0, 0, 255};
 const int GREEN[] = {0, 255, 0, 255};
@@ -53,12 +53,14 @@ int main(void) {
         SDL_Log("Erreur obtention surface de la fenêtre : %s", SDL_GetError());
         quitSDL(&win, -1);
     }
-    InitBoutons(&jouer, 50, 540, 230, 120, "Jouer", RED, changeState, &jouerState, "assets/Iconjpg.jpg", menu);
-    InitBoutons(&pageParam, 525, 540, 230, 120, "Param", BLUE, changeState, &paramState, "assets/Iconjpg.jpg", menu);
-    InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg", menu);
-    InitBoutons(&TEST, 650, 50, 200, 100, "Menu", GREY, changeState, &menuState, "assets/Iconjpg.jpg", menu);
-    InitBoutons(&sauvegarderMenu, 500, 450, 200, 100, "Save", RED, changeState, &menuState, "assets/Iconjpg.jpg", menu);   
+    InitBoutons(&jouer,50,540,230,120,"Jouer",RED, changeState, &jouerState, "assets/Iconjpg.jpg", menu, BLACK);
+    InitBoutons(&pageParam, 525, 540, 230, 120, "Param", BLUE, changeState, &paramState, "assets/Iconjpg.jpg", menu, BLACK);
+    InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);
+    InitBoutons(&TEST, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);
+    InitBoutons(&sauvegarderMenu, 500, 450, 200, 100, "Save", RED, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);   
     InitSlider(&volumeSlider, 50, 100, 400, 20, "Volume", GREY, win.musicVolume);
+
+
 
     SDL_Log("Bouton retourMenu initialisé à (%d, %d, %d, %d)", retourMenu.rect.x, retourMenu.rect.y, retourMenu.rect.w, retourMenu.rect.h);
 
@@ -91,8 +93,11 @@ int main(void) {
                 }
             }
             drawMenu(menu, win.image);
-        } else if (*currentState == JEU) {
-            drawJeux(menu);  
+        }else if(*currentState == JEU){
+            uptadeSizeBoutons(&retourMenu, 25, 600);
+            drawJeux(menu);
+
+
         } else {
             if (win.musicPlaying) {
                 Mix_HaltMusic();
@@ -100,6 +105,7 @@ int main(void) {
             }
             
             if (*currentState == PARAMETRE) {
+            
                 drawParametre(menu);
                 drawVolumeControl(menu, win.musicVolume);
             }

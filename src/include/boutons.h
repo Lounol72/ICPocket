@@ -15,6 +15,7 @@ typedef struct {
     void* actionParam; // Parameter to be passed to the action function
     SDL_Surface * image; //ajouter une image avec les coodonnées du rect
     SDL_Surface * surface;
+    SDL_Color textColor;
 } Bouton;
 
 typedef struct {
@@ -40,7 +41,7 @@ typedef struct {
  * @param image The image to be displayed on the button.
  * @param surface The surface to be used for the button.
  */
-void InitBoutons(Bouton *b, float x, float y, float width, float height, char *text,const int *color, void (*action)(void*), void* actionParam, char *image, SDL_Surface *surface);
+void InitBoutons(Bouton *b, float x, float y, float width, float height, char *text,const int *color, void (*action)(void*), void* actionParam, char *image, SDL_Surface *surface, int* textColor);
 
 /**
  * @brief Initializes a slider with the given parameters.
@@ -54,7 +55,7 @@ void InitBoutons(Bouton *b, float x, float y, float width, float height, char *t
  * @param color The color of the slider in the format {r, g, b, a}.
  * @param volume The initial volume level of the slider.
  */
-void InitSlider(Slider *s, int x, int y, int width, int height, char *text,const int *color, int volume);
+void InitSlider(Slider *s, int x, int y, int width, int height, char *text, const int *color, int volume);
 
 /**
  * @brief Checks if a button was clicked.
@@ -76,7 +77,7 @@ int Cliqued(Bouton *b, int x ,int y);
  * 
  * @note The button text is centered on the button.
  */
-void drawButton(SDL_Surface* surface, Bouton* button, TTF_Font* font, SDL_Color textColor);
+void drawButton(SDL_Surface* surface, Bouton* button, TTF_Font* font);
 
 /**
  * @brief Rezise the button based on the window
@@ -86,5 +87,5 @@ void drawButton(SDL_Surface* surface, Bouton* button, TTF_Font* font, SDL_Color 
  * @param scaleY Scale on Y of the window
  */
 void resizeButtons(Bouton* b[],int bSize, float scaleX, float scaleY);
-
+void uptadeSizeBoutons(Bouton *b, int x, int y);
 #endif // BOUTONS_H

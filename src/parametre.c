@@ -34,10 +34,10 @@ void drawParametre(SDL_Surface* surface) {
     SDL_BlitSurface(textSurface, NULL, surface, &textRect);
 
     // Draw the retourMenu button
-    drawButton(surface, &retourMenu, font, textColor);
+    drawButton(surface, &retourMenu, font);
 
     // Draw the sauvegarderMenu button
-    drawButton(surface, &sauvegarderMenu, font, textColor);
+    drawButton(surface, &sauvegarderMenu, font);
 
     // Draw the volume slider
     drawVolumeControl(surface, volumeSlider.volume);

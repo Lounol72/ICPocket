@@ -1,6 +1,8 @@
+#include <stdio.h>
 #include "include/menu.h"
 #include "include/state.h"
-
+#include "include/utils.h"
+#include "include/boutons.h"    
 extern State* currentState;
 extern Bouton pageParam;
 extern Bouton jouer;
@@ -10,9 +12,13 @@ extern Bouton retourMenu;
 void drawMenu(SDL_Surface* surface, SDL_Surface* image) {
     SDL_Rect positionImage = {0, 0, 0, 0};
     SDL_BlitSurface(image, NULL, surface, &positionImage);
-    drawHighlight(surface, &pageParam); // Fixed: passing surface to drawHighlight
-    drawHighlight(surface, &jouer);
-    drawHighlight(surface, &TEST);
+    TTF_Font* font = initializeFont("assets/fonts/arial.ttf", 24);
+    if (!font) {
+        return;
+    }
+    drawButton(surface, &pageParam, font); // Fixed: passing surface to drawButton
+    drawButton(surface, &jouer, font); // Fixed: passing surface to drawButton
+    drawButton(surface, &TEST, font); // Fixed: passing surface to drawButton
     
 }
 
@@ -28,7 +34,13 @@ void changeState(void* targetState) {
     currentState = (State*)targetState;
 }
 
-void drawJeux(SDL_Surface* surface){
-    drawHighlight(surface, &retourMenu); // Fixed: passing surface to drawHighlight
+void drawJeux(SDL_Surface* surface) {
+    TTF_Font* font = initializeFont("assets/fonts/arial.ttf", 24);
+    if (!font) {
+        return;
+    }
+    drawButton(surface, &retourMenu, font); // Fixed: passing surface to drawButton
 }
+
+
 
