@@ -8,11 +8,11 @@
 
 /**
  * @brief Structure représentant une fenêtre et ses ressources associées.
- * 
  */ 
-
 typedef struct {
     SDL_Window* window;      /**< Fenêtre SDL */
+    float w;                 /**< Largeur de la fenêtre */
+    float h;                 /**< Hauteur de la fenêtre */
     SDL_Surface* image;      /**< Surface de l'image affichée */
     SDL_Surface* icon;       /**< Icône de la fenêtre */
     Mix_Music* music;        /**< Musique de fond */

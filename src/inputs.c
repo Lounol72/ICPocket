@@ -23,6 +23,7 @@ void handleInputs(Window* win, State* currentState, SDL_Event event, int* draggi
         // Quit event
             quitSDL(win, 0);
             break;
+        
         case SDL_KEYDOWN:
         // Keyboard events
             switch (event.key.keysym.sym) {

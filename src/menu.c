@@ -28,9 +28,7 @@ void changeState(void* targetState) {
     currentState = (State*)targetState;
 }
 
-void drawJeux(SDL_Surface* surface, SDL_Surface* image) {
-    SDL_Rect positionImage = {0, 0, 0, 0};
-    SDL_BlitSurface(image, NULL, surface, &positionImage);
+void drawJeux(SDL_Surface* surface){
     drawHighlight(surface, &retourMenu); // Fixed: passing surface to drawHighlight
 }
 

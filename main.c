@@ -39,11 +39,7 @@ State jouerState = JEU;
 
 State* currentState = &valueState;
 
-// tout foutre en struct
-// et enum
 int main(void) {
-    float currWidth = baseWidth;
-    float currHeight = baseHeight;
     Window win = {0};
     SDL_Surface* menu = NULL;
     int dragging = 0;
@@ -57,30 +53,30 @@ int main(void) {
         SDL_Log("Erreur obtention surface de la fenêtre : %s", SDL_GetError());
         quitSDL(&win, -1);
     }
-    InitBoutons(&jouer,50,540,230,120,"Jouer",RED, changeState, &jouerState, "assets/Iconjpg.jpg", menu);
+    InitBoutons(&jouer, 50, 540, 230, 120, "Jouer", RED, changeState, &jouerState, "assets/Iconjpg.jpg", menu);
     InitBoutons(&pageParam, 525, 540, 230, 120, "Param", BLUE, changeState, &paramState, "assets/Iconjpg.jpg", menu);
     InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg", menu);
-    InitBoutons(&TEST, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg", menu);
+    InitBoutons(&TEST, 650, 50, 200, 100, "Menu", GREY, changeState, &menuState, "assets/Iconjpg.jpg", menu);
     InitBoutons(&sauvegarderMenu, 500, 450, 200, 100, "Save", RED, changeState, &menuState, "assets/Iconjpg.jpg", menu);   
     InitSlider(&volumeSlider, 50, 100, 400, 20, "Volume", GREY, win.musicVolume);
-
-
 
     SDL_Log("Bouton retourMenu initialisé à (%d, %d, %d, %d)", retourMenu.rect.x, retourMenu.rect.y, retourMenu.rect.w, retourMenu.rect.h);
 
     while (1) {
-
         int newWidth, newHeight;
         SDL_GetWindowSize(win.window, &newWidth, &newHeight);
 
-        if (newWidth != currWidth || newHeight != currHeight) {
-            scale_width = (float)newWidth / baseWidth;
-            scale_height = (float)newHeight / baseHeight;
+        if (newWidth != win.w || newHeight != win.h) {
+            scale_width = (float)newWidth / win.w;
+            scale_height = (float)newHeight / win.h;
 
             resizeButtons(buttons, buttonCount, scale_width, scale_height);
 
-            currWidth = newWidth;
-            baseWidth = newHeight;
+            win.w = newWidth;
+            win.h = newHeight;
+
+            // Mettre à jour la surface de la fenêtre après le redimensionnement
+            menu = SDL_GetWindowSurface(win.window);
         }
 
         SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 255, 255, 255)); 
@@ -95,9 +91,8 @@ int main(void) {
                 }
             }
             drawMenu(menu, win.image);
-        }else if(*currentState == JEU){
-            drawJeux(menu, win.image);  
-
+        } else if (*currentState == JEU) {
+            drawJeux(menu);  
         } else {
             if (win.musicPlaying) {
                 Mix_HaltMusic();
@@ -105,7 +100,6 @@ int main(void) {
             }
             
             if (*currentState == PARAMETRE) {
-                
                 drawParametre(menu);
                 drawVolumeControl(menu, win.musicVolume);
             }
@@ -119,6 +113,20 @@ int main(void) {
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
                 quitSDL(&win, 0);
+            }
+            if(event.type == SDL_WINDOWEVENT)
+            {
+                if (event.window.event == SDL_WINDOWEVENT_RESIZED || event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED) {
+                    int newWidth = event.window.data1;
+                    int newHeight = event.window.data2;
+
+                    win.w = newWidth;
+                    win.h = newHeight;
+                    
+                    menu = SDL_GetWindowSurface(win.window);
+
+                    printf("Window resized to %.2fx%.2f\n",win.w,win.h);
+                }
             }
             handleInputs(&win, currentState, event, &dragging);
         }

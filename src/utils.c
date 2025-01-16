@@ -7,6 +7,8 @@
 
 
 int initialize(Window* win, float w , float h) {
+    win->w = w;
+    win->h = h;
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
         SDL_Log("Erreur initialisation SDL : %s", SDL_GetError());
@@ -43,7 +45,7 @@ int initialize(Window* win, float w , float h) {
     }
 
     // Create the window
-    win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, w , h , SDL_WINDOW_SHOWN);
+    win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, win->w , win->h , SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
     if (!win->window) {
         SDL_Log("Erreur de création de la fenêtre : %s", SDL_GetError());
         quitSDL(win, -1);
