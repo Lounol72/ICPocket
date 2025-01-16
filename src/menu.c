@@ -16,17 +16,17 @@ void drawMenu(SDL_Surface* surface, SDL_Surface* image) {
     if (!font) {
         return;
     }
-    drawButton(surface, &pageParam, font); // Fixed: passing surface to drawButton
-    drawButton(surface, &jouer, font); // Fixed: passing surface to drawButton
-    drawButton(surface, &TEST, font); // Fixed: passing surface to drawButton
-    
+    drawButton(surface, &pageParam, font); //passing surface to drawButton
+    drawButton(surface, &jouer, font); //passing surface to drawButton
+    drawButton(surface, &TEST, font); //passing surface to drawButton
+    TTF_CloseFont(font);
 }
 
 
 // Draw a red highlight around a rectangle FOR DEBUGGING PURPOSES
 void drawHighlight(SDL_Surface* surface, Bouton * b) {
-    if (b != NULL) { // Fixed: check if b is not NULL
-        SDL_FillRect(surface, &b->rect, SDL_MapRGB(surface->format, b->color.r,b->color.g,b->color.b)); // Fixed: using surface and correct color
+    if (b != NULL) { //check if b is not NULL
+        SDL_FillRect(surface, &b->rect, SDL_MapRGB(surface->format, b->color.r,b->color.g,b->color.b)); //using surface and correct color
     }
 }
 
@@ -39,7 +39,8 @@ void drawJeux(SDL_Surface* surface) {
     if (!font) {
         return;
     }
-    drawButton(surface, &retourMenu, font); // Fixed: passing surface to drawButton
+    drawButton(surface, &retourMenu, font); //passing surface to drawButton
+    TTF_CloseFont(font);
 }
 
 
