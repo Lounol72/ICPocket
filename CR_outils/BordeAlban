@@ -1,0 +1,113 @@
+EX2:
+git config --global user.name "AstroZr"
+git config --global user.email "albanborde018@gmail.com"
+ 
+1)
+mkdir TP1
+git init
+ 
+2)
+touch CRGitex1-Borde.txt
+git status
+ 
+3)
+touch .gitignore
+nano .gitignore
+	*.a
+	CRGitex1-Borde.txt
+ 
+4)
+touch fich1.c
+git add fich1.c
+ 
+5)
+git commit -m "rajout fich1"
+ 
+6)
+touch fich2
+touch fich3
+git add "fich?"
+ 
+7)
+git commit -m "rajout fich2"
+ 
+12)
+touch fich4.c
+git add fich4.c
+ 
+13)
+git status
+ 
+14)
+mkdir Dossier
+touch Dossier/fich5.c
+git add Dossier/fich5.c
+ 
+15)affiche les modifs apportées par l'ensemles des fichiers dans l'index Git
+ 
+16)
+rm -R Dossier/
+ 
+17)
+git rm -r --cached Dossier
+ 
+18)
+git rm -r --cached fich4.c
+ 
+19)
+git branch NewVersion
+ 
+20)
+git branch
+git checkout NewVersion
+ 
+21)
+touch fich6.c
+nano fich1.c
+git add fich6.c fich1.c
+ 
+22)
+git commit -m "Update fich1 + new file"
+ 
+23)
+git checkout master
+git merge NewVersion
+ 
+24)
+git branch -d NewVersion
+ 
+EX3:
+1)
+git clone <inserer lien pertinent>
+git branch VersionDeux
+git commit -a -m "te
+git push --set-upstream origin VersionDeux
+"ERREUR" Mon voisin ne m'a pas ajouté comme contributeur
+
+2)
+git log
+ 
+3)
+nano fich1.c
+git add fich1.c
+ 
+4)
+git diff
+ 
+5)
+git log
+git diff
+ 
+12 à 25 sont déjà répondus ci-dessus.
+ 
+EXERCICE 3 (suite) :
+2)
+nano fichier_recupere.txt
+git add fichier_recupere.txt
+git commit -m "Modification sur fichier récupéré"
+ 
+3)
+git push
+
+4)
+Pour que cela fonctionne, il faut que le propriétaire du dépôt m'ajoute comme collaborateur ou contributaire.
