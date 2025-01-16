@@ -1,0 +1,51 @@
+Exercice 2:
+
+git config –-global user.name "LittreWilliam"
+git config –-global user.email "votreemail@exemple.com"
+
+mkdir Outil_prog
+cd Outil_prog
+git init
+
+touch CRgitex1-LittreWilliam.txt
+git status
+nano .gitignore
+*.a
+
+touch fich1.c
+git add fich1.c
+
+git commit -m 'ajout 1'
+
+touch fich2 fich 3
+git commit -a fich2 fich 3 -m 'ajout 2'
+
+
+ssh-keygen -t ed25519 -C "littrewilliam@gmail.com"
+git remote add origin https://git.univ-lemans.fr/l204564/wlprojet
+touch fich4.c
+git add keySSH fich4.c
+mkdir rep2
+touch rep2/fich5.c
+git add rep2/fich5.c
+git commit -m 'ajout fich5.c'
+nano .gitignore
+fich4.c
+
+git branch VersionBis
+git checkout VersionBis
+
+
+touch fich6.c
+git add fich6.c ../fich1.c
+git merge VersionBis
+
+
+Exercice 3
+git clone <lien random>
+git branch Version2
+git commit -a -m "suivant"
+git push --set-upstream origin Version2
+
+Exercice 4
+
