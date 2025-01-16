@@ -1,0 +1,101 @@
+EX2:
+git config --global user.name "Natp24109"
+git config --global user.email "nathanp2402@gmail.com"
+
+1)
+mkdir TP1
+git init
+
+2)
+touch CRGitex1-Pasquier.txt
+git status
+
+3)
+touch .gitignore
+nano .gitignore
+	*.a
+	CRGitex1-Pasquier.txt
+
+4)
+touch fich1.c
+git add fich1.c
+
+5)
+git commit -m "ajout 1"
+
+6)
+touch fich2
+touch fich3
+git add "fich?"
+
+7)
+git commit -m "ajout 2"
+
+12)
+touch fich4.c
+git add fich4.c
+
+13)
+git status
+
+14)
+mkdir Dossier
+touch Dossier/fich5.c
+git add Dossier/fich5.c
+
+15)Cela affiche les modifs apportées par tout les fichiers dans l'index Git
+
+16)
+rm -R Dossier/
+
+17)
+git rm -r --cached Dossier
+
+18)
+git rm -r --cached fich4.c
+
+19)
+git branch VersionBis
+
+20)
+git branch
+git checkout VersionBis
+
+21)
+touch fich6.c
+nano fich1.c
+git add fich6.c fich1.c
+
+22)
+git commit -m "Update fich1 + new file"
+
+23)
+git checkout master
+git merge VersionBis
+
+24)
+git branch -d VersionBis
+
+EX3:
+1)
+git clone <inserer lien pertinent>
+git branch Version_de_dingo
+git commit -a -m "test"
+git push --set-upstream origin Version_de_dingo
+"ERREUR" Mon voisin ne m'a pas ajouté comme contributeur
+
+2)
+git checkout 8b5a2db8a6cb636c0f780dce05eae3123fa469d4
+git checkout master
+
+3)
+touch main.c
+git add main.c
+git tag -a v1.0 -m "version initiale"
+...
+git tag -a v2.0 -m "version 2"
+git checkout v1.0
+git checkout master
+
+4)
+
