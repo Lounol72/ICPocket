@@ -1,0 +1,145 @@
+EX2:
+git config --global user.name "Lounol72"
+git config --global user.email "subtil.louis2005@gmail.com"
+
+1)
+mkdir TP1
+git init
+
+2)
+touch CRGitex1-Subtil.txt
+git status
+
+3)
+touch .gitignore
+nano .gitignore
+	*.a
+	CRGitex1-Subtil.txt
+
+4)
+touch fich1.c
+git add fich1.c
+
+5)
+git commit -m "add fic1"
+
+6)
+touch fich2
+touch fich3
+git add "fich?"
+
+7)
+git commit -m "add fic1 & fic2"
+
+git log
+
+8)
+nano fich1.c # Ajouter "Hello World!" au fichier
+git add fich1.c
+git diff
+
+9)
+git commit -m "Update fich1 with Hello World!"
+git log
+
+10)
+git push -u origin master
+
+git remote add origin <remote_repo_url>
+git push -u origin master
+
+11)
+touch fich4.c
+git add fich4.c
+
+git status
+
+git commit -m "Added fich4.c"
+
+12)
+mkdir Dossier
+touch Dossier/fich5.c
+git add Dossier/fich5.c
+
+git commit -m "Added fich5.c in new directory"
+
+git diff --staged
+
+13)
+rm -R Dossier/
+
+git rm -r --cached Dossier/
+git commit -m "Removed directory Dossier from index"
+
+git rm -r --cached fich4.c
+git commit -m "Removed fich4.c from index"
+
+git branch Bis
+git branch
+git checkout Bis
+
+14)
+touch fich6.c
+nano fich1.c # Modifier le fichier
+
+git add fich6.c fich1.c
+git commit -m "Update fich1 & new file fich6.c"
+
+git checkout master
+git merge Bis
+
+git branch -d Bis
+
+git push origin master
+
+EX3:
+1)
+git clone <lien_distant_du_projet>
+
+git branch Version
+git checkout Version
+
+git add .
+git commit -m "Changements sur la nouvelle version"
+
+2)
+git push --set-upstream origin Version
+"ERREUR" : Mon voisin ne m'a pas ajouté comme contributeur.
+
+Solution :
+- Demander à être ajouté comme contributeur au projet distant.
+- Utiliser un fork et soumettre une pull request pour proposer les changements.
+
+EX4:
+1)
+mkdir git-merge-test
+cd git-merge-test
+git init
+
+touch merge.txt
+echo "Première ligne de mon fichier" > merge.txt
+git add merge.txt
+git commit -m "Initial commit with merge.txt"
+
+2)
+git checkout -b nouvelle_branche
+echo "Nouvelle ligne dans mon fichier" > merge.txt
+git add merge.txt
+git commit -m "Updated merge.txt in nouvelle_branche"
+
+git checkout master
+echo "Nouveau contenu à remplacer" > merge.txt
+git add merge.txt
+git commit -m "Updated merge.txt in master"
+
+3)
+git merge nouvelle_branche
+"Conflit détecté"
+git status
+
+4)
+# Résolution du conflit
+git add merge.txt
+git commit -m "Resolved merge conflict in merge.txt"
+
+git push origin master

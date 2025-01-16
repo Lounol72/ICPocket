@@ -49,7 +49,7 @@ typedef struct
 	t_Move moveList[4];
 } t_Poke;
 
-void generatePoke(t_Poke *p)
+void generatePokeRandom(t_Poke *p)
 {
 
 	FILE *dataPoke;
