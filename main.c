@@ -39,9 +39,21 @@ State jouerState = JEU;
 
 State* currentState = &valueState;
 
+Window win = {0};
+SDL_Surface* menu = NULL;
+
+void initBoutons(SDL_Surface* menu){
+    InitBoutons(&jouer,50,540,230,120,"Jouer",RED, changeState, &jouerState, "assets/Iconjpg.jpg", menu, BLACK);
+    InitBoutons(&pageParam, 525, 540, 230, 120, "Param", BLUE, changeState, &paramState, "assets/Iconjpg.jpg", menu, BLACK);
+    InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);
+    InitBoutons(&TEST, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);
+    InitBoutons(&sauvegarderMenu, 500, 450, 200, 100, "Save", RED, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);   
+    InitSlider(&volumeSlider, 50, 100, 400, 20, "Volume", GREY, win.musicVolume);
+}
+
 int main(void) {
-    Window win = {0};
-    SDL_Surface* menu = NULL;
+    
+    initBoutons(menu);
     int dragging = 0;
 
     if (initialize(&win, baseWidth, baseHeight) != 0) {
@@ -53,12 +65,7 @@ int main(void) {
         SDL_Log("Erreur obtention surface de la fenêtre : %s", SDL_GetError());
         quitSDL(&win, -1);
     }
-    InitBoutons(&jouer,50,540,230,120,"Jouer",RED, changeState, &jouerState, "assets/Iconjpg.jpg", menu, BLACK);
-    InitBoutons(&pageParam, 525, 540, 230, 120, "Param", BLUE, changeState, &paramState, "assets/Iconjpg.jpg", menu, BLACK);
-    InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);
-    InitBoutons(&TEST, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);
-    InitBoutons(&sauvegarderMenu, 500, 450, 200, 100, "Save", RED, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);   
-    InitSlider(&volumeSlider, 50, 100, 400, 20, "Volume", GREY, win.musicVolume);
+    
 
 
     SDL_Log("Bouton retourMenu initialisé à (%d, %d, %d, %d)", retourMenu.rect.x, retourMenu.rect.y, retourMenu.rect.w, retourMenu.rect.h);
@@ -129,8 +136,7 @@ int main(void) {
                     win.h = newHeight;
                     
                     menu = SDL_GetWindowSurface(win.window);
-
-                    printf("Window resized to %.2fx%.2f\n",win.w,win.h);
+                    
                 }
             }
             handleInputs(&win, currentState, event, &dragging);
