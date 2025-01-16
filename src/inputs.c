@@ -62,7 +62,7 @@ void handleInputs(Window* win, State* currentState, SDL_Event event, int* draggi
                     if (Cliqued(&pageParam, x, y) &&  *currentState == MENU ) // Check if the button is clicked
                         pageParam.action(pageParam.actionParam); // Call the action function with the parameter
                     
-                    if(Cliqued(&retourMenu,x,y) &&  *currentState == PARAMETRE)
+                    if(Cliqued(&retourMenu,x,y) &&  *currentState != MENU)
                         retourMenu.action(retourMenu.actionParam);
                     if(Cliqued(&jouer,x,y) && *currentState == MENU) jouer.action(jouer.actionParam);
                 }

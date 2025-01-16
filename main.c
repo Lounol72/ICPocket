@@ -95,6 +95,9 @@ int main(void) {
                 }
             }
             drawMenu(menu, win.image);
+        }else if(*currentState == JEU){
+            drawJeux(menu, win.image);  
+
         } else {
             if (win.musicPlaying) {
                 Mix_HaltMusic();

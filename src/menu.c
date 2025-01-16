@@ -6,6 +6,7 @@ extern Bouton pageParam;
 extern Bouton jouer;
 extern Bouton TEST;
 
+extern Bouton retourMenu;
 void drawMenu(SDL_Surface* surface, SDL_Surface* image) {
     SDL_Rect positionImage = {0, 0, 0, 0};
     SDL_BlitSurface(image, NULL, surface, &positionImage);
@@ -26,3 +27,10 @@ void drawHighlight(SDL_Surface* surface, Bouton * b) {
 void changeState(void* targetState) {
     currentState = (State*)targetState;
 }
+
+void drawJeux(SDL_Surface* surface, SDL_Surface* image) {
+    SDL_Rect positionImage = {0, 0, 0, 0};
+    SDL_BlitSurface(image, NULL, surface, &positionImage);
+    drawHighlight(surface, &retourMenu); // Fixed: passing surface to drawHighlight
+}
+
