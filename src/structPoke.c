@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-#include <math.h>
 
 #define PV 0
 #define ATT 1
@@ -13,6 +12,9 @@
 
 #define TRUE 1
 #define FALSE 0
+
+typedef enum{noType=0,feu,plante,eau} t_Type;
+const int typeNumber=4;
 
 typedef enum
 {
@@ -49,9 +51,19 @@ typedef struct
 	t_Move moveList[4];
 } t_Poke;
 
+float typeChart[4][4]={
+				/*defender*/
+	/*offender*//*noType	feu		plante	eau*/
+	/*notype*/		1.,		1.,		1.,		1.,
+	/*feu*/			1.,		0.5,	2.,		0.5,
+	/*plante*/		1.,		0.5,	0.5,	2.,
+	/*eau*/			1.,		2.,		0.5,	0.5
+};
+
+
 void generatePoke(t_Poke *p)
 {
-
+	/*
 	FILE *dataPoke;
 	dataPoke = fopen("PokeBDD.txt", "r");
 	if (dataPoke == NULL)
@@ -75,8 +87,8 @@ void generatePoke(t_Poke *p)
 				break;
 			}
 		}
-
-		strcpy(p->name, namePoke);
+		*/
+		strcpy(p->name,"dummy");
 		p->gender = rand() % 2;
 		p->lvl = rand() % 100 + 1;
 		p->nature = rand() % 25;
@@ -94,8 +106,7 @@ void generatePoke(t_Poke *p)
 			p->moveList[i].power = -1;
 		}
 	}
-	fclose(dataPoke);
-}
+	//fclose(dataPoke);
 
 t_Move generateRandomMove()
 {
@@ -240,4 +251,13 @@ void initData()
 {
 	initNature();
 	srand(time(NULL));
+}
+
+void printChart(){
+	for(int i=0;i<typeNumber;i++){
+		for(int j=0;j<typeNumber;j++){
+			printf("%f\t",typeChart[i][j]);
+		}
+		printf("\n");
+	}
 }
