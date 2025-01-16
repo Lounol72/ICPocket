@@ -108,15 +108,13 @@ int main(void) {
             }
             if(event.type == SDL_WINDOWEVENT)
             {
-                if (event.window.event == SDL_WINDOWEVENT_RESIZED || event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED) {
+                if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
 
                     float newWidth = event.window.data1;
                     float newHeight = event.window.data2;
 
                     scale_width = newWidth / win.w;
                     scale_height = newHeight / win.h;
-
-                    SDL_Log(" scale_width : %f scale_height : %f", scale_width, scale_height);
 
                     updatePosButtons(buttons, buttonCount, scale_width, scale_height);
 

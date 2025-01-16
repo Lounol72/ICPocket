@@ -88,5 +88,5 @@ void drawButton(SDL_Surface* surface, Bouton* button, TTF_Font* font);
  */
 void resizeButtons(Bouton* b[],int bSize, float scaleX, float scaleY);
 void uptadeSizeBoutons(Bouton *b, int x, int y);
-void updatePosButtons(Bouton* b[], int bSize, int x, int y);
+void updatePosButtons(Bouton* b[], int bSize, float scaleX, float scaleY);
 #endif // BOUTONS_H

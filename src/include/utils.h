@@ -11,8 +11,8 @@
  */ 
 typedef struct {
     SDL_Window* window;      /**< Fenêtre SDL */
-    float w;                 /**< Largeur de la fenêtre */
-    float h;                 /**< Hauteur de la fenêtre */
+    int w;                 /**< Largeur de la fenêtre */
+    int h;                 /**< Hauteur de la fenêtre */
     SDL_Surface* image;      /**< Surface de l'image affichée */
     SDL_Surface* icon;       /**< Icône de la fenêtre */
     Mix_Music* music;        /**< Musique de fond */
@@ -28,7 +28,7 @@ typedef struct {
  * @param height Hauteur de la fenêtre.
  * @return int 0 en cas de succès, -1 en cas d'erreur.
  */
-int initialize(Window* win, float w, float h);
+int initialize(Window* win, int w, int h);
 
 /**
  * @brief Libère les ressources SDL et quitte le programme.

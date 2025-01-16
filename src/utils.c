@@ -6,7 +6,7 @@
 #include "include/constants.h"
 
 
-int initialize(Window* win, float w , float h) {
+int initialize(Window* win, int w , int h) {
     win->w = w;
     win->h = h;
     // Initialize SDL
