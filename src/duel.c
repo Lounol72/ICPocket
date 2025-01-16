@@ -184,6 +184,7 @@ int main(){
 	t_Team bleu;
 	initTeam(&rouge);
 	initTeam(&bleu);
-	testSwitch(&rouge,&bleu); //use testSwitch or testBattle to try the program's features
+	//testSwitch(&rouge,&bleu); use testSwitch or testBattle to try the program's features
+	printChart();
 	return 0;
 }
