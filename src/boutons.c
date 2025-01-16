@@ -17,7 +17,7 @@ void InitBoutons(Bouton *b, float x, float y, float width, float height, char *t
     b->image = IMG_Load(image);
     if (!b->image) {
         // Handle error if image loading fails
-        printf("Failed to load image: %s\n", IMG_GetError());
+        SDL_Log("Failed to load image: %s\n", IMG_GetError());
     }
     b->surface = surface;
     b->textColor.r = textColor[0];
