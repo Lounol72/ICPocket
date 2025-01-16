@@ -23,6 +23,7 @@ void handleInputs(Window* win, State* currentState, SDL_Event event, int* draggi
         // Quit event
             quitSDL(win, 0);
             break;
+        
         case SDL_KEYDOWN:
         // Keyboard events
             switch (event.key.keysym.sym) {
@@ -43,6 +44,7 @@ void handleInputs(Window* win, State* currentState, SDL_Event event, int* draggi
                     break;
                 case SDLK_ESCAPE:
                     printf("Pause the game\n");
+                    if(*currentState == JEU) retourMenu.action(retourMenu.actionParam);
                     break;
                 default:
                     break;
@@ -61,7 +63,7 @@ void handleInputs(Window* win, State* currentState, SDL_Event event, int* draggi
                     if (Cliqued(&pageParam, x, y) &&  *currentState == MENU ) // Check if the button is clicked
                         pageParam.action(pageParam.actionParam); // Call the action function with the parameter
                     
-                    if(Cliqued(&retourMenu,x,y) &&  *currentState == PARAMETRE)
+                    if(Cliqued(&retourMenu,x,y) &&  *currentState != MENU)
                         retourMenu.action(retourMenu.actionParam);
                     if(Cliqued(&jouer,x,y) && *currentState == MENU) jouer.action(jouer.actionParam);
                 }

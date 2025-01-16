@@ -2,7 +2,7 @@
 #include "include/state.h"
 
 // Function to initialize a button
-void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text,const int *color, void (*action)(void*), void* actionParam, char *image , SDL_Surface *surface) {
+void InitBoutons(Bouton *b, float x, float y, float width, float height, char *text,const int *color, void (*action)(void*), void* actionParam, char *image , SDL_Surface *surface, int* textColor) {
     b->rect.x = x;
     b->rect.y = y;
     b->rect.w = width;
@@ -15,7 +15,15 @@ void InitBoutons(Bouton *b, int x, int y, int width, int height, char *text,cons
     b->actionParam = actionParam;
     b->text = text;
     b->image = IMG_Load(image);
+    if (!b->image) {
+        // Handle error if image loading fails
+        SDL_Log("Failed to load image: %s\n", IMG_GetError());
+    }
     b->surface = surface;
+    b->textColor.r = textColor[0];
+    b->textColor.g = textColor[1];
+    b->textColor.b = textColor[2];
+    b->textColor.a = textColor[3];
 }
 
 // Function to initialize a slider
@@ -40,10 +48,20 @@ int Cliqued(Bouton *b, int x, int y) {
         y >= b->rect.y && y <= b->rect.y + b->rect.h);
 }
 
+void resizeButtons(Bouton* b[],int bSize, float scaleX, float scaleY){
+    for(int i = 0 ; i < bSize; i++)
+    {
+        b[i]->rect.x *= scaleX;
+        b[i]->rect.y *= scaleY;
+        b[i]->rect.w *= scaleX;
+        b[i]->rect.h *= scaleY;
+    }
+}
+
 // Function to draw a button on the given surface
-void drawButton(SDL_Surface* surface, Bouton* button, TTF_Font* font, SDL_Color textColor) {
+void drawButton(SDL_Surface* surface, Bouton* button, TTF_Font* font) {
     SDL_FillRect(surface, &button->rect, SDL_MapRGB(surface->format, button->color.r, button->color.g, button->color.b));
-    SDL_Surface* buttonTextSurface = TTF_RenderText_Solid(font, button->text, textColor);
+    SDL_Surface* buttonTextSurface = TTF_RenderText_Solid(font, button->text ,button->textColor);
     if (!buttonTextSurface) {
         SDL_Log("Erreur création surface texte bouton : %s", TTF_GetError());
     } else {
@@ -52,3 +70,9 @@ void drawButton(SDL_Surface* surface, Bouton* button, TTF_Font* font, SDL_Color 
         SDL_FreeSurface(buttonTextSurface);
     }
 }
+
+void uptadeSizeBoutons(Bouton *b, int x, int y) {
+    b->rect.x = x;
+    b->rect.y = y;
+}
+

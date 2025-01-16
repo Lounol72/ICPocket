@@ -12,5 +12,7 @@ extern Bouton retourMenu;
 void drawMenu(SDL_Surface* surface, SDL_Surface* image);
 void drawHighlight(SDL_Surface * surface, Bouton * b);
 void changeState(void* targetState);
+void drawJeux(SDL_Surface* surface);
+
 
 #endif 
