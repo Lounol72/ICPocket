@@ -9,6 +9,8 @@
 int initialize(Window* win, int w , int h) {
     win->w = w;
     win->h = h;
+    win->initialW = w;
+    win->initialH = h;
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
         SDL_Log("Erreur initialisation SDL : %s", SDL_GetError());

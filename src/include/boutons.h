@@ -9,6 +9,7 @@
 
 typedef struct {
     SDL_Rect rect; // Rectangle representing the button
+    SDL_Rect initialRect;
     char *text; // Text to be displayed on the button
     SDL_Color color; // r ,g ,b ,a
     void (*action)(void*); // Function to be called when the button is clicked

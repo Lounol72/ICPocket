@@ -55,7 +55,7 @@ int main(void) {
 
     int now = 0;
     int ex = 0;
-    int periodeFPS = 20; //20 ms pour 50fps
+    int periodeFPS = 16; //16 ms pour 60fps
     int dt  = 0;
     
     initBoutons(menu);
@@ -114,24 +114,22 @@ int main(void) {
                 if (event.type == SDL_QUIT) {
                     quitSDL(&win, 0);
                 }
-                if(event.type == SDL_WINDOWEVENT)
+                if(event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_RESIZED)
                 {
-                    if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
+                    float newWidth = event.window.data1;
+                    float newHeight = event.window.data2;
 
-                        float newWidth = event.window.data1;
-                        float newHeight = event.window.data2;
+                    scale_width = newWidth / win.initialW;
+                    scale_height = newHeight / win.initialH;
 
-                        scale_width = newWidth / win.w;
-                        scale_height = newHeight / win.h;
+                    updatePosButtons(buttons, buttonCount, scale_width, scale_height);
 
-                        updatePosButtons(buttons, buttonCount, scale_width, scale_height);
+                    win.w = newWidth;
+                    win.h = newHeight;
 
-                        win.w = newWidth;
-                        win.h = newHeight;
+                    menu = SDL_GetWindowSurface(win.window);
                         
-                        menu = SDL_GetWindowSurface(win.window);
-                        
-                    }
+                    
                 }
                 handleInputs(&win, currentState, event, &dragging);
             }
