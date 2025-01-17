@@ -52,6 +52,11 @@ void initBoutons(SDL_Surface* menu){
 }
 
 int main(void) {
+
+    int now = 0;
+    int ex = 0;
+    int periodeFPS = 20; //20 ms pour 50fps
+    int dt  = 0;
     
     initBoutons(menu);
     int dragging = 0;
@@ -67,66 +72,72 @@ int main(void) {
     }
 
     while (1) {
-        SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 255, 255, 255)); 
+        now = SDL_GetTicks();
+        dt = now - ex;
+        if (dt > periodeFPS){
+            SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 255, 255, 255)); 
 
-        // Draw the different elements either the menu or the parameters
-        if (*currentState == MENU) {
-            if (!win.musicPlaying) {
-                if (Mix_PlayMusic(win.music, -1) == -1) {
-                    SDL_Log("Erreur lecture musique : %s", Mix_GetError());
-                } else {
-                    win.musicPlaying = 1;
+            // Draw the different elements either the menu or the parameters
+            if (*currentState == MENU) {
+                if (!win.musicPlaying) {
+                    if (Mix_PlayMusic(win.music, -1) == -1) {
+                        SDL_Log("Erreur lecture musique : %s", Mix_GetError());
+                    } else {
+                        win.musicPlaying = 1;
+                    }
+                }
+                drawMenu(menu, win.image);
+            }else if(*currentState == JEU){
+                uptadeSizeBoutons(&retourMenu, 25, 600);
+                drawJeux(menu);
+
+
+            } else {
+                if (win.musicPlaying) {
+                    Mix_HaltMusic();
+                    win.musicPlaying = 0;
+                }
+                
+                if (*currentState == PARAMETRE) {
+                
+                    drawParametre(menu);
+                    drawVolumeControl(menu, win.musicVolume);
                 }
             }
-            drawMenu(menu, win.image);
-        }else if(*currentState == JEU){
-            uptadeSizeBoutons(&retourMenu, 25, 600);
-            drawJeux(menu);
 
+            // Update the window
+            SDL_UpdateWindowSurface(win.window);
 
-        } else {
-            if (win.musicPlaying) {
-                Mix_HaltMusic();
-                win.musicPlaying = 0;
-            }
-            
-            if (*currentState == PARAMETRE) {
-            
-                drawParametre(menu);
-                drawVolumeControl(menu, win.musicVolume);
-            }
-        }
-
-        // Update the window
-        SDL_UpdateWindowSurface(win.window);
-
-        // Handle the events
-        SDL_Event event;
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT) {
-                quitSDL(&win, 0);
-            }
-            if(event.type == SDL_WINDOWEVENT)
-            {
-                if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
-
-                    float newWidth = event.window.data1;
-                    float newHeight = event.window.data2;
-
-                    scale_width = newWidth / win.w;
-                    scale_height = newHeight / win.h;
-
-                    updatePosButtons(buttons, buttonCount, scale_width, scale_height);
-
-                    win.w = newWidth;
-                    win.h = newHeight;
-                    
-                    menu = SDL_GetWindowSurface(win.window);
-                    
+            // Handle the events
+            SDL_Event event;
+            while (SDL_PollEvent(&event)) {
+                if (event.type == SDL_QUIT) {
+                    quitSDL(&win, 0);
                 }
+                if(event.type == SDL_WINDOWEVENT)
+                {
+                    if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
+
+                        float newWidth = event.window.data1;
+                        float newHeight = event.window.data2;
+
+                        scale_width = newWidth / win.w;
+                        scale_height = newHeight / win.h;
+
+                        updatePosButtons(buttons, buttonCount, scale_width, scale_height);
+
+                        win.w = newWidth;
+                        win.h = newHeight;
+                        
+                        menu = SDL_GetWindowSurface(win.window);
+                        
+                    }
+                }
+                handleInputs(&win, currentState, event, &dragging);
             }
-            handleInputs(&win, currentState, event, &dragging);
+            ex = now;
         }
+        else SDL_Delay(periodeFPS - dt);
     }
 
     quitSDL(&win, 0);
