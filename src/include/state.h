@@ -18,4 +18,13 @@ typedef enum {MENU, SETTINGS, GAME} State;
 
 extern State* currentState;
 
+/**
+ * @brief Handles the UI by drawing the current state of the game
+ * 
+ * @param surface surface to draw on
+ * @param win structure containing the window
+ */
+void drawCurrentState(SDL_Surface* surface, Window* win);
+
+
 #endif

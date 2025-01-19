@@ -73,7 +73,7 @@ int initialize(Window* win, int w, int h) {
     SDL_SetWindowIcon(win->window, win->icon);
 
     // Charger l'image.
-    win->image = IMG_Load("assets/MENU_TEST.png");
+    win->image = IMG_Load("assets/menu.jpg");
     if (!win->image) {
         SDL_Log("Erreur chargement image : %s", SDL_GetError());
         SDL_DestroyWindow(win->window);

@@ -42,14 +42,7 @@ State* currentState = &valueState;
 Window win = {0};
 SDL_Surface* menu = NULL;
 
-void initializeButtons(SDL_Surface* menu) {
-    InitBoutons(&jouer,50,540,230,120,"Jouer",RED, changeState, &jouerState, "assets/Iconjpg.jpg", menu, BLACK);
-    InitBoutons(&pageParam, 525, 540, 230, 120, "Param", BLUE, changeState, &paramState, "assets/Iconjpg.jpg", menu, BLACK);
-    InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);
-    InitBoutons(&TEST, 850, 50, 200, 100, " ", GREY, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);
-    InitBoutons(&sauvegarderMenu, 500, 50, 200, 100, "Save", RED, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);   
-    InitSlider(&volumeSlider, 50, 100, 400, 20, "Volume", GREY, win.musicVolume);
-}
+void initializeButtons(SDL_Surface* menu);
 
 int main(void) {
 
@@ -74,41 +67,58 @@ int main(void) {
     }
 
     while (1) {
-        SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 255, 255, 255)); 
+        now = SDL_GetTicks();
+        dt = now - ex;
+        if (dt >= periodeFPS) {
+            
+            SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 255, 255, 255)); 
 
-        // Draw the different elements either the menu or the parameters
-        drawCurrentState(menu, &win);
+            // Draw the different elements either the menu or the parameters
+            drawCurrentState(menu, &win);
 
-        // Update the window
-        SDL_UpdateWindowSurface(win.window);
+            // Update the window
+            SDL_UpdateWindowSurface(win.window);
 
-        // Handle the events
-        SDL_Event event;
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT) {
-                quitSDL(&win, 0);
+            // Handle the events
+            SDL_Event event;
+            while (SDL_PollEvent(&event)) {
+                if (event.type == SDL_QUIT) {
+                    quitSDL(&win, 0);
+                }
+                if(event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_RESIZED)
+                {
+                    float newWidth = event.window.data1;
+                    float newHeight = event.window.data2;
+
+                    scale_width = newWidth / win.initialW;
+                    scale_height = newHeight / win.initialH;
+
+                    updatePosButtons(buttons, buttonCount, scale_width, scale_height);
+
+                    win.w = newWidth;
+                    win.h = newHeight;
+
+                    menu = SDL_GetWindowSurface(win.window);
+
+                }
+                handleInputs(&win, currentState, event, &dragging);
             }
-            if(event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_RESIZED)
-            {
-                float newWidth = event.window.data1;
-                float newHeight = event.window.data2;
-
-                scale_width = newWidth / win.initialW;
-                scale_height = newHeight / win.initialH;
-
-                updatePosButtons(buttons, buttonCount, scale_width, scale_height);
-
-                win.w = newWidth;
-                win.h = newHeight;
-
-                menu = SDL_GetWindowSurface(win.window);
-
-            }
-            handleInputs(&win, currentState, event, &dragging);
+            ex = now;
+        } else {
+            SDL_Delay(periodeFPS - dt);
         }
     }
 
     quitSDL(&win, 0);
     return 0;
     
+}
+
+void initializeButtons(SDL_Surface* menu) {
+    InitBoutons(&jouer,50,540,230,120,"Jouer",RED, changeState, &jouerState, "assets/Iconjpg.jpg", menu, BLACK);
+    InitBoutons(&pageParam, 525, 540, 230, 120, "Param", BLUE, changeState, &paramState, "assets/Iconjpg.jpg", menu, BLACK);
+    InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);
+    InitBoutons(&TEST, 850, 50, 200, 100, " ", GREY, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);
+    InitBoutons(&sauvegarderMenu, 500, 50, 200, 100, "Save", RED, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);   
+    InitSlider(&volumeSlider, 50, 100, 400, 20, "Volume", GREY, win.musicVolume);
 }

@@ -44,7 +44,7 @@ void handleInputs(Window* win, State* currentState, SDL_Event event, int* draggi
                     break;
                 case SDLK_ESCAPE:
                     printf("Pause the game\n");
-                    if(*currentState == JEU) retourMenu.action(retourMenu.actionParam);
+                    if(*currentState == GAME) retourMenu.action(retourMenu.actionParam);
                     break;
                 default:
                     break;
@@ -52,16 +52,14 @@ void handleInputs(Window* win, State* currentState, SDL_Event event, int* draggi
             break;
         // Mouse events 
         case SDL_MOUSEBUTTONDOWN:
-            printf("Mouse clicked\n");
             int x, y;
             SDL_GetMouseState(&x, &y);
-            printf("Mouse position: (%d, %d)\n", x, y);
+            
             if (event.button.button == SDL_BUTTON_LEFT) // Left button clicked
                 {
-                    printf("Left button clicked\n");
-                    printf("%i\n", *currentState);
+                    
                     if (Cliqued(&pageParam, x, y) &&  *currentState == MENU ){ // Check if the button is clicked
-                        SDL_Log("Button clicked\n");
+                        
                         pageParam.action(pageParam.actionParam); // Call the action function with the parameter
                     }
                     if(Cliqued(&retourMenu,x,y) &&  *currentState != MENU){
@@ -72,7 +70,7 @@ void handleInputs(Window* win, State* currentState, SDL_Event event, int* draggi
                         jouer.action(jouer.actionParam);
                         }
                 }
-            if (*currentState == PARAMETRE && SDL_PointInRect(&(SDL_Point){x, y}, &(volumeSlider.bar)))
+            if (*currentState == SETTINGS && SDL_PointInRect(&(SDL_Point){x, y}, &(volumeSlider.bar)))
                 *dragging = 1;
             break;
         case SDL_MOUSEBUTTONUP:

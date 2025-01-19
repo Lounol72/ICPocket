@@ -43,9 +43,7 @@ void changeState(void* targetState) {
         return;
     }
 
-    SDL_Log("Changing state from %d to %d", *currentState, *newState);
     currentState = newState;
-    SDL_Log("State changed to %d", *currentState);
 }
 
 void drawGame(SDL_Surface* surface) {
