@@ -5,75 +5,102 @@
 #include "include/utils.h"
 #include "include/constants.h"
 
+int initialize(Window* win, int w, int h) {
+    if (!win) return -1; // Vérification du pointeur nul.
 
-int initialize(Window* win, int w , int h) {
+    // Initialisation des dimensions de la fenêtre.
     win->w = w;
     win->h = h;
     win->initialW = w;
     win->initialH = h;
-    // Initialize SDL
+
+    // Définir le driver audio.
+    SDL_setenv("SDL_AUDIODRIVER", "pulseaudio", 1);
+
+    // Initialiser SDL.
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
         SDL_Log("Erreur initialisation SDL : %s", SDL_GetError());
         return -1;
     }
-    
-    // Initialize SDL_image
-    if ((IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG) & (IMG_INIT_JPG | IMG_INIT_PNG)) == 0) {
+
+    // Initialiser SDL_image.
+    if (!(IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG) & (IMG_INIT_JPG | IMG_INIT_PNG))) {
         SDL_Log("Erreur initialisation SDL_image : %s", IMG_GetError());
         SDL_Quit();
         return -1;
     }
 
-    // Initialize Mixer
-    if (Mix_OpenAudio(96000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) < 0) {
+    // Initialiser SDL_mixer.
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) < 0) {
         SDL_Log("Erreur initialisation SDL_mixer : %s", Mix_GetError());
+        IMG_Quit();
         SDL_Quit();
         return -1;
     }
 
-    // Initialize SDL_ttf
+    // Initialiser SDL_ttf.
     if (TTF_Init() == -1) {
         SDL_Log("Erreur initialisation SDL_ttf : %s", TTF_GetError());
+        Mix_CloseAudio();
+        IMG_Quit();
         SDL_Quit();
         return -1;
     }
 
-    // Load the icon
+    // Charger l'icône.
     win->icon = IMG_Load("assets/Iconjpg.jpg");
     if (!win->icon) {
         SDL_Log("Erreur chargement icône : %s", SDL_GetError());
-        quitSDL(win, -1);
+        TTF_Quit();
+        Mix_CloseAudio();
+        IMG_Quit();
+        SDL_Quit();
         return -1;
     }
 
-    // Create the window
-    win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, win->w , win->h , SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+    // Créer la fenêtre.
+    win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, win->w, win->h, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
     if (!win->window) {
-        SDL_Log("Erreur de création de la fenêtre : %s", SDL_GetError());
-        quitSDL(win, -1);
+        SDL_Log("Erreur création fenêtre : %s", SDL_GetError());
+        SDL_FreeSurface(win->icon);
+        TTF_Quit();
+        Mix_CloseAudio();
+        IMG_Quit();
+        SDL_Quit();
         return -1;
     }
 
-    // Set the window icon
     SDL_SetWindowIcon(win->window, win->icon);
 
-    // Load the image
+    // Charger l'image.
     win->image = IMG_Load("assets/MENU_TEST.png");
     if (!win->image) {
         SDL_Log("Erreur chargement image : %s", SDL_GetError());
-        quitSDL(win, -1);
+        SDL_DestroyWindow(win->window);
+        SDL_FreeSurface(win->icon);
+        TTF_Quit();
+        Mix_CloseAudio();
+        IMG_Quit();
+        SDL_Quit();
         return -1;
     }
 
-    // Load the music
+    // Charger la musique.
     win->music = Mix_LoadMUS("assets/audio/Ulysse.mp3");
     if (!win->music) {
         SDL_Log("Erreur chargement musique : %s", Mix_GetError());
-        quitSDL(win, -1);
+        SDL_FreeSurface(win->image);
+        SDL_DestroyWindow(win->window);
+        SDL_FreeSurface(win->icon);
+        TTF_Quit();
+        Mix_CloseAudio();
+        IMG_Quit();
+        SDL_Quit();
         return -1;
     }
-    
-    win->musicVolume = MIX_MAX_VOLUME * 50 / 100 ;
+
+    // Configurer le volume de la musique.
+    win->musicVolume = MIX_MAX_VOLUME * 50 / 100;
     Mix_VolumeMusic(win->musicVolume);
     win->musicPlaying = 0;
 
@@ -91,6 +118,7 @@ void quitSDL(Window* win, int codeError) {
     SDL_Quit();
     exit(codeError);
 }
+
 
 // Function to initialize SDL_ttf and load the font
 TTF_Font* initializeFont(const char* fontPath, int fontSize) {

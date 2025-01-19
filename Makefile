@@ -7,8 +7,8 @@ INCLUDE_DIR = $(SRC_DIR)/include
 OBJ_DIR = $(SRC_DIR)/obj
 
 # Fichiers source et objets
-SRCS = main.c $(SRC_DIR)/boutons.c $(SRC_DIR)/inputs.c $(SRC_DIR)/menu.c $(SRC_DIR)/utils.c $(SRC_DIR)/parametre.c
-OBJS = $(patsubst %.c, $(OBJ_DIR)/%.o, $(notdir $(SRCS)))
+SRCS = main.c $(SRC_DIR)/boutons.c $(SRC_DIR)/inputs.c $(SRC_DIR)/menu.c $(SRC_DIR)/utils.c $(SRC_DIR)/parametre.c $(SRC_DIR)/state.c
+OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(notdir $(SRCS)))
 
 # Compilateur et options de compilation
 CC = gcc

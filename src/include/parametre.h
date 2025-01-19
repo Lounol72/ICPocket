@@ -9,7 +9,7 @@
  * 
  * @param surface La surface SDL sur laquelle dessiner les paramètres.
  */
-void drawParametre(SDL_Surface* surface);
+void drawSettings(SDL_Surface* surface);
 
 /**
  * @brief Dessine le contrôle du volume sur la surface donnée.

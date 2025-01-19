@@ -49,15 +49,6 @@ int Cliqued(Bouton *b, int x, int y) {
         y >= b->rect.y && y <= b->rect.y + b->rect.h);
 }
 
-void resizeButtons(Bouton* b[],int bSize, float scaleX, float scaleY){
-    for(int i = 0 ; i < bSize; i++)
-    {
-        b[i]->rect.x *= scaleX;
-        b[i]->rect.y *= scaleY;
-        b[i]->rect.w *= scaleX;
-        b[i]->rect.h *= scaleY;
-    }
-}
 
 // Function to draw a button on the given surface
 void drawButton(SDL_Surface* surface, Bouton* button, TTF_Font* font) {
@@ -72,7 +63,7 @@ void drawButton(SDL_Surface* surface, Bouton* button, TTF_Font* font) {
     }
 }
 
-void uptadeSizeBoutons(Bouton *b, int x, int y) {
+void updateSizeBoutons(Bouton *b, int x, int y) {
     b->rect.x = x;
     b->rect.y = y;
 }

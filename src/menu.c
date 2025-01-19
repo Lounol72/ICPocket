@@ -9,6 +9,7 @@ extern Bouton jouer;
 extern Bouton TEST;
 
 extern Bouton retourMenu;
+
 void drawMenu(SDL_Surface* surface, SDL_Surface* image) {
     SDL_Rect positionImage = {0, 0, 0, 0};
     SDL_BlitSurface(image, NULL, surface, &positionImage);
@@ -31,10 +32,23 @@ void drawHighlight(SDL_Surface* surface, Bouton * b) {
 }
 
 void changeState(void* targetState) {
-    currentState = (State*)targetState;
+    if (targetState == NULL) {
+        SDL_Log("Invalid state transition: targetState is NULL");
+        return;
+    }
+
+    State* newState = (State*)targetState;
+    if (*newState != MENU && *newState != GAME && *newState != SETTINGS) {
+        SDL_Log("Invalid state transition: unknown targetState");
+        return;
+    }
+
+    SDL_Log("Changing state from %d to %d", *currentState, *newState);
+    currentState = newState;
+    SDL_Log("State changed to %d", *currentState);
 }
 
-void drawJeux(SDL_Surface* surface) {
+void drawGame(SDL_Surface* surface) {
     TTF_Font* font = initializeFont("assets/fonts/arial.ttf", 24);
     if (!font) {
         return;

@@ -13,8 +13,8 @@ typedef struct {
     SDL_Window* window;      /**< Fenêtre SDL */
     int w;                 /**< Largeur de la fenêtre */
     int h;                 /**< Hauteur de la fenêtre */
-    const int initialW;
-    const int initialH;
+    int initialW;
+    int initialH;
     SDL_Surface* image;      /**< Surface de l'image affichée */
     SDL_Surface* icon;       /**< Icône de la fenêtre */
     Mix_Music* music;        /**< Musique de fond */

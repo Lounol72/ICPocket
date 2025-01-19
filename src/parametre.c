@@ -11,7 +11,7 @@ extern Bouton retourMenu;
 extern Bouton sauvegarderMenu;
 
 // Function to draw the parameters on the given surface
-void drawParametre(SDL_Surface* surface) {
+void drawSettings(SDL_Surface* surface) {
     TTF_Font* font = initializeFont("assets/fonts/arial.ttf", 24);
     if (!font) {
         return;
