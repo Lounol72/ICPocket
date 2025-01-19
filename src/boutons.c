@@ -76,5 +76,7 @@ void updatePosButtons(Bouton* b[], int bSize, float scaleX, float scaleY) {
         }
         b[i]->rect.x = (int)(b[i]->initialRect.x * scaleX);
         b[i]->rect.y = (int)(b[i]->initialRect.y * scaleY);
+        b[i]->rect.w = (int)(b[i]->initialRect.w * scaleX);
+        b[i]->rect.h = (int)(b[i]->initialRect.h * scaleY);
     }
 }

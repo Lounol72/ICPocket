@@ -57,7 +57,20 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "cSpell.words": [
-    "Boutons"
+    "Blit",
+    "bouton",
+    "Boutons",
+    "création",
+    "Erreur",
+    "fenêtre",
+    "Iconjpg",
+    "jouer",
+    "obtention",
+    "periode",
+    "Résolution",
+    "retour",
+    "sauvegarder",
+    "texte"
   ],
   "files.associations": {
     "utils.h": "c"
