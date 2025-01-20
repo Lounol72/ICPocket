@@ -5,7 +5,7 @@
 #include "utils.h"
 #include "boutons.h"
 #include "parametre.h"
-#include "menu.h"
+
 
 /*Enumeration of the different menus we could implement
  * 

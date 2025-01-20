@@ -45,13 +45,12 @@ SDL_Surface* menu = NULL;
 void initializeButtons(SDL_Surface* menu);
 
 int main(void) {
+    const int FPS = 60;
+    const int frameDelay = 1000 / FPS;
 
-    int now = 0;
-    int ex = 0;
-    int periodeFPS = 16; //16 ms pour 60fps
-    int dt  = 0;
-    
-    
+    Uint32 frameStart;
+    int frameTime;
+
     int dragging = 0;
 
     initializeButtons(menu);
@@ -67,55 +66,52 @@ int main(void) {
     }
 
     while (1) {
-        now = SDL_GetTicks();
-        dt = now - ex;
-        if (dt >= periodeFPS) {
-            
-            SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 255, 255, 255)); 
+        frameStart = SDL_GetTicks();
 
-            // Draw the different elements either the menu or the parameters
-            drawCurrentState(menu, &win);
+        SDL_FillRect(menu, NULL, SDL_MapRGB(menu->format, 255, 255, 255)); 
 
-            // Update the window
-            SDL_UpdateWindowSurface(win.window);
+        // Draw the different elements either the menu or the parameters
+        drawCurrentState(menu, &win);
 
-            // Handle the events
-            SDL_Event event;
-            while (SDL_PollEvent(&event)) {
-                if (event.type == SDL_QUIT) {
-                    quitSDL(&win, 0);
-                }
-                if(event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_RESIZED)
-                {
-                    float newWidth = event.window.data1;
-                    float newHeight = event.window.data2;
+        // Update the window
+        SDL_UpdateWindowSurface(win.window);
 
-                    scale_width = newWidth / win.initialW;
-                    scale_height = newHeight / win.initialH;
-
-                    updatePosButtons(buttons, buttonCount, scale_width, scale_height);
-
-                    win.w = newWidth;
-                    win.h = newHeight;
-
-                    menu = SDL_GetWindowSurface(win.window);
-
-                }
-                handleInputs(&win, currentState, event, &dragging);
+        // Handle the events
+        SDL_Event event;
+        while (SDL_PollEvent(&event)) {
+            if (event.type == SDL_QUIT) {
+                quitSDL(&win, 0);
             }
-            ex = now;
-        } else {
-            SDL_Delay(periodeFPS - dt);
+            if(event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_RESIZED) {
+                float newWidth = event.window.data1;
+                float newHeight = event.window.data2;
+
+                scale_width = newWidth / win.initialW;
+                scale_height = newHeight / win.initialH;
+
+                updatePosButtons(buttons, buttonCount, scale_width, scale_height);
+
+                win.w = newWidth;
+                win.h = newHeight;
+
+                menu = SDL_GetWindowSurface(win.window);
+            }
+            handleInputs(&win, currentState, event, &dragging);
+        }
+
+        frameTime = SDL_GetTicks() - frameStart;
+
+        if (frameDelay > frameTime) {
+            SDL_Delay(frameDelay - frameTime);
         }
     }
 
     quitSDL(&win, 0);
     return 0;
-    
 }
 
 void initializeButtons(SDL_Surface* menu) {
-    InitBoutons(&jouer,50,540,230,120,"Jouer",RED, changeState, &jouerState, "assets/Iconjpg.jpg", menu, BLACK);
+    InitBoutons(&jouer, 50, 540, 230, 120, "Jouer", RED, changeState, &jouerState, "assets/Iconjpg.jpg", menu, BLACK);
     InitBoutons(&pageParam, 525, 540, 230, 120, "Param", BLUE, changeState, &paramState, "assets/Iconjpg.jpg", menu, BLACK);
     InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);
     InitBoutons(&TEST, 850, 50, 200, 100, " ", GREY, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);

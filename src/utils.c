@@ -6,7 +6,7 @@
 #include "include/constants.h"
 
 int initialize(Window* win, int w, int h) {
-    if (!win) return -1; // Vérification du pointeur nul.
+    if (!win) return -1; // Verification pointeur nul.
 
     // Initialisation des dimensions de la fenêtre.
     win->w = w;
@@ -116,6 +116,7 @@ void quitSDL(Window* win, int codeError) {
     IMG_Quit();
     TTF_Quit();
     SDL_Quit();
+    
     exit(codeError);
 }
 
