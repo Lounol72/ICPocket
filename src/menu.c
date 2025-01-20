@@ -54,7 +54,7 @@ void drawMenu(SDL_Surface* surface, SDL_Surface* image) {
     if (!font) {
         return;
     }
-    drawButton(surface, &pageParam, font); //passing surface to drawButton
+    drawButtonImage(surface, &pageParam); //passing surface to drawButton
     drawButton(surface, &jouer, font); //passing surface to drawButton
     drawButton(surface, &TEST, font); //passing surface to drawButton
     TTF_CloseFont(font);

@@ -111,10 +111,10 @@ int main(void) {
 }
 
 void initializeButtons(SDL_Surface* menu) {
-    InitBoutons(&jouer, 50, 540, 230, 120, "Jouer", RED, changeState, &jouerState, "assets/Iconjpg.jpg", menu, BLACK);
-    InitBoutons(&pageParam, 525, 540, 230, 120, "Param", BLUE, changeState, &paramState, "assets/Iconjpg.jpg", menu, BLACK);
-    InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);
+    InitBoutons(&jouer, 50, 540, 230, 120, "Jouer", RED, changeState, &jouerState, "assets/Buttons/Menu Buttons/Large Buttons/Large Buttons/New game Button.png", menu, BLACK);
+    InitBoutons(&pageParam, 525, 540, 230, 120, "Param", BLUE, changeState, &paramState, "assets/Buttons/Menu Buttons/Large Buttons/Colored Large Buttons/Options  col_Button.png", menu, BLACK);
+    InitBoutons(&retourMenu, 50, 450, 200, 100, "Menu", GREEN, changeState, &menuState, "assets/Buttons/Menu Buttons/Large Buttons/Colored Large Buttons/Menu  col_Button.png", menu, BLACK);
     InitBoutons(&TEST, 850, 50, 200, 100, " ", GREY, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);
-    InitBoutons(&sauvegarderMenu, 500, 50, 200, 100, "Save", RED, changeState, &menuState, "assets/Iconjpg.jpg", menu, BLACK);   
+    InitBoutons(&sauvegarderMenu, 500, 50, 200, 100, "Save", RED, changeState, &menuState, "assets/Buttons/Menu Buttons/Large Buttons/Colored Large Buttons/Load  col_Button.png", menu, BLACK);   
     InitSlider(&volumeSlider, 50, 100, 400, 20, "Volume", GREY, win.musicVolume);
 }

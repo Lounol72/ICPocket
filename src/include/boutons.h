@@ -79,6 +79,7 @@ int Cliqued(Bouton *b, int x ,int y);
  * @note The button text is centered on the button.
  */
 void drawButton(SDL_Surface* surface, Bouton* button, TTF_Font* font);
+void drawButtonImage(SDL_Surface* surface, Bouton* button);
 void updateSizeBoutons(Bouton *b, int x, int y);
 void updatePosButtons(Bouton* b[], int bSize, float scaleX, float scaleY);
 #endif // BOUTONS_H

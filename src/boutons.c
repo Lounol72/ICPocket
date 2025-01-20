@@ -62,6 +62,9 @@ void drawButton(SDL_Surface* surface, Bouton* button, TTF_Font* font) {
         SDL_FreeSurface(buttonTextSurface);
     }
 }
+void drawButtonImage(SDL_Surface* surface, Bouton* button) {
+    SDL_BlitSurface(button->image, NULL, surface, &button->rect);
+}
 
 void updateSizeBoutons(Bouton *b, int x, int y) {
     b->rect.x = x;
