@@ -2,6 +2,13 @@
 /*PITIE ECRIT PAS LES CODES EN UNE LIGNE*/
 #define NEUTRAL_STAT_CHANGE 6
 
+/*Temporaire : à mettre dans un .h*/
+
+int isAttacking(int);
+int isSwitching(int);
+
+/*Fin instructions .h*/
+
 typedef struct{
 	t_Poke team[6];
 } t_Team;
@@ -20,6 +27,16 @@ void printTeam(t_Team * t){
 			system("clear");
 		}
 	}
+}
+
+int testActionValidity(int action, t_Team * t){
+	if (isAttacking(action)){
+		return TRUE;
+	}
+	if (isSwitching(action)){
+		return t->team[action-10].current_pv>0?TRUE:FALSE;
+	}
+	return FALSE;
 }
 
 int calcStatFrom(t_Poke * p,int stat,int includeVariations){
@@ -110,13 +127,16 @@ void swapActualAttacker(t_Team * t, int swapIndex){
 	printf("Swapping Happened\n\n");
 }
 
-void playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
+int playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 	/*
 		use speed of pokemon to determine order
 		attack or switch
 		switch = exchanging index 0 with another index
 		attack = index 0 attack index 0 
 		*/
+
+	if(!testActionValidity(move1,t1) || !testActionValidity(move2,t2)) return FALSE;
+
 	if (PriorityForFirstPoke(&(t1->team[0]),&(t2->team[0]),move1,move2)){
 		if(isAttacking(move1)){
 			affectDamage(&(t1->team[0]),&(t2->team[0]),move1);
@@ -125,7 +145,7 @@ void playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 			swapActualAttacker(t1,move1);
 		}
 		else{
-			return;
+			return FALSE;
 		}
 		if(isAlive(&(t2->team[0]))){
 			if (isAttacking(move2)){
@@ -135,7 +155,7 @@ void playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 				swapActualAttacker(t2,move2);
 			}	
 			else{
-				return;
+				return FALSE;
 			}
 		}
 	}
@@ -147,7 +167,7 @@ void playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 			swapActualAttacker(t2,move2);
 		}
 		else{
-			return;
+			return FALSE;
 		}
 		if (isAlive(&(t1->team[0]))){
 			if(isAttacking(move1)){
@@ -157,10 +177,11 @@ void playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 				swapActualAttacker(t1,move1);
 			}
 			else{
-				return;
+				return FALSE;
 			}
 		}
 	}
+	return TRUE;
 
 }
 
