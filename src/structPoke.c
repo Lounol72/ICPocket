@@ -16,6 +16,8 @@
 typedef enum{noType=0,feu,plante,eau} t_Type;
 const int typeNumber=4;
 
+typedef enum{status=-1,physical=1,special=3} t_Categ;
+
 typedef enum
 {
 	male = 0,
@@ -34,6 +36,8 @@ typedef struct
 {
 	char name[15];
 	int power;
+	t_Type type;
+	t_Categ categ;
 } t_Move;
 
 typedef struct
@@ -41,6 +45,7 @@ typedef struct
 	int id;
 	char name[20];
 	t_Gender gender;
+	t_Type type[2];
 	int lvl;
 	int nature;
 	int current_pv;
@@ -92,6 +97,8 @@ void generatePoke(t_Poke *p)
 		p->gender = rand() % 2;
 		p->lvl = rand() % 100 + 1;
 		p->nature = rand() % 25;
+		p->type[0] = rand() % (typeNumber-1) + 1;
+		p->type[1] = rand() % typeNumber;
 		for (int i = 0; i < 6; i++)
 			p->baseStats[i] = rand() % 256;
 		for (int i = 0; i < 6; i++)
@@ -115,6 +122,8 @@ t_Move generateRandomMove()
 	{
 		strcpy(move.name, "Move Test");
 		move.power = rand() % 120 + 30;
+		move.categ = rand() % 2?physical:special;
+		move.type = rand() % (typeNumber-1) + 1;
 	}
 	return move;
 }
@@ -137,6 +146,17 @@ void printPoke(t_Poke *p)
 	case female:
 		printf("gender=female\n");
 		break;
+	}
+	switch (p->type[0]){
+		case feu:printf("type 1 = feu\n");break;
+		case eau:printf("type 1 = eau\n");break;
+		case plante:printf("type 1 = plante\n");break;
+	}
+	switch (p->type[1]){
+		case feu:printf("type 2 = feu\n");break;
+		case eau:printf("type 2 = eau\n");break;
+		case plante:printf("type 2 = plante\n");break;
+		default:printf("pure\n");
 	}
 	printf("nature=%s\n", tabNature[p->nature].nature);
 	printf("niveau=%d\n", p->lvl);
@@ -163,6 +183,24 @@ void printPoke(t_Poke *p)
 		{
 			printf("n°%d\nname=%s\n", i, p->moveList[i].name);
 			printf("power=%d\n", p->moveList[i].power);
+			switch (p->moveList[i].type){
+				case feu:printf("type = feu\n");break;
+				case eau:printf("type = eau\n");break;
+				case plante:printf("type = plante\n");break;
+			}
+			switch (p->moveList[i].categ)
+			{
+			case physical:
+				printf("categ = physique\n");
+				break;
+			case special:
+				printf("categ = special\n");
+				break;
+			
+			default:
+				break;
+			}
+			
 		}
 	}
 }

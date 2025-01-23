@@ -42,27 +42,31 @@ void initTeam(t_Team * t){
 int calcDamage(t_Poke * offender,t_Poke * defender,int indexMove){
 	int coupCritique=(rand()%24==0);
 	int damage;
+
+	int targetedStatOff=offender->moveList[indexMove].categ; //différenciation attaque/attaque spéciale
+	int targetedStatDef=targetedStatOff==ATT?DEF:SPD;
 	if (coupCritique){
 			damage = (((int)(offender->lvl*0.4+2)) *
-			calcStatFrom(offender,ATT,offender->statChanges[ATT]>=NEUTRAL_STAT_CHANGE?TRUE:FALSE) 
+			calcStatFrom(offender,targetedStatOff,offender->statChanges[ATT]>=NEUTRAL_STAT_CHANGE?TRUE:FALSE) 
 			* offender->moveList[indexMove].power /
-			calcStatFrom(defender,DEF,defender->statChanges[DEF]<=NEUTRAL_STAT_CHANGE?TRUE:FALSE) / 50 + 2 ) * 1.5;
+			calcStatFrom(defender,targetedStatDef,defender->statChanges[DEF]<=NEUTRAL_STAT_CHANGE?TRUE:FALSE) / 50 + 2 ) * 1.5;
 	}
 	else{
 		damage= (((int)((int)((int)(offender->lvl*0.4+2)) *
-		calcStatFrom(offender,ATT,TRUE) * offender->moveList[indexMove].power /
-		calcStatFrom(defender,DEF,TRUE)) / 50) + 2);
+		calcStatFrom(offender,targetedStatOff,TRUE) * offender->moveList[indexMove].power /
+		calcStatFrom(defender,targetedStatDef,TRUE)) / 50) + 2);
 	}
-	damage*=(rand()%16+85)/100.0;
+	damage*=(rand()%16+85)/100.0;  //fourchette aléatoire de dégats
+
+	damage*=offender->type[0]==offender->moveList[indexMove].type || offender->type[1]==offender->moveList[indexMove].type?1.5:1; // bonus STAB
+
+	damage*=typeChart[offender->moveList[indexMove].type][defender->type[0]]*typeChart[offender->moveList[indexMove].type][defender->type[1]]; // efficacité de types
+
+
 	printf("Attaque subis d'une puissance de %d\n avec une attaque de %d\ncontre une defence de %d\n",offender->moveList[indexMove].power,calcStatFrom(offender,ATT,TRUE),calcStatFrom(defender,DEF,TRUE));
 	printf("Dégats = %d\n",damage);
 	if (coupCritique) printf("Coup Critique!\n");
 	return damage;
-	/*
-	to add:
-		Bonus STAB
-		type CHART
-	*/
 }
 
 void setDefaultStatChanges(t_Poke * p){
@@ -161,6 +165,8 @@ void playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 }
 
 void testBattle(t_Team * rouge, t_Team * bleu){
+	printPoke(&(rouge->team[0]));
+	printPoke(&(bleu->team[0]));
 	printf("pv rouge : %d\n\n",rouge->team[0].current_pv);
 	printf("pv bleu : %d\n\n",bleu->team[0].current_pv);
 	while(isAlive(&(rouge->team[0])) && isAlive(&(bleu->team[0]))){
@@ -184,7 +190,6 @@ int main(){
 	t_Team bleu;
 	initTeam(&rouge);
 	initTeam(&bleu);
-	//testSwitch(&rouge,&bleu); use testSwitch or testBattle to try the program's features
-	printChart();
+	testBattle(&rouge,&bleu); //use testSwitch or testBattle to try the program's features
 	return 0;
 }
