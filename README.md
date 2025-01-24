@@ -70,3 +70,5 @@ Les fichiers audio doivent être au format MP3. Si vous avez un fichier dans un 
 - Nous quatre formons les quatre membres qui donnent chacun un starter au choix
 
 ## [Table RACI](https://docs.google.com/spreadsheets/d/18GRBhOJjPINtjTH3fe337HzVoUgaLmINAeefcjlDmGY/edit?usp=sharing)
+
+## [GANTT](https://docs.google.com/spreadsheets/d/1JiNN4hBVWgQdRoLmsXpOZefp3q4jUFyiuYVRdjpeE_4/edit?gid=1709744959#gid=1709744959)
