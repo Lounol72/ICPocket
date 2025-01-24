@@ -24,7 +24,6 @@ ButtonList MenuButtons = {NULL, 0};
 
 SDL_Texture *backgroundTexture = NULL;
 
-
 // List of buttons for settings
 SDL_Texture *backgroundTextureSettings = NULL;
 ButtonList SettingsButtons = {NULL, 0};
@@ -153,8 +152,8 @@ void mainLoop(Window *win) {
         return;
     }
 
-    buttonsMenu[0] = createButton(win->renderer,500, 104, 300, 100, (SDL_Color){0, 255, 255, 255}, changeState, &states[0]);
-    buttonsMenu[1] = createButton(win->renderer, 500, 258, 300, 100, (SDL_Color){0, 255, 255, 255}, changeState, &states[1]);
+    buttonsMenu[0] = createButton("Nouvelle Partie", win->renderer,500, 104, 300, 100, (SDL_Color){0, 255, 255, 255}, changeState, &states[0]);
+    buttonsMenu[1] = createButton("Charger une Partie", win->renderer, 500, 258, 300, 100, (SDL_Color){0, 255, 255, 255}, changeState, &states[1]);
 
     InitTextureButton(buttonsMenu[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
     InitTextureButton(buttonsMenu[1], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
@@ -197,6 +196,10 @@ void mainLoop(Window *win) {
         SDL_DestroyTexture(backgroundTexture);
         backgroundTexture = NULL;
     }
+    if (backgroundTextureSettings) {
+        SDL_DestroyTexture(backgroundTextureSettings);
+        backgroundTextureSettings = NULL;
+    }
 }
 
 //---------------------------------------------------------------------------------
@@ -218,7 +221,6 @@ void initWindow(Window *win, int width, int height)
     win->quit = 0;
     win->state = MENU;
 }
-
 
 void destroyWindow(Window *win) 
 {

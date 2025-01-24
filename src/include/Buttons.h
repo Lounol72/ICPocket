@@ -7,6 +7,7 @@
 
 
 typedef struct Button {
+    char nom[50];
     SDL_Rect rect;
     SDL_Rect initialRect;
     SDL_Color color;
@@ -41,7 +42,7 @@ typedef struct SliderList
 
 
 
-Button *createButton(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Color color, void (*onClick)(Window *, void *), void *data);
+Button *createButton(char *nom, SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Color color, void (*onClick)(Window *, void *), void *data);
 void InitTextureButton(Button *button, SDL_Renderer *renderer, const char *imagePath);
 void renderButton(Button *button);
 void renderButtonImage(Button *button);

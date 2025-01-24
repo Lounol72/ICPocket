@@ -3,7 +3,7 @@
 #include <SDL_image.h>
 #include <stdlib.h>
 
-Button *createButton(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Color color, void (*onClick)(Window *, void *), void *data) {
+Button *createButton(char *nom,SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Color color, void (*onClick)(Window *, void *), void *data) {
     Button *button = malloc(sizeof(Button));
     if (!button) {
         SDL_Log("Erreur d'allocation pour le bouton.");

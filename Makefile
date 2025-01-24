@@ -12,7 +12,7 @@ OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(notdir $(SRCS)))
 
 # Compilateur et options de compilation
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c11 `sdl2-config --cflags` -I/usr/include/SDL2
+CFLAGS = -Wall -Wextra -std=c11 -g `sdl2-config --cflags` -I/usr/include/SDL2
 
 # Bibliothèques à lier
 LIBS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
