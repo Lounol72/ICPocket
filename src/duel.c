@@ -104,14 +104,28 @@ int isSwitching(int move){
 	return move>=11 && move<16;
 }
 
+int resolveSpeedDuel(int speed1, int speed2){
+	if (speed1>speed2) return 1;
+	if (speed1<speed2) return 0;
+	return rand()%2; //speed tie : choose winner randomly
+}
+
 int PriorityForFirstPoke(t_Poke * p1, t_Poke * p2,int move1,int move2){
 	int speedOfP1=calcStatFrom(p1,SPE,TRUE);
 	int speedOfP2=calcStatFrom(p2,SPE,TRUE);
-	if(!isAttacking(move1) && !isAttacking(move2) || (isAttacking(move1) && isAttacking(move2))){
-		if (speedOfP1>speedOfP2) return 1;
-		if (speedOfP1<speedOfP2) return 0;
-		return rand()%2;
+
+	/*Cas attack only*/
+	if(isAttacking(move1) && isAttacking(move2)){
+		if(p1->moveList[move1].priority_lvl>p2->moveList[move2].priority_lvl) return 1;
+		if(p2->moveList[move2].priority_lvl>p1->moveList[move1].priority_lvl) return 0;
+		return resolveSpeedDuel(speedOfP1,speedOfP2); //same priority lvl
 	}
+
+	/*Cas switch only*/
+	if(isSwitching(move1) && isSwitching(move2)){
+		return resolveSpeedDuel(speedOfP1,speedOfP2);
+	}
+	/*Cas conflit switch vs attack*/
 	if (isAttacking(move1)) return 0;
 	return 1;
 }
@@ -210,7 +224,7 @@ void testBattle(t_Team * rouge, t_Team * bleu){
 		printf("pv rouge : %d\n\n",rouge->team[0].current_pv);
 		printf("pv bleu : %d\n\n",bleu->team[0].current_pv);
 	}
-	printPoke(&(rouge->team[0]));
+	//printPoke(&(rouge->team[0]));
 }
 
 void testPP(t_Team * rouge, t_Team * bleu){

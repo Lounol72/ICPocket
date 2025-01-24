@@ -41,6 +41,7 @@ typedef struct
 	int accuracy;
 	int current_pp;
 	int max_pp;
+	int priority_lvl;
 } t_Move;
 
 typedef struct
@@ -129,6 +130,7 @@ t_Move generateRandomMove()
 		move.type = rand() % (typeNumber-1) + 1;
 		move.accuracy = rand() % 71 + 30;
 		move.max_pp = rand()%26 + 5;
+		move.priority_lvl = rand()%8;
 	}
 	return move;
 }
@@ -207,6 +209,7 @@ void printPoke(t_Poke *p)
 			}
 			printf("precision=%d\n",p->moveList[i].accuracy);
 			printf("PP = %d/%d\n",p->moveList[i].current_pp,p->moveList[i].max_pp);
+			printf("priorite = %d\n\n",p->moveList[i].priority_lvl);
 
 		}
 	}
