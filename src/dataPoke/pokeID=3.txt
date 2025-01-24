@@ -1,0 +1,8 @@
+id=3
+name=Amde
+pv=105
+atq=180
+def=100
+atqSP=1180
+defSP100
+vit=115

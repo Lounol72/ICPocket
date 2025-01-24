@@ -1,0 +1,7 @@
+name=denny
+pv=100
+atq=180
+def=160
+atqSP=150
+defSP=90
+vit=90
