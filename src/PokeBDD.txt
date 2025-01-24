@@ -1,5 +1,5 @@
-1
-debuggy
+id=1
+name=debuggy
 2
 wiliwilly
 3
