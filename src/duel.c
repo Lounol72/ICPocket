@@ -6,6 +6,7 @@
 
 int isAttacking(int);
 int isSwitching(int);
+int ppCheck(t_Move *);
 
 /*Fin instructions .h*/
 
@@ -31,7 +32,7 @@ void printTeam(t_Team * t){
 
 int testActionValidity(int action, t_Team * t){
 	if (isAttacking(action)){
-		return TRUE;
+		return ppCheck(&(t->team[0].moveList[action]));
 	}
 	if (isSwitching(action)){
 		return t->team[action-10].current_pv>0?TRUE:FALSE;
@@ -52,6 +53,7 @@ void initTeam(t_Team * t){
 		t->team[i].current_pv=calcStatFrom(&(t->team[i]),PV,FALSE);
 		for(int j=0;j<4;j++){
 			t->team[i].moveList[j]=generateRandomMove();
+			t->team[i].moveList[j].current_pp=t->team[i].moveList[j].max_pp;
 		}
 	}
 }
@@ -80,7 +82,7 @@ int calcDamage(t_Poke * offender,t_Poke * defender,int indexMove){
 	damage*=typeChart[offender->moveList[indexMove].type][defender->type[0]]*typeChart[offender->moveList[indexMove].type][defender->type[1]]; // efficacité de types
 
 
-	printf("Attaque subis d'une puissance de %d\n avec une attaque de %d\ncontre une defence de %d\n",offender->moveList[indexMove].power,calcStatFrom(offender,ATT,TRUE),calcStatFrom(defender,DEF,TRUE));
+	printf("Attaque subis d'une puissance de %d\n avec une attaque de %d\ncontre une defence de %d\n",offender->moveList[indexMove].power,calcStatFrom(offender,targetedStatOff,TRUE),calcStatFrom(defender,targetedStatDef,TRUE));
 	printf("Dégats = %d\n",damage);
 	if (coupCritique) printf("Coup Critique!\n");
 	return damage;
@@ -114,9 +116,22 @@ int PriorityForFirstPoke(t_Poke * p1, t_Poke * p2,int move1,int move2){
 	return 1;
 }
 
+int accuracyCheck(int accuracy){
+	return rand()%100<accuracy;
+}
+
+int ppCheck(t_Move * move){
+	return move->current_pp>0;
+}
+
 void affectDamage(t_Poke * offender, t_Poke * defender, int indexMove){
+	if(!accuracyCheck(offender->moveList[indexMove].accuracy)){
+		printf("%s rate son attaque (%d precision)\n",offender->name,offender->moveList[indexMove].accuracy);
+		return;
+	}
 	int damage=calcDamage(offender,defender,indexMove);
 	defender->current_pv=defender->current_pv>damage?defender->current_pv - damage:0;
+	(offender->moveList[indexMove].current_pp)--;
 }
 
 void swapActualAttacker(t_Team * t, int swapIndex){
@@ -194,6 +209,18 @@ void testBattle(t_Team * rouge, t_Team * bleu){
 		playATurn(rouge,rand()%4,bleu,rand()%4);
 		printf("pv rouge : %d\n\n",rouge->team[0].current_pv);
 		printf("pv bleu : %d\n\n",bleu->team[0].current_pv);
+	}
+	printPoke(&(rouge->team[0]));
+}
+
+void testPP(t_Team * rouge, t_Team * bleu){
+	rouge->team[0].moveList[0].current_pp=0;
+	int test=playATurn(rouge,0,bleu,0);
+	if(test==FALSE){
+		printf("TEST REUSSI!\n");
+	}
+	else{
+		printf("ECHEC TEST!\n");
 	}
 }
 

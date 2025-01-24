@@ -38,6 +38,9 @@ typedef struct
 	int power;
 	t_Type type;
 	t_Categ categ;
+	int accuracy;
+	int current_pp;
+	int max_pp;
 } t_Move;
 
 typedef struct
@@ -124,6 +127,8 @@ t_Move generateRandomMove()
 		move.power = rand() % 120 + 30;
 		move.categ = rand() % 2?physical:special;
 		move.type = rand() % (typeNumber-1) + 1;
+		move.accuracy = rand() % 71 + 30;
+		move.max_pp = rand()%26 + 5;
 	}
 	return move;
 }
@@ -200,7 +205,9 @@ void printPoke(t_Poke *p)
 			default:
 				break;
 			}
-			
+			printf("precision=%d\n",p->moveList[i].accuracy);
+			printf("PP = %d/%d\n",p->moveList[i].current_pp,p->moveList[i].max_pp);
+
 		}
 	}
 }
