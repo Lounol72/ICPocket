@@ -21,7 +21,9 @@ typedef struct Window {
     SDL_Window *window;
     SDL_Renderer *renderer;
     int width;
+    int InitialWidth;
     int height;
+    int InitialHeight;
     int quit;
     AppState state; 
 } Window;

@@ -29,7 +29,7 @@ typedef struct Slider{
     SDL_Color color;
     SDL_Color cursorColor;
     SDL_Renderer *renderer;
-    int value;
+    float value;
 }Slider;
 
 typedef struct SliderList
@@ -51,6 +51,7 @@ void renderButtonImageList(ButtonList *B);
 void renderButtonList(ButtonList *B);
 void destroyButton(Button *button);
 void ButtonClicked(Button *button, int mouseX, int mouseY, Window *win);
+void updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley);
 
 Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Color color, SDL_Color cursorColor);
 void DragCursor(Slider *slider, int mouseX);

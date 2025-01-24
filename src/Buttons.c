@@ -131,12 +131,18 @@ void ButtonClicked(Button *button, int mouseX, int mouseY, Window *win) {
 }
 
 
-void updateButtonPosition(Button *buttons[], int size, int Scalex, int Scaley)
+void updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley)
 {
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < buttons->size; i++)
     {
-        buttons[i]->rect.x = buttons[i]->initialRect.x * Scalex;
-        buttons[i]->rect.y = buttons[i]->initialRect.y * Scaley;
+        if(!buttons->buttons[i]){
+            SDL_Log("Invalid button at index %d", i);
+            continue;
+        }
+        buttons->buttons[i]->rect.w = buttons->buttons[i]->initialRect.w * Scalex;
+        buttons->buttons[i]->rect.h = buttons->buttons[i]->initialRect.h * Scaley;
+        buttons->buttons[i]->rect.x = buttons->buttons[i]->initialRect.x * Scalex;
+        buttons->buttons[i]->rect.y = buttons->buttons[i]->initialRect.y * Scaley;
     }
 }
 
@@ -149,7 +155,7 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
     }
     slider->rect = (SDL_Rect){x, y, w, h};
     slider->initialBar = slider->rect;
-    slider->cursor = (SDL_Rect){x, y-5, 10, h+10};
+    slider->cursor = (SDL_Rect){x, y-10, 10, h+10};
     slider->color = color;
     slider->cursorColor = cursorColor;
     slider->renderer = renderer;
@@ -201,16 +207,18 @@ void renderSliderList(SliderList *S) {
 
 void handleSliderEvent(Slider *slider, SDL_Event *event) {
     if (!slider) return;
-    static int dragging = 0;
     int x, y;
     SDL_GetMouseState(&x, &y);
-    if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT && x >= slider->rect.x && x <= slider->rect.x + slider->rect.w && y >= slider->rect.y && y <= slider->rect.y + slider->rect.h) {
-        dragging = 1;
-    } else if (event->type == SDL_MOUSEBUTTONUP && event->button.button == SDL_BUTTON_LEFT) {
-        dragging = 0;
-    } else if (event->type == SDL_MOUSEMOTION && dragging) {
-        slider->value = (x - slider->rect.x) / (float)slider->rect.w;
-        if (slider->value < 0) slider->value = 0;
-        if (slider->value > 1) slider->value = 1;
+    
+    if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
+        if (SDL_PointInRect(&(SDL_Point){x, y}, &(slider->rect))) {
+            slider->value = (float)(x - slider->rect.x) / slider->rect.w;
+            slider->cursor.x = slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2);
+        }
+    } else if (event->type == SDL_MOUSEMOTION && (event->motion.state & SDL_BUTTON_LMASK)) {
+        if (SDL_PointInRect(&(SDL_Point){x, y}, &(slider->rect))) {
+            slider->value = (float)(x - slider->rect.x) / slider->rect.w;
+            slider->cursor.x = slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2);
+        }
     }
 }
