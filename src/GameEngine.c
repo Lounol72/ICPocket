@@ -44,7 +44,7 @@ void renderMenu(Window *win) {
         SDL_SetRenderDrawColor(win->renderer, 255, 0, 0, 255); // Red background
         SDL_RenderClear(win->renderer);
     }
-    renderButtonImageList(&MenuButtons);
+    renderButtonList(&MenuButtons);
 }
 
 void handleMenuEvent(Window *win, SDL_Event *event) {
@@ -152,8 +152,9 @@ void mainLoop(Window *win) {
         return;
     }
 
-    buttonsMenu[0] = createButton("Nouvelle Partie", win->renderer,500, 104, 300, 100, (SDL_Color){0, 255, 255, 255}, changeState, &states[0]);
-    buttonsMenu[1] = createButton("Charger une Partie", win->renderer, 500, 258, 300, 100, (SDL_Color){0, 255, 255, 255}, changeState, &states[1]);
+    buttonsMenu[0] = createButton("PLAY", win, 500, 104, 300, 100, (SDL_Color){0, 255, 255, 255}, (SDL_Color){128,128,128, 255}, changeState, &states[0]);
+    buttonsMenu[1] = createButton("SETTINGS", win, 500, 258, 300, 100, (SDL_Color){0, 255, 255, 255}, (SDL_Color){128,128,128, 255}, changeState, &states[1]);
+
 
     InitTextureButton(buttonsMenu[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
     InitTextureButton(buttonsMenu[1], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
@@ -165,8 +166,7 @@ void mainLoop(Window *win) {
     addListSlider(&SettingsSliders, sliders, nbSlidersSettings);
     free(sliders); // Libération du tableau temporaire
 
-    loadBackground(&backgroundTexture, win->renderer, "assets/Title Screen/Title Screen Background.png");
-    loadBackground(&backgroundTextureSettings, win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_party_background.png");
+    
 
     // Boucle principale
     while (!win->quit) {
@@ -206,20 +206,19 @@ void mainLoop(Window *win) {
 
 // Functions for the window
 
-void initWindow(Window *win, int width, int height) 
-{
-    if (SDL_Init(SDL_INIT_VIDEO) < 0 ||  
-        !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_ACCELERATED)) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG)) {
+void initWindow(Window *win, int width, int height, const char *FontPath) {
+    if (SDL_Init(SDL_INIT_VIDEO) < 0 || !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_ACCELERATED)) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || TTF_Init() == -1 || !(win->font = TTF_OpenFont(FontPath, 56))) {
         SDL_Log("SDL Error: %s", SDL_GetError());
         if (win->window) SDL_DestroyWindow(win->window);
         exit(EXIT_FAILURE);
     }
-    win->width = width;
-    win->InitialWidth = width;
-    win->height = height;
-    win->InitialHeight = height;
+    win->width = win->InitialWidth = width;
+    win->height = win->InitialHeight = height;
     win->quit = 0;
     win->state = MENU;
+
+    loadBackground(&backgroundTexture, win->renderer, "assets/Title Screen/Title Screen Background.png");
+    loadBackground(&backgroundTextureSettings, win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_party_background.png");
 }
 
 void destroyWindow(Window *win) 

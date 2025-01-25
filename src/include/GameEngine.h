@@ -5,6 +5,7 @@
 #include <SDL_image.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <SDL_ttf.h>
 
 
 // Define the state of the application
@@ -25,6 +26,7 @@ typedef struct Window {
     int height;
     int InitialHeight;
     int quit;
+    TTF_Font *font;
     AppState state; 
 } Window;
 
@@ -38,8 +40,9 @@ typedef struct Window {
  * @param win       struct Window
  * @param width     width
  * @param height    height
+ * @param FontPath  path to the font
  */
-void initWindow(Window *win, int width, int height);
+void initWindow(Window *win, int width, int height, const char *FontPath);
 /**
  * @brief       Destroy the window
  * 
@@ -72,4 +75,5 @@ void renderQuit(Window *win);
 void handleQuitEvent(Window *win, SDL_Event *event);
 
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath);
+
 #endif // GAMEENGINE_H

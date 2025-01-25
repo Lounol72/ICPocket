@@ -13,6 +13,9 @@ typedef struct Button {
     SDL_Color color;
     SDL_Texture *texture;
     SDL_Renderer *renderer;
+    char* text;
+    SDL_Texture *textTexture;
+    SDL_Color textcolor;
     void (*onClick)(Window *win, void *data);
     void *data;                             
 } Button;
@@ -42,13 +45,11 @@ typedef struct SliderList
 
 
 
-Button *createButton(char *nom, SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Color color, void (*onClick)(Window *, void *), void *data);
+Button *createButton(char * text,Window * win, int x, int y, int w, int h, SDL_Color color,SDL_Color textcolor ,void (*onClick)(Window *, void *), void *data);
 void InitTextureButton(Button *button, SDL_Renderer *renderer, const char *imagePath);
 void renderButton(Button *button);
-void renderButtonImage(Button *button);
 void addListButton(ButtonList *B, Button *buttons[], int size);
 void destroyButtonList(ButtonList *list);
-void renderButtonImageList(ButtonList *B);
 void renderButtonList(ButtonList *B);
 void destroyButton(Button *button);
 void ButtonClicked(Button *button, int mouseX, int mouseY, Window *win);

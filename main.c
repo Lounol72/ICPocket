@@ -11,7 +11,7 @@ int main(void) {
         return EXIT_FAILURE;
     }
     
-    initWindow(win, 1280, 720);
+    initWindow(win, 1280, 720, "assets/fonts/Axolotl.ttf");
     mainLoop(win);
     destroyWindow(win); 
     free(win);              
