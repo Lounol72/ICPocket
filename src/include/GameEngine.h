@@ -21,11 +21,12 @@ typedef enum AppState {
 typedef struct Window {
     SDL_Window *window;
     SDL_Renderer *renderer;
-    int width;
-    int InitialWidth;
-    int height;
-    int InitialHeight;
+    int width, height;
+    int InitialWidth, InitialHeight;
     int quit;
+    TTF_Font * LargeFont;
+    TTF_Font * MediumFont;
+    TTF_Font * SmallFont;
     TTF_Font *font;
     AppState state; 
 } Window;

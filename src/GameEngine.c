@@ -210,7 +210,7 @@ void mainLoop(Window *win) {
 // Functions for the window
 
 void initWindow(Window *win, int width, int height, const char *FontPath) {
-    if (SDL_Init(SDL_INIT_VIDEO) < 0 || !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_ACCELERATED)) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || TTF_Init() == -1 || !(win->font = TTF_OpenFont(FontPath, 56))) {
+    if (SDL_Init(SDL_INIT_VIDEO) < 0 || !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_SOFTWARE | SDL_RENDERER_PRESENTVSYNC)) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || TTF_Init() == -1 || !(win->font = TTF_OpenFont(FontPath, 56))) {
         SDL_Log("SDL Error: %s", SDL_GetError());
         if (win->window) SDL_DestroyWindow(win->window);
         exit(EXIT_FAILURE);
