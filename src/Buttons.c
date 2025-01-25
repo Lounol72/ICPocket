@@ -177,14 +177,6 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
     return slider;
 }
 
-void renderSlider(Slider *slider) {
-    if (!slider) return;
-    SDL_SetRenderDrawColor(slider->renderer, slider->color.r, slider->color.g, slider->color.b, slider->color.a);
-    SDL_RenderFillRect(slider->renderer, &slider->rect);
-    SDL_SetRenderDrawColor(slider->renderer, slider->cursorColor.r, slider->cursorColor.g, slider->cursorColor.b, slider->cursorColor.a);
-    SDL_Rect cursor = {slider->rect.x + (int)(slider->value * slider->rect.w) - slider->cursor.w / 2, slider->rect.y, slider->cursor.w, slider->cursor.h};
-    SDL_RenderFillRect(slider->renderer, &cursor);
-}
 
 void destroySlider(Slider *slider) {
     if (slider) {
@@ -218,20 +210,35 @@ void renderSliderList(SliderList *S) {
         renderSlider(S->sliders[i]);
 }
 
-void handleSliderEvent(Slider *slider, SDL_Event *event) {
+void renderSlider(Slider *slider) {
     if (!slider) return;
-    int x, y;
-    SDL_GetMouseState(&x, &y);
-    
-    if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
-        if (SDL_PointInRect(&(SDL_Point){x, y}, &(slider->rect))) {
-            slider->value = (float)(x - slider->rect.x) / slider->rect.w;
-            slider->cursor.x = slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2);
-        }
-    } else if (event->type == SDL_MOUSEMOTION && (event->motion.state & SDL_BUTTON_LMASK)) {
-        if (SDL_PointInRect(&(SDL_Point){x, y}, &(slider->rect))) {
-            slider->value = (float)(x - slider->rect.x) / slider->rect.w;
-            slider->cursor.x = slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2);
-        }
+
+    // Fonction utilitaire pour définir la couleur
+    void setColor(SDL_Renderer *renderer, SDL_Color color) {
+        SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
     }
+
+    // Dessiner le slider
+    setColor(slider->renderer, slider->color);
+    SDL_RenderFillRect(slider->renderer, &slider->rect);
+
+    // Dessiner le curseur
+    setColor(slider->renderer, slider->cursorColor);
+    SDL_Rect cursor = {
+        slider->rect.x + (int)(slider->value * slider->rect.w) - slider->cursor.w / 2,
+        slider->rect.y,
+        slider->cursor.w,
+        slider->cursor.h
+    };
+    SDL_RenderFillRect(slider->renderer, &cursor);
+}
+
+int handleSliderEvent(Slider *slider, int x, int y) {
+    if (!slider) return 0;
+    if (SDL_PointInRect(&(SDL_Point){x, y}, &(slider->rect))) {
+        slider->value = (float)(x - slider->rect.x) / slider->rect.w;
+        slider->cursor.x = slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2);
+        return 1; // Interaction détectée
+    }
+    return 0;
 }

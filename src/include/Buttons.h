@@ -62,7 +62,7 @@ void destroySlider(Slider *slider);
 void destroySliderList(SliderList *list);
 void addListSlider(SliderList *S, Slider *sliders[], int size);
 void renderSliderList(SliderList *S);
-void handleSliderEvent(Slider *slider, SDL_Event *event);
+int handleSliderEvent(Slider *slider, int x, int y);
 
 
 #endif

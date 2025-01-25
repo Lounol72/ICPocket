@@ -143,57 +143,25 @@ int playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 	/*
 		use speed of pokemon to determine order
 		attack or switch
-		switch = exchanging index 0 with another index
-		attack = index 0 attack index 0 
-		*/
+		switch = exchanging index 0 with another index*/
+		if(!testActionValidity(move1,t1) || !testActionValidity(move2,t2)) return FALSE;
 
-	if(!testActionValidity(move1,t1) || !testActionValidity(move2,t2)) return FALSE;
+		int first = PriorityForFirstPoke(&(t1->team[0]), &(t2->team[0]), move1, move2);
+		t_Team *firstTeam = first ? t1 : t2;
+		t_Team *secondTeam = first ? t2 : t1;
+		int firstMove = first ? move1 : move2;
+		int secondMove = first ? move2 : move1;
 
-	if (PriorityForFirstPoke(&(t1->team[0]),&(t2->team[0]),move1,move2)){
-		if(isAttacking(move1)){
-			affectDamage(&(t1->team[0]),&(t2->team[0]),move1);
+		if (isAttacking(firstMove)) affectDamage(&(firstTeam->team[0]), &(secondTeam->team[0]), firstMove);
+		else if (isSwitching(firstMove)) swapActualAttacker(firstTeam, firstMove);
+		else return FALSE;
+
+		if (isAlive(&(secondTeam->team[0]))) {
+			if (isAttacking(secondMove)) affectDamage(&(secondTeam->team[0]), &(firstTeam->team[0]), secondMove);
+			else if (isSwitching(secondMove)) swapActualAttacker(secondTeam, secondMove);
+			else return FALSE;
 		}
-		else if (isSwitching(move1)){
-			swapActualAttacker(t1,move1);
-		}
-		else{
-			return FALSE;
-		}
-		if(isAlive(&(t2->team[0]))){
-			if (isAttacking(move2)){
-				affectDamage(&(t2->team[0]),&(t1->team[0]),move2);
-			}
-			else if (isSwitching(move2)){
-				swapActualAttacker(t2,move2);
-			}	
-			else{
-				return FALSE;
-			}
-		}
-	}
-	else{
-		if (isAttacking(move2)){
-			affectDamage(&(t2->team[0]),&(t1->team[0]),move2);
-		}
-		else if (isSwitching(move2)){
-			swapActualAttacker(t2,move2);
-		}
-		else{
-			return FALSE;
-		}
-		if (isAlive(&(t1->team[0]))){
-			if(isAttacking(move1)){
-				affectDamage(&(t1->team[0]),&(t2->team[0]),move1);
-			}
-			else if (isSwitching(move1)){
-				swapActualAttacker(t1,move1);
-			}
-			else{
-				return FALSE;
-			}
-		}
-	}
-	return TRUE;
+		return TRUE;
 
 }
 

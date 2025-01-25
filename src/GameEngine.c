@@ -90,19 +90,22 @@ void renderSettings(Window *win) {
         SDL_SetRenderDrawColor(win->renderer, 0, 0, 255, 255); // Blue background
         SDL_RenderClear(win->renderer);
     }
+    // Toujours rendre les sliders
     renderSliderList(&SettingsSliders);
 }
 
-void handleSettingsEvent(Window *win, SDL_Event *event) 
-{
-    if (!win || !event) return; // Vérifie que les pointeurs ne sont pas nuls
 
-    // Parcourt les sliders et gère les événements pour chacun
-    if (SettingsSliders.sliders && SettingsSliders.size > 0) {
+void handleSettingsEvent(Window *win, SDL_Event *event) {
+    if (!win || !event || !SettingsSliders.sliders || SettingsSliders.size <= 0) return;
+    // Parcourt et gère les événements des sliders
+    if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
+        int x, y;
+        SDL_GetMouseState(&x, &y);
         for (int i = 0; i < SettingsSliders.size; i++) {
-            handleSliderEvent(SettingsSliders.sliders[i], event);
+            if (handleSliderEvent(SettingsSliders.sliders[i], x,y)) break;
         }
     }
+    // Gérer les autres événements
     handleEvent(win, event);
 }
 
@@ -172,16 +175,16 @@ void mainLoop(Window *win) {
     while (!win->quit) {
         frameStart = SDL_GetTicks();
 
-        // Rendu de l'état actuel
-        stateHandlers[win->state](win);
-
-        SDL_RenderPresent(win->renderer);
-
-        // Gestion des événements
+        // Gestion des événements en premier
         while (SDL_PollEvent(&event)) {
             eventHandlers[win->state](win, &event);
         }
 
+        // Rendu après les événements
+        stateHandlers[win->state](win);
+        SDL_RenderPresent(win->renderer);
+
+        // Gestion du temps pour maintenir le FPS
         int frameTime = SDL_GetTicks() - frameStart;
         if (frameTime < frameDelay) {
             SDL_Delay(frameDelay - frameTime);
