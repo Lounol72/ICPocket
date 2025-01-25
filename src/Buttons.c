@@ -168,7 +168,7 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
     }
     slider->rect = (SDL_Rect){x, y, w, h};
     slider->initialBar = slider->rect;
-    slider->cursor = (SDL_Rect){x, y-10, 10, h+10};
+    slider->cursor = (SDL_Rect){slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2), y-5, 10, h+12};
     slider->color = color;
     slider->cursorColor = cursorColor;
     slider->renderer = renderer;
@@ -224,13 +224,8 @@ void renderSlider(Slider *slider) {
 
     // Dessiner le curseur
     setColor(slider->renderer, slider->cursorColor);
-    SDL_Rect cursor = {
-        slider->rect.x + (int)(slider->value * slider->rect.w) - slider->cursor.w / 2,
-        slider->rect.y,
-        slider->cursor.w,
-        slider->cursor.h
-    };
-    SDL_RenderFillRect(slider->renderer, &cursor);
+    
+    SDL_RenderFillRect(slider->renderer, &slider->cursor);
 }
 
 int handleSliderEvent(Slider *slider, int x, int y) {
