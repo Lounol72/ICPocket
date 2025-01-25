@@ -38,8 +38,11 @@ $(OBJ_DIR)/main.o: main.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 #Tester le projet
+testDuel: duel
+	./$(SRC_DIR)/bin/duel
 
-test: main
+
+testMain: main
 	./main
 
 # Règle pour nettoyer les fichiers objets et l'exécutable
