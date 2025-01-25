@@ -16,6 +16,9 @@ void printTeam(t_Team * t){
 }
 
 int testActionValidity(int action, t_Team * t){
+	if (isStruggling(action)){
+		return TRUE;
+	}
 	if (isAttacking(action)){
 		return ppCheck(&(t->team[0].moveList[action]));
 	}
