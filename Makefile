@@ -1,5 +1,5 @@
 # Nom de l'exécutable
-all: main
+all: main duel
 
 # Dossiers
 SRC_DIR = src
@@ -21,6 +21,10 @@ LIBS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 main: $(OBJ_DIR)/main.o $(OBJS)
 	$(CC) -o $@ $^ $(LIBS)
 	@echo "Compilation terminée"
+
+# Règle temporaire pour créer duel
+duel: $(OBJ_DIR)/duel.o
+	$(CC) $^ -o $(SRC_DIR)/bin/$@
 
 # Règle pour créer le dossier obj
 $(OBJ_DIR):

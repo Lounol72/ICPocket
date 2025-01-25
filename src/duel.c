@@ -1,19 +1,5 @@
 #include "structPoke.c"
-/*PITIE ECRIT PAS LES CODES EN UNE LIGNE*/
-#define NEUTRAL_STAT_CHANGE 6
-#define POKE_IS_ABSCENT -1
-
-/*Temporaire : à mettre dans un .h*/
-
-int isAttacking(int);
-int isSwitching(int);
-int ppCheck(t_Move *);
-
-/*Fin instructions .h*/
-
-typedef struct{
-	t_Poke team[6];
-} t_Team;
+#include "include/duel.h"
 
 float statVariations[13]={0.25,2./7,1./3,2./5,0.5,2./3,1,1.5,2,2.5,3,3.5,4};
 

@@ -1,66 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <string.h>
-
-#define PV 0
-#define ATT 1
-#define DEF 2
-#define SPA 3
-#define SPD 4
-#define SPE 5
-
-#define TRUE 1
-#define FALSE 0
-
-typedef enum{noType=0,feu,plante,eau} t_Type;
-const int typeNumber=4;
-
-typedef enum{status=-1,physical=1,special=3} t_Categ;
-
-typedef enum
-{
-	male = 0,
-	female
-} t_Gender;
-
-typedef struct
-{
-	char nature[15];
-	float coeff[6];
-} t_Nature;
+#include "include/structPoke.h"
 
 t_Nature tabNature[25];
 
-typedef struct
-{
-	char name[15];
-	int power;
-	t_Type type;
-	t_Categ categ;
-	int accuracy;
-	int current_pp;
-	int max_pp;
-	int priority_lvl;
-} t_Move;
-
-typedef struct
-{
-	int id;
-	char name[20];
-	t_Gender gender;
-	t_Type type[2];
-	int lvl;
-	int nature;
-	int current_pv;
-	int baseStats[6];
-	int statChanges[6];
-	int iv[6];
-	int stats[6];
-	t_Move moveList[4];
-} t_Poke;
-
-float typeChart[4][4]={
+float typeChart[typeNumber][typeNumber]={
 				/*defender*/
 	/*offender*//*noType	feu		plante	eau*/
 	/*notype*/		1.,		1.,		1.,		1.,
@@ -141,7 +83,7 @@ void learnMove(t_Poke *p, t_Move *m, int ind)
 	p->moveList[ind].power = m->power;
 }
 
-void printPoke(t_Poke *p)
+void printPoke(t_Poke * p)
 {
 	printf("name=%s\n", p->name);
 	printf("%d\n", p->gender);
