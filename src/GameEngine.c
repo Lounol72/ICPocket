@@ -31,6 +31,7 @@ SliderList SettingsSliders = {NULL, 0};
 
 // List of buttons for game
 ButtonList GameButtons = {NULL, 0};
+SDL_Texture * backgroundTextureGame = NULL;
 
 //---------------------------------------------------------------------------------
 
@@ -62,9 +63,12 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
 // Functions for the game
 
 void renderGame(Window *win) {
-    
-    SDL_SetRenderDrawColor(win->renderer, 0, 255, 0, 255); // Green background
-    SDL_RenderClear(win->renderer);
+    if(backgroundTextureGame){
+        SDL_RenderCopy(win->renderer, backgroundTextureGame, NULL, NULL);
+    } else {
+        SDL_SetRenderDrawColor(win->renderer, 0, 255, 0, 255); // Green background
+        SDL_RenderClear(win->renderer);
+    }
     
 
 }
@@ -230,6 +234,7 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
 
     loadBackground(&backgroundTexture, win->renderer, "assets/Title Screen/Title Screen Background.png");
     loadBackground(&backgroundTextureSettings, win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_party_background.png");
+    loadBackground(&backgroundTextureGame, win->renderer, "assets/Title Screen/Start.jpg");
 }
 
 void destroyWindow(Window *win) 

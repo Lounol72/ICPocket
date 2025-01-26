@@ -9,7 +9,6 @@ Button *createButton(char *text, Window *win, int x, int y, int w, int h, SDL_Co
         SDL_Log("Erreur d'allocation pour le bouton.");
         return NULL;
     }
-    
     button->text = text;
     button->textcolor = textcolor;
     button->rect = (SDL_Rect){x, y, w, h};
@@ -19,11 +18,8 @@ Button *createButton(char *text, Window *win, int x, int y, int w, int h, SDL_Co
     button->renderer = win->renderer;
     button->onClick = onClick;
     button->data = data;
-
-    // Utiliser la police passée ou une police par défaut
     button->font = font ? font : win->font;
 
-    // Créer la texture du texte avec la police spécifiée
     SDL_Surface *textSurface = TTF_RenderText_Solid(button->font, text, textcolor);
     if (!textSurface) {
         SDL_Log("Erreur lors de la création de la surface du texte : %s", TTF_GetError());
@@ -70,7 +66,7 @@ void destroyButtonList(ButtonList *list) {
             destroyButton(list->buttons[i]);
         }
         free(list->buttons);
-        list->buttons = NULL;
+        list->buttons = NULL; 
     }
     list->size = 0;
 }
@@ -177,8 +173,6 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
     slider->color = color;
     slider->cursorColor = cursorColor;
     slider->renderer = renderer;
-    cursorW = NULL;
-    
 
     return slider;
 }
