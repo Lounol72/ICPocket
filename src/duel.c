@@ -27,17 +27,17 @@ int testActionValidity(int action, t_Team * t){
 	return FALSE;
 }
 
-int calcStatFrom(t_Poke * p,int stat,int includeVariations){
+int calcStatFrom(t_Poke * p,int stat){
 	if (stat==PV) return ((int)(2*p->baseStats[PV]+p->iv[PV])*p->lvl/100)+p->lvl+10;
 	int value=(int)(((2*p->baseStats[stat]+p->iv[stat])*p->lvl/100)+5)*tabNature[p->nature].coeff[stat];
-	return includeVariations?value*statVariations[p->statChanges[stat]]:value;
+	return value;
 }
 
 void initTeam(t_Team * t){
 	for(int i=0;i<6;i++){
 		generatePoke(&(t->team[i]));
-		for(int j=0;j<6;j++) t->team[i].statChanges[j]=NEUTRAL_STAT_CHANGE;
-		t->team[i].current_pv=calcStatFrom(&(t->team[i]),PV,FALSE);
+		for(int j=0;j<6;j++) t->statChanges[j]=NEUTRAL_STAT_CHANGE;
+		t->team[i].current_pv=calcStatFrom(&(t->team[i]),PV);
 		for(int j=0;j<4;j++){
 			t->team[i].moveList[j]=generateRandomMove();
 			t->team[i].moveList[j].current_pp=t->team[i].moveList[j].max_pp;
@@ -45,37 +45,42 @@ void initTeam(t_Team * t){
 	}
 }
 
-int calcDamage(t_Poke * offender,t_Poke * defender, t_Move * move){
+int calcDamage(t_Team * offender, t_Team * defender, t_Move * move){
 	int coupCritique=(rand()%24==0);
 	int damage;
 
 	int targetedStatOff=move->categ; //différenciation attaque/attaque spéciale
 	int targetedStatDef=targetedStatOff==ATT?DEF:SPD;
 	if (coupCritique){
-			damage = (((int)(offender->lvl*0.4+2)) *
-			calcStatFrom(offender,targetedStatOff,offender->statChanges[ATT]>=NEUTRAL_STAT_CHANGE?TRUE:FALSE) 
+			damage = (((int)(offender->team[0].lvl*0.4+2)) *
+			(int)(calcStatFrom(&(offender->team[0]),targetedStatOff) * offender->statChanges[targetedStatOff]>=NEUTRAL_STAT_CHANGE?statVariations[offender->statChanges[targetedStatOff]]:statVariations[NEUTRAL_STAT_CHANGE]) 
 			* move->power /
-			calcStatFrom(defender,targetedStatDef,defender->statChanges[DEF]<=NEUTRAL_STAT_CHANGE?TRUE:FALSE) / 50 + 2 ) * 1.5;
+			(int)(calcStatFrom(&(defender->team[0]),targetedStatDef) * defender->statChanges[targetedStatDef]<=NEUTRAL_STAT_CHANGE?statVariations[defender->statChanges[targetedStatDef]]:statVariations[NEUTRAL_STAT_CHANGE])
+			/ 50 + 2 );
 	}
 	else{
-		damage= (((int)((int)((int)(offender->lvl*0.4+2)) *
-		calcStatFrom(offender,targetedStatOff,TRUE) * move->power /
-		calcStatFrom(defender,targetedStatDef,TRUE)) / 50) + 2);
+		damage= (((int)((int)((int)(offender->team[0].lvl*0.4+2)) *
+		(int)(calcStatFrom(&(offender->team[0]),targetedStatOff) * statVariations[offender->statChanges[targetedStatOff]])
+		* move->power /
+		(int)(calcStatFrom(&(defender->team[0]),targetedStatDef)) * statVariations[defender->statChanges[targetedStatDef]])
+		/ 50) + 2);
 	}
 	damage*=(rand()%16+85)/100.0;  //fourchette aléatoire de dégats
 
-	damage*=offender->type[0]==move->type || offender->type[1]==move->type?1.5:1; // bonus STAB
+	damage*=(offender->team[0].type[0]==move->type) || (offender->team[0].type[1]==move->type && move->type!=noType)?1.5:1; // bonus STAB
 
-	damage*=typeChart[move->type][defender->type[0]]*typeChart[move->type][defender->type[1]]; // efficacité de types
+	damage*=typeChart[move->type][defender->team[0].type[0]]*typeChart[move->type][defender->team[0].type[1]]; // efficacité de types
 
+	damage*=coupCritique?1.5:1;
 
-	printf("Attaque subis d'une puissance de %d\n avec une attaque de %d\ncontre une defence de %d\n",move->power,calcStatFrom(offender,targetedStatOff,TRUE),calcStatFrom(defender,targetedStatDef,TRUE));
+	printf("Attaque subis d'une puissance de %d\n avec une attaque de %d\ncontre une defence de %d\n",move->power,(int)(calcStatFrom(&(offender->team[0]),targetedStatOff) * statVariations[offender->statChanges[targetedStatOff]])
+	,(int)(calcStatFrom(&(defender->team[0]),targetedStatDef) * statVariations[defender->statChanges[targetedStatDef]]));
 	printf("Dégats = %d\n",damage);
 	if (coupCritique) printf("Coup Critique!\n");
 	return damage>0?damage:1;
 }
 
-void setDefaultStatChanges(t_Poke * p){
+void setDefaultStatChanges(t_Team * p){
 	for(int i=0;i<6;i++) p->statChanges[i]=NEUTRAL_STAT_CHANGE;
 }
 
@@ -109,23 +114,23 @@ int resolveSpeedDuel(int speed1, int speed2){
 	return rand()%2; //speed tie : choose winner randomly
 }
 
-int PriorityForFirstPoke(t_Poke * p1, t_Poke * p2,int move1,int move2){
-	int speedOfP1=calcStatFrom(p1,SPE,TRUE);
-	int speedOfP2=calcStatFrom(p2,SPE,TRUE);
+int PriorityForFirstPoke(t_Team * p1, t_Team * p2, t_Move * move1, t_Move * move2, int index1, int index2){
+	int speedOfP1=calcStatFrom(&(p1->team[0]),SPE) * statVariations[p1->statChanges[SPE]];
+	int speedOfP2=calcStatFrom(&(p2->team[0]),SPE) * statVariations[p1->statChanges[SPE]];;
 
 	/*Cas attack only*/
-	if(isAttacking(move1) && isAttacking(move2)){
-		if(p1->moveList[move1].priority_lvl>p2->moveList[move2].priority_lvl) return 1;
-		if(p2->moveList[move2].priority_lvl>p1->moveList[move1].priority_lvl) return 0;
+	if(isAttacking(index1) && isAttacking(index2)){
+		if(move1->priority_lvl>move2->priority_lvl) return 1;
+		if(move2->priority_lvl>move1->priority_lvl) return 0;
 		return resolveSpeedDuel(speedOfP1,speedOfP2); //same priority lvl
 	}
 
 	/*Cas switch only*/
-	if(isSwitching(move1) && isSwitching(move2)){
+	if(isSwitching(index1) && isSwitching(index2)){
 		return resolveSpeedDuel(speedOfP1,speedOfP2);
 	}
 	/*Cas conflit switch vs attack*/
-	if (isAttacking(move1)) return 0;
+	if (isAttacking(index1)) return 0;
 	return 1;
 }
 
@@ -137,21 +142,21 @@ int ppCheck(t_Move * move){
 	return move->current_pp>0;
 }
 
-void affectDamage(t_Poke * offender, t_Poke * defender, int indexMove){
-	if(!isStruggling(indexMove) && !accuracyCheck(offender->moveList[indexMove].accuracy)){
-		printf("%s rate son attaque (%d precision)\n",offender->name,offender->moveList[indexMove].accuracy);
+void affectDamage(t_Team * offender, t_Team * defender, int indexMove){
+	if(!isStruggling(indexMove) && !accuracyCheck(offender->team[0].moveList[indexMove].accuracy)){
+		printf("%s rate son attaque (%d precision)\n",offender->team[0].name,offender->team[0].moveList[indexMove].accuracy);
 		return;
 	}
-	int damage=calcDamage(offender,defender,isStruggling(indexMove)?&struggle:&(offender->moveList[indexMove]));
-	defender->current_pv=defender->current_pv>damage?defender->current_pv - damage:0;
-	if (!isStruggling(indexMove)) (offender->moveList[indexMove].current_pp)--;
+	int damage=calcDamage(offender,defender,isStruggling(indexMove)?&struggle:&(offender->team[0].moveList[indexMove]));
+	defender->team[0].current_pv=defender->team[0].current_pv>damage?defender->team[0].current_pv - damage:0;
+	if (!isStruggling(indexMove)) (offender->team[0].moveList[indexMove].current_pp)--;
 }
 
 void swapActualAttacker(t_Team * t, int swapIndex){
 	t_Poke sauv=t->team[0];
 	t->team[0]=t->team[swapIndex-10];
 	t->team[swapIndex-10]=sauv;
-	setDefaultStatChanges(&(t->team[0]));
+	setDefaultStatChanges(t);
 	printf("Swapping Happened\n\n");
 }
 
@@ -166,18 +171,18 @@ int playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 
 		if(!testActionValidity(move1,t1) || !testActionValidity(move2,t2)) return FALSE;
 
-		int first = PriorityForFirstPoke(&(t1->team[0]), &(t2->team[0]), move1, move2);
+		int first = PriorityForFirstPoke(t1, t2, move1==STRUGGLE?&struggle:&(t1->team[0].moveList[move1]), move2==STRUGGLE?&struggle:&(t2->team[0].moveList[move2]), move1, move2);
 		t_Team *firstTeam = first ? t1 : t2;
 		t_Team *secondTeam = first ? t2 : t1;
 		int firstMove = first ? move1 : move2;
 		int secondMove = first ? move2 : move1;
 
-		if (isAttacking(firstMove)) affectDamage(&(firstTeam->team[0]), &(secondTeam->team[0]), firstMove);
+		if (isAttacking(firstMove)) affectDamage(firstTeam, secondTeam, firstMove);
 		else if (isSwitching(firstMove)) swapActualAttacker(firstTeam, firstMove);
 		else return FALSE;
 
 		if (isAlive(&(secondTeam->team[0]))) {
-			if (isAttacking(secondMove)) affectDamage(&(secondTeam->team[0]), &(firstTeam->team[0]), secondMove);
+			if (isAttacking(secondMove)) affectDamage(secondTeam, firstTeam, secondMove);
 			else if (isSwitching(secondMove)) swapActualAttacker(secondTeam, secondMove);
 			else return FALSE;
 		}

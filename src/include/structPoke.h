@@ -43,9 +43,7 @@ typedef struct
 	int nature;
 	int current_pv;
 	int baseStats[6];
-	int statChanges[6];
 	int iv[6];
-	int stats[6];
 	t_Move moveList[4];
 } t_Poke;
 

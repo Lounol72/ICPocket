@@ -1,14 +1,15 @@
 #include "include/structPoke.h"
+#include "include/duel.h"
 
 t_Nature tabNature[25];
 
 float typeChart[typeNumber][typeNumber]={
 				/*defender*/
 	/*offender*//*noType	feu		plante	eau*/
-	/*notype*/		1.,		1.,		1.,		1.,
-	/*feu*/			1.,		0.5,	2.,		0.5,
-	/*plante*/		1.,		0.5,	0.5,	2.,
-	/*eau*/			1.,		2.,		0.5,	0.5
+	/*notype*/		{1.,		1.,		1.,		1.},
+	/*feu*/			{1.,		0.5,	2.,		0.5},
+	/*plante*/		{1.,		0.5,	0.5,	2.},
+	/*eau*/			{1.,		2.,		0.5,	0.5}
 };
 
 
@@ -49,11 +50,6 @@ void generatePoke(t_Poke *p)
 			p->baseStats[i] = rand() % 256;
 		for (int i = 0; i < 6; i++)
 			p->iv[i] = rand() % 32;
-		p->stats[PV] = ((int)(2 * p->baseStats[0] + p->iv[0]) * p->lvl / 100) + p->lvl + 10;
-		for (int i = 1; i < 6; i++)
-		{
-			p->stats[i] = (int)(((2 * p->baseStats[i] + p->iv[i]) * p->lvl / 100) + 5) * tabNature[p->nature].coeff[i];
-		}
 		for (int i = 0; i < 4; i++)
 		{
 			p->moveList[i].power = -1;
@@ -100,6 +96,7 @@ void printPoke(t_Poke * p)
 		case feu:printf("type 1 = feu\n");break;
 		case eau:printf("type 1 = eau\n");break;
 		case plante:printf("type 1 = plante\n");break;
+		default:printf("Erreur\n");
 	}
 	switch (p->type[1]){
 		case feu:printf("type 2 = feu\n");break;
@@ -112,7 +109,7 @@ void printPoke(t_Poke * p)
 	printf("\nSTATS:\n");
 	for (int i = 0; i < 6; i++)
 	{
-		printf("%d\n", p->stats[i]);
+		printf("%d\n", calcStatFrom(p,i));
 	}
 	printf("\n BASE STATS:\n");
 	for (int i = 0; i < 6; i++)
