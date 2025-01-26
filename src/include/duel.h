@@ -2,8 +2,8 @@
 #define POKE_IS_ABSCENT -1
 #define STRUGGLE -10
 
-float statVariations[13];
-t_Move struggle;
+extern float statVariations[13];
+extern t_Move struggle;
 
 typedef struct{t_Poke team[6];} t_Team;
 
@@ -32,5 +32,3 @@ void testBattle(t_Team * rouge, t_Team * bleu);
 void testSwitch(t_Team * rouge, t_Team * bleu);
 void testPP(t_Team * rouge, t_Team * bleu);
 void testStruggle(t_Team * rouge, t_Team * bleu);
-
-int main();

@@ -49,7 +49,8 @@ typedef struct
 	t_Move moveList[4];
 } t_Poke;
 
-float typeChart[typeNumber][typeNumber];
+extern t_Nature tabNature[25];
+extern float typeChart[typeNumber][typeNumber];
 
 void generatePoke(t_Poke *);
 t_Move generateRandomMove();

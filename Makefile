@@ -23,7 +23,7 @@ main: $(OBJ_DIR)/main.o $(OBJS)
 	@echo "Compilation terminée"
 
 # Règle temporaire pour créer duel
-duel: $(OBJ_DIR)/duel.o
+duel: $(OBJ_DIR)/mainDuel.o $(OBJ_DIR)/structPoke.o $(OBJ_DIR)/duel.o $(OBJ_DIR)/trainerAI.o
 	$(CC) $^ -o $(SRC_DIR)/bin/$@
 
 # Règle pour créer le dossier obj
