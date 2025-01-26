@@ -3,7 +3,7 @@
 #include <SDL_image.h>
 #include <stdlib.h>
 
-Button *createButton(char * text,Window * win, int x, int y, int w, int h, SDL_Color color,SDL_Color textcolor ,void (*onClick)(Window *, void *), void *data) {
+Button *createButton(char *text, Window *win, int x, int y, int w, int h, SDL_Color color, SDL_Color textcolor, void (*onClick)(Window *, void *), void *data, TTF_Font *font) {
     Button *button = malloc(sizeof(Button));
     if (!button) {
         SDL_Log("Erreur d'allocation pour le bouton.");
@@ -20,8 +20,11 @@ Button *createButton(char * text,Window * win, int x, int y, int w, int h, SDL_C
     button->onClick = onClick;
     button->data = data;
 
-    
-    SDL_Surface * textSurface = TTF_RenderText_Solid(win->font, text, textcolor);
+    // Utiliser la police passée ou une police par défaut
+    button->font = font ? font : win->font;
+
+    // Créer la texture du texte avec la police spécifiée
+    SDL_Surface *textSurface = TTF_RenderText_Solid(button->font, text, textcolor);
     if (!textSurface) {
         SDL_Log("Erreur lors de la création de la surface du texte : %s", TTF_GetError());
         free(button);
@@ -34,14 +37,14 @@ Button *createButton(char * text,Window * win, int x, int y, int w, int h, SDL_C
         free(button);
         return NULL;
     }
-
     return button;
 }
 
+
 void destroyButton(Button *button) {
     if (!button) return;
-    if (button->texture)SDL_DestroyTexture(button->texture);
-    if (button->textTexture)SDL_DestroyTexture(button->textTexture);
+    if (button->texture) SDL_DestroyTexture(button->texture);
+    if (button->textTexture) SDL_DestroyTexture(button->textTexture);
     free(button);
     button = NULL;
 }
@@ -166,13 +169,16 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
         SDL_Log("Erreur d'allocation pour le slider.");
         return NULL;
     }
+    slider->value = 0;
     slider->rect = (SDL_Rect){x, y, w, h};
     slider->initialBar = slider->rect;
-    slider->cursor = (SDL_Rect){slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2), y-5, 10, h+12};
+    int cursorW = 10;
+    slider->cursor = (SDL_Rect){slider->rect.x + (slider->value * cursorW) - (cursorW / 2), y-5, cursorW, h+12};
     slider->color = color;
     slider->cursorColor = cursorColor;
     slider->renderer = renderer;
-    slider->value = 0;
+    cursorW = NULL;
+    
 
     return slider;
 }

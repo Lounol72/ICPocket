@@ -17,6 +17,8 @@ typedef enum AppState {
 } AppState;
 
 
+
+
 // Structure of the window
 typedef struct Window {
     SDL_Window *window;

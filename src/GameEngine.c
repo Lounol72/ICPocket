@@ -155,8 +155,16 @@ void mainLoop(Window *win) {
         return;
     }
 
-    buttonsMenu[0] = createButton("PLAY", win, 500, 104, 300, 100, (SDL_Color){0, 255, 255, 255}, (SDL_Color){128,128,128, 255}, changeState, &states[0]);
-    buttonsMenu[1] = createButton("SETTINGS", win, 500, 258, 300, 100, (SDL_Color){0, 255, 255, 255}, (SDL_Color){128,128,128, 255}, changeState, &states[1]);
+    buttonsMenu[0] = createButton(
+        "PLAY", win, 500, 104, 300, 100,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[0], win->LargeFont
+    );
+    buttonsMenu[1] = createButton(
+        "SETTINGS", win, 500, 258, 300, 100,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[1], win->LargeFont 
+    );
 
 
     InitTextureButton(buttonsMenu[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
@@ -210,7 +218,7 @@ void mainLoop(Window *win) {
 // Functions for the window
 
 void initWindow(Window *win, int width, int height, const char *FontPath) {
-    if (SDL_Init(SDL_INIT_VIDEO) < 0 || !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_SOFTWARE | SDL_RENDERER_PRESENTVSYNC)) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || TTF_Init() == -1 || !(win->font = TTF_OpenFont(FontPath, 56))) {
+    if (SDL_Init(SDL_INIT_VIDEO) < 0 || !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_SOFTWARE | SDL_RENDERER_PRESENTVSYNC)) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || TTF_Init() == -1 || !(win->LargeFont = TTF_OpenFont(FontPath, 56)) || !(win->MediumFont = TTF_OpenFont(FontPath, 36)) || !(win->SmallFont = TTF_OpenFont(FontPath, 24)) || !(win->font = TTF_OpenFont(FontPath, 18))) {
         SDL_Log("SDL Error: %s", SDL_GetError());
         if (win->window) SDL_DestroyWindow(win->window);
         exit(EXIT_FAILURE);
@@ -230,6 +238,22 @@ void destroyWindow(Window *win)
         SDL_DestroyTexture(backgroundTexture);
         backgroundTexture = NULL;
     }
+    if (backgroundTextureSettings) {
+        SDL_DestroyTexture(backgroundTextureSettings);
+        backgroundTextureSettings = NULL;
+    }
+    if(win->font)
+        TTF_CloseFont(win->font);
+    win->font = NULL;
+    if(win->LargeFont)
+        TTF_CloseFont(win->LargeFont);
+    win->LargeFont = NULL;
+    if(win->MediumFont)
+        TTF_CloseFont(win->MediumFont);
+    win->MediumFont = NULL;
+    if(win->SmallFont)
+    TTF_CloseFont(win->SmallFont);
+    win->SmallFont = NULL;
     SDL_DestroyRenderer(win->renderer);
     SDL_DestroyWindow(win->window);
     SDL_Quit();
