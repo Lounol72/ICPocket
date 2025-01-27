@@ -96,6 +96,7 @@ void renderSettings(Window *win) {
     }
     // Toujours rendre les sliders
     renderSliderList(&SettingsSliders);
+    renderButtonList(&SettingsButtons);
 }
 
 
@@ -152,9 +153,11 @@ void mainLoop(Window *win) {
     AppState states[] = {GAME, SETTINGS, QUIT, MENU};
     int nbButtonsMenu = 4;
     int nbSlidersSettings = 1;
+    int nbButtonsParam = 3;
     Button **buttonsMenu = malloc(nbButtonsMenu * sizeof(Button *));
+    Button **buttonsParam = malloc(nbButtonsParam * sizeof(Button *));
     Slider **sliders = malloc(nbSlidersSettings * sizeof(Slider *));
-    if (!buttonsMenu || !sliders) {
+    if (!buttonsMenu || !sliders || !buttonsParam) {
         SDL_Log("Allocation de mémoire pour les boutons échouée !");
         return;
     }
@@ -194,6 +197,28 @@ void mainLoop(Window *win) {
     addListSlider(&SettingsSliders, sliders, nbSlidersSettings);
     free(sliders); // Libération du tableau temporaire
 
+    buttonsParam[0] =createButton(
+        "1", win, 100, 200, 200, 50,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[0], win->LargeFont
+    );
+
+    buttonsParam[1] =createButton(
+        "2", win, 400, 200, 200, 50,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[0], win->LargeFont
+    );
+
+    buttonsParam[2] =createButton(
+        "3", win, 700, 200, 200, 50,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[0], win->LargeFont
+    );
+    InitTextureButton(buttonsParam[4], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsParam[5], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsParam[6], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    addListButton(&SettingsButtons, buttonsParam, nbButtonsParam);
+    free(buttonsParam); // Libération du tableau temporaire
     
 
     // Boucle principale
