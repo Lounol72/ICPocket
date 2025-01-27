@@ -1,6 +1,6 @@
 #include "../include/structPoke.h"
 #include "../include/duel.h"
-//#include "include/trainerAI.h"
+#include "../include/trainerAI.h"
 
 t_Team rouge;
 t_Team bleu;

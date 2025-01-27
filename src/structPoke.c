@@ -133,6 +133,7 @@ void printPoke(t_Poke * p)
 				case feu:printf("type = feu\n");break;
 				case eau:printf("type = eau\n");break;
 				case plante:printf("type = plante\n");break;
+				default:break;
 			}
 			switch (p->moveList[i].categ)
 			{
