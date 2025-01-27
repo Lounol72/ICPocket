@@ -14,9 +14,9 @@ typedef enum AppState {
     SETTINGS ,
     MENU,
     QUIT,
-    PAUSE,
     NEWGAME, 
-    LOADGAME
+    LOADGAME,
+    PAUSE
 } AppState;
 
 

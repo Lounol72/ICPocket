@@ -4,9 +4,9 @@
 
 // List of function pointers for rendering states
 void (*stateHandlers[])(Window *) = {
-    renderMenu,
     renderGame,
     renderSettings,
+    renderMenu,
     renderQuit,
     renderNewGame,
     renderLoadGame
@@ -14,9 +14,9 @@ void (*stateHandlers[])(Window *) = {
 
 // List of function pointers for event handlers
 void (*eventHandlers[])(Window *, SDL_Event *) = {
-    handleMenuEvent,
     handleGameEvent,
     handleSettingsEvent,
+    handleMenuEvent,
     handleQuitEvent,
     handleNewGameEvent,
     handleLoadGameEvent
@@ -184,8 +184,8 @@ void handleNewGameEvent(Window * win, SDL_Event * event){
     else if(event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT){
         int x, y;
         SDL_GetMouseState(&x, &y); 
-        for(int i=0; i< GameButtons.size; i++){
-            ButtonClicked(GameButtons.buttons[i], x, y, win);
+        for(int i = 0; i < LoadGameButtons.size; i++){
+            ButtonClicked(LoadGameButtons.buttons[i], x, y, win);
         }
     }
     handleEvent(win, event);
