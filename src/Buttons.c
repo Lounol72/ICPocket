@@ -1,4 +1,4 @@
-#include "include/Buttons.h"
+#include "../include/Buttons.h"
 #include <SDL2/SDL.h>
 #include <SDL_image.h>
 #include <stdlib.h>

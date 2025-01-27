@@ -3,8 +3,8 @@ all: main duel
 
 # Dossiers
 SRC_DIR = src
-INCLUDE_DIR = $(SRC_DIR)/include
-OBJ_DIR = $(SRC_DIR)/obj
+INCLUDE_DIR = include
+OBJ_DIR = obj
 
 # Fichiers source et objets
 SRCS = main.c $(SRC_DIR)/GameEngine.c $(SRC_DIR)/Buttons.c

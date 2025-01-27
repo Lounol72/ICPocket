@@ -1,23 +1,29 @@
-#include "include/GameEngine.h"
+#include "../include/GameEngine.h"
 
 // Global variables
 
 // List of function pointers for rendering states
 void (*stateHandlers[])(Window *) = {
-    renderMenu,
     renderGame,
     renderSettings,
-    renderQuit
+    renderMenu,
+    renderQuit,
+    renderNewGame,
+    renderLoadGame
 };
 
 // List of function pointers for event handlers
 void (*eventHandlers[])(Window *, SDL_Event *) = {
-    handleMenuEvent,
     handleGameEvent,
     handleSettingsEvent,
-    handleQuitEvent
+    handleMenuEvent,
+    handleQuitEvent,
+    handleNewGameEvent,
+    handleLoadGameEvent
 };
 
+AppState states[] = {GAME, SETTINGS ,MENU,QUIT, NEWGAME, LOADGAME}; // 0 = GAME, 1 = SETTINGS, 2 = MENU, 3 = QUIT, 4 = NEWGAME, 5 = LOADGAME
+double textSpeeds[] = {0.5, 1.0, 1.5};
 // List of buttons for menu
 
 ButtonList MenuButtons = {NULL, 0};
@@ -28,6 +34,12 @@ SDL_Texture *backgroundTexture = NULL;
 SDL_Texture *backgroundTextureSettings = NULL;
 ButtonList SettingsButtons = {NULL, 0};
 SliderList SettingsSliders = {NULL, 0};
+
+//List of buttons for load game
+
+SDL_Texture *backgroundTextureLoadGame = NULL;
+ButtonList LoadGameButtons = {NULL, 0};
+SliderList LoadGameSliders = {NULL, 0};
 
 // List of buttons for game
 ButtonList GameButtons = {NULL, 0};
@@ -121,14 +133,61 @@ void handleSettingsEvent(Window *win, SDL_Event *event) {
 
 // Functions for quitting
 
-void renderQuit(Window *win) 
-{
+void renderQuit(Window *win) {
     win->quit = 1;
 }
 
-void handleQuitEvent(Window *win, SDL_Event *event) 
-{
+void handleQuitEvent(Window *win, SDL_Event *event) {
     
+    handleEvent(win, event);
+}
+
+//---------------------------------------------------------------------------------
+
+// Functions for new game
+
+void createFicGame(){
+    
+}
+
+void renderNewGame(Window * win){
+
+}
+
+void handleNewGameEvent(Window * win, SDL_Event * event){
+
+}
+
+//---------------------------------------------------------------------------------
+
+// Functions for load game
+
+void readFicGame(){
+
+}
+
+void renderLoadGame(Window * win){
+    if (backgroundTextureSettings) {
+        SDL_RenderCopy(win->renderer, backgroundTextureLoadGame, NULL, NULL);
+    } else {
+        SDL_SetRenderDrawColor(win->renderer, 0, 0, 255, 255); // Blue background
+        SDL_RenderClear(win->renderer);
+    }
+    // Toujours rendre les sliders
+    renderButtonList(&LoadGameButtons);
+}
+
+void handleLoadGameEvent(Window * win, SDL_Event * event){
+    if (!win || !event) return;
+    // Parcourt et gère les événements des sliders
+    if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
+        int x, y;
+        SDL_GetMouseState(&x, &y);
+        for(int i = 0; i < LoadGameButtons.size; i++){
+            ButtonClicked(LoadGameButtons.buttons[i], x, y, win);
+        }
+    }
+    // Gérer les autres événements
     handleEvent(win, event);
 }
 
@@ -160,83 +219,8 @@ void mainLoop(Window *win) {
     SettingsButtons.size = 0;
     SettingsSliders.sliders = NULL;
     SettingsSliders.size = 0;
-    SDL_Log("Création des boutons...");
-    AppState states[] = {GAME, SETTINGS, QUIT, MENU};
-    double textSpeeds[] = {0.5, 1.0, 1.5};
-    int nbButtonsMenu = 4;
-    int nbSlidersSettings = 1;
-    int nbButtonsParam = 4;
-    Button **buttonsMenu = malloc(nbButtonsMenu * sizeof(Button *));
-    Button **buttonsParam = malloc(nbButtonsParam * sizeof(Button *));
-    Slider **sliders = malloc(nbSlidersSettings * sizeof(Slider *));
-    if (!buttonsMenu || !sliders || !buttonsParam) {
-        SDL_Log("Allocation de mémoire pour les boutons échouée !");
-        return;
-    }
-
-    buttonsMenu[0] = createButton(
-        "PLAY", win, 500, 104, 300, 100,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[0], win->LargeFont
-    );
-
-    buttonsMenu[1] = createButton(
-        "LOAD GAME", win, 500, 258, 300, 100,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[2], win->LargeFont
-    );
-    buttonsMenu[2] = createButton(
-        "SETTINGS", win, 500, 412, 300, 100,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[1], win->LargeFont 
-    );
-
-    buttonsMenu[3] = createButton(
-        "QUIT", win, 500, 566, 300, 100,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[2], win->LargeFont
-    );
-
-    InitTextureButton(buttonsMenu[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsMenu[1], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsMenu[2], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsMenu[3], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    addListButton(&MenuButtons, buttonsMenu, nbButtonsMenu);
-    free(buttonsMenu); // Libération du tableau temporaire
-
-    // Création d'un slider
-    sliders[0] = createSlider(win->renderer, 100, 100, 200, 25, (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255});
-    addListSlider(&SettingsSliders, sliders, nbSlidersSettings);
-    free(sliders); // Libération du tableau temporaire
-
-    buttonsParam[0] =createButton(
-        "0.5", win, 100, 200, 200, 50,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, &textSpeeds[0], win->LargeFont
-    );
-
-    buttonsParam[1] =createButton(
-        "1", win, 400, 200, 200, 50,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, &textSpeeds[1], win->LargeFont
-    );
-
-    buttonsParam[2] =createButton(
-        "1.5", win, 700, 200, 200, 50,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, &textSpeeds[2], win->LargeFont
-    );
-    buttonsParam[3] =createButton(
-        "Back", win, 100, 600, 300, 100,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[3], win->LargeFont
-    );
-    InitTextureButton(buttonsParam[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsParam[1], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsParam[2], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsParam[3], win->renderer, "assets/User Interface/zoonami_menu_button7.png");
-    addListButton(&SettingsButtons, buttonsParam, nbButtonsParam);
-    free(buttonsParam); // Libération du tableau temporaire
+    
+    initAllButtons(win);
     
 
     // Boucle principale
@@ -290,6 +274,7 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
     win->textSpeed = 1;
 
     loadBackground(&backgroundTexture, win->renderer, "assets/Title Screen/Title Screen Background.png");
+    loadBackground(&backgroundTextureLoadGame, win->renderer, "assets/Title Screen/LoadGame.png");
     loadBackground(&backgroundTextureSettings, win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_party_background.png");
     loadBackground(&backgroundTextureGame, win->renderer, "assets/Title Screen/Start.jpg");
 
@@ -345,6 +330,7 @@ void handleEvent(Window *win, SDL_Event *event)
                 float scaleY = (float)win->height / win->InitialHeight;
                 updateButtonPosition(&MenuButtons, scaleX, scaleY);
                 updateButtonPosition(&SettingsButtons, scaleX, scaleY);
+                updateButtonPosition(&LoadGameButtons, scaleX, scaleY);
             }
             break;
         default: break;
@@ -379,5 +365,116 @@ void renderText(Window * win, const char * text,SDL_Rect  * rect, SDL_Color colo
 
 void initAllButtons(Window * win)
 {
+    SDL_Log("Création des boutons...");
     
+    int nbButtonsLoad = 3;
+    int nbButtonsMenu = 4;
+    int nbSlidersSettings = 1;
+    int nbButtonsParam = 4;
+
+    Button **buttonsMenu = malloc(nbButtonsMenu * sizeof(Button *));
+    Button **buttonsParam = malloc(nbButtonsParam * sizeof(Button *));
+    Button ** buttonsLoadGame = malloc(nbButtonsLoad * sizeof(Button *));
+    Slider **sliders = malloc(nbSlidersSettings * sizeof(Slider *));
+
+
+    if (!buttonsMenu || !sliders || !buttonsParam || !buttonsLoadGame) {
+        SDL_Log("Allocation de mémoire pour les boutons échouée !");
+        return;
+    }
+
+    buttonsMenu[0] = createButton(
+        "PLAY", win, 500, 104, 300, 100,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[4], win->LargeFont
+    );
+
+    buttonsMenu[1] = createButton(
+        "LOAD GAME", win, 500, 258, 300, 100,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[5], win->LargeFont
+    );
+    buttonsMenu[2] = createButton(
+        "SETTINGS", win, 500, 412, 300, 100,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[1], win->LargeFont 
+    );
+
+    buttonsMenu[3] = createButton(
+        "QUIT", win, 500, 566, 300, 100,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[3], win->LargeFont
+    );
+
+    buttonsParam[0] =createButton(
+        "0.5", win, 100, 200, 200, 50,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeTextSpeed, &textSpeeds[0], win->LargeFont
+    );
+
+    buttonsParam[1] =createButton(
+        "1", win, 400, 200, 200, 50,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeTextSpeed, &textSpeeds[1], win->LargeFont
+    );
+
+    buttonsParam[2] =createButton(
+        "1.5", win, 700, 200, 200, 50,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeTextSpeed, &textSpeeds[2], win->LargeFont
+    );
+    buttonsParam[3] =createButton(
+        "Back", win, 100, 600, 300, 100,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[2], win->LargeFont
+    );
+
+    buttonsLoadGame[0] = createButton(
+        "Save 1", win, 500, 104, 300, 100,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[4], win->LargeFont
+    );
+
+    buttonsLoadGame[1] = createButton(
+        "Save 2", win, 500, 258, 300, 100,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[5], win->LargeFont
+    );
+
+    buttonsLoadGame[2]  =createButton(
+        "Back", win, 100, 600, 300, 100,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[2], win->LargeFont
+    );
+
+    sliders[0] = createSlider(win->renderer, 100, 100, 200, 25, (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255});
+    
+    InitTextureButton(buttonsMenu[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsMenu[1], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsMenu[2], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsMenu[3], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+
+    InitTextureButton(buttonsParam[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsParam[1], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsParam[2], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsParam[3], win->renderer, "assets/User Interface/zoonami_menu_button7.png");
+
+    InitTextureButton(buttonsLoadGame[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsLoadGame[1], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsLoadGame[2], win->renderer, "assets/User Interface/zoonami_menu_button7.png");
+
+    addListSlider(&SettingsSliders, sliders, nbSlidersSettings);
+    free(sliders); // Libération du tableau temporaire
+    addListButton(&MenuButtons, buttonsMenu, nbButtonsMenu);
+    free(buttonsMenu); // Libération du tableau temporaire
+    addListButton(&SettingsButtons, buttonsParam, nbButtonsParam);
+    free(buttonsParam); // Libération du tableau temporaire
+
+    addListButton(&LoadGameButtons, buttonsLoadGame, nbButtonsLoad);
+    free(buttonsLoadGame);
+
+    sliders = NULL;
+    buttonsMenu = NULL;
+    buttonsParam = NULL;
+    buttonsLoadGame = NULL;
 }

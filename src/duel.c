@@ -1,5 +1,5 @@
-#include "include/structPoke.h"
-#include "include/duel.h"
+#include "../include/structPoke.h"
+#include "../include/duel.h"
 
 float statVariations[13]={0.25,2./7,1./3,2./5,0.5,2./3,1,1.5,2,2.5,3,3.5,4};
 t_Move struggle={"Lutte",50,noType,physical,200,1,1,0};

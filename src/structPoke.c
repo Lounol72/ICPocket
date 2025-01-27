@@ -1,5 +1,5 @@
-#include "include/structPoke.h"
-#include "include/duel.h"
+#include "../include/structPoke.h"
+#include "../include/duel.h"
 
 t_Nature tabNature[25];
 

@@ -1,7 +1,7 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "src/include/GameEngine.h"
+#include "include/GameEngine.h"
 
 
 int main(void) {

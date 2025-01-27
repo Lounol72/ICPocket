@@ -1,6 +1,6 @@
-#include "include/structPoke.h"
-#include "include/duel.h"
-#include "include/trainerAI.h"
+#include "../include/structPoke.h"
+#include "../include/duel.h"
+#include "../include/trainerAI.h"
 /*
 t_AI iaTest={10,none,&bleu};
 
