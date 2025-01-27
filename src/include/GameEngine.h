@@ -30,7 +30,8 @@ typedef struct Window {
     TTF_Font * MediumFont;
     TTF_Font * SmallFont;
     TTF_Font *font;
-    AppState state; 
+    AppState state;
+    double textSpeed;
 } Window;
 
 
@@ -70,14 +71,14 @@ void renderMenu(Window *win);
 void handleMenuEvent(Window *win, SDL_Event *event);
 void renderGame(Window *win);
 void handleGameEvent(Window *win, SDL_Event *event);
-void goToGameState(Window *win);
 void renderSettings(Window *win);
 void handleSettingsEvent(Window *win, SDL_Event *event);
-void goToSettingsState(Window *win);
 void renderQuit(Window *win);
 void handleQuitEvent(Window *win, SDL_Event *event);
+void changeTextSpeed(Window *win, void *data);
 
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath);
 void renderText(Window * win, const char * text,SDL_Rect  * rect, SDL_Color color, TTF_Font *font);
+void initAllButtons(Window * win);
 
 #endif // GAMEENGINE_H

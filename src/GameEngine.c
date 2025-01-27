@@ -109,6 +109,9 @@ void handleSettingsEvent(Window *win, SDL_Event *event) {
         for (int i = 0; i < SettingsSliders.size; i++) {
             if (handleSliderEvent(SettingsSliders.sliders[i], x,y)) break;
         }
+        for(int i = 0; i < SettingsButtons.size; i++){
+            ButtonClicked(SettingsButtons.buttons[i], x, y, win);
+        }
     }
     // Gérer les autres événements
     handleEvent(win, event);
@@ -139,21 +142,30 @@ void changeState(Window *win, void *data) {
     win->state = newState;
 }
 
+void changeTextSpeed(Window *win, void *data) {
+    double *speed = (double *)data;
+    win->textSpeed = *speed;
+    SDL_Log("Vitesse du texte changée à %.1f", win->textSpeed);
+}
 
 void mainLoop(Window *win) {
     const int FPS = 60;
     const int frameDelay = 1000 / FPS;
     int frameStart;
     SDL_Event event;
+
     MenuButtons.buttons = NULL;
     MenuButtons.size = 0;
-
-    // Création des boutons
+    SettingsButtons.buttons = NULL;
+    SettingsButtons.size = 0;
+    SettingsSliders.sliders = NULL;
+    SettingsSliders.size = 0;
     SDL_Log("Création des boutons...");
     AppState states[] = {GAME, SETTINGS, QUIT, MENU};
+    double textSpeeds[] = {0.5, 1.0, 1.5};
     int nbButtonsMenu = 4;
     int nbSlidersSettings = 1;
-    int nbButtonsParam = 3;
+    int nbButtonsParam = 4;
     Button **buttonsMenu = malloc(nbButtonsMenu * sizeof(Button *));
     Button **buttonsParam = malloc(nbButtonsParam * sizeof(Button *));
     Slider **sliders = malloc(nbSlidersSettings * sizeof(Slider *));
@@ -182,7 +194,7 @@ void mainLoop(Window *win) {
     buttonsMenu[3] = createButton(
         "QUIT", win, 500, 566, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[3], win->LargeFont
+        changeState, &states[2], win->LargeFont
     );
 
     InitTextureButton(buttonsMenu[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
@@ -198,25 +210,31 @@ void mainLoop(Window *win) {
     free(sliders); // Libération du tableau temporaire
 
     buttonsParam[0] =createButton(
-        "1", win, 100, 200, 200, 50,
+        "0.5", win, 100, 200, 200, 50,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[0], win->LargeFont
+        changeTextSpeed, &textSpeeds[0], win->LargeFont
     );
 
     buttonsParam[1] =createButton(
-        "2", win, 400, 200, 200, 50,
+        "1", win, 400, 200, 200, 50,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[0], win->LargeFont
+        changeTextSpeed, &textSpeeds[1], win->LargeFont
     );
 
     buttonsParam[2] =createButton(
-        "3", win, 700, 200, 200, 50,
+        "1.5", win, 700, 200, 200, 50,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[0], win->LargeFont
+        changeTextSpeed, &textSpeeds[2], win->LargeFont
+    );
+    buttonsParam[3] =createButton(
+        "Back", win, 100, 600, 300, 100,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[3], win->LargeFont
     );
     InitTextureButton(buttonsParam[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
     InitTextureButton(buttonsParam[1], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
     InitTextureButton(buttonsParam[2], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsParam[3], win->renderer, "assets/User Interface/zoonami_menu_button7.png");
     addListButton(&SettingsButtons, buttonsParam, nbButtonsParam);
     free(buttonsParam); // Libération du tableau temporaire
     
@@ -269,10 +287,13 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
     win->height = win->InitialHeight = height;
     win->quit = 0;
     win->state = MENU;
+    win->textSpeed = 1;
 
     loadBackground(&backgroundTexture, win->renderer, "assets/Title Screen/Title Screen Background.png");
     loadBackground(&backgroundTextureSettings, win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_party_background.png");
     loadBackground(&backgroundTextureGame, win->renderer, "assets/Title Screen/Start.jpg");
+
+    
 }
 
 void destroyWindow(Window *win) 
@@ -323,6 +344,7 @@ void handleEvent(Window *win, SDL_Event *event)
                 float scaleX = (float)win->width / win->InitialWidth;
                 float scaleY = (float)win->height / win->InitialHeight;
                 updateButtonPosition(&MenuButtons, scaleX, scaleY);
+                updateButtonPosition(&SettingsButtons, scaleX, scaleY);
             }
             break;
         default: break;
@@ -353,4 +375,9 @@ void renderText(Window * win, const char * text,SDL_Rect  * rect, SDL_Color colo
     SDL_RenderCopy(win->renderer, textTexture, NULL, rect);
     SDL_FreeSurface(textSurface);
     SDL_DestroyTexture(textTexture);
+}
+
+void initAllButtons(Window * win)
+{
+    
 }
