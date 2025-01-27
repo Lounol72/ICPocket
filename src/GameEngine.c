@@ -214,9 +214,9 @@ void mainLoop(Window *win) {
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &states[0], win->LargeFont
     );
-    InitTextureButton(buttonsParam[4], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsParam[5], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsParam[6], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsParam[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsParam[1], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsParam[2], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
     addListButton(&SettingsButtons, buttonsParam, nbButtonsParam);
     free(buttonsParam); // Libération du tableau temporaire
     

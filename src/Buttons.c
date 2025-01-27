@@ -74,31 +74,14 @@ void destroyButtonList(ButtonList *list) {
 
 
 void InitTextureButton(Button *button, SDL_Renderer *renderer, const char *imagePath) {
-    if (!button || !renderer || !imagePath) {
-        SDL_Log("InitTextureButton : Paramètres invalides.");
-        return;
-    }
-
-    // Charger l'image avec SDL_image
+    if (!button || !renderer || !imagePath) return;
     SDL_Surface *surface = IMG_Load(imagePath);
-    if (!surface) {
-        SDL_Log("Erreur : Impossible de charger l'image '%s'. Message SDL_image : %s", imagePath, IMG_GetError());
-        return;
-    }
-
+    if (!surface) return;
     SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
-    SDL_FreeSurface(surface); // Libérer la surface après création de la texture
-    if (!texture) {
-        SDL_Log("Erreur : Impossible de créer une texture pour l'image '%s'. Message SDL : %s", imagePath, SDL_GetError());
-        return;
-    }
-
-    if (button->texture) {
-        SDL_DestroyTexture(button->texture);
-    }
-
+    SDL_FreeSurface(surface);
+    if (!texture) return;
+    if (button->texture) SDL_DestroyTexture(button->texture);
     button->texture = texture;
-    SDL_Log("Texture chargée avec succès pour l'image '%s'.", imagePath);
 }
 
 //----------------------------------------------------------------------------------------
