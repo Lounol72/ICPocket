@@ -8,4 +8,4 @@ typedef struct AI{
 
 extern t_AI iaTest;
 
-int AI_move_choice(t_Team * ai_team, t_Team * player_team);
+int AI_move_choice(t_AI * ai_team, t_Team * player_team);
