@@ -78,5 +78,6 @@ void renderQuit(Window *win);
 void handleQuitEvent(Window *win, SDL_Event *event);
 
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath);
+void renderText(Window * win, const char * text,SDL_Rect  * rect, SDL_Color color, TTF_Font *font);
 
 #endif // GAMEENGINE_H

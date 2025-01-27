@@ -345,3 +345,12 @@ void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char
         SDL_Log("Image de fond chargée avec succès.");
     }
 }
+
+void renderText(Window * win, const char * text,SDL_Rect  * rect, SDL_Color color, TTF_Font *font)
+{
+    SDL_Surface *textSurface = TTF_RenderText_Solid(font, text, color);
+    SDL_Texture *textTexture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
+    SDL_RenderCopy(win->renderer, textTexture, NULL, rect);
+    SDL_FreeSurface(textSurface);
+    SDL_DestroyTexture(textTexture);
+}
