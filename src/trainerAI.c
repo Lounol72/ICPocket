@@ -10,4 +10,4 @@ int AI_move_choice(t_AI * ai, t_Team * p){
 		tab_damage[i]=calcDamage(ai->AI_t_Team,p,&(ai->AI_t_Team->team[0].moveList[i]));
 	}
 	return 0;
-}
+}*/

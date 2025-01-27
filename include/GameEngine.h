@@ -13,7 +13,8 @@ typedef enum AppState {
     GAME = 0, 
     SETTINGS ,
     MENU,
-    QUIT, 
+    QUIT,
+    PAUSE,
     NEWGAME, 
     LOADGAME
 } AppState;

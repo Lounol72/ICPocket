@@ -4,9 +4,9 @@
 
 // List of function pointers for rendering states
 void (*stateHandlers[])(Window *) = {
+    renderMenu,
     renderGame,
     renderSettings,
-    renderMenu,
     renderQuit,
     renderNewGame,
     renderLoadGame
@@ -14,15 +14,15 @@ void (*stateHandlers[])(Window *) = {
 
 // List of function pointers for event handlers
 void (*eventHandlers[])(Window *, SDL_Event *) = {
+    handleMenuEvent,
     handleGameEvent,
     handleSettingsEvent,
-    handleMenuEvent,
     handleQuitEvent,
     handleNewGameEvent,
     handleLoadGameEvent
 };
 
-AppState states[] = {GAME, SETTINGS ,MENU,QUIT, NEWGAME, LOADGAME}; // 0 = GAME, 1 = SETTINGS, 2 = MENU, 3 = QUIT, 4 = NEWGAME, 5 = LOADGAME
+AppState states[] = {GAME, SETTINGS ,MENU, QUIT, NEWGAME, LOADGAME}; // 0 = GAME, 1 = SETTINGS, 2 = MENU, 3 = QUIT, 4 = NEWGAME, 5 = LOADGAME
 double textSpeeds[] = {0.5, 1.0, 1.5};
 // List of buttons for menu
 
@@ -146,16 +146,49 @@ void handleQuitEvent(Window *win, SDL_Event *event) {
 
 // Functions for new game
 
-void createFicGame(){
-    
+void createFicGame() {
+    FILE *file = fopen("savegame.txt", "w");
+    if (file) {
+        fprintf(file, "New game initialized.\n");
+        fclose(file);
+        SDL_Log("Fichier de sauvegarde créé avec succès.");
+    } else {
+        SDL_Log("Erreur : Impossible de créer le fichier de sauvegarde.");
+    }
 }
 
 void renderNewGame(Window * win){
-
+    
+    if(backgroundTextureGame){
+        SDL_RenderCopy(win->renderer, backgroundTextureGame, NULL, NULL);
+    } else {
+        SDL_SetRenderDrawColor(win->renderer, 0, 255, 0, 255);
+        SDL_RenderClear(win->renderer);
+    }
+    SDL_Color textColor = {255, 255, 255, 255};
+    SDL_Rect textRect ={win->width / 2 - 100, win->height / 2 - 25, 200, 50};
+    renderText(win, "Lancement de la Nouvelle Partie...", &textRect, textColor, win->LargeFont);
+    renderButtonList(&LoadGameButtons);
 }
 
 void handleNewGameEvent(Window * win, SDL_Event * event){
-
+    if(!win || !event) return;
+    if(event->type == SDL_KEYDOWN){
+        switch(event->key.keysym.sym){
+            case SDLK_ESCAPE:
+                win->state = PAUSE;
+                SDL_Log("Pause");
+                break;
+        }
+    }
+    else if(event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT){
+        int x, y;
+        SDL_GetMouseState(&x, &y); 
+        for(int i=0; i< GameButtons.size; i++){
+            ButtonClicked(GameButtons.buttons[i], x, y, win);
+        }
+    }
+    handleEvent(win, event);
 }
 
 //---------------------------------------------------------------------------------
@@ -458,7 +491,7 @@ void initAllButtons(Window * win)
     InitTextureButton(buttonsParam[1], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
     InitTextureButton(buttonsParam[2], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
     InitTextureButton(buttonsParam[3], win->renderer, "assets/User Interface/zoonami_menu_button7.png");
-
+    
     InitTextureButton(buttonsLoadGame[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
     InitTextureButton(buttonsLoadGame[1], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
     InitTextureButton(buttonsLoadGame[2], win->renderer, "assets/User Interface/zoonami_menu_button7.png");
