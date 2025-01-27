@@ -150,7 +150,7 @@ void mainLoop(Window *win) {
     // Création des boutons
     SDL_Log("Création des boutons...");
     AppState states[] = {GAME, SETTINGS, QUIT, MENU};
-    int nbButtonsMenu = 2;
+    int nbButtonsMenu = 4;
     int nbSlidersSettings = 1;
     Button **buttonsMenu = malloc(nbButtonsMenu * sizeof(Button *));
     Slider **sliders = malloc(nbSlidersSettings * sizeof(Slider *));
@@ -164,15 +164,28 @@ void mainLoop(Window *win) {
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &states[0], win->LargeFont
     );
+
     buttonsMenu[1] = createButton(
-        "SETTINGS", win, 500, 258, 300, 100,
+        "LOAD GAME", win, 500, 258, 300, 100,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[2], win->LargeFont
+    );
+    buttonsMenu[2] = createButton(
+        "SETTINGS", win, 500, 412, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &states[1], win->LargeFont 
     );
 
+    buttonsMenu[3] = createButton(
+        "QUIT", win, 500, 566, 300, 100,
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &states[3], win->LargeFont
+    );
 
     InitTextureButton(buttonsMenu[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
     InitTextureButton(buttonsMenu[1], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsMenu[2], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsMenu[3], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
     addListButton(&MenuButtons, buttonsMenu, nbButtonsMenu);
     free(buttonsMenu); // Libération du tableau temporaire
 
