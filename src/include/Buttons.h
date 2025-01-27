@@ -5,6 +5,13 @@
 #include <SDL2/SDL.h>
 #include "GameEngine.h" 
 
+typedef enum FontSize {
+    LARGE = 56,
+    MEDIUM = 36,
+    SMALL = 24,
+    CUSTOM
+} FontSize;
+
 
 typedef struct Button {
     char nom[50];
@@ -16,6 +23,7 @@ typedef struct Button {
     char* text;
     SDL_Texture *textTexture;
     SDL_Color textcolor;
+    TTF_Font *font; 
     void (*onClick)(Window *win, void *data);
     void *data;                             
 } Button;
@@ -45,10 +53,10 @@ typedef struct SliderList
 
 
 
-Button *createButton(char * text,Window * win, int x, int y, int w, int h, SDL_Color color,SDL_Color textcolor ,void (*onClick)(Window *, void *), void *data);
+Button *createButton(char *text, Window *win, int x, int y, int w, int h, SDL_Color color, SDL_Color textcolor, void (*onClick)(Window *, void *), void *data, TTF_Font *font);
 void InitTextureButton(Button *button, SDL_Renderer *renderer, const char *imagePath);
 void renderButton(Button *button);
-void addListButton(ButtonList *B, Button *buttons[], int size);
+void addListButton(ButtonList *list, Button **buttons, int count);
 void destroyButtonList(ButtonList *list);
 void renderButtonList(ButtonList *B);
 void destroyButton(Button *button);

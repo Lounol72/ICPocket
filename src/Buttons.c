@@ -3,13 +3,12 @@
 #include <SDL_image.h>
 #include <stdlib.h>
 
-Button *createButton(char * text,Window * win, int x, int y, int w, int h, SDL_Color color,SDL_Color textcolor ,void (*onClick)(Window *, void *), void *data) {
+Button *createButton(char *text, Window *win, int x, int y, int w, int h, SDL_Color color, SDL_Color textcolor, void (*onClick)(Window *, void *), void *data, TTF_Font *font) {
     Button *button = malloc(sizeof(Button));
     if (!button) {
         SDL_Log("Erreur d'allocation pour le bouton.");
         return NULL;
     }
-    
     button->text = text;
     button->textcolor = textcolor;
     button->rect = (SDL_Rect){x, y, w, h};
@@ -19,9 +18,9 @@ Button *createButton(char * text,Window * win, int x, int y, int w, int h, SDL_C
     button->renderer = win->renderer;
     button->onClick = onClick;
     button->data = data;
+    button->font = font ? font : win->font;
 
-    
-    SDL_Surface * textSurface = TTF_RenderText_Solid(win->font, text, textcolor);
+    SDL_Surface *textSurface = TTF_RenderText_Solid(button->font, text, textcolor);
     if (!textSurface) {
         SDL_Log("Erreur lors de la création de la surface du texte : %s", TTF_GetError());
         free(button);
@@ -34,14 +33,14 @@ Button *createButton(char * text,Window * win, int x, int y, int w, int h, SDL_C
         free(button);
         return NULL;
     }
-
     return button;
 }
 
+
 void destroyButton(Button *button) {
     if (!button) return;
-    if (button->texture)SDL_DestroyTexture(button->texture);
-    if (button->textTexture)SDL_DestroyTexture(button->textTexture);
+    if (button->texture) SDL_DestroyTexture(button->texture);
+    if (button->textTexture) SDL_DestroyTexture(button->textTexture);
     free(button);
     button = NULL;
 }
@@ -67,7 +66,7 @@ void destroyButtonList(ButtonList *list) {
             destroyButton(list->buttons[i]);
         }
         free(list->buttons);
-        list->buttons = NULL;
+        list->buttons = NULL; 
     }
     list->size = 0;
 }
@@ -75,31 +74,14 @@ void destroyButtonList(ButtonList *list) {
 
 
 void InitTextureButton(Button *button, SDL_Renderer *renderer, const char *imagePath) {
-    if (!button || !renderer || !imagePath) {
-        SDL_Log("InitTextureButton : Paramètres invalides.");
-        return;
-    }
-
-    // Charger l'image avec SDL_image
+    if (!button || !renderer || !imagePath) return;
     SDL_Surface *surface = IMG_Load(imagePath);
-    if (!surface) {
-        SDL_Log("Erreur : Impossible de charger l'image '%s'. Message SDL_image : %s", imagePath, IMG_GetError());
-        return;
-    }
-
+    if (!surface) return;
     SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
-    SDL_FreeSurface(surface); // Libérer la surface après création de la texture
-    if (!texture) {
-        SDL_Log("Erreur : Impossible de créer une texture pour l'image '%s'. Message SDL : %s", imagePath, SDL_GetError());
-        return;
-    }
-
-    if (button->texture) {
-        SDL_DestroyTexture(button->texture);
-    }
-
+    SDL_FreeSurface(surface);
+    if (!texture) return;
+    if (button->texture) SDL_DestroyTexture(button->texture);
     button->texture = texture;
-    SDL_Log("Texture chargée avec succès pour l'image '%s'.", imagePath);
 }
 
 //----------------------------------------------------------------------------------------
@@ -166,13 +148,14 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
         SDL_Log("Erreur d'allocation pour le slider.");
         return NULL;
     }
+    slider->value = 0;
     slider->rect = (SDL_Rect){x, y, w, h};
     slider->initialBar = slider->rect;
-    slider->cursor = (SDL_Rect){slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2), y-5, 10, h+12};
+    int cursorW = 10;
+    slider->cursor = (SDL_Rect){slider->rect.x + (slider->value * cursorW) - (cursorW / 2), y-5, cursorW, h+12};
     slider->color = color;
     slider->cursorColor = cursorColor;
     slider->renderer = renderer;
-    slider->value = 0;
 
     return slider;
 }

@@ -27,7 +27,7 @@ int testActionValidity(int action, t_Team * t){
 	return FALSE;
 }
 
-int calcStatFrom(t_Poke * p,int stat){
+int calcStatFrom(t_Poke * p, int stat) {
 	if (stat==PV) return ((int)(2*p->baseStats[PV]+p->iv[PV])*p->lvl/100)+p->lvl+10;
 	int value=(int)(((2*p->baseStats[stat]+p->iv[stat])*p->lvl/100)+5)*tabNature[p->nature].coeff[stat];
 	return value;
