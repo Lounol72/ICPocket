@@ -22,7 +22,7 @@ void (*eventHandlers[])(Window *, SDL_Event *) = {
     handleLoadGameEvent
 };
 
-AppState states[] = {GAME, SETTINGS ,MENU, QUIT, NEWGAME, LOADGAME}; // 0 = GAME, 1 = SETTINGS, 2 = MENU, 3 = QUIT, 4 = NEWGAME, 5 = LOADGAME
+AppState states[] = {GAME, SETTINGS ,MENU, QUIT, NEWGAME, LOADGAME, PAUSE}; // 0 = GAME, 1 = SETTINGS, 2 = MENU, 3 = QUIT, 4 = NEWGAME, 5 = LOADGAME, 6 = PAUSE
 double textSpeeds[] = {0.5, 1.0, 1.5};
 // List of buttons for menu
 
@@ -157,6 +157,8 @@ void createFicGame() {
     }
 }
 
+Text NewGameText = {NULL,{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
+
 void renderNewGame(Window * win){
     
     if(backgroundTextureGame){
@@ -165,10 +167,8 @@ void renderNewGame(Window * win){
         SDL_SetRenderDrawColor(win->renderer, 0, 255, 0, 255);
         SDL_RenderClear(win->renderer);
     }
-    SDL_Color textColor = {255, 255, 255, 255};
-    SDL_Rect textRect ={win->width / 2 - 100, win->height / 2 - 25, 200, 50};
-    renderText(win, "Lancement de la Nouvelle Partie...", &textRect, textColor, win->LargeFont);
-    renderButtonList(&LoadGameButtons);
+    renderText(win, &NewGameText);
+    renderButtonList(&GameButtons);
 }
 
 void handleNewGameEvent(Window * win, SDL_Event * event){
@@ -185,7 +185,7 @@ void handleNewGameEvent(Window * win, SDL_Event * event){
         int x, y;
         SDL_GetMouseState(&x, &y); 
         for(int i = 0; i < LoadGameButtons.size; i++){
-            ButtonClicked(LoadGameButtons.buttons[i], x, y, win);
+            ButtonClicked(GameButtons.buttons[i], x, y, win);
         }
     }
     handleEvent(win, event);
@@ -288,6 +288,13 @@ void mainLoop(Window *win) {
         SDL_DestroyTexture(backgroundTextureSettings);
         backgroundTextureSettings = NULL;
     }
+    if (backgroundTextureGame) {
+        SDL_DestroyTexture(backgroundTextureGame);
+        backgroundTextureGame = NULL;
+    }
+    if (NewGameText.texture) {
+        destroyText(&NewGameText);
+    }
 }
 
 //---------------------------------------------------------------------------------
@@ -311,6 +318,24 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
     loadBackground(&backgroundTextureSettings, win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_party_background.png");
     loadBackground(&backgroundTextureGame, win->renderer, "assets/Title Screen/Start.jpg");
 
+    
+    NewGameText.text = "Lancement de la Nouvelle Partie...";
+    NewGameText.rect = (SDL_Rect){win->width / 2 - 250, win->height / 2 + 250, 500, 100};
+    NewGameText.color = (SDL_Color){255, 255, 255, 255};
+    NewGameText.font = win->LargeFont;
+    SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, NewGameText.text, NewGameText.color);
+    if (!textSurface) {
+        SDL_Log("Erreur de rendu du texte : %s", TTF_GetError());
+        exit(EXIT_FAILURE);
+    }
+    SDL_Texture *textTexture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
+    if (!textTexture) {
+        SDL_Log("Erreur de création de la texture : %s", SDL_GetError());
+        SDL_FreeSurface(textSurface);
+        exit(EXIT_FAILURE);
+    }
+    NewGameText.surface = textSurface;
+    NewGameText.texture = textTexture;
     
 }
 
@@ -387,13 +412,20 @@ void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char
     }
 }
 
-void renderText(Window * win, const char * text,SDL_Rect  * rect, SDL_Color color, TTF_Font *font)
-{
-    SDL_Surface *textSurface = TTF_RenderText_Solid(font, text, color);
-    SDL_Texture *textTexture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
-    SDL_RenderCopy(win->renderer, textTexture, NULL, rect);
-    SDL_FreeSurface(textSurface);
-    SDL_DestroyTexture(textTexture);
+void renderText(Window * win, Text * text){
+    
+    SDL_RenderCopy(win->renderer, text->texture, NULL, &text->rect);
+}
+
+void destroyText(Text * text){
+    if(text->texture){
+        SDL_DestroyTexture(text->texture);
+        text->texture = NULL;
+    }
+    if(text->surface){
+        SDL_FreeSurface(text->surface);
+        text->surface = NULL;
+    }
 }
 
 void initAllButtons(Window * win)

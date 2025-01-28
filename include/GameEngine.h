@@ -19,6 +19,15 @@ typedef enum AppState {
     PAUSE
 } AppState;
 
+typedef struct Text {
+    char *text;
+    SDL_Rect rect;
+    SDL_Color color;
+    TTF_Font *font;
+    SDL_Surface *surface;
+    SDL_Texture *texture;
+} Text;
+
 
 
 
@@ -81,7 +90,8 @@ void handleQuitEvent(Window *win, SDL_Event *event);
 void changeTextSpeed(Window *win, void *data);
 
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath);
-void renderText(Window * win, const char * text,SDL_Rect  * rect, SDL_Color color, TTF_Font *font);
+void renderText(Window * win, Text * text);
+void destroyText(Text * text);
 void initAllButtons(Window * win);
 
 void createFicGame();
