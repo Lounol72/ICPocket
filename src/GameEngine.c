@@ -45,6 +45,11 @@ SliderList LoadGameSliders = {NULL, 0};
 ButtonList GameButtons = {NULL, 0};
 SDL_Texture * backgroundTextureGame = NULL;
 
+// List of buttons for new game
+
+ButtonList NewGameButtons = {NULL, 0};
+SDL_Texture * backgroundTextureNewGame = NULL;
+
 //---------------------------------------------------------------------------------
 
 // Functions for the menu
@@ -162,30 +167,22 @@ Text NewGameText = {NULL,{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
 void renderNewGame(Window * win){
     
     if(backgroundTextureGame){
-        SDL_RenderCopy(win->renderer, backgroundTextureGame, NULL, NULL);
+        SDL_RenderCopy(win->renderer, backgroundTextureNewGame, NULL, NULL);
     } else {
         SDL_SetRenderDrawColor(win->renderer, 0, 255, 0, 255);
         SDL_RenderClear(win->renderer);
     }
     renderText(win, &NewGameText);
-    renderButtonList(&GameButtons);
+    renderButtonList(&NewGameButtons);
 }
 
 void handleNewGameEvent(Window * win, SDL_Event * event){
     if(!win || !event) return;
-    if(event->type == SDL_KEYDOWN){
-        switch(event->key.keysym.sym){
-            case SDLK_ESCAPE:
-                win->state = PAUSE;
-                SDL_Log("Pause");
-                break;
-        }
-    }
     else if(event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT){
         int x, y;
         SDL_GetMouseState(&x, &y); 
         for(int i = 0; i < LoadGameButtons.size; i++){
-            ButtonClicked(GameButtons.buttons[i], x, y, win);
+            ButtonClicked(NewGameButtons.buttons[i], x, y, win);
         }
     }
     handleEvent(win, event);
@@ -245,6 +242,7 @@ void mainLoop(Window *win) {
     const int frameDelay = 1000 / FPS;
     int frameStart;
     SDL_Event event;
+    int newGameStartTime = 0;
 
     MenuButtons.buttons = NULL;
     MenuButtons.size = 0;
@@ -273,6 +271,16 @@ void mainLoop(Window *win) {
         int frameTime = SDL_GetTicks() - frameStart;
         if (frameTime < frameDelay) {
             SDL_Delay(frameDelay - frameTime);
+        }
+        // Si l'état est NEWGAME, démarrez le chronomètre
+        if (win->state == NEWGAME && newGameStartTime == 0) {
+            newGameStartTime = SDL_GetTicks();
+        }
+
+        // Si l'état est NEWGAME et que 5 secondes se sont écoulées, revenez au menu principal
+        if (win->state == NEWGAME && SDL_GetTicks() - newGameStartTime >= 5000) {
+            changeState(win, &states[0]); // Change state to MENU
+            newGameStartTime = 0; // Réinitialiser le chronomètre
         }
     }
 
@@ -316,6 +324,7 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
     loadBackground(&backgroundTexture, win->renderer, "assets/Title Screen/Title Screen Background.png");
     loadBackground(&backgroundTextureLoadGame, win->renderer, "assets/Title Screen/LoadGame.png");
     loadBackground(&backgroundTextureSettings, win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_party_background.png");
+    loadBackground(&backgroundTextureNewGame, win->renderer, "assets/Title Screen/GameStart.jpg");
     loadBackground(&backgroundTextureGame, win->renderer, "assets/Title Screen/Start.jpg");
 
     
