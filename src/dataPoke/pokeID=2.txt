@@ -1,8 +1,8 @@
-id=2
-name=Envy
-pv=20
-atq=10
-def=230
-atqSP=10
-defSP=230
-vit=5
+2
+Envy
+20
+10
+230
+10
+230
+5
