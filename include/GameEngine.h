@@ -22,6 +22,7 @@ typedef enum AppState {
 typedef struct Text {
     char *text;
     SDL_Rect rect;
+    SDL_Rect initialRect;
     SDL_Color color;
     TTF_Font *font;
     SDL_Surface *surface;
@@ -91,6 +92,7 @@ void changeTextSpeed(Window *win, void *data);
 
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath);
 void renderText(Window * win, Text * text);
+void updateTextPosition(Text *text, float scaleX, float scaleY);
 void destroyText(Text * text);
 void initAllButtons(Window * win);
 

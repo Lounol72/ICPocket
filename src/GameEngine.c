@@ -42,11 +42,14 @@ ButtonList LoadGameButtons = {NULL, 0};
 SliderList LoadGameSliders = {NULL, 0};
 
 // List of buttons for game
+
 ButtonList GameButtons = {NULL, 0};
 SDL_Texture * backgroundTextureGame = NULL;
+int marginBottom = 200; // Marge en bas en pixels
+int marginRight = 0;  // Marge à droite en pixels
 
 // List of buttons for new game
-
+Text NewGameText = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
 ButtonList NewGameButtons = {NULL, 0};
 SDL_Texture * backgroundTextureNewGame = NULL;
 
@@ -56,12 +59,8 @@ SDL_Texture * backgroundTextureNewGame = NULL;
 
 void renderMenu(Window *win) {
     // Set the background color for the menu
-    if (backgroundTexture) {
-        SDL_RenderCopy(win->renderer, backgroundTexture, NULL, NULL);
-    } else {
-        SDL_SetRenderDrawColor(win->renderer, 255, 0, 0, 255); // Red background
-        SDL_RenderClear(win->renderer);
-    }
+    if (backgroundTexture) SDL_RenderCopy(win->renderer, backgroundTexture, NULL, NULL);
+    
     renderButtonList(&MenuButtons);
 }
 
@@ -81,10 +80,16 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
 
 void renderGame(Window *win) {
     if(backgroundTextureGame){
-        SDL_RenderCopy(win->renderer, backgroundTextureGame, NULL, NULL);
-    } else {
-        SDL_SetRenderDrawColor(win->renderer, 0, 255, 0, 255); // Green background
-        SDL_RenderClear(win->renderer);
+        // Obtenez les dimensions de la fenêtre
+        int windowWidth, windowHeight;
+        SDL_GetWindowSize(win->window, &windowWidth, &windowHeight);
+
+        // Définissez la zone de rendu avec les marges
+        SDL_Rect renderQuad = {0, 0, windowWidth - marginRight, windowHeight - marginBottom};
+
+        // Rendre la texture de fond avec les marges
+        SDL_SetRenderDrawColor(win->renderer, 255, 255, 255, 255);
+        SDL_RenderCopy(win->renderer, backgroundTextureGame, NULL, &renderQuad);
     }
     
 
@@ -105,12 +110,9 @@ void handleGameEvent(Window *win, SDL_Event *event)
 // Functions for the settings
 
 void renderSettings(Window *win) {
-    if (backgroundTextureSettings) {
+    if (backgroundTextureSettings) 
         SDL_RenderCopy(win->renderer, backgroundTextureSettings, NULL, NULL);
-    } else {
-        SDL_SetRenderDrawColor(win->renderer, 0, 0, 255, 255); // Blue background
-        SDL_RenderClear(win->renderer);
-    }
+    
     // Toujours rendre les sliders
     renderSliderList(&SettingsSliders);
     renderButtonList(&SettingsButtons);
@@ -162,16 +164,10 @@ void createFicGame() {
     }
 }
 
-Text NewGameText = {NULL,{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
-
 void renderNewGame(Window * win){
     
-    if(backgroundTextureGame){
-        SDL_RenderCopy(win->renderer, backgroundTextureNewGame, NULL, NULL);
-    } else {
-        SDL_SetRenderDrawColor(win->renderer, 0, 255, 0, 255);
-        SDL_RenderClear(win->renderer);
-    }
+    if(backgroundTextureGame) SDL_RenderCopy(win->renderer, backgroundTextureNewGame, NULL, NULL);
+    
     renderText(win, &NewGameText);
     renderButtonList(&NewGameButtons);
 }
@@ -197,12 +193,7 @@ void readFicGame(){
 }
 
 void renderLoadGame(Window * win){
-    if (backgroundTextureSettings) {
-        SDL_RenderCopy(win->renderer, backgroundTextureLoadGame, NULL, NULL);
-    } else {
-        SDL_SetRenderDrawColor(win->renderer, 0, 0, 255, 255); // Blue background
-        SDL_RenderClear(win->renderer);
-    }
+    if (backgroundTextureSettings) SDL_RenderCopy(win->renderer, backgroundTextureLoadGame, NULL, NULL);
     // Toujours rendre les sliders
     renderButtonList(&LoadGameButtons);
 }
@@ -237,6 +228,15 @@ void changeTextSpeed(Window *win, void *data) {
     SDL_Log("Vitesse du texte changée à %.1f", win->textSpeed);
 }
 
+void updateTextPosition(Text *text, float scaleX, float scaleY) {
+    if (text && text->texture) {
+        text->rect.x = (int)(text->initialRect.x * scaleX);
+        text->rect.y = (int)(text->initialRect.y * scaleY);
+        text->rect.w = (int)(text->initialRect.w * scaleX);
+        text->rect.h = (int)(text->initialRect.h * scaleY);
+    }
+}
+
 void mainLoop(Window *win) {
     const int FPS = 60;
     const int frameDelay = 1000 / FPS;
@@ -258,33 +258,32 @@ void mainLoop(Window *win) {
     while (!win->quit) {
         frameStart = SDL_GetTicks();
 
-        // Gestion des événements en premier
+        // Manage events
         while (SDL_PollEvent(&event)) {
             eventHandlers[win->state](win, &event);
         }
 
-        // Rendu après les événements
+        // Render the window
+        SDL_RenderClear(win->renderer);
         stateHandlers[win->state](win);
         SDL_RenderPresent(win->renderer);
 
-        // Gestion du temps pour maintenir le FPS
+        // Manage frame rate
         int frameTime = SDL_GetTicks() - frameStart;
         if (frameTime < frameDelay) {
             SDL_Delay(frameDelay - frameTime);
         }
-        // Si l'état est NEWGAME, démarrez le chronomètre
+        // If the state is NEWGAME and 5 seconds have passed, go to game state
         if (win->state == NEWGAME && newGameStartTime == 0) {
             newGameStartTime = SDL_GetTicks();
         }
-
-        // Si l'état est NEWGAME et que 5 secondes se sont écoulées, revenez au menu principal
-        if (win->state == NEWGAME && SDL_GetTicks() - newGameStartTime >= 5000) {
-            changeState(win, &states[0]); // Change state to MENU
-            newGameStartTime = 0; // Réinitialiser le chronomètre
+        else if (win->state == NEWGAME && SDL_GetTicks() - newGameStartTime >= 5000) {
+            changeState(win, &states[0]); // Change state to GAME
+            newGameStartTime = 0; // reinitialize the start time
         }
     }
 
-    // Libération des ressources
+    // Free memory
     destroyButtonList(&MenuButtons);
     destroyButtonList(&SettingsButtons);
     destroySliderList(&SettingsSliders);
@@ -325,11 +324,12 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
     loadBackground(&backgroundTextureLoadGame, win->renderer, "assets/Title Screen/LoadGame.png");
     loadBackground(&backgroundTextureSettings, win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_party_background.png");
     loadBackground(&backgroundTextureNewGame, win->renderer, "assets/Title Screen/GameStart.jpg");
-    loadBackground(&backgroundTextureGame, win->renderer, "assets/Title Screen/Start.jpg");
+    loadBackground(&backgroundTextureGame, win->renderer, "assets/Battle Backgrounds/With Textboxes/zoonami_forest_background.png");
 
     
     NewGameText.text = "Lancement de la Nouvelle Partie...";
     NewGameText.rect = (SDL_Rect){win->width / 2 - 250, win->height / 2 + 250, 500, 100};
+    NewGameText.initialRect = NewGameText.rect;
     NewGameText.color = (SDL_Color){255, 255, 255, 255};
     NewGameText.font = win->LargeFont;
     SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, NewGameText.text, NewGameText.color);
@@ -398,6 +398,7 @@ void handleEvent(Window *win, SDL_Event *event)
                 updateButtonPosition(&MenuButtons, scaleX, scaleY);
                 updateButtonPosition(&SettingsButtons, scaleX, scaleY);
                 updateButtonPosition(&LoadGameButtons, scaleX, scaleY);
+                updateTextPosition(&NewGameText, scaleX, scaleY);
             }
             break;
         default: break;
