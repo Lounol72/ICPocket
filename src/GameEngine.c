@@ -85,13 +85,13 @@ void renderGame(Window *win) {
         SDL_GetWindowSize(win->window, &windowWidth, &windowHeight);
 
         // Définissez la zone de rendu avec les marges
-        SDL_Rect renderQuad = {0, 0, windowWidth - marginRight, windowHeight - marginBottom};
+        SDL_Rect renderQuad = {0, 0, windowWidth, (int)(windowHeight * 0.722)};
 
         // Rendre la texture de fond avec les marges
         SDL_SetRenderDrawColor(win->renderer, 255, 255, 255, 255);
         SDL_RenderCopy(win->renderer, backgroundTextureGame, NULL, &renderQuad);
     }
-    
+    renderButtonList(&GameButtons);
 
 }
 
@@ -101,6 +101,8 @@ void handleGameEvent(Window *win, SDL_Event *event)
         int x, y;
         SDL_GetMouseState(&x, &y);
         // Handle game event
+        for (int i = 0; i < GameButtons.size; i++)
+            ButtonClicked(GameButtons.buttons[i], x, y, win);
     }
     handleEvent(win, event);
 }
@@ -228,14 +230,11 @@ void changeTextSpeed(Window *win, void *data) {
     SDL_Log("Vitesse du texte changée à %.1f", win->textSpeed);
 }
 
-void updateTextPosition(Text *text, float scaleX, float scaleY) {
-    if (text && text->texture) {
-        text->rect.x = (int)(text->initialRect.x * scaleX);
-        text->rect.y = (int)(text->initialRect.y * scaleY);
-        text->rect.w = (int)(text->initialRect.w * scaleX);
-        text->rect.h = (int)(text->initialRect.h * scaleY);
-    }
+void attqButtonClicked(Window *win, void *data) {
+    printf("Attack %d clicked\n", (int)data);
 }
+
+
 
 void mainLoop(Window *win) {
     const int FPS = 60;
@@ -275,7 +274,7 @@ void mainLoop(Window *win) {
         }
         // If the state is NEWGAME and 5 seconds have passed, go to game state
         if (win->state == NEWGAME && newGameStartTime == 0) newGameStartTime = SDL_GetTicks();
-        else if (win->state == NEWGAME && SDL_GetTicks() - newGameStartTime >= 5000) {
+        else if (win->state == NEWGAME && SDL_GetTicks() - newGameStartTime >= 100) { // 5 seconds
             changeState(win, &states[0]); // Change state to GAME
             newGameStartTime = 0; // reinitialize the start time
         }
@@ -307,7 +306,7 @@ void mainLoop(Window *win) {
 // Functions for the window
 
 void initWindow(Window *win, int width, int height, const char *FontPath) {
-    if (SDL_Init(SDL_INIT_VIDEO) < 0 || !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_SOFTWARE | SDL_RENDERER_PRESENTVSYNC)) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || TTF_Init() == -1 || !(win->LargeFont = TTF_OpenFont(FontPath, 56)) || !(win->MediumFont = TTF_OpenFont(FontPath, 36)) || !(win->SmallFont = TTF_OpenFont(FontPath, 24)) || !(win->font = TTF_OpenFont(FontPath, 18))) {
+    if (SDL_Init(SDL_INIT_VIDEO) < 0 || !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_SOFTWARE | SDL_RENDERER_PRESENTVSYNC)) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || TTF_Init() == -1 || !(win->LargeFont = TTF_OpenFont(FontPath, 70)) || !(win->MediumFont = TTF_OpenFont(FontPath, 56)) || !(win->SmallFont = TTF_OpenFont(FontPath, 24)) || !(win->font = TTF_OpenFont(FontPath, 18))) {
         SDL_Log("SDL Error: %s", SDL_GetError());
         if (win->window) SDL_DestroyWindow(win->window);
         exit(EXIT_FAILURE);
@@ -396,10 +395,20 @@ void handleEvent(Window *win, SDL_Event *event)
                 updateButtonPosition(&MenuButtons, scaleX, scaleY);
                 updateButtonPosition(&SettingsButtons, scaleX, scaleY);
                 updateButtonPosition(&LoadGameButtons, scaleX, scaleY);
+                updateButtonPosition(&GameButtons, scaleX, scaleY);
                 updateTextPosition(&NewGameText, scaleX, scaleY);
             }
             break;
         default: break;
+    }
+}
+
+void updateTextPosition(Text *text, float scaleX, float scaleY) {
+    if (text && text->texture) {
+        text->rect.x = (int)(text->initialRect.x * scaleX);
+        text->rect.y = (int)(text->initialRect.y * scaleY);
+        text->rect.w = (int)(text->initialRect.w * scaleX);
+        text->rect.h = (int)(text->initialRect.h * scaleY);
     }
 }
 
@@ -444,14 +453,16 @@ void initAllButtons(Window * win)
     int nbButtonsMenu = 4;
     int nbSlidersSettings = 1;
     int nbButtonsParam = 4;
+    int nbButtonsGame = 5;
 
     Button **buttonsMenu = malloc(nbButtonsMenu * sizeof(Button *));
     Button **buttonsParam = malloc(nbButtonsParam * sizeof(Button *));
     Button ** buttonsLoadGame = malloc(nbButtonsLoad * sizeof(Button *));
+    Button ** buttonsGame = malloc(nbButtonsGame * sizeof(Button *));
     Slider **sliders = malloc(nbSlidersSettings * sizeof(Slider *));
 
 
-    if (!buttonsMenu || !sliders || !buttonsParam || !buttonsLoadGame) {
+    if (!buttonsMenu || !sliders || !buttonsParam || !buttonsLoadGame || !buttonsGame) {
         SDL_Log("Allocation de mémoire pour les boutons échouée !");
         return;
     }
@@ -459,24 +470,24 @@ void initAllButtons(Window * win)
     buttonsMenu[0] = createButton(
         "PLAY", win, 500, 104, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[4], win->LargeFont
+        changeState, &states[4], win->MediumFont
     );
 
     buttonsMenu[1] = createButton(
         "LOAD GAME", win, 500, 258, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[5], win->LargeFont
+        changeState, &states[5], win->MediumFont
     );
     buttonsMenu[2] = createButton(
         "SETTINGS", win, 500, 412, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[1], win->LargeFont 
+        changeState, &states[1], win->MediumFont
     );
 
     buttonsMenu[3] = createButton(
         "QUIT", win, 500, 566, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[3], win->LargeFont
+        changeState, &states[3], win->MediumFont
     );
 
     buttonsParam[0] =createButton(
@@ -520,21 +531,64 @@ void initAllButtons(Window * win)
         changeState, &states[2], win->LargeFont
     );
 
+    int buttonWidth = 450;
+    int buttonHeight = 90;
+    int spacingX = 5;
+    int spacingY = 10;
+    int startX = 20;
+    int startY = 535;
+
+    buttonsGame[0] = createButton(
+        "Attack 1", win, startX, startY, buttonWidth, buttonHeight,
+        (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255},
+        attqButtonClicked, 1, win->LargeFont
+    );
+
+    buttonsGame[1] = createButton(
+        "Attack 2", win, startX , startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
+        (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255},
+        attqButtonClicked, 2, win->LargeFont
+    );
+
+    buttonsGame[2] = createButton(
+        "Attack 3", win, startX + buttonWidth + spacingX, startY , buttonWidth, buttonHeight,
+        (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255},
+        attqButtonClicked, 3, win->LargeFont
+    );
+
+    buttonsGame[3] = createButton(
+        "Attack 4", win, startX + buttonWidth + spacingX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
+        (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255},
+        attqButtonClicked, 4, win->LargeFont
+    );
+
+    buttonsGame[4] = createButton(
+        "ICMons", win, 1000, startY, 200, 180,
+        (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255},
+        changeState, &states[2], win->LargeFont
+    );
+
     sliders[0] = createSlider(win->renderer, 100, 100, 200, 25, (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255});
     
-    InitTextureButton(buttonsMenu[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsMenu[1], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsMenu[2], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsMenu[3], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
+    InitTextureButton(buttonsMenu[0], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsMenu[1], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsMenu[2], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsMenu[3], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
 
-    InitTextureButton(buttonsParam[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsParam[1], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsParam[2], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsParam[3], win->renderer, "assets/User Interface/zoonami_menu_button7.png");
+    InitTextureButton(buttonsParam[0], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsParam[1], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsParam[2], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsParam[3], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
     
-    InitTextureButton(buttonsLoadGame[0], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsLoadGame[1], win->renderer, "assets/User Interface/zoonami_menu_button6.png");
-    InitTextureButton(buttonsLoadGame[2], win->renderer, "assets/User Interface/zoonami_menu_button7.png");
+    InitTextureButton(buttonsLoadGame[0], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsLoadGame[1], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsLoadGame[2], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+
+    InitTextureButton(buttonsGame[0], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsGame[1], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsGame[2], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsGame[3], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsGame[4], win->renderer, "assets/User Interface/Double/button_square_depth_gloss.png");
 
     addListSlider(&SettingsSliders, sliders, nbSlidersSettings);
     free(sliders); // Libération du tableau temporaire
@@ -542,9 +596,10 @@ void initAllButtons(Window * win)
     free(buttonsMenu); // Libération du tableau temporaire
     addListButton(&SettingsButtons, buttonsParam, nbButtonsParam);
     free(buttonsParam); // Libération du tableau temporaire
-
     addListButton(&LoadGameButtons, buttonsLoadGame, nbButtonsLoad);
     free(buttonsLoadGame);
+    addListButton(&GameButtons, buttonsGame, nbButtonsGame);
+    free(buttonsGame);
 
     sliders = NULL;
     buttonsMenu = NULL;

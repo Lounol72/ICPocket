@@ -222,4 +222,12 @@ void renderLoadGame(Window * win);
  */
 void handleLoadGameEvent(Window * win, SDL_Event * event);
 
+/**
+ * @brief Handle the event for the attack button
+ * 
+ * @param button    Button
+ * @param win       Window
+ */
+void attqButtonClicked(Window *win, void *data);
+
 #endif // GAMEENGINE_H

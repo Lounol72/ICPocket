@@ -106,10 +106,20 @@ void renderButton(Button *button) {
     if (button->textTexture) {
         int textWidth, textHeight;
         SDL_QueryTexture(button->textTexture, NULL, NULL, &textWidth, &textHeight);
-        SDL_Rect textRect = {button->rect.x + (button->rect.w - textWidth) / 2, button->rect.y + (button->rect.h - textHeight) / 2, textWidth, textHeight};
+        
+        // Calculs corrects pour centrer horizontalement et verticalement
+        SDL_Rect textRect = {
+            button->rect.x + (button->rect.w - textWidth) / 2,  // Centrage horizontal
+            button->rect.y + ((button->rect.h - textHeight) / 2)* 0.8, // Ajustement vertical (ajouter un décalage)
+            textWidth,
+            textHeight
+        };
+        
         SDL_RenderCopy(button->renderer, button->textTexture, NULL, &textRect);
     }
 }
+
+
 
 //--------------------------------------------------------------------------
 
