@@ -80,29 +80,146 @@ void handleEvent(Window *win, SDL_Event *event);
  */
 void mainLoop(Window *win);
 
+
+/**
+ * @brief           Render the menu
+ * 
+ * @param win       struct Window
+ */
 void renderMenu(Window *win);
+/**
+ * @brief           Handle the event of the menu
+ * 
+ * @param win       struct Window
+ * @param event     SDL_Event
+ */
 void handleMenuEvent(Window *win, SDL_Event *event);
+/**
+ * @brief           Render the game
+ * 
+ * @param win       struct Window
+ */
 void renderGame(Window *win);
+/**
+ * @brief           Handle the event of the game
+ * 
+ * @param win       struct Window
+ * @param event     SDL_Event
+ */
 void handleGameEvent(Window *win, SDL_Event *event);
+/**
+ * @brief           Render the settings
+ * 
+ * @param win       struct Window
+ */
 void renderSettings(Window *win);
+/**
+ * @brief           Handle the event of the settings
+ * 
+ * @param win       struct Window
+ * @param event     SDL_Event
+ */
 void handleSettingsEvent(Window *win, SDL_Event *event);
+/**
+ * @brief           Render the quit
+ * 
+ * @param win       struct Window
+ */
 void renderQuit(Window *win);
+/**
+ * @brief           Handle the event of the quit
+ * 
+ * @param win       struct Window
+ * @param event     SDL_Event
+ */
 void handleQuitEvent(Window *win, SDL_Event *event);
+
+/**
+ * @brief           Handle the change of the text speed
+ * 
+ * @param win       struct Window
+ * @param data      void
+ */
 void changeTextSpeed(Window *win, void *data);
 
+/**
+ * @brief           Load the background
+ * 
+ * @param Background    SDL_Texture
+ * @param renderer      SDL_Renderer
+ * @param imagePath     path to the image
+ */
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath);
+
+/**
+ * @brief render the text from the struct Text
+ * 
+ * @param win  struct Window
+ * @param text  struct Text
+ */
 void renderText(Window * win, Text * text);
+
+/**
+ * @brief update the position of the text
+ * 
+ * @param text  struct Text
+ * @param scaleX  float
+ * @param scaleY  float
+ */
 void updateTextPosition(Text *text, float scaleX, float scaleY);
+
+/**
+ * @brief Destroy the structure text and free the memory
+ * 
+ * @param text  struct Text
+ */
 void destroyText(Text * text);
+
+/**
+ * @brief Initialize every buttons we need
+ * 
+ * @param win  struct Window
+ */
 void initAllButtons(Window * win);
 
+/**
+ * @brief Create a Fic for the save
+ * 
+ */
 void createFicGame();
+
+/**
+ * @brief Render the loading for new game
+ * 
+ * @param win   struct Window
+ */
 void renderNewGame(Window * win);
+/**
+ * @brief Handle the event for the new game
+ * 
+ * @param win   struct Window
+ * @param event SDL_Event
+ */
 void handleNewGameEvent(Window * win, SDL_Event * event);
 
+/**
+ * @brief Read the Fic for the save
+ * 
+ */
 void readFicGame();
 
+/**
+ * @brief Render the loading to load a game
+ * 
+ * @param win   struct Window
+ */
 void renderLoadGame(Window * win);
+/**
+ * @brief Handle the event to load a game
+ * 
+ * @param win   struct Window
+ * @param event SDL_Event
+ */
 void handleLoadGameEvent(Window * win, SDL_Event * event);
 
 #endif // GAMEENGINE_H

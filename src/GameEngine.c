@@ -274,9 +274,7 @@ void mainLoop(Window *win) {
             SDL_Delay(frameDelay - frameTime);
         }
         // If the state is NEWGAME and 5 seconds have passed, go to game state
-        if (win->state == NEWGAME && newGameStartTime == 0) {
-            newGameStartTime = SDL_GetTicks();
-        }
+        if (win->state == NEWGAME && newGameStartTime == 0) newGameStartTime = SDL_GetTicks();
         else if (win->state == NEWGAME && SDL_GetTicks() - newGameStartTime >= 5000) {
             changeState(win, &states[0]); // Change state to GAME
             newGameStartTime = 0; // reinitialize the start time
