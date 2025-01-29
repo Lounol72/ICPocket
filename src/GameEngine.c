@@ -52,6 +52,7 @@ SliderList LoadGameSliders = {NULL, 0};
 
 // List of buttons for game
 
+int playerTurn = 1; // 1 = au tour du joueur, 0 = IA
 ButtonList GameButtons = {NULL, 0};
 SDL_Texture * backgroundTextureGame = NULL;
 int marginBottom = 200; // Marge en bas en pixels
@@ -94,12 +95,13 @@ void renderGame(Window *win) {
         SDL_RenderCopy(win->renderer, backgroundTextureGame, NULL, &renderQuad);
     }
     renderButtonList(&GameButtons);
-    if (isTeamAlive(&rouge) && isTeamAlive(&bleu)) {
-        playATurn(&rouge, rand() % 4, &bleu, rand() % 4);
+    if (!playerTurn && isTeamAlive(&rouge) && isTeamAlive(&bleu)) {
+        
         if (!isAlive(&(rouge.team[0]))) swapActualAttacker(&rouge, rand() % 5 + 11);
         if (!isAlive(&(bleu.team[0]))) swapActualAttacker(&bleu, rand() % 5 + 11);
         printf("pv rouge : %d\npv bleu : %d\n", rouge.team[0].current_pv, bleu.team[0].current_pv);
-    } else {
+        playerTurn = 1;
+    } else if (!isTeamAlive(&rouge) || !isTeamAlive(&bleu)) {
         printf("VICTOIRE DES %s!!!\n", isTeamAlive(&rouge) ? "ROUGES" : "BLEUS");
         win->state = isTeamAlive(&rouge) ? MENU : SETTINGS;
     }
@@ -187,10 +189,13 @@ void renderNewGame(Window * win){
     renderButtonList(&NewGameButtons);
 
     if (!initialize) {
+        initData();
+        teamTest(&rouge);
+        teamTest(&bleu);
         printPoke(&(rouge.team[0]));
         printPoke(&(bleu.team[0]));
         printf("pv rouge : %d\n\n",rouge.team[0].current_pv);
-	    printf("pv bleu : %d\n\n",bleu.team[0].current_pv);
+        printf("pv bleu : %d\n\n",bleu.team[0].current_pv);
         initialize = 1;
     }
 }
@@ -252,7 +257,18 @@ void changeTextSpeed(Window *win, void *data) {
 }
 
 void attqButtonClicked(Window *win, void *data) {
-    printf("Attack %d clicked\n", (int)data);
+    if (playerTurn && isTeamAlive(&rouge) && isTeamAlive(&bleu)) {
+        int attackIndex = (int)data;
+        printf("Attack %d clicked\n", attackIndex);
+        playATurn(&rouge, attackIndex, &bleu, rand() % 4);
+
+        if (!isAlive(&(rouge.team[0]))) swapActualAttacker(&rouge, rand() % 5 + 11);
+        if (!isAlive(&(bleu.team[0]))) swapActualAttacker(&bleu, rand() % 5 + 11);
+
+        printf("pv rouge : %d\npv bleu : %d\n", rouge.team[0].current_pv, bleu.team[0].current_pv);
+
+        playerTurn = 0; // Passe au tour de l'IA
+    }
 }
 
 
@@ -346,9 +362,6 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
 
     initText(win);
 
-    initData();
-	teamTest(&rouge);
-	teamTest(&bleu);
 }
 
 void destroyWindow(Window *win) 
@@ -548,27 +561,26 @@ void initAllButtons(Window * win)
     buttonsGame[0] = createButton(
         "Attack 1", win, startX, startY, buttonWidth, buttonHeight,
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-        attqButtonClicked, 1, win->LargeFont
+        attqButtonClicked, (void *)0, win->LargeFont
     );
 
     buttonsGame[1] = createButton(
         "Attack 2", win, startX , startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-        attqButtonClicked, 2, win->LargeFont
+        attqButtonClicked, (void *)1, win->LargeFont
     );
 
     buttonsGame[2] = createButton(
         "Attack 3", win, startX + buttonWidth + spacingX, startY , buttonWidth, buttonHeight,
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-        attqButtonClicked, 3, win->LargeFont
+        attqButtonClicked, (void *)2, win->LargeFont
     );
 
     buttonsGame[3] = createButton(
         "Attack 4", win, startX + buttonWidth + spacingX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-        attqButtonClicked, 4, win->LargeFont
+        attqButtonClicked, (void *)3, win->LargeFont
     );
-
     buttonsGame[4] = createButton(
         "ICMons", win, 950, startY, 300, 180,
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
