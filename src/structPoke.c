@@ -15,31 +15,6 @@ float typeChart[typeNumber][typeNumber]={
 
 void generatePoke(t_Poke *p)
 {
-	/*
-	FILE *dataPoke;
-	dataPoke = fopen("PokeBDD.txt", "r");
-	if (dataPoke == NULL)
-	{
-		printf("Erreur : impossible d'ouvrir le fichier.\n");
-		exit(1);
-	}
-	else
-	{
-		int scanID, jeTeChoisis = rand() % 10;
-		char namePoke[20];
-
-		fscanf(dataPoke, "%d", &scanID);
-		while (!feof(dataPoke))
-		{
-			fscanf(dataPoke, "%d", &scanID);
-			if (scanID == jeTeChoisis)
-			{
-				fscanf(dataPoke, "%d", &scanID);
-				fscanf(dataPoke, "%s", namePoke);
-				break;
-			}
-		}
-		*/
 		strcpy(p->name,"dummy");
 		p->gender = rand() % 2;
 		p->lvl = rand() % 100 + 1;

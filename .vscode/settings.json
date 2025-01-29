@@ -74,6 +74,6 @@
   ],
   "files.associations": {
     "utils.h": "c",
-    "functional": "cpp"
+    "structpoke.h": "c"
   }
 }

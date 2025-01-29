@@ -47,6 +47,7 @@ typedef struct
 	t_Move moveList[4];
 } t_Poke;
 
+
 extern t_Nature tabNature[25];
 extern float typeChart[typeNumber][typeNumber];
 

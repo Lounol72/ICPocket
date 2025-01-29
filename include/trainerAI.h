@@ -1,6 +1,6 @@
 #define MAX_AI_LVL 20
 
-typedef enum{none=0,statusFirst=2,damageOnly=3,boss=6} t_AI_type;
+typedef enum{none=1,statusFirst=2,damageOnly=3} t_AI_type;
 
 typedef struct AI{
 	int AI_lvl;

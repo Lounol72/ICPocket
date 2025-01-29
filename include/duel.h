@@ -15,6 +15,7 @@ typedef struct{
 	int statChanges[6];	
 } t_Team;
 
+
 extern t_Team rouge;
 extern t_Team bleu;
 
