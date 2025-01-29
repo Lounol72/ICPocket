@@ -1,6 +1,7 @@
 #include "../include/GameEngine.h"
 
 // Global variables
+Text title = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};;
 
 // List of function pointers for rendering states
 void (*stateHandlers[])(Window *) = {
@@ -60,7 +61,26 @@ SDL_Texture * backgroundTextureNewGame = NULL;
 void renderMenu(Window *win) {
     // Set the background color for the menu
     if (backgroundTexture) SDL_RenderCopy(win->renderer, backgroundTexture, NULL, NULL);
-    
+    //set the title
+    title.text = "ICPocket";
+    title.rect = (SDL_Rect){win->width / 2 - 250, -25, 500, 170};
+    title.initialRect = title.rect;
+    title.color = (SDL_Color){255, 255, 255, 255};
+    title.font = win->LargeFont;
+    SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, title.text, title.color);
+    if (!textSurface) {
+        SDL_Log("Erreur de rendu du texte : %s", TTF_GetError());
+        exit(EXIT_FAILURE);
+    }
+    SDL_Texture *textTexture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
+    if (!textTexture) {
+        SDL_Log("Erreur de création de la texture : %s", SDL_GetError());
+        SDL_FreeSurface(textSurface);
+        exit(EXIT_FAILURE);
+    }
+    title.surface = textSurface;
+    title.texture = textTexture;
+    renderText(win, &title);
     renderButtonList(&MenuButtons);
 }
 
@@ -309,7 +329,7 @@ void mainLoop(Window *win) {
 // Functions for the window
 
 void initWindow(Window *win, int width, int height, const char *FontPath) {
-    if (SDL_Init(SDL_INIT_VIDEO) < 0 || !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_SOFTWARE | SDL_RENDERER_PRESENTVSYNC)) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || TTF_Init() == -1 || !(win->LargeFont = TTF_OpenFont(FontPath, 70)) || !(win->MediumFont = TTF_OpenFont(FontPath, 56)) || !(win->SmallFont = TTF_OpenFont(FontPath, 24)) || !(win->font = TTF_OpenFont(FontPath, 18))) {
+    if (SDL_Init(SDL_INIT_VIDEO) < 0 || !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_SOFTWARE )) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || TTF_Init() == -1 || !(win->LargeFont = TTF_OpenFont(FontPath, 70)) || !(win->MediumFont = TTF_OpenFont(FontPath, 56)) || !(win->SmallFont = TTF_OpenFont(FontPath, 24)) || !(win->font = TTF_OpenFont(FontPath, 18))) {
         SDL_Log("SDL Error: %s", SDL_GetError());
         if (win->window) SDL_DestroyWindow(win->window);
         exit(EXIT_FAILURE);
@@ -471,24 +491,24 @@ void initAllButtons(Window * win)
     }
 
     buttonsMenu[0] = createButton(
-        "PLAY", win, 500, 104, 300, 100,
+        "PLAY", win, 500, 150, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &states[4], win->MediumFont
     );
 
     buttonsMenu[1] = createButton(
-        "LOAD GAME", win, 500, 258, 300, 100,
+        "LOAD GAME", win, 500, 300, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &states[5], win->MediumFont
     );
     buttonsMenu[2] = createButton(
-        "SETTINGS", win, 500, 412, 300, 100,
+        "SETTINGS", win, 500, 450, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &states[1], win->MediumFont
     );
 
     buttonsMenu[3] = createButton(
-        "QUIT", win, 500, 566, 300, 100,
+        "QUIT", win, 500, 600, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &states[3], win->MediumFont
     );
