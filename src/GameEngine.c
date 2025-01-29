@@ -97,7 +97,10 @@ void renderGame(Window *win) {
 
 void handleGameEvent(Window *win, SDL_Event *event) 
 {
-    if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
+    if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
+        changeState(win, &states[2]);
+    }
+    else if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
         SDL_GetMouseState(&x, &y);
         // Handle game event
@@ -274,7 +277,7 @@ void mainLoop(Window *win) {
         }
         // If the state is NEWGAME and 5 seconds have passed, go to game state
         if (win->state == NEWGAME && newGameStartTime == 0) newGameStartTime = SDL_GetTicks();
-        else if (win->state == NEWGAME && SDL_GetTicks() - newGameStartTime >= 100) { // 5 seconds
+        else if (win->state == NEWGAME && SDL_GetTicks() - newGameStartTime >= 1000) { // 5 seconds
             changeState(win, &states[0]); // Change state to GAME
             newGameStartTime = 0; // reinitialize the start time
         }
@@ -377,7 +380,7 @@ void handleEvent(Window *win, SDL_Event *event)
     switch(event->type) {
         case SDL_KEYDOWN:
             switch (event->key.keysym.sym) {
-                case SDLK_ESCAPE:
+                case SDLK_DELETE:
                     win->quit = 1;
                     SDL_Log("Quit");
                     break;
@@ -531,12 +534,12 @@ void initAllButtons(Window * win)
         changeState, &states[2], win->LargeFont
     );
 
-    int buttonWidth = 450;
-    int buttonHeight = 90;
+    int buttonWidth = 430;
+    int buttonHeight = 88;
     int spacingX = 5;
-    int spacingY = 10;
+    int spacingY = 7;
     int startX = 20;
-    int startY = 535;
+    int startY = 532;
 
     buttonsGame[0] = createButton(
         "Attack 1", win, startX, startY, buttonWidth, buttonHeight,
@@ -563,32 +566,32 @@ void initAllButtons(Window * win)
     );
 
     buttonsGame[4] = createButton(
-        "ICMons", win, 1000, startY, 200, 180,
+        "ICMons", win, 950, startY, 300, 180,
         (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255},
         changeState, &states[2], win->LargeFont
     );
 
     sliders[0] = createSlider(win->renderer, 100, 100, 200, 25, (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255});
     
-    InitTextureButton(buttonsMenu[0], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsMenu[1], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsMenu[2], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsMenu[3], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsMenu[0], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsMenu[1], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsMenu[2], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsMenu[3], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
 
-    InitTextureButton(buttonsParam[0], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsParam[1], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsParam[2], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsParam[3], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsParam[0], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsParam[1], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsParam[2], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsParam[3], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
     
-    InitTextureButton(buttonsLoadGame[0], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsLoadGame[1], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsLoadGame[2], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsLoadGame[0], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsLoadGame[1], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsLoadGame[2], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
 
-    InitTextureButton(buttonsGame[0], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsGame[1], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsGame[2], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsGame[3], win->renderer, "assets/User Interface/Double/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsGame[4], win->renderer, "assets/User Interface/Double/button_square_depth_gloss.png");
+    InitTextureButton(buttonsGame[0], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsGame[1], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsGame[2], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsGame[3], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+    InitTextureButton(buttonsGame[4], win->renderer, "assets/User Interface/Grey/button_square_depth_gloss.png");
 
     addListSlider(&SettingsSliders, sliders, nbSlidersSettings);
     free(sliders); // Libération du tableau temporaire

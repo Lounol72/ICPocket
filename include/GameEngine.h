@@ -230,4 +230,12 @@ void handleLoadGameEvent(Window * win, SDL_Event * event);
  */
 void attqButtonClicked(Window *win, void *data);
 
+/**
+ * @brief Change the state of the window
+ * 
+ * @param win   struct Window
+ * @param data  void
+ */
+void changeState(Window *win, void *data);
+
 #endif // GAMEENGINE_H
