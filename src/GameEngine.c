@@ -61,25 +61,7 @@ SDL_Texture * backgroundTextureNewGame = NULL;
 void renderMenu(Window *win) {
     // Set the background color for the menu
     if (backgroundTexture) SDL_RenderCopy(win->renderer, backgroundTexture, NULL, NULL);
-    //set the title
-    title.text = "ICPocket";
-    title.rect = (SDL_Rect){win->width / 2 - 250, -25, 500, 170};
-    title.initialRect = title.rect;
-    title.color = (SDL_Color){255, 255, 255, 255};
-    title.font = win->LargeFont;
-    SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, title.text, title.color);
-    if (!textSurface) {
-        SDL_Log("Erreur de rendu du texte : %s", TTF_GetError());
-        exit(EXIT_FAILURE);
-    }
-    SDL_Texture *textTexture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
-    if (!textTexture) {
-        SDL_Log("Erreur de création de la texture : %s", SDL_GetError());
-        SDL_FreeSurface(textSurface);
-        exit(EXIT_FAILURE);
-    }
-    title.surface = textSurface;
-    title.texture = textTexture;
+    
     renderText(win, &title);
     renderButtonList(&MenuButtons);
 }
@@ -329,7 +311,7 @@ void mainLoop(Window *win) {
 // Functions for the window
 
 void initWindow(Window *win, int width, int height, const char *FontPath) {
-    if (SDL_Init(SDL_INIT_VIDEO) < 0 || !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_SOFTWARE )) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || TTF_Init() == -1 || !(win->LargeFont = TTF_OpenFont(FontPath, 70)) || !(win->MediumFont = TTF_OpenFont(FontPath, 56)) || !(win->SmallFont = TTF_OpenFont(FontPath, 24)) || !(win->font = TTF_OpenFont(FontPath, 18))) {
+    if (SDL_Init(SDL_INIT_VIDEO) < 0 || !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_SOFTWARE)) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || TTF_Init() == -1 || !(win->LargeFont = TTF_OpenFont(FontPath, 70)) || !(win->MediumFont = TTF_OpenFont(FontPath, 56)) || !(win->SmallFont = TTF_OpenFont(FontPath, 24)) || !(win->font = TTF_OpenFont(FontPath, 18))) {
         SDL_Log("SDL Error: %s", SDL_GetError());
         if (win->window) SDL_DestroyWindow(win->window);
         exit(EXIT_FAILURE);
@@ -340,32 +322,13 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
     win->state = MENU;
     win->textSpeed = 1;
 
-    loadBackground(&backgroundTexture, win->renderer, "assets/Title Screen/Title Screen Background.png");
+    loadBackground(&backgroundTexture, win->renderer, "assets/Title Screen/BG.jpg");
     loadBackground(&backgroundTextureLoadGame, win->renderer, "assets/Title Screen/LoadGame.png");
     loadBackground(&backgroundTextureSettings, win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_party_background.png");
     loadBackground(&backgroundTextureNewGame, win->renderer, "assets/Title Screen/GameStart.jpg");
     loadBackground(&backgroundTextureGame, win->renderer, "assets/Battle Backgrounds/With Textboxes/zoonami_forest_background.png");
 
-    
-    NewGameText.text = "Lancement de la Nouvelle Partie...";
-    NewGameText.rect = (SDL_Rect){win->width / 2 - 250, win->height / 2 + 250, 500, 100};
-    NewGameText.initialRect = NewGameText.rect;
-    NewGameText.color = (SDL_Color){255, 255, 255, 255};
-    NewGameText.font = win->LargeFont;
-    SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, NewGameText.text, NewGameText.color);
-    if (!textSurface) {
-        SDL_Log("Erreur de rendu du texte : %s", TTF_GetError());
-        exit(EXIT_FAILURE);
-    }
-    SDL_Texture *textTexture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
-    if (!textTexture) {
-        SDL_Log("Erreur de création de la texture : %s", SDL_GetError());
-        SDL_FreeSurface(textSurface);
-        exit(EXIT_FAILURE);
-    }
-    NewGameText.surface = textSurface;
-    NewGameText.texture = textTexture;
-    
+    initText(win);
 }
 
 void destroyWindow(Window *win) 
@@ -420,6 +383,7 @@ void handleEvent(Window *win, SDL_Event *event)
                 updateButtonPosition(&LoadGameButtons, scaleX, scaleY);
                 updateButtonPosition(&GameButtons, scaleX, scaleY);
                 updateTextPosition(&NewGameText, scaleX, scaleY);
+                updateTextPosition(&title, scaleX, scaleY);
             }
             break;
         default: break;
@@ -628,4 +592,35 @@ void initAllButtons(Window * win)
     buttonsMenu = NULL;
     buttonsParam = NULL;
     buttonsLoadGame = NULL;
+}
+
+void initText(Window * win){
+    NewGameText = (Text){"Lancement de la Nouvelle Partie...", {win->width / 2 - 250, win->height / 2 + 250, 500, 100}, {win->width / 2 - 250, win->height / 2 + 250, 500, 100}, {255, 255, 255, 255}, win->LargeFont, NULL, NULL};
+    SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, NewGameText.text, NewGameText.color);
+    if (!textSurface) {
+        SDL_Log("Erreur de rendu du texte : %s", TTF_GetError());
+        exit(EXIT_FAILURE);
+    }
+    NewGameText.texture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
+    if (!NewGameText.texture) {
+        SDL_Log("Erreur de création de la texture : %s", SDL_GetError());
+        SDL_FreeSurface(textSurface);
+        exit(EXIT_FAILURE);
+    }
+    NewGameText.surface = textSurface;
+
+    title = (Text){"ICPocket", {win->width / 2 - 250, -25, 500, 170}, {win->width / 2 - 250, -25, 500, 170}, {255, 255, 255, 255}, win->LargeFont, NULL, NULL};
+    textSurface = TTF_RenderText_Solid(win->LargeFont, title.text, title.color);
+    if (!textSurface) {
+        SDL_Log("Erreur de rendu du texte : %s", TTF_GetError());
+        exit(EXIT_FAILURE);
+    }
+    title.texture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
+    if (!title.texture) {
+        SDL_Log("Erreur de création de la texture : %s", SDL_GetError());
+        SDL_FreeSurface(textSurface);
+        exit(EXIT_FAILURE);
+    }
+    title.surface = textSurface;
+    SDL_FreeSurface(textSurface);
 }

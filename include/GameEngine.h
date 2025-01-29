@@ -238,4 +238,10 @@ void attqButtonClicked(Window *win, void *data);
  */
 void changeState(Window *win, void *data);
 
+/**
+ * @brief Initialize the text
+ * 
+ * @param win   struct Window
+ */
+void initText(Window * win);
 #endif // GAMEENGINE_H
