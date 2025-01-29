@@ -88,6 +88,17 @@ int isAlive(t_Poke * p){
 	return p->current_pv!=0;
 }
 
+int isExisting(t_Poke * p){
+	return p->current_pv!=POKE_IS_ABSCENT;
+}
+
+int isTeamAlive(t_Team * t){
+	for(int i=0;i<6;i++){
+		if(isExisting(&(t->team[i])) && isAlive(&(t->team[i]))) return TRUE;
+	}
+	return FALSE;
+}
+
 int isAttacking(int move){
 	return (move<4 && move>=0) || isStruggling(move);
 }
@@ -195,11 +206,21 @@ void testBattle(t_Team * rouge, t_Team * bleu){
 	printPoke(&(bleu->team[0]));
 	printf("pv rouge : %d\n\n",rouge->team[0].current_pv);
 	printf("pv bleu : %d\n\n",bleu->team[0].current_pv);
-	while(isAlive(&(rouge->team[0])) && isAlive(&(bleu->team[0]))){
-		playATurn(rouge,rand()%4,bleu,rand()%4);
+	while(isTeamAlive(rouge) && isTeamAlive(bleu)){
+		int result=playATurn(rouge,rand()%4,bleu,rand()%4);
+		while (isTeamAlive(rouge) && !isAlive(&(rouge->team[0]))){
+			int swap=rand()%5+11;
+			if(testActionValidity(swap,rouge)) swapActualAttacker(rouge,swap);
+		}
+		while (isTeamAlive(bleu) && !isAlive(&(bleu->team[0]))){
+			int swap=rand()%5+11;
+			if(testActionValidity(swap,bleu)) swapActualAttacker(bleu,swap);
+		}
 		printf("pv rouge : %d\n\n",rouge->team[0].current_pv);
 		printf("pv bleu : %d\n\n",bleu->team[0].current_pv);
 	}
+	if(isTeamAlive(rouge)) printf("VICTOIRE DES ROUGES!!!\n");
+	else printf("VICTOIRE DES BLEUS!!!\n");
 	//printPoke(&(rouge->team[0]));
 }
 
