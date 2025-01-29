@@ -73,6 +73,7 @@
     "texte"
   ],
   "files.associations": {
-    "utils.h": "c"
+    "utils.h": "c",
+    "structpoke.h": "c"
   }
 }
