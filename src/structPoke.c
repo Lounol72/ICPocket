@@ -132,6 +132,25 @@ void printPoke(t_Poke * p)
 
 void initNature()
 {
+	const char *natures[] = {"Hardi", "Solo", "Rigide", "Mauvais", "Brave", "Assuré", "Docile", "Malin", "Lâche", "Relax", "Modeste", "Doux", "Pudique", "Foufou", "Discret", "Calme", "Gentil", "Prudent", "Bizarre", "Malpoli", "Timide", "Pressé", "Jovial", "Naïf", "Sérieux"};
+	const float coeffs[25][6] = {
+		{1, 1, 1, 1, 1, 1}, {1.1, 0.9, 1, 1, 1, 1}, {1.1, 1, 0.9, 1, 1, 1}, {1.1, 1, 1, 0.9, 1, 1}, {1.1, 1, 1, 1, 0.9, 1},
+		{0.9, 1.1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1.1, 0.9, 1, 1, 1}, {1, 1.1, 1, 0.9, 1, 1}, {1, 1.1, 1, 1, 0.9, 1},
+		{0.9, 1, 1.1, 1, 1, 1}, {1, 0.9, 1.1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1.1, 0.9, 1, 1}, {1, 1, 1.1, 1, 0.9, 1},
+		{0.9, 1, 1, 1.1, 1, 1}, {1, 0.9, 1, 1.1, 1, 1}, {1, 1, 0.9, 1.1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1.1, 0.9, 1},
+		{0.9, 1, 1, 1, 1.1, 1}, {1, 0.9, 1, 1, 1.1, 1}, {1, 1, 0.9, 1, 1.1, 1}, {1, 1, 1, 0.9, 1.1, 1}, {1, 1, 1, 1, 1, 1}
+	};
+	for (int i = 0; i < 25; i++) {
+		strcpy(tabNature[i].nature, natures[i]);
+		for (int j = 0; j < 6; j++) {
+			tabNature[i].coeff[j] = coeffs[i][j];
+		}
+	}
+}
+
+/*
+void initNature()
+{
 	for (int i = 0; i < 25; i++)
 	{
 		for (int j = 0; j < 6; j++)
@@ -209,6 +228,7 @@ void initNature()
 	tabNature[23].coeff[SPD] = 0.9;
 	strcpy(tabNature[24].nature, "Sérieux");
 }
+*/
 
 void initData()
 {
