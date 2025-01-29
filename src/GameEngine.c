@@ -543,31 +543,31 @@ void initAllButtons(Window * win)
 
     buttonsGame[0] = createButton(
         "Attack 1", win, startX, startY, buttonWidth, buttonHeight,
-        (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255},
+        (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
         attqButtonClicked, 1, win->LargeFont
     );
 
     buttonsGame[1] = createButton(
         "Attack 2", win, startX , startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
-        (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255},
+        (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
         attqButtonClicked, 2, win->LargeFont
     );
 
     buttonsGame[2] = createButton(
         "Attack 3", win, startX + buttonWidth + spacingX, startY , buttonWidth, buttonHeight,
-        (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255},
+        (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
         attqButtonClicked, 3, win->LargeFont
     );
 
     buttonsGame[3] = createButton(
         "Attack 4", win, startX + buttonWidth + spacingX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
-        (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255},
+        (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
         attqButtonClicked, 4, win->LargeFont
     );
 
     buttonsGame[4] = createButton(
         "ICMons", win, 950, startY, 300, 180,
-        (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255},
+        (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
         changeState, &states[2], win->LargeFont
     );
 
@@ -591,7 +591,7 @@ void initAllButtons(Window * win)
     InitTextureButton(buttonsGame[1], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
     InitTextureButton(buttonsGame[2], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
     InitTextureButton(buttonsGame[3], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsGame[4], win->renderer, "assets/User Interface/Grey/button_square_depth_gloss.png");
+    InitTextureButton(buttonsGame[4], win->renderer, "assets/User Interface/Blue/button_square_depth_gloss.png");
 
     addListSlider(&SettingsSliders, sliders, nbSlidersSettings);
     free(sliders); // Libération du tableau temporaire
