@@ -50,6 +50,9 @@ typedef struct Window {
 
 // Include the buttons
 #include "Buttons.h"
+#include "structPoke.h"
+#include "duel.h"
+#include "trainerAI.h"
 
 /**
  * @brief           Initialize the window

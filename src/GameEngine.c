@@ -1,7 +1,15 @@
 #include "../include/GameEngine.h"
 
 // Global variables
-Text title = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};;
+Text title = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
+
+
+// Temporary variables
+t_Team rouge;
+t_Team bleu;
+
+int initialize = 0;
+
 
 // List of function pointers for rendering states
 void (*stateHandlers[])(Window *) = {
@@ -81,20 +89,20 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
 // Functions for the game
 
 void renderGame(Window *win) {
-    if(backgroundTextureGame){
-        // Obtenez les dimensions de la fenêtre
-        int windowWidth, windowHeight;
-        SDL_GetWindowSize(win->window, &windowWidth, &windowHeight);
-
-        // Définissez la zone de rendu avec les marges
-        SDL_Rect renderQuad = {0, 0, windowWidth, (int)(windowHeight * 0.722)};
-
-        // Rendre la texture de fond avec les marges
-        SDL_SetRenderDrawColor(win->renderer, 255, 255, 255, 255);
+    if (backgroundTextureGame) {
+        SDL_Rect renderQuad = {0, 0, win->width, (int)(win->height * 0.722)};
         SDL_RenderCopy(win->renderer, backgroundTextureGame, NULL, &renderQuad);
     }
     renderButtonList(&GameButtons);
-
+    if (isTeamAlive(&rouge) && isTeamAlive(&bleu)) {
+        playATurn(&rouge, rand() % 4, &bleu, rand() % 4);
+        if (!isAlive(&(rouge.team[0]))) swapActualAttacker(&rouge, rand() % 5 + 11);
+        if (!isAlive(&(bleu.team[0]))) swapActualAttacker(&bleu, rand() % 5 + 11);
+        printf("pv rouge : %d\npv bleu : %d\n", rouge.team[0].current_pv, bleu.team[0].current_pv);
+    } else {
+        printf("VICTOIRE DES %s!!!\n", isTeamAlive(&rouge) ? "ROUGES" : "BLEUS");
+        win->state = isTeamAlive(&rouge) ? MENU : SETTINGS;
+    }
 }
 
 void handleGameEvent(Window *win, SDL_Event *event) 
@@ -177,6 +185,14 @@ void renderNewGame(Window * win){
     
     renderText(win, &NewGameText);
     renderButtonList(&NewGameButtons);
+
+    if (!initialize) {
+        printPoke(&(rouge.team[0]));
+        printPoke(&(bleu.team[0]));
+        printf("pv rouge : %d\n\n",rouge.team[0].current_pv);
+	    printf("pv bleu : %d\n\n",bleu.team[0].current_pv);
+        initialize = 1;
+    }
 }
 
 void handleNewGameEvent(Window * win, SDL_Event * event){
@@ -329,6 +345,10 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
     loadBackground(&backgroundTextureGame, win->renderer, "assets/Battle Backgrounds/With Textboxes/zoonami_forest_background.png");
 
     initText(win);
+
+    initData();
+	teamTest(&rouge);
+	teamTest(&bleu);
 }
 
 void destroyWindow(Window *win) 

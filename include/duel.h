@@ -46,3 +46,4 @@ void testBattle(t_Team * rouge, t_Team * bleu);
 void testSwitch(t_Team * rouge, t_Team * bleu);
 void testPP(t_Team * rouge, t_Team * bleu);
 void testStruggle(t_Team * rouge, t_Team * bleu);
+void teamTest(t_Team * t);
