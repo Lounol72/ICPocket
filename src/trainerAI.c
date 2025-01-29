@@ -29,5 +29,16 @@ int AI_move_choice(t_AI * ai, t_Team * p){
 		tab_damage[i]=calcDamage(ai->AI_t_Team,p,&(ai->AI_t_Team->team[0].moveList[i]));
 	}
 	insertionSort(tab_damage,tab_move,4);
-	return tab_move[0];
+
+    int ind=0;
+    if (ai->type%3==0){ // status_first AI
+        ind=(rand()%ai->AI_lvl)%4;
+    }
+    else if(ai->type%2==0){ // damage_first AI
+        while(ind<4 && rand()%20>ai->AI_lvl) ind++;
+    }
+    else{ //none type AI
+        ind=(rand()%ai->AI_lvl)%4;
+    }
+	return tab_move[ind];
 }
