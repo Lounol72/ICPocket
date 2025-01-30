@@ -3,8 +3,6 @@
 // Global variables
 Game game;
 
-
-
 Text title = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
 Text NewGameText = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
 
@@ -282,35 +280,12 @@ void mainLoop(Window *win) {
         }
         // If the state is NEWGAME and 5 seconds have passed, go to game state
         if (win->state == NEWGAME && game.newGameStartTime == 0) game.newGameStartTime = SDL_GetTicks();
-        else if (win->state == NEWGAME && SDL_GetTicks() - game.newGameStartTime >= 1000) { // 5 seconds
+        else if (win->state == NEWGAME && SDL_GetTicks() - game.newGameStartTime >= 1000) { // 1 seconds
             changeState(win, &game.stateHandlers[3].state); // Change state to GAME
             game.newGameStartTime = 0; // reinitialize the start time
         }
     }
-
-    // Free memory
-    destroyButtonList(game.ui[2].buttons);
-    destroyButtonList(game.ui[3].buttons);
-    destroySliderList(game.ui[3].sliders);
-    if (game.ui[2].background) {
-        SDL_DestroyTexture(game.ui[2].background);
-        game.ui[2].background = NULL;
-    }
-    if (game.ui[1].background) {
-        SDL_DestroyTexture(game.ui[1].background);
-        game.ui[1].background = NULL;
-    }
-    if (game.ui[3].background) {
-        SDL_DestroyTexture(game.ui[3].background);
-        game.ui[3].background = NULL;
-    }
-    if (NewGameText.texture) {
-        destroyText(&NewGameText);
-    }
-    if (game.gameState.music) {
-        Mix_FreeMusic(game.gameState.music);
-        game.gameState.music = NULL;
-    }
+    destroyWindow(win);
 }
 
 //---------------------------------------------------------------------------------
@@ -335,26 +310,41 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
 
 void destroyWindow(Window *win) 
 {
-    if (game.ui[2].background) {
-        SDL_DestroyTexture(game.ui[2].background);
-        game.ui[2].background = NULL;
+     // Free memory
+    if (NewGameText.texture) {
+        destroyText(&NewGameText);
     }
-    if (game.ui[1].background) {
-        SDL_DestroyTexture(game.ui[1].background);
-        game.ui[1].background = NULL;
+
+    // Keep music
+    if (game.gameState.music) {
+        Mix_FreeMusic(game.gameState.music);
+        game.gameState.music = NULL;
     }
-    if(win->font)
-        TTF_CloseFont(win->font);
-    win->font = NULL;
-    if(win->LargeFont)
-        TTF_CloseFont(win->LargeFont);
-    win->LargeFont = NULL;
-    if(win->MediumFont)
-        TTF_CloseFont(win->MediumFont);
-    win->MediumFont = NULL;
-    if(win->SmallFont)
-    TTF_CloseFont(win->SmallFont);
-    win->SmallFont = NULL;
+
+    // Now do the for-loop that frees everything else
+    if (game.ui) {
+        SDL_Log("Freeing UI elements");
+        for (int i = 0; i < game.nbStates; i++) {
+            if (game.ui[i].buttons != NULL) {
+                destroyButtonList(game.ui[i].buttons);
+                
+            }
+            if (game.ui[i].background != NULL) {
+                SDL_DestroyTexture(game.ui[i].background);
+                
+            }
+        }
+        SDL_Log("Freeing sliders");
+        destroySliderList(game.ui[1].sliders);
+    }
+    SDL_Log("Freeing game state handlers");
+    if (game.stateHandlers) {
+        free(game.stateHandlers);
+        game.stateHandlers = NULL;
+    }
+    SDL_Log("Freeing game UI elements");
+    // Also free your teams if needed:
+    
     SDL_DestroyRenderer(win->renderer);
     SDL_DestroyWindow(win->window);
     SDL_Quit();
@@ -396,13 +386,13 @@ void initGame(Window *win) {
     
     int nbMenu = 7;
     game.ui = malloc(nbMenu * sizeof(UI_Elements));
-    game.ui[0] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)), .background=NULL};                                          // Quit Page            = 0
-    game.ui[1] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders=malloc(sizeof(SliderList)) ,.background=NULL};      // Settings Page        = 1
-    game.ui[2] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)), .background=NULL};                                          // Menu Page            = 2
-    game.ui[3] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)), .background=NULL};                                          // Game Page            = 3
-    game.ui[4] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)), .background=NULL};                                          // New Game Page        = 4
-    game.ui[5] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)), .background=NULL};                                          // Load Game Page       = 5
-    game.ui[6] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)), .background=NULL};                                          // ICMons Page          = 6
+    game.ui[0] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Quit Page            = 0
+    game.ui[1] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders=malloc(sizeof(SliderList)) ,.background=NULL};                        // Settings Page        = 1
+    game.ui[2] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Menu Page            = 2
+    game.ui[3] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Game Page            = 3
+    game.ui[4] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // New Game Page        = 4
+    game.ui[5] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Load Game Page       = 5
+    game.ui[6] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // ICMons Page          = 6
 
     for (int i = 0; i < nbMenu; i++) {
         game.ui[i].buttons->buttons = NULL;
@@ -435,7 +425,7 @@ void initGame(Window *win) {
     loadBackground(&game.ui[1].background, win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_party_background.png");
     loadBackground(&game.ui[4].background, win->renderer, "assets/Title Screen/GameStart.jpg");
     loadBackground(&game.ui[3].background, win->renderer, "assets/Battle Backgrounds/With Textboxes/zoonami_forest_background.png");
-    loadBackground(&game.ui[6].background, win->renderer, "assets/Title Screen/BG.png");
+    loadBackground(&game.ui[6].background, win->renderer, "assets/Title Screen/BG.jpg");
 
     initAudio();
     loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");
@@ -508,6 +498,7 @@ void initAllButtons(Window * win)
     Button **buttonsLoadGame = malloc(nbButtonsLoad * sizeof(Button *));
     Button **buttonsGame = malloc(nbButtonsGame * sizeof(Button *));
     Slider **sliders = malloc(nbSlidersSettings * sizeof(Slider *));
+    
     float * speeds = malloc(3 * sizeof(float));
     speeds[0] = 0.5;
     speeds[1] = 1;
