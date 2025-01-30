@@ -3,6 +3,8 @@
 // Global variables
 Text title = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
 
+Mix_Music *music = NULL;
+
 // Temporary variables
 t_Team rouge;
 t_Team bleu;
@@ -288,6 +290,14 @@ void mainLoop(Window *win) {
         stateHandlers[win->state](win);
         SDL_RenderPresent(win->renderer);
 
+        if(win->state == GAME){
+            if (!Mix_PlayingMusic()) {  // Vérifie si la musique est déjà en cours
+                Mix_PlayMusic(music, -1);
+            }
+        } else {
+            Mix_HaltMusic();
+        }
+
         // Manage frame rate
         int frameTime = SDL_GetTicks() - frameStart;
         if (frameTime < frameDelay) {
@@ -334,6 +344,7 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
     }
     // Init audio 
     initAudio();
+    loadMusic(&music, "assets/audio/Battle.mp3");
 
     win->width = win->InitialWidth = width;
     win->height = win->InitialHeight = height;
@@ -651,10 +662,21 @@ void initAudio() {
         SDL_Log("✅ Mix_Init réussi.");
     }
 
-    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
+    if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 8192) < 0) {
         SDL_Log("❌ Erreur Mix_OpenAudio: %s", Mix_GetError());
         exit(EXIT_FAILURE);
     } else {
         SDL_Log("✅ Mix_OpenAudio réussi.");
     }
+}
+
+void loadMusic(Mix_Music **music, const char *musicPath) {
+    *music = Mix_LoadMUS(musicPath);
+    if (!*music) {
+        SDL_Log("❌ Erreur Mix_LoadMUS: %s", Mix_GetError());
+        exit(EXIT_FAILURE);
+    } else {
+        SDL_Log("✅ Musique chargée avec succès.");
+    }
+    Mix_VolumeMusic(MIX_MAX_VOLUME / 2);
 }
