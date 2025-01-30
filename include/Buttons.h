@@ -62,6 +62,7 @@ void renderButtonList(ButtonList *B);
 void destroyButton(Button *button);
 void ButtonClicked(Button *button, int mouseX, int mouseY, Window *win);
 void updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley);
+void setButtonText(Button *button, const char *text, SDL_Renderer *renderer);
 
 Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Color color, SDL_Color cursorColor);
 void DragCursor(Slider *slider, int mouseX);

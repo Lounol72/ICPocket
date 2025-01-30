@@ -247,4 +247,12 @@ void changeState(Window *win, void *data);
  * @param win   struct Window
  */
 void initText(Window * win);
+
+/**
+ * @brief Update the text of the attack buttons
+ * 
+ * @param win   struct Window
+ * @param team  t_Team
+ */
+void updateAttackButtons(Window *win, t_Team *team);
 #endif // GAMEENGINE_H

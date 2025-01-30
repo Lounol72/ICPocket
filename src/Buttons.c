@@ -84,6 +84,7 @@ void InitTextureButton(Button *button, SDL_Renderer *renderer, const char *image
     button->texture = texture;
 }
 
+
 //----------------------------------------------------------------------------------------
 
 // Rendering functions
@@ -145,6 +146,33 @@ void updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley)
         buttons->buttons[i]->rect.h = buttons->buttons[i]->initialRect.h * Scaley;
         buttons->buttons[i]->rect.x = buttons->buttons[i]->initialRect.x * Scalex;
         buttons->buttons[i]->rect.y = buttons->buttons[i]->initialRect.y * Scaley;
+    }
+}
+
+void setButtonText(Button *button, const char *text, SDL_Renderer *renderer) {
+    if (!button || !text || !renderer) {
+        SDL_Log("Erreur : Paramètre NULL dans setButtonText");
+        return;
+    }
+
+    // Détruire l'ancienne texture texte si elle existe
+    if (button->textTexture) {
+        SDL_DestroyTexture(button->textTexture);
+        button->textTexture = NULL;
+    }
+
+    // Générer une nouvelle texture texte
+    SDL_Surface *textSurface = TTF_RenderText_Solid(button->font, text, button->textcolor);
+    if (!textSurface) {
+        SDL_Log("Erreur lors de la création de la surface du texte : %s", TTF_GetError());
+        return;
+    }
+
+    button->textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+    SDL_FreeSurface(textSurface);
+
+    if (!button->textTexture) {
+        SDL_Log("Erreur lors de la création de la texture du texte : %s", SDL_GetError());
     }
 }
 

@@ -94,10 +94,18 @@ void renderGame(Window *win) {
         SDL_Rect renderQuad = {0, 0, win->width, (int)(win->height * 0.722)};
         SDL_RenderCopy(win->renderer, backgroundTextureGame, NULL, &renderQuad);
     }
+
+    
+
     renderButtonList(&GameButtons);
+    
+}
+
+void handleGameEvent(Window *win, SDL_Event *event) 
+{
     if (!playerTurn && isTeamAlive(&rouge) && isTeamAlive(&bleu)) {
         
-        if (!isAlive(&(rouge.team[0]))) swapActualAttacker(&rouge, rand() % 5 + 11);
+        if (!isAlive(&(rouge.team[0]))) {swapActualAttacker(&rouge, rand() % 5 + 11);updateAttackButtons(win, &rouge);}
         if (!isAlive(&(bleu.team[0]))) swapActualAttacker(&bleu, rand() % 5 + 11);
         printf("pv rouge : %d\npv bleu : %d\n", rouge.team[0].current_pv, bleu.team[0].current_pv);
         playerTurn = 1;
@@ -105,10 +113,6 @@ void renderGame(Window *win) {
         printf("VICTOIRE DES %s!!!\n", isTeamAlive(&rouge) ? "ROUGES" : "BLEUS");
         win->state = isTeamAlive(&rouge) ? MENU : SETTINGS;
     }
-}
-
-void handleGameEvent(Window *win, SDL_Event *event) 
-{
     if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
         changeState(win, &states[2]);
     }
@@ -196,6 +200,7 @@ void renderNewGame(Window * win){
         printPoke(&(bleu.team[0]));
         printf("pv rouge : %d\n\n",rouge.team[0].current_pv);
         printf("pv bleu : %d\n\n",bleu.team[0].current_pv);
+        updateAttackButtons(win, &rouge);
         initialize = 1;
     }
 }
@@ -257,17 +262,13 @@ void changeTextSpeed(Window *win, void *data) {
 }
 
 void attqButtonClicked(Window *win, void *data) {
+    (void)win; // Pour éviter le warning
     if (playerTurn && isTeamAlive(&rouge) && isTeamAlive(&bleu)) {
-        int attackIndex = (int)data;
-        printf("Attack %d clicked\n", attackIndex);
-        playATurn(&rouge, attackIndex, &bleu, rand() % 4);
-
+        playATurn(&rouge, (int)data, &bleu, AI_move_choice(&iaTest,&rouge));
         if (!isAlive(&(rouge.team[0]))) swapActualAttacker(&rouge, rand() % 5 + 11);
         if (!isAlive(&(bleu.team[0]))) swapActualAttacker(&bleu, rand() % 5 + 11);
-
         printf("pv rouge : %d\npv bleu : %d\n", rouge.team[0].current_pv, bleu.team[0].current_pv);
-
-        playerTurn = 0; // Passe au tour de l'IA
+        playerTurn = 0;
     }
 }
 
@@ -476,10 +477,15 @@ void initAllButtons(Window * win)
     int nbButtonsGame = 5;
 
     Button **buttonsMenu = malloc(nbButtonsMenu * sizeof(Button *));
+    printf("Allocation buttonsMenu OK\n");
     Button **buttonsParam = malloc(nbButtonsParam * sizeof(Button *));
-    Button ** buttonsLoadGame = malloc(nbButtonsLoad * sizeof(Button *));
-    Button ** buttonsGame = malloc(nbButtonsGame * sizeof(Button *));
+    printf("Allocation buttonsParam OK\n");
+    Button **buttonsLoadGame = malloc(nbButtonsLoad * sizeof(Button *));
+    printf("Allocation buttonsLoadGame OK\n");
+    Button **buttonsGame = malloc(nbButtonsGame * sizeof(Button *));
+    printf("Allocation buttonsGame OK\n");
     Slider **sliders = malloc(nbSlidersSettings * sizeof(Slider *));
+    printf("Allocation sliders OK\n");
 
 
     if (!buttonsMenu || !sliders || !buttonsParam || !buttonsLoadGame || !buttonsGame) {
@@ -561,34 +567,33 @@ void initAllButtons(Window * win)
     buttonsGame[0] = createButton(
         "Attack 1", win, startX, startY, buttonWidth, buttonHeight,
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-        attqButtonClicked, (void *)0, win->LargeFont
+        attqButtonClicked, 0, win->LargeFont
     );
-
+    SDL_Log("Bouton 1 créé");
     buttonsGame[1] = createButton(
         "Attack 2", win, startX , startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-        attqButtonClicked, (void *)1, win->LargeFont
+        attqButtonClicked, 1, win->LargeFont
     );
-
+    SDL_Log("Bouton 2 créé");
     buttonsGame[2] = createButton(
         "Attack 3", win, startX + buttonWidth + spacingX, startY , buttonWidth, buttonHeight,
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-        attqButtonClicked, (void *)2, win->LargeFont
+        attqButtonClicked, 2, win->LargeFont
     );
-
+    SDL_Log("Bouton 3 créé");
     buttonsGame[3] = createButton(
         "Attack 4", win, startX + buttonWidth + spacingX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-        attqButtonClicked, (void *)3, win->LargeFont
+        attqButtonClicked, 3, win->LargeFont
     );
+    SDL_Log("Bouton 4 créé");
     buttonsGame[4] = createButton(
         "ICMons", win, 950, startY, 300, 180,
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
         changeState, &states[2], win->LargeFont
     );
 
-    sliders[0] = createSlider(win->renderer, 100, 100, 200, 25, (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255});
-    
     InitTextureButton(buttonsMenu[0], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
     InitTextureButton(buttonsMenu[1], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
     InitTextureButton(buttonsMenu[2], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
@@ -598,7 +603,7 @@ void initAllButtons(Window * win)
     InitTextureButton(buttonsParam[1], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
     InitTextureButton(buttonsParam[2], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
     InitTextureButton(buttonsParam[3], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-    
+
     InitTextureButton(buttonsLoadGame[0], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
     InitTextureButton(buttonsLoadGame[1], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
     InitTextureButton(buttonsLoadGame[2], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
@@ -608,6 +613,13 @@ void initAllButtons(Window * win)
     InitTextureButton(buttonsGame[2], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
     InitTextureButton(buttonsGame[3], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
     InitTextureButton(buttonsGame[4], win->renderer, "assets/User Interface/Blue/button_square_depth_gloss.png");
+
+
+    SDL_Log("Textures créés avec succès.");
+    
+
+    sliders[0] = createSlider(win->renderer, 100, 100, 200, 25, (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255});
+    SDL_Log("Slider créé");
 
     addListSlider(&SettingsSliders, sliders, nbSlidersSettings);
     free(sliders); // Libération du tableau temporaire
@@ -619,7 +631,7 @@ void initAllButtons(Window * win)
     free(buttonsLoadGame);
     addListButton(&GameButtons, buttonsGame, nbButtonsGame);
     free(buttonsGame);
-
+    SDL_Log("Boutons créés avec succès.");
     sliders = NULL;
     buttonsMenu = NULL;
     buttonsParam = NULL;
@@ -656,3 +668,14 @@ void initText(Window * win){
     title.surface = textSurface;
     SDL_FreeSurface(textSurface);
 }
+
+void updateAttackButtons(Window *win, t_Team *team) {
+    if (!team || !team->team || !team->team[0].moveList) {
+        SDL_Log("Erreur : team, team->team ou moveList est NULL\n");
+        return;
+    }
+    for (int i = 0; i < 4 && GameButtons.buttons && GameButtons.buttons[i]; i++) {
+        setButtonText(GameButtons.buttons[i], team->team[0].moveList[i].name, win->renderer);
+    }
+}
+
