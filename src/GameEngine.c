@@ -3,6 +3,7 @@
 // Global variables
 Text title = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
 
+static Mix_Music *music = NULL;
 
 // Temporary variables
 t_Team rouge;
@@ -271,12 +272,9 @@ void mainLoop(Window *win) {
     SDL_Event event;
     int newGameStartTime = 0;
 
-    MenuButtons.buttons = NULL;
-    MenuButtons.size = 0;
-    SettingsButtons.buttons = NULL;
-    SettingsButtons.size = 0;
-    SettingsSliders.sliders = NULL;
-    SettingsSliders.size = 0;
+    MenuButtons = (ButtonList){NULL, 0};
+    SettingsButtons = (ButtonList){NULL, 0};
+    SettingsSliders = (SliderList){NULL, 0};
     
     initAllButtons(win);
     
@@ -294,6 +292,12 @@ void mainLoop(Window *win) {
         SDL_RenderClear(win->renderer);
         stateHandlers[win->state](win);
         SDL_RenderPresent(win->renderer);
+        if (win->state == GAME)
+            if (!Mix_PlayingMusic()) // Vérifie si la musique ne joue pas déjà
+                Mix_PlayMusic(music, -1); // -1 signifie boucle infinie
+        else
+            Mix_HaltMusic(); // Arrête la musique si on quitte GAME
+    
 
         // Manage frame rate
         int frameTime = SDL_GetTicks() - frameStart;
@@ -327,6 +331,11 @@ void mainLoop(Window *win) {
     if (NewGameText.texture) {
         destroyText(&NewGameText);
     }
+    if (music) {
+        Mix_FreeMusic(music);
+        music = NULL;
+    }
+
 }
 
 //---------------------------------------------------------------------------------
@@ -334,7 +343,7 @@ void mainLoop(Window *win) {
 // Functions for the window
 
 void initWindow(Window *win, int width, int height, const char *FontPath) {
-    if (SDL_Init(SDL_INIT_VIDEO) < 0 || !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_SOFTWARE)) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || TTF_Init() == -1 || !(win->LargeFont = TTF_OpenFont(FontPath, 70)) || !(win->MediumFont = TTF_OpenFont(FontPath, 56)) || !(win->SmallFont = TTF_OpenFont(FontPath, 24)) || !(win->font = TTF_OpenFont(FontPath, 18))) {
+    if (SDL_Init(SDL_INIT_VIDEO) < 0|| !SDL_Init(SDL_INIT_AUDIO) || !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_SOFTWARE)) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || TTF_Init() == -1 || !(win->LargeFont = TTF_OpenFont(FontPath, 70)) || !(win->MediumFont = TTF_OpenFont(FontPath, 56)) || !(win->SmallFont = TTF_OpenFont(FontPath, 24)) || !(win->font = TTF_OpenFont(FontPath, 18))) {
         SDL_Log("SDL Error: %s", SDL_GetError());
         if (win->window) SDL_DestroyWindow(win->window);
         exit(EXIT_FAILURE);
@@ -352,6 +361,9 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
     loadBackground(&backgroundTextureGame, win->renderer, "assets/Battle Backgrounds/With Textboxes/zoonami_forest_background.png");
 
     initText(win);
+
+    // Load the music
+    music = Mix_LoadMUS("assets/audio/Battle.mp3");
 
 }
 
@@ -451,7 +463,6 @@ void destroyText(Text * text){
 
 void initAllButtons(Window * win)
 {
-    SDL_Log("Création des boutons...");
     
     int nbButtonsLoad = 3;
     int nbButtonsMenu = 4;
@@ -642,3 +653,13 @@ void updateAttackButtons(Window *win, t_Team *team) {
     }
 }
 
+//---------------------------------------------------------------------------------
+
+// Functions for the music
+
+void loadMusic(const char *filePath) {
+    music = Mix_LoadMUS(filePath);
+    if (!music) {
+        SDL_Log("Erreur : Impossible de charger la musique (%s) - %s", filePath, Mix_GetError());
+    }
+}
