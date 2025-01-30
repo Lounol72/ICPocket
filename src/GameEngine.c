@@ -64,6 +64,12 @@ Text NewGameText = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
 ButtonList NewGameButtons = {NULL, 0};
 SDL_Texture * backgroundTextureNewGame = NULL;
 
+// List of buttons for ICMons selection
+
+ButtonList ICMonsButtons = {NULL, 0};
+SDL_Texture * backgroundTextureICMons = NULL;
+
+
 //---------------------------------------------------------------------------------
 
 // Functions for the menu
@@ -237,6 +243,29 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
 
 //---------------------------------------------------------------------------------
 
+// Functions for the ICMons selection
+
+void renderICMons(Window *win) {
+    if (backgroundTextureICMons) SDL_RenderCopy(win->renderer, backgroundTextureICMons, NULL, NULL);
+    renderButtonList(&ICMonsButtons);
+}
+
+void handleICMonsEvent(Window *win, SDL_Event *event) {
+    if (!win || !event) return;
+    // Parcourt et gère les événements des sliders
+    if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
+        int x, y;
+        SDL_GetMouseState(&x, &y);
+        for (int i = 0; i < ICMonsButtons.size; i++) {
+            ButtonClicked(ICMonsButtons.buttons[i], x, y, win);
+        }
+    }
+    // Gérer les autres événements
+    handleEvent(win, event);
+}
+
+//---------------------------------------------------------------------------------
+
 // Functions for the main loop
 
 void changeState(Window *win, void *data) {
@@ -277,6 +306,7 @@ void mainLoop(Window *win) {
     
 
     // Boucle principale
+    printf("%d\n",rand() % 5 + 11);
     while (!win->quit) {
         frameStart = SDL_GetTicks();
 
@@ -621,7 +651,7 @@ void initText(Window *win) {
     };
 
     for (int i = 0; i < 2; i++) {
-        *textObjects[i] = (Text){texts[i], rects[i], rects[i], {255, 255, 255, 255}, win->LargeFont, NULL, NULL};
+        *textObjects[i] = (Text){strdup(texts[i]), rects[i], rects[i], {255, 255, 255, 255}, win->LargeFont, NULL, NULL};
         SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, texts[i], textObjects[i]->color);
         if (!textSurface) {
             SDL_Log("Erreur de rendu du texte : %s", TTF_GetError());

@@ -256,4 +256,22 @@ void initText(Window * win);
  * @param team  t_Team
  */
 void updateAttackButtons(Window *win, t_Team *team);
+
+void initAudio();
+void loadMusic(Mix_Music **music, const char *musicPath);
+
+/**
+ * @brief Render the ICMons selection
+ * 
+ * @param win   struct Window
+ */
+void renderICMons(Window *win);
+
+/**
+ * @brief Handle the event for the ICMons selection
+ * 
+ * @param win   struct Window
+ * @param event SDL_Event
+ */
+void handleICMonsEvent(Window *win, SDL_Event *event);
 #endif // GAMEENGINE_H
