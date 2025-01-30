@@ -12,6 +12,7 @@ extern t_Move struggle;
 
 typedef struct{
 	t_Poke team[6];
+	int nb_poke;
 	int statChanges[6];	
 } t_Team;
 
@@ -33,7 +34,7 @@ int isStruggling(int);
 
 void printTeam(t_Team * t);
 int calcStatFrom(t_Poke * p,int stat);
-void initTeam(t_Team * t);
+void initTeam(t_Team * t,int);
 int calcDamage(t_Team * offender,t_Team * defender, t_Move *);
 void setDefaultStatChanges(t_Team * p);
 int resolveSpeedDuel(int speed1, int speed2);
@@ -46,4 +47,4 @@ void testBattle(t_Team * rouge, t_Team * bleu);
 void testSwitch(t_Team * rouge, t_Team * bleu);
 void testPP(t_Team * rouge, t_Team * bleu);
 void testStruggle(t_Team * rouge, t_Team * bleu);
-void teamTest(t_Team * t);
+void teamTest(t_Team * t, int);

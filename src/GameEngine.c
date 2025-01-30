@@ -190,8 +190,8 @@ void renderNewGame(Window * win){
 
     if (!initialize) {
         initData();
-        teamTest(&rouge);
-        teamTest(&bleu);
+        teamTest(&rouge, 3);
+        teamTest(&bleu, 2);
         printPoke(&(rouge.team[0]));
         printPoke(&(bleu.team[0]));
         printf("pv rouge : %d\n\n",rouge.team[0].current_pv);

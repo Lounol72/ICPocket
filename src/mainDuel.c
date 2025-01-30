@@ -7,8 +7,9 @@ t_Team bleu;
 
 int main(){
 	initData();
-	teamTest(&rouge);
-	teamTest(&bleu);
-	testBattle(&rouge,&bleu); //use testSwitch or testBattle to try the program's features
+	//teamTest(&rouge);
+	//teamTest(&bleu);
+	initTeam(&rouge,3);
+	printTeam(&rouge); //use testSwitch or testBattle to try the program's features
 	return 0;
 }
