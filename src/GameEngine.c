@@ -206,14 +206,6 @@ void renderNewGame(Window * win){
 }
 
 void handleNewGameEvent(Window * win, SDL_Event * event){
-    if(!win || !event) return;
-    else if(event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT){
-        int x, y;
-        SDL_GetMouseState(&x, &y); 
-        for(int i = 0; i < LoadGameButtons.size; i++){
-            ButtonClicked(NewGameButtons.buttons[i], x, y, win);
-        }
-    }
     handleEvent(win, event);
 }
 
