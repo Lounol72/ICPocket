@@ -109,8 +109,14 @@ void handleGameEvent(Window *win, SDL_Event *event)
 {
     if (!playerTurn && isTeamAlive(&rouge) && isTeamAlive(&bleu)) {
         
-        if (!isAlive(&(rouge.team[0]))) {swapActualAttacker(&rouge, rand() % 5 + 11);updateAttackButtons(win, &rouge);}
-        if (!isAlive(&(bleu.team[0]))) swapActualAttacker(&bleu, rand() % 5 + 11);
+        while (!isAlive(&(rouge.team[0]))) {
+            int swap=rand() % 5 + 11;
+            if(testActionValidity(swap,&rouge)) {swapActualAttacker(&rouge, swap);updateAttackButtons(win, &rouge);}
+        }
+        while (!isAlive(&(bleu.team[0]))) {
+            int swap=rand() % 5 + 11;
+            if(testActionValidity(swap,&bleu)) swapActualAttacker(&bleu, swap);
+        }
         printf("pv rouge : %d\npv bleu : %d\n", rouge.team[0].current_pv, bleu.team[0].current_pv);
         playerTurn = 1;
     } else if (!isTeamAlive(&rouge) || !isTeamAlive(&bleu)) {
@@ -282,8 +288,14 @@ void attqButtonClicked(Window *win, void *data) {
     (void)win; // Pour éviter le warning
     if (playerTurn && isTeamAlive(&rouge) && isTeamAlive(&bleu)) {
         playATurn(&rouge, (int)data, &bleu, AI_move_choice(&iaTest,&rouge));
-        if (!isAlive(&(rouge.team[0]))) swapActualAttacker(&rouge, rand() % 5 + 11);
-        if (!isAlive(&(bleu.team[0]))) swapActualAttacker(&bleu, rand() % 5 + 11);
+        while (isTeamAlive(&rouge) && !isAlive(&(rouge.team[0]))){
+            int swap=rand() % 5 + 11;
+            if(testActionValidity(swap,&rouge)) swapActualAttacker(&rouge, swap);
+        }
+        while (isTeamAlive(&bleu) && !isAlive(&(bleu.team[0]))){
+            int swap=rand() % 5 + 11;
+            if(testActionValidity(swap,&bleu)) swapActualAttacker(&bleu, swap);
+        }
         printf("pv rouge : %d\npv bleu : %d\n", rouge.team[0].current_pv, bleu.team[0].current_pv);
         playerTurn = 0;
     }
