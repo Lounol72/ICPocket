@@ -3,23 +3,31 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
-#include <SDL_image.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <SDL_ttf.h>
 
+/* Now we include Buttons.h to use ButtonList, SliderList, etc. */
+#include "Buttons.h"
 
-// Define the state of the application
+/* If you rely on these for 't_Team' or other structs, keep them here: */
+#include "structPoke.h"
+#include "duel.h"
+#include "trainerAI.h"
+
+/* Define the state of the application */
 typedef enum AppState {
-    GAME = 0, 
-    SETTINGS ,
-    MENU,
-    QUIT,
-    NEWGAME, 
-    LOADGAME,
-    PAUSE
+    QUIT = 0, // 0
+    SETTINGS, // 1
+    MENU, // 2
+    GAME,  // 3
+    NEWGAME,  // 4
+    LOADGAME, // 5
+    ICMONS // 6
 } AppState;
 
+/* Text rendering struct */
 typedef struct Text {
     char *text;
     SDL_Rect rect;
@@ -30,248 +38,129 @@ typedef struct Text {
     SDL_Texture *texture;
 } Text;
 
-
-
-
-// Structure of the window
+/* Primary window & renderer info */
 typedef struct Window {
     SDL_Window *window;
     SDL_Renderer *renderer;
     int width, height;
     int InitialWidth, InitialHeight;
     int quit;
-    TTF_Font * LargeFont;
-    TTF_Font * MediumFont;
-    TTF_Font * SmallFont;
+    TTF_Font *LargeFont;
+    TTF_Font *MediumFont;
+    TTF_Font *SmallFont;
     TTF_Font *font;
     AppState state;
     double textSpeed;
 } Window;
 
+/* UI element container, referencing the ButtonList & SliderList defined in Buttons.h */
+typedef struct {
+    ButtonList *buttons;
+    SliderList *sliders;
+    SDL_Texture *background;
+} UI_Elements;
 
-// Include the buttons
-#include "Buttons.h"
-#include "structPoke.h"
-#include "duel.h"
-#include "trainerAI.h"
+/* Battle data (assuming t_Team is defined in structPoke.h or similar) */
+typedef struct {
+    t_Team rouge;
+    t_Team bleu;
+} BattleState;
 
-/**
- * @brief           Initialize the window
- * 
- * @param win       struct Window
- * @param width     width
- * @param height    height
- * @param FontPath  path to the font
- */
+/* General game state info */
+typedef struct {
+    Mix_Music *music;
+    int playerTurn;
+    int initialized;
+    AppState currentState;
+} GameState;
+
+/* Each state has a render function and an event handler. */
+typedef struct StateHandler {
+    AppState state;
+    void (*render)(Window *);
+    void (*handleEvent)(Window *, SDL_Event *);
+} StateHandler;
+
+/* Main Game struct that ties everything together */
+typedef struct Game {
+    UI_Elements *ui;
+    BattleState battleState;
+    GameState gameState;
+    StateHandler *stateHandlers;
+    int nbStates;
+    Window *win;
+    int FPS;
+    int frameDelay;
+    int frameStart;
+    int newGameStartTime;
+} Game;
+
+/* ------------- Function Prototypes ------------- */
+
+/* Window init/destroy */
 void initWindow(Window *win, int width, int height, const char *FontPath);
-/**
- * @brief       Destroy the window
- * 
- * @param win   struct Window
- */
 void destroyWindow(Window *win);
-/**
- * @brief           Handle the event
- * 
- * @param win       struct Window
- * @param event     SDL_Event
- */
+
+/* Main loop */
 void handleEvent(Window *win, SDL_Event *event);
-/**
- * @brief           Main loop
- * 
- * @param win       struct Window
- */
 void mainLoop(Window *win);
 
-
-/**
- * @brief           Render the menu
- * 
- * @param win       struct Window
- */
+/* Menu */
 void renderMenu(Window *win);
-/**
- * @brief           Handle the event of the menu
- * 
- * @param win       struct Window
- * @param event     SDL_Event
- */
 void handleMenuEvent(Window *win, SDL_Event *event);
-/**
- * @brief           Render the game
- * 
- * @param win       struct Window
- */
+
+/* Game proper */
 void renderGame(Window *win);
-/**
- * @brief           Handle the event of the game
- * 
- * @param win       struct Window
- * @param event     SDL_Event
- */
 void handleGameEvent(Window *win, SDL_Event *event);
-/**
- * @brief           Render the settings
- * 
- * @param win       struct Window
- */
+
+/* Settings */
 void renderSettings(Window *win);
-/**
- * @brief           Handle the event of the settings
- * 
- * @param win       struct Window
- * @param event     SDL_Event
- */
 void handleSettingsEvent(Window *win, SDL_Event *event);
-/**
- * @brief           Render the quit
- * 
- * @param win       struct Window
- */
+
+/* Quit */
 void renderQuit(Window *win);
-/**
- * @brief           Handle the event of the quit
- * 
- * @param win       struct Window
- * @param event     SDL_Event
- */
 void handleQuitEvent(Window *win, SDL_Event *event);
 
-/**
- * @brief           Handle the change of the text speed
- * 
- * @param win       struct Window
- * @param data      void
- */
+/* UI and text speed changes */
 void changeTextSpeed(Window *win, void *data);
-
-/**
- * @brief           Load the background
- * 
- * @param Background    SDL_Texture
- * @param renderer      SDL_Renderer
- * @param imagePath     path to the image
- */
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath);
 
-/**
- * @brief render the text from the struct Text
- * 
- * @param win  struct Window
- * @param text  struct Text
- */
-void renderText(Window * win, Text * text);
-
-/**
- * @brief update the position of the text
- * 
- * @param text  struct Text
- * @param scaleX  float
- * @param scaleY  float
- */
+/* Text rendering, creation, destruction */
+void renderText(Window *win, Text *text);
 void updateTextPosition(Text *text, float scaleX, float scaleY);
+void destroyText(Text *text);
 
-/**
- * @brief Destroy the structure text and free the memory
- * 
- * @param text  struct Text
- */
-void destroyText(Text * text);
+/* Button initializations */
+void initAllButtons(Window *win);
 
-/**
- * @brief Initialize every buttons we need
- * 
- * @param win  struct Window
- */
-void initAllButtons(Window * win);
-
-/**
- * @brief Create a Fic for the save
- * 
- */
+/* Save management */
 void createFicGame();
-
-/**
- * @brief Render the loading for new game
- * 
- * @param win   struct Window
- */
-void renderNewGame(Window * win);
-/**
- * @brief Handle the event for the new game
- * 
- * @param win   struct Window
- * @param event SDL_Event
- */
-void handleNewGameEvent(Window * win, SDL_Event * event);
-
-/**
- * @brief Read the Fic for the save
- * 
- */
 void readFicGame();
 
-/**
- * @brief Render the loading to load a game
- * 
- * @param win   struct Window
- */
-void renderLoadGame(Window * win);
-/**
- * @brief Handle the event to load a game
- * 
- * @param win   struct Window
- * @param event SDL_Event
- */
-void handleLoadGameEvent(Window * win, SDL_Event * event);
+/* Loading screens */
+void renderNewGame(Window *win);
+void handleNewGameEvent(Window *win, SDL_Event *event);
+void renderLoadGame(Window *win);
+void handleLoadGameEvent(Window *win, SDL_Event *event);
 
-/**
- * @brief Handle the event for the attack button
- * 
- * @param button    Button
- * @param win       Window
- */
+/* Attack button */
 void attqButtonClicked(Window *win, void *data);
 
-/**
- * @brief Change the state of the window
- * 
- * @param win   struct Window
- * @param data  void
- */
+/* Generic state change button callback */
 void changeState(Window *win, void *data);
 
-/**
- * @brief Initialize the text
- * 
- * @param win   struct Window
- */
-void initText(Window * win);
-
-/**
- * @brief Update the text of the attack buttons
- * 
- * @param win   struct Window
- * @param team  t_Team
- */
+/* Text-related updates for attacks */
+void initText(Window *win);
 void updateAttackButtons(Window *win, t_Team *team);
 
+/* Audio */
 void initAudio();
 void loadMusic(Mix_Music **music, const char *musicPath);
 
-/**
- * @brief Render the ICMons selection
- * 
- * @param win   struct Window
- */
+/* ICMons selection */
 void renderICMons(Window *win);
-
-/**
- * @brief Handle the event for the ICMons selection
- * 
- * @param win   struct Window
- * @param event SDL_Event
- */
 void handleICMonsEvent(Window *win, SDL_Event *event);
-#endif // GAMEENGINE_H
+
+void initGame(Window *win) ;
+
+#endif /* GAMEENGINE_H */

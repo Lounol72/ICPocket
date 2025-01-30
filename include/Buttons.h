@@ -4,6 +4,14 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
+
+
+typedef struct Window Window;
+typedef struct Button Button;
+typedef struct ButtonList ButtonList;
+typedef struct Slider Slider;
+typedef struct SliderList SliderList;
+
 #include "GameEngine.h" 
 
 typedef enum FontSize {

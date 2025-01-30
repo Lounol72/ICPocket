@@ -255,7 +255,7 @@ int handleSliderEvent(Slider *slider, int x, int y) {
     if (SDL_PointInRect(&(SDL_Point){x, y}, &(slider->rect))) {
         slider->value = (float)(x - slider->rect.x) / slider->rect.w;
         slider->cursor.x = slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2);
-        int volume = (int)(slider->value * MIX_MAX_VOLUME);
+        int volume = (int)(slider->value * SDL_MIX_MAXVOLUME);
         Mix_VolumeMusic(volume);
         return 1; // Interaction détectée
     }

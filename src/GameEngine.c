@@ -1,74 +1,17 @@
 #include "../include/GameEngine.h"
 
 // Global variables
+Game game;
+
+
+
 Text title = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
+Text NewGameText = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
 
-Mix_Music *music = NULL;
-
-// Temporary variables
-t_Team rouge;
-t_Team bleu;
-
-int initialize = 0;
-
-
-// List of function pointers for rendering states
-void (*stateHandlers[])(Window *) = {
-    renderGame,
-    renderSettings,
-    renderMenu,
-    renderQuit,
-    renderNewGame,
-    renderLoadGame
-};
-
-// List of function pointers for event handlers
-void (*eventHandlers[])(Window *, SDL_Event *) = {
-    handleGameEvent,
-    handleSettingsEvent,
-    handleMenuEvent,
-    handleQuitEvent,
-    handleNewGameEvent,
-    handleLoadGameEvent
-};
-
-AppState states[] = {GAME, SETTINGS ,MENU, QUIT, NEWGAME, LOADGAME, PAUSE}; // 0 = GAME, 1 = SETTINGS, 2 = MENU, 3 = QUIT, 4 = NEWGAME, 5 = LOADGAME, 6 = PAUSE
-double textSpeeds[] = {0.5, 1.0, 1.5};
-// List of buttons for menu
-
-ButtonList MenuButtons = {NULL, 0};
-
-SDL_Texture *backgroundTexture = NULL;
-
-// List of buttons for settings
-SDL_Texture *backgroundTextureSettings = NULL;
-ButtonList SettingsButtons = {NULL, 0};
-SliderList SettingsSliders = {NULL, 0};
-
-//List of buttons for load game
-
-SDL_Texture *backgroundTextureLoadGame = NULL;
-ButtonList LoadGameButtons = {NULL, 0};
-SliderList LoadGameSliders = {NULL, 0};
-
-// List of buttons for game
-
-int playerTurn = 1; // 1 = au tour du joueur, 0 = IA
-ButtonList GameButtons = {NULL, 0};
-SDL_Texture * backgroundTextureGame = NULL;
 int marginBottom = 200; // Marge en bas en pixels
 int marginRight = 0;  // Marge à droite en pixels
 
-// List of buttons for new game
-Text NewGameText = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
-ButtonList NewGameButtons = {NULL, 0};
-SDL_Texture * backgroundTextureNewGame = NULL;
-
-// List of buttons for ICMons selection
-
-ButtonList ICMonsButtons = {NULL, 0};
-SDL_Texture * backgroundTextureICMons = NULL;
-
+t_Team bleu ;
 
 //---------------------------------------------------------------------------------
 
@@ -76,18 +19,18 @@ SDL_Texture * backgroundTextureICMons = NULL;
 
 void renderMenu(Window *win) {
     // Set the background color for the menu
-    if (backgroundTexture) SDL_RenderCopy(win->renderer, backgroundTexture, NULL, NULL);
+    if (game.ui[2].background) SDL_RenderCopy(win->renderer, game.ui[2].background, NULL, NULL);
     
     renderText(win, &title);
-    renderButtonList(&MenuButtons);
+    renderButtonList(game.ui[2].buttons);
 }
 
 void handleMenuEvent(Window *win, SDL_Event *event) {
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
         SDL_GetMouseState(&x, &y);
-        for (int i = 0; i < MenuButtons.size; i++) {
-            ButtonClicked(MenuButtons.buttons[i], x, y, win);
+        for (int i = 0; i < game.ui[2].buttons->size; i++) {
+            ButtonClicked(game.ui[2].buttons->buttons[i], x, y, win);
         }
     }
     handleEvent(win, event);
@@ -97,41 +40,42 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
 // Functions for the game
 
 void renderGame(Window *win) {
-    if (backgroundTextureGame) {
+    if (game.ui[3].background) {
         SDL_Rect renderQuad = {0, 0, win->width, (int)(win->height * 0.722)};
-        SDL_RenderCopy(win->renderer, backgroundTextureGame, NULL, &renderQuad);
+        SDL_RenderCopy(win->renderer, game.ui[3].background, NULL, &renderQuad);
     }
-    renderButtonList(&GameButtons);
+    renderButtonList(game.ui[3].buttons);
     
 }
 
 void handleGameEvent(Window *win, SDL_Event *event) 
 {
-    if (!playerTurn && isTeamAlive(&rouge) && isTeamAlive(&bleu)) {
+    if (!game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
         
-        while (!isAlive(&(rouge.team[0]))) {
+        while (!isAlive(&(game.battleState.rouge.team[0]))) {
             int swap=rand() % 5 + 11;
-            if(testActionValidity(swap,&rouge)) {swapActualAttacker(&rouge, swap);updateAttackButtons(win, &rouge);}
+            if(testActionValidity(swap,&game.battleState.rouge)) {swapActualAttacker(&game.battleState.rouge, swap);updateAttackButtons(win, &game.battleState.rouge);}
         }
-        while (!isAlive(&(bleu.team[0]))) {
+        while (!isAlive(&(game.battleState.bleu.team[0]))) {
             int swap=rand() % 5 + 11;
-            if(testActionValidity(swap,&bleu)) swapActualAttacker(&bleu, swap);
+            if(testActionValidity(swap,&game.battleState.bleu)) swapActualAttacker(&game.battleState.bleu, swap);
         }
         //printf("pv rouge : %d\npv bleu : %d\n", rouge.team[0].current_pv, bleu.team[0].current_pv);
-        playerTurn = 1;
-    } else if (!isTeamAlive(&rouge) || !isTeamAlive(&bleu)) {
-        printf("VICTOIRE DES %s!!!\n", isTeamAlive(&rouge) ? "ROUGES" : "BLEUS");
-        win->state = isTeamAlive(&rouge) ? MENU : SETTINGS;
+        game.gameState.playerTurn = 1;
+    } else if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
+        printf("VICTOIRE DES %s!!!\n", isTeamAlive(&game.battleState.rouge) ? "ROUGES" : "BLEUS");
+        win->state = isTeamAlive(&game.battleState.rouge) ? MENU : SETTINGS;
+        game.gameState.initialized = 0;
     }
     if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
-        changeState(win, &states[2]);
+        changeState(win, &game.stateHandlers[2].state);
     }
     else if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
         SDL_GetMouseState(&x, &y);
         // Handle game event
-        for (int i = 0; i < GameButtons.size; i++)
-            ButtonClicked(GameButtons.buttons[i], x, y, win);
+        for (int i = 0; i < game.ui[3].buttons->size; i++)
+            ButtonClicked(game.ui[3].buttons->buttons[i], x, y, win);
     }
     handleEvent(win, event);
 }
@@ -141,26 +85,26 @@ void handleGameEvent(Window *win, SDL_Event *event)
 // Functions for the settings
 
 void renderSettings(Window *win) {
-    if (backgroundTextureSettings) 
-        SDL_RenderCopy(win->renderer, backgroundTextureSettings, NULL, NULL);
+    if (game.ui[1].background) 
+        SDL_RenderCopy(win->renderer, game.ui[1].background, NULL, NULL);
     
     // Toujours rendre les sliders
-    renderSliderList(&SettingsSliders);
-    renderButtonList(&SettingsButtons);
+    renderSliderList((game.ui[1].sliders));
+    renderButtonList(game.ui[1].buttons);
 }
 
 
 void handleSettingsEvent(Window *win, SDL_Event *event) {
-    if (!win || !event || !SettingsSliders.sliders || SettingsSliders.size <= 0) return;
+    if (!win || !event || !game.ui[1].sliders->sliders || game.ui[1].sliders->size <= 0) return;
     // Parcourt et gère les événements des sliders
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
         SDL_GetMouseState(&x, &y);
-        for (int i = 0; i < SettingsSliders.size; i++) {
-            if (handleSliderEvent(SettingsSliders.sliders[i], x,y)) break;
+        for (int i = 0; i < game.ui[1].sliders->size; i++) {
+            if (handleSliderEvent(game.ui[1].sliders->sliders[i], x,y)) break;
         }
-        for(int i = 0; i < SettingsButtons.size; i++){
-            ButtonClicked(SettingsButtons.buttons[i], x, y, win);
+        for(int i = 0; i < game.ui[1].buttons->size; i++){
+            ButtonClicked(game.ui[1].buttons->buttons[i], x, y, win);
         }
     }
     // Gérer les autres événements
@@ -196,27 +140,24 @@ void createFicGame() {
 }
 
 void renderNewGame(Window * win){
-    
-    if(backgroundTextureGame) SDL_RenderCopy(win->renderer, backgroundTextureNewGame, NULL, NULL);
-    
+    if(game.ui[4].background) SDL_RenderCopy(win->renderer, game.ui[4].background, NULL, NULL);
     renderText(win, &NewGameText);
-    renderButtonList(&NewGameButtons);
-
-    if (!initialize) {
-        initData();
-        teamTest(&rouge, 3);
-        teamTest(&bleu, 2);
-        printPoke(&(rouge.team[0]));
-        printPoke(&(bleu.team[0]));
-        printf("pv rouge : %d\n\n",rouge.team[0].current_pv);
-        printf("pv bleu : %d\n\n",bleu.team[0].current_pv);
-        updateAttackButtons(win, &rouge);
-        initialize = 1;
-    }
 }
 
 void handleNewGameEvent(Window * win, SDL_Event * event){
     handleEvent(win, event);
+    if (!game.gameState.initialized) {
+        initData();
+        teamTest(&game.battleState.rouge, 3);
+        teamTest(&game.battleState.bleu, 2);
+        printPoke(&(game.battleState.rouge.team[0]));
+        printPoke(&(game.battleState.bleu.team[0]));
+        printf("pv rouge : %d\n\n",game.battleState.rouge.team[0].current_pv);
+        printf("pv bleu : %d\n\n",game.battleState.bleu.team[0].current_pv);
+        updateAttackButtons(win, &game.battleState.rouge);
+        bleu = game.battleState.bleu;
+        game.gameState.initialized = 1;
+    }
 }
 
 //---------------------------------------------------------------------------------
@@ -224,23 +165,22 @@ void handleNewGameEvent(Window * win, SDL_Event * event){
 // Functions for load game
 
 void readFicGame(){
-
 }
 
 void renderLoadGame(Window *win) {
-    if (backgroundTextureSettings) SDL_RenderCopy(win->renderer, backgroundTextureLoadGame, NULL, NULL);
+    if (game.ui[5].background) SDL_RenderCopy(win->renderer, game.ui[5].background, NULL, NULL);
     // Toujours rendre les sliders
-    renderButtonList(&LoadGameButtons);
+    renderButtonList(game.ui[5].buttons);
 }
 
 void handleLoadGameEvent(Window *win, SDL_Event *event) {
     if (!win || !event) return;
-    // Parcourt et gère les événements des sliders
+    // Parcourt et gère les événements des boutons
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
         SDL_GetMouseState(&x, &y);
-        for (int i = 0; i < LoadGameButtons.size; i++) {
-            ButtonClicked(LoadGameButtons.buttons[i], x, y, win);
+        for (int i = 0; i < game.ui[5].buttons->size; i++) {
+            ButtonClicked(game.ui[5].buttons->buttons[i], x, y, win);
         }
     }
     // Gérer les autres événements
@@ -252,20 +192,21 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
 // Functions for the ICMons selection
 
 void renderICMons(Window *win) {
-    if (backgroundTextureICMons) SDL_RenderCopy(win->renderer, backgroundTextureICMons, NULL, NULL);
-    renderButtonList(&ICMonsButtons);
+    if (game.ui[6].background) SDL_RenderCopy(win->renderer, game.ui[6].background, NULL, NULL);
+    //renderButtonList(game.ui[6].buttons);
 }
 
 void handleICMonsEvent(Window *win, SDL_Event *event) {
     if (!win || !event) return;
-    // Parcourt et gère les événements des sliders
+    // Parcourt et gère les événements des boutons
+    /*
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
         SDL_GetMouseState(&x, &y);
-        for (int i = 0; i < ICMonsButtons.size; i++) {
-            ButtonClicked(ICMonsButtons.buttons[i], x, y, win);
+        for (int i = 0; i < game.ui[6].buttons->size; i++) {
+            ButtonClicked(game.ui[6].buttons->buttons[i], x, y, win);
         }
-    }
+    }*/
     // Gérer les autres événements
     handleEvent(win, event);
 }
@@ -277,6 +218,7 @@ void handleICMonsEvent(Window *win, SDL_Event *event) {
 void changeState(Window *win, void *data) {
     AppState newState = *(AppState *)data; // Convertit void* en AppState*
     win->state = newState;
+    SDL_Log("Changement d'état : %d", newState);
 }
 
 void changeTextSpeed(Window *win, void *data) {
@@ -286,33 +228,27 @@ void changeTextSpeed(Window *win, void *data) {
 
 void attqButtonClicked(Window *win, void *data) {
     (void)win; // Pour éviter le warning
-    if (playerTurn && isTeamAlive(&rouge) && isTeamAlive(&bleu)) {
-        playATurn(&rouge, (int)data, &bleu, AI_move_choice(&iaTest,&rouge));
-        while (isTeamAlive(&rouge) && !isAlive(&(rouge.team[0]))){
+    if (game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
+        playATurn(&game.battleState.rouge, (intptr_t)data, &game.battleState.bleu, AI_move_choice(&iaTest,&game.battleState.rouge));
+        while (isTeamAlive(&game.battleState.rouge) && !isAlive(&(game.battleState.rouge.team[0]))){
             int swap=rand() % 5 + 11;
-            if(testActionValidity(swap,&rouge)) swapActualAttacker(&rouge, swap);
+            if(testActionValidity(swap,&game.battleState.rouge)) swapActualAttacker(&game.battleState.rouge, swap);
         }
-        while (isTeamAlive(&bleu) && !isAlive(&(bleu.team[0]))){
+        while (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))){
             int swap=rand() % 5 + 11;
-            if(testActionValidity(swap,&bleu)) swapActualAttacker(&bleu, swap);
+            if(testActionValidity(swap,&game.battleState.bleu)) swapActualAttacker(&game.battleState.bleu, swap);
         }
-        printf("pv rouge : %d\npv bleu : %d\n", rouge.team[0].current_pv, bleu.team[0].current_pv);
-        playerTurn = 0;
+        printf("pv rouge : %d\npv bleu : %d\n", game.battleState.rouge.team[0].current_pv, game.battleState.bleu.team[0].current_pv);
+        game.gameState.playerTurn = 0;
     }
 }
 
 
 
 void mainLoop(Window *win) {
-    const int FPS = 60;
-    const int frameDelay = 1000 / FPS;
+    initGame(win);
     int frameStart;
     SDL_Event event;
-    int newGameStartTime = 0;
-
-    MenuButtons = (ButtonList){NULL, 0};
-    SettingsButtons = (ButtonList){NULL, 0};
-    SettingsSliders = (SliderList){NULL, 0};
     
     initAllButtons(win);
     
@@ -324,17 +260,16 @@ void mainLoop(Window *win) {
 
         // Manage events
         while (SDL_PollEvent(&event)) {
-            eventHandlers[win->state](win, &event);
+            game.stateHandlers[win->state].handleEvent(win, &event);
         }
-
         // Render the window
         SDL_RenderClear(win->renderer);
-        stateHandlers[win->state](win);
+        game.stateHandlers[win->state].render(win);
         SDL_RenderPresent(win->renderer);
 
         if(win->state == GAME){
             if (!Mix_PlayingMusic()) {  // Vérifie si la musique est déjà en cours
-                Mix_PlayMusic(music, -1);
+                Mix_PlayMusic(game.gameState.music, -1);
             }
         } else {
             Mix_HaltMusic();
@@ -342,35 +277,39 @@ void mainLoop(Window *win) {
 
         // Manage frame rate
         int frameTime = SDL_GetTicks() - frameStart;
-        if (frameTime < frameDelay) {
-            SDL_Delay(frameDelay - frameTime);
+        if (frameTime < game.frameDelay) {
+            SDL_Delay(game.frameDelay - frameTime);
         }
         // If the state is NEWGAME and 5 seconds have passed, go to game state
-        if (win->state == NEWGAME && newGameStartTime == 0) newGameStartTime = SDL_GetTicks();
-        else if (win->state == NEWGAME && SDL_GetTicks() - newGameStartTime >= 1000) { // 5 seconds
-            changeState(win, &states[0]); // Change state to GAME
-            newGameStartTime = 0; // reinitialize the start time
+        if (win->state == NEWGAME && game.newGameStartTime == 0) game.newGameStartTime = SDL_GetTicks();
+        else if (win->state == NEWGAME && SDL_GetTicks() - game.newGameStartTime >= 1000) { // 5 seconds
+            changeState(win, &game.stateHandlers[3].state); // Change state to GAME
+            game.newGameStartTime = 0; // reinitialize the start time
         }
     }
 
     // Free memory
-    destroyButtonList(&MenuButtons);
-    destroyButtonList(&SettingsButtons);
-    destroySliderList(&SettingsSliders);
-    if (backgroundTexture) {
-        SDL_DestroyTexture(backgroundTexture);
-        backgroundTexture = NULL;
+    destroyButtonList(game.ui[2].buttons);
+    destroyButtonList(game.ui[3].buttons);
+    destroySliderList(game.ui[3].sliders);
+    if (game.ui[2].background) {
+        SDL_DestroyTexture(game.ui[2].background);
+        game.ui[2].background = NULL;
     }
-    if (backgroundTextureSettings) {
-        SDL_DestroyTexture(backgroundTextureSettings);
-        backgroundTextureSettings = NULL;
+    if (game.ui[1].background) {
+        SDL_DestroyTexture(game.ui[1].background);
+        game.ui[1].background = NULL;
     }
-    if (backgroundTextureGame) {
-        SDL_DestroyTexture(backgroundTextureGame);
-        backgroundTextureGame = NULL;
+    if (game.ui[3].background) {
+        SDL_DestroyTexture(game.ui[3].background);
+        game.ui[3].background = NULL;
     }
     if (NewGameText.texture) {
         destroyText(&NewGameText);
+    }
+    if (game.gameState.music) {
+        Mix_FreeMusic(game.gameState.music);
+        game.gameState.music = NULL;
     }
 }
 
@@ -384,35 +323,25 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
         if (win->window) SDL_DestroyWindow(win->window);
         exit(EXIT_FAILURE);
     }
-    // Init audio 
-    initAudio();
-    loadMusic(&music, "assets/audio/Battle.mp3");
+    
 
     win->width = win->InitialWidth = width;
     win->height = win->InitialHeight = height;
     win->quit = 0;
     win->state = MENU;
     win->textSpeed = 1;
-
-    loadBackground(&backgroundTexture, win->renderer, "assets/Title Screen/BG.jpg");
-    loadBackground(&backgroundTextureLoadGame, win->renderer, "assets/Title Screen/LoadGame.png");
-    loadBackground(&backgroundTextureSettings, win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_party_background.png");
-    loadBackground(&backgroundTextureNewGame, win->renderer, "assets/Title Screen/GameStart.jpg");
-    loadBackground(&backgroundTextureGame, win->renderer, "assets/Battle Backgrounds/With Textboxes/zoonami_forest_background.png");
-
-    initText(win);
-
+    SDL_Log("Initialisation de la fenêtre réussie.");    
 }
 
 void destroyWindow(Window *win) 
 {
-    if (backgroundTexture) {
-        SDL_DestroyTexture(backgroundTexture);
-        backgroundTexture = NULL;
+    if (game.ui[2].background) {
+        SDL_DestroyTexture(game.ui[2].background);
+        game.ui[2].background = NULL;
     }
-    if (backgroundTextureSettings) {
-        SDL_DestroyTexture(backgroundTextureSettings);
-        backgroundTextureSettings = NULL;
+    if (game.ui[1].background) {
+        SDL_DestroyTexture(game.ui[1].background);
+        game.ui[1].background = NULL;
     }
     if(win->font)
         TTF_CloseFont(win->font);
@@ -451,16 +380,68 @@ void handleEvent(Window *win, SDL_Event *event)
                 win->height = event->window.data2;
                 float scaleX = (float)win->width / win->InitialWidth;
                 float scaleY = (float)win->height / win->InitialHeight;
-                updateButtonPosition(&MenuButtons, scaleX, scaleY);
-                updateButtonPosition(&SettingsButtons, scaleX, scaleY);
-                updateButtonPosition(&LoadGameButtons, scaleX, scaleY);
-                updateButtonPosition(&GameButtons, scaleX, scaleY);
+                updateButtonPosition(game.ui[2].buttons, scaleX, scaleY);
+                updateButtonPosition(game.ui[3].buttons, scaleX, scaleY);
+                updateButtonPosition(game.ui[5].buttons, scaleX, scaleY);
+                updateButtonPosition(game.ui[3].buttons, scaleX, scaleY);
                 updateTextPosition(&NewGameText, scaleX, scaleY);
                 updateTextPosition(&title, scaleX, scaleY);
             }
             break;
         default: break;
     }
+}
+void initGame(Window *win) {
+    game.win = win;
+    
+    int nbMenu = 7;
+    game.ui = malloc(nbMenu * sizeof(UI_Elements));
+    game.ui[0] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)), .background=NULL};                                          // Quit Page            = 0
+    game.ui[1] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders=malloc(sizeof(SliderList)) ,.background=NULL};      // Settings Page        = 1
+    game.ui[2] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)), .background=NULL};                                          // Menu Page            = 2
+    game.ui[3] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)), .background=NULL};                                          // Game Page            = 3
+    game.ui[4] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)), .background=NULL};                                          // New Game Page        = 4
+    game.ui[5] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)), .background=NULL};                                          // Load Game Page       = 5
+    game.ui[6] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)), .background=NULL};                                          // ICMons Page          = 6
+
+    for (int i = 0; i < nbMenu; i++) {
+        game.ui[i].buttons->buttons = NULL;
+        game.ui[i].buttons->size = 0;
+    }
+    game.ui[1].sliders->sliders = NULL;
+    game.ui[1].sliders->size = 0;
+
+    game.gameState = (GameState){.music = NULL, .playerTurn = 1, .initialized = 0, .currentState = MENU};
+
+    game.nbStates = 7;
+    game.stateHandlers = malloc(game.nbStates * sizeof(StateHandler));
+    game.stateHandlers[0] = (StateHandler){QUIT, renderQuit, handleQuitEvent}; // Quit = 0
+    game.stateHandlers[1] = (StateHandler){SETTINGS, renderSettings, handleSettingsEvent}; // Settings = 1
+    game.stateHandlers[2] = (StateHandler){MENU, renderMenu, handleMenuEvent}; // Menu = 2
+    game.stateHandlers[3] = (StateHandler){GAME, renderGame, handleGameEvent}; // Game = 3
+    game.stateHandlers[4] = (StateHandler){NEWGAME, renderNewGame, handleNewGameEvent}; // New game = 4
+    game.stateHandlers[5] = (StateHandler){LOADGAME, renderLoadGame, handleLoadGameEvent}; // Load game = 5
+    game.stateHandlers[6] = (StateHandler){ICMONS, renderICMons, handleICMonsEvent}; // ICMons = 6
+
+
+    game.FPS = 60;
+    game.frameDelay = 1000 / game.FPS;
+    game.newGameStartTime = 0;
+
+
+    
+    loadBackground(&game.ui[2].background, win->renderer, "assets/Title Screen/BG.jpg");
+    loadBackground(&game.ui[5].background, win->renderer, "assets/Title Screen/LoadGame.png");
+    loadBackground(&game.ui[1].background, win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_party_background.png");
+    loadBackground(&game.ui[4].background, win->renderer, "assets/Title Screen/GameStart.jpg");
+    loadBackground(&game.ui[3].background, win->renderer, "assets/Battle Backgrounds/With Textboxes/zoonami_forest_background.png");
+    loadBackground(&game.ui[6].background, win->renderer, "assets/Title Screen/BG.png");
+
+    initAudio();
+    loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");
+
+    initText(win);
+
 }
 
 void updateTextPosition(Text *text, float scaleX, float scaleY) {
@@ -473,14 +454,29 @@ void updateTextPosition(Text *text, float scaleX, float scaleY) {
 }
 
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath) {
+    if (!renderer) {
+        SDL_Log("Erreur : Le renderer est NULL.");
+        return;
+    }
+    if (!imagePath) {
+        SDL_Log("Erreur : Le chemin de l'image est NULL.");
+        return;
+    }
+
     SDL_Surface *surface = IMG_Load(imagePath);
     if (!surface) {
         SDL_Log("Erreur : Impossible de charger l'image de fond '%s'. Message SDL_image : %s", imagePath, IMG_GetError());
         return;
     }
+
     *Background = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
-    if (!*Background) SDL_Log("Erreur : Impossible de créer une texture pour l'image de fond. Message SDL : %s", SDL_GetError());
+
+    if (!*Background) {
+        SDL_Log("Erreur : Impossible de créer une texture pour l'image de fond. Message SDL : %s", SDL_GetError());
+    } else {
+        SDL_Log("Image de fond chargée avec succès : '%s'", imagePath);
+    }
 }
 
 void renderText(Window * win, Text * text){
@@ -512,6 +508,10 @@ void initAllButtons(Window * win)
     Button **buttonsLoadGame = malloc(nbButtonsLoad * sizeof(Button *));
     Button **buttonsGame = malloc(nbButtonsGame * sizeof(Button *));
     Slider **sliders = malloc(nbSlidersSettings * sizeof(Slider *));
+    float * speeds = malloc(3 * sizeof(float));
+    speeds[0] = 0.5;
+    speeds[1] = 1;
+    speeds[2] = 1.5;
 
     if (!buttonsMenu || !sliders || !buttonsParam || !buttonsLoadGame || !buttonsGame) {
         SDL_Log("Allocation de mémoire pour les boutons échouée !");
@@ -521,65 +521,65 @@ void initAllButtons(Window * win)
     buttonsMenu[0] = createButton(
         "PLAY", win, 500, 150, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[4], win->MediumFont
+        changeState, &game.stateHandlers[4].state, win->MediumFont
     );
 
     buttonsMenu[1] = createButton(
         "LOAD GAME", win, 500, 300, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[5], win->MediumFont
+        changeState, &game.stateHandlers[5].state, win->MediumFont
     );
     buttonsMenu[2] = createButton(
         "SETTINGS", win, 500, 450, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[1], win->MediumFont
+        changeState, &game.stateHandlers[1].state, win->MediumFont
     );
 
     buttonsMenu[3] = createButton(
         "QUIT", win, 500, 600, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[3], win->MediumFont
+        changeState, &game.stateHandlers[0].state, win->MediumFont
     );
 
     buttonsParam[0] =createButton(
         "0.5", win, 100, 200, 200, 50,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, &textSpeeds[0], win->LargeFont
+        changeTextSpeed, &speeds[0], win->LargeFont
     );
 
     buttonsParam[1] =createButton(
         "1", win, 400, 200, 200, 50,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, &textSpeeds[1], win->LargeFont
+        changeTextSpeed, &speeds[1], win->LargeFont
     );
 
     buttonsParam[2] =createButton(
         "1.5", win, 700, 200, 200, 50,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, &textSpeeds[2], win->LargeFont
+        changeTextSpeed, &speeds[2], win->LargeFont
     );
     buttonsParam[3] =createButton(
         "Back", win, 100, 600, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[2], win->LargeFont
+        changeState, &game.stateHandlers[2].state, win->LargeFont
     );
 
     buttonsLoadGame[0] = createButton(
         "Save 1", win, 500, 104, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[4], win->LargeFont
+        changeState, &game.stateHandlers[5].state, win->LargeFont
     );
 
     buttonsLoadGame[1] = createButton(
         "Save 2", win, 500, 258, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[5], win->LargeFont
+        changeState, &game.stateHandlers[5].state, win->LargeFont
     );
 
     buttonsLoadGame[2]  =createButton(
         "Back", win, 100, 600, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &states[2], win->LargeFont
+        changeState, &game.stateHandlers[2].state, win->LargeFont
     );
 
     int buttonWidth = 430;
@@ -612,7 +612,7 @@ void initAllButtons(Window * win)
     buttonsGame[4] = createButton(
         "ICMons", win, 950, startY, 300, 180,
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-        changeState, &states[2], win->LargeFont
+        changeState, &game.stateHandlers[6].state, win->LargeFont
     );
 
     InitTextureButton(buttonsMenu[0], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
@@ -637,15 +637,15 @@ void initAllButtons(Window * win)
 
     sliders[0] = createSlider(win->renderer, 100, 100, 200, 25, (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255});
 
-    addListSlider(&SettingsSliders, sliders, nbSlidersSettings);
+    addListSlider((game.ui[1].sliders), sliders, nbSlidersSettings);
     free(sliders); // Libération du tableau temporaire
-    addListButton(&MenuButtons, buttonsMenu, nbButtonsMenu);
+    addListButton(game.ui[2].buttons, buttonsMenu, nbButtonsMenu);
     free(buttonsMenu); // Libération du tableau temporaire
-    addListButton(&SettingsButtons, buttonsParam, nbButtonsParam);
+    addListButton(game.ui[1].buttons, buttonsParam, nbButtonsParam);
     free(buttonsParam); // Libération du tableau temporaire
-    addListButton(&LoadGameButtons, buttonsLoadGame, nbButtonsLoad);
+    addListButton(game.ui[5].buttons, buttonsLoadGame, nbButtonsLoad);
     free(buttonsLoadGame);
-    addListButton(&GameButtons, buttonsGame, nbButtonsGame);
+    addListButton(game.ui[3].buttons, buttonsGame, nbButtonsGame);
     free(buttonsGame);
     
     sliders = NULL;
@@ -663,7 +663,7 @@ void initText(Window *win) {
     };
 
     for (int i = 0; i < 2; i++) {
-        *textObjects[i] = (Text){strdup(texts[i]), rects[i], rects[i], {255, 255, 255, 255}, win->LargeFont, NULL, NULL};
+        *textObjects[i] = (Text){texts[i], rects[i], rects[i], {255, 255, 255, 255}, win->LargeFont, NULL, NULL};
         SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, texts[i], textObjects[i]->color);
         if (!textSurface) {
             SDL_Log("Erreur de rendu du texte : %s", TTF_GetError());
@@ -685,8 +685,8 @@ void updateAttackButtons(Window *win, t_Team *team) {
         SDL_Log("Erreur : team, team->team ou moveList est NULL\n");
         return;
     }
-    for (int i = 0; i < 4 && GameButtons.buttons && GameButtons.buttons[i]; i++) {
-        setButtonText(GameButtons.buttons[i], team->team[0].moveList[i].name, win->renderer);
+    for (int i = 0; i < 4 && game.ui[3].buttons->buttons && game.ui[3].buttons->buttons[i]; i++) {
+        setButtonText(game.ui[3].buttons->buttons[i], team->team[0].moveList[i].name, win->renderer);
     }
 }
 

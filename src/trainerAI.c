@@ -2,6 +2,7 @@
 #include "../include/duel.h"
 #include "../include/trainerAI.h"
 
+
 t_AI iaTest={10,damageOnly,&bleu};
 
 void insertionSort(int tabDegats[], int tabMove[], int n) {
