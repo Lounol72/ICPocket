@@ -7,9 +7,9 @@ t_Team bleu;
 
 int main(){
 	initData();
-	//teamTest(&rouge);
-	//teamTest(&bleu);
-	initTeam(&rouge,3);
-	printTeam(&rouge); //use testSwitch or testBattle to try the program's features
+	teamTest(&rouge,3);
+	teamTest(&bleu,2);
+	//use testSwitch or testBattle to try the program's features
+	printf("%d\n",AI_move_choice(&iaTest,&rouge));
 	return 0;
 }

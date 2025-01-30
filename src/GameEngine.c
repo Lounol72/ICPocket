@@ -117,7 +117,7 @@ void handleGameEvent(Window *win, SDL_Event *event)
             int swap=rand() % 5 + 11;
             if(testActionValidity(swap,&bleu)) swapActualAttacker(&bleu, swap);
         }
-        printf("pv rouge : %d\npv bleu : %d\n", rouge.team[0].current_pv, bleu.team[0].current_pv);
+        //printf("pv rouge : %d\npv bleu : %d\n", rouge.team[0].current_pv, bleu.team[0].current_pv);
         playerTurn = 1;
     } else if (!isTeamAlive(&rouge) || !isTeamAlive(&bleu)) {
         printf("VICTOIRE DES %s!!!\n", isTeamAlive(&rouge) ? "ROUGES" : "BLEUS");
