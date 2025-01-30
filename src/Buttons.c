@@ -146,6 +146,7 @@ void updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley)
         buttons->buttons[i]->rect.h = buttons->buttons[i]->initialRect.h * Scaley;
         buttons->buttons[i]->rect.x = buttons->buttons[i]->initialRect.x * Scalex;
         buttons->buttons[i]->rect.y = buttons->buttons[i]->initialRect.y * Scaley;
+        
     }
 }
 
@@ -186,11 +187,11 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
         SDL_Log("Erreur d'allocation pour le slider.");
         return NULL;
     }
-    slider->value = 0;
+    slider->value = 0.5f;
     slider->rect = (SDL_Rect){x, y, w, h};
     slider->initialBar = slider->rect;
     int cursorW = 10;
-    slider->cursor = (SDL_Rect){slider->rect.x + (slider->value * cursorW) - (cursorW / 2), y-5, cursorW, h+12};
+    slider->cursor = (SDL_Rect){slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2), y-5, cursorW, h+12};
     slider->color = color;
     slider->cursorColor = cursorColor;
     slider->renderer = renderer;
@@ -254,6 +255,7 @@ int handleSliderEvent(Slider *slider, int x, int y) {
     if (SDL_PointInRect(&(SDL_Point){x, y}, &(slider->rect))) {
         slider->value = (float)(x - slider->rect.x) / slider->rect.w;
         slider->cursor.x = slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2);
+        SDL_Log("Slider value : %.2f", slider->value);
         return 1; // Interaction détectée
     }
     return 0;

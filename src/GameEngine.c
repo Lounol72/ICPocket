@@ -217,19 +217,19 @@ void readFicGame(){
 
 }
 
-void renderLoadGame(Window * win){
+void renderLoadGame(Window *win) {
     if (backgroundTextureSettings) SDL_RenderCopy(win->renderer, backgroundTextureLoadGame, NULL, NULL);
     // Toujours rendre les sliders
     renderButtonList(&LoadGameButtons);
 }
 
-void handleLoadGameEvent(Window * win, SDL_Event * event){
+void handleLoadGameEvent(Window *win, SDL_Event *event) {
     if (!win || !event) return;
     // Parcourt et gère les événements des sliders
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
         SDL_GetMouseState(&x, &y);
-        for(int i = 0; i < LoadGameButtons.size; i++){
+        for (int i = 0; i < LoadGameButtons.size; i++) {
             ButtonClicked(LoadGameButtons.buttons[i], x, y, win);
         }
     }
@@ -243,14 +243,12 @@ void handleLoadGameEvent(Window * win, SDL_Event * event){
 
 void changeState(Window *win, void *data) {
     AppState newState = *(AppState *)data; // Convertit void* en AppState*
-    SDL_Log("Changement d'état vers %d", newState);
     win->state = newState;
 }
 
 void changeTextSpeed(Window *win, void *data) {
     double *speed = (double *)data;
     win->textSpeed = *speed;
-    SDL_Log("Vitesse du texte changée à %.1f", win->textSpeed);
 }
 
 void attqButtonClicked(Window *win, void *data) {
@@ -418,32 +416,25 @@ void handleEvent(Window *win, SDL_Event *event)
 
 void updateTextPosition(Text *text, float scaleX, float scaleY) {
     if (text && text->texture) {
-        text->rect.x = (int)(text->initialRect.x * scaleX);
-        text->rect.y = (int)(text->initialRect.y * scaleY);
-        text->rect.w = (int)(text->initialRect.w * scaleX);
-        text->rect.h = (int)(text->initialRect.h * scaleY);
+        text->rect.x = text->initialRect.x * scaleX;
+        text->rect.y = text->initialRect.y * scaleY;
+        text->rect.w = text->initialRect.w * scaleX;
+        text->rect.h = text->initialRect.h * scaleY;
     }
 }
 
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath) {
-    SDL_Surface *surface = IMG_Load(imagePath); // Utiliser SDL_image pour charger l'image
+    SDL_Surface *surface = IMG_Load(imagePath);
     if (!surface) {
         SDL_Log("Erreur : Impossible de charger l'image de fond '%s'. Message SDL_image : %s", imagePath, IMG_GetError());
         return;
     }
-
     *Background = SDL_CreateTextureFromSurface(renderer, surface);
-    SDL_FreeSurface(surface); // Libérer la surface après la conversion
-
-    if (!*Background) {
-        SDL_Log("Erreur : Impossible de créer une texture pour l'image de fond. Message SDL : %s", SDL_GetError());
-    } else {
-        SDL_Log("Image de fond chargée avec succès.");
-    }
+    SDL_FreeSurface(surface);
+    if (!*Background) SDL_Log("Erreur : Impossible de créer une texture pour l'image de fond. Message SDL : %s", SDL_GetError());
 }
 
 void renderText(Window * win, Text * text){
-    
     SDL_RenderCopy(win->renderer, text->texture, NULL, &text->rect);
 }
 
@@ -469,16 +460,10 @@ void initAllButtons(Window * win)
     int nbButtonsGame = 5;
 
     Button **buttonsMenu = malloc(nbButtonsMenu * sizeof(Button *));
-    printf("Allocation buttonsMenu OK\n");
     Button **buttonsParam = malloc(nbButtonsParam * sizeof(Button *));
-    printf("Allocation buttonsParam OK\n");
     Button **buttonsLoadGame = malloc(nbButtonsLoad * sizeof(Button *));
-    printf("Allocation buttonsLoadGame OK\n");
     Button **buttonsGame = malloc(nbButtonsGame * sizeof(Button *));
-    printf("Allocation buttonsGame OK\n");
     Slider **sliders = malloc(nbSlidersSettings * sizeof(Slider *));
-    printf("Allocation sliders OK\n");
-
 
     if (!buttonsMenu || !sliders || !buttonsParam || !buttonsLoadGame || !buttonsGame) {
         SDL_Log("Allocation de mémoire pour les boutons échouée !");
@@ -561,25 +546,21 @@ void initAllButtons(Window * win)
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
         attqButtonClicked, 0, win->LargeFont
     );
-    SDL_Log("Bouton 1 créé");
     buttonsGame[1] = createButton(
         "Attack 2", win, startX , startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
         attqButtonClicked, 1, win->LargeFont
     );
-    SDL_Log("Bouton 2 créé");
     buttonsGame[2] = createButton(
         "Attack 3", win, startX + buttonWidth + spacingX, startY , buttonWidth, buttonHeight,
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
         attqButtonClicked, 2, win->LargeFont
     );
-    SDL_Log("Bouton 3 créé");
     buttonsGame[3] = createButton(
         "Attack 4", win, startX + buttonWidth + spacingX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
         attqButtonClicked, 3, win->LargeFont
     );
-    SDL_Log("Bouton 4 créé");
     buttonsGame[4] = createButton(
         "ICMons", win, 950, startY, 300, 180,
         (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
@@ -606,12 +587,7 @@ void initAllButtons(Window * win)
     InitTextureButton(buttonsGame[3], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
     InitTextureButton(buttonsGame[4], win->renderer, "assets/User Interface/Blue/button_square_depth_gloss.png");
 
-
-    SDL_Log("Textures créés avec succès.");
-    
-
     sliders[0] = createSlider(win->renderer, 100, 100, 200, 25, (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255});
-    SDL_Log("Slider créé");
 
     addListSlider(&SettingsSliders, sliders, nbSlidersSettings);
     free(sliders); // Libération du tableau temporaire
@@ -623,42 +599,37 @@ void initAllButtons(Window * win)
     free(buttonsLoadGame);
     addListButton(&GameButtons, buttonsGame, nbButtonsGame);
     free(buttonsGame);
-    SDL_Log("Boutons créés avec succès.");
+    
     sliders = NULL;
     buttonsMenu = NULL;
     buttonsParam = NULL;
     buttonsLoadGame = NULL;
 }
 
-void initText(Window * win){
-    NewGameText = (Text){"Lancement de la Nouvelle Partie...", {win->width / 2 - 250, win->height / 2 + 250, 500, 100}, {win->width / 2 - 250, win->height / 2 + 250, 500, 100}, {255, 255, 255, 255}, win->LargeFont, NULL, NULL};
-    SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, NewGameText.text, NewGameText.color);
-    if (!textSurface) {
-        SDL_Log("Erreur de rendu du texte : %s", TTF_GetError());
-        exit(EXIT_FAILURE);
-    }
-    NewGameText.texture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
-    if (!NewGameText.texture) {
-        SDL_Log("Erreur de création de la texture : %s", SDL_GetError());
-        SDL_FreeSurface(textSurface);
-        exit(EXIT_FAILURE);
-    }
-    NewGameText.surface = textSurface;
+void initText(Window *win) {
+    const char *texts[] = {"Lancement de la Nouvelle Partie...", "ICPocket"};
+    Text *textObjects[] = {&NewGameText, &title};
+    SDL_Rect rects[] = {
+        {win->width / 2 - 250, win->height / 2 + 250, 500, 100},
+        {win->width / 2 - 250, -25, 500, 170}
+    };
 
-    title = (Text){"ICPocket", {win->width / 2 - 250, -25, 500, 170}, {win->width / 2 - 250, -25, 500, 170}, {255, 255, 255, 255}, win->LargeFont, NULL, NULL};
-    textSurface = TTF_RenderText_Solid(win->LargeFont, title.text, title.color);
-    if (!textSurface) {
-        SDL_Log("Erreur de rendu du texte : %s", TTF_GetError());
-        exit(EXIT_FAILURE);
+    for (int i = 0; i < 2; i++) {
+        *textObjects[i] = (Text){texts[i], rects[i], rects[i], {255, 255, 255, 255}, win->LargeFont, NULL, NULL};
+        SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, texts[i], textObjects[i]->color);
+        if (!textSurface) {
+            SDL_Log("Erreur de rendu du texte : %s", TTF_GetError());
+            exit(EXIT_FAILURE);
+        }
+        textObjects[i]->texture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
+        if (!textObjects[i]->texture) {
+            SDL_Log("Erreur de création de la texture : %s", SDL_GetError());
+            SDL_FreeSurface(textSurface);
+            exit(EXIT_FAILURE);
+        }
+        textObjects[i]->surface = textSurface;
     }
-    title.texture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
-    if (!title.texture) {
-        SDL_Log("Erreur de création de la texture : %s", SDL_GetError());
-        SDL_FreeSurface(textSurface);
-        exit(EXIT_FAILURE);
-    }
-    title.surface = textSurface;
-    SDL_FreeSurface(textSurface);
+    SDL_FreeSurface(textObjects[1]->surface);
 }
 
 void updateAttackButtons(Window *win, t_Team *team) {
