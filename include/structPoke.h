@@ -51,6 +51,7 @@ typedef struct
 extern t_Nature tabNature[25];
 extern float typeChart[typeNumber][typeNumber];
 
+void generate_poke(t_Poke *p,char * choixPoke);
 void generatePoke(t_Poke *);
 t_Move generateRandomMove();
 void learnMove(t_Poke *, t_Move *, int);

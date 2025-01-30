@@ -1,9 +1,11 @@
+#include "duel.h"
 
+/*id = 1 le joueur*/
 typedef struct 
 {
 	int id;
 	char name[100];
-	t_Team * team;
-}t_Dresseur;
+	t_Team * trainTeam;
+}t_trainer;
 
-void sauvegarder_Joueur(t_Team *J1,t_Dresseur * Dress);
+void sauvegarder_Joueur(t_trainer * teamJ1,t_trainer * dresseur);
