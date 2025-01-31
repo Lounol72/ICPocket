@@ -1,9 +1,86 @@
-User name : Papouille
-Team : 
-Poke 1 : dummy
-Poke 2 : dummy
-Poke 3 : dummy
-Poke 4 : dummy
-Poke 5 : dummy
-Poke 6 : dummy
+User name : Oka
+1
+denny
+87
+2
+31
+10
+12
+9
+13
+26
+0
+2
+
+
+1
+denny
+18
+17
+21
+24
+30
+1
+9
+25
+0
+2
+
+
+1
+denny
+97
+24
+23
+26
+11
+12
+5
+12
+0
+1
+
+
+1
+denny
+14
+22
+19
+23
+25
+16
+3
+3
+0
+2
+
+
+1
+denny
+98
+3
+21
+0
+12
+23
+4
+5
+0
+2
+
+
+1
+denny
+52
+5
+9
+3
+0
+30
+14
+3
+0
+3
+
+
 Dernier dresseur battu : blue id: 48
