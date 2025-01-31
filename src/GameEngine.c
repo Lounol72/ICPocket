@@ -43,7 +43,6 @@ void renderGame(Window *win) {
         SDL_RenderCopy(win->renderer, game.ui[3].background, NULL, &renderQuad);
     }
     renderButtonList(game.ui[3].buttons);
-    
 }
 
 void handleGameEvent(Window *win, SDL_Event *event) 
@@ -186,6 +185,32 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
 }
 
 //---------------------------------------------------------------------------------
+// Functions for the ICmons Sprite
+void uptadeICMonsSprite(t_Poke *poke, float scaleX, float scaleY) {
+    if (poke) {
+        poke->rect.x = poke->initialRect.x * scaleX;
+        poke->rect.y = poke->initialRect.y * scaleY;
+        poke->rect.w = poke->initialRect.w * scaleX;
+        poke->rect.h = poke->initialRect.h * scaleY;
+    }
+}
+void initICMonsSprite(SDL_Renderer *renderer, const char *imagePath){
+    SDL_Surface *surface = IMG_Load("assets/Monsters/New Versions/calamd.png");
+    if (!surface) {
+        SDL_Log("Erreur lors du chargement de l'image : %s", IMG_GetError());
+        return;
+    }
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
+    if(!texture){
+        SDL_Log("Erreur lors de la création de la texture : %s", SDL_GetError());
+        return;
+    }
+    SDL_Rect rect = {900, 25, surface->w/2.5, surface->h/2.5};
+}
+void renderICMonsSprite(Window *win) {
+    }
+void destroyICMonsSprite(Window *win){
+    }
 
 // Functions for the ICMons selection
 
@@ -368,6 +393,8 @@ void handleEvent(Window *win, SDL_Event *event)
                 updateButtonPosition(game.ui[3].buttons, scaleX, scaleY);
                 updateTextPosition(&NewGameText, scaleX, scaleY);
                 updateTextPosition(&title, scaleX, scaleY);
+                updateICMonsSprite(&bleu, scaleX, scaleY);
+                updateICMonsSprite(&rouge, scaleX, scaleY);
             }
             break;
         default: break;

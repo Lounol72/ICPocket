@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+
 
 #define PV 0
 #define ATT 1
@@ -46,6 +50,9 @@ typedef struct
 	int iv[6];
 	t_Move moveList[4];
 	int nb_move;
+	SDL_Rect rect;
+	SDL_Texture *texture;
+	SDL_Rect initialRect;
 } t_Poke;
 
 
