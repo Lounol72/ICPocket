@@ -45,6 +45,7 @@ typedef struct
 	int baseStats[6];
 	int iv[6];
 	t_Move moveList[4];
+	int nb_move;
 } t_Poke;
 
 

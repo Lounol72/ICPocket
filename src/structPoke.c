@@ -98,7 +98,7 @@ void printPoke(t_Poke * p)
 	}
 
 	printf("\nMoves:\n");
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < p->nb_move; i++)
 	{
 		if (p->moveList[i].power > 0)
 		{

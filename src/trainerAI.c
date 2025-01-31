@@ -25,21 +25,22 @@ void insertionSort(int tabDegats[], int tabMove[], int n) {
 
 int AI_move_choice(t_AI * ai, t_Team * p){
 	int tab_damage[4]={-1};
-	int tab_move[4]={0,1,2,3};
-	for(int i=0;i<4;i++){
+	int tab_move[4];
+	for(int i=0;i<ai->AI_t_Team->team[0].nb_move;i++){
+        tab_move[i]=i;
 		tab_damage[i]=calcDamage(ai->AI_t_Team,p,&(ai->AI_t_Team->team[0].moveList[i]));
 	}
-	insertionSort(tab_damage,tab_move,4);
+	insertionSort(tab_damage,tab_move,ai->AI_t_Team->team[0].nb_move);
 
     int ind=0;
     if (ai->type%3==0){ // status_first AI
-        ind=(rand()%ai->AI_lvl)%4;
+        ind=(rand()%ai->AI_lvl)%ai->AI_t_Team->team[0].nb_move;
     }
     else if(ai->type%2==0){ // damage_first AI
-        while(ind<4 && rand()%20>ai->AI_lvl) ind++;
+        while(ind<ai->AI_t_Team->team[0].nb_move && rand()%20>ai->AI_lvl) ind++;
     }
     else{ //none type AI
-        ind=(rand()%ai->AI_lvl)%4;
+        ind=(rand()%ai->AI_lvl)%ai->AI_t_Team->team[0].nb_move;
     }
 	return tab_move[ind];
 }

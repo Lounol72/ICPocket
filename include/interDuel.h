@@ -1,0 +1,1 @@
+void healTeam(t_Team * t);
