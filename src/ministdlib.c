@@ -1,6 +1,6 @@
-#include "ministdlib.h"
+#include "../include/ministdlib.h"
 
-char* itoa(int value, char* str, int base){
+char* iitoa(int value, char* str, int base){
     if (base < 2 || base > 36) {
         *str = '\0';
         return str;

@@ -1,6 +1,10 @@
 #include "../include/structPoke.h"
 #include "../include/duel.h"
 #include "../include/trainerAI.h"
+#include "../include/interDuel.h"
+
+t_Team rouge;
+t_Team bleu;
 
 float statVariations[13]={0.25,2./7,1./3,2./5,0.5,2./3,1,1.5,2,2.5,3,3.5,4};
 t_Move struggle={"Lutte",50,noType,physical,200,1,1,0};
@@ -55,7 +59,7 @@ void initTeam(t_Team * t, int nb_poke){
 	t->nb_poke=nb_poke;
 	for(int i=0;i<nb_poke;i++){
 		t->team[i].nb_move=1;
-		generatePoke(&(t->team[i]));
+		generate_poke(&(t->team[i]),"1"); //ajout du 1er poke de la BDD
 		for(int j=0;j<6;j++) t->statChanges[j]=NEUTRAL_STAT_CHANGE;
 		t->team[i].current_pv=calcStatFrom(&(t->team[i]),PV);//POKE_IS_ABSENT;
 		for(int j=0;j<t->team[i].nb_move;j++){

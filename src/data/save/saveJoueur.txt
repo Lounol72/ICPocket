@@ -1,1 +1,9 @@
-User name : AashinoAdr
+User name : Papouille
+Team : 
+Poke 1 : dummy
+Poke 2 : dummy
+Poke 3 : dummy
+Poke 4 : dummy
+Poke 5 : dummy
+Poke 6 : dummy
+Dernier dresseur battu : blue id: 48

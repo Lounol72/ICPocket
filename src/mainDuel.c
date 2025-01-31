@@ -2,9 +2,6 @@
 #include "../include/duel.h"
 #include "../include/trainerAI.h"
 
-t_Team rouge;
-t_Team bleu;
-
 int main(){
 	initData();
 	teamTest(&rouge,3);
