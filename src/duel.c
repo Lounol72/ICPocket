@@ -4,7 +4,7 @@
 #include "../include/interDuel.h"
 
 t_Team rouge;
-t_Team bleu;
+// t_Team bleu;
 
 float statVariations[13]={0.25,2./7,1./3,2./5,0.5,2./3,1,1.5,2,2.5,3,3.5,4};
 t_Move struggle={"Lutte",50,noType,physical,200,1,1,0};
@@ -134,7 +134,7 @@ int isStruggling(int move){
 
 int hasMoveLeft(t_Poke * p){
 	int somme=0;
-	for(int i=0;i<4;i++){
+	for(int i=0;i<p->nb_move;i++){
 		somme+=p->moveList[i].current_pp;
 	}
 	return somme;

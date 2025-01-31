@@ -227,7 +227,7 @@ void attqButtonClicked(Window *win, void *data) {
         playATurn(&game.battleState.rouge, (intptr_t)data, &game.battleState.bleu, AI_move_choice(&iaTest,&game.battleState.rouge));
         while (isTeamAlive(&game.battleState.rouge) && !isAlive(&(game.battleState.rouge.team[0]))){
             int swap=rand() % 5 + 11;
-            if(testActionValidity(swap,&game.battleState.rouge)) swapActualAttacker(&game.battleState.rouge, swap);
+            if(testActionValidity(swap,&game.battleState.rouge)) {swapActualAttacker(&game.battleState.rouge, swap); updateAttackButtons(win, &game.battleState.rouge);}
         }
         while (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))){
             int swap=rand() % 5 + 11;
@@ -691,8 +691,10 @@ void updateAttackButtons(Window *win, t_Team *team) {
         SDL_Log("❌ Erreur : team, team->team ou moveList est NULL\n");
         return;
     }
-    for (int i = 0; i < 4 && game.ui[3].buttons->buttons && game.ui[3].buttons->buttons[i]; i++) {
-        setButtonText(game.ui[3].buttons->buttons[i], team->team[0].moveList[i].name, win->renderer);
+    for (int i = 0; i < 4; i++) {
+        if(team->team[0].nb_move > i) setButtonText(game.ui[3].buttons->buttons[i], team->team[0].moveList[i].name, win->renderer);
+        else setButtonText(game.ui[3].buttons->buttons[i], " ", win->renderer);
+        
     }
 }
 
