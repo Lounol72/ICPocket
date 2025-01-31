@@ -5,13 +5,16 @@
 
 int main(){
 	initData();
-	teamTest(&rouge,3);
-	teamTest(&bleu,2);
+	initTeam(&rouge,3);
+	initTeam(&bleu,2);
 	//use testSwitch or testBattle to try the program's features
-	testBattle(&rouge,&bleu);
-	healTeam(&rouge);
-	healTeam(&bleu);
-	getchar();
-	testBattle(&rouge,&bleu);
+	//testBattle(&rouge,&bleu);
+	printf("TEAM ROUGE:\n\n");
+	printTeam(&rouge);
+	printf("TEAM BLEU:\n\n");
+	printTeam(&bleu);
+	getPokeFromTeam(&rouge,0,&bleu,0);
+	printf("TEAM ROUGE:\n\n");
+	printTeam(&rouge);
 	return 0;
 }
