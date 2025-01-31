@@ -309,43 +309,62 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
 
 void destroyWindow(Window *win) 
 {
-     // Free memory
+    // Destroy text objects
     if (NewGameText.texture) {
         destroyText(&NewGameText);
     }
+    if (title.texture) {
+        destroyText(&title);
+    }
 
-    // Keep music
+    // Free music
     if (game.gameState.music) {
         Mix_FreeMusic(game.gameState.music);
         game.gameState.music = NULL;
     }
 
-    // Now do the for-loop that frees everything else
-    if (game.ui) {
-        SDL_Log("Freeing UI elements");
-        for (int i = 0; i < game.nbStates; i++) {
-            if (game.ui[i].buttons != NULL) {
-                destroyButtonList(game.ui[i].buttons);
-                
-            }
-            if (game.ui[i].background != NULL) {
-                SDL_DestroyTexture(game.ui[i].background);
-                
-            }
+    // Free UI elements
+    SDL_Log("Freeing UI elements");
+    for (int i = 0; i < game.nbStates; i++) {
+        
+        // 1) Free the Buttons
+        if (game.ui[i].buttons != NULL) {
+            destroyButtonList(game.ui[i].buttons);
+            free(game.ui[i].buttons);
+            game.ui[i].buttons = NULL;
         }
-        SDL_Log("Freeing sliders");
-        destroySliderList(game.ui[1].sliders);
+
+        // 2) Free the Sliders
+        if (game.ui[i].sliders != NULL) {
+            destroySliderList(game.ui[i].sliders);
+            free(game.ui[i].sliders);
+            game.ui[i].sliders = NULL;
+        }
+
+        // 3) Free the Background
+        if (game.ui[i].background != NULL) {
+            SDL_DestroyTexture(game.ui[i].background);
+            game.ui[i].background = NULL;
+        }
     }
+
+    free(game.ui);
+    game.ui = NULL;
+}
+
+    // Free state handlers
     SDL_Log("Freeing game state handlers");
     if (game.stateHandlers) {
         free(game.stateHandlers);
         game.stateHandlers = NULL;
     }
-    SDL_Log("Freeing game UI elements");
-    // Also free your teams if needed:
+
+    // Free speeds array
+    SDL_Log("Freeing speed array");
     free(game.speeds);
     game.speeds = NULL;
 
+    // Close fonts
     if (win->LargeFont) {
         TTF_CloseFont(win->LargeFont);
         win->LargeFont = NULL;
@@ -363,8 +382,15 @@ void destroyWindow(Window *win)
         win->font = NULL;
     }
     
+    // Destroy renderer and window
     SDL_DestroyRenderer(win->renderer);
+    win->renderer = NULL;
     SDL_DestroyWindow(win->window);
+    win->window = NULL;
+
+    Mix_CloseAudio(); 
+    TTF_Quit();       
+    IMG_Quit();       
     SDL_Quit();
 }
 
@@ -511,131 +537,131 @@ void initAllButtons(Window * win)
     if (!buttonsMenu || !sliders || !buttonsParam || !buttonsLoadGame || !buttonsGame) {
         SDL_Log("Allocation de mémoire pour les boutons échouée !");
         return;
+    }else{
+        buttonsMenu[0] = createButton(
+            "PLAY", win, 500, 150, 300, 100,
+            (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+            changeState, &game.stateHandlers[4].state, win->MediumFont
+        );
+
+        buttonsMenu[1] = createButton(
+            "LOAD GAME", win, 500, 300, 300, 100,
+            (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+            changeState, &game.stateHandlers[5].state, win->MediumFont
+        );
+        buttonsMenu[2] = createButton(
+            "SETTINGS", win, 500, 450, 300, 100,
+            (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+            changeState, &game.stateHandlers[1].state, win->MediumFont
+        );
+
+        buttonsMenu[3] = createButton(
+            "QUIT", win, 500, 600, 300, 100,
+            (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+            changeState, &game.stateHandlers[0].state, win->MediumFont
+        );
+
+        buttonsParam[0] =createButton(
+            "0.5", win, 100, 200, 200, 50,
+            (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+            changeTextSpeed, &game.speeds[0], win->LargeFont
+        );
+
+        buttonsParam[1] =createButton(
+            "1", win, 400, 200, 200, 50,
+            (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+            changeTextSpeed, &game.speeds[1], win->LargeFont
+        );
+
+        buttonsParam[2] =createButton(
+            "1.5", win, 700, 200, 200, 50,
+            (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+            changeTextSpeed, &game.speeds[2], win->LargeFont
+        );
+        buttonsParam[3] =createButton(
+            "Back", win, 100, 600, 300, 100,
+            (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+            changeState, &game.stateHandlers[2].state, win->LargeFont
+        );
+
+        buttonsLoadGame[0] = createButton(
+            "Save 1", win, 500, 104, 300, 100,
+            (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+            changeState, &game.stateHandlers[5].state, win->LargeFont
+        );
+
+        buttonsLoadGame[1] = createButton(
+            "Save 2", win, 500, 258, 300, 100,
+            (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+            changeState, &game.stateHandlers[5].state, win->LargeFont
+        );
+
+        buttonsLoadGame[2]  =createButton(
+            "Back", win, 100, 600, 300, 100,
+            (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+            changeState, &game.stateHandlers[2].state, win->LargeFont
+        );
+
+        int buttonWidth = 430;
+        int buttonHeight = 88;
+        int spacingX = 5;
+        int spacingY = 7;
+        int startX = 20;
+        int startY = 532;
+
+        buttonsGame[0] = createButton(
+            "Attack 1", win, startX, startY, buttonWidth, buttonHeight,
+            (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
+            attqButtonClicked, 0, win->LargeFont
+        );
+        buttonsGame[1] = createButton(
+            "Attack 2", win, startX , startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
+            (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
+            attqButtonClicked, 1, win->LargeFont
+        );
+        buttonsGame[2] = createButton(
+            "Attack 3", win, startX + buttonWidth + spacingX, startY , buttonWidth, buttonHeight,
+            (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
+            attqButtonClicked, 2, win->LargeFont
+        );
+        buttonsGame[3] = createButton(
+            "Attack 4", win, startX + buttonWidth + spacingX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
+            (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
+            attqButtonClicked, 3, win->LargeFont
+        );
+        buttonsGame[4] = createButton(
+            "ICMons", win, 950, startY, 300, 180,
+            (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
+            changeState, &game.stateHandlers[6].state, win->LargeFont
+        );
+
+        for(int i = 0; i < 4; i++) {
+            InitTextureButton(buttonsMenu[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+            InitTextureButton(buttonsParam[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+            if (i != 3) InitTextureButton(buttonsLoadGame[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+            InitTextureButton(buttonsGame[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+        }
+
+        InitTextureButton(buttonsGame[4], win->renderer, "assets/User Interface/Blue/button_square_depth_gloss.png");
+
+        sliders[0] = createSlider(win->renderer, 100, 100, 200, 25, (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255});
+
+        addListSlider((game.ui[1].sliders), sliders, nbSlidersSettings);
+        free(sliders);
+        sliders = NULL;
+        addListButton(game.ui[2].buttons, buttonsMenu, nbButtonsMenu);
+        free(buttonsMenu);
+        buttonsMenu = NULL;
+        addListButton(game.ui[1].buttons, buttonsParam, nbButtonsParam);
+        free(buttonsParam);
+        buttonsParam = NULL;
+        addListButton(game.ui[5].buttons, buttonsLoadGame, nbButtonsLoad);
+        free(buttonsLoadGame);
+        buttonsLoadGame = NULL;
+        addListButton(game.ui[3].buttons, buttonsGame, nbButtonsGame);
+        free(buttonsGame);
+        buttonsGame = NULL;
     }
-
-    buttonsMenu[0] = createButton(
-        "PLAY", win, 500, 150, 300, 100,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[4].state, win->MediumFont
-    );
-
-    buttonsMenu[1] = createButton(
-        "LOAD GAME", win, 500, 300, 300, 100,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[5].state, win->MediumFont
-    );
-    buttonsMenu[2] = createButton(
-        "SETTINGS", win, 500, 450, 300, 100,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[1].state, win->MediumFont
-    );
-
-    buttonsMenu[3] = createButton(
-        "QUIT", win, 500, 600, 300, 100,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[0].state, win->MediumFont
-    );
-
-    buttonsParam[0] =createButton(
-        "0.5", win, 100, 200, 200, 50,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, &game.speeds[0], win->LargeFont
-    );
-
-    buttonsParam[1] =createButton(
-        "1", win, 400, 200, 200, 50,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, &game.speeds[1], win->LargeFont
-    );
-
-    buttonsParam[2] =createButton(
-        "1.5", win, 700, 200, 200, 50,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, &game.speeds[2], win->LargeFont
-    );
-    buttonsParam[3] =createButton(
-        "Back", win, 100, 600, 300, 100,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[2].state, win->LargeFont
-    );
-
-    buttonsLoadGame[0] = createButton(
-        "Save 1", win, 500, 104, 300, 100,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[5].state, win->LargeFont
-    );
-
-    buttonsLoadGame[1] = createButton(
-        "Save 2", win, 500, 258, 300, 100,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[5].state, win->LargeFont
-    );
-
-    buttonsLoadGame[2]  =createButton(
-        "Back", win, 100, 600, 300, 100,
-        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[2].state, win->LargeFont
-    );
-
-    int buttonWidth = 430;
-    int buttonHeight = 88;
-    int spacingX = 5;
-    int spacingY = 7;
-    int startX = 20;
-    int startY = 532;
-
-    buttonsGame[0] = createButton(
-        "Attack 1", win, startX, startY, buttonWidth, buttonHeight,
-        (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-        attqButtonClicked, 0, win->LargeFont
-    );
-    buttonsGame[1] = createButton(
-        "Attack 2", win, startX , startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
-        (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-        attqButtonClicked, 1, win->LargeFont
-    );
-    buttonsGame[2] = createButton(
-        "Attack 3", win, startX + buttonWidth + spacingX, startY , buttonWidth, buttonHeight,
-        (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-        attqButtonClicked, 2, win->LargeFont
-    );
-    buttonsGame[3] = createButton(
-        "Attack 4", win, startX + buttonWidth + spacingX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
-        (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-        attqButtonClicked, 3, win->LargeFont
-    );
-    buttonsGame[4] = createButton(
-        "ICMons", win, 950, startY, 300, 180,
-        (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-        changeState, &game.stateHandlers[6].state, win->LargeFont
-    );
-
-    for(int i = 0; i < 4; i++) {
-        InitTextureButton(buttonsMenu[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-        InitTextureButton(buttonsParam[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-        if (i != 3) InitTextureButton(buttonsLoadGame[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-        InitTextureButton(buttonsGame[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-    }
-
-    InitTextureButton(buttonsGame[4], win->renderer, "assets/User Interface/Blue/button_square_depth_gloss.png");
-
-    sliders[0] = createSlider(win->renderer, 100, 100, 200, 25, (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255});
-
-    addListSlider((game.ui[1].sliders), sliders, nbSlidersSettings);
-    free(sliders); // Libération du tableau temporaire
-    sliders = NULL;
-    addListButton(game.ui[2].buttons, buttonsMenu, nbButtonsMenu);
-    free(buttonsMenu); // Libération du tableau temporaire
-    buttonsMenu = NULL;
-    addListButton(game.ui[1].buttons, buttonsParam, nbButtonsParam);
-    buttonsParam = NULL;
-    free(buttonsParam); // Libération du tableau temporaire
-    addListButton(game.ui[5].buttons, buttonsLoadGame, nbButtonsLoad);
-    free(buttonsLoadGame);
-    buttonsLoadGame = NULL;
-    addListButton(game.ui[3].buttons, buttonsGame, nbButtonsGame);
-    free(buttonsGame);
-    buttonsGame = NULL;
 }
 
 void initText(Window *win) {
