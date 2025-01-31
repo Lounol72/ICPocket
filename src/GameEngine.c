@@ -284,7 +284,6 @@ void mainLoop(Window *win) {
             game.newGameStartTime = 0; // reinitialize the start time
         }
     }
-    destroyWindow(win);
 }
 
 //---------------------------------------------------------------------------------
@@ -325,7 +324,8 @@ void destroyWindow(Window *win)
 
     // Free UI elements
     SDL_Log("Freeing UI elements");
-    for (int i = 0; i < game.nbStates; i++) {
+    if(game.ui){
+        for (int i = 0; i < game.nbStates; i++) {
         
         // 1) Free the Buttons
         if (game.ui[i].buttons != NULL) {
@@ -350,7 +350,8 @@ void destroyWindow(Window *win)
 
     free(game.ui);
     game.ui = NULL;
-}
+    }
+    
 
     // Free state handlers
     SDL_Log("Freeing game state handlers");
@@ -361,8 +362,10 @@ void destroyWindow(Window *win)
 
     // Free speeds array
     SDL_Log("Freeing speed array");
-    free(game.speeds);
-    game.speeds = NULL;
+    if (game.speeds){    
+        free(game.speeds);
+        game.speeds = NULL;
+    }
 
     // Close fonts
     if (win->LargeFont) {
