@@ -6,7 +6,7 @@
 Button *createButton(char *text, Window *win, int x, int y, int w, int h, SDL_Color color, SDL_Color textcolor, void (*onClick)(Window *, void *), void *data, TTF_Font *font) {
     Button *button = malloc(sizeof(Button));
     if (!button) {
-        SDL_Log("Erreur d'allocation pour le bouton.");
+        SDL_Log("❌ Erreur d'allocation pour le bouton.");
         return NULL;
     }
     button->text = text;
@@ -22,14 +22,14 @@ Button *createButton(char *text, Window *win, int x, int y, int w, int h, SDL_Co
 
     SDL_Surface *textSurface = TTF_RenderText_Solid(button->font, text, textcolor);
     if (!textSurface) {
-        SDL_Log("Erreur lors de la création de la surface du texte : %s", TTF_GetError());
+        SDL_Log("❌ Erreur lors de la création de la surface du texte : %s", TTF_GetError());
         free(button);
         return NULL;
     }
     button->textTexture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
     SDL_FreeSurface(textSurface);
     if (!button->textTexture) {
-        SDL_Log("Erreur lors de la création de la texture du texte : %s", SDL_GetError());
+        SDL_Log("❌ Erreur lors de la création de la texture du texte : %s", SDL_GetError());
         free(button);
         return NULL;
     }
@@ -52,7 +52,7 @@ void addListButton(ButtonList *list, Button **buttons, int count) {
     }
     list->buttons = malloc(count * sizeof(Button *));
     if (!list->buttons) {
-        SDL_Log("Erreur : allocation de mémoire pour les boutons échouée !");
+        SDL_Log("❌ Erreur : allocation de mémoire pour les boutons échouée !");
         return;
     }
     for (int i = 0; i < count; i++) list->buttons[i] = buttons[i];
@@ -139,7 +139,7 @@ void updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley)
     for (int i = 0; i < buttons->size; i++)
     {
         if(!buttons->buttons[i]){
-            SDL_Log("Invalid button at index %d", i);
+            SDL_Log("❌ Invalid button at index %d", i);
             continue;
         }
         buttons->buttons[i]->rect.w = buttons->buttons[i]->initialRect.w * Scalex;
@@ -152,7 +152,7 @@ void updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley)
 
 void setButtonText(Button *button, const char *text, SDL_Renderer *renderer) {
     if (!button || !text || !renderer) {
-        SDL_Log("Erreur : Paramètre NULL dans setButtonText");
+        SDL_Log("❌ Erreur : Paramètre NULL dans setButtonText");
         return;
     }
 
@@ -165,7 +165,7 @@ void setButtonText(Button *button, const char *text, SDL_Renderer *renderer) {
     // Générer une nouvelle texture texte
     SDL_Surface *textSurface = TTF_RenderText_Solid(button->font, text, button->textcolor);
     if (!textSurface) {
-        SDL_Log("Erreur lors de la création de la surface du texte : %s", TTF_GetError());
+        SDL_Log("❌ Erreur lors de la création de la surface du texte : %s", TTF_GetError());
         return;
     }
 
@@ -173,7 +173,7 @@ void setButtonText(Button *button, const char *text, SDL_Renderer *renderer) {
     SDL_FreeSurface(textSurface);
 
     if (!button->textTexture) {
-        SDL_Log("Erreur lors de la création de la texture du texte : %s", SDL_GetError());
+        SDL_Log("❌ Erreur lors de la création de la texture du texte : %s", SDL_GetError());
     }
 }
 

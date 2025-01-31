@@ -53,7 +53,7 @@ void handleGameEvent(Window *win, SDL_Event *event)
             int swap=rand() % 5 + 11;
             if(testActionValidity(swap,&game.battleState.rouge)) {swapActualAttacker(&game.battleState.rouge, swap);updateAttackButtons(win, &game.battleState.rouge);}
         }
-        while (!isAlive(&(game.battleState.bleu.team[0]))) {
+        if (!isAlive(&(game.battleState.bleu.team[0]))) {
             int swap=rand() % 5 + 11;
             if(testActionValidity(swap,&game.battleState.bleu)) swapActualAttacker(&game.battleState.bleu, swap);
         }
@@ -233,6 +233,28 @@ void handleICMonsEvent(Window *win, SDL_Event *event) {
 
 //---------------------------------------------------------------------------------
 
+// Functions for intermediate
+
+void renderIntermediate(Window *win) {
+    if (game.ui[7].background) SDL_RenderCopy(win->renderer, game.ui[7].background, NULL, NULL);
+    renderButtonList(game.ui[7].buttons);
+}
+
+void handleIntermediateEvent(Window *win, SDL_Event *event) {
+    if (!win || !event) return;
+    if(event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
+        int x, y;
+        SDL_GetMouseState(&x, &y);
+        for (int i = 0; i < game.ui[7].buttons->size; i++) {
+            ButtonClicked(game.ui[7].buttons->buttons[i], x, y, win);
+        }
+    }
+    handleEvent(win, event);
+}
+
+
+//---------------------------------------------------------------------------------
+
 // Functions to handles buttons 
 
 void changeState(Window *win, void *data) {
@@ -252,7 +274,7 @@ void attqButtonClicked(Window *win, void *data) {
         playATurn(&game.battleState.rouge, (intptr_t)data, &game.battleState.bleu, AI_move_choice(&iaTest,&game.battleState.rouge));
         while (isTeamAlive(&game.battleState.rouge) && !isAlive(&(game.battleState.rouge.team[0]))){
             int swap=rand() % 5 + 11;
-            if(testActionValidity(swap,&game.battleState.rouge)) swapActualAttacker(&game.battleState.rouge, swap);
+            if(testActionValidity(swap,&game.battleState.rouge)) {swapActualAttacker(&game.battleState.rouge, swap); updateAttackButtons(win, &game.battleState.rouge);}
         }
         while (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))){
             int swap=rand() % 5 + 11;
@@ -344,10 +366,9 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
     SDL_Log("✅ Initialisation de la fenêtre réussie");    
 }
 
-void destroyWindow(Window *win) 
-{
+void destroyWindow(Window *win) {
     if (game.gameState.music) Mix_FreeMusic(game.gameState.music);
-    for (int i = 0; i < game.nbStates; i++) {
+    for (int i = 0; i < game.nbMenu; i++) {
         if (game.ui[i].buttons) destroyButtonList(game.ui[i].buttons);
         if (game.ui[i].sliders) destroySliderList(game.ui[i].sliders);
         if (game.ui[i].background) SDL_DestroyTexture(game.ui[i].background);
@@ -367,8 +388,7 @@ void destroyWindow(Window *win)
     SDL_Quit();
 }
 
-void handleEvent(Window *win, SDL_Event *event) 
-{
+void handleEvent(Window *win, SDL_Event *event) {
     switch(event->type) {
         case SDL_KEYDOWN:
             switch (event->key.keysym.sym) {
@@ -403,8 +423,8 @@ void handleEvent(Window *win, SDL_Event *event)
 void initGame(Window *win) {
     game.win = win;
     
-    int nbMenu = 7;
-    game.ui = malloc(nbMenu * sizeof(UI_Elements));
+    game.nbMenu = 8;
+    game.ui = malloc(game.nbMenu * sizeof(UI_Elements));
     game.ui[0] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Quit Page            = 0
     game.ui[1] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders=malloc(sizeof(SliderList)) ,.background=NULL};                        // Settings Page        = 1
     game.ui[2] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Menu Page            = 2
@@ -412,8 +432,9 @@ void initGame(Window *win) {
     game.ui[4] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // New Game Page        = 4
     game.ui[5] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Load Game Page       = 5
     game.ui[6] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // ICMons Page          = 6
+    game.ui[7] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Intermediate         = 7
 
-    for (int i = 0; i < nbMenu; i++) {
+    for (int i = 0; i < game.nbMenu; i++) {
         game.ui[i].buttons->buttons = NULL;
         game.ui[i].buttons->size = 0;
     }
@@ -422,7 +443,7 @@ void initGame(Window *win) {
 
     game.gameState = (GameState){.music = NULL, .playerTurn = 1, .initialized = 0, .currentState = MENU};
 
-    game.nbStates = 7;
+    game.nbStates = 8;
     game.stateHandlers = malloc(game.nbStates * sizeof(StateHandler));
     game.stateHandlers[0] = (StateHandler){QUIT, renderQuit, handleQuitEvent}; // Quit = 0
     game.stateHandlers[1] = (StateHandler){SETTINGS, renderSettings, handleSettingsEvent}; // Settings = 1
@@ -431,6 +452,7 @@ void initGame(Window *win) {
     game.stateHandlers[4] = (StateHandler){NEWGAME, renderNewGame, handleNewGameEvent}; // New game = 4
     game.stateHandlers[5] = (StateHandler){LOADGAME, renderLoadGame, handleLoadGameEvent}; // Load game = 5
     game.stateHandlers[6] = (StateHandler){ICMONS, renderICMons, handleICMonsEvent}; // ICMons = 6
+    game.stateHandlers[7] = (StateHandler){INTER, renderIntermediate, handleIntermediateEvent}; // Intermediate = 7
 
 
     game.FPS = 60;
@@ -453,7 +475,7 @@ void initGame(Window *win) {
     loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");
 
     initText(win);
-
+    
 }
 
 void updateTextPosition(Text *text, float scaleX, float scaleY) {
@@ -467,12 +489,12 @@ void updateTextPosition(Text *text, float scaleX, float scaleY) {
 
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath) {
     if (!renderer || !imagePath) {
-        SDL_Log("Erreur : Le renderer ou le chemin de l'image est NULL.");
+        SDL_Log("❌ Erreur : Le renderer ou le chemin de l'image est NULL.");
         return;
     }
     SDL_Surface *surface = IMG_Load(imagePath);
     if (!surface) {
-        SDL_Log("Erreur : Impossible de charger l'image de fond '%s'. Message SDL_image : %s", imagePath, IMG_GetError());
+        SDL_Log("❌ Erreur : Impossible de charger l'image de fond '%s'. Message SDL_image : %s", imagePath, IMG_GetError());
         return;
     }
     *Background = SDL_CreateTextureFromSurface(renderer, surface);
@@ -702,12 +724,12 @@ void initText(Window *win) {
         *textObjects[i] = (Text){texts[i], rects[i], rects[i], {255, 255, 255, 255}, win->LargeFont, NULL, NULL};
         SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, texts[i], textObjects[i]->color);
         if (!textSurface) {
-            SDL_Log("Erreur de rendu du texte : %s", TTF_GetError());
+            SDL_Log("❌ Erreur de rendu du texte : %s", TTF_GetError());
             exit(EXIT_FAILURE);
         }
         textObjects[i]->texture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
         if (!textObjects[i]->texture) {
-            SDL_Log("Erreur de création de la texture : %s", SDL_GetError());
+            SDL_Log("❌ Erreur de création de la texture : %s", SDL_GetError());
             SDL_FreeSurface(textSurface);
             exit(EXIT_FAILURE);
         }
@@ -717,11 +739,13 @@ void initText(Window *win) {
 
 void updateAttackButtons(Window *win, t_Team *team) {
     if (!team || !team->team || !team->team[0].moveList) {
-        SDL_Log("Erreur : team, team->team ou moveList est NULL\n");
+        SDL_Log("❌ Erreur : team, team->team ou moveList est NULL\n");
         return;
     }
-    for (int i = 0; i < 4 && game.ui[3].buttons->buttons && game.ui[3].buttons->buttons[i]; i++) {
-        setButtonText(game.ui[3].buttons->buttons[i], team->team[0].moveList[i].name, win->renderer);
+    for (int i = 0; i < 4; i++) {
+        if(team->team[0].nb_move > i) setButtonText(game.ui[3].buttons->buttons[i], team->team[0].moveList[i].name, win->renderer);
+        else setButtonText(game.ui[3].buttons->buttons[i], " ", win->renderer);
+        
     }
 }
 

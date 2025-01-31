@@ -13,7 +13,7 @@ float typeChart[typeNumber][typeNumber]={
 };
 
 
-/*void generatePoke(t_Poke *p)
+void generatePoke(t_Poke *p)
 {
 		strcpy(p->name,"dummy");
 		p->gender = rand() % 2;
@@ -31,7 +31,7 @@ float typeChart[typeNumber][typeNumber]={
 		}
 	}
 	//fclose(dataPoke);
-*/
+
 
 void generate_poke(t_Poke *p,char * choixPoke)
 {
@@ -70,7 +70,8 @@ void generate_poke(t_Poke *p,char * choixPoke)
 		p->type[1] = rand() % typeNumber;
 		for (int i = 0; i < 6; i++)
 			p->iv[i] = rand() % 32;
-		for (int i = 0; i < 4; i++)
+		p->nb_move = 4;
+		for (int i = 0; i < p->nb_move; i++)
 		{
 			p->moveList[i] = generateRandomMove();
 			p->moveList[i].current_pp = p->moveList[i].max_pp;

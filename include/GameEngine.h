@@ -24,7 +24,8 @@ typedef enum AppState {
     GAME,  // 3
     NEWGAME,  // 4
     LOADGAME, // 5
-    ICMONS // 6
+    ICMONS, // 6
+    INTER
 } AppState;
 
 /* Text rendering struct */
@@ -84,6 +85,7 @@ typedef struct StateHandler {
 /* Main Game struct that ties everything together */
 typedef struct Game {
     UI_Elements *ui;
+    int nbMenu;
     BattleState battleState;
     GameState gameState;
     StateHandler *stateHandlers;

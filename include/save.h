@@ -8,4 +8,4 @@ typedef struct
 	t_Team * trainTeam;
 }t_trainer;
 
-void sauvegarder_Joueur(t_trainer * teamJ1,t_trainer * dresseur);
+void sauvegarder_Joueur(char * name,t_trainer * teamJ1,t_trainer * dresseur);
