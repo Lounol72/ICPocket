@@ -44,7 +44,7 @@ int testActionValidity(int action, t_Team * t){
 		return action < t->team[0].nb_move && ppCheck(&(t->team[0].moveList[action]));
 	}
 	if (isSwitching(action)){
-		return t->team[action-10].current_pv>0?TRUE:FALSE;
+		return t->team[action-10].current_pv > 0 && action-10 < t->nb_poke;
 	}
 	return FALSE;
 }
@@ -58,7 +58,7 @@ int calcStatFrom(t_Poke * p, int stat) {
 void initTeam(t_Team * t, int nb_poke){
 	t->nb_poke=nb_poke;
 	for(int i=0;i<nb_poke;i++){
-		t->team[i].nb_move=1;
+		t->team[i].nb_move=rand()%3+1;
 		generate_poke(&(t->team[i]),"1"); //ajout du 1er poke de la BDD
 		for(int j=0;j<6;j++) t->statChanges[j]=NEUTRAL_STAT_CHANGE;
 		t->team[i].current_pv=calcStatFrom(&(t->team[i]),PV);//POKE_IS_ABSENT;

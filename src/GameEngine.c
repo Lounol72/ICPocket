@@ -54,7 +54,7 @@ void handleGameEvent(Window *win, SDL_Event *event)
             int swap=rand() % 5 + 11;
             if(testActionValidity(swap,&game.battleState.rouge)) {swapActualAttacker(&game.battleState.rouge, swap);updateAttackButtons(win, &game.battleState.rouge);}
         }
-        while (!isAlive(&(game.battleState.bleu.team[0]))) {
+        if (!isAlive(&(game.battleState.bleu.team[0]))) {
             int swap=rand() % 5 + 11;
             if(testActionValidity(swap,&game.battleState.bleu)) swapActualAttacker(&game.battleState.bleu, swap);
         }
@@ -319,8 +319,7 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
     SDL_Log("✅ Initialisation de la fenêtre réussie");    
 }
 
-void destroyWindow(Window *win) 
-{
+void destroyWindow(Window *win) {
     if (game.gameState.music) Mix_FreeMusic(game.gameState.music);
     for (int i = 0; i < game.nbStates; i++) {
         if (game.ui[i].buttons) destroyButtonList(game.ui[i].buttons);
@@ -342,8 +341,7 @@ void destroyWindow(Window *win)
     SDL_Quit();
 }
 
-void handleEvent(Window *win, SDL_Event *event) 
-{
+void handleEvent(Window *win, SDL_Event *event) {
     switch(event->type) {
         case SDL_KEYDOWN:
             switch (event->key.keysym.sym) {
@@ -426,7 +424,7 @@ void initGame(Window *win) {
     loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");
 
     initText(win);
-
+    
 }
 
 void updateTextPosition(Text *text, float scaleX, float scaleY) {
@@ -440,12 +438,12 @@ void updateTextPosition(Text *text, float scaleX, float scaleY) {
 
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath) {
     if (!renderer || !imagePath) {
-        SDL_Log("Erreur : Le renderer ou le chemin de l'image est NULL.");
+        SDL_Log("❌ Erreur : Le renderer ou le chemin de l'image est NULL.");
         return;
     }
     SDL_Surface *surface = IMG_Load(imagePath);
     if (!surface) {
-        SDL_Log("Erreur : Impossible de charger l'image de fond '%s'. Message SDL_image : %s", imagePath, IMG_GetError());
+        SDL_Log("❌ Erreur : Impossible de charger l'image de fond '%s'. Message SDL_image : %s", imagePath, IMG_GetError());
         return;
     }
     *Background = SDL_CreateTextureFromSurface(renderer, surface);
@@ -675,12 +673,12 @@ void initText(Window *win) {
         *textObjects[i] = (Text){texts[i], rects[i], rects[i], {255, 255, 255, 255}, win->LargeFont, NULL, NULL};
         SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, texts[i], textObjects[i]->color);
         if (!textSurface) {
-            SDL_Log("Erreur de rendu du texte : %s", TTF_GetError());
+            SDL_Log("❌ Erreur de rendu du texte : %s", TTF_GetError());
             exit(EXIT_FAILURE);
         }
         textObjects[i]->texture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
         if (!textObjects[i]->texture) {
-            SDL_Log("Erreur de création de la texture : %s", SDL_GetError());
+            SDL_Log("❌ Erreur de création de la texture : %s", SDL_GetError());
             SDL_FreeSurface(textSurface);
             exit(EXIT_FAILURE);
         }
@@ -690,7 +688,7 @@ void initText(Window *win) {
 
 void updateAttackButtons(Window *win, t_Team *team) {
     if (!team || !team->team || !team->team[0].moveList) {
-        SDL_Log("Erreur : team, team->team ou moveList est NULL\n");
+        SDL_Log("❌ Erreur : team, team->team ou moveList est NULL\n");
         return;
     }
     for (int i = 0; i < 4 && game.ui[3].buttons->buttons && game.ui[3].buttons->buttons[i]; i++) {
