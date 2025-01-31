@@ -1,5 +1,6 @@
 #include "../include/structPoke.h"
 #include "../include/duel.h"
+#include "../include/trainerAI.h"
 
 float statVariations[13]={0.25,2./7,1./3,2./5,0.5,2./3,1,1.5,2,2.5,3,3.5,4};
 t_Move struggle={"Lutte",50,noType,physical,200,1,1,0};
@@ -36,7 +37,7 @@ int testActionValidity(int action, t_Team * t){
 		return TRUE;
 	}
 	if (isAttacking(action)){
-		return ppCheck(&(t->team[0].moveList[action]));
+		return action < t->team[0].nb_move && ppCheck(&(t->team[0].moveList[action]));
 	}
 	if (isSwitching(action)){
 		return t->team[action-10].current_pv>0?TRUE:FALSE;
@@ -53,10 +54,11 @@ int calcStatFrom(t_Poke * p, int stat) {
 void initTeam(t_Team * t, int nb_poke){
 	t->nb_poke=nb_poke;
 	for(int i=0;i<nb_poke;i++){
+		t->team[i].nb_move=1;
 		generatePoke(&(t->team[i]));
 		for(int j=0;j<6;j++) t->statChanges[j]=NEUTRAL_STAT_CHANGE;
 		t->team[i].current_pv=calcStatFrom(&(t->team[i]),PV);//POKE_IS_ABSENT;
-		for(int j=0;j<4;j++){
+		for(int j=0;j<t->team[i].nb_move;j++){
 			t->team[i].moveList[j]=generateRandomMove();
 			t->team[i].moveList[j].current_pp=t->team[i].moveList[j].max_pp;
 		}
@@ -64,7 +66,7 @@ void initTeam(t_Team * t, int nb_poke){
 }
 
 int calcDamage(t_Team * offender, t_Team * defender, t_Move * move){
-	int coupCritique=(rand()%24==0);
+	int coupCritique=((rand()%24)==0);
 	int damage;
 
 	int targetedStatOff=move->categ; //différenciation attaque/attaque spéciale
@@ -228,7 +230,7 @@ void testBattle(t_Team * rouge, t_Team * bleu){
 	printf("pv rouge : %d\n\n",rouge->team[0].current_pv);
 	printf("pv bleu : %d\n\n",bleu->team[0].current_pv);
 	while(isTeamAlive(rouge) && isTeamAlive(bleu)){
-		int result=playATurn(rouge,rand()%4,bleu,rand()%4);
+		playATurn(rouge,rand()%rouge->team[0].nb_move,bleu,AI_move_choice(&iaTest,rouge));
 		while (isTeamAlive(rouge) && !isAlive(&(rouge->team[0]))){
 			int swap=rand()%5+11;
 			if(testActionValidity(swap,rouge)) swapActualAttacker(rouge,swap);
@@ -265,7 +267,7 @@ void testSwitch(t_Team * rouge, t_Team * bleu){
 }
 
 void testStruggle(t_Team * rouge, t_Team * bleu){
-	for(int i=0;i<4;i++){
+	for(int i=0;i<rouge->team[0].nb_move;i++){
 		rouge->team[0].moveList[i].current_pp=0;
 	}
 	printPoke(&(rouge->team[0]));

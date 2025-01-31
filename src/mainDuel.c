@@ -10,6 +10,6 @@ int main(){
 	teamTest(&rouge,3);
 	teamTest(&bleu,2);
 	//use testSwitch or testBattle to try the program's features
-	printf("%d\n",AI_move_choice(&iaTest,&rouge));
+	testBattle(&rouge,&bleu);
 	return 0;
 }
