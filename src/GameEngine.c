@@ -419,7 +419,10 @@ void initGame(Window *win) {
     game.newGameStartTime = 0;
 
 
-    
+    game.speeds = malloc(sizeof(float)*3);
+    game.speeds[0] = 0.5f;
+    game.speeds[1] = 1.0f;
+    game.speeds[2] = 1.5f;
     loadBackground(&game.ui[2].background, win->renderer, "assets/Title Screen/BG.jpg");
     loadBackground(&game.ui[5].background, win->renderer, "assets/Title Screen/LoadGame.png");
     loadBackground(&game.ui[1].background, win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_party_background.png");
@@ -483,7 +486,7 @@ void destroyText(Text * text){
         text->surface = NULL;
     }
 }
-
+float speeds[] = {0.5, 1, 1.5};
 void initAllButtons(Window * win)
 {
     
@@ -499,10 +502,7 @@ void initAllButtons(Window * win)
     Button **buttonsGame = malloc(nbButtonsGame * sizeof(Button *));
     Slider **sliders = malloc(nbSlidersSettings * sizeof(Slider *));
     
-    float * speeds = malloc(3 * sizeof(float));
-    speeds[0] = 0.5;
-    speeds[1] = 1;
-    speeds[2] = 1.5;
+    
 
     if (!buttonsMenu || !sliders || !buttonsParam || !buttonsLoadGame || !buttonsGame) {
         SDL_Log("Allocation de mémoire pour les boutons échouée !");
@@ -630,19 +630,19 @@ void initAllButtons(Window * win)
 
     addListSlider((game.ui[1].sliders), sliders, nbSlidersSettings);
     free(sliders); // Libération du tableau temporaire
+    sliders = NULL;
     addListButton(game.ui[2].buttons, buttonsMenu, nbButtonsMenu);
     free(buttonsMenu); // Libération du tableau temporaire
+    buttonsMenu = NULL;
     addListButton(game.ui[1].buttons, buttonsParam, nbButtonsParam);
+    buttonsParam = NULL;
     free(buttonsParam); // Libération du tableau temporaire
     addListButton(game.ui[5].buttons, buttonsLoadGame, nbButtonsLoad);
     free(buttonsLoadGame);
+    buttonsLoadGame = NULL;
     addListButton(game.ui[3].buttons, buttonsGame, nbButtonsGame);
     free(buttonsGame);
-    
-    sliders = NULL;
-    buttonsMenu = NULL;
-    buttonsParam = NULL;
-    buttonsLoadGame = NULL;
+    buttonsGame = NULL;
 }
 
 void initText(Window *win) {

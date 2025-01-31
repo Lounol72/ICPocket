@@ -11,7 +11,7 @@ extern float statVariations[13];
 extern t_Move struggle;
 
 typedef struct{
-	t_Poke *team[6];
+	t_Poke team[6];
 	int nb_poke;
 	int statChanges[6];	
 } t_Team;

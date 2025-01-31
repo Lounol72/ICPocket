@@ -89,6 +89,7 @@ typedef struct Game {
     StateHandler *stateHandlers;
     int nbStates;
     Window *win;
+    float *speeds;
     int FPS;
     int frameDelay;
     int frameStart;

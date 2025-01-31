@@ -26,7 +26,7 @@ void sauvegarder_Joueur(t_trainer * joueur,t_trainer * dresseur){
         fprintf(fichier, "Team : \n");
         for(int i = 0; i < 6; i++){
             for(int j = 0; j < 6; j++){
-                calcStatFrom(joueur->trainTeam->team[i],joueur->trainTeam->team[i]->baseStats[j]);
+                calcStatFrom(&joueur->trainTeam.team[i],joueur->trainTeam.team[i]->baseStats[j]);
             }
             fprintf(fichier, "Poke %d : %s\n", i+1, joueur->trainTeam->team[i]->name);
         }
