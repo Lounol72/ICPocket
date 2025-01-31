@@ -1,6 +1,17 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 
+#if defined(_WIN32) || defined(_WIN64)
+    // Sur Windows
+    #define AUDIO_FREQ 44100
+#elif defined(__linux__)
+    // Sur Linux
+    #define AUDIO_FREQ 22050
+#else
+    // macOS, BSD, etc.
+    #define AUDIO_FREQ 44100
+#endif
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_image.h>
@@ -163,6 +174,11 @@ void loadMusic(Mix_Music **music, const char *musicPath);
 /* ICMons selection */
 void renderICMons(Window *win);
 void handleICMonsEvent(Window *win, SDL_Event *event);
+
+void initICMonsSprite(SDL_Renderer *renderer, const char *imagePath);
+void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
+void renderICMonsSprite(Window *win);
+void destroyICMonsSprite(Window *win);
 
 void initGame(Window *win) ;
 

@@ -1,16 +1,5 @@
 #include "../include/GameEngine.h"
 
-#if defined(_WIN32) || defined(_WIN64)
-    // Sur Windows
-    #define AUDIO_FREQ 44100
-#elif defined(__linux__)
-    // Sur Linux
-    #define AUDIO_FREQ 22050
-#else
-    // Autres systèmes : macOS, BSD, etc.
-    #define AUDIO_FREQ 44100
-#endif
-
 // Global variables
 Game game;
 
@@ -426,8 +415,8 @@ void handleEvent(Window *win, SDL_Event *event) {
                 updateButtonPosition(game.ui[3].buttons, scaleX, scaleY);
                 updateTextPosition(&NewGameText, scaleX, scaleY);
                 updateTextPosition(&title, scaleX, scaleY);
-                updateICMonsSprite(&bleu, scaleX, scaleY);
-                updateICMonsSprite(&rouge, scaleX, scaleY);
+                updateICMonsSprite(&game.battleState.rouge.team[0], scaleX, scaleY);
+                updateICMonsSprite(&game.battleState.rouge.team[0], scaleX, scaleY);
             }
             break;
         default: break;
