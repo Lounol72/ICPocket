@@ -252,7 +252,6 @@ void mainLoop(Window *win) {
     
 
     // Boucle principale
-    printf("%d\n",rand() % 5 + 11);
     while (!win->quit) {
         frameStart = SDL_GetTicks();
 
@@ -344,6 +343,25 @@ void destroyWindow(Window *win)
     }
     SDL_Log("Freeing game UI elements");
     // Also free your teams if needed:
+    free(game.speeds);
+    game.speeds = NULL;
+
+    if (win->LargeFont) {
+        TTF_CloseFont(win->LargeFont);
+        win->LargeFont = NULL;
+    }
+    if (win->MediumFont) {
+        TTF_CloseFont(win->MediumFont);
+        win->MediumFont = NULL;
+    }
+    if (win->SmallFont) {
+        TTF_CloseFont(win->SmallFont);
+        win->SmallFont = NULL;
+    }
+    if (win->font) {
+        TTF_CloseFont(win->font);
+        win->font = NULL;
+    }
     
     SDL_DestroyRenderer(win->renderer);
     SDL_DestroyWindow(win->window);
@@ -447,29 +465,17 @@ void updateTextPosition(Text *text, float scaleX, float scaleY) {
 }
 
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath) {
-    if (!renderer) {
-        SDL_Log("Erreur : Le renderer est NULL.");
+    if (!renderer || !imagePath) {
+        SDL_Log("Erreur : Le renderer ou le chemin de l'image est NULL.");
         return;
     }
-    if (!imagePath) {
-        SDL_Log("Erreur : Le chemin de l'image est NULL.");
-        return;
-    }
-
     SDL_Surface *surface = IMG_Load(imagePath);
     if (!surface) {
         SDL_Log("Erreur : Impossible de charger l'image de fond '%s'. Message SDL_image : %s", imagePath, IMG_GetError());
         return;
     }
-
     *Background = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
-
-    if (!*Background) {
-        SDL_Log("Erreur : Impossible de créer une texture pour l'image de fond. Message SDL : %s", SDL_GetError());
-    } else {
-        SDL_Log("Image de fond chargée avec succès : '%s'", imagePath);
-    }
 }
 
 void renderText(Window * win, Text * text){
@@ -486,10 +492,8 @@ void destroyText(Text * text){
         text->surface = NULL;
     }
 }
-float speeds[] = {0.5, 1, 1.5};
 void initAllButtons(Window * win)
 {
-    
     int nbButtonsLoad = 3;
     int nbButtonsMenu = 4;
     int nbSlidersSettings = 1;
@@ -535,19 +539,19 @@ void initAllButtons(Window * win)
     buttonsParam[0] =createButton(
         "0.5", win, 100, 200, 200, 50,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, &speeds[0], win->LargeFont
+        changeTextSpeed, &game.speeds[0], win->LargeFont
     );
 
     buttonsParam[1] =createButton(
         "1", win, 400, 200, 200, 50,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, &speeds[1], win->LargeFont
+        changeTextSpeed, &game.speeds[1], win->LargeFont
     );
 
     buttonsParam[2] =createButton(
         "1.5", win, 700, 200, 200, 50,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, &speeds[2], win->LargeFont
+        changeTextSpeed, &game.speeds[2], win->LargeFont
     );
     buttonsParam[3] =createButton(
         "Back", win, 100, 600, 300, 100,
@@ -606,24 +610,13 @@ void initAllButtons(Window * win)
         changeState, &game.stateHandlers[6].state, win->LargeFont
     );
 
-    InitTextureButton(buttonsMenu[0], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsMenu[1], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsMenu[2], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsMenu[3], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+    for(int i = 0; i < 4; i++) {
+        InitTextureButton(buttonsMenu[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+        InitTextureButton(buttonsParam[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+        if (i != 3) InitTextureButton(buttonsLoadGame[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+        InitTextureButton(buttonsGame[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+    }
 
-    InitTextureButton(buttonsParam[0], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsParam[1], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsParam[2], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsParam[3], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-
-    InitTextureButton(buttonsLoadGame[0], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsLoadGame[1], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsLoadGame[2], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-
-    InitTextureButton(buttonsGame[0], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsGame[1], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsGame[2], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
-    InitTextureButton(buttonsGame[3], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
     InitTextureButton(buttonsGame[4], win->renderer, "assets/User Interface/Blue/button_square_depth_gloss.png");
 
     sliders[0] = createSlider(win->renderer, 100, 100, 200, 25, (SDL_Color){128,128,128, 255}, (SDL_Color){255, 0, 0, 255});
