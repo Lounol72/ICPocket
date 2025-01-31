@@ -1,5 +1,16 @@
 #include "../include/GameEngine.h"
 
+#if defined(_WIN32) || defined(_WIN64)
+    // Sur Windows
+    #define AUDIO_FREQ 44100
+#elif defined(__linux__)
+    // Sur Linux
+    #define AUDIO_FREQ 22050
+#else
+    // Autres systèmes : macOS, BSD, etc.
+    #define AUDIO_FREQ 44100
+#endif
+
 // Global variables
 Game game;
 
@@ -10,6 +21,8 @@ int marginBottom = 200; // Marge en bas en pixels
 int marginRight = 0;  // Marge à droite en pixels
 
 t_Team bleu ;
+
+
 
 //---------------------------------------------------------------------------------
 
@@ -763,7 +776,7 @@ void initAudio() {
         SDL_Log("✅ Mix_Init réussi.");
     }
 
-    if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 8192) < 0) {
+    if (Mix_OpenAudio(AUDIO_FREQ, MIX_DEFAULT_FORMAT, 2, 8192) < 0) {
         SDL_Log("❌ Erreur Mix_OpenAudio: %s", Mix_GetError());
         exit(EXIT_FAILURE);
     } else {
