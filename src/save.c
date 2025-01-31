@@ -5,15 +5,17 @@
 #include "../include/trainerAI.h"
 
 
-void sauvegarder_Joueur(t_trainer * joueur,t_trainer * dresseur){
+void sauvegarder_Joueur(char * nomSave ,t_trainer * joueur,t_trainer * dresseur){
     
 
-    printf("Nom de la sauvegarde : ");
-    scanf("%s", joueur->name);
+    char nomFichier[1024];
+	strcpy(nomFichier , "src/data/save/");
+	strcat(nomFichier,nomSave);
+	strcat(nomFichier,".txt");
 
     joueur->id = 1;
     
-    FILE *fichier = fopen("src/data/save/saveJoueur.txt", "w+");
+    FILE *fichier = fopen(nomFichier, "w+");
     if(fichier == NULL){
         printf("Erreur : impossible d'ouvrir le fichier.\n");
         exit(1);
@@ -47,8 +49,25 @@ void sauvegarder_Joueur(t_trainer * joueur,t_trainer * dresseur){
     
 }
 
-/*
+void charger_Joueur(char * nomSave,t_trainer * joueur,t_trainer * dresseur){
+    char nomFichier[1024];
+	strcpy(nomFichier , "src/data/save/");
+	strcat(nomFichier,nomSave);
+	strcat(nomFichier,".txt");
+
+    FILE *fichier = fopen(nomFichier, "w+");
+    if(fichier == NULL){
+        printf("Erreur : impossible d'ouvrir le fichier.\n");
+        exit(1);
+    }
+}
+
 int main(){
+    initData();
+    char nom[20];
+    printf("Nom joueur");
+    scanf("%s" , nom);
+
     t_trainer  *red=malloc(sizeof(t_trainer));
     red->trainTeam = malloc(sizeof(t_Team));
     t_trainer *blue = malloc(sizeof(t_trainer));
@@ -58,7 +77,7 @@ int main(){
         generate_poke(&(red->trainTeam->team[i]),"1");
     }
     
-    sauvegarder_Joueur(red,blue);
+    sauvegarder_Joueur(nom,red,blue);
     for(int i = 0; i < 6; i++){
         
             printPoke(&(red->trainTeam->team[i]));
@@ -68,6 +87,7 @@ int main(){
     free(red->trainTeam);
 
     free(red);
+
     return 0;
 
-}*/
+}
