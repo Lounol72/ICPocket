@@ -48,6 +48,9 @@ testDuel: duel
 testMain: main
 	./main
 
+testValgrind:
+	valgrind --leak-check=full ./main
+
 # Règle pour nettoyer les fichiers objets et l'exécutable
 clean:
 	rm -f $(OBJ_DIR)/main.o main $(OBJ_DIR)/*.o

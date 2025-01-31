@@ -250,7 +250,6 @@ void mainLoop(Window *win) {
     
     initAllButtons(win);
     
-
     // Boucle principale
     while (!win->quit) {
         frameStart = SDL_GetTicks();
@@ -284,6 +283,13 @@ void mainLoop(Window *win) {
             game.newGameStartTime = 0; // reinitialize the start time
         }
     }
+    // Destroy text objects
+    if (NewGameText.texture) {
+        destroyText(&NewGameText);
+    }
+    if (title.texture) {
+        destroyText(&title);
+    }
 }
 
 //---------------------------------------------------------------------------------
@@ -308,13 +314,6 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
 
 void destroyWindow(Window *win) 
 {
-    // Destroy text objects
-    if (NewGameText.texture) {
-        destroyText(&NewGameText);
-    }
-    if (title.texture) {
-        destroyText(&title);
-    }
 
     // Free music
     if (game.gameState.music) {
@@ -352,7 +351,6 @@ void destroyWindow(Window *win)
     game.ui = NULL;
     }
     
-
     // Free state handlers
     SDL_Log("Freeing game state handlers");
     if (game.stateHandlers) {
@@ -512,13 +510,15 @@ void renderText(Window * win, Text * text){
 }
 
 void destroyText(Text * text){
-    if(text->texture){
-        SDL_DestroyTexture(text->texture);
-        text->texture = NULL;
-    }
-    if(text->surface){
-        SDL_FreeSurface(text->surface);
-        text->surface = NULL;
+    if (text) {
+        if (text->texture) {
+            SDL_DestroyTexture(text->texture);
+            text->texture = NULL;
+        }
+        if (text->surface) {
+            SDL_FreeSurface(text->surface);
+            text->surface = NULL;
+        }
     }
 }
 void initAllButtons(Window * win)
@@ -690,7 +690,6 @@ void initText(Window *win) {
         }
         textObjects[i]->surface = textSurface;
     }
-    SDL_FreeSurface(textObjects[1]->surface);
 }
 
 void updateAttackButtons(Window *win, t_Team *team) {
