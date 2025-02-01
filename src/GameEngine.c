@@ -17,12 +17,19 @@ t_Team bleu ;
 
 // Functions for the menu
 
-void renderMenu(Window *win) {
-    // Set the background color for the menu
-    if (game.ui[2].background) SDL_RenderCopy(win->renderer, game.ui[2].background, NULL, NULL);
-    
-    renderText(win, &title);
-    renderButtonList(game.ui[2].buttons);
+void render(Window *win) {
+    if (game.gameState.currentState == GAME){
+        SDL_Rect renderQuad = {0, 0, win->width, (int)(win->height * 0.722)};
+        SDL_RenderCopy(win->renderer, game.ui[3].background, NULL, &renderQuad);
+    }
+    else if (game.ui[game.gameState.currentState].background) SDL_RenderCopy(win->renderer, game.ui[game.gameState.currentState].background, NULL, NULL);
+    if (game.ui[game.gameState.currentState].buttons )renderButtonList(game.ui[game.gameState.currentState].buttons);
+    if (game.ui[game.gameState.currentState].sliders)renderSliderList(game.ui[game.gameState.currentState].sliders);
+    if(game.gameState.currentState == MENU) {
+        renderText(win, &title);
+    }else if(game.gameState.currentState == NEWGAME){
+        renderText(win, &NewGameText);
+    }
 }
 
 void handleMenuEvent(Window *win, SDL_Event *event) {
@@ -38,14 +45,6 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
 //---------------------------------------------------------------------------------
 
 // Functions for the game
-
-void renderGame(Window *win) {
-    if (game.ui[3].background) {
-        SDL_Rect renderQuad = {0, 0, win->width, (int)(win->height * 0.722)};
-        SDL_RenderCopy(win->renderer, game.ui[3].background, NULL, &renderQuad);
-    }
-    renderButtonList(game.ui[3].buttons);
-}
 
 void handleGameEvent(Window *win, SDL_Event *event) 
 {
@@ -83,16 +82,6 @@ void handleGameEvent(Window *win, SDL_Event *event)
 
 // Functions for the settings
 
-void renderSettings(Window *win) {
-    if (game.ui[1].background) 
-        SDL_RenderCopy(win->renderer, game.ui[1].background, NULL, NULL);
-    
-    // Toujours rendre les sliders
-    renderSliderList((game.ui[1].sliders));
-    renderButtonList(game.ui[1].buttons);
-}
-
-
 void handleSettingsEvent(Window *win, SDL_Event *event) {
     if (!win || !event || !game.ui[1].sliders->sliders || game.ui[1].sliders->size <= 0) return;
     // Parcourt et gère les événements des sliders
@@ -114,12 +103,8 @@ void handleSettingsEvent(Window *win, SDL_Event *event) {
 
 // Functions for quitting
 
-void renderQuit(Window *win) {
-    win->quit = 1;
-}
-
 void handleQuitEvent(Window *win, SDL_Event *event) {
-    
+    win->quit = 1;
     handleEvent(win, event);
 }
 
@@ -136,11 +121,6 @@ void createFicGame() {
     } else {
         SDL_Log("Erreur : Impossible de créer le fichier de sauvegarde.");
     }
-}
-
-void renderNewGame(Window * win){
-    if(game.ui[4].background) SDL_RenderCopy(win->renderer, game.ui[4].background, NULL, NULL);
-    renderText(win, &NewGameText);
 }
 
 void handleNewGameEvent(Window * win, SDL_Event * event){
@@ -164,12 +144,6 @@ void handleNewGameEvent(Window * win, SDL_Event * event){
 // Functions for load game
 
 void readFicGame(){
-}
-
-void renderLoadGame(Window *win) {
-    if (game.ui[5].background) SDL_RenderCopy(win->renderer, game.ui[5].background, NULL, NULL);
-    // Toujours rendre les sliders
-    renderButtonList(game.ui[5].buttons);
 }
 
 void handleLoadGameEvent(Window *win, SDL_Event *event) {
@@ -216,11 +190,6 @@ void destroyICMonsSprite(Window *win){
 
 // Functions for the ICMons selection
 
-void renderICMons(Window *win) {
-    if (game.ui[6].background) SDL_RenderCopy(win->renderer, game.ui[6].background, NULL, NULL);
-    renderButtonList(game.ui[6].buttons);
-}
-
 void handleICMonsEvent(Window *win, SDL_Event *event) {
     if (!win || !event) return;
     if(event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
@@ -236,11 +205,6 @@ void handleICMonsEvent(Window *win, SDL_Event *event) {
 //---------------------------------------------------------------------------------
 
 // Functions for intermediate
-
-void renderIntermediate(Window *win) {
-    if (game.ui[7].background) SDL_RenderCopy(win->renderer, game.ui[7].background, NULL, NULL);
-    renderButtonList(game.ui[7].buttons);
-}
 
 void handleIntermediateEvent(Window *win, SDL_Event *event) {
     if (!win || !event) return;
@@ -262,6 +226,7 @@ void handleIntermediateEvent(Window *win, SDL_Event *event) {
 void changeState(Window *win, void *data) {
     AppState newState = *(AppState *)data; // Convertit void* en AppState*
     win->state = newState;
+    game.gameState.currentState = newState;
     SDL_Log("Changement d'état : %d", newState);
 }
 
@@ -315,7 +280,7 @@ void mainLoop(Window *win) {
         }
         // Render the window
         SDL_RenderClear(win->renderer);
-        game.stateHandlers[win->state].render(win);
+        render(win);
         SDL_RenderPresent(win->renderer);
 
         if(win->state == GAME){
@@ -368,27 +333,88 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
     SDL_Log("✅ Initialisation de la fenêtre réussie");    
 }
 
-void destroyWindow(Window *win) {
-    if (game.gameState.music) Mix_FreeMusic(game.gameState.music);
-    for (int i = 0; i < game.nbMenu; i++) {
-        if (game.ui[i].buttons) destroyButtonList(game.ui[i].buttons);
-        if (game.ui[i].sliders) destroySliderList(game.ui[i].sliders);
-        if (game.ui[i].background) SDL_DestroyTexture(game.ui[i].background);
+void destroyWindow(Window *win)
+{
+    // 1) Stop playing & free music
+    if (game.gameState.music) {
+        Mix_FreeMusic(game.gameState.music);
+        game.gameState.music = NULL;
     }
-    free(game.ui);
-    free(game.stateHandlers);
-    free(game.speeds);
-    if (win->LargeFont) TTF_CloseFont(win->LargeFont);
-    if (win->MediumFont) TTF_CloseFont(win->MediumFont);
-    if (win->SmallFont) TTF_CloseFont(win->SmallFont);
-    if (win->font) TTF_CloseFont(win->font);
-    SDL_DestroyRenderer(win->renderer);
-    SDL_DestroyWindow(win->window);
+
+    // 2) Destroy UI elements
+    if (game.ui) {
+        for (int i = 0; i < game.nbMenu; i++) {
+            // Destroy button list
+            if (game.ui[i].buttons) {
+                destroyButtonList(game.ui[i].buttons);  
+                free(game.ui[i].buttons);
+                game.ui[i].buttons = NULL;
+            }
+            // Destroy slider list
+            if (game.ui[i].sliders) {
+                destroySliderList(game.ui[i].sliders);  
+                free(game.ui[i].sliders);
+                game.ui[i].sliders = NULL;
+            }
+            // Destroy background texture
+            if (game.ui[i].background) {
+                SDL_DestroyTexture(game.ui[i].background);
+                game.ui[i].background = NULL;
+            }
+        }
+        free(game.ui);
+        game.ui = NULL;
+    }
+
+    // 3) Free state handlers
+    if (game.stateHandlers) {
+        free(game.stateHandlers);
+        game.stateHandlers = NULL;
+    }
+
+    // 4) Free speeds array
+    if (game.speeds) {
+        free(game.speeds);
+        game.speeds = NULL;
+    }
+
+    // 5) Close fonts
+    if (win->LargeFont) {
+        TTF_CloseFont(win->LargeFont);
+        win->LargeFont = NULL;
+    }
+    if (win->MediumFont) {
+        TTF_CloseFont(win->MediumFont);
+        win->MediumFont = NULL;
+    }
+    if (win->SmallFont) {
+        TTF_CloseFont(win->SmallFont);
+        win->SmallFont = NULL;
+    }
+    if (win->font) {
+        TTF_CloseFont(win->font);
+        win->font = NULL;
+    }
+
+    // 6) Destroy renderer & window
+    if (win->renderer) {
+        SDL_DestroyRenderer(win->renderer);
+        win->renderer = NULL;
+    }
+    if (win->window) {
+        SDL_DestroyWindow(win->window);
+        win->window = NULL;
+    }
+
+    // 7) Close audio
     Mix_CloseAudio();
+
+    // 8) Quit TTF, IMG, SDL
     TTF_Quit();
     IMG_Quit();
     SDL_Quit();
 }
+
 
 void handleEvent(Window *win, SDL_Event *event) {
     switch(event->type) {
@@ -415,8 +441,8 @@ void handleEvent(Window *win, SDL_Event *event) {
                 updateButtonPosition(game.ui[3].buttons, scaleX, scaleY);
                 updateTextPosition(&NewGameText, scaleX, scaleY);
                 updateTextPosition(&title, scaleX, scaleY);
-                updateICMonsSprite(&game.battleState.rouge.team[0], scaleX, scaleY);
-                updateICMonsSprite(&game.battleState.rouge.team[0], scaleX, scaleY);
+                // updateICMonsSprite(&game.battleState.rouge.team[0], scaleX, scaleY);
+                // updateICMonsSprite(&game.battleState.rouge.team[0], scaleX, scaleY);
             }
             break;
         default: break;
@@ -447,14 +473,14 @@ void initGame(Window *win) {
 
     game.nbStates = 8;
     game.stateHandlers = malloc(game.nbStates * sizeof(StateHandler));
-    game.stateHandlers[0] = (StateHandler){QUIT, renderQuit, handleQuitEvent}; // Quit = 0
-    game.stateHandlers[1] = (StateHandler){SETTINGS, renderSettings, handleSettingsEvent}; // Settings = 1
-    game.stateHandlers[2] = (StateHandler){MENU, renderMenu, handleMenuEvent}; // Menu = 2
-    game.stateHandlers[3] = (StateHandler){GAME, renderGame, handleGameEvent}; // Game = 3
-    game.stateHandlers[4] = (StateHandler){NEWGAME, renderNewGame, handleNewGameEvent}; // New game = 4
-    game.stateHandlers[5] = (StateHandler){LOADGAME, renderLoadGame, handleLoadGameEvent}; // Load game = 5
-    game.stateHandlers[6] = (StateHandler){ICMONS, renderICMons, handleICMonsEvent}; // ICMons = 6
-    game.stateHandlers[7] = (StateHandler){INTER, renderIntermediate, handleIntermediateEvent}; // Intermediate = 7
+    game.stateHandlers[0] = (StateHandler){QUIT, handleQuitEvent}; // Quit = 0
+    game.stateHandlers[1] = (StateHandler){SETTINGS, handleSettingsEvent}; // Settings = 1
+    game.stateHandlers[2] = (StateHandler){MENU, handleMenuEvent}; // Menu = 2
+    game.stateHandlers[3] = (StateHandler){GAME, handleGameEvent}; // Game = 3
+    game.stateHandlers[4] = (StateHandler){NEWGAME, handleNewGameEvent}; // New game = 4
+    game.stateHandlers[5] = (StateHandler){LOADGAME, handleLoadGameEvent}; // Load game = 5
+    game.stateHandlers[6] = (StateHandler){ICMONS, handleICMonsEvent}; // ICMons = 6
+    game.stateHandlers[7] = (StateHandler){INTER, handleIntermediateEvent}; // Intermediate = 7
 
 
     game.FPS = 60;

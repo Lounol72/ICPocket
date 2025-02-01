@@ -89,7 +89,6 @@ typedef struct {
 /* Each state has a render function and an event handler. */
 typedef struct StateHandler {
     AppState state;
-    void (*render)(Window *);
     void (*handleEvent)(Window *, SDL_Event *);
 } StateHandler;
 

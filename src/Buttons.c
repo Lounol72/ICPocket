@@ -41,6 +41,7 @@ void destroyButton(Button *button) {
     if (!button) return;
     if (button->texture) SDL_DestroyTexture(button->texture);
     if (button->textTexture) SDL_DestroyTexture(button->textTexture);
+
     free(button);
     button = NULL;
 }
@@ -68,6 +69,8 @@ void destroyButtonList(ButtonList *list) {
         free(list->buttons);
         list->buttons = NULL; 
     }
+    
+
     list->size = 0;
 }
 
