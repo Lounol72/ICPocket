@@ -63,6 +63,7 @@ void handleGameEvent(Window *win, SDL_Event *event)
     } else if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
         printf("VICTOIRE DES %s!!!\n", isTeamAlive(&game.battleState.rouge) ? "ROUGES" : "BLEUS");
         win->state = isTeamAlive(&game.battleState.rouge) ? MENU : SETTINGS;
+        game.gameState.currentState = win->state;
         game.gameState.initialized = 0;
     }
     if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
@@ -266,10 +267,10 @@ void attqButtonClicked(Window *win, void *data) {
 }
 
 void changePokemon(Window *win, void *data) {
-    (void)win; // Pour éviter le warning
-    int *index = (int *)data;
-    if (testActionValidity(index,&game.battleState.rouge)){
-        swapActualAttacker(&game.battleState.rouge, *index);
+    (void)win; 
+    int idx = (int)(intptr_t)data; 
+    if (testActionValidity(idx, &game.battleState.rouge)) {
+        swapActualAttacker(&game.battleState.rouge, idx);
         updateICButtons(win, &game.battleState.rouge);
     }
 }
