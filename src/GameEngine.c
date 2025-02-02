@@ -52,7 +52,7 @@ void handleGameEvent(Window *win, SDL_Event *event)
         
         while (!isAlive(&(game.battleState.rouge.team[0]))) {
             int swap=rand() % 5 + 11;
-            if(testActionValidity(swap,&game.battleState.rouge)) {swapActualAttacker(&game.battleState.rouge, swap);updateAttackButtons(win, &game.battleState.rouge);}
+            if(testActionValidity(swap,&game.battleState.rouge)) {swapActualAttacker(&game.battleState.rouge, swap);updateICButtons(win, &game.battleState.rouge);}
         }
         if (!isAlive(&(game.battleState.bleu.team[0]))) {
             int swap=rand() % 5 + 11;
@@ -127,13 +127,13 @@ void handleNewGameEvent(Window * win, SDL_Event * event){
     handleEvent(win, event);
     if (!game.gameState.initialized) {
         initData();
-        teamTest(&game.battleState.rouge, 3);
+        teamTest(&game.battleState.rouge, 6);
         teamTest(&game.battleState.bleu, 2);
         printPoke(&(game.battleState.rouge.team[0]));
         printPoke(&(game.battleState.bleu.team[0]));
         printf("pv rouge : %d\n\n",game.battleState.rouge.team[0].current_pv);
         printf("pv bleu : %d\n\n",game.battleState.bleu.team[0].current_pv);
-        updateAttackButtons(win, &game.battleState.rouge);
+        updateICButtons(win, &game.battleState.rouge);
         bleu = game.battleState.bleu;
         game.gameState.initialized = 1;
     }
@@ -170,23 +170,36 @@ void uptadeICMonsSprite(t_Poke *poke, float scaleX, float scaleY) {
         poke->rect.h = poke->initialRect.h * scaleY;
     }
 }
-void initICMonsSprite(SDL_Renderer *renderer, const char *imagePath){
+void initICMonsSprite(SDL_Renderer *renderer, const char *imagePath, t_Poke *poke, int x, int y, int w, int h) {
     SDL_Surface *surface = IMG_Load("assets/Monsters/New Versions/calamd.png");
     if (!surface) {
-        SDL_Log("Erreur lors du chargement de l'image : %s", IMG_GetError());
-        return;
+        SDL_Log("❌ Erreur lors du chargement de l'image : %s", IMG_GetError());
+        return EXIT_FAILURE;
     }
-    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
-    if(!texture){
-        SDL_Log("Erreur lors de la création de la texture : %s", SDL_GetError());
-        return;
+    poke->texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    surface = NULL;
+    if(!poke->texture){
+        SDL_Log("❌ Erreur lors de la création de la texture : %s", SDL_GetError());
+        return EXIT_FAILURE;
     }
-    SDL_Rect rect = {900, 25, surface->w/2.5, surface->h/2.5};
+    poke->rect = (SDL_Rect){x, y, w, h};
+    poke->initialRect = poke->rect;
+    return EXIT_SUCCESS;
 }
-void renderICMonsSprite(Window *win) {
+void renderICMonsSprite(Window *win, t_Poke *poke) {
+    if (poke && poke->texture) {
+        SDL_RenderCopy(win->renderer, poke->texture, NULL, &poke->rect);
     }
-void destroyICMonsSprite(Window *win){
+}
+void destroyICMonsSprite(Window *win, t_Poke *poke) {
+    if ( poke->texture) {
+        SDL_DestroyTexture(poke->texture);
+        poke->texture = NULL;
     }
+    free(poke);
+    poke = NULL;
+}
 
 // Functions for the ICMons selection
 
@@ -241,7 +254,7 @@ void attqButtonClicked(Window *win, void *data) {
         playATurn(&game.battleState.rouge, (intptr_t)data, &game.battleState.bleu, AI_move_choice(&iaTest,&game.battleState.rouge));
         while (isTeamAlive(&game.battleState.rouge) && !isAlive(&(game.battleState.rouge.team[0]))){
             int swap=rand() % 5 + 11;
-            if(testActionValidity(swap,&game.battleState.rouge)) {swapActualAttacker(&game.battleState.rouge, swap); updateAttackButtons(win, &game.battleState.rouge);}
+            if(testActionValidity(swap,&game.battleState.rouge)) {swapActualAttacker(&game.battleState.rouge, swap); updateICButtons(win, &game.battleState.rouge);}
         }
         while (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))){
             int swap=rand() % 5 + 11;
@@ -255,9 +268,9 @@ void attqButtonClicked(Window *win, void *data) {
 void changePokemon(Window *win, void *data) {
     (void)win; // Pour éviter le warning
     int *index = (int *)data;
-    if (isSwitching(*index)) {
+    if (testActionValidity(index,&game.battleState.rouge)){
         swapActualAttacker(&game.battleState.rouge, *index);
-        updateAttackButtons(win, &game.battleState.rouge);
+        updateICButtons(win, &game.battleState.rouge);
     }
 }
 
@@ -435,10 +448,11 @@ void handleEvent(Window *win, SDL_Event *event) {
                 win->height = event->window.data2;
                 float scaleX = (float)win->width / win->InitialWidth;
                 float scaleY = (float)win->height / win->InitialHeight;
-                updateButtonPosition(game.ui[2].buttons, scaleX, scaleY);
-                updateButtonPosition(game.ui[3].buttons, scaleX, scaleY);
-                updateButtonPosition(game.ui[5].buttons, scaleX, scaleY);
-                updateButtonPosition(game.ui[3].buttons, scaleX, scaleY);
+                for (int i = 1; i < game.nbMenu; i++) {
+                    if (game.ui[i].buttons) updateButtonPosition(game.ui[i].buttons, scaleX, scaleY);
+                    if (game.ui[i].sliders) updateSliderPosition(game.ui[i].sliders, scaleX, scaleY);
+                }
+                
                 updateTextPosition(&NewGameText, scaleX, scaleY);
                 updateTextPosition(&title, scaleX, scaleY);
                 // updateICMonsSprite(&game.battleState.rouge.team[0], scaleX, scaleY);
@@ -668,34 +682,34 @@ void initAllButtons(Window * win)
         // ICMons buttons
 
         buttonsICMons[0] = createButton(
-            "Poke1", win, 20, 20, 200, 200,
+            "ICMon1", win, 20, 20, 160, 100,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
             NULL, 0, win->LargeFont
         );
         buttonsICMons[1] = createButton(
-            "Poke2", win, 240, 20, 200, 200,
+            "ICMon2", win, 240, 20, 160, 100,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            NULL, 1, win->LargeFont
+            changePokemon, 11, win->LargeFont
         );
         buttonsICMons[2] = createButton(
-            "Poke3", win, 460, 20, 200, 200,
+            "ICMon3", win, 460, 20, 160, 100,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            NULL, 0, win->LargeFont
+            changePokemon, 12, win->LargeFont
         );
         buttonsICMons[3] = createButton(
-            "Poke4", win, 680, 20, 200, 200,
+            "ICMon4", win, 680, 20, 160, 100,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            NULL, 0, win->LargeFont
+            changePokemon, 13, win->LargeFont
         );
         buttonsICMons[4] = createButton(
-            "ICMon5", win, 900, 20, 200, 200,
+            "ICMon5", win, 900, 20, 160, 100,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            NULL, 0, win->LargeFont
+            changePokemon, 14, win->LargeFont
         );
         buttonsICMons[5] = createButton(
-            "ICMon6", win, 20, 240, 300, 100,
+            "ICMon6", win, 1120, 20, 160, 100,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            NULL, 0, win->LargeFont
+            changePokemon, 15, win->LargeFont
         );
         buttonsICMons[6] = createButton(
             "Back", win, 100, 600, 300, 100,
@@ -765,7 +779,7 @@ void initText(Window *win) {
     }
 }
 
-void updateAttackButtons(Window *win, t_Team *team) {
+void updateICButtons(Window *win, t_Team *team) {
     if (!team || !team->team || !team->team[0].moveList) {
         SDL_Log("❌ Erreur : team, team->team ou moveList est NULL\n");
         return;
@@ -775,7 +789,12 @@ void updateAttackButtons(Window *win, t_Team *team) {
         else setButtonText(game.ui[3].buttons->buttons[i], " ", win->renderer);
         
     }
+    for (int i  = 0; i < 6; i++) {
+        if (team->team[i].name) setButtonText(game.ui[6].buttons->buttons[i], team->team[i].name, win->renderer);
+        else setButtonText(game.ui[6].buttons->buttons[i], " ", win->renderer);
+    }
 }
+
 
 //---------------------------------------------------------------------------------
 

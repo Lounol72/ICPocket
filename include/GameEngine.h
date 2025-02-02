@@ -164,7 +164,7 @@ void changeState(Window *win, void *data);
 
 /* Text-related updates for attacks */
 void initText(Window *win);
-void updateAttackButtons(Window *win, t_Team *team);
+void updateICButtons(Window *win, t_Team *team);
 
 /* Audio */
 void initAudio();
@@ -174,10 +174,10 @@ void loadMusic(Mix_Music **music, const char *musicPath);
 void renderICMons(Window *win);
 void handleICMonsEvent(Window *win, SDL_Event *event);
 
-void initICMonsSprite(SDL_Renderer *renderer, const char *imagePath);
+void initICMonsSprite(SDL_Renderer *renderer, const char *imagePath, t_Poke *poke, int x, int y, int w, int h);
 void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
-void renderICMonsSprite(Window *win);
-void destroyICMonsSprite(Window *win);
+void renderICMonsSprite(Window *win, t_Poke *poke);
+void destroyICMonsSprite(Window *win, t_Poke *poke);
 
 void initGame(Window *win) ;
 

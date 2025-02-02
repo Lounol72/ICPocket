@@ -47,6 +47,7 @@ typedef struct Slider{
     SDL_Rect rect;
     SDL_Rect initialBar;
     SDL_Rect cursor;
+    SDL_Rect initialCursor;
     SDL_Color color;
     SDL_Color cursorColor;
     SDL_Renderer *renderer;
@@ -81,6 +82,7 @@ void destroySliderList(SliderList *list);
 void addListSlider(SliderList *S, Slider *sliders[], int size);
 void renderSliderList(SliderList *S);
 int handleSliderEvent(Slider *slider, int x, int y);
+void updateSliderPosition(SliderList *sliders, float Scalex, float Scaley);
 
 
 #endif

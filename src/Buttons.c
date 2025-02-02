@@ -195,6 +195,7 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
     slider->initialBar = slider->rect;
     int cursorW = 10;
     slider->cursor = (SDL_Rect){slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2), y-5, cursorW, h+12};
+    slider->initialCursor = slider->cursor;
     slider->color = color;
     slider->cursorColor = cursorColor;
     slider->renderer = renderer;
@@ -263,4 +264,22 @@ int handleSliderEvent(Slider *slider, int x, int y) {
         return 1; // Interaction détectée
     }
     return 0;
+}
+
+void updateSliderPosition(SliderList *sliders, float Scalex, float Scaley) {
+    if (!sliders) return;
+    for (int i = 0; i < sliders->size; i++) {
+        if (!sliders->sliders[i]) {
+            SDL_Log("❌ Invalid slider at index %d", i);
+            continue;
+        }
+        sliders->sliders[i]->rect.w = sliders->sliders[i]->initialBar.w * Scalex;
+        sliders->sliders[i]->rect.h = sliders->sliders[i]->initialBar.h * Scaley;
+        sliders->sliders[i]->rect.x = sliders->sliders[i]->initialBar.x * Scalex;
+        sliders->sliders[i]->rect.y = sliders->sliders[i]->initialBar.y * Scaley;
+        sliders->sliders[i]->cursor.w = 10;
+        sliders->sliders[i]->cursor.h = sliders->sliders[i]->initialBar.h + (sliders->sliders[i]->initialCursor.h * Scaley) * 0.4;
+        sliders->sliders[i]->cursor.x = sliders->sliders[i]->rect.x + (sliders->sliders[i]->value * sliders->sliders[i]->rect.w) - (sliders->sliders[i]->cursor.w / 2);
+        sliders->sliders[i]->cursor.y = sliders->sliders[i]->rect.y - 5;
+    }
 }

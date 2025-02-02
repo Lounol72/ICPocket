@@ -50,6 +50,7 @@ typedef struct
 	int iv[6];
 	t_Move moveList[4];
 	int nb_move;
+	// Affichage
 	SDL_Rect rect;
 	SDL_Texture *texture;
 	SDL_Rect initialRect;
