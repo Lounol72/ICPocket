@@ -22,12 +22,9 @@ void sauvegarder_Joueur(char * nomSave ,t_trainer * joueur,t_trainer * dresseur)
     }
     
     else{
-        
+        strcat(joueur->name,nomSave);
         fprintf(fichier, "User name : %s\n", joueur->name);
         for(int i = 0; i < 6; i++){
-            for(int j = 0; j < 6; j++){
-                calcStatFrom(&(joueur->trainTeam->team[i]),j);
-            }
             fprintf(fichier, "%d\n", joueur->trainTeam->team[i].id);
             fprintf(fichier, "%s\n", joueur->trainTeam->team[i].name);
             fprintf(fichier, "%d\n", joueur->trainTeam->team[i].lvl);
@@ -55,15 +52,38 @@ void charger_Joueur(char * nomSave,t_trainer * joueur,t_trainer * dresseur){
 	strcat(nomFichier,nomSave);
 	strcat(nomFichier,".txt");
 
-    FILE *fichier = fopen(nomFichier, "w+");
+    FILE *fichier = fopen(nomFichier, "r");
     if(fichier == NULL){
         printf("Erreur : impossible d'ouvrir le fichier.\n");
         exit(1);
+    }else{
+        fscanf(fichier, "User name : %s\n", joueur->name);
+        for(int i = 0; i < 6; i++){
+            fscanf(fichier, "%d\n", &(joueur->trainTeam->team[i].id));
+            generate_poke(&(joueur->trainTeam->team[i]),iitoa(joueur->trainTeam->team[i].id,malloc(100),10));
+            fscanf(fichier, "%s\n", joueur->trainTeam->team[i].name);
+            fscanf(fichier, "%d\n", &(joueur->trainTeam->team[i].lvl));
+            fscanf(fichier, "%d\n", &(joueur->trainTeam->team[i].nature));
+            getchar();
+            for(int j = 0 ; j < 6 ; j++)
+                fscanf(fichier, "%d\n", &(joueur->trainTeam->team[i].iv[j]));
+            fscanf(fichier, "%d\n", &(joueur->trainTeam->team[i].nb_move));
+            for(int j = 0 ; j < 1 ; j++)
+                fscanf(fichier, "%d\n", (int *)&(joueur->trainTeam->team[i].type[j]));
+            /*for(int j = 0 ; j < 1 ; j++)
+                fscanf(fichier, "%d\n", joueur->trainTeam->team[i].moveList[j]);*/ //Les moves ne sont pas encore init 
+
+            fscanf(fichier,"\n\n");
+        }
+
+        fscanf(fichier, "Dernier dresseur battu : %s id: %d\n", dresseur->name, &(dresseur->id));
     }
+
 }
 
 int main(){
     initData();
+    /*
     char nom[20];
     printf("Nom joueur");
     scanf("%s" , nom);
@@ -87,7 +107,26 @@ int main(){
     free(red->trainTeam);
 
     free(red);
+    */
+    char nom[20];
+    printf("Nom de la sauvegarde à charger: ");
+    scanf("%s", nom);
 
+    t_trainer *red = malloc(sizeof(t_trainer));
+    red->trainTeam = malloc(sizeof(t_Team));
+    t_trainer *blue = malloc(sizeof(t_trainer));
+
+    charger_Joueur(nom, red, blue);
+
+    printf("Nom du joueur: %s\n", red->name);
+    for(int i = 0; i < 6; i++){
+        printPoke(&(red->trainTeam->team[i]));
+    }
+    printf("Dernier dresseur battu: %s id: %d\n", blue->name, blue->id);
+
+    free(red->trainTeam);
+    free(red);
+    free(blue);
     return 0;
 
 }
