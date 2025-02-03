@@ -458,7 +458,7 @@ void handleEvent(Window *win, SDL_Event *event) {
                         SDL_Log("Current button: %d", game.currentButton);
                         break;
                     case SDLK_c:
-                        ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[game.currentButton], 0, 0, win);
+                        ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[game.currentButton], -1, -1, win);
                         break;
                     default: break;
                 }

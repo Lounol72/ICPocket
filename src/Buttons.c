@@ -132,7 +132,7 @@ void renderButton(Button *button) {
 
 
 void ButtonClicked(Button *button, int mouseX, int mouseY, Window *win) {
-    if (button && SDL_PointInRect(&(SDL_Point){mouseX, mouseY}, &button->rect) && button->onClick) {
+    if (button && (SDL_PointInRect(&(SDL_Point){mouseX, mouseY}, &button->rect)|| (mouseX == -1 && mouseY == -1) )&& button->onClick) {
         button->onClick(win, button->data);
     }
 }
