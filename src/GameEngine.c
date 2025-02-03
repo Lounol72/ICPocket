@@ -128,7 +128,7 @@ void handleNewGameEvent(Window * win, SDL_Event * event){
     handleEvent(win, event);
     if (!game.gameState.initialized) {
         initData();
-        teamTest(&game.battleState.rouge, 6);
+        teamTest(&game.battleState.rouge, 3);
         teamTest(&game.battleState.bleu, 2);
         printPoke(&(game.battleState.rouge.team[0]));
         printPoke(&(game.battleState.bleu.team[0]));
@@ -238,7 +238,7 @@ void handleIntermediateEvent(Window *win, SDL_Event *event) {
 // Functions to handles buttons 
 
 void changeState(Window *win, void *data) {
-    AppState newState = *(AppState *)data; // Convertit void* en AppState*
+    AppState newState = *(AppState *)data;
     win->state = newState;
     game.gameState.currentState = newState;
     SDL_Log("Changement d'état : %d", newState);
@@ -298,7 +298,7 @@ void mainLoop(Window *win) {
         SDL_RenderPresent(win->renderer);
 
         if(win->state == GAME){
-            if (!Mix_PlayingMusic()) {  // Vérifie si la musique est déjà en cours
+            if (!Mix_PlayingMusic()) {  // Verify if the music is already playing
                 Mix_PlayMusic(game.gameState.music, -1);
             }
         } else {
@@ -312,7 +312,7 @@ void mainLoop(Window *win) {
         }
         // If the state is NEWGAME and 5 seconds have passed, go to game state
         if (win->state == NEWGAME && game.newGameStartTime == 0) game.newGameStartTime = SDL_GetTicks();
-        else if (win->state == NEWGAME && SDL_GetTicks() - game.newGameStartTime >= 1000) { // 1 seconds
+        else if (win->state == NEWGAME && SDL_GetTicks() - game.newGameStartTime >= 1000) { // 1 second
             changeState(win, &game.stateHandlers[3].state); // Change state to GAME
             game.newGameStartTime = 0; // reinitialize the start time
         }

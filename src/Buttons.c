@@ -166,6 +166,7 @@ void setButtonText(Button *button, const char *text, SDL_Renderer *renderer) {
     }
 
     // Générer une nouvelle texture texte
+    
     SDL_Surface *textSurface = TTF_RenderText_Solid(button->font, text, button->textcolor);
     if (!textSurface) {
         SDL_Log("❌ Erreur lors de la création de la surface du texte : %s", TTF_GetError());
