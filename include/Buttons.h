@@ -28,6 +28,7 @@ typedef struct Button {
     SDL_Rect initialRect;
     SDL_Color color;
     SDL_Texture *texture;
+    SDL_Texture *initialTexture;
     SDL_Renderer *renderer;
     char* text;
     SDL_Texture *textTexture;

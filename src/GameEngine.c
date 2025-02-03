@@ -239,6 +239,7 @@ void changeState(Window *win, void *data) {
     AppState newState = *(AppState *)data;
     win->state = newState;
     game.gameState.currentState = newState;
+    game.currentButton = 0;
     SDL_Log("Changement d'état : %d", newState);
 }
 
@@ -293,6 +294,7 @@ void mainLoop(Window *win) {
         // Render the window
         SDL_RenderClear(win->renderer);
         render(win);
+        updateCurrentButton(win);
         SDL_RenderPresent(win->renderer);
 
         if(win->state == GAME){
@@ -437,6 +439,30 @@ void handleEvent(Window *win, SDL_Event *event) {
                     SDL_Log("Quit");
                     break;
             }
+            if (game.ui[game.gameState.currentState].buttons) {
+                switch (event->key.keysym.sym) {
+                    case SDLK_UP:
+                        game.currentButton = (game.currentButton > 0) ? game.currentButton - 1 : game.currentButton;
+                        SDL_Log("Current button: %d", game.currentButton);
+                        break;
+                    case SDLK_DOWN:
+                        game.currentButton = (game.currentButton < game.ui[game.gameState.currentState].buttons->size - 1) ? game.currentButton + 1 : game.currentButton;
+                        SDL_Log("Current button: %d", game.currentButton);
+                        break;
+                    case SDLK_LEFT:
+                        game.currentButton = (game.currentButton - game.ui[game.gameState.currentState].buttons->size / 2 >= 0) ? game.currentButton - game.ui[game.gameState.currentState].buttons->size / 2 : game.currentButton;
+                        SDL_Log("Current button: %d", game.currentButton);
+                        break;
+                    case SDLK_RIGHT:
+                        game.currentButton = (game.currentButton + game.ui[game.gameState.currentState].buttons->size / 2 < game.ui[game.gameState.currentState].buttons->size) ? game.currentButton + game.ui[game.gameState.currentState].buttons->size / 2 : game.currentButton;
+                        SDL_Log("Current button: %d", game.currentButton);
+                        break;
+                    case SDLK_c:
+                        ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[game.currentButton], 0, 0, win);
+                        break;
+                    default: break;
+                }
+            }
             break;
         case SDL_QUIT:
             win->quit = 1;
@@ -458,7 +484,9 @@ void handleEvent(Window *win, SDL_Event *event) {
                 // updateICMonsSprite(&game.battleState.rouge.team[0], scaleX, scaleY);
             }
             break;
+        
         default: break;
+        
     }
 }
 void initGame(Window *win) {
@@ -499,6 +527,7 @@ void initGame(Window *win) {
     game.FPS = 60;
     game.frameDelay = 1000 / game.FPS;
     game.newGameStartTime = 0;
+    game.currentButton = 0;
 
 
     game.speeds = malloc(sizeof(float)*3);
@@ -736,18 +765,23 @@ void initAllButtons(Window * win)
         free(sliders);
         sliders = NULL;
         addListButton(game.ui[2].buttons, buttonsMenu, nbButtonsMenu);
+        
         free(buttonsMenu);
         buttonsMenu = NULL;
         addListButton(game.ui[1].buttons, buttonsParam, nbButtonsParam);
+        
         free(buttonsParam);
         buttonsParam = NULL;
         addListButton(game.ui[5].buttons, buttonsLoadGame, nbButtonsLoad);
+        
         free(buttonsLoadGame);
         buttonsLoadGame = NULL;
         addListButton(game.ui[3].buttons, buttonsGame, nbButtonsGame);
+        
         free(buttonsGame);
         buttonsGame = NULL;
         addListButton(game.ui[6].buttons, buttonsICMons, nbButtonsICMons);
+        
         free(buttonsICMons);
         buttonsICMons = NULL;
     }
@@ -791,6 +825,27 @@ void updateICButtons(Window *win, t_Team *team) {
     for (int i  = 0; i < 6; i++) {
         if (team->team[i].name) setButtonText(game.ui[6].buttons->buttons[i], team->team[i].name, win->renderer);
         else setButtonText(game.ui[6].buttons->buttons[i], " ", win->renderer);
+    }
+}
+
+void updateCurrentButton() {
+    if (game.ui[game.gameState.currentState].buttons->size > 0) {
+        SDL_Surface *surface = IMG_Load("assets/User Interface/Blue/button_rectangle_depth_flat.png");
+        if (!surface) {
+            SDL_Log("❌ Erreur lors du chargement de l'image : %s", IMG_GetError());
+            return;
+        }
+
+        SDL_Texture *texture = SDL_CreateTextureFromSurface(game.win->renderer, surface);
+        if (!texture) {
+            SDL_Log("❌ Erreur lors de la création de la texture : %s", SDL_GetError());
+            return;
+        }
+        for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
+            if (i != game.currentButton) game.ui[game.gameState.currentState].buttons->buttons[i]->texture = game.ui[game.gameState.currentState].buttons->buttons[i]->initialTexture;
+            else  game.ui[game.gameState.currentState].buttons->buttons[i]->texture = texture;
+        }
+        game.ui[game.gameState.currentState].buttons->buttons[game.currentButton]->texture = texture;
     }
 }
 

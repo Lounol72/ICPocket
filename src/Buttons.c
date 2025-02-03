@@ -85,6 +85,7 @@ void InitTextureButton(Button *button, SDL_Renderer *renderer, const char *image
     if (!texture) return;
     if (button->texture) SDL_DestroyTexture(button->texture);
     button->texture = texture;
+    button->initialTexture = texture;
 }
 
 

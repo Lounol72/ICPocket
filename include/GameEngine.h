@@ -106,6 +106,7 @@ typedef struct Game {
     int frameDelay;
     int frameStart;
     int newGameStartTime;
+    int currentButton;
 } Game;
 
 /* ------------- Function Prototypes ------------- */
