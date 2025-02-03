@@ -9,8 +9,6 @@ Text NewGameText = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
 int marginBottom = 200; // Marge en bas en pixels
 int marginRight = 0;  // Marge à droite en pixels
 
-t_Team bleu ;
-
 
 
 //---------------------------------------------------------------------------------
