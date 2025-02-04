@@ -253,8 +253,8 @@ void attqButtonClicked(Window *win, void *data) {
     if (game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
         playATurn(&game.battleState.rouge, (intptr_t)data, &game.battleState.bleu, AI_move_choice(&iaTest,&game.battleState.rouge));
         while (isTeamAlive(&game.battleState.rouge) && !isAlive(&(game.battleState.rouge.team[0]))){
-            int swap=rand() % 5 + 11;
-            if(testActionValidity(swap,&game.battleState.rouge)) {swapActualAttacker(&game.battleState.rouge, swap); updateICButtons(win, &game.battleState.rouge);}
+            game.gameState.currentState = ICMONS;
+            win->state = ICMONS;
         }
         while (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))){
             int swap=rand() % 5 + 11;

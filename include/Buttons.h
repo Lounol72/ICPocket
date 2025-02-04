@@ -248,6 +248,13 @@ void renderSliderList(SliderList *S);
  */
 //handle the slider event
 int handleSliderEvent(Slider *slider, int x, int y);
+/**
+ * @brief Update the position of the sliders based on the mouse's X and Y coordinates.
+ * 
+ * @param sliders A pointer to the structure containing the sliders to be updated. 
+ * @param Scalex  Scale factor for the horizontal axis.
+ * @param Scaley  Scale factor for the vertical axis.
+ */
 void updateSliderPosition(SliderList *sliders, float Scalex, float Scaley);
 
 
