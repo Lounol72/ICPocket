@@ -39,12 +39,23 @@ Button *createButton(char *text, Window *win, int x, int y, int w, int h, SDL_Co
 
 void destroyButton(Button *button) {
     if (!button) return;
-    if (button->texture) SDL_DestroyTexture(button->texture);
-    if (button->textTexture) SDL_DestroyTexture(button->textTexture);
 
+    // Free only the allocated textures, not the alias pointer 'texture'
+    if (button->initialTexture) {
+        SDL_DestroyTexture(button->initialTexture);
+        button->initialTexture = NULL;
+    }
+    if (button->selectedTexture) {
+        SDL_DestroyTexture(button->selectedTexture);
+        button->selectedTexture = NULL;
+    }
+    if (button->textTexture) {
+        SDL_DestroyTexture(button->textTexture);
+        button->textTexture = NULL;
+    }
     free(button);
-    button = NULL;
 }
+
 
 void addListButton(ButtonList *list, Button **buttons, int count) {
     if (list->buttons) {
@@ -86,6 +97,17 @@ void InitTextureButton(Button *button, SDL_Renderer *renderer, const char *image
     if (button->texture) SDL_DestroyTexture(button->texture);
     button->texture = texture;
     button->initialTexture = texture;
+
+    surface = IMG_Load("assets/User Interface/Blue/button_rectangle_depth_flat.png");
+    if (!surface) {
+        SDL_Log("❌ Erreur lors du chargement de l'image : %s", IMG_GetError());
+        return;
+    }
+    button->selectedTexture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    if (!button->selectedTexture) {
+        SDL_Log("❌ Erreur lors de la création de la texture : %s", SDL_GetError());
+    }
 }
 
 

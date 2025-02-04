@@ -49,7 +49,7 @@ testMain: main
 	./main
 
 testValgrind:
-	valgrind --leak-check=full ./main
+	valgrind --leak-check=full --show-leak-kinds=all ./main
 
 # Règle pour nettoyer les fichiers objets et l'exécutable
 clean:

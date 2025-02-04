@@ -830,22 +830,11 @@ void updateICButtons(Window *win, t_Team *team) {
 
 void updateCurrentButton() {
     if (game.ui[game.gameState.currentState].buttons->size > 0) {
-        SDL_Surface *surface = IMG_Load("assets/User Interface/Blue/button_rectangle_depth_flat.png");
-        if (!surface) {
-            SDL_Log("❌ Erreur lors du chargement de l'image : %s", IMG_GetError());
-            return;
-        }
-
-        SDL_Texture *texture = SDL_CreateTextureFromSurface(game.win->renderer, surface);
-        if (!texture) {
-            SDL_Log("❌ Erreur lors de la création de la texture : %s", SDL_GetError());
-            return;
-        }
         for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
             if (i != game.currentButton) game.ui[game.gameState.currentState].buttons->buttons[i]->texture = game.ui[game.gameState.currentState].buttons->buttons[i]->initialTexture;
-            else  game.ui[game.gameState.currentState].buttons->buttons[i]->texture = texture;
+            else  game.ui[game.gameState.currentState].buttons->buttons[i]->texture = game.ui[game.gameState.currentState].buttons->buttons[i]->selectedTexture;
         }
-        game.ui[game.gameState.currentState].buttons->buttons[game.currentButton]->texture = texture;
+        //game.ui[game.gameState.currentState].buttons->buttons[game.currentButton]->texture = texture;
     }
 }
 
