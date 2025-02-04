@@ -126,8 +126,10 @@ void handleNewGameEvent(Window * win, SDL_Event * event){
     handleEvent(win, event);
     if (!game.gameState.initialized) {
         initData();
-        teamTest(&game.battleState.rouge, 3);
-        teamTest(&game.battleState.bleu, 2);
+        //teamTest(&game.battleState.rouge, 6);
+        initTeam(&game.battleState.rouge, 3);
+        //teamTest(&game.battleState.bleu, 1);
+        initTeam(&game.battleState.bleu, 3);
         printPoke(&(game.battleState.rouge.team[0]));
         printPoke(&(game.battleState.bleu.team[0]));
         printf("pv rouge : %d\n\n",game.battleState.rouge.team[0].current_pv);

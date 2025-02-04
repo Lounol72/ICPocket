@@ -59,7 +59,11 @@ typedef struct
 
 extern t_Nature tabNature[25];
 extern float typeChart[typeNumber][typeNumber];
-
+/**
+*@brief Generate a Icmon from a given id in the dataPoke.csv file
+*@param p : the structure Icmon to generate
+*@param id : the id of the Icmon to generate
+ */
 void generate_poke(t_Poke *p,int id);
 void generatePoke(t_Poke *);
 t_Move generateRandomMove();

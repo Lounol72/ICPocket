@@ -19,6 +19,16 @@ void printTeam(t_Team * t){
 	}
 }
 
+void choose_starter(t_Team * t){
+	int choix;
+	do{
+		printf("Choisissez votre starter:\n 1: Alcigo\n 2: Progaloi\n 3: Javacript\n");
+		scanf("%d",&choix);
+	}while(choix<1 || choix>3);
+	
+	generate_poke(&(t->team[0]),choix+12);
+}
+
 void teamTest(t_Team * t, int nb_poke){
 	initTeam(t,nb_poke);
 	for(int i=0;i<nb_poke;i++){

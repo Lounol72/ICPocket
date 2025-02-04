@@ -1,5 +1,5 @@
 # Nom de l'exécutable
-all: main duel
+all: main duel save
 
 # Dossiers
 SRC_DIR = src

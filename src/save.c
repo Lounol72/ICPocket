@@ -1,5 +1,4 @@
 #include "../include/structPoke.h"
-//#include "../include/duel.h"
 #include "../include/save.h"
 #include "../include/ministdlib.h"
 #include "../include/trainerAI.h"
@@ -80,7 +79,7 @@ void charger_Joueur(char * nomSave,t_trainer * joueur,t_trainer * dresseur){
     }
 
 }
-
+/** 
 int main(){
     initData();
     
@@ -106,7 +105,7 @@ int main(){
 
     free(red);
     
-    /*
+
     char nom[20];
     printf("Nom de la sauvegarde à charger: ");
     scanf("%s", nom);
@@ -126,6 +125,7 @@ int main(){
     free(red->trainTeam);
     free(red);
     free(blue);
-    return 0;*/
+    return 0;
 
 }
+*/
