@@ -66,7 +66,7 @@ void generate_poke(t_Poke *p, int line)
 		/*IV et Moves*/
 		for (int i = 0; i < 6; i++)
 			p->iv[i] = rand() % 32;
-		p->nb_move = 4;
+		p->nb_move = rand() % 4 + 1;
 		for (int i = 0; i < p->nb_move; i++)
 		{
 			p->moveList[i] = generateRandomMove();
