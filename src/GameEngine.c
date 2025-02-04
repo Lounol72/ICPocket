@@ -269,8 +269,10 @@ void changePokemon(Window *win, void *data) {
     (void)win; 
     int idx = (int)(intptr_t)data; 
     if (testActionValidity(idx, &game.battleState.rouge)) {
-        swapActualAttacker(&game.battleState.rouge, idx);
+        playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&iaTest,&game.battleState.rouge));
         updateICButtons(win, &game.battleState.rouge);
+        win->state = GAME;
+        game.gameState.currentState = GAME;
     }
 }
 
@@ -440,26 +442,13 @@ void handleEvent(Window *win, SDL_Event *event) {
                     break;
             }
             if (game.ui[game.gameState.currentState].buttons) {
+                int max = game.ui[game.gameState.currentState].buttons->size - 1;
                 switch (event->key.keysym.sym) {
-                    case SDLK_UP:
-                        game.currentButton = (game.currentButton > 0) ? game.currentButton - 1 : game.currentButton;
-                        SDL_Log("Current button: %d", game.currentButton);
-                        break;
-                    case SDLK_DOWN:
-                        game.currentButton = (game.currentButton < game.ui[game.gameState.currentState].buttons->size - 1) ? game.currentButton + 1 : game.currentButton;
-                        SDL_Log("Current button: %d", game.currentButton);
-                        break;
-                    case SDLK_LEFT:
-                        game.currentButton = (game.currentButton - game.ui[game.gameState.currentState].buttons->size / 2 >= 0) ? game.currentButton - game.ui[game.gameState.currentState].buttons->size / 2 : game.currentButton;
-                        SDL_Log("Current button: %d", game.currentButton);
-                        break;
-                    case SDLK_RIGHT:
-                        game.currentButton = (game.currentButton + game.ui[game.gameState.currentState].buttons->size / 2 < game.ui[game.gameState.currentState].buttons->size) ? game.currentButton + game.ui[game.gameState.currentState].buttons->size / 2 : game.currentButton;
-                        SDL_Log("Current button: %d", game.currentButton);
-                        break;
-                    case SDLK_c:
-                        ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[game.currentButton], -1, -1, win);
-                        break;
+                    case SDLK_UP: game.currentButton = (game.currentButton > 0) ? game.currentButton - 1 : game.currentButton; break;
+                    case SDLK_DOWN: game.currentButton = (game.currentButton < max) ? game.currentButton + 1 : game.currentButton; break;
+                    case SDLK_LEFT: game.currentButton = (game.currentButton >= max / 2) ? game.currentButton - max / 2 : game.currentButton; break;
+                    case SDLK_RIGHT: game.currentButton = (game.currentButton + max / 2 <= max) ? game.currentButton + max / 2 : game.currentButton; break;
+                    case SDLK_c: ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[game.currentButton], -1, -1, win); break;
                     default: break;
                 }
             }
@@ -480,8 +469,6 @@ void handleEvent(Window *win, SDL_Event *event) {
                 
                 updateTextPosition(&NewGameText, scaleX, scaleY);
                 updateTextPosition(&title, scaleX, scaleY);
-                // updateICMonsSprite(&game.battleState.rouge.team[0], scaleX, scaleY);
-                // updateICMonsSprite(&game.battleState.rouge.team[0], scaleX, scaleY);
             }
             break;
         
@@ -834,7 +821,6 @@ void updateCurrentButton() {
             if (i != game.currentButton) game.ui[game.gameState.currentState].buttons->buttons[i]->texture = game.ui[game.gameState.currentState].buttons->buttons[i]->initialTexture;
             else  game.ui[game.gameState.currentState].buttons->buttons[i]->texture = game.ui[game.gameState.currentState].buttons->buttons[i]->selectedTexture;
         }
-        //game.ui[game.gameState.currentState].buttons->buttons[game.currentButton]->texture = texture;
     }
 }
 
