@@ -130,8 +130,11 @@ void handleNewGameEvent(Window * win, SDL_Event * event){
         initTeam(&game.battleState.rouge, 3);
         //teamTest(&game.battleState.bleu, 1);
         initTeam(&game.battleState.bleu, 3);
-        printPoke(&(game.battleState.rouge.team[0]));
-        printPoke(&(game.battleState.bleu.team[0]));
+        for(int i = 0; i < game.battleState.rouge.nb_poke; i++){
+            printPoke(&(game.battleState.rouge.team[i]));
+        }
+        
+        //printPoke(&(game.battleState.bleu.team[0]));
         printf("pv rouge : %d\n\n",game.battleState.rouge.team[0].current_pv);
         printf("pv bleu : %d\n\n",game.battleState.bleu.team[0].current_pv);
         updateICButtons(win, &game.battleState.rouge);

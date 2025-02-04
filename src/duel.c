@@ -69,7 +69,7 @@ void initTeam(t_Team * t, int nb_poke){
 	t->nb_poke=nb_poke;
 	for(int i=0;i<nb_poke;i++){
 		t->team[i].nb_move=rand()%3+1;
-		generate_poke(&(t->team[i]),10); //ajout du 1er poke de la BDD
+		generate_poke(&(t->team[i]),((i * 12335634 )%15)); // temporaire
 		for(int j=0;j<6;j++) t->statChanges[j]=NEUTRAL_STAT_CHANGE;
 		t->team[i].current_pv=calcStatFrom(&(t->team[i]),PV);//POKE_IS_ABSENT;
 		for(int j=0;j<t->team[i].nb_move;j++){
