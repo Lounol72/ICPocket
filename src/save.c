@@ -17,7 +17,7 @@ void sauvegarder_Joueur(char * nomSave ,t_trainer * joueur,t_trainer * dresseur)
     
     FILE *fichier = fopen(nomFichier, "w+");
     if(fichier == NULL){
-        printf("Erreur : impossible d'ouvrir le fichier.\n");
+        printf("Erreur : impossible d'ouvrir la save.\n");
         exit(1);
     }
     
@@ -60,7 +60,7 @@ void charger_Joueur(char * nomSave,t_trainer * joueur,t_trainer * dresseur){
         fscanf(fichier, "User name : %s\n", joueur->name);
         for(int i = 0; i < 6; i++){
             fscanf(fichier, "%d\n", &(joueur->trainTeam->team[i].id));
-            generate_poke(&(joueur->trainTeam->team[i]),iitoa(joueur->trainTeam->team[i].id,malloc(100),10));
+            generate_poke(&(joueur->trainTeam->team[i]),joueur->trainTeam->team[i].id);
             fscanf(fichier, "%s\n", joueur->trainTeam->team[i].name);
             fscanf(fichier, "%d\n", &(joueur->trainTeam->team[i].lvl));
             fscanf(fichier, "%d\n", &(joueur->trainTeam->team[i].nature));
@@ -83,7 +83,7 @@ void charger_Joueur(char * nomSave,t_trainer * joueur,t_trainer * dresseur){
 
 int main(){
     initData();
-    /*
+    
     char nom[20];
     printf("Nom joueur");
     scanf("%s" , nom);
@@ -93,9 +93,7 @@ int main(){
     t_trainer *blue = malloc(sizeof(t_trainer));
     blue->id = 48;
     strcat(blue->name,"blue");
-    for(int i = 0 ; i<6 ; i++){
-        generate_poke(&(red->trainTeam->team[i]),"1");
-    }
+    initTeam(red->trainTeam,6);
     
     sauvegarder_Joueur(nom,red,blue);
     for(int i = 0; i < 6; i++){
@@ -107,7 +105,8 @@ int main(){
     free(red->trainTeam);
 
     free(red);
-    */
+    
+    /*
     char nom[20];
     printf("Nom de la sauvegarde à charger: ");
     scanf("%s", nom);
@@ -127,6 +126,6 @@ int main(){
     free(red->trainTeam);
     free(red);
     free(blue);
-    return 0;
+    return 0;*/
 
 }

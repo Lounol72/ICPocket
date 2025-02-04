@@ -33,41 +33,37 @@ void generatePoke(t_Poke *p)
 	//fclose(dataPoke);
 
 
-void generate_poke(t_Poke *p,char * choixPoke)
+void generate_poke(t_Poke *p, int line)
 {
 	FILE *dataPoke;
-	char nomFichier[1024];
-	strcpy(nomFichier , "src/data/dataPoke/pokeID=");
-	strcat(nomFichier,choixPoke);
-	strcat(nomFichier,".txt");
-	
-	printf("%s\n",nomFichier);
-	
-	dataPoke = fopen(nomFichier, "r");
+	dataPoke = fopen("src/data/dataPoke.csv", "r");
 	if (dataPoke == NULL)
 	{
-		printf("Erreur : impossible d'ouvrir le fichier.\n");
+		printf("Erreur : impossible d'ouvrir le poke.\n");
 		exit(1);
 	}
 	else
 	{
-		
+		char buffer[256];
+		for (int i = 1; i < line; i++)
+		{
+			if (fgets(buffer, sizeof(buffer), dataPoke) == NULL)
+			{
+				printf("Erreur : ligne %d introuvable dans le fichier.\n", line);
+				fclose(dataPoke);
+				exit(1);
+			}
+		}
 
-		/*LOAD des stats dans une VAR*/
-		fscanf(dataPoke, "%d\n", &(p->id));
-		fscanf(dataPoke, "%s\n", p->name);
-		fscanf(dataPoke, "%d\n", &(p->baseStats[PV]));
-		fscanf(dataPoke, "%d\n", &(p->baseStats[ATT]));
-		fscanf(dataPoke, "%d\n", &(p->baseStats[DEF]));
-		fscanf(dataPoke, "%d\n", &(p->baseStats[SPA]));
-		fscanf(dataPoke, "%d\n", &(p->baseStats[SPD]));
-		fscanf(dataPoke, "%d\n", &(p->baseStats[SPE]));
+		/*Load Base stats*/
+		fscanf(dataPoke, "%d,%[^,],%d,%d,%d,%d,%d,%d\n", &(p->id), p->name, &(p->baseStats[PV]), &(p->baseStats[ATT]), &(p->baseStats[DEF]), &(p->baseStats[SPA]), &(p->baseStats[SPD]), &(p->baseStats[SPE]));
 
-		p->gender = rand() % 2;
-		p->lvl = rand() % 100 + 1;
-		p->nature = rand() % 25;
+		/*Load Types*/
 		p->type[0] = rand() % (typeNumber-1) + 1;
 		p->type[1] = rand() % typeNumber;
+
+		p->lvl = rand() % 100 + 1;
+		/*IV et Moves*/
 		for (int i = 0; i < 6; i++)
 			p->iv[i] = rand() % 32;
 		p->nb_move = 4;
@@ -76,8 +72,7 @@ void generate_poke(t_Poke *p,char * choixPoke)
 			p->moveList[i] = generateRandomMove();
 			p->moveList[i].current_pp = p->moveList[i].max_pp;
 		}
-		/*LOAD dans la structure*/
-	fclose(dataPoke);
+		fclose(dataPoke);
 	}
 }
 
