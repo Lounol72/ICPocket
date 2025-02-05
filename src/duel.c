@@ -73,7 +73,7 @@ void initTeam(t_Team * t, int nb_poke){
 		for(int j=0;j<6;j++) t->statChanges[j]=NEUTRAL_STAT_CHANGE;
 		t->team[i].current_pv=calcStatFrom(&(t->team[i]),PV);//POKE_IS_ABSENT;
 		for(int j=0;j<t->team[i].nb_move;j++){
-			t->team[i].moveList[j]=generateRandomMove();
+			t->team[i].moveList[j]=generateMove(t);
 			t->team[i].moveList[j].current_pp=t->team[i].moveList[j].max_pp;
 		}
 	}

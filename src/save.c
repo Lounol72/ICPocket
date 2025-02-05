@@ -78,8 +78,9 @@ void charger_Joueur(char * nomSave,t_trainer * joueur,t_trainer * dresseur){
     }
 
 }
-/** 
+
 int main(){
+    /*
     initData();
     
     char nom[20];
@@ -125,6 +126,5 @@ int main(){
     free(red);
     free(blue);
     return 0;
-
-}
 */
+}

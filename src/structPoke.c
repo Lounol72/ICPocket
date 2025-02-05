@@ -37,18 +37,15 @@ void generate_poke(t_Poke *p, int line)
 {
 	FILE *dataPoke;
 	dataPoke = fopen("src/data/dataPoke.csv", "r");
-	if (dataPoke == NULL)
-	{
+	if (dataPoke == NULL){
 		printf("Erreur : impossible d'ouvrir le poke.\n");
 		exit(1);
 	}
 	else
 	{
 		char buffer[256];
-		for (int i = 1; i < line; i++)
-		{
-			if (fgets(buffer, sizeof(buffer), dataPoke) == NULL)
-			{
+		for (int i = 1; i < line; i++){
+			if (fgets(buffer, sizeof(buffer), dataPoke) == NULL){
 				printf("Erreur : ligne %d introuvable dans le fichier.\n", line);
 				fclose(dataPoke);
 				exit(1);
@@ -67,11 +64,6 @@ void generate_poke(t_Poke *p, int line)
 		for (int i = 0; i < 6; i++)
 			p->iv[i] = rand() % 32;
 		p->nb_move = rand() % 4 + 1;
-		for (int i = 0; i < p->nb_move; i++)
-		{
-			p->moveList[i] = generateRandomMove();
-			p->moveList[i].current_pp = p->moveList[i].max_pp;
-		}
 		fclose(dataPoke);
 	}
 }
@@ -90,6 +82,45 @@ t_Move generateRandomMove()
 		move.priority_lvl = rand()%8;
 	}
 	return move;
+}
+
+/*For now, the generation is random*/
+t_Move generateMove(t_Poke *p){
+	FILE *dataMove;
+	dataMove = fopen("src/data/dataMoves.csv", "r");
+	if (dataMove == NULL){
+		printf("Erreur : impossible d'ouvrir le fichier des moves.\n");
+		exit(1);
+	}
+	else
+	{
+		char buffer[256];
+		t_Move move;
+		int isUnique = 0;
+		while (!isUnique) {
+			isUnique = 1;
+			int line = rand() % 6 + 1;
+			rewind(dataMove); //Reset the file pointer to the beginning
+			for (int i = 1; i < line; i++){
+				if (fgets(buffer, sizeof(buffer), dataMove) == NULL){
+					printf("Erreur : ligne %d introuvable dans le fichier.\n", line);
+					fclose(dataMove);
+					exit(1);
+				}
+			}
+			fscanf(dataMove, "%[^,],%d,%d,%d,%d,%d,%d\n", move.name, &(move.power), (int*)&(move.type), &(move.categ), &(move.accuracy), &(move.max_pp), &(move.priority_lvl));
+			
+			// Check if the move is unique
+			for (int i = 0; i < p->nb_move; i++) {
+				if (strcmp(move.name, p->moveList[i].name) == 0) {
+					isUnique = 0;
+					break;
+				}
+			}
+		}
+		fclose(dataMove);
+		return move;
+	}
 }
 
 void learnMove(t_Poke *p, t_Move *m, int ind)

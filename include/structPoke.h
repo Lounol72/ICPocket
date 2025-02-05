@@ -66,7 +66,14 @@ extern float typeChart[typeNumber][typeNumber];
  */
 void generate_poke(t_Poke *p,int id);
 void generatePoke(t_Poke *);
+
+/**
+*@brief Generate a move
+*@return the generated move 
+ */
+t_Move generateMove();
 t_Move generateRandomMove();
+
 void learnMove(t_Poke *, t_Move *, int);
 void printPoke(t_Poke *);
 void initNature();
