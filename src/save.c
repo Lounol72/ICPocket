@@ -38,7 +38,6 @@ void sauvegarder_Joueur(char * nomSave ,t_trainer * joueur,t_trainer * dresseur)
 
             fprintf(fichier,"\n\n");
         }
-
         fprintf(fichier, "Dernier dresseur battu : %s id: %d\n", dresseur->name, dresseur->id);
         
     }
