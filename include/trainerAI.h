@@ -9,6 +9,7 @@ typedef struct AI{
 } t_AI;
 
 extern t_AI iaTest;
+extern t_AI iaTest2;
 
 void insertionSort(int tabDegats[], int tabMove[], int n);
 int AI_move_choice(t_AI * ai_team, t_Team * player_team);

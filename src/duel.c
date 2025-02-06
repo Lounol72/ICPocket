@@ -244,7 +244,7 @@ int playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 		if(!hasMoveLeft(&(t1->team[0])) && isAttacking(move1)) move1=STRUGGLE;
 		if(!hasMoveLeft(&(t2->team[0])) && isAttacking(move2)) move2=STRUGGLE;
 
-		if(!testActionValidity(move1,t1) || !testActionValidity(move2,t2)) return FALSE;
+		if(!testActionValidity(move1,t1) || !testActionValidity(move2,t2)) {printf("Action Invalide!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");return FALSE;}
 
 		int first = PriorityForFirstPoke(t1, t2, move1==STRUGGLE?&struggle:&(t1->team[0].moveList[move1]), move2==STRUGGLE?&struggle:&(t2->team[0].moveList[move2]), move1, move2);
 		t_Team *firstTeam = first ? t1 : t2;
@@ -271,7 +271,7 @@ void testBattle(t_Team * rouge, t_Team * bleu){
 	printf("pv rouge : %d\n\n",rouge->team[0].current_pv);
 	printf("pv bleu : %d\n\n",bleu->team[0].current_pv);
 	while(isTeamAlive(rouge) && isTeamAlive(bleu)){
-		playATurn(rouge,rand()%rouge->team[0].nb_move,bleu,AI_move_choice(&iaTest,rouge));
+		playATurn(rouge,AI_move_choice(&iaTest2,bleu),bleu,AI_move_choice(&iaTest,rouge));
 		while (isTeamAlive(rouge) && !isAlive(&(rouge->team[0]))){
 			int swap=rand()%5+11;
 			if(testActionValidity(swap,rouge)) swapActualAttacker(rouge,swap);
@@ -311,7 +311,10 @@ void testStruggle(t_Team * rouge, t_Team * bleu){
 	for(int i=0;i<rouge->team[0].nb_move;i++){
 		rouge->team[0].moveList[i].current_pp=0;
 	}
+	for(int i=0;i<bleu->team[0].nb_move;i++){
+		bleu->team[0].moveList[i].current_pp=0;
+	}
 	printPoke(&(rouge->team[0]));
 	printPoke(&(bleu->team[0]));
-	printf("test result = %d\n",playATurn(rouge,0,bleu,0));
+	printf("test result = %d\n",playATurn(rouge,0,bleu,AI_move_choice(&iaTest,rouge)));
 }
