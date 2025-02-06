@@ -4,7 +4,7 @@
 #include "../include/trainerAI.h"
 
 
-void sauvegarder_Joueur(char * nomSave ,t_trainer * joueur,t_trainer * dresseur){
+void sauvegarder(char * nomSave ,t_trainer * joueur,t_trainer * dresseur){
     
 
     char nomFichier[1024];
@@ -44,7 +44,7 @@ void sauvegarder_Joueur(char * nomSave ,t_trainer * joueur,t_trainer * dresseur)
     
 }
 
-void charger_Joueur(char * nomSave,t_trainer * joueur,t_trainer * dresseur){
+void charger(char * nomSave,t_trainer * joueur,t_trainer * dresseur){
     char nomFichier[1024];
 	strcpy(nomFichier , "src/data/save/");
 	strcat(nomFichier,nomSave);

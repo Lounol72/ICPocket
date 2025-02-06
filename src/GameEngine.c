@@ -110,17 +110,6 @@ void handleQuitEvent(Window *win, SDL_Event *event) {
 
 // Functions for new game
 
-void createFicGame() {
-    FILE *file = fopen("savegame.txt", "w");
-    if (file) {
-        fprintf(file, "New game initialized.\n");
-        fclose(file);
-        SDL_Log("Fichier de sauvegarde créé avec succès.");
-    } else {
-        SDL_Log("Erreur : Impossible de créer le fichier de sauvegarde.");
-    }
-}
-
 void handleNewGameEvent(Window * win, SDL_Event * event){
     handleEvent(win, event);
     if (!game.gameState.initialized) {
@@ -146,8 +135,6 @@ void handleNewGameEvent(Window * win, SDL_Event * event){
 
 // Functions for load game
 
-void readFicGame(){
-}
 
 void handleLoadGameEvent(Window *win, SDL_Event *event) {
     if (!win || !event) return;
@@ -230,6 +217,9 @@ void handleIntermediateEvent(Window *win, SDL_Event *event) {
         for (int i = 0; i < game.ui[7].buttons->size; i++) {
             ButtonClicked(game.ui[7].buttons->buttons[i], x, y, win);
         }
+    }
+    if(!game.saved){
+
     }
     handleEvent(win, event);
 }
@@ -519,6 +509,7 @@ void initGame(Window *win) {
     game.frameDelay = 1000 / game.FPS;
     game.newGameStartTime = 0;
     game.currentButton = 0;
+    game.saved = 0;
 
 
     game.speeds = malloc(sizeof(float)*3);

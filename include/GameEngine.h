@@ -107,6 +107,7 @@ typedef struct Game {
     int frameStart;
     int newGameStartTime;
     int currentButton;
+    int saved;
 } Game;
 
 /* ------------- Function Prototypes ------------- */
@@ -146,10 +147,6 @@ void destroyText(Text *text);
 
 /* Button initializations */
 void initAllButtons(Window *win);
-
-/* Save management */
-void createFicGame();
-void readFicGame();
 
 /* Loading screens */
 void renderNewGame(Window *win);
