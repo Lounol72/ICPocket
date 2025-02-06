@@ -52,6 +52,10 @@ void handleGameEvent(Window *win, SDL_Event *event)
             if(testActionValidity(swap,&game.battleState.bleu)) swapActualAttacker(&game.battleState.bleu, swap);
         }
         //printf("pv rouge : %d\npv bleu : %d\n", rouge.team[0].current_pv, bleu.team[0].current_pv);
+        if (!isAlive(&(game.battleState.rouge.team[0]))){
+            game.gameState.currentState = ICMONS;
+            win->state = ICMONS;
+        }
         game.gameState.playerTurn = 1;
     } else if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
         printf("VICTOIRE DES %s!!!\n", isTeamAlive(&game.battleState.rouge) ? "ROUGES" : "BLEUS");
@@ -241,7 +245,9 @@ void changeTextSpeed(Window *win, void *data) {
 void attqButtonClicked(Window *win, void *data) {
     (void)win; // Pour éviter le warning
     if (game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
+        if (isAlive(&(game.battleState.rouge.team[0]))) 
         playATurn(&game.battleState.rouge, (intptr_t)data, &game.battleState.bleu, AI_move_choice(&iaTest,&game.battleState.rouge));
+
         while (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))){
             int swap=rand() % 5 + 11;
             if(testActionValidity(swap,&game.battleState.bleu)) swapActualAttacker(&game.battleState.bleu, swap);
