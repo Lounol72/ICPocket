@@ -55,6 +55,7 @@ void handleGameEvent(Window *win, SDL_Event *event)
         if (!isAlive(&(game.battleState.rouge.team[0]))){
             game.gameState.currentState = ICMONS;
             win->state = ICMONS;
+            return;
         }
         game.gameState.playerTurn = 1;
     } else if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
@@ -62,6 +63,7 @@ void handleGameEvent(Window *win, SDL_Event *event)
         win->state = isTeamAlive(&game.battleState.rouge) ? INTER : MENU;
         game.gameState.currentState = win->state;
         game.gameState.initialized = 0;
+        return;
     }
     if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
         changeState(win, &game.stateHandlers[2].state);
@@ -161,21 +163,22 @@ void uptadeICMonsSprite(t_Poke *poke, float scaleX, float scaleY) {
     }
 }
 void initICMonsSprite(SDL_Renderer *renderer, const char *imagePath, t_Poke *poke, int x, int y, int w, int h) {
+    //temporaire
+    (void)imagePath;
     SDL_Surface *surface = IMG_Load("assets/Monsters/New Versions/calamd.png");
     if (!surface) {
         SDL_Log("❌ Erreur lors du chargement de l'image : %s", IMG_GetError());
-        return EXIT_FAILURE;
+        return ;
     }
     poke->texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
     surface = NULL;
     if(!poke->texture){
         SDL_Log("❌ Erreur lors de la création de la texture : %s", SDL_GetError());
-        return EXIT_FAILURE;
+        return ;
     }
     poke->rect = (SDL_Rect){x, y, w, h};
     poke->initialRect = poke->rect;
-    return EXIT_SUCCESS;
 }
 void renderICMonsSprite(Window *win, t_Poke *poke) {
     if (poke && poke->texture) {
@@ -183,6 +186,7 @@ void renderICMonsSprite(Window *win, t_Poke *poke) {
     }
 }
 void destroyICMonsSprite(Window *win, t_Poke *poke) {
+    (void)win;
     if ( poke->texture) {
         SDL_DestroyTexture(poke->texture);
         poke->texture = NULL;
@@ -795,7 +799,7 @@ void initAllButtons(Window * win)
 }
 
 void initText(Window *win) {
-    const char *texts[] = {"Lancement de la Nouvelle Partie...", "ICPocket"};
+    const char * const texts[] = {"Lancement de la Nouvelle Partie...", "ICPocket"};
     Text *textObjects[] = {&NewGameText, &title};
     SDL_Rect rects[] = {
         {win->width / 2 - 250, win->height / 2 + 250, 500, 100},

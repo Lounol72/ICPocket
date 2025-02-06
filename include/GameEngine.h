@@ -42,7 +42,7 @@ typedef enum AppState {
 
 /* Text rendering struct */
 typedef struct Text {
-    char *text;
+    const char *text;
     SDL_Rect rect;
     SDL_Rect initialRect;
     SDL_Color color;
@@ -180,6 +180,7 @@ void initICMonsSprite(SDL_Renderer *renderer, const char *imagePath, t_Poke *pok
 void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
 void renderICMonsSprite(Window *win, t_Poke *poke);
 void destroyICMonsSprite(Window *win, t_Poke *poke);
+void updateCurrentButton();
 
 void initGame(Window *win) ;
 
