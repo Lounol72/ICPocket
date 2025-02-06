@@ -285,6 +285,8 @@ void mainLoop(Window *win) {
     initGame(win);
     int frameStart;
     SDL_Event event;
+    // Définir la fonction de log
+    SDL_LogSetOutputFunction(LogToFile, NULL);
     
     initAllButtons(win);
     
@@ -830,12 +832,11 @@ void updateICButtons(Window *win, t_Team *team) {
     }
     for (int i = 0; i < 4; i++) {
         if(team->team[0].nb_move > i) setButtonText(game.ui[3].buttons->buttons[i], team->team[0].moveList[i].name, win->renderer);
-        else setButtonText(game.ui[3].buttons->buttons[i], " ", win->renderer);
-        
+        else setButtonText(game.ui[3].buttons->buttons[i], "  ", win->renderer);
     }
     for (int i  = 0; i < 6; i++) {
         if (team->team[i].name) setButtonText(game.ui[6].buttons->buttons[i], team->team[i].name, win->renderer);
-        else setButtonText(game.ui[6].buttons->buttons[i], " ", win->renderer);
+        else setButtonText(game.ui[6].buttons->buttons[i], "  ", win->renderer);
     }
 }
 
@@ -880,4 +881,14 @@ void loadMusic(Mix_Music **music, const char *musicPath) {
         SDL_Log("✅ Musique chargée avec succès.");
     }
     Mix_VolumeMusic(MIX_MAX_VOLUME / 2);
+}
+
+//---------------------------------------------------------------------------------
+
+void LogToFile(void *userdata, int category, SDL_LogPriority priority, const char *message) {
+    FILE *logFile = fopen("sdl_log.txt", "a"); // Ouvrir en mode ajout
+    if (logFile) {
+        fprintf(logFile, "[%d] [%d] %s\n", category, priority, message);
+        fclose(logFile);
+    }
 }

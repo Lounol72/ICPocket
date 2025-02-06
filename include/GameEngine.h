@@ -183,5 +183,6 @@ void destroyICMonsSprite(Window *win, t_Poke *poke);
 void updateCurrentButton();
 
 void initGame(Window *win) ;
+void LogToFile(void *userdata, int category, SDL_LogPriority priority, const char *message);
 
 #endif /* GAMEENGINE_H */
