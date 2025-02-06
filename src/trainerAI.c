@@ -28,7 +28,7 @@ int AI_move_choice(t_AI * ai, t_Team * p){
 	int tab_move[4];
     int nb_move_valide=0;
 	for(int i=0;i<ai->AI_t_Team->team[0].nb_move;i++){
-        tab_move[i]=ai->AI_t_Team->team[0].moveList[i].current_pp>0?i:-1;
+        tab_move[i]=i;
 		tab_damage[i]=ai->AI_t_Team->team[0].moveList[i].current_pp>0?calcDamage(ai->AI_t_Team,p,&(ai->AI_t_Team->team[0].moveList[i])):-1;
         nb_move_valide+=ai->AI_t_Team->team[0].moveList[i].current_pp>0?1:0;
 	}
