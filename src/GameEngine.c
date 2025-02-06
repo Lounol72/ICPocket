@@ -55,7 +55,7 @@ void handleGameEvent(Window *win, SDL_Event *event)
         game.gameState.playerTurn = 1;
     } else if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
         printf("VICTOIRE DES %s!!!\n", isTeamAlive(&game.battleState.rouge) ? "ROUGES" : "BLEUS");
-        win->state = isTeamAlive(&game.battleState.rouge) ? MENU : SETTINGS;
+        win->state = isTeamAlive(&game.battleState.rouge) ? INTER : MENU;
         game.gameState.currentState = win->state;
         game.gameState.initialized = 0;
     }
@@ -262,7 +262,14 @@ void changePokemon(Window *win, void *data) {
     }
 }
 
-
+void nextDuel(Window *win, void *data) {
+    (void)win; 
+    (void)data;
+    // Sauvegarde de la partie TODO 
+    healTeam(&game.battleState.rouge);
+    initTeam(&game.battleState.bleu, 3);
+    changeState(win, &game.stateHandlers[3].state);
+}
 
 void mainLoop(Window *win) {
     initGame(win);
@@ -282,7 +289,7 @@ void mainLoop(Window *win) {
         // Render the window
         SDL_RenderClear(win->renderer);
         render(win);
-        updateCurrentButton(win);
+        updateCurrentButton();
         SDL_RenderPresent(win->renderer);
 
         if(win->state == GAME){
@@ -514,6 +521,7 @@ void initGame(Window *win) {
     loadBackground(&game.ui[4].background, win->renderer, "assets/Title Screen/GameStart.jpg");
     loadBackground(&game.ui[3].background, win->renderer, "assets/Title Screen/combat.png");
     loadBackground(&game.ui[6].background, win->renderer, "assets/Title Screen/BG.jpg");
+    loadBackground(&game.ui[7].background, win->renderer, "assets/Title Screen/combat.png");
 
     initAudio();
     loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");
@@ -569,20 +577,22 @@ void initAllButtons(Window * win)
     int nbButtonsParam = 4;
     int nbButtonsGame = 5;
     int nbButtonsICMons = 7;
+    int nbButtonsInter = 2;
 
     Button **buttonsMenu = malloc(nbButtonsMenu * sizeof(Button *));
     Button **buttonsParam = malloc(nbButtonsParam * sizeof(Button *));
     Button **buttonsLoadGame = malloc(nbButtonsLoad * sizeof(Button *));
     Button **buttonsGame = malloc(nbButtonsGame * sizeof(Button *));
     Button **buttonsICMons = malloc(nbButtonsICMons * sizeof(Button *));
+    Button **buttonsInter = malloc(nbButtonsInter * sizeof(Button *));
 
     Slider **sliders = malloc(nbSlidersSettings * sizeof(Slider *));
     
     
 
-    if (!buttonsMenu || !sliders || !buttonsParam || !buttonsLoadGame || !buttonsGame ||!buttonsICMons) {
+    if (!buttonsMenu || !sliders || !buttonsParam || !buttonsLoadGame || !buttonsGame ||!buttonsICMons  || !buttonsInter) {
         SDL_Log("❌ Allocation de mémoire pour les boutons échouée !");
-        return;
+        exit(EXIT_FAILURE);
     }else{
         buttonsMenu[0] = createButton(
             "PLAY", win, 500, 150, 300, 100,
@@ -719,6 +729,18 @@ void initAllButtons(Window * win)
             changeState, &game.stateHandlers[3].state, win->LargeFont
         );
 
+        buttonsInter[0] = createButton(
+            "Next Duel", win, 500, 200, 300, 100,
+            (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
+            nextDuel, 0, win->LargeFont
+        );
+
+        buttonsInter[1] = createButton(
+            "Back", win, 500, 350, 300, 100,
+            (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
+            changeState, &game.stateHandlers[2].state, win->LargeFont
+        );
+
 
         for(int i = 0; i < 4; i++) {
             InitTextureButton(buttonsMenu[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
@@ -726,6 +748,7 @@ void initAllButtons(Window * win)
             if (i != 3) InitTextureButton(buttonsLoadGame[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
             InitTextureButton(buttonsGame[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
             InitTextureButton(buttonsICMons[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+            if (i < 2) InitTextureButton(buttonsInter[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
         }
         InitTextureButton(buttonsICMons[4], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
         InitTextureButton(buttonsICMons[5], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
@@ -758,6 +781,10 @@ void initAllButtons(Window * win)
         
         free(buttonsICMons);
         buttonsICMons = NULL;
+
+        addListButton(game.ui[7].buttons, buttonsInter, nbButtonsInter);
+        free(buttonsInter);
+        buttonsInter = NULL;
     }
 }
 

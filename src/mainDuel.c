@@ -9,12 +9,6 @@ int main(){
 	initTeam(&bleu,2);
 	//use testSwitch or testBattle to try the program's features
 	//testBattle(&rouge,&bleu);
-	printf("TEAM ROUGE:\n\n");
-	printTeam(&rouge);
-	printf("TEAM BLEU:\n\n");
-	printTeam(&bleu);
-	getPokeFromTeam(&rouge,0,&bleu,0);
-	printf("TEAM ROUGE:\n\n");
-	printTeam(&rouge);
+	testStruggle(&rouge,&bleu);
 	return 0;
 }

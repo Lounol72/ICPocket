@@ -26,6 +26,7 @@
 #include "structPoke.h"
 #include "duel.h"
 #include "trainerAI.h"
+#include "interDuel.h"
 
 /* Define the state of the application */
 typedef enum AppState {
@@ -171,6 +172,9 @@ void loadMusic(Mix_Music **music, const char *musicPath);
 /* ICMons selection */
 void renderICMons(Window *win);
 void handleICMonsEvent(Window *win, SDL_Event *event);
+
+/*Inter*/
+void nextDuel(Window* win, void *data);
 
 void initICMonsSprite(SDL_Renderer *renderer, const char *imagePath, t_Poke *poke, int x, int y, int w, int h);
 void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
