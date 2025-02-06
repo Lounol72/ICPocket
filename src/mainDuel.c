@@ -9,6 +9,6 @@ int main(){
 	initTeam(&bleu,2);
 	//use testSwitch or testBattle to try the program's features
 	//testBattle(&rouge,&bleu);
-	testStruggle(&rouge,&bleu);
+	testBattle(&rouge,&bleu);
 	return 0;
 }

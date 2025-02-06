@@ -208,19 +208,23 @@ int ppCheck(t_Move * move){
 }
 
 void affectDamage(t_Team * offender, t_Team * defender, int indexMove){
-	int targetedStatOff=offender->team[0].moveList[indexMove].categ; //différenciation attaque/attaque spéciale
+	t_Move * moveToDo;
+	moveToDo=!isStruggling(indexMove)?&(offender->team[0].moveList[indexMove]):&struggle;
+
+	int targetedStatOff=moveToDo->categ; //différenciation attaque/attaque spéciale
 	int targetedStatDef=targetedStatOff==ATT?DEF:SPD;
 
-	if(!isStruggling(indexMove) && !accuracyCheck(offender->team[0].moveList[indexMove].accuracy)){
-		printf("%s rate son attaque (%d precision)\n",offender->team[0].name,offender->team[0].moveList[indexMove].accuracy);
+	if(!isStruggling(indexMove) && !accuracyCheck(moveToDo->accuracy)){
+		printf("%s rate son attaque (%d precision)\n",offender->team[0].name,moveToDo->accuracy);
 		return;
 	}
-	printf("Attaque subis d'une puissance de %d\n avec une attaque de %d\ncontre une defence de %d\n",offender->team[0].moveList[indexMove].power,(int)(calcStatFrom(&(offender->team[0]),targetedStatOff) * statVariations[offender->statChanges[targetedStatOff]])
+	printf("Attaque subis d'une puissance de %d\n avec une attaque de %d\ncontre une defence de %d\n",moveToDo->power,(int)(calcStatFrom(&(offender->team[0]),targetedStatOff) * statVariations[offender->statChanges[targetedStatOff]])
 	,(int)(calcStatFrom(&(defender->team[0]),targetedStatDef) * statVariations[defender->statChanges[targetedStatDef]]));
-	int damage=calcDamage(offender,defender,isStruggling(indexMove)?&struggle:&(offender->team[0].moveList[indexMove]));
+	int damage=calcDamage(offender,defender,moveToDo);
+	if(isStruggling(indexMove)) printf("LUTTE\n");
 	printf("Dégats = %d\n",damage);
 	defender->team[0].current_pv=defender->team[0].current_pv>damage?defender->team[0].current_pv - damage:0;
-	if (!isStruggling(indexMove)) (offender->team[0].moveList[indexMove].current_pp)--;
+	if (!isStruggling(indexMove)) (moveToDo->current_pp)--;
 }
 
 void swapActualAttacker(t_Team * t, int swapIndex){
