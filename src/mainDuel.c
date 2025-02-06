@@ -9,6 +9,7 @@ int main(){
 	initBlueTeam(&bleuDresseur);
 	//use testSwitch or testBattle to try the program's features
 	//testBattle(&rouge,&bleu);
+<<<<<<< HEAD
 	printf("TEAM ROUGE:\n\n");
 	printTeam(&rouge);
 	printf("TEAM BLEU:\n\n");
@@ -19,5 +20,8 @@ int main(){
 	getPokeFromTeam(&rouge,0,bleuDresseur.trainTeam,0);
 	printf("TEAM ROUGE:\n\n");
 	printTeam(&rouge);
+=======
+	testBattle(&rouge,&bleu);
+>>>>>>> refs/remotes/origin/main
 	return 0;
 }

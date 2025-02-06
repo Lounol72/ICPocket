@@ -7,8 +7,31 @@ t_Team rouge;
 t_Team bleu;
 t_trainer bleuDresseur;
 
+int (*SecEffectTab[2])(t_Team *,int,int,int);
+
 float statVariations[13]={0.25,2./7,1./3,2./5,0.5,2./3,1,1.5,2,2.5,3,3.5,4};
 t_Move struggle={"Lutte",50,noType,physical,200,1,1,0};
+
+int statVarChange(t_Team * target, int probability, int modifier, int targetedStat){
+	if(rand()%100<probability) {
+		target->statChanges[targetedStat]+=modifier;
+		return TRUE;
+	}
+	return FALSE;
+}
+
+int applyEffect(t_Team * target, int probability, int effect, int bool_main_effect){
+	if(target->team[0].main_effect==noEffect && rand()%100<probability) {
+		if(bool_main_effect){
+			target->team[0].main_effect=effect;
+		}
+		else{
+			target->effect=effect;
+		}
+		return TRUE;
+	}
+	return FALSE;
+}
 
 void printTeam(t_Team * t){
 	for(int i=0;i<t->nb_poke;i++){
@@ -231,19 +254,23 @@ int ppCheck(t_Move * move){
 }
 
 void affectDamage(t_Team * offender, t_Team * defender, int indexMove){
-	int targetedStatOff=offender->team[0].moveList[indexMove].categ; //différenciation attaque/attaque spéciale
+	t_Move * moveToDo;
+	moveToDo=!isStruggling(indexMove)?&(offender->team[0].moveList[indexMove]):&struggle;
+
+	int targetedStatOff=moveToDo->categ; //différenciation attaque/attaque spéciale
 	int targetedStatDef=targetedStatOff==ATT?DEF:SPD;
 
-	if(!isStruggling(indexMove) && !accuracyCheck(offender->team[0].moveList[indexMove].accuracy)){
-		printf("%s rate son attaque (%d precision)\n",offender->team[0].name,offender->team[0].moveList[indexMove].accuracy);
+	if(!isStruggling(indexMove) && !accuracyCheck(moveToDo->accuracy)){
+		printf("%s rate son attaque (%d precision)\n",offender->team[0].name,moveToDo->accuracy);
 		return;
 	}
-	printf("Attaque subis d'une puissance de %d\n avec une attaque de %d\ncontre une defence de %d\n",offender->team[0].moveList[indexMove].power,(int)(calcStatFrom(&(offender->team[0]),targetedStatOff) * statVariations[offender->statChanges[targetedStatOff]])
+	printf("Attaque subis d'une puissance de %d\n avec une attaque de %d\ncontre une defence de %d\n",moveToDo->power,(int)(calcStatFrom(&(offender->team[0]),targetedStatOff) * statVariations[offender->statChanges[targetedStatOff]])
 	,(int)(calcStatFrom(&(defender->team[0]),targetedStatDef) * statVariations[defender->statChanges[targetedStatDef]]));
-	int damage=calcDamage(offender,defender,isStruggling(indexMove)?&struggle:&(offender->team[0].moveList[indexMove]));
+	int damage=calcDamage(offender,defender,moveToDo);
+	if(isStruggling(indexMove)) printf("LUTTE\n");
 	printf("Dégats = %d\n",damage);
 	defender->team[0].current_pv=defender->team[0].current_pv>damage?defender->team[0].current_pv - damage:0;
-	if (!isStruggling(indexMove)) (offender->team[0].moveList[indexMove].current_pp)--;
+	if (!isStruggling(indexMove)) (moveToDo->current_pp)--;
 }
 
 void swapActualAttacker(t_Team * t, int swapIndex){
@@ -263,7 +290,7 @@ int playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 		if(!hasMoveLeft(&(t1->team[0])) && isAttacking(move1)) move1=STRUGGLE;
 		if(!hasMoveLeft(&(t2->team[0])) && isAttacking(move2)) move2=STRUGGLE;
 
-		if(!testActionValidity(move1,t1) || !testActionValidity(move2,t2)) return FALSE;
+		if(!testActionValidity(move1,t1) || !testActionValidity(move2,t2)) {printf("Action Invalide!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");return FALSE;}
 
 		int first = PriorityForFirstPoke(t1, t2, move1==STRUGGLE?&struggle:&(t1->team[0].moveList[move1]), move2==STRUGGLE?&struggle:&(t2->team[0].moveList[move2]), move1, move2);
 		t_Team *firstTeam = first ? t1 : t2;
@@ -290,7 +317,7 @@ void testBattle(t_Team * rouge, t_Team * bleu){
 	printf("pv rouge : %d\n\n",rouge->team[0].current_pv);
 	printf("pv bleu : %d\n\n",bleu->team[0].current_pv);
 	while(isTeamAlive(rouge) && isTeamAlive(bleu)){
-		playATurn(rouge,rand()%rouge->team[0].nb_move,bleu,AI_move_choice(&iaTest,rouge));
+		playATurn(rouge,AI_move_choice(&iaTest2,bleu),bleu,AI_move_choice(&iaTest,rouge));
 		while (isTeamAlive(rouge) && !isAlive(&(rouge->team[0]))){
 			int swap=rand()%5+11;
 			if(testActionValidity(swap,rouge)) swapActualAttacker(rouge,swap);
@@ -330,7 +357,10 @@ void testStruggle(t_Team * rouge, t_Team * bleu){
 	for(int i=0;i<rouge->team[0].nb_move;i++){
 		rouge->team[0].moveList[i].current_pp=0;
 	}
+	for(int i=0;i<bleu->team[0].nb_move;i++){
+		bleu->team[0].moveList[i].current_pp=0;
+	}
 	printPoke(&(rouge->team[0]));
 	printPoke(&(bleu->team[0]));
-	printf("test result = %d\n",playATurn(rouge,0,bleu,0));
+	printf("test result = %d\n",playATurn(rouge,0,bleu,AI_move_choice(&iaTest,rouge)));
 }

@@ -3,7 +3,7 @@
 .idea/
 # Object files
 *.o
-
+*.json
 
 # Libraries
 *.lib

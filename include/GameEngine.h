@@ -26,7 +26,11 @@
 #include "structPoke.h"
 #include "duel.h"
 #include "trainerAI.h"
+<<<<<<< HEAD
 #include "save.h"
+=======
+#include "interDuel.h"
+>>>>>>> refs/remotes/origin/main
 
 /* Define the state of the application */
 typedef enum AppState {
@@ -42,7 +46,7 @@ typedef enum AppState {
 
 /* Text rendering struct */
 typedef struct Text {
-    char *text;
+    const char *text;
     SDL_Rect rect;
     SDL_Rect initialRect;
     SDL_Color color;
@@ -108,6 +112,7 @@ typedef struct Game {
     int frameStart;
     int newGameStartTime;
     int currentButton;
+    int saved;
 } Game;
 
 /* ------------- Function Prototypes ------------- */
@@ -148,10 +153,6 @@ void destroyText(Text *text);
 /* Button initializations */
 void initAllButtons(Window *win);
 
-/* Save management */
-void createFicGame();
-void readFicGame();
-
 /* Loading screens */
 void renderNewGame(Window *win);
 void handleNewGameEvent(Window *win, SDL_Event *event);
@@ -176,11 +177,16 @@ void loadMusic(Mix_Music **music, const char *musicPath);
 void renderICMons(Window *win);
 void handleICMonsEvent(Window *win, SDL_Event *event);
 
+/*Inter*/
+void nextDuel(Window* win, void *data);
+
 void initICMonsSprite(SDL_Renderer *renderer, const char *imagePath, t_Poke *poke, int x, int y, int w, int h);
 void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
 void renderICMonsSprite(Window *win, t_Poke *poke);
 void destroyICMonsSprite(Window *win, t_Poke *poke);
+void updateCurrentButton();
 
 void initGame(Window *win) ;
+void LogToFile(void *userdata, int category, SDL_LogPriority priority, const char *message);
 
 #endif /* GAMEENGINE_H */

@@ -47,22 +47,28 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
 void handleGameEvent(Window *win, SDL_Event *event) 
 {
     if (!game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
-        if (!isAlive(&(game.battleState.rouge.team[0]))) {
-            game.gameState.currentState = ICMONS;
-            win->state = ICMONS;
-        }
         while (!isAlive(&(game.battleState.bleu.team[0]))) {
             int swap=rand() % 5 + 11;
             if(testActionValidity(swap,&game.battleState.bleu)) swapActualAttacker(&game.battleState.bleu, swap);
         }
         //printf("pv rouge : %d\npv bleu : %d\n", rouge.team[0].current_pv, bleu.team[0].current_pv);
+        if (!isAlive(&(game.battleState.rouge.team[0]))){
+            game.gameState.currentState = ICMONS;
+            win->state = ICMONS;
+            return;
+        }
         game.gameState.playerTurn = 1;
     } else if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
         printf("VICTOIRE DES %s!!!\n", isTeamAlive(&game.battleState.rouge) ? "ROUGES" : "BLEUS");
+<<<<<<< HEAD
         //sauvegarder_Joueur("Save 1",&game.battleState.rouge,&game.battleState.bleu);
         win->state = isTeamAlive(&game.battleState.rouge) ? MENU : SETTINGS;
+=======
+        win->state = isTeamAlive(&game.battleState.rouge) ? INTER : MENU;
+>>>>>>> refs/remotes/origin/main
         game.gameState.currentState = win->state;
         game.gameState.initialized = 0;
+        return;
     }
     if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
         changeState(win, &game.stateHandlers[2].state);
@@ -111,17 +117,6 @@ void handleQuitEvent(Window *win, SDL_Event *event) {
 
 // Functions for new game
 
-void createFicGame() {
-    FILE *file = fopen("savegame.txt", "w");
-    if (file) {
-        fprintf(file, "New game initialized.\n");
-        fclose(file);
-        SDL_Log("Fichier de sauvegarde créé avec succès.");
-    } else {
-        SDL_Log("Erreur : Impossible de créer le fichier de sauvegarde.");
-    }
-}
-
 void handleNewGameEvent(Window * win, SDL_Event * event){
     handleEvent(win, event);
     if (!game.gameState.initialized) {
@@ -147,8 +142,6 @@ void handleNewGameEvent(Window * win, SDL_Event * event){
 
 // Functions for load game
 
-void readFicGame(){
-}
 
 void handleLoadGameEvent(Window *win, SDL_Event *event) {
     if (!win || !event) return;
@@ -175,21 +168,22 @@ void uptadeICMonsSprite(t_Poke *poke, float scaleX, float scaleY) {
     }
 }
 void initICMonsSprite(SDL_Renderer *renderer, const char *imagePath, t_Poke *poke, int x, int y, int w, int h) {
+    //temporaire
+    (void)imagePath;
     SDL_Surface *surface = IMG_Load("assets/Monsters/New Versions/calamd.png");
     if (!surface) {
         SDL_Log("❌ Erreur lors du chargement de l'image : %s", IMG_GetError());
-        return EXIT_FAILURE;
+        return ;
     }
     poke->texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
     surface = NULL;
     if(!poke->texture){
         SDL_Log("❌ Erreur lors de la création de la texture : %s", SDL_GetError());
-        return EXIT_FAILURE;
+        return ;
     }
     poke->rect = (SDL_Rect){x, y, w, h};
     poke->initialRect = poke->rect;
-    return EXIT_SUCCESS;
 }
 void renderICMonsSprite(Window *win, t_Poke *poke) {
     if (poke && poke->texture) {
@@ -197,6 +191,7 @@ void renderICMonsSprite(Window *win, t_Poke *poke) {
     }
 }
 void destroyICMonsSprite(Window *win, t_Poke *poke) {
+    (void)win;
     if ( poke->texture) {
         SDL_DestroyTexture(poke->texture);
         poke->texture = NULL;
@@ -232,6 +227,9 @@ void handleIntermediateEvent(Window *win, SDL_Event *event) {
             ButtonClicked(game.ui[7].buttons->buttons[i], x, y, win);
         }
     }
+    if(!game.saved){
+
+    }
     handleEvent(win, event);
 }
 
@@ -256,11 +254,9 @@ void changeTextSpeed(Window *win, void *data) {
 void attqButtonClicked(Window *win, void *data) {
     (void)win; // Pour éviter le warning
     if (game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
+        if (isAlive(&(game.battleState.rouge.team[0]))) 
         playATurn(&game.battleState.rouge, (intptr_t)data, &game.battleState.bleu, AI_move_choice(&iaTest,&game.battleState.rouge));
-        if (isTeamAlive(&game.battleState.rouge) && !isAlive(&(game.battleState.rouge.team[0]))){
-            game.gameState.currentState = ICMONS;
-            win->state = ICMONS;
-        }
+
         while (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))){
             int swap=rand() % 5 + 11;
             if(testActionValidity(swap,&game.battleState.bleu)) swapActualAttacker(&game.battleState.bleu, swap);
@@ -281,12 +277,21 @@ void changePokemon(Window *win, void *data) {
     }
 }
 
-
+void nextDuel(Window *win, void *data) {
+    (void)win; 
+    (void)data;
+    // Sauvegarde de la partie TODO 
+    healTeam(&game.battleState.rouge);
+    initTeam(&game.battleState.bleu, 3);
+    changeState(win, &game.stateHandlers[3].state);
+}
 
 void mainLoop(Window *win) {
     initGame(win);
     int frameStart;
     SDL_Event event;
+    // Définir la fonction de log
+    SDL_LogSetOutputFunction(LogToFile, NULL);
     
     initAllButtons(win);
     
@@ -301,7 +306,7 @@ void mainLoop(Window *win) {
         // Render the window
         SDL_RenderClear(win->renderer);
         render(win);
-        updateCurrentButton(win);
+        updateCurrentButton();
         SDL_RenderPresent(win->renderer);
 
         if(win->state == GAME){
@@ -520,6 +525,7 @@ void initGame(Window *win) {
     game.frameDelay = 1000 / game.FPS;
     game.newGameStartTime = 0;
     game.currentButton = 0;
+    game.saved = 0;
 
 
     game.speeds = malloc(sizeof(float)*3);
@@ -532,6 +538,7 @@ void initGame(Window *win) {
     loadBackground(&game.ui[4].background, win->renderer, "assets/Title Screen/GameStart.jpg");
     loadBackground(&game.ui[3].background, win->renderer, "assets/Title Screen/combat.png");
     loadBackground(&game.ui[6].background, win->renderer, "assets/Title Screen/BG.jpg");
+    loadBackground(&game.ui[7].background, win->renderer, "assets/Title Screen/combat.png");
 
     initAudio();
     loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");
@@ -587,20 +594,22 @@ void initAllButtons(Window * win)
     int nbButtonsParam = 4;
     int nbButtonsGame = 5;
     int nbButtonsICMons = 7;
+    int nbButtonsInter = 2;
 
     Button **buttonsMenu = malloc(nbButtonsMenu * sizeof(Button *));
     Button **buttonsParam = malloc(nbButtonsParam * sizeof(Button *));
     Button **buttonsLoadGame = malloc(nbButtonsLoad * sizeof(Button *));
     Button **buttonsGame = malloc(nbButtonsGame * sizeof(Button *));
     Button **buttonsICMons = malloc(nbButtonsICMons * sizeof(Button *));
+    Button **buttonsInter = malloc(nbButtonsInter * sizeof(Button *));
 
     Slider **sliders = malloc(nbSlidersSettings * sizeof(Slider *));
     
     
 
-    if (!buttonsMenu || !sliders || !buttonsParam || !buttonsLoadGame || !buttonsGame ||!buttonsICMons) {
+    if (!buttonsMenu || !sliders || !buttonsParam || !buttonsLoadGame || !buttonsGame ||!buttonsICMons  || !buttonsInter) {
         SDL_Log("❌ Allocation de mémoire pour les boutons échouée !");
-        return;
+        exit(EXIT_FAILURE);
     }else{
         buttonsMenu[0] = createButton(
             "PLAY", win, 500, 150, 300, 100,
@@ -737,6 +746,18 @@ void initAllButtons(Window * win)
             changeState, &game.stateHandlers[3].state, win->LargeFont
         );
 
+        buttonsInter[0] = createButton(
+            "Next Duel", win, 500, 200, 300, 100,
+            (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
+            nextDuel, 0, win->LargeFont
+        );
+
+        buttonsInter[1] = createButton(
+            "Back", win, 500, 350, 300, 100,
+            (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
+            changeState, &game.stateHandlers[2].state, win->LargeFont
+        );
+
 
         for(int i = 0; i < 4; i++) {
             InitTextureButton(buttonsMenu[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
@@ -744,6 +765,7 @@ void initAllButtons(Window * win)
             if (i != 3) InitTextureButton(buttonsLoadGame[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
             InitTextureButton(buttonsGame[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
             InitTextureButton(buttonsICMons[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+            if (i < 2) InitTextureButton(buttonsInter[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
         }
         InitTextureButton(buttonsICMons[4], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
         InitTextureButton(buttonsICMons[5], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
@@ -776,11 +798,15 @@ void initAllButtons(Window * win)
         
         free(buttonsICMons);
         buttonsICMons = NULL;
+
+        addListButton(game.ui[7].buttons, buttonsInter, nbButtonsInter);
+        free(buttonsInter);
+        buttonsInter = NULL;
     }
 }
 
 void initText(Window *win) {
-    const char *texts[] = {"Lancement de la Nouvelle Partie...", "ICPocket"};
+    const char * const texts[] = {"Lancement de la Nouvelle Partie...", "ICPocket"};
     Text *textObjects[] = {&NewGameText, &title};
     SDL_Rect rects[] = {
         {win->width / 2 - 250, win->height / 2 + 250, 500, 100},
@@ -811,12 +837,11 @@ void updateICButtons(Window *win, t_Team *team) {
     }
     for (int i = 0; i < 4; i++) {
         if(team->team[0].nb_move > i) setButtonText(game.ui[3].buttons->buttons[i], team->team[0].moveList[i].name, win->renderer);
-        else setButtonText(game.ui[3].buttons->buttons[i], " ", win->renderer);
-        
+        else setButtonText(game.ui[3].buttons->buttons[i], "  ", win->renderer);
     }
     for (int i  = 0; i < 6; i++) {
         if (team->team[i].name) setButtonText(game.ui[6].buttons->buttons[i], team->team[i].name, win->renderer);
-        else setButtonText(game.ui[6].buttons->buttons[i], " ", win->renderer);
+        else setButtonText(game.ui[6].buttons->buttons[i], "  ", win->renderer);
     }
 }
 
@@ -861,4 +886,14 @@ void loadMusic(Mix_Music **music, const char *musicPath) {
         SDL_Log("✅ Musique chargée avec succès.");
     }
     Mix_VolumeMusic(MIX_MAX_VOLUME / 2);
+}
+
+//---------------------------------------------------------------------------------
+
+void LogToFile(void *userdata, int category, SDL_LogPriority priority, const char *message) {
+    FILE *logFile = fopen("sdl_log.txt", "a"); // Ouvrir en mode ajout
+    if (logFile) {
+        fprintf(logFile, "[%d] [%d] %s\n", category, priority, message);
+        fclose(logFile);
+    }
 }
