@@ -47,10 +47,6 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
 void handleGameEvent(Window *win, SDL_Event *event) 
 {
     if (!game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
-        if (!isAlive(&(game.battleState.rouge.team[0]))) {
-            game.gameState.currentState = ICMONS;
-            win->state = ICMONS;
-        }
         while (!isAlive(&(game.battleState.bleu.team[0]))) {
             int swap=rand() % 5 + 11;
             if(testActionValidity(swap,&game.battleState.bleu)) swapActualAttacker(&game.battleState.bleu, swap);
@@ -246,10 +242,6 @@ void attqButtonClicked(Window *win, void *data) {
     (void)win; // Pour éviter le warning
     if (game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
         playATurn(&game.battleState.rouge, (intptr_t)data, &game.battleState.bleu, AI_move_choice(&iaTest,&game.battleState.rouge));
-        if (isTeamAlive(&game.battleState.rouge) && !isAlive(&(game.battleState.rouge.team[0]))){
-            game.gameState.currentState = ICMONS;
-            win->state = ICMONS;
-        }
         while (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))){
             int swap=rand() % 5 + 11;
             if(testActionValidity(swap,&game.battleState.bleu)) swapActualAttacker(&game.battleState.bleu, swap);
