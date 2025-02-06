@@ -6,8 +6,31 @@
 t_Team rouge;
 t_Team bleu;
 
+int (*SecEffectTab[2])(t_Team *,int,int,int);
+
 float statVariations[13]={0.25,2./7,1./3,2./5,0.5,2./3,1,1.5,2,2.5,3,3.5,4};
 t_Move struggle={"Lutte",50,noType,physical,200,1,1,0};
+
+int statVarChange(t_Team * target, int probability, int modifier, int targetedStat){
+	if(rand()%100<probability) {
+		target->statChanges[targetedStat]+=modifier;
+		return TRUE;
+	}
+	return FALSE;
+}
+
+int applyEffect(t_Team * target, int probability, int effect, int bool_main_effect){
+	if(target->team[0].main_effect==noEffect && rand()%100<probability) {
+		if(bool_main_effect){
+			target->team[0].main_effect=effect;
+		}
+		else{
+			target->effect=effect;
+		}
+		return TRUE;
+	}
+	return FALSE;
+}
 
 void printTeam(t_Team * t){
 	for(int i=0;i<t->nb_poke;i++){

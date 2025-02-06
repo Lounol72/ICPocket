@@ -22,6 +22,7 @@
 typedef enum{status=-1,physical=1,special=3} t_Categ;
 typedef enum{noType=0,feu,plante,eau} t_Type;
 typedef enum{male = 0,female} t_Gender;
+typedef enum{noEffect = 0,burn,poison,paralyze,flinch,confusion} t_Effect;
 
 typedef struct{char nature[15];float coeff[6];} t_Nature;
 
@@ -50,6 +51,7 @@ typedef struct
 	int iv[6];
 	t_Move moveList[4];
 	int nb_move;
+	t_Effect main_effect;
 	// Affichage
 	SDL_Rect rect;
 	SDL_Texture *texture;

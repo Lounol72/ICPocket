@@ -13,7 +13,8 @@ extern t_Move struggle;
 typedef struct{
 	t_Poke team[6];
 	int nb_poke;
-	int statChanges[6];	
+	int statChanges[6];
+	t_Effect effect;	
 } t_Team;
 
 extern t_Team rouge;
@@ -30,6 +31,9 @@ int testActionValidity(int action, t_Team * t);
 int accuracyCheck(int accuracy);
 int hasMoveLeft(t_Poke *);
 int isStruggling(int);
+
+int statVarChange(t_Team * target, int probability, int modifier, int targetedStat);
+int applyEffect(t_Team * target, int probability, int effect, int bool_main_effect);
 
 void printTeam(t_Team * t);
 int calcStatFrom(t_Poke * p,int stat);
