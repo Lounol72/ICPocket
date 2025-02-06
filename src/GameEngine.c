@@ -1,5 +1,5 @@
 #include "../include/GameEngine.h"
-
+#include "../include/save.h"
 // Global variables
 Game game;
 
@@ -59,6 +59,7 @@ void handleGameEvent(Window *win, SDL_Event *event)
         game.gameState.playerTurn = 1;
     } else if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
         printf("VICTOIRE DES %s!!!\n", isTeamAlive(&game.battleState.rouge) ? "ROUGES" : "BLEUS");
+        //sauvegarder_Joueur("Save 1",&game.battleState.rouge,&game.battleState.bleu);
         win->state = isTeamAlive(&game.battleState.rouge) ? MENU : SETTINGS;
         game.gameState.currentState = win->state;
         game.gameState.initialized = 0;

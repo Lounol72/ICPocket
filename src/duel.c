@@ -5,6 +5,7 @@
 
 t_Team rouge;
 t_Team bleu;
+t_trainer bleuDresseur;
 
 float statVariations[13]={0.25,2./7,1./3,2./5,0.5,2./3,1,1.5,2,2.5,3,3.5,4};
 t_Move struggle={"Lutte",50,noType,physical,200,1,1,0};
@@ -19,6 +20,18 @@ void printTeam(t_Team * t){
 	}
 }
 
+void printTrainer(t_trainer * t){
+	for(int i=0;i<t->trainTeam->nb_poke;i++){
+		if (!(t->trainTeam->team[i].current_pv==POKE_IS_ABSCENT)){
+			printf("Le dresseur %s\n",t->name);
+			printTeam(t->trainTeam);
+			printPoke(&(t->trainTeam->team[i]));
+			getchar();
+			system("clear");
+		}
+	}
+}
+/*
 void choose_starter(t_Team * t){
 	int choix;
 	do{
@@ -27,7 +40,7 @@ void choose_starter(t_Team * t){
 	}while(choix<1 || choix>3);
 	
 	generate_poke(&(t->team[0]),choix+12);
-}
+}*/
 
 void teamTest(t_Team * t, int nb_poke){
 	initTeam(t,nb_poke);
@@ -77,6 +90,39 @@ void initTeam(t_Team * t, int nb_poke){
 			t->team[i].moveList[j].current_pp=t->team[i].moveList[j].max_pp;
 		}
 	}
+}
+
+void initBlueTeam(t_trainer *t) {
+    FILE *fichierTrainer = fopen("src/data/dataTrainer.csv", "r");
+    if (fichierTrainer == NULL) {
+        printf("Erreur : impossible d'ouvrir le fichier.\n");
+        exit(1);
+    } else {
+        char buffer[256];
+        int id = rand() % 3 + 1;
+        for (int i = 1; i < id; i++) {
+            if (fgets(buffer, sizeof(buffer), fichierTrainer) == NULL) {
+                printf("Erreur : ligne %d introuvable dans le fichier.\n", id);
+                fclose(fichierTrainer);
+                exit(1);
+            }
+        }
+        int nb_poke, id_poke;
+        fscanf(fichierTrainer, "%d,%d,%[^,]\n", &(t->id), &nb_poke, t->name);
+        t->trainTeam = malloc(sizeof(t_Team)); // Initialisation de trainTeam
+        t->trainTeam->nb_poke = nb_poke;
+        for (int i = 0; i < nb_poke; i++) {
+            fscanf(fichierTrainer, "%d\n", &id_poke);
+            generate_poke(&(t->trainTeam->team[i]), id_poke);
+            for (int j = 0; j < nb_poke; j++) t->trainTeam->statChanges[j] = NEUTRAL_STAT_CHANGE;
+            t->trainTeam->team[i].current_pv = calcStatFrom(&(t->trainTeam->team[i]), PV);
+            for (int j = 0; j < t->trainTeam->team[i].nb_move; j++) {
+                t->trainTeam->team[i].moveList[j] = generateMove(&(t->trainTeam->team[i]));
+                t->trainTeam->team[i].moveList[j].current_pp = t->trainTeam->team[i].moveList[j].max_pp;
+            }
+        }
+        fclose(fichierTrainer);
+    }
 }
 
 int calcDamage(t_Team * offender, t_Team * defender, t_Move * move){
@@ -256,8 +302,8 @@ void testBattle(t_Team * rouge, t_Team * bleu){
 		printf("pv rouge : %d\n\n",rouge->team[0].current_pv);
 		printf("pv bleu : %d\n\n",bleu->team[0].current_pv);
 	}
-	if(isTeamAlive(rouge)) printf("VICTOIRE DES ROUGES!!!\n");
-	else printf("VICTOIRE DES BLEUS!!!\n");
+	if(isTeamAlive(rouge)) printf("VICTOIRE DES CHIENS!!!\n");
+	else printf("VICTOIRE DES CHATS!!!\n");
 	//printPoke(&(rouge->team[0]));
 }
 

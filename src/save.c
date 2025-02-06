@@ -1,7 +1,6 @@
-#include "../include/structPoke.h"
-#include "../include/save.h"
+#include "../include/GameEngine.h"
 #include "../include/ministdlib.h"
-#include "../include/trainerAI.h"
+#include "../include/save.h"
 
 
 void sauvegarder_Joueur(char * nomSave ,t_trainer * joueur,t_trainer * dresseur){
@@ -14,7 +13,7 @@ void sauvegarder_Joueur(char * nomSave ,t_trainer * joueur,t_trainer * dresseur)
 
     joueur->id = 1;
     
-    FILE *fichier = fopen(nomFichier, "w+");
+    FILE *fichier = fopen(nomFichier, "w");
     if(fichier == NULL){
         printf("Erreur : impossible d'ouvrir la save.\n");
         exit(1);
@@ -77,54 +76,4 @@ void charger_Joueur(char * nomSave,t_trainer * joueur,t_trainer * dresseur){
         fscanf(fichier, "Dernier dresseur battu : %s id: %d\n", dresseur->name, &(dresseur->id));
     }
 
-}
-
-int main(){
-    /*
-    initData();
-    
-    char nom[20];
-    printf("Nom joueur");
-    scanf("%s" , nom);
-
-    t_trainer  *red=malloc(sizeof(t_trainer));
-    red->trainTeam = malloc(sizeof(t_Team));
-    t_trainer *blue = malloc(sizeof(t_trainer));
-    blue->id = 48;
-    strcat(blue->name,"blue");
-    initTeam(red->trainTeam,6);
-    
-    sauvegarder_Joueur(nom,red,blue);
-    for(int i = 0; i < 6; i++){
-        
-            printPoke(&(red->trainTeam->team[i]));
-        
-    }
-    
-    free(red->trainTeam);
-
-    free(red);
-    
-
-    char nom[20];
-    printf("Nom de la sauvegarde à charger: ");
-    scanf("%s", nom);
-
-    t_trainer *red = malloc(sizeof(t_trainer));
-    red->trainTeam = malloc(sizeof(t_Team));
-    t_trainer *blue = malloc(sizeof(t_trainer));
-
-    charger_Joueur(nom, red, blue);
-
-    printf("Nom du joueur: %s\n", red->name);
-    for(int i = 0; i < 6; i++){
-        printPoke(&(red->trainTeam->team[i]));
-    }
-    printf("Dernier dresseur battu: %s id: %d\n", blue->name, blue->id);
-
-    free(red->trainTeam);
-    free(red);
-    free(blue);
-    return 0;
-*/
 }

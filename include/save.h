@@ -1,11 +1,3 @@
-#include "duel.h"
-
-typedef struct 
-{
-	int id;
-	char name[100];
-	t_Team * trainTeam;
-}t_trainer;
 
 /**
 *@brief Save the player's data in a file

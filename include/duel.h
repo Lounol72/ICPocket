@@ -18,7 +18,14 @@ typedef struct{
 
 extern t_Team rouge;
 extern t_Team bleu;
+typedef struct 
+{
+	int id;
+	char name[100];
+	t_Team * trainTeam;
+}t_trainer;
 
+extern t_trainer bleuDresseur;
 
 int isAttacking(int);
 int isSwitching(int);
@@ -32,8 +39,10 @@ int hasMoveLeft(t_Poke *);
 int isStruggling(int);
 
 void printTeam(t_Team * t);
+void printTrainer(t_trainer * t);
 int calcStatFrom(t_Poke * p,int stat);
 void initTeam(t_Team * t,int);
+void initBlueTeam(t_trainer *t);
 int calcDamage(t_Team * offender,t_Team * defender, t_Move *);
 void setDefaultStatChanges(t_Team * p);
 int resolveSpeedDuel(int speed1, int speed2);
