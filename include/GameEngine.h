@@ -28,10 +28,8 @@
 #include "trainerAI.h"
 #include "save.h"
 #include "interDuel.h"
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
+
 /* Define the state of the application */
 typedef enum AppState {
     QUIT = 0, // 0
