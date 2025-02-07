@@ -9,7 +9,7 @@ t_Team bleu;
 int (*SecEffectTab[3])(t_Team *,int,int,int)={statVarChange,applyEffect,recoilDamage};
 
 float statVariations[13]={0.25,2./7,1./3,2./5,0.5,2./3,1,1.5,2,2.5,3,3.5,4};
-t_Move struggle={-1,"lutte",50,noType,physical,200,1,1,0,1,2,100,25,1};
+t_Move struggle={-1,"lutte",50,noType,physical,200,1,1,0,1,2,100,25,0};
 
 t_Move confusedMove={-2,"Confus",40,noType,physical,200,1,1,0,1,-1,0,0,0};
 
@@ -438,5 +438,9 @@ void testStruggle(t_Team * rouge, t_Team * bleu){
 	}
 	printPoke(&(rouge->team[0]));
 	printPoke(&(bleu->team[0]));
+	printf("pv rouge : %d\n\n",rouge->team[0].current_pv);
+	printf("pv bleu : %d\n\n",bleu->team[0].current_pv);
 	printf("test result = %d\n",playATurn(rouge,0,bleu,AI_move_choice(&iaTest,rouge)));
+	printf("pv rouge : %d\n\n",rouge->team[0].current_pv);
+	printf("pv bleu : %d\n\n",bleu->team[0].current_pv);
 }
