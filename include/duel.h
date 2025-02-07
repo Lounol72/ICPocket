@@ -1,6 +1,7 @@
 #define NEUTRAL_STAT_CHANGE 6
 #define POKE_IS_ABSCENT -1
 #define STRUGGLE -10
+#define CONFUSED_MOVE -20
 
 #define ATTAQUE_1 0
 #define ATTAQUE_2 1
@@ -9,6 +10,7 @@
 
 extern float statVariations[13];
 extern t_Move struggle;
+extern t_Move confusedMove;
 
 typedef struct{
 	int id;
@@ -18,6 +20,8 @@ typedef struct{
 	int statChanges[6];
 	t_Effect effect;	
 } t_Team;
+
+extern int (*SecEffectTab[3])(t_Team *,int,int,int);
 
 extern t_Team rouge;
 extern t_Team bleu;
@@ -35,6 +39,8 @@ int isStruggling(int);
 
 int statVarChange(t_Team * target, int probability, int modifier, int targetedStat);
 int applyEffect(t_Team * target, int probability, int effect, int bool_main_effect);
+int recoilDamage(t_Team * target, int probability, int percentage_of_val, int indexPoke);
+void launchSecEffect(t_Team * offender, t_Team * defender, t_Move * action);
 
 void printTeam(t_Team * t);
 int calcStatFrom(t_Poke * p,int stat);

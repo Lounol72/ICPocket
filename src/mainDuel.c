@@ -4,11 +4,13 @@
 #include "../include/interDuel.h"
 
 int main(){
+	printf("stp");
 	initData();
 	initTeam(&rouge,3);
-	initBlueTeam(&bleu);
+	initTeam(&bleu,3);
 	//use testSwitch or testBattle to try the program's features
-	//testBattle(&rouge,&bleu);
+	testBattle(&rouge,&bleu);
+	getchar();
 	printf("TEAM ROUGE:\n\n");
 	printTeam(&rouge);
 	printf("TEAM BLEU:\n\n");

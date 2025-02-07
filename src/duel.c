@@ -6,14 +6,18 @@
 t_Team rouge;
 t_Team bleu;
 
-int (*SecEffectTab[2])(t_Team *,int,int,int);
+int (*SecEffectTab[3])(t_Team *,int,int,int)={statVarChange,applyEffect,recoilDamage};
 
 float statVariations[13]={0.25,2./7,1./3,2./5,0.5,2./3,1,1.5,2,2.5,3,3.5,4};
-t_Move struggle={-1,"lutte",50,noType,physical,200,1,1,0,-1,0,0,0,0};
+t_Move struggle={-1,"lutte",50,noType,physical,200,1,1,0,1,2,100,25,1};
+
+t_Move confusedMove={-2,"Confus",40,noType,physical,200,1,1,0,1,-1,0,0,0};
 
 int statVarChange(t_Team * target, int probability, int modifier, int targetedStat){
 	if(rand()%100<probability) {
-		target->statChanges[targetedStat]+=modifier;
+		if(target->statChanges[targetedStat]+modifier>12) target->statChanges[targetedStat]=12;
+		else if(target->statChanges[targetedStat]+modifier<0) target->statChanges[targetedStat]=0;
+		else target->statChanges[targetedStat]+=modifier;
 		return TRUE;
 	}
 	return FALSE;
@@ -32,12 +36,23 @@ int applyEffect(t_Team * target, int probability, int effect, int bool_main_effe
 	return FALSE;
 }
 
-int recoilDamage(t_Team * target, int probability, int percentage_of_val, int val){
+int recoilDamage(t_Team * target, int probability, int percentage_of_val, int indexPoke){
 	if(rand()%100<probability) {
-		target->team[0].current_pv=val*percentage_of_val/100>target->team[0].current_pv?0:target->team[0].current_pv-val*percentage_of_val/100;
+		target->team[0].current_pv-=calcStatFrom(&(target->team[indexPoke]),PV)*percentage_of_val/100>target->team[indexPoke].current_pv?0:calcStatFrom(&(target->team[indexPoke]),PV)*percentage_of_val/100;
 		return TRUE;
 	}
 	return FALSE;
+}
+
+void launchSecEffect(t_Team * offender, t_Team * defender, t_Move * action){
+	if(action->ind_secEffect>=0){
+		if(action->target){
+			SecEffectTab[action->ind_secEffect](offender,action->probability,action->value_effect,action->effect_modifier);
+		}
+		else{
+			SecEffectTab[action->ind_secEffect](defender,action->probability,action->value_effect,action->effect_modifier);
+		}
+	}
 }
 
 void printTeam(t_Team * t){
@@ -94,18 +109,22 @@ int testActionValidity(int action, t_Team * t){
 int calcStatFrom(t_Poke * p, int stat) {
 	if (stat==PV) return ((int)(2*p->baseStats[PV]+p->iv[PV])*p->lvl/100)+p->lvl+10;
 	int value=(int)(((2*p->baseStats[stat]+p->iv[stat])*p->lvl/100)+5)*tabNature[p->nature].coeff[stat];
+	if(p->main_effect==burn && stat==ATT) return value/2; //effet passif brulure
+	if(p->main_effect==paralyze && stat==SPE) return value/2; //effet passif paralisie
 	return value;
 }
 
 void initTeam(t_Team * t, int nb_poke){
 	t->nb_poke=nb_poke;
+	t->effect=noEffect;
 	for(int i=0;i<nb_poke;i++){
 		t->team[i].nb_move=rand()%3+1;
+		t->team[i].main_effect=noEffect;
 		generate_poke(&(t->team[i]),((i * 12335634 )%15)); // temporaire
 		for(int j=0;j<6;j++) t->statChanges[j]=NEUTRAL_STAT_CHANGE;
 		t->team[i].current_pv=calcStatFrom(&(t->team[i]),PV);//POKE_IS_ABSENT;
 		for(int j=0;j<t->team[i].nb_move;j++){
-			//t->team[i].moveList[j]=generateMove(t->team[i]);
+			t->team[i].moveList[j]=generateRandomMoveBetter(&(t->team[i]));
 			t->team[i].moveList[j].current_pp=t->team[i].moveList[j].max_pp;
 		}
 	}
@@ -251,12 +270,18 @@ int ppCheck(t_Move * move){
 
 void affectDamage(t_Team * offender, t_Team * defender, int indexMove){
 	t_Move * moveToDo;
-	moveToDo=!isStruggling(indexMove)?&(offender->team[0].moveList[indexMove]):&struggle;
+	if(indexMove<0){
+		moveToDo=isStruggling(indexMove)?&struggle:&confusedMove;
+	}
+	else{
+		moveToDo=&(offender->team[0].moveList[indexMove]);
+	}
+	
 
 	int targetedStatOff=moveToDo->categ; //différenciation attaque/attaque spéciale
 	int targetedStatDef=targetedStatOff==ATT?DEF:SPD;
 
-	if(!isStruggling(indexMove) && !accuracyCheck(moveToDo->accuracy)){
+	if(!accuracyCheck(moveToDo->accuracy)){
 		printf("%s rate son attaque (%d precision)\n",offender->team[0].name,moveToDo->accuracy);
 		return;
 	}
@@ -266,7 +291,8 @@ void affectDamage(t_Team * offender, t_Team * defender, int indexMove){
 	if(isStruggling(indexMove)) printf("LUTTE\n");
 	printf("Dégats = %d\n",damage);
 	defender->team[0].current_pv=defender->team[0].current_pv>damage?defender->team[0].current_pv - damage:0;
-	if (!isStruggling(indexMove)) (moveToDo->current_pp)--;
+	if (!(indexMove<0)) (moveToDo->current_pp)--;
+	launchSecEffect(offender,defender,moveToDo);
 }
 
 void swapActualAttacker(t_Team * t, int swapIndex){
@@ -294,15 +320,69 @@ int playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 		int firstMove = first ? move1 : move2;
 		int secondMove = first ? move2 : move1;
 
-		if (isAttacking(firstMove)) affectDamage(firstTeam, secondTeam, firstMove);
+		if (isAttacking(firstMove)) {
+			/*snap out confusion check*/
+			if(firstTeam->effect==confusion && rand()%100<20){
+				printf("Le poké se remet de sa confusion\n");
+				firstTeam->effect=noEffect;
+			}
+			/*flinch check*/
+			if(firstTeam->effect==flinch){
+				printf("Le poke a peur! Il n'attaque pas!\n");
+			}
+			/*paralyze check*/
+			else if(firstTeam->team[0].main_effect==paralyze && rand()%100<25){
+				printf("Le poké est paralysé!\n");
+			}
+			/*confusion check*/
+			else if(firstTeam->effect==confusion && rand()%100<33){
+				printf("Il se blesse dans sa confusion!\n");
+				affectDamage(firstTeam, firstTeam, CONFUSED_MOVE);
+			}
+			else{
+				affectDamage(firstTeam, secondTeam, firstMove);
+			}
+		}
 		else if (isSwitching(firstMove)) swapActualAttacker(firstTeam, firstMove);
 		else return FALSE;
 
 		if (isAlive(&(secondTeam->team[0]))) {
-			if (isAttacking(secondMove)) affectDamage(secondTeam, firstTeam, secondMove);
+			if (isAttacking(secondMove)){
+				/*snap out confusion check*/
+				if(secondTeam->effect==confusion && rand()%100<20){
+					printf("Le poké se remet de sa confusion\n");
+					secondTeam->effect=noEffect;
+				}
+				/*flinch check*/
+				if(secondTeam->effect==flinch){
+					printf("Le poke a peur! Il n'attaque pas!\n");
+				}
+				/*paralyze check*/
+				else if(secondTeam->team[0].main_effect==paralyze && rand()%100<25){
+					printf("Le poké est paralysé!\n");
+				}
+				/*confusion check*/
+				else if(secondTeam->effect==confusion && rand()%100<33){
+					printf("Il se blesse dans sa confusion!\n");
+					affectDamage(secondTeam, secondTeam, CONFUSED_MOVE);
+				}
+				else{
+					affectDamage(secondTeam, firstTeam, secondMove);
+				}
+			}
 			else if (isSwitching(secondMove)) swapActualAttacker(secondTeam, secondMove);
 			else return FALSE;
 		}
+
+		/*Poison and burn damage applier*/
+		if (isAlive(&(firstTeam->team[0])) && firstTeam->team[0].main_effect==burn) recoilDamage(firstTeam,100,6,0);
+		if (isAlive(&(firstTeam->team[0])) && firstTeam->team[0].main_effect==poison) recoilDamage(firstTeam,100,12,0);
+		if (isAlive(&(firstTeam->team[0])) && firstTeam->team[0].main_effect==burn) recoilDamage(secondTeam,100,6,0);
+		if (isAlive(&(firstTeam->team[0])) && firstTeam->team[0].main_effect==poison) recoilDamage(secondTeam,100,12,0);
+		
+		/*flinch reset at end of turn*/
+		if(firstTeam->effect==flinch) firstTeam->effect=noEffect;
+		if(secondTeam->effect==flinch) secondTeam->effect=noEffect;
 		return TRUE;
 
 }

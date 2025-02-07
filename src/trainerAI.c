@@ -46,10 +46,12 @@ int AI_move_choice(t_AI * ai, t_Team * p){
         ind=(rand()%ai->AI_lvl)%nb_move_valide;
     }
     
+    /*
     for(int i=0;i<ai->AI_t_Team->team[0].nb_move;i++) printf("%d ",tab_damage[i]);
     printf("\n");
     printf("%d moves valides\n",nb_move_valide);
     printf("%d\n",tab_move[ind]+1);
+    */
     
 	return tab_move[ind];
 }
