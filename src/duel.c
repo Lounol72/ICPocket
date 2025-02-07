@@ -33,6 +33,14 @@ int applyEffect(t_Team * target, int probability, int effect, int bool_main_effe
 	return FALSE;
 }
 
+int recoilDamage(t_Team * target, int probability, int percentage_of_val, int val){
+	if(rand()%100<probability) {
+		target->team[0].current_pv=0;
+		return TRUE;
+	}
+	return FALSE;
+}
+
 void printTeam(t_Team * t){
 	for(int i=0;i<t->nb_poke;i++){
 		if (!(t->team[i].current_pv==POKE_IS_ABSCENT)){

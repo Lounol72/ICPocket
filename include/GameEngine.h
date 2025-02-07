@@ -26,11 +26,8 @@
 #include "structPoke.h"
 #include "duel.h"
 #include "trainerAI.h"
-<<<<<<< HEAD
 #include "save.h"
-=======
 #include "interDuel.h"
->>>>>>> refs/remotes/origin/main
 
 /* Define the state of the application */
 typedef enum AppState {
