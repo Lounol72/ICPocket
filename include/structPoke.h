@@ -36,6 +36,10 @@ typedef struct
 	int current_pp;
 	int max_pp;
 	int priority_lvl;
+	int ind_secEffect;
+	int probability;
+	int value_effect;
+	int effect_modifier;
 } t_Move;
 
 typedef struct
