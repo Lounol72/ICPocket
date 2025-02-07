@@ -5,7 +5,6 @@
 
 t_Team rouge;
 t_Team bleu;
-t_trainer bleuDresseur;
 
 int (*SecEffectTab[2])(t_Team *,int,int,int);
 
@@ -51,17 +50,6 @@ void printTeam(t_Team * t){
 	}
 }
 
-void printTrainer(t_trainer * t){
-	for(int i=0;i<t->trainTeam->nb_poke;i++){
-		if (!(t->trainTeam->team[i].current_pv==POKE_IS_ABSCENT)){
-			printf("Le dresseur %s\n",t->name);
-			printTeam(t->trainTeam);
-			printPoke(&(t->trainTeam->team[i]));
-			getchar();
-			system("clear");
-		}
-	}
-}
 /*
 void choose_starter(t_Team * t){
 	int choix;
@@ -123,7 +111,7 @@ void initTeam(t_Team * t, int nb_poke){
 	}
 }
 
-void initBlueTeam(t_trainer *t) {
+void initBlueTeam(t_Team *t) {
     FILE *fichierTrainer = fopen("src/data/dataTrainer.csv", "r");
     if (fichierTrainer == NULL) {
         printf("Erreur : impossible d'ouvrir le fichier.\n");
@@ -139,17 +127,17 @@ void initBlueTeam(t_trainer *t) {
             }
         }
         int nb_poke, id_poke;
-        fscanf(fichierTrainer, "%d,%d,%[^,]\n", &(t->id), &nb_poke, t->name);
-        t->trainTeam = malloc(sizeof(t_Team)); // Initialisation de trainTeam
-        t->trainTeam->nb_poke = nb_poke;
+        fscanf(fichierTrainer, "%d,%d,%[^,]\n", &(t->id), &nb_poke, t->trainerName);
+        t = malloc(sizeof(t_Team)); // Initialisation de trainTeam
+        t->nb_poke = nb_poke;
         for (int i = 0; i < nb_poke; i++) {
             fscanf(fichierTrainer, "%d\n", &id_poke);
-            generate_poke(&(t->trainTeam->team[i]), id_poke);
-            for (int j = 0; j < nb_poke; j++) t->trainTeam->statChanges[j] = NEUTRAL_STAT_CHANGE;
-            t->trainTeam->team[i].current_pv = calcStatFrom(&(t->trainTeam->team[i]), PV);
-            for (int j = 0; j < t->trainTeam->team[i].nb_move; j++) {
-                t->trainTeam->team[i].moveList[j] = generateMove(&(t->trainTeam->team[i]));
-                t->trainTeam->team[i].moveList[j].current_pp = t->trainTeam->team[i].moveList[j].max_pp;
+            generate_poke(&(t->team[i]), id_poke);
+            for (int j = 0; j < nb_poke; j++) t->statChanges[j] = NEUTRAL_STAT_CHANGE;
+            t->team[i].current_pv = calcStatFrom(&(t->team[i]), PV);
+            for (int j = 0; j < t->team[i].nb_move; j++) {
+                t->team[i].moveList[j] = generateMove(&(t->team[i]));
+                t->team[i].moveList[j].current_pp = t->team[i].moveList[j].max_pp;
             }
         }
         fclose(fichierTrainer);

@@ -1,5 +1,4 @@
 #include "../include/GameEngine.h"
-
 // Global variables
 Game game;
 

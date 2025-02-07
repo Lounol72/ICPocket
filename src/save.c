@@ -3,7 +3,7 @@
 #include "../include/save.h"
 
 
-void sauvegarder(char * nomSave ,t_team * joueur,t_team * adverse){
+void sauvegarder(char * nomSave ,t_Team * joueur,t_Team * adverse){
     
 
     char nomFichier[1024];
@@ -20,8 +20,8 @@ void sauvegarder(char * nomSave ,t_team * joueur,t_team * adverse){
     }
     
     else{
-        strcat(joueur->name,nomSave);
-        fprintf(fichier, "User name : %s\n", joueur->name);
+        strcat(joueur->trainerName,nomSave);
+        fprintf(fichier, "User name : %s\n", joueur->trainerName);
         for(int i = 0; i < 6; i++){
             fprintf(fichier, "%d\n", joueur->team[i].id);
             fprintf(fichier, "%s\n", joueur->team[i].name);
@@ -37,13 +37,13 @@ void sauvegarder(char * nomSave ,t_team * joueur,t_team * adverse){
 
             fprintf(fichier,"\n\n");
         }
-        fprintf(fichier, "Dernier dresseur battu : %s id: %d\n", adverse->name, adverse->id);
+        fprintf(fichier, "Dernier dresseur battu : %s id: %d\n", adverse->trainerName, adverse->id);
         
     }
     
 }
 
-void charger(char * nomSave,t_team * joueur,t_team * dresseur){
+void charger(char * nomSave,t_Team * joueur,t_Team * dresseur){
     char nomFichier[1024];
 	strcpy(nomFichier , "src/data/save/");
 	strcat(nomFichier,nomSave);
@@ -54,7 +54,7 @@ void charger(char * nomSave,t_team * joueur,t_team * dresseur){
         printf("Erreur : impossible d'ouvrir le fichier.\n");
         exit(1);
     }else{
-        fscanf(fichier, "User name : %s\n", joueur->name);
+        fscanf(fichier, "User name : %s\n", joueur->trainerName);
         for(int i = 0; i < 6; i++){
             fscanf(fichier, "%d\n", &(joueur->team[i].id));
             generate_poke(&(joueur->team[i]),joueur->team[i].id);
@@ -73,7 +73,7 @@ void charger(char * nomSave,t_team * joueur,t_team * dresseur){
             fscanf(fichier,"\n\n");
         }
 
-        fscanf(fichier, "Dernier dresseur battu : %s id: %d\n", dresseur->name, &(dresseur->id));
+        fscanf(fichier, "Dernier dresseur battu : %s id: %d\n", dresseur->trainerName, &(dresseur->id));
     }
 
 }
