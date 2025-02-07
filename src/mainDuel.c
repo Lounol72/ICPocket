@@ -6,17 +6,15 @@
 int main(){
 	initData();
 	initTeam(&rouge,3);
-	initBlueTeam(&bleuDresseur);
+	initBlueTeam(&bleu);
 	//use testSwitch or testBattle to try the program's features
 	//testBattle(&rouge,&bleu);
 	printf("TEAM ROUGE:\n\n");
 	printTeam(&rouge);
 	printf("TEAM BLEU:\n\n");
-	//printTeam(&bleu);
-	printTrainer(&bleuDresseur);
+	printTeam(&bleu);
 
-	//getPokeFromTeam(&rouge,0,&bleu,0);
-	getPokeFromTeam(&rouge,0,bleuDresseur.trainTeam,0);
+	getPokeFromTeam(&rouge,0,&bleu,0);
 	printf("TEAM ROUGE:\n\n");
 	printTeam(&rouge);
 	return 0;

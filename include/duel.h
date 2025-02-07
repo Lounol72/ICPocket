@@ -39,6 +39,7 @@ int applyEffect(t_Team * target, int probability, int effect, int bool_main_effe
 void printTeam(t_Team * t);
 int calcStatFrom(t_Poke * p,int stat);
 void initTeam(t_Team * t,int);
+void initBlueTeam(t_Team *t);
 int calcDamage(t_Team * offender,t_Team * defender, t_Move *);
 void setDefaultStatChanges(t_Team * p);
 int resolveSpeedDuel(int speed1, int speed2);
