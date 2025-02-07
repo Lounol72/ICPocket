@@ -32,17 +32,18 @@ void sauvegarder(char * nomSave ,t_Team * joueur,t_Team * adverse){
             fprintf(fichier, "%d\n", joueur->team[i].nb_move);
             for(int j = 0 ; j < 1 ; j++)
                 fprintf(fichier, "%d\n", joueur->team[i].type[j]);
-            /*for(int j = 0 ; j < 1 ; j++)
-                fprintf(fichier, "%d\n", joueur->team[i].moveList[j]);*/ //Les moves ne sont pas encore init 
-
+            for(int j = 0 ; j < 1 ; j++){
+                fprintf(fichier, "%d\n", joueur->team[i].moveList[j].id);
+            }
             fprintf(fichier,"\n\n");
         }
         fprintf(fichier, "Dernier dresseur battu : %s id: %d\n", adverse->trainerName, adverse->id);
-        
+        printf("Sauvegarde effectuée\n");
     }
     
 }
 
+//Charger une sauvegarde
 void charger(char * nomSave,t_Team * joueur,t_Team * dresseur){
     char nomFichier[1024];
 	strcpy(nomFichier , "src/data/save/");
@@ -67,8 +68,10 @@ void charger(char * nomSave,t_Team * joueur,t_Team * dresseur){
             fscanf(fichier, "%d\n", &(joueur->team[i].nb_move));
             for(int j = 0 ; j < 1 ; j++)
                 fscanf(fichier, "%d\n", (int *)&(joueur->team[i].type[j]));
-            /*for(int j = 0 ; j < 1 ; j++)
-                fscanf(fichier, "%d\n", joueur->team[i].moveList[j]);*/ //Les moves ne sont pas encore init 
+            for(int j = 0 ; j < 1 ; j++){
+                fscanf(fichier, "%d\n", &(joueur->team[i].moveList[j].id));
+                generateMove(&(joueur->team[i]),joueur->team[i].moveList[j].id);
+            }
 
             fscanf(fichier,"\n\n");
         }

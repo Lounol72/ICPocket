@@ -9,7 +9,7 @@ t_Team bleu;
 int (*SecEffectTab[2])(t_Team *,int,int,int);
 
 float statVariations[13]={0.25,2./7,1./3,2./5,0.5,2./3,1,1.5,2,2.5,3,3.5,4};
-t_Move struggle={"Lutte",50,noType,physical,200,1,1,0};
+t_Move struggle={-1,"lutte",50,noType,physical,200,1,1,0,-1,0,0,0,0};
 
 int statVarChange(t_Team * target, int probability, int modifier, int targetedStat){
 	if(rand()%100<probability) {
@@ -105,7 +105,7 @@ void initTeam(t_Team * t, int nb_poke){
 		for(int j=0;j<6;j++) t->statChanges[j]=NEUTRAL_STAT_CHANGE;
 		t->team[i].current_pv=calcStatFrom(&(t->team[i]),PV);//POKE_IS_ABSENT;
 		for(int j=0;j<t->team[i].nb_move;j++){
-			t->team[i].moveList[j]=generateMove(t);
+			//t->team[i].moveList[j]=generateMove(t->team[i]);
 			t->team[i].moveList[j].current_pp=t->team[i].moveList[j].max_pp;
 		}
 	}
@@ -136,7 +136,7 @@ void initBlueTeam(t_Team *t) {
             for (int j = 0; j < nb_poke; j++) t->statChanges[j] = NEUTRAL_STAT_CHANGE;
             t->team[i].current_pv = calcStatFrom(&(t->team[i]), PV);
             for (int j = 0; j < t->team[i].nb_move; j++) {
-                t->team[i].moveList[j] = generateMove(&(t->team[i]));
+                t->team[i].moveList[j] = generateMove(&(t->team[i]), j);
                 t->team[i].moveList[j].current_pp = t->team[i].moveList[j].max_pp;
             }
         }

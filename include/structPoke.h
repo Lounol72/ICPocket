@@ -27,7 +27,8 @@ typedef enum{noEffect = 0,burn,poison,paralyze,flinch,confusion} t_Effect;
 typedef struct{char nature[15];float coeff[6];} t_Nature;
 
 typedef struct
-{
+{	
+	int id;
 	char name[15];
 	int power;
 	t_Type type;
@@ -36,10 +37,11 @@ typedef struct
 	int current_pp;
 	int max_pp;
 	int priority_lvl;
+	int target; //0: ennemi, 1: soi
 	int ind_secEffect;
 	int probability;
-	int value_effect;
-	int effect_modifier;
+	int value_effect; //Puissance de l'effet
+	int effect_modifier;//Modificateur de l'effet
 } t_Move;
 
 typedef struct
@@ -77,9 +79,9 @@ void generatePoke(t_Poke *);
 *@brief Generate a move
 *@return the generated move 
  */
-t_Move generateMove();
+t_Move generateMove(t_Poke *p,int id);
 t_Move generateRandomMove();
-
+t_Move generateRandomMoveBetter(t_Poke *p);
 void learnMove(t_Poke *, t_Move *, int);
 void printPoke(t_Poke *);
 void initNature();
