@@ -27,6 +27,7 @@ void sauvegarder(char * nomSave ,t_Team * joueur,t_Team * adverse){
             fprintf(fichier, "%s\n", joueur->team[i].name);
             fprintf(fichier, "%d\n", joueur->team[i].lvl);
             fprintf(fichier, "%d\n", joueur->team[i].nature);
+            fprintf(fichier, "%d\n", joueur->team[i].nb_move);
             for(int j = 0 ; j < 6 ; j++)
                 fprintf(fichier, "%d\n", joueur->team[i].iv[j]);
             fprintf(fichier, "%d\n", joueur->team[i].nb_move);
@@ -59,10 +60,9 @@ void charger(char * nomSave,t_Team * joueur,t_Team * dresseur){
         for(int i = 0; i < 6; i++){
             fscanf(fichier, "%d\n", &(joueur->team[i].id));
             generate_poke(&(joueur->team[i]),joueur->team[i].id);
-            fscanf(fichier, "%s\n", joueur->team[i].name);
             fscanf(fichier, "%d\n", &(joueur->team[i].lvl));
             fscanf(fichier, "%d\n", &(joueur->team[i].nature));
-            getchar();
+            fscanf(fichier, "%d\n", &(joueur->team[i].nb_move));
             for(int j = 0 ; j < 6 ; j++)
                 fscanf(fichier, "%d\n", &(joueur->team[i].iv[j]));
             fscanf(fichier, "%d\n", &(joueur->team[i].nb_move));

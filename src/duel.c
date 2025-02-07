@@ -2,6 +2,7 @@
 #include "../include/duel.h"
 #include "../include/trainerAI.h"
 #include "../include/interDuel.h"
+#include "../include/save.h"
 
 t_Team rouge;
 t_Team bleu;
@@ -124,6 +125,7 @@ void initTeam(t_Team * t, int nb_poke){
 		for(int j=0;j<6;j++) t->statChanges[j]=NEUTRAL_STAT_CHANGE;
 		t->team[i].current_pv=calcStatFrom(&(t->team[i]),PV);//POKE_IS_ABSENT;
 		for(int j=0;j<t->team[i].nb_move;j++){
+			t->team[i].moveList[j] = generateRandomMoveBetter(&(t->team[i]));
 			t->team[i].moveList[j]=generateRandomMoveBetter(&(t->team[i]));
 			t->team[i].moveList[j].current_pp=t->team[i].moveList[j].max_pp;
 		}
@@ -405,8 +407,10 @@ void testBattle(t_Team * rouge, t_Team * bleu){
 		printf("pv rouge : %d\n\n",rouge->team[0].current_pv);
 		printf("pv bleu : %d\n\n",bleu->team[0].current_pv);
 	}
-	if(isTeamAlive(rouge)) printf("VICTOIRE DES CHIENS!!!\n");
-	else printf("VICTOIRE DES CHATS!!!\n");
+	if(isTeamAlive(rouge)){
+		printf("VICTOIRE DES CHIENS!!!\n");
+		sauvegarder("Save_1",rouge,bleu);
+	}else printf("VICTOIRE DES CHATS!!!\n");
 	//printPoke(&(rouge->team[0]));
 }
 

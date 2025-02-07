@@ -2,12 +2,20 @@
 #include "../include/duel.h"
 #include "../include/trainerAI.h"
 #include "../include/interDuel.h"
+#include "../include/save.h"
 
 int main(){
 	printf("stp");
 	initData();
-	initTeam(&rouge,3);
+	char choix;
+	printf("Charger ou nouveau jeu ?\n");
+	scanf("%c",&choix);
 	initTeam(&bleu,3);
+	if(choix=='y'){
+		charger("Save_1",&rouge,&bleu);
+	} else {
+		initTeam(&rouge,3);
+	}
 	//use testSwitch or testBattle to try the program's features
 	testBattle(&rouge,&bleu);
 	getchar();
