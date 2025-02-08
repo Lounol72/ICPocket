@@ -267,7 +267,7 @@ void changePokemon(Window *win, void *data) {
     (void)win; 
     int idx = (int)(intptr_t)data; 
     if (testActionValidity(idx, &game.battleState.rouge)) {
-        playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&iaTest,&game.battleState.rouge));
+        playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&game.battleState.ia.AI_t_Team,&game.battleState.rouge));
         updateICButtons(win, &game.battleState.rouge);
         win->state = GAME;
         game.gameState.currentState = GAME;
