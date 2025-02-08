@@ -24,34 +24,59 @@ void insertionSort(int tabDegats[], int tabMove[], int n) {
     }
 }
 
-int AI_move_choice(t_AI * ai, t_Team * p){
-	int tab_damage[4]={-1,-1,-1,-1};
-	int tab_move[4]={0,1,2,3};
-    int nb_move_valide=0;
-	for(int i=0;i<ai->AI_t_Team->team[0].nb_move;i++){
-		tab_damage[i]=ai->AI_t_Team->team[0].moveList[i].current_pp>0?calcDamage(ai->AI_t_Team,p,&(ai->AI_t_Team->team[0].moveList[i])):-1;
-        nb_move_valide+=ai->AI_t_Team->team[0].moveList[i].current_pp>0?1:0;
-	}
-    if(nb_move_valide==0) return 0;
-	insertionSort(tab_damage,tab_move,ai->AI_t_Team->team[0].nb_move);
+int AI_move_choice(t_AI *ai, t_Team *opponent) {
+    int tab_damage[4] = { -1, -1, -1, -1 };
+    int tab_move[4]   = { -1, -1, -1, -1 };  // Initialisés à -1 pour éviter des choix invalides
+    int nb_valid_moves = 0;
 
-    int ind=0;
-    if (ai->type%3==0){ // status_first AI
-        ind=(rand()%ai->AI_lvl)%nb_move_valide;
+    // Pour le débogage, affichez le nombre d'attaques du Pokémon actif
+    int nb_moves = ai->AI_t_Team->team[0].nb_move;
+    printf("Nombre d'attaques disponibles (nb_move) : %d\n", nb_moves);
+
+    // Remplissage des tableaux avec les attaques dont il reste des PP
+    for (int i = 0; i < nb_moves; i++) {
+        if (ai->AI_t_Team->team[0].moveList[i].current_pp > 0) {
+            tab_damage[nb_valid_moves] = calcDamage(ai->AI_t_Team, opponent, &(ai->AI_t_Team->team[0].moveList[i]));
+            tab_move[nb_valid_moves] = i;
+            nb_valid_moves++;
+        }
     }
-    else if(ai->type%2==0){ // damage_first AI
-        while(ind<nb_move_valide-1 && rand()%20>ai->AI_lvl) ind++;
+
+    if (nb_valid_moves == 0) {
+        printf("Aucune attaque valide\n");
+        return 0;  // Optionnel : retourner STRUGGLE ou un autre code d'action si nécessaire
     }
-    else{ //none type AI
-        ind=(rand()%ai->AI_lvl)%nb_move_valide;
+
+    // Tri par ordre décroissant des dégâts estimés
+    insertionSort(tab_damage, tab_move, nb_valid_moves);
+
+    int chosenIndex = 0;
+    // Choix de l'attaque selon le type d'IA
+    if (ai->type % 3 == 0) { // status_first AI
+        chosenIndex = (rand() % ai->AI_lvl) % nb_valid_moves;
     }
-    
-    /*
-    for(int i=0;i<ai->AI_t_Team->team[0].nb_move;i++) printf("%d ",tab_damage[i]);
+    else if (ai->type % 2 == 0) { // damage_first AI
+        while (chosenIndex < nb_valid_moves - 1 && (rand() % 20) > ai->AI_lvl)
+            chosenIndex++;
+    }
+    else { // none type AI
+        chosenIndex = (rand() % ai->AI_lvl) % nb_valid_moves;
+    }
+
+    // Affichage pour le débogage (en 0-indexé)
+    printf("Tab damage après tri : ");
+    for (int i = 0; i < nb_valid_moves; i++) {
+        printf("%d ", tab_damage[i]);
+    }
     printf("\n");
-    printf("%d moves valides\n",nb_move_valide);
-    printf("%d\n",tab_move[ind]+1);
-    */
-    
-	return tab_move[ind];
+
+    printf("Tab move après tri : ");
+    for (int i = 0; i < nb_valid_moves; i++) {
+        printf("%d ", tab_move[i]);
+    }
+    printf("\n");
+
+    printf("Move choisi (index 0-based) : %d\n", tab_move[chosenIndex]);
+
+    return tab_move[chosenIndex];
 }

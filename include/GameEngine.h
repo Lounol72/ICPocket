@@ -79,6 +79,7 @@ typedef struct {
 typedef struct {
     t_Team rouge;
     t_Team bleu;
+    t_AI ia;
 } BattleState;
 
 /* General game state info */

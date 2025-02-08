@@ -1,3 +1,5 @@
+#ifndef STRUCTPOKE_H
+#define STRUCTPOKE_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -87,3 +89,5 @@ void printPoke(t_Poke *);
 void initNature();
 void initData();
 void printChart();
+
+#endif

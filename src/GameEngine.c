@@ -46,10 +46,7 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
 void handleGameEvent(Window *win, SDL_Event *event) 
 {
     if (!game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
-        while (!isAlive(&(game.battleState.bleu.team[0]))) {
-            int swap=rand() % 5 + 11;
-            if(testActionValidity(swap,&game.battleState.bleu)) swapActualAttacker(&game.battleState.bleu, swap);
-        }
+        
         //printf("pv rouge : %d\npv bleu : %d\n", rouge.team[0].current_pv, bleu.team[0].current_pv);
         if (!isAlive(&(game.battleState.rouge.team[0]))){
             game.gameState.currentState = ICMONS;
@@ -116,15 +113,12 @@ void handleNewGameEvent(Window * win, SDL_Event * event){
     handleEvent(win, event);
     if (!game.gameState.initialized) {
         initData();
-        //teamTest(&game.battleState.rouge, 6);
         initTeam(&game.battleState.rouge, 3);
-        //teamTest(&game.battleState.bleu, 1);
         initTeam(&game.battleState.bleu, 3);
+        game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
         for(int i = 0; i < game.battleState.rouge.nb_poke; i++){
             printPoke(&(game.battleState.rouge.team[i]));
         }
-        
-        //printPoke(&(game.battleState.bleu.team[0]));
         printf("pv rouge : %d\n\n",game.battleState.rouge.team[0].current_pv);
         printf("pv bleu : %d\n\n",game.battleState.bleu.team[0].current_pv);
         updateICButtons(win, &game.battleState.rouge);
@@ -249,8 +243,16 @@ void changeTextSpeed(Window *win, void *data) {
 void attqButtonClicked(Window *win, void *data) {
     (void)win; // Pour éviter le warning
     if (game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
+        int moveIndex = (int)(intptr_t)data;
+        if (moveIndex < 0 || moveIndex >= game.battleState.rouge.team[0].nb_move) {
+            SDL_Log("Indice de mouvement invalide : %d", moveIndex);
+            return;
+        }
+        //debug purposes
+        printf("\t\t\tPP avant : %d\n", game.battleState.rouge.team[0].moveList[(intptr_t)data].current_pp);
+        printf("\t\t\tPV avant : %d\n", game.battleState.rouge.team[0].current_pv);
         if (isAlive(&(game.battleState.rouge.team[0]))) 
-        playATurn(&game.battleState.rouge, (intptr_t)data, &game.battleState.bleu, AI_move_choice(&iaTest,&game.battleState.rouge));
+            playATurn(&game.battleState.rouge, moveIndex, &game.battleState.bleu, AI_move_choice(&game.battleState.ia.AI_t_Team,&game.battleState.rouge));
 
         while (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))){
             int swap=rand() % 5 + 11;

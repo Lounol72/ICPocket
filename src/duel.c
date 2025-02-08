@@ -102,7 +102,7 @@ int testActionValidity(int action, t_Team * t){
 		return action < t->team[0].nb_move && ppCheck(&(t->team[0].moveList[action]));
 	}
 	if (isSwitching(action)){
-		return t->team[action-10].current_pv > 0 && action-10 < t->nb_poke;
+		return action-10 < t->nb_poke && t->team[action-10].current_pv > 0;
 	}
 	return FALSE;
 }
@@ -314,7 +314,8 @@ int playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 		if(!hasMoveLeft(&(t1->team[0])) && isAttacking(move1)) move1=STRUGGLE;
 		if(!hasMoveLeft(&(t2->team[0])) && isAttacking(move2)) move2=STRUGGLE;
 
-		if(!testActionValidity(move1,t1) || !testActionValidity(move2,t2)) {printf("Action Invalide!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");return FALSE;}
+		if(!testActionValidity(move1,t1)) {printf("\t\t\t Action Invalide rouge%d \n", move1);return FALSE;}
+		if(!testActionValidity(move2,t2)) {printf("\t\t\t Action Invalide bleu %d \n", move2);return FALSE;}
 
 		int first = PriorityForFirstPoke(t1, t2, move1==STRUGGLE?&struggle:&(t1->team[0].moveList[move1]), move2==STRUGGLE?&struggle:&(t2->team[0].moveList[move2]), move1, move2);
 		t_Team *firstTeam = first ? t1 : t2;
