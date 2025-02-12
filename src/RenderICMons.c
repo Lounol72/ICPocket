@@ -1,6 +1,6 @@
 #include "../include/RenduICMons.h"
 
-IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, const char *imagePath, int x, int y, int w, int h, t_Poke *poke){
+IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, const char *imagePath, int x, int y, int w, int h, t_Poke *poke, TTF_Font *font) {
     IMG_ICMons *img = malloc(sizeof(IMG_ICMons));
     if (!img) {
         SDL_Log("❌ Erreur lors de l'allocation de la structure IMG_ICMons.");
@@ -15,21 +15,20 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, const char *imagePath, int x
     }
     img->ICMonTexture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
-    surface = NULL;
     if (!img->ICMonTexture) {
         SDL_Log("❌ Erreur lors de la création de la texture : %s", SDL_GetError());
         free(img);
         return NULL;
     }
-    img->rect = (SDL_Rect){x, y, w, h};
-    img->initialRect = img->rect;
-    img->PVText = NULL;
-    img->PVbarTexture = NULL;
-    img->PVbarTextureBack = NULL;
-    img->PVRect = (SDL_Rect){x, y, w, h};
-    img->PVInitialRect = img->PVRect;
-    img->nameTexture = NULL;
-    img->nameRect = (SDL_Rect){x, y, w, h};
-    img->nameInitialRect = img->nameRect;
+    img->rect = img->initialRect = (SDL_Rect){x, y, w, h};
+    char PV[10], name[10];
+    snprintf(PV, sizeof(PV), "%d/%d", poke->current_pv, poke->baseStats[PV]);
+    img->PVText = initText(renderer, PV, font, x, y, w, h);
+    img->PVbarTexture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
+    img->PVbarTextureBack = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
+    img->PVRect = img->PVInitialRect = (SDL_Rect){x, y, w, h};
+    snprintf(name, sizeof(name), "%s", poke->name);
+    img->nameTexture = SDL_CreateTextureFromSurface(renderer, TTF_RenderText_Solid(font, name, (SDL_Color){255, 255, 255, 255}));
+    img->nameRect = img->nameInitialRect = (SDL_Rect){x, y, w, h};
     return img;
 }

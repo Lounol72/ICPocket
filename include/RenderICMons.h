@@ -26,7 +26,7 @@ typedef struct {
     SDL_Rect nameInitialRect;
 }IMG_ICMons;
 
-IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, const char *imagePath, int x, int y, int w, int h, t_Poke *poke);
+IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, const char *imagePath, int x, int y, int w, int h, t_Poke *poke, TTF_Font *font);
 
 void renderICMonSprite(IMG_ICMons *poke);
 void updateICMonSprite(IMG_ICMons *poke, t_Poke *pokeData);

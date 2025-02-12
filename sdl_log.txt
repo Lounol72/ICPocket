@@ -149,3 +149,13 @@
 [0] [3] Changement d'état : 3
 [0] [3] Changement d'état : 2
 [0] [3] Changement d'état : 0
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 6
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 5
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 1
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 0
