@@ -235,6 +235,18 @@ void changeState(Window *win, void *data) {
     SDL_Log("Changement d'état : %d", newState);
 }
 
+void makeWindowFullScreen(Window *win, void *data) {
+    (void *)data;
+    SDL_SetWindowFullscreen(win->window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+    SDL_GetWindowSize(win->window, &win->width, &win->height);
+}
+void makeWindowWindowed(Window *win, void *data) {
+    (void *)data;
+    SDL_SetWindowFullscreen(win->window, 0);
+    SDL_SetWindowSize(win->window, win->InitialWidth, win->InitialHeight);
+    SDL_GetWindowSize(win->window, &win->width, &win->height);
+}
+
 void changeTextSpeed(Window *win, void *data) {
     double *speed = (double *)data;
     win->textSpeed = *speed;
@@ -588,7 +600,7 @@ void initAllButtons(Window * win)
     int nbButtonsLoad = 3;
     int nbButtonsMenu = 4;
     int nbSlidersSettings = 1;
-    int nbButtonsParam = 4;
+    int nbButtonsParam = 6;
     int nbButtonsGame = 5;
     int nbButtonsICMons = 7;
     int nbButtonsInter = 2;
@@ -652,6 +664,18 @@ void initAllButtons(Window * win)
             "Back", win, 100, 600, 300, 100,
             (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
             changeState, &game.stateHandlers[2].state, win->LargeFont
+        );
+
+        buttonsParam[4] =createButton(
+            "Fullscreen", win, 100, 300, 220, 75,
+            (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+            makeWindowFullScreen, NULL, win->LargeFont
+        );
+
+        buttonsParam[5] =createButton(
+            "Windowed", win, 400, 300, 220, 75,
+            (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+            makeWindowWindowed, NULL, win->LargeFont
         );
 
         buttonsLoadGame[0] = createButton(
@@ -764,6 +788,8 @@ void initAllButtons(Window * win)
             InitTextureButton(buttonsICMons[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
             if (i < 2) InitTextureButton(buttonsInter[i], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
         }
+        InitTextureButton(buttonsParam[4], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
+        InitTextureButton(buttonsParam[5], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
         InitTextureButton(buttonsICMons[4], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
         InitTextureButton(buttonsICMons[5], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
         InitTextureButton(buttonsICMons[6], win->renderer, "assets/User Interface/Grey/button_rectangle_depth_gloss.png");
