@@ -1,0 +1,7 @@
+PROJECT_NAME           = "ICPocket"
+PROJECT_BRIEF          = "Développé par Louis Subtil, Nathan Pasquier, Alban Borde, William Littre"
+
+OUTPUT_DIRECTORY       = docs
+FULL_PATH_NAMES        = YES
+BRIEF_MEMBER_DESC      = YES
+REPEAT_BRIEF           = YES

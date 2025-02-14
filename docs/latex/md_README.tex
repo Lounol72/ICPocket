@@ -1,0 +1,72 @@
+\chapter{ICPocket}
+\hypertarget{md_README}{}\label{md_README}\index{ICPocket@{ICPocket}}
+\label{md_README_autotoc_md0}%
+\Hypertarget{md_README_autotoc_md0}%
+ \hypertarget{md_README_autotoc_md1}{}\doxysection{\texorpdfstring{Prérequis}{Prérequis}}\label{md_README_autotoc_md1}
+Avant de lancer {\ttfamily make}, assurez-\/vous d\textquotesingle{}avoir installé toutes les bibliothèques nécessaires \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo\ apt-\/get\ update}
+\DoxyCodeLine{sudo\ apt-\/get\ install\ libsdl2-\/dev\ libsdl2-\/image-\/dev\ libsdl2-\/mixer-\/dev\ libsdl2-\/ttf-\/dev}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md2}{}\doxysection{\texorpdfstring{Ajouter un son}{Ajouter un son}}\label{md_README_autotoc_md2}
+Les fichiers audio doivent être au format MP3. Si vous avez un fichier dans un autre format, vous pouvez le convertir en MP3 en utilisant {\ttfamily ffmpeg} \+:
+
+
+\begin{DoxyEnumerate}
+\item Installez {\ttfamily ffmpeg} si ce n\textquotesingle{}est pas déjà fait \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo\ apt-\/get\ install\ ffmpeg}
+
+\end{DoxyCode}
+
+\item Convertissez le fichier audio \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ffmpeg\ -\/i\ assets/audio/background\_music.mp4\ -\/q:a\ 0\ -\/map\ a\ assets/audio/background\_music.mp3}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md3}{}\doxysection{\texorpdfstring{Git}{Git}}\label{md_README_autotoc_md3}
+\hypertarget{md_README_autotoc_md4}{}\doxysubsection{\texorpdfstring{Explications}{Explications}}\label{md_README_autotoc_md4}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Commandes Git}} \+:
+\begin{DoxyItemize}
+\item {\bfseries{Naviguer vers le répertoire du projet}} \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd\ \string~/ICPocket-\/main}
+
+\end{DoxyCode}
+
+\item {\bfseries{Récupérer les dernières modifications du dépôt distant}} \+:
+
+{\ttfamily sh git pull }
+\item {\bfseries{Ajouter des fichiers}} \+:
+
+{\ttfamily sh git add . }
+\item {\bfseries{Commit des modifications}} \+:
+
+{\ttfamily sh git commit -\/m "{}\+Modification qu\textquotesingle{}apporte le commit"{} }
+\item {\bfseries{Push après le commit}} \+:
+
+{\ttfamily sh git push }
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md5}{}\doxysection{\texorpdfstring{Idées pour le jeu}{Idées pour le jeu}}\label{md_README_autotoc_md5}
+
+\begin{DoxyItemize}
+\item Faire une table de types avec de nouveaux types (binaire/machine par exemple...)
+\item Faire trembler la fenêtre du joueur lorsqu\textquotesingle{}il subit une attaque
+\item Loup veut une team de waifus (0 blagues)
+\item Poké custom (ex \+: une raspberry qui évolue en PC portable qui évolue en PC gamer)
+\item Pas d\textquotesingle{}objets en combats
+\item Nous quatre formons les quatre membres qui donnent chacun un starter au choix
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md6}{}\doxysection{\texorpdfstring{$<$a href="{}https\+://docs.\+google.\+com/spreadsheets/d/18\+GRBh\+OJj\+PINtj\+TH3fe337\+Hz\+Vo\+Uga\+Lm\+INAeefcjl\+Dm\+GY/edit?usp=sharing"{} $>$\+Table RACI$<$/a$>$}{<a href="https://docs.google.com/spreadsheets/d/18GRBhOJjPINtjTH3fe337HzVoUgaLmINAeefcjlDmGY/edit?usp=sharing" >Table RACI</a>}}\label{md_README_autotoc_md6}
+\hypertarget{md_README_autotoc_md7}{}\doxysection{\texorpdfstring{$<$a href="{}https\+://docs.\+google.\+com/spreadsheets/d/1\+Ji\+NN4h\+BVWg\+Qd\+Ro\+Lms\+Xp\+OZefp3q4j\+UFyiu\+YVRdjpe\+E\+\_\+4/edit?gid=1709744959\#gid=1709744959"{} $>$\+GANTT$<$/a$>$}{<a href="https://docs.google.com/spreadsheets/d/1JiNN4hBVWgQdRoLmsXpOZefp3q4jUFyiuYVRdjpeE\_4/edit?gid=1709744959\#gid=1709744959" >GANTT</a>}}\label{md_README_autotoc_md7}

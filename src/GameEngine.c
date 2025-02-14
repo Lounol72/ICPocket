@@ -713,6 +713,7 @@ void initAllButtons(Window * win)
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
             attqButtonClicked, 1, win->LargeFont
         );
+        
         buttonsGame[2] = createButton(
             "Attack 3", win, startX + buttonWidth + spacingX, startY , buttonWidth, buttonHeight,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
