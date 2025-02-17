@@ -2,13 +2,10 @@
 #define GAMEENGINE_H
 
 #if defined(_WIN32) || defined(_WIN64)
-    // Sur Windows
     #define AUDIO_FREQ 44100
 #elif defined(__linux__)
-    // Sur Linux
     #define AUDIO_FREQ 22050
 #else
-    // macOS, BSD, etc.
     #define AUDIO_FREQ 44100
 #endif
 
@@ -18,27 +15,26 @@
 #include <SDL2/SDL_ttf.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "Buttons.h"
+
+// Inclure structPoke.h avant Buttons.h pour que t_Team soit connu
 #include "structPoke.h"
 #include "duel.h"
+#include "Buttons.h"
+
 #include "trainerAI.h"
 #include "save.h"
 #include "interDuel.h"
+#include "window.h"
+#include "menu.h"
+#include "settings.h"
+#include "newGame.h"
+#include "loadGame.h"
+#include "icmons.h"
+#include "intermediate.h"
+#include "game.h"
+#include "audio.h"
 
-
-/* Define the state of the application */
-typedef enum AppState {
-    QUIT = 0, // 0
-    SETTINGS, // 1
-    MENU, // 2
-    GAME,  // 3
-    NEWGAME,  // 4
-    LOADGAME, // 5
-    ICMONS, // 6
-    INTER
-} AppState;
-
-/* Text rendering struct */
+// Déclarer la structure Text avant d'inclure text.h
 typedef struct Text {
     const char *text;
     SDL_Rect rect;
@@ -48,6 +44,23 @@ typedef struct Text {
     SDL_Surface *surface;
     SDL_Texture *texture;
 } Text;
+
+#include "text.h"
+#include "log.h"
+
+typedef enum AppState {
+    QUIT = 0,
+    SETTINGS,
+    MENU,
+    GAME,
+    NEWGAME,
+    LOADGAME,
+    ICMONS,
+    INTER
+} AppState;
+
+Text title = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
+Text NewGameText = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
 
 /* Primary window & renderer info */
 typedef struct Window {
@@ -110,79 +123,7 @@ typedef struct Game {
     int saved;
 } Game;
 
-/* ------------- Function Prototypes ------------- */
+Game game;
 
-/* Window init/destroy */
-void initWindow(Window *win, int width, int height, const char *FontPath);
-void destroyWindow(Window *win);
-
-/* Main loop */
-void handleEvent(Window *win, SDL_Event *event);
-void mainLoop(Window *win);
-
-/* Menu */
-void renderMenu(Window *win);
-void handleMenuEvent(Window *win, SDL_Event *event);
-
-/* Game proper */
-void renderGame(Window *win);
-void handleGameEvent(Window *win, SDL_Event *event);
-
-/* Settings */
-void renderSettings(Window *win);
-void handleSettingsEvent(Window *win, SDL_Event *event);
-
-/* Quit */
-void renderQuit(Window *win);
-void handleQuitEvent(Window *win, SDL_Event *event);
-
-/* UI and text speed changes */
-void changeTextSpeed(Window *win, void *data);
-void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath);
-
-/* Text rendering, creation, destruction */
-void renderText(Window *win, Text *text);
-void updateTextPosition(Text *text, float scaleX, float scaleY);
-void destroyText(Text *text);
-
-/* Button initializations */
-void initAllButtons(Window *win);
-
-/* Loading screens */
-void renderNewGame(Window *win);
-void handleNewGameEvent(Window *win, SDL_Event *event);
-void renderLoadGame(Window *win);
-void handleLoadGameEvent(Window *win, SDL_Event *event);
-
-/* Attack button */
-void attqButtonClicked(Window *win, void *data);
-
-/* Generic state change button callback */
-void changeState(Window *win, void *data);
-
-/* Text-related updates for attacks */
-void initText(Window *win);
-void updateICButtons(Window *win, t_Team *team);
-
-/* Audio */
-void initAudio();
-void loadMusic(Mix_Music **music, const char *musicPath);
-
-/* ICMons selection */
-void renderICMons(Window *win);
-void handleICMonsEvent(Window *win, SDL_Event *event);
-
-/*Inter*/
-void nextDuel(Window* win, void *data);
-
-void initICMonsSprite(SDL_Renderer *renderer, const char *imagePath, t_Poke *poke, int x, int y, int w, int h);
-void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
-void renderICMonsSprite(Window *win, t_Poke *poke);
-void destroyICMonsSprite(Window *win, t_Poke *poke);
-void updateCurrentButton();
-
-void initGame(Window *win) ;
-void LogToFile(void *userdata, int category, SDL_LogPriority priority, const char *message);
-void InitLogFile();
 
 #endif /* GAMEENGINE_H */

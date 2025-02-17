@@ -7,7 +7,7 @@ INCLUDE_DIR = include
 OBJ_DIR = obj
 
 # Fichiers source et objets
-SRCS = main.c $(SRC_DIR)/GameEngine.c $(SRC_DIR)/Buttons.c $(SRC_DIR)/structPoke.c $(SRC_DIR)/duel.c $(SRC_DIR)/trainerAI.c $(SRC_DIR)/save.c $(SRC_DIR)/interDuel.c
+SRCS = main.c $(SRC_DIR)/Buttons.c $(SRC_DIR)/structPoke.c $(SRC_DIR)/duel.c $(SRC_DIR)/trainerAI.c $(SRC_DIR)/save.c $(SRC_DIR)/interDuel.c
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(notdir $(SRCS)))
 
 # Compilateur et options de compilation

@@ -257,5 +257,12 @@ int handleSliderEvent(Slider *slider, int x, int y);
  */
 void updateSliderPosition(SliderList *sliders, float Scalex, float Scaley);
 
+void initAllButtons(Window *win);
+void changeState(Window *win, void *data);
+void makeWindowFullScreen(Window *win, void *data);
+void makeWindowWindowed(Window *win, void *data);
+void changeTextSpeed(Window *win, void *data);
+void uptadeICButtons(Window *win, t_Team *team);
+
 
 #endif

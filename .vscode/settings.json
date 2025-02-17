@@ -74,6 +74,7 @@
   ],
   "files.associations": {
     "utils.h": "c",
-    "structpoke.h": "c"
+    "structpoke.h": "c",
+    "log.h": "c"
   }
 }
