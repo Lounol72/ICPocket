@@ -18,11 +18,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <stdio.h>
 #include <stdlib.h>
-
-/* Now we include Buttons.h to use ButtonList, SliderList, etc. */
 #include "Buttons.h"
-
-/* If you rely on these for 't_Team' or other structs, keep them here: */
 #include "structPoke.h"
 #include "duel.h"
 #include "trainerAI.h"
