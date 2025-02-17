@@ -1,5 +1,5 @@
 #include "../include/window.h"
-#include "log.h"
+#include "../include/log.h"
 
 
 void initWindow(Window *win, int width, int height, const char *FontPath) {

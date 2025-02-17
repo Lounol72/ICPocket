@@ -3,7 +3,7 @@
 
 #include "GameEngine.h"
 
-void initText(Window *win);
+Text *initText(Window *win, const char *text, TTF_Font * font, int x, int y, int w, int h);
 void updateTextPosition(Text *text, float scaleX, float scaleY);
 void destroyText(Text *text);
 

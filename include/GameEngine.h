@@ -56,8 +56,9 @@ typedef enum AppState {
     INTER
 } AppState;
 
-Text title = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
-Text NewGameText = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
+// Global variable declarations changed to extern
+extern Text title;
+extern Text NewGameText;
 
 /* Primary window & renderer info */
 typedef struct Window {
@@ -120,7 +121,7 @@ typedef struct Game {
     int saved;
 } Game;
 
-Game game;
-
+// Global game instance declared as extern
+extern Game game;
 
 #endif /* GAMEENGINE_H */
