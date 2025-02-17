@@ -232,7 +232,7 @@ void changeState(Window *win, void *data) {
     win->state = newState;
     game.gameState.currentState = newState;
     game.currentButton = 0;
-    SDL_Log("Changement d'état : %d", newState);
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Changement d'état : %d", newState);
 }
 
 void makeWindowFullScreen(Window *win, void *data) {
@@ -296,11 +296,10 @@ void nextDuel(Window *win, void *data) {
 }
 
 void mainLoop(Window *win) {
+    
     initGame(win);
     int frameStart;
     SDL_Event event;
-    // Définir la fonction de log
-    SDL_LogSetOutputFunction(LogToFile, NULL);
     
     initAllButtons(win);
     
@@ -352,9 +351,11 @@ void mainLoop(Window *win) {
 // Functions for the window
 
 void initWindow(Window *win, int width, int height, const char *FontPath) {
-    SDL_Log("🔧 Initialisation de la fenêtre ..."); 
+    InitLogFile();
+    SDL_LogSetOutputFunction(LogToFile, NULL);
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "🔧 Initialisation de la fenêtre ..."); 
     if (SDL_Init(SDL_INIT_VIDEO) < 0 || !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_SOFTWARE)) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || TTF_Init() == -1 || !(win->LargeFont = TTF_OpenFont(FontPath, 70)) || !(win->MediumFont = TTF_OpenFont(FontPath, 56)) || !(win->SmallFont = TTF_OpenFont(FontPath, 24)) || !(win->font = TTF_OpenFont(FontPath, 18))) {
-        SDL_Log("❌ SDL Error: %s", SDL_GetError());
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ SDL Error: %s", SDL_GetError());
         if (win->window) SDL_DestroyWindow(win->window);
         exit(EXIT_FAILURE);
     }
@@ -365,7 +366,7 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
     win->quit = 0;
     win->state = MENU;
     win->textSpeed = 1;
-    SDL_Log("✅ Initialisation de la fenêtre réussie");    
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Initialisation de la fenêtre réussie");    
 }
 
 void destroyWindow(Window *win)
@@ -457,7 +458,7 @@ void handleEvent(Window *win, SDL_Event *event) {
             switch (event->key.keysym.sym) {
                 case SDLK_DELETE:
                     win->quit = 1;
-                    SDL_Log("Quit");
+                    SDL_LogMessage(SDL_LOG_CATEGORY_INPUT, SDL_LOG_PRIORITY_INFO, "Quit");
                     break;
             }
             if (game.ui[game.gameState.currentState].buttons) {
@@ -553,6 +554,8 @@ void initGame(Window *win) {
     loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");
 
     initText(win);
+
+    
     
 }
 
@@ -567,12 +570,12 @@ void updateTextPosition(Text *text, float scaleX, float scaleY) {
 
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath) {
     if (!renderer || !imagePath) {
-        SDL_Log("❌ Erreur : Le renderer ou le chemin de l'image est NULL.");
+        SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur : Le renderer ou le chemin de l'image est NULL.");
         return;
     }
     SDL_Surface *surface = IMG_Load(imagePath);
     if (!surface) {
-        SDL_Log("❌ Erreur : Impossible de charger l'image de fond '%s'. Message SDL_image : %s", imagePath, IMG_GetError());
+        SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur : Impossible de charger l'image de fond '%s'. Message SDL_image : %s", imagePath, IMG_GetError());
         return;
     }
     *Background = SDL_CreateTextureFromSurface(renderer, surface);
@@ -617,7 +620,7 @@ void initAllButtons(Window * win)
     
 
     if (!buttonsMenu || !sliders || !buttonsParam || !buttonsLoadGame || !buttonsGame ||!buttonsICMons  || !buttonsInter) {
-        SDL_Log("❌ Allocation de mémoire pour les boutons échouée !");
+        SDL_LogMessage(SDL_LOG_CATEGORY_SYSTEM, SDL_LOG_PRIORITY_ERROR,"❌ Allocation de mémoire pour les boutons échouée !");
         exit(EXIT_FAILURE);
     }else{
         buttonsMenu[0] = createButton(
@@ -841,12 +844,12 @@ void initText(Window *win) {
         *textObjects[i] = (Text){texts[i], rects[i], rects[i], {255, 255, 255, 255}, win->LargeFont, NULL, NULL};
         SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, texts[i], textObjects[i]->color);
         if (!textSurface) {
-            SDL_Log("❌ Erreur de rendu du texte : %s", TTF_GetError());
+            SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur de rendu du texte : %s", TTF_GetError());
             exit(EXIT_FAILURE);
         }
         textObjects[i]->texture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
         if (!textObjects[i]->texture) {
-            SDL_Log("❌ Erreur de création de la texture : %s", SDL_GetError());
+            SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur de création de la texture : %s", SDL_GetError());
             SDL_FreeSurface(textSurface);
             exit(EXIT_FAILURE);
         }
@@ -856,8 +859,8 @@ void initText(Window *win) {
 
 void updateICButtons(Window *win, t_Team *team) {
     if (!team || !team->team || !team->team[0].moveList) {
-        SDL_Log("❌ Erreur : team, team->team ou moveList est NULL\n");
-        return;
+        SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur : team, team->team ou moveList est NULL\n");
+        exit(EXIT_FAILURE);
     }
     for (int i = 0; i < 4; i++) {
         if(team->team[0].nb_move > i) setButtonText(game.ui[3].buttons->buttons[i], team->team[0].moveList[i].name, win->renderer);
@@ -884,30 +887,29 @@ void updateCurrentButton() {
 // Functions for the music
 
 void initAudio() {
-    SDL_Log("🔧 Initialisation de SDL_mixer...");
+    SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_INFO, "🔊 Initialisation de l'audio ...");
 
     if (Mix_Init(MIX_INIT_MP3) == 0) {  
-        SDL_Log("❌ Erreur Mix_Init: %s", Mix_GetError());
+        SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_ERROR, "❌ Erreur Mix_Init: %s", Mix_GetError());
         exit(EXIT_FAILURE);
     } else {
-        SDL_Log("✅ Mix_Init réussi.");
+        SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_INFO, "✅ Mix_Init réussi.");
     }
-
     if (Mix_OpenAudio(AUDIO_FREQ, MIX_DEFAULT_FORMAT, 2, 8192) < 0) {
-        SDL_Log("❌ Erreur Mix_OpenAudio: %s", Mix_GetError());
+        SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_ERROR, "❌ Erreur Mix_OpenAudio: %s", Mix_GetError());
         exit(EXIT_FAILURE);
     } else {
-        SDL_Log("✅ Mix_OpenAudio réussi.");
+        SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_INFO, "✅ Mix_OpenAudio réussi.");
     }
 }
 
 void loadMusic(Mix_Music **music, const char *musicPath) {
     *music = Mix_LoadMUS(musicPath);
     if (!*music) {
-        SDL_Log("❌ Erreur Mix_LoadMUS: %s", Mix_GetError());
+        SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_ERROR, "❌ Erreur Mix_LoadMUS: %s", Mix_GetError());
         exit(EXIT_FAILURE);
     } else {
-        SDL_Log("✅ Musique chargée avec succès.");
+        SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_INFO, "✅ Chargement de la musique réussi.");
     }
     Mix_VolumeMusic(MIX_MAX_VOLUME / 2);
 }
@@ -918,6 +920,13 @@ void LogToFile(void *userdata, int category, SDL_LogPriority priority, const cha
     FILE *logFile = fopen("sdl_log.txt", "a"); // Ouvrir en mode ajout
     if (logFile) {
         fprintf(logFile, "[%d] [%d] %s\n", category, priority, message);
+        fclose(logFile);
+    }
+}
+
+void InitLogFile() {
+    FILE *logFile = fopen("sdl_log.txt", "w"); // Ouvrir en mode écriture pour écraser le fichier
+    if (logFile) {
         fclose(logFile);
     }
 }

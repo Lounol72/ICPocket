@@ -187,5 +187,6 @@ void updateCurrentButton();
 
 void initGame(Window *win) ;
 void LogToFile(void *userdata, int category, SDL_LogPriority priority, const char *message);
+void InitLogFile();
 
 #endif /* GAMEENGINE_H */
