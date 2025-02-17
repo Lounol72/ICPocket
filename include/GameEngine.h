@@ -15,12 +15,9 @@
 #include <SDL2/SDL_ttf.h>
 #include <stdio.h>
 #include <stdlib.h>
-
-// Inclure structPoke.h avant Buttons.h pour que t_Team soit connu
 #include "structPoke.h"
 #include "duel.h"
 #include "Buttons.h"
-
 #include "trainerAI.h"
 #include "save.h"
 #include "interDuel.h"
