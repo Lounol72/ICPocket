@@ -1,4 +1,4 @@
-#include "../include/loadgame.h"
+#include "../include/loadGame.h"
 
 void handleLoadGameEvent(Window *win, SDL_Event *event) {
     if (!win || !event) return;

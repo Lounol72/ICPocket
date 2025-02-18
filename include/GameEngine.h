@@ -37,6 +37,7 @@ typedef struct Text {
     SDL_Rect rect;
     SDL_Rect initialRect;
     SDL_Color color;
+    SDL_Renderer *renderer;
     TTF_Font *font;
     SDL_Surface *surface;
     SDL_Texture *texture;

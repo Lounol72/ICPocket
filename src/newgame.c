@@ -1,4 +1,4 @@
-#include "../include/newgame.h"
+#include "../include/newGame.h"
 
 void handleNewGameEvent(Window * win, SDL_Event * event){
     handleEvent(win, event);

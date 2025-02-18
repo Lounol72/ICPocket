@@ -47,3 +47,30 @@ void initText(Window *win) {
         textObjects[i]->surface = textSurface;
     }
 }
+
+Text *newText(SDL_Renderer *renderer, const char *text, TTF_Font *font, int x, int y, int w, int h){
+    Text *newText = malloc(sizeof(Text));
+    if (!newText) {
+        SDL_Log("❌ Erreur lors de l'allocation de la structure Text.");
+        return NULL;
+    }
+    newText->renderer = renderer;
+    newText->initialRect = (SDL_Rect){x, y, w, h};
+    newText->rect = newText->initialRect;
+    newText->color = (SDL_Color){255, 255, 255, 255};
+    newText->font = font;
+    newText->surface = TTF_RenderText_Solid(font, text, newText->color);
+    if (!newText->surface) {
+        SDL_Log("❌ Erreur lors du rendu du texte : %s", TTF_GetError());
+        free(newText);
+        return NULL;
+    }
+    newText->texture = SDL_CreateTextureFromSurface(renderer, newText->surface);
+    if (!newText->texture) {
+        SDL_Log("❌ Erreur lors de la création de la texture : %s", SDL_GetError());
+        SDL_FreeSurface(newText->surface);
+        free(newText);
+        return NULL;
+    }
+    return newText;
+}
