@@ -1,59 +1,73 @@
-# Nom de l'exécutable
-all: main duel
+# Répertoires
+SRC_DIR      = src
+OBJ_DIR      = obj
+BIN_DIR      = $(SRC_DIR)/bin
+INCLUDE_DIR  = include
 
-# Dossiers
-SRC_DIR = src
-INCLUDE_DIR = include
-OBJ_DIR = obj
+# Noms des exécutables
+MAIN_EXE  = main
+DUEL_EXE  = duel
+SAVE_EXE  = save
 
-# Fichiers source et objets
-SRCS = main.c $(SRC_DIR)/GameEngine.c $(SRC_DIR)/Buttons.c $(SRC_DIR)/structPoke.c $(SRC_DIR)/duel.c $(SRC_DIR)/trainerAI.c $(SRC_DIR)/save.c $(SRC_DIR)/interDuel.c
-OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(notdir $(SRCS)))
+# Fichiers source
+SRCS      = main.c $(SRC_DIR)/GameEngine.c $(SRC_DIR)/Buttons.c $(SRC_DIR)/structPoke.c $(SRC_DIR)/duel.c $(SRC_DIR)/trainerAI.c $(SRC_DIR)/save.c $(SRC_DIR)/interDuel.c
 
-# Compilateur et options de compilation
-CC = gcc
-CFLAGS = -Wall -Wextra -std=c11 -g `sdl2-config --cflags` -I/usr/include/SDL2
+# Fichiers objets généraux
+OBJS      = $(patsubst %.c,$(OBJ_DIR)/%.o,$(notdir $(SRCS)))
+
+# Fichiers objets spécifiques pour duel et save
+DUEL_OBJS = $(OBJ_DIR)/mainDuel.o $(OBJ_DIR)/structPoke.o $(OBJ_DIR)/duel.o $(OBJ_DIR)/trainerAI.o $(OBJ_DIR)/interDuel.o $(OBJ_DIR)/save.o
+SAVE_OBJS = $(OBJ_DIR)/save.o $(OBJ_DIR)/structPoke.o $(OBJ_DIR)/duel.o $(OBJ_DIR)/trainerAI.o $(OBJ_DIR)/ministdlib.o
+
+# Compilateur et options
+CC      = gcc
+CFLAGS  = -Wall -Wextra -std=c11 -g `sdl2-config --cflags` -I/usr/include/SDL2
 
 # Bibliothèques à lier
-LIBS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
+LIBS    = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 
-# Règle pour créer l'exécutable
-main: $(OBJ_DIR)/main.o $(OBJS)
+# Cibles principales
+all: $(MAIN_EXE) $(DUEL_EXE)
+
+$(MAIN_EXE): $(OBJ_DIR)/main.o $(OBJS)
 	$(CC) -o $@ $^ $(LIBS)
 	@echo "Compilation terminée"
 
-# Règle temporaire pour créer duel
-duel: $(OBJ_DIR)/mainDuel.o $(OBJ_DIR)/structPoke.o $(OBJ_DIR)/duel.o $(OBJ_DIR)/trainerAI.o $(OBJ_DIR)/interDuel.o $(OBJ_DIR)/save.o
-	$(CC) $^ -o $(SRC_DIR)/bin/$@
+$(DUEL_EXE): $(DUEL_OBJS)
+	$(CC) $^ -o $(BIN_DIR)/$@
+	@echo "Compilation duel terminée"
 
-save: $(OBJ_DIR)/save.o $(OBJ_DIR)/structPoke.o $(OBJ_DIR)/duel.o $(OBJ_DIR)/trainerAI.o $(OBJ_DIR)/ministdlib.o
-	$(CC) $^ -o $(SRC_DIR)/bin/$@
+$(SAVE_EXE): $(SAVE_OBJS)
+	$(CC) $^ -o $(BIN_DIR)/$@
+	@echo "Compilation save terminée"
 
-# Règle pour créer le dossier obj
+# Création des répertoires
 $(OBJ_DIR):
 	mkdir -p $@
+	mkdir -p $(BIN_DIR)
 
-# Règles pour compiler les fichiers source en objets
+# Règles de compilation génériques pour les sources situés dans SRC_DIR
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# Règle spécifique pour main.c
 $(OBJ_DIR)/main.o: main.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-#Tester le projet
-testDuel: duel
-	./$(SRC_DIR)/bin/duel
+# Cibles de tests
+testDuel: $(DUEL_EXE)
+	./$(BIN_DIR)/$(DUEL_EXE)
 
+testMain: $(MAIN_EXE)
+	./$(MAIN_EXE)
 
-testMain: main
-	./main
+testValgrind: $(MAIN_EXE)
+	valgrind --leak-check=full ./$(MAIN_EXE)
 
-testValgrind:
-	valgrind --leak-check=full ./main
-
-# Règle pour nettoyer les fichiers objets et l'exécutable
+# Cible de nettoyage
 clean:
-	rm -f $(OBJ_DIR)/main.o main $(OBJ_DIR)/*.o
+	rm -f $(OBJ_DIR)/*.o $(MAIN_EXE)
+	rm -f $(BIN_DIR)/$(DUEL_EXE) $(BIN_DIR)/$(SAVE_EXE)
 	@echo "Nettoyage terminé"
 
 .PHONY: all clean
