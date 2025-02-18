@@ -219,6 +219,7 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
     slider->rect = (SDL_Rect){x, y, w, h};
     slider->initialBar = slider->rect;
     int cursorW = 10;
+    slider->cursor.w = cursorW;
     slider->cursor = (SDL_Rect){slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2), y-5, cursorW, h+12};
     slider->initialCursor = slider->cursor;
     slider->color = color;

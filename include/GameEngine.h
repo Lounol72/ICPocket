@@ -1,29 +1,21 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 
-#if defined(_WIN32) || defined(_WIN64)
-    // Sur Windows
-    #define AUDIO_FREQ 44100
-#elif defined(__linux__)
-    // Sur Linux
-    #define AUDIO_FREQ 22050
-#else
-    // macOS, BSD, etc.
-    #define AUDIO_FREQ 44100
-#endif
-
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "Log.h"
+#include "Audio.h"
 #include "Buttons.h"
 #include "structPoke.h"
 #include "duel.h"
 #include "trainerAI.h"
 #include "save.h"
 #include "interDuel.h"
+
 
 
 /* Define the state of the application */
@@ -38,32 +30,11 @@ typedef enum AppState {
     INTER
 } AppState;
 
-/* Text rendering struct */
-typedef struct Text {
-    const char *text;
-    SDL_Rect rect;
-    SDL_Rect initialRect;
-    SDL_Color color;
-    TTF_Font *font;
-    SDL_Surface *surface;
-    SDL_Texture *texture;
-} Text;
 
-/* Primary window & renderer info */
-typedef struct Window {
-    SDL_Window *window;
-    SDL_Renderer *renderer;
-    int width, height;
-    int InitialWidth, InitialHeight;
-    int quit;
-    TTF_Font *LargeFont;
-    TTF_Font *MediumFont;
-    TTF_Font *SmallFont;
-    TTF_Font *font;
-    AppState state;
-    double textSpeed;
-} Window;
+#include "Text.h"
+#include "Window.h"
 
+/* ------------- Structs ------------- */
 /* UI element container, referencing the ButtonList & SliderList defined in Buttons.h */
 typedef struct {
     ButtonList *buttons;
@@ -110,49 +81,16 @@ typedef struct Game {
     int saved;
 } Game;
 
+#include "Game.h"
+
 /* ------------- Function Prototypes ------------- */
 
-/* Window init/destroy */
-void initWindow(Window *win, int width, int height, const char *FontPath);
-void destroyWindow(Window *win);
+/* Render */
+void render(Window *win);
 
 /* Main loop */
-void handleEvent(Window *win, SDL_Event *event);
 void mainLoop(Window *win);
 
-/* Menu */
-void renderMenu(Window *win);
-void handleMenuEvent(Window *win, SDL_Event *event);
-
-/* Game proper */
-void renderGame(Window *win);
-void handleGameEvent(Window *win, SDL_Event *event);
-
-/* Settings */
-void renderSettings(Window *win);
-void handleSettingsEvent(Window *win, SDL_Event *event);
-
-/* Quit */
-void renderQuit(Window *win);
-void handleQuitEvent(Window *win, SDL_Event *event);
-
-/* UI and text speed changes */
-void changeTextSpeed(Window *win, void *data);
-void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath);
-
-/* Text rendering, creation, destruction */
-void renderText(Window *win, Text *text);
-void updateTextPosition(Text *text, float scaleX, float scaleY);
-void destroyText(Text *text);
-
-/* Button initializations */
-void initAllButtons(Window *win);
-
-/* Loading screens */
-void renderNewGame(Window *win);
-void handleNewGameEvent(Window *win, SDL_Event *event);
-void renderLoadGame(Window *win);
-void handleLoadGameEvent(Window *win, SDL_Event *event);
 
 /* Attack button */
 void attqButtonClicked(Window *win, void *data);
@@ -161,15 +99,9 @@ void attqButtonClicked(Window *win, void *data);
 void changeState(Window *win, void *data);
 
 /* Text-related updates for attacks */
-void initText(Window *win);
 void updateICButtons(Window *win, t_Team *team);
 
-/* Audio */
-void initAudio();
-void loadMusic(Mix_Music **music, const char *musicPath);
-
 /* ICMons selection */
-void renderICMons(Window *win);
 void handleICMonsEvent(Window *win, SDL_Event *event);
 
 /*Inter*/
@@ -180,9 +112,5 @@ void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
 void renderICMonsSprite(Window *win, t_Poke *poke);
 void destroyICMonsSprite(Window *win, t_Poke *poke);
 void updateCurrentButton();
-
-void initGame(Window *win) ;
-void LogToFile(void *userdata, int category, SDL_LogPriority priority, const char *message);
-void InitLogFile();
 
 #endif /* GAMEENGINE_H */

@@ -236,20 +236,15 @@ void changeState(Window *win, void *data) {
 }
 
 void makeWindowFullScreen(Window *win, void *data) {
-    (void *)data;
+    (void)data;
     SDL_SetWindowFullscreen(win->window, SDL_WINDOW_FULLSCREEN_DESKTOP);
     SDL_GetWindowSize(win->window, &win->width, &win->height);
 }
 void makeWindowWindowed(Window *win, void *data) {
-    (void *)data;
+    (void)data;
     SDL_SetWindowFullscreen(win->window, 0);
     SDL_SetWindowSize(win->window, win->InitialWidth, win->InitialHeight);
     SDL_GetWindowSize(win->window, &win->width, &win->height);
-}
-
-void changeTextSpeed(Window *win, void *data) {
-    double *speed = (double *)data;
-    win->textSpeed = *speed;
 }
 
 void attqButtonClicked(Window *win, void *data) {
@@ -264,7 +259,7 @@ void attqButtonClicked(Window *win, void *data) {
         printf("\t\t\tPP avant : %d\n", game.battleState.rouge.team[0].moveList[(intptr_t)data].current_pp);
         printf("\t\t\tPV avant : %d\n", game.battleState.rouge.team[0].current_pv);
         if (isAlive(&(game.battleState.rouge.team[0]))) 
-            playATurn(&game.battleState.rouge, moveIndex, &game.battleState.bleu, AI_move_choice(&game.battleState.ia.AI_t_Team,&game.battleState.rouge));
+            playATurn(&game.battleState.rouge, moveIndex, &game.battleState.bleu, AI_move_choice(&game.battleState.ia, &game.battleState.rouge));
 
         while (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))){
             int swap=rand() % 5 + 11;
@@ -279,7 +274,7 @@ void changePokemon(Window *win, void *data) {
     (void)win; 
     int idx = (int)(intptr_t)data; 
     if (testActionValidity(idx, &game.battleState.rouge)) {
-        playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&game.battleState.ia.AI_t_Team,&game.battleState.rouge));
+        playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&(game.battleState.ia),&game.battleState.rouge));
         updateICButtons(win, &game.battleState.rouge);
         win->state = GAME;
         game.gameState.currentState = GAME;
@@ -317,7 +312,7 @@ void mainLoop(Window *win) {
         updateCurrentButton();
         SDL_RenderPresent(win->renderer);
 
-        if(win->state == GAME){
+        if(win->state == GAME || win->state == ICMONS){
             if (!Mix_PlayingMusic()) {  // Verify if the music is already playing
                 Mix_PlayMusic(game.gameState.music, -1);
             }
@@ -348,108 +343,7 @@ void mainLoop(Window *win) {
 
 //---------------------------------------------------------------------------------
 
-// Functions for the window
-
-void initWindow(Window *win, int width, int height, const char *FontPath) {
-    InitLogFile();
-    SDL_LogSetOutputFunction(LogToFile, NULL);
-    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "🔧 Initialisation de la fenêtre ..."); 
-    if (SDL_Init(SDL_INIT_VIDEO) < 0 || !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_SOFTWARE)) || (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || TTF_Init() == -1 || !(win->LargeFont = TTF_OpenFont(FontPath, 70)) || !(win->MediumFont = TTF_OpenFont(FontPath, 56)) || !(win->SmallFont = TTF_OpenFont(FontPath, 24)) || !(win->font = TTF_OpenFont(FontPath, 18))) {
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ SDL Error: %s", SDL_GetError());
-        if (win->window) SDL_DestroyWindow(win->window);
-        exit(EXIT_FAILURE);
-    }
-    
-
-    win->width = win->InitialWidth = width;
-    win->height = win->InitialHeight = height;
-    win->quit = 0;
-    win->state = MENU;
-    win->textSpeed = 1;
-    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Initialisation de la fenêtre réussie");    
-}
-
-void destroyWindow(Window *win)
-{
-    // 1) Stop playing & free music
-    if (game.gameState.music) {
-        Mix_FreeMusic(game.gameState.music);
-        game.gameState.music = NULL;
-    }
-
-    // 2) Destroy UI elements
-    if (game.ui) {
-        for (int i = 0; i < game.nbMenu; i++) {
-            // Destroy button list
-            if (game.ui[i].buttons) {
-                destroyButtonList(game.ui[i].buttons);  
-                free(game.ui[i].buttons);
-                game.ui[i].buttons = NULL;
-            }
-            // Destroy slider list
-            if (game.ui[i].sliders) {
-                destroySliderList(game.ui[i].sliders);  
-                free(game.ui[i].sliders);
-                game.ui[i].sliders = NULL;
-            }
-            // Destroy background texture
-            if (game.ui[i].background) {
-                SDL_DestroyTexture(game.ui[i].background);
-                game.ui[i].background = NULL;
-            }
-        }
-        free(game.ui);
-        game.ui = NULL;
-    }
-
-    // 3) Free state handlers
-    if (game.stateHandlers) {
-        free(game.stateHandlers);
-        game.stateHandlers = NULL;
-    }
-
-    // 4) Free speeds array
-    if (game.speeds) {
-        free(game.speeds);
-        game.speeds = NULL;
-    }
-
-    // 5) Close fonts
-    if (win->LargeFont) {
-        TTF_CloseFont(win->LargeFont);
-        win->LargeFont = NULL;
-    }
-    if (win->MediumFont) {
-        TTF_CloseFont(win->MediumFont);
-        win->MediumFont = NULL;
-    }
-    if (win->SmallFont) {
-        TTF_CloseFont(win->SmallFont);
-        win->SmallFont = NULL;
-    }
-    if (win->font) {
-        TTF_CloseFont(win->font);
-        win->font = NULL;
-    }
-
-    // 6) Destroy renderer & window
-    if (win->renderer) {
-        SDL_DestroyRenderer(win->renderer);
-        win->renderer = NULL;
-    }
-    if (win->window) {
-        SDL_DestroyWindow(win->window);
-        win->window = NULL;
-    }
-
-    // 7) Close audio
-    Mix_CloseAudio();
-
-    // 8) Quit TTF, IMG, SDL
-    TTF_Quit();
-    IMG_Quit();
-    SDL_Quit();
-}
+// Functions for the buttons
 
 
 void handleEvent(Window *win, SDL_Event *event) {
@@ -496,77 +390,6 @@ void handleEvent(Window *win, SDL_Event *event) {
         
     }
 }
-void initGame(Window *win) {
-    game.win = win;
-    
-    game.nbMenu = 8;
-    game.ui = malloc(game.nbMenu * sizeof(UI_Elements));
-    game.ui[0] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Quit Page            = 0
-    game.ui[1] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders=malloc(sizeof(SliderList)) ,.background=NULL};                        // Settings Page        = 1
-    game.ui[2] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Menu Page            = 2
-    game.ui[3] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Game Page            = 3
-    game.ui[4] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // New Game Page        = 4
-    game.ui[5] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Load Game Page       = 5
-    game.ui[6] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // ICMons Page          = 6
-    game.ui[7] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Intermediate         = 7
-
-    for (int i = 0; i < game.nbMenu; i++) {
-        game.ui[i].buttons->buttons = NULL;
-        game.ui[i].buttons->size = 0;
-    }
-    game.ui[1].sliders->sliders = NULL;
-    game.ui[1].sliders->size = 0;
-
-    game.gameState = (GameState){.music = NULL, .playerTurn = 1, .initialized = 0, .currentState = MENU};
-
-    game.nbStates = 8;
-    game.stateHandlers = malloc(game.nbStates * sizeof(StateHandler));
-    game.stateHandlers[0] = (StateHandler){QUIT, handleQuitEvent}; // Quit = 0
-    game.stateHandlers[1] = (StateHandler){SETTINGS, handleSettingsEvent}; // Settings = 1
-    game.stateHandlers[2] = (StateHandler){MENU, handleMenuEvent}; // Menu = 2
-    game.stateHandlers[3] = (StateHandler){GAME, handleGameEvent}; // Game = 3
-    game.stateHandlers[4] = (StateHandler){NEWGAME, handleNewGameEvent}; // New game = 4
-    game.stateHandlers[5] = (StateHandler){LOADGAME, handleLoadGameEvent}; // Load game = 5
-    game.stateHandlers[6] = (StateHandler){ICMONS, handleICMonsEvent}; // ICMons = 6
-    game.stateHandlers[7] = (StateHandler){INTER, handleIntermediateEvent}; // Intermediate = 7
-
-
-    game.FPS = 60;
-    game.frameDelay = 1000 / game.FPS;
-    game.newGameStartTime = 0;
-    game.currentButton = 0;
-    game.saved = 0;
-
-
-    game.speeds = malloc(sizeof(float)*3);
-    game.speeds[0] = 0.5f;
-    game.speeds[1] = 1.0f;
-    game.speeds[2] = 1.5f;
-    loadBackground(&game.ui[2].background, win->renderer, "assets/Title Screen/BG.jpg");
-    loadBackground(&game.ui[5].background, win->renderer, "assets/Title Screen/LoadGame.png");
-    loadBackground(&game.ui[1].background, win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_party_background.png");
-    loadBackground(&game.ui[4].background, win->renderer, "assets/Title Screen/GameStart.jpg");
-    loadBackground(&game.ui[3].background, win->renderer, "assets/Title Screen/combat.png");
-    loadBackground(&game.ui[6].background, win->renderer, "assets/Title Screen/BG.jpg");
-    loadBackground(&game.ui[7].background, win->renderer, "assets/Title Screen/combat.png");
-
-    initAudio();
-    loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");
-
-    initText(win);
-
-    
-    
-}
-
-void updateTextPosition(Text *text, float scaleX, float scaleY) {
-    if (text && text->texture) {
-        text->rect.x = text->initialRect.x * scaleX;
-        text->rect.y = text->initialRect.y * scaleY;
-        text->rect.w = text->initialRect.w * scaleX;
-        text->rect.h = text->initialRect.h * scaleY;
-    }
-}
 
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath) {
     if (!renderer || !imagePath) {
@@ -582,22 +405,6 @@ void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char
     SDL_FreeSurface(surface);
 }
 
-void renderText(Window * win, Text * text){
-    SDL_RenderCopy(win->renderer, text->texture, NULL, &text->rect);
-}
-
-void destroyText(Text * text){
-    if (text) {
-        if (text->texture) {
-            SDL_DestroyTexture(text->texture);
-            text->texture = NULL;
-        }
-        if (text->surface) {
-            SDL_FreeSurface(text->surface);
-            text->surface = NULL;
-        }
-    }
-}
 void initAllButtons(Window * win)
 {
     int nbButtonsLoad = 3;
@@ -663,23 +470,25 @@ void initAllButtons(Window * win)
             (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
             changeTextSpeed, &game.speeds[2], win->LargeFont
         );
-        buttonsParam[3] =createButton(
-            "Back", win, 100, 600, 300, 100,
-            (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-            changeState, &game.stateHandlers[2].state, win->LargeFont
-        );
 
-        buttonsParam[4] =createButton(
+        buttonsParam[3] =createButton(
             "Fullscreen", win, 100, 300, 220, 75,
             (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
             makeWindowFullScreen, NULL, win->LargeFont
         );
 
-        buttonsParam[5] =createButton(
+        buttonsParam[4] =createButton(
             "Windowed", win, 400, 300, 220, 75,
             (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
             makeWindowWindowed, NULL, win->LargeFont
         );
+
+        buttonsParam[5] =createButton(
+            "Back", win, 100, 600, 300, 100,
+            (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+            changeState, &game.stateHandlers[2].state, win->LargeFont
+        );
+
 
         buttonsLoadGame[0] = createButton(
             "Save 1", win, 500, 104, 300, 100,
@@ -832,42 +641,13 @@ void initAllButtons(Window * win)
     }
 }
 
-void initText(Window *win) {
-    const char * const texts[] = {"Lancement de la Nouvelle Partie...", "ICPocket"};
-    Text *textObjects[] = {&NewGameText, &title};
-    SDL_Rect rects[] = {
-        {win->width / 2 - 250, win->height / 2 + 250, 500, 100},
-        {win->width / 2 - 250, -25, 500, 170}
-    };
-
-    for (int i = 0; i < 2; i++) {
-        *textObjects[i] = (Text){texts[i], rects[i], rects[i], {255, 255, 255, 255}, win->LargeFont, NULL, NULL};
-        SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, texts[i], textObjects[i]->color);
-        if (!textSurface) {
-            SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur de rendu du texte : %s", TTF_GetError());
-            exit(EXIT_FAILURE);
-        }
-        textObjects[i]->texture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
-        if (!textObjects[i]->texture) {
-            SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur de création de la texture : %s", SDL_GetError());
-            SDL_FreeSurface(textSurface);
-            exit(EXIT_FAILURE);
-        }
-        textObjects[i]->surface = textSurface;
-    }
-}
-
 void updateICButtons(Window *win, t_Team *team) {
-    if (!team || !team->team || !team->team[0].moveList) {
-        SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur : team, team->team ou moveList est NULL\n");
-        exit(EXIT_FAILURE);
-    }
     for (int i = 0; i < 4; i++) {
         if(team->team[0].nb_move > i) setButtonText(game.ui[3].buttons->buttons[i], team->team[0].moveList[i].name, win->renderer);
         else setButtonText(game.ui[3].buttons->buttons[i], "  ", win->renderer);
     }
     for (int i  = 0; i < 6; i++) {
-        if (team->team[i].name) setButtonText(game.ui[6].buttons->buttons[i], team->team[i].name, win->renderer);
+        if (team->team[i].name[0] != '\0') setButtonText(game.ui[6].buttons->buttons[i], team->team[i].name, win->renderer);
         else setButtonText(game.ui[6].buttons->buttons[i], "  ", win->renderer);
     }
 }
@@ -881,52 +661,3 @@ void updateCurrentButton() {
     }
 }
 
-
-//---------------------------------------------------------------------------------
-
-// Functions for the music
-
-void initAudio() {
-    SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_INFO, "🔊 Initialisation de l'audio ...");
-
-    if (Mix_Init(MIX_INIT_MP3) == 0) {  
-        SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_ERROR, "❌ Erreur Mix_Init: %s", Mix_GetError());
-        exit(EXIT_FAILURE);
-    } else {
-        SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_INFO, "✅ Mix_Init réussi.");
-    }
-    if (Mix_OpenAudio(AUDIO_FREQ, MIX_DEFAULT_FORMAT, 2, 8192) < 0) {
-        SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_ERROR, "❌ Erreur Mix_OpenAudio: %s", Mix_GetError());
-        exit(EXIT_FAILURE);
-    } else {
-        SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_INFO, "✅ Mix_OpenAudio réussi.");
-    }
-}
-
-void loadMusic(Mix_Music **music, const char *musicPath) {
-    *music = Mix_LoadMUS(musicPath);
-    if (!*music) {
-        SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_ERROR, "❌ Erreur Mix_LoadMUS: %s", Mix_GetError());
-        exit(EXIT_FAILURE);
-    } else {
-        SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_INFO, "✅ Chargement de la musique réussi.");
-    }
-    Mix_VolumeMusic(MIX_MAX_VOLUME / 2);
-}
-
-//---------------------------------------------------------------------------------
-
-void LogToFile(void *userdata, int category, SDL_LogPriority priority, const char *message) {
-    FILE *logFile = fopen("sdl_log.txt", "a"); // Ouvrir en mode ajout
-    if (logFile) {
-        fprintf(logFile, "[%d] [%d] %s\n", category, priority, message);
-        fclose(logFile);
-    }
-}
-
-void InitLogFile() {
-    FILE *logFile = fopen("sdl_log.txt", "w"); // Ouvrir en mode écriture pour écraser le fichier
-    if (logFile) {
-        fclose(logFile);
-    }
-}

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "include/GameEngine.h"
+#include "include/Window.h"
 
 
 int main(void) {
