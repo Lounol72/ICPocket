@@ -113,4 +113,15 @@ void renderICMonsSprite(Window *win, t_Poke *poke);
 void destroyICMonsSprite(Window *win, t_Poke *poke);
 void updateCurrentButton();
 
+/* */
+
+void handleIntermediateEvent(Window *win, SDL_Event *event);
+void handleQuitEvent(Window *win, SDL_Event *event);
+void handleSettingsEvent(Window *win, SDL_Event *event);
+void handleMenuEvent(Window *win, SDL_Event *event);
+void handleGameEvent(Window *win, SDL_Event *event);
+void handleNewGameEvent(Window *win, SDL_Event *event);
+void handleLoadGameEvent(Window *win, SDL_Event *event);
+
+
 #endif /* GAMEENGINE_H */

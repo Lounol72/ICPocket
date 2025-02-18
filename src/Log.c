@@ -2,7 +2,7 @@
 
 void LogToFile(void *userdata, int category, SDL_LogPriority priority, const char *message) {
     (void)userdata;
-    FILE *logFile = fopen("sdl_log.txt", "a"); // Open in append mode
+    FILE *logFile = fopen("sdl_log.log", "a"); // Open in append mode
     if (logFile) {
         fprintf(logFile, "[%d] [%d] %s\n", category, priority, message);
         fclose(logFile);
@@ -10,7 +10,7 @@ void LogToFile(void *userdata, int category, SDL_LogPriority priority, const cha
 }
 
 void InitLogFile() {
-    FILE *logFile = fopen("sdl_log.txt", "w"); // Open in write mode
+    FILE *logFile = fopen("sdl_log.log", "w"); // Open in write mode
     if (logFile) {
         fclose(logFile);
     }

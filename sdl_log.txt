@@ -1,3 +1,0 @@
-[0] [3] 🔧 Initialisation de la fenêtre ...
-[0] [3] ✅ Initialisation de la fenêtre réussie
-[0] [3] Changement d'état : 0
