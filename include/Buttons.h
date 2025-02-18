@@ -6,8 +6,6 @@
 #include <SDL2/SDL_mixer.h>
 
 
-
-
 typedef struct Window Window;
 typedef struct Button Button;
 typedef struct ButtonList ButtonList;
@@ -15,7 +13,6 @@ typedef struct Slider Slider;
 typedef struct SliderList SliderList;
 
 #include "GameEngine.h" 
-#include "game.h"
 
 typedef enum FontSize {
     LARGE = 56,
@@ -259,13 +256,6 @@ int handleSliderEvent(Slider *slider, int x, int y);
  * @param Scaley  Scale factor for the vertical axis.
  */
 void updateSliderPosition(SliderList *sliders, float Scalex, float Scaley);
-
-void initAllButtons(Window *win);
-void changeState(Window *win, void *data);
-void makeWindowFullScreen(Window *win, void *data);
-void makeWindowWindowed(Window *win, void *data);
-void changeTextSpeed(Window *win, void *data);
-void uptadeICButtons(Window *win, t_Team *team);
 
 
 #endif

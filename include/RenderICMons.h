@@ -1,5 +1,5 @@
-#ifndef RENDERICMONS_H
-#define RENDERICMONS_H
+#ifndef 
+#define
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -32,5 +32,3 @@ void renderICMonSprite(IMG_ICMons *poke);
 void updateICMonSprite(IMG_ICMons *poke, t_Poke *pokeData);
 void updateICMonPosition(IMG_ICMons *poke, int ScaleX, int ScaleY);
 void destroyICMonSprite(IMG_ICMons *poke);
-
-#endif /* RENDERICMONS_H */

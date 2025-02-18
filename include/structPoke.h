@@ -9,7 +9,7 @@
 #include <SDL2/SDL_ttf.h>
 
 
-#define PV  0
+#define PV 0
 #define ATT 1
 #define DEF 2
 #define SPA 3
