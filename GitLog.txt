@@ -1,3 +1,52 @@
+commit 08f74ddc53326a235e8c051bb0e5210bcfa8a28b
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Wed Feb 19 19:53:21 2025 +0100
+
+    Charger update
+
+commit 23ef5c1bd0c94463064610562b6c1ca299114b79
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Wed Feb 19 18:31:57 2025 +0100
+
+    Save update
+
+commit ca6f05c4f5115bf210c9ea6f22d95e5d673f5da1
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 19 12:49:00 2025 +0100
+
+    Refactor header files to improve struct references and include organization; remove unused includes
+
+commit 79cd1fafcbbf4ffb364cf3acfd77397129da86f7
+Merge: c765e13 cd61b8d
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 19 12:36:51 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket
+
+commit c765e13b090a03c9e757355d4d1562d1e1ccff26
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 19 12:36:29 2025 +0100
+
+    Improve logging in audio and rendering processes; enhance error handling in Log.c and Buttons.c
+
+commit cd61b8dfed7dd54f660c8e81532d8bccdc43c494
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Wed Feb 19 11:58:23 2025 +0100
+
+    Enhance rendering of ICmons sprites; add null checks and improve health bar display
+
+commit 531d81bd3d5a2addc9e718fcf2b9c057e50dbada
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 19 11:55:39 2025 +0100
+
+    Enhance logging functionality and improve sprite rendering in RenderICMons
+
+commit 10499f88d9bacb80567af5872e05c2543c572683
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 19 10:20:59 2025 +0100
+
+    Refactor GameEngine files for improved readability and maintainability
+
 commit ab89aa6a5b56b00c7b5113b2b5c0764206df6cfd
 Author: Lounol72 <subtil.louis2005@gmail.com>
 Date:   Wed Feb 19 10:02:54 2025 +0100
