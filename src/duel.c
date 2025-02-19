@@ -122,6 +122,8 @@ void initTeam(t_Team * t, int nb_poke){
 	}
 }
 
+//Non fonctionnel pour l'instant
+/*
 void initBlueTeam(t_Team *t) {
     FILE *fichierTrainer = fopen("src/data/dataTrainer.csv", "r");
     if (fichierTrainer == NULL) {
@@ -153,7 +155,7 @@ void initBlueTeam(t_Team *t) {
         }
         fclose(fichierTrainer);
     }
-}
+}*/
 
 int calcDamage(t_Team * offender, t_Team * defender, t_Move * move){
 	int coupCritique=((rand()%24)==0);
