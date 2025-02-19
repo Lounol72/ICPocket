@@ -7,6 +7,9 @@ void LogToFile(void *userdata, int category, SDL_LogPriority priority, const cha
         fprintf(logFile, "[%d] [%d] %s\n", category, priority, message);
         fclose(logFile);
     }
+    else {
+        SDL_Log("❌ Erreur lors de l'ouverture du fichier de log : %s", SDL_GetError());
+    }
 }
 
 void InitLogFile() {

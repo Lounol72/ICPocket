@@ -1,6 +1,8 @@
 #ifndef AUDIO_H
 #define AUDIO_H
 
+#include "Log.h"
+
 #if defined(_WIN32) || defined(_WIN64)
     // Sur Windows
     #define AUDIO_FREQ 44100

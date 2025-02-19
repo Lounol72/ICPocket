@@ -3,20 +3,20 @@
 IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, const char *imagePath, int x, int y, int w, int h, t_Poke *poke, TTF_Font *font) {
     IMG_ICMons *img = malloc(sizeof(IMG_ICMons));
     if (!img) {
-        SDL_Log("❌ Erreur lors de l'allocation de la structure IMG_ICMons.");
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Erreur lors de l'allocation de la mémoire pour l'image");
         return NULL;
     }
     img->renderer = renderer;
     SDL_Surface *surface = IMG_Load(imagePath);
     if (!surface) {
-        SDL_Log("❌ Erreur lors du chargement de l'image : %s", IMG_GetError());
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Erreur lors du chargement de l'image : %s", IMG_GetError());
         free(img);
         return NULL;
     }
     img->ICMonTexture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
     if (!img->ICMonTexture) {
-        SDL_Log("❌ Erreur lors de la création de la texture : %s", SDL_GetError());
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Erreur lors de la création de la texture : %s", SDL_GetError());
         free(img);
         return NULL;
     }
@@ -30,6 +30,7 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, const char *imagePath, int x
     snprintf(Name, sizeof(Name), "%s", poke->name);
     img->nameTexture = SDL_CreateTextureFromSurface(renderer, TTF_RenderText_Solid(font, Name, (SDL_Color){255, 255, 255, 255}));
     img->nameRect = img->nameInitialRect = (SDL_Rect){x, y, w, h};
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Initialisation de l'image réussie");
     return img;
 }
 

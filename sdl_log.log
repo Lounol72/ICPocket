@@ -1,10 +1,9 @@
 [0] [3] 🔧 Initialisation de la fenêtre ...
 [0] [3] ✅ Initialisation de la fenêtre réussie
-[0] [3] Changement d'état : 1
-[0] [3] Changement d'état : 2
+[4] [3] 🔊 Initialisation de l'audio ...
+[4] [3] ✅ Mix_Init réussi.
+[4] [3] ✅ Mix_OpenAudio réussi.
+[4] [3] ✅ Chargement de la musique réussi.
 [0] [3] Changement d'état : 5
-[0] [3] Changement d'état : 2
-[0] [3] Changement d'état : 4
-[0] [3] Changement d'état : 3
 [0] [3] Changement d'état : 2
 [0] [3] Changement d'état : 0

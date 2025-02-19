@@ -165,7 +165,7 @@ void updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley)
     for (int i = 0; i < buttons->size; i++)
     {
         if(!buttons->buttons[i]){
-            SDL_Log("❌ Invalid button at index %d", i);
+            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "❌ Invalid button at index %d", i);
             continue;
         }
         buttons->buttons[i]->rect.w = buttons->buttons[i]->initialRect.w * Scalex;
