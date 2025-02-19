@@ -1,5 +1,5 @@
 #include "../include/Log.h"
-
+#include <stdio.h>
 void LogToFile(void *userdata, int category, SDL_LogPriority priority, const char *message) {
     (void)userdata;
     FILE *logFile = fopen("sdl_log.log", "a"); // Open in append mode

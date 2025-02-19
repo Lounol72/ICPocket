@@ -34,6 +34,21 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, const char *imagePath, int x
 }
 
 void renderICMonsSprite(Window *win, t_Poke *poke) {
-    (void)win;
-    (void)poke;
+    if(!poke->img) return;
+    //render the ICmons texture
+    SDL_RenderCopy(poke->img->renderer, poke->img->ICMonTexture, NULL, &poke->img->rect);
+    //render the PV bar background
+    SDL_SetRenderTarget(poke->img->renderer, poke->img->PVbarTextureBack);
+    SDL_SetRenderDrawColor(poke->img->renderer, 255, 0, 0, 255);
+    SDL_RenderFillRect(poke->img->renderer, &poke->img->PVRect);
+    //render the PV bar foreground
+    SDL_SetRenderTarget(poke->img->renderer, poke->img->PVbarTexture);
+    SDL_SetRenderDrawColor(poke->img->renderer, 0, 255, 0, 255);
+    SDL_Rect pvForeground = poke->img->PVRect;
+    pvForeground.w = (int)(pvForeground.w * ((float)poke->current_pv / poke->baseStats[PV]));
+    SDL_RenderFillRect(poke->img->renderer, &pvForeground);
+    //render the PV text
+    renderText(win, poke->img->PVText);
+    //render the name
+    SDL_RenderCopy(poke->img->renderer, poke->img->nameTexture, NULL, &poke->img->nameRect);
 }
