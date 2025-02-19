@@ -19,6 +19,7 @@
 #include "Text.h"
 #include "Window.h"
 
+
 /* ------------- Structs ------------- */
 /* UI element container, referencing the ButtonList & SliderList defined in Buttons.h */
 typedef struct {
@@ -68,6 +69,7 @@ typedef struct Game {
 
 #include "Game.h"
 #include "Events.h"
+#include "RenderICMons.h"
 
 /* ------------- Function Prototypes ------------- */
 

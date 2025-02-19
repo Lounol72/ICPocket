@@ -1,6 +1,7 @@
 #include "../include/Text.h"
+#include "../include/Window.h"
 
-void initText(Window *win) {
+void initText(struct Window *win) {
     const char * const texts[] = {"Lancement de la Nouvelle Partie...", "ICPocket"};
     Text *textObjects[] = {&NewGameText, &title};
     SDL_Rect rects[] = {
@@ -65,7 +66,7 @@ void destroyText(Text * text){
     }
 }
 
-void renderText(Window * win, Text * text){
+void renderText(struct Window * win, Text * text){
     if(!text || !text->texture) return;
     SDL_RenderCopy(win->renderer, text->texture, NULL, &text->rect);
 }
@@ -80,7 +81,7 @@ void updateTextPosition(Text *text, float scaleX, float scaleY) {
     }
 }
 
-void changeTextSpeed(Window *win, void *data) {
+void changeTextSpeed(struct Window *win, void *data) {
     float *speed = (float *)data;
     win->textSpeed = *speed;
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "🚀 Vitesse du texte changée à %.2f", *speed);

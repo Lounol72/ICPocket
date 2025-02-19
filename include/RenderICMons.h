@@ -26,8 +26,6 @@ typedef struct IMG_ICMons {
     SDL_Rect nameInitialRect;
 }IMG_ICMons;
 
-#include "structPoke.h"
-
 IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, const char *imagePath, int x, int y, int w, int h, t_Poke *poke, TTF_Font *font);
 void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
 void renderICMonsSprite(Window *win, t_Poke *poke);
