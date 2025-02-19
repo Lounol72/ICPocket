@@ -90,7 +90,8 @@ void changePokemon(Window *win, void *data) {
 void nextDuel(Window *win, void *data) {
     (void)win; 
     (void)data;
-    // Sauvegarde de la partie TODO 
+    // Sauvegarde de la partie TODO
+    sauvegarder("Save_1",&game.battleState.rouge,&game.battleState.bleu);
     healTeam(&game.battleState.rouge);
     initTeam(&game.battleState.bleu, 3);
     changeState(win, &game.stateHandlers[3].state);

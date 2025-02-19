@@ -105,7 +105,6 @@ void handleGameEvent(Window *win, SDL_Event *event)
         game.gameState.playerTurn = 1;
     } else if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
         printf("VICTOIRE DES %s!!!\n", isTeamAlive(&game.battleState.rouge) ? "ROUGES" : "BLEUS");
-        sauvegarder("Save_1",&game.battleState.rouge,&game.battleState.bleu);
         win->state = isTeamAlive(&game.battleState.rouge) ? INTER : MENU;
         game.gameState.currentState = win->state;
         game.gameState.initialized = 0;
