@@ -81,7 +81,7 @@ void generatePoke(t_Poke *);
 *@brief Generate a move
 *@return the generated move 
  */
-t_Move generateMove(t_Poke *p,int id);
+t_Move generateMove(int id);
 t_Move generateRandomMove();
 t_Move generateRandomMoveBetter(t_Poke *p);
 void learnMove(t_Poke *, t_Move *, int);

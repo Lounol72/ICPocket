@@ -46,7 +46,9 @@ void charger(char *nomSave, t_Team *joueur, t_Team *dresseur) {
     } else {
         fscanf(fichier, "User name : %s\n", joueur->trainerName);
         fscanf(fichier, "%d\n", &(joueur->nb_poke));
+        joueur->effect = noEffect;
         for (int i = 0; i < joueur->nb_poke; i++) {
+            joueur->team[i].main_effect = noEffect;
             fscanf(fichier, "%d\n", &(joueur->team[i].id));
             generate_poke(&(joueur->team[i]), joueur->team[i].id);
             fscanf(fichier, "%d\n", &(joueur->team[i].lvl));
@@ -58,8 +60,7 @@ void charger(char *nomSave, t_Team *joueur, t_Team *dresseur) {
                 fscanf(fichier, "%d\n", (int *)&(joueur->team[i].type[j]));
             for (int j = 0; j < joueur->team[i].nb_move; j++) {
                 fscanf(fichier, "%d\n", &(joueur->team[i].moveList[j].id));
-                joueur->team[i].moveList[j] = generateMove(&(joueur->team[i]), joueur->team[i].moveList[j].id);
-                joueur->team[i].moveList[j].current_pp = joueur->team[i].moveList[j].max_pp;
+                joueur->team[i].moveList[j] = generateMove(joueur->team[i].moveList[j].id);
             }
         }
         fscanf(fichier, "Dernier dresseur battu : %s id: %d\n", dresseur->trainerName, &(dresseur->id));

@@ -128,7 +128,7 @@ t_Move generateRandomMoveBetter(t_Poke *p){
 	}
 }
 
-t_Move generateMove(t_Poke *p, int line){
+t_Move generateMove(int line){
 	FILE *dataMove;
 	dataMove = fopen("src/data/dataMoves.csv", "r");
 	if (dataMove == NULL){
@@ -139,27 +139,16 @@ t_Move generateMove(t_Poke *p, int line){
 	{
 		char buffer[256];
 		t_Move move;
-		int isUnique = 0;
-		while (!isUnique) {
-			isUnique = 1;
-			rewind(dataMove); //Reset the file pointer to the beginning
-			for (int i = 1; i < line; i++){
-				if (fgets(buffer, sizeof(buffer), dataMove) == NULL){
-					printf("Erreur : ligne %d introuvable dans le fichier.\n", line);
-					fclose(dataMove);
-					exit(1);
-				}
-			}
-			fscanf(dataMove, "%d,%[^,],%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\n", &(move.id),move.name, &(move.power), (int*)&(move.type), &(move.categ), &(move.accuracy), &(move.max_pp), &(move.priority_lvl), &(move.target), &(move.ind_secEffect), &(move.probability), &(move.value_effect), &(move.effect_modifier));
-			
-			// Check if the move is unique
-			for (int i = 0; i < p->nb_move; i++) {
-				if (strcmp(move.name, p->moveList[i].name) == 0) {
-					isUnique = 0;
-					break;
-				}
+		rewind(dataMove); //Reset the file pointer to the beginning
+		for (int i = 1; i < line; i++){
+			if (fgets(buffer, sizeof(buffer), dataMove) == NULL){
+				printf("Erreur : ligne %d introuvable dans le fichier.\n", line);
+				fclose(dataMove);
+				exit(1);
 			}
 		}
+		fscanf(dataMove, "%d,%[^,],%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\n", &(move.id),move.name, &(move.power), (int*)&(move.type), &(move.categ), &(move.accuracy), &(move.max_pp), &(move.priority_lvl), &(move.target), &(move.ind_secEffect), &(move.probability), &(move.value_effect), &(move.effect_modifier));
+		
 		fclose(dataMove);
 		return move;
 	}
