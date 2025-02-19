@@ -115,6 +115,16 @@ void mainLoop(Window *win) {
         // Render the window
         SDL_RenderClear(win->renderer);
         render(win);
+
+        //render the ICmons sprites
+        if(win->state == GAME || win->state == ICMONS){
+            for(int i = 0; i < game.battleState.rouge.nb_poke; i++){
+                renderICMonsSprite(win, &game.battleState.rouge.team[i]);
+            }
+            for(int i = 0; i < game.battleState.bleu.nb_poke; i++){
+                renderICMonsSprite(win, &game.battleState.bleu.team[i]);
+            }
+        }
         updateCurrentButton();
         SDL_RenderPresent(win->renderer);
 

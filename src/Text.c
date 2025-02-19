@@ -66,6 +66,7 @@ void destroyText(Text * text){
 }
 
 void renderText(Window * win, Text * text){
+    if(!text || !text->texture) return;
     SDL_RenderCopy(win->renderer, text->texture, NULL, &text->rect);
 }
 
