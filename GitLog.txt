@@ -1,0 +1,1753 @@
+commit ab89aa6a5b56b00c7b5113b2b5c0764206df6cfd
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 19 10:02:54 2025 +0100
+
+    Add Utils.h for application state management; update Game and RenderICMons files; enhance logging and clean up Makefile
+
+commit e9cba53b69b0291e39f8f7d8ffcc7e019a9f25c0
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 19 09:16:13 2025 +0100
+
+    Implement event handling system; remove obsolete files and update Makefile
+
+commit 352d9ca53b2ad83bc137ce9003572a5e65c23dc7
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 18 20:19:05 2025 +0100
+
+    Add event handling functions and update log file naming
+
+commit 4cac7dac95234fdd7f049b468e343f4d0ace3531
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 18 19:17:59 2025 +0100
+
+    Remodeling GameEngine files to ensure readablility
+
+commit 478e078f8781d165137de815bbed1c618c4323c9
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 18 17:58:46 2025 +0100
+
+    Refactor Makefile to improve structure and add separate targets for main, duel, and save executables; clean up build process and directory creation
+
+commit fceb12fa22a90e062f9fb15dd6662aecccdaccf5
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 18 11:25:52 2025 +0100
+
+    Remove unused headers and source files; clean up includes and fix formatting in structPoke.h
+    FIX
+
+commit 69603e1d614c4f7beb0eb3876780aecb014029ab
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 18 11:11:57 2025 +0100
+
+    Fix header file naming inconsistencies and update text initialization functions
+
+commit b7ef0abcabf9bd1f5bc05ef8b678465ba2d2a6e1
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 17 22:25:38 2025 +0100
+
+    Refactor Makefile and header inclusions; declare global variables as extern
+    
+    TO FIX
+
+commit 651c7e01125fa9d028025a349c801c84c018614e
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 17 22:04:25 2025 +0100
+
+    Add headers for load game and new game event handling
+
+commit fcc090fb74ae42d163a8e6b32c45ce33444947ec
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 17 22:04:15 2025 +0100
+
+    Remove loadgame.h and newgame.h headers and clean up includes in GameEngine.h
+
+commit 3722f97fb5c04d7ba6d2a363970868b362cab634
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Mon Feb 17 21:19:05 2025 +0100
+
+    delete GameEngine.c
+
+commit d07989b7340c1919b5268b1d2bf435f607c0f1b0
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Mon Feb 17 21:17:56 2025 +0100
+
+    Add new header files for game events, settings, audio, and menu handling
+
+commit 94fbc7698fa04c32a5cf2d890c024a78e3905054
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 17 19:01:11 2025 +0100
+
+    Remove unnecessary comments and clean up includes in GameEngine.h
+
+commit c93b2a04a7a4639dee1b3593e1ac7feb132c451d
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 17 14:43:45 2025 +0100
+
+    Add log file initialization function and update SDL log content
+
+commit 792fb41e1d5977392f3a0119bc03063e903d20ff
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 14 09:37:54 2025 +0100
+
+    Enhance documentation styling by integrating Axolotl font and updating background image
+
+commit 7ed8720d7a1c000703db2b5b4a1e66c03a038b64
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 14 09:20:46 2025 +0100
+
+    Enhance documentation styling and content, including project overview, features, and development team details
+
+commit cc4e4599aa139beab88c57e502350e3d0044b9a7
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 14 09:07:18 2025 +0100
+
+    Update project documentation with project overview, features, implementation details, and development team information
+
+commit 4f33a63ff22cee5ef3489a0a1ab6a012effb709e
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 14 08:54:39 2025 +0100
+
+    Add new image assets and update search data for documentation
+
+commit 4f1b203dc1b83dc6549c3be5bc07a5a02635635e
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 13 22:13:24 2025 +0100
+
+    Add fullscreen and windowed mode buttons to the game interface
+
+commit 236dd3d0f512dbbfcb314e343f2143375c596a6e
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 12 19:48:05 2025 +0100
+
+    Enhance ICMon sprite initialization to include font parameter for rendering text
+
+commit e794e338079c28b09f6b4e7ea1fbb36621e1b677
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sun Feb 9 20:34:04 2025 +0100
+
+    Add initial implementation for ICMon sprite rendering and management
+
+commit c516bbdbdf8eba1a6d7eb31d5905169d83feebba
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sat Feb 8 22:47:59 2025 +0100
+
+    Refactor AI move choice logic and update save data format
+
+commit 0ffee8ef4b5ffd32117ef3cb0b38c7ddb09cbf6b
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sat Feb 8 22:33:32 2025 +0100
+
+    Fixed a bug in the duel where the IA was not able to play a turn
+
+commit b82fca1559eb24a7be74ca13a4088440e5ff40b5
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Feb 7 16:35:12 2025 +0100
+
+    Updates save and generation
+
+commit 4dcd1d357881368fb5aacf345655ae94986c6736
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Feb 7 16:19:15 2025 +0100
+
+    fixed struggle recoil damage
+
+commit 95538599bc0f72d095ad5ce770bc23afbd4ce211
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Feb 7 16:05:03 2025 +0100
+
+    finished secondary effects (but might need more testing)
+
+commit dd6c47c7a70fa469307d8d68c56b9aeae95281d0
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Feb 7 15:37:36 2025 +0100
+
+    Charge and save done
+
+commit d4fd61dd0030c81f403f4727fa06b942295fd989
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Feb 7 14:12:31 2025 +0100
+
+    passing basics for secondary effects
+
+commit b4b66edfd8f27db2c6a15653860d0f7df9e2aacf
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Feb 7 13:51:56 2025 +0100
+
+    fixe final
+
+commit bff8f949a6059d6f89d2aa9f6d841c235b041aab
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Feb 7 13:47:15 2025 +0100
+
+    please last fix
+
+commit 7b212b45455ab6c2dc30a59a950d759d93552ffb
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Feb 7 13:44:33 2025 +0100
+
+    fixed working tree
+
+commit 976bdaf912876b851591530183d905e71a377818
+Merge: d73b818 765e7e9
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Feb 7 13:40:46 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket into main
+
+commit d73b81851d7cf994cda9bddb737c879465f5394f
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Feb 7 13:39:19 2025 +0100
+
+    merge issues fixed
+
+commit 765e7e90ec0372e85669246cdf92ba9fb54f6906
+Merge: 801841d 19b861c
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Feb 7 13:19:38 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket into main
+
+commit 801841de742cd339cf3d3159f31584803576ed5b
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Feb 7 13:19:33 2025 +0100
+
+    merge conflict
+
+commit 19b861cbe55970411d483480251ae13d50fcd337
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Feb 7 13:12:17 2025 +0100
+
+    mainDuel changes
+
+commit 39fd9ee5b398a577572c41699868aa0186e8cace
+Merge: cbffa2d 43fe910
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Thu Feb 6 23:06:19 2025 +0100
+
+    Merge remote-tracking branch 'refs/remotes/origin/main'
+
+commit cbffa2dbbc5c1c7c2087c34008850da0021a45e5
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Thu Feb 6 23:03:33 2025 +0100
+
+    Add save at Game Engine, try to load a game
+
+commit 43fe910b439b0c0e0d22830011919055e45c703e
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Thu Feb 6 17:01:05 2025 +0100
+
+    fixed trainer AI making illegal moves
+
+commit 8301b92a4e3c715ef80181cab422c1bfeb05e9e7
+Merge: cf1322b 143e66e
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Thu Feb 6 16:02:18 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket into main
+
+commit cf1322b82251dc8689d8c92e01c8bfe81a906f91
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Thu Feb 6 16:02:10 2025 +0100
+
+    started fixing of trainer AI
+
+commit 143e66ee296159a23f7eb896a0cf4f5683a436a7
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 6 16:01:56 2025 +0100
+
+    Ajout de la fonction LogToFile pour la journalisation des messages et amélioration de la gestion des textes des boutons
+
+commit 283e49e7ba0f53538e64c999604f129668added5
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Thu Feb 6 16:01:12 2025 +0100
+
+    started fixing trainer that could softlock game
+
+commit 9d6b94bc7665366a09df1eba0d4a715cd9f768ee
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 6 15:43:15 2025 +0100
+
+    Correction de la gestion des chaînes de caractères et amélioration de la logique de jeu pour une meilleure robustesse
+
+commit 50e2d0888dafe288e1a7b6a765869323578aea27
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 6 15:32:47 2025 +0100
+
+    Ajout de la gestion des duels avec l'association de 'duel.h' et mise à jour de la logique de jeu pour vérifier la vie des équipes
+
+commit 9d21b54a04c0bcb05a5fbcea53db1a3fef63ab40
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Thu Feb 6 15:21:15 2025 +0100
+
+    fixed struggle
+
+commit ce6f18ae9cf47a9c73a9594615540fa5bbd3cd14
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 6 14:13:51 2025 +0100
+
+    Ajout de la gestion des duels avec création de nouveaux boutons et intégration de la fonction nextDuel
+
+commit 795fca623c7f54b88d3ba6972fa84a4a51de5f70
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 6 12:20:12 2025 +0100
+
+    Deleted a if statement that was not needed
+
+commit dee1093831f9cc3cf0142765ac0d2ab90bc6f8de
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Thu Feb 6 12:17:53 2025 +0100
+
+    started creation of secondary effects
+
+commit 881dae5984dabfe04ba7b5c15ca42e5e91610340
+Merge: 3a186fe 476ee05
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 6 12:02:41 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket into main
+
+commit 3a186fe5ba80e4596b7da729d696287471637d36
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 6 12:02:20 2025 +0100
+
+    Refactor save management functions and update Game struct to include saved state
+
+commit 476ee05ce3ba905f7e0f99a10d269939ab7fc476
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Thu Feb 6 10:59:32 2025 +0100
+
+    added move
+
+commit 92d255fe02626f77de594db575d82df6c34e0c0c
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Wed Feb 5 23:55:12 2025 +0100
+
+    Add dataMoves.csv and dataTrainer.csv(empty) files, and make generateMoves
+
+commit d13aa13e4de22ade59a700d15ce31b6ff2735201
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 5 22:39:53 2025 +0100
+
+    Refactor game event handling to improve team state management and streamline turn logic
+
+commit 44f0e42c4bd6d40ffc503a4bb3e782afaf1e76bc
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Tue Feb 4 22:42:13 2025 +0100
+
+    move en random
+
+commit 8a0b63d29e40688376e5419ebc4b1484e83becad
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 4 22:21:24 2025 +0100
+
+    Refactor team initialization to print all Pokémon in the rouge team and update random Pokémon generation logic
+
+commit 41079fa1be4f597b33100fb2c284975d166a783b
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Tue Feb 4 21:36:25 2025 +0100
+
+    Commentary, Add starters,InitTeam instead testTeam on gameEngine
+
+commit 3a77b1673c6cae78228c6ad49ebcd2e3d0078bd9
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Tue Feb 4 20:15:07 2025 +0100
+
+    BDD poke in CSV
+
+commit b5e4eb3ef337172d9f4746148298f430c93acade
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 4 15:08:12 2025 +0100
+
+    Add updateSliderPosition function to handle slider position updates based on mouse coordinates
+
+commit cfd37697a15c848251c5ff05a362fb399e816001
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 4 13:49:59 2025 +0100
+
+    Refactor GameEngine event handling for improved button navigation and streamline valgrind command in Makefile
+
+commit 5810d821c9bb9e82bc0105bce82fd11ed1c132fb
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 4 12:04:07 2025 +0100
+
+    Add selectedTexture to Button struct and update texture handling in button functions
+
+commit a3ca2165eb4818ff99bbf1d7c74fdc80573b8e57
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 3 22:55:36 2025 +0100
+
+    Update ButtonClicked function to handle special case for mouse coordinates
+
+commit 2f37e303b35acb2a00413fe0fd5dd0ec8816d64e
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 3 22:52:11 2025 +0100
+
+    Add currentButton tracking and update button textures in UI navigation
+
+commit bdacd24af7875b50b1c8659ac17e5e1d9b0c7f63
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 3 22:25:36 2025 +0100
+
+    Remove unused variable 'bleu' from GameEngine to clean up code
+
+commit 75d4c9c65402fa551b21d2a72e95b42f452c2377
+Merge: 858fb00 503322b
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 3 22:13:31 2025 +0100
+
+    Refactor save and load functions to improve player data handling; add user name loading and enhance memory management
+
+commit 858fb00bbc3d73af1ba7818637f6647c4ff3cdb2
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 3 22:13:00 2025 +0100
+
+    Fix button text rendering and improve game state initialization; update comments for clarity
+
+commit 503322b49e0fb6e5bd4367e394e0556d937499a7
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Mon Feb 3 20:26:30 2025 +0100
+
+    Update save and loads
+
+commit fe431352fae68fefdfdd30c2c29674d2685f4d1e
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sun Feb 2 21:09:42 2025 +0100
+
+    Update background image for combat scene in GameEngine initialization
+
+commit 38fde5ab54e67542530374685d5534f122399446
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sun Feb 2 20:47:47 2025 +0100
+
+    Update game state management in handleGameEvent and improve changePokemon function
+
+commit 3e87d69d91bb077dd51e8ee307121ef0302c4482
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Sun Feb 2 12:44:34 2025 +0100
+
+    Merge
+
+commit 4285ade896da5d74000b726ff708533c64f5e3de
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sun Feb 2 12:17:53 2025 +0100
+
+    Add initialCursor to Slider struct and update related functions; rename attack button functions for consistency
+
+commit 14eff06656a6e28c707a6171a73566b3ac18686e
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sun Feb 2 00:13:25 2025 +0100
+
+    Refactor rendering functions and clean up unused code in GameEngine
+
+commit af6d5f655a46430e918882a9dc9cd52bdbb75e19
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 31 17:33:15 2025 +0100
+
+    CONFLICT function updateICMonsSprite
+
+commit 84f8a29d813f7cc6d8026931b8602e06b4d6eb82
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 31 16:15:32 2025 +0100
+
+    Add platform-specific audio frequency definitions in GameEngine.c
+
+commit 5d82d597e14a41e0aa79eb6b81ae3cc8d100c13d
+Merge: 9a9511a 37f4369
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Fri Jan 31 16:17:04 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket into main
+
+commit 9a9511a4d89dfce008197f74190ddd66419e33d1
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Fri Jan 31 16:16:49 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket into main
+
+commit 37f4369fe67e5603070d26263d2afcf84408f98b
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Jan 31 16:04:25 2025 +0100
+
+    add load (not finish) , improve save
+
+commit 9e6606ffd0575769e25a5d21243ddc72784fe15a
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 31 15:52:59 2025 +0100
+
+    Add intermediate state handling and update game structure
+
+commit 2830a247d32ca32c978059ae3531436001e111a9
+Merge: 95a0a06 a4e9b04
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 31 15:39:06 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket
+
+commit 95a0a06f82e27aa9f94d158cfdff8ad38969373d
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 31 15:38:41 2025 +0100
+
+    Update attack button logic and fix team move count handling
+
+commit a4e9b0400200d05220de5844e5c0e73ede00399d
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Jan 31 15:37:00 2025 +0100
+
+    added end of battles functions
+
+commit fab0cfb5a905bc99593ce46492ce7d20a32a36b6
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Jan 31 15:09:47 2025 +0100
+
+    Save final !
+
+commit c223428ea5e72ce30abcc2d34ad02148fef2b8e5
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 31 14:56:14 2025 +0100
+
+    Improve error logging in button and game engine functions
+
+commit 3aeb8f307792aff53c9cc29102f6b0728c4d436c
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Fri Jan 31 14:43:28 2025 +0100
+
+    ajout de sprite test
+
+commit b6c3ce2b0076517afb88b45e7cc7a987f34d83dd
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Jan 31 14:30:00 2025 +0100
+
+    merge fix
+
+commit 609f63377994d52fb1e2c72c483d16a725bff6ea
+Merge: b12ff75 9a5fec2
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Jan 31 14:25:16 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket into main
+
+commit b12ff75632421e6beff827d698ff1f9dbd20d6b5
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Jan 31 14:24:31 2025 +0100
+
+    some problems resolved
+
+commit 9a5fec2d44ea532a4b375998822861861dd09209
+Merge: 6ec7b49 b3f2293
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 31 14:14:26 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket
+
+commit 6ec7b4910828ffdae23cc708db241f6e0eb8b814
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 31 14:14:20 2025 +0100
+
+    Add button handling and initialization for ICMons in GameEngine
+
+commit b3f22935267b3270f61e507bf997f59c79972a80
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Jan 31 14:03:29 2025 +0100
+
+    added variable number of moves
+
+commit 203c0dc91f6834b0af53d7504fad7bfb0054d90d
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 31 13:37:20 2025 +0100
+
+    Add Valgrind test target and improve text object destruction in GameEngine
+
+commit 18d5a9f3526af7bb851642fd2fdf51c9f52f9737
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Jan 31 12:00:00 2025 +0100
+
+    starting seg fault resolution
+
+commit b38527723f9527804eb62dd0bb7bdbc8f063de5c
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 31 11:49:56 2025 +0100
+
+    Implement data deallocation
+
+commit 5027f3e8b14b636ee239f8b21ec5219bb3852d00
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 31 10:38:34 2025 +0100
+
+    Refactor memory management and streamline button texture initialization in GameEngine
+
+commit 569b2597579ee55a4ca2a5fa6f08f8cd56e707ef
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 31 09:57:08 2025 +0100
+
+    Added freeing for new structures
+
+commit 7d7c5fb0f1fd0ce5e7989ae6fce70aa8482fb145
+Merge: 0230ecd 77107ad
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Fri Jan 31 00:49:14 2025 +0100
+
+    Merge remote-tracking branch 'refs/remotes/origin/main'
+
+commit 0230ecdace8b5e746753c1c2f8fa99f4ca4333b2
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Fri Jan 31 00:46:32 2025 +0100
+
+    Save presque fini (correction segfault) , modif struct t-team , creation ministdlib , makefile save créer
+
+commit 77107ad693a4d0b66dd87d2d5ea84c9710e70a40
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 30 23:21:29 2025 +0100
+
+    refactor memory management in game engine; streamline UI element destruction and initialization
+
+commit 3cb1b69df5e6ca079effa6f6a85cee65d6bf5f13
+Merge: 052b37a d19e226
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 30 22:53:24 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket
+
+commit 052b37a5f0ca868220ac5df639838ce2c32d6ab3
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 30 22:53:10 2025 +0100
+
+    added structure but seg fault when icmons button clicked
+
+commit d19e226417deadcb704372cc1282b7b7a718d6e4
+Author: wiwi <littrewilliam@gmail.com>
+Date:   Thu Jan 30 20:02:37 2025 +0100
+
+    generatePokeFinal
+
+commit 363ba6964628ea8b116031bfe2ad5e8822e7f85e
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Thu Jan 30 16:56:46 2025 +0100
+
+    fixed printf duplicate bug
+
+commit b96aaf8b8d445ac131ac602e2918391d72f5c621
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Thu Jan 30 16:37:19 2025 +0100
+
+    bug fix with sdl switching poke handling (it could switch into a dead poke)
+
+commit a6d740e14833473b9b69db862d327aca8b6202c5
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 30 14:16:12 2025 +0100
+
+    Add ICMons selection functionality: implement rendering and event handling for ICMons buttons
+
+commit 9c2f63f04476d2b044c27774a49cd0a236a80cf3
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 30 14:05:14 2025 +0100
+
+    Add music playback functionality and volume control; initialize audio and load music in the game engine
+
+commit fa59e8de12127f49142ea94db071f15aa347f727
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 30 13:52:17 2025 +0100
+
+    Refactor audio handling: remove music loading and playback from main loop, add audio initialization function
+
+commit f596f03ea202536b6710e4a90919035d8d12800f
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 30 11:56:51 2025 +0100
+
+    PROBLEME INIT MUSIC
+
+commit 2875db41885823ac794286d60a8379a2fdae2e56
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 30 11:16:39 2025 +0100
+
+    Refactor code for improved readability and maintainability; adjust window initialization, enhance slider functionality, and streamline text initialization.
+
+commit e10624ddbb2b65b9b8864d3abfa04e7b6501a98a
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 30 11:00:37 2025 +0100
+
+    Remove redundant mouse event handling in handleNewGameEvent function
+
+commit 83755a81b391344f4ca1e1dac6a640db9ce8f8aa
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 30 10:52:43 2025 +0100
+
+    Added Dynamiques buttons
+
+commit 3d481af5682dd2a6f110ea6924768bd21c3a4014
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Thu Jan 30 10:30:08 2025 +0100
+
+    defined nb_poke
+
+commit 724e35ba03f6ff429c1ebd289be5f38500b6a5f2
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 29 18:55:30 2025 +0100
+
+    Implement player turn logic and update attack handling in GameEngine
+
+commit cf06427ed8abfe49a6e7fa11840263096814846a
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 29 18:43:24 2025 +0100
+
+    Add duel functionality and team initialization to GameEngine
+
+commit 92602b369be03a4764e902423e2ef673c35777d9
+Merge: f7acbcc 476fa14
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 29 18:21:00 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket
+
+commit f7acbcc1e4394635e6f47018a335bd726441d7e0
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 29 18:20:59 2025 +0100
+
+    Add initialization function for Pokémon natures and coefficients
+
+commit 476fa14dd3ea850a5d1ca4eaf7ed6087b8e6848d
+Merge: b8a6175 c025396
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Wed Jan 29 17:00:21 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket into main
+
+commit b8a61758bc09543ec35aacddcd0c703ec8c87091
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Wed Jan 29 16:59:40 2025 +0100
+
+    Remove title rendering code from renderMenu function in GameEngine.c
+
+commit c0253967c22daeee0e368ffad6034dec2f4c568a
+Merge: 0fe51b2 cf71208
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 29 16:32:03 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket
+
+commit cf71208eecb76283487fd9a55d015d6c84cb158f
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Wed Jan 29 16:33:51 2025 +0100
+
+    added more ai capacity to choose move
+
+commit 41e7ca3285bd89f9d47562d9f1bc13f764133db8
+Merge: 85dea97 e305c8b
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Wed Jan 29 16:32:01 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket into main
+
+commit 0fe51b2dd9df5449c17bdb17f888d9e93ad64c46
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 29 16:31:16 2025 +0100
+
+    Refactor title rendering in GameEngine.c and update background image path
+
+commit 85dea979e44aae33509fd788d531a282d25a98f0
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Wed Jan 29 16:29:29 2025 +0100
+
+    Modification dossier data(separation data joueur / data poke) , ajout du fichier save (vide)
+
+commit e305c8bf343d799bb590ed482f1534ef4af155f8
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Wed Jan 29 16:25:47 2025 +0100
+
+    Adjust menu title position and button placements in GameEngine.c
+
+commit 4da64350aa82a4a4f411812e45b949fd26d2c8ab
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Wed Jan 29 16:09:56 2025 +0100
+
+    Test Commit
+
+commit 4ba0661fa385e511c9aae8ccbe98faca2f884d0b
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Wed Jan 29 16:02:11 2025 +0100
+
+    added database graph
+
+commit 51d6bc64edd5212c3d1aedec76201c5b36a71453
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Wed Jan 29 15:11:30 2025 +0100
+
+    added Team entire duel
+
+commit f3941ccff911c940b7ae32cdc17c5a6be3a4acbf
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 29 14:49:57 2025 +0100
+
+    Update button colors and change texture for button 4 in GameEngine.c
+
+commit 0a0c5ddbee425b9cf3e1abeb9e0ebad7f1635a5f
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 29 09:35:54 2025 +0100
+
+    Add new UI assets and update GameEngine.h with changeState function
+
+commit f967e11876fa9266626f10ed9e988f76fc5b5745
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Wed Jan 29 00:34:24 2025 +0100
+
+    Ajout 12 BDD
+
+commit 663dd727e3928740866d713b6897e3616a0495f9
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Jan 28 23:39:27 2025 +0100
+
+    Add attack button event handler and improve button text centering + new buttons
+
+commit 47fff4c23b4bb270347de377ab2a73d4b3c31046
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Jan 28 21:03:15 2025 +0100
+
+    Add doc for GameEngine.h
+
+commit 07b2b73982b53f2680f8da025e94b8377679c4da
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Jan 28 20:48:15 2025 +0100
+
+    Clean up .gitignore and remove unnecessary Zone.Identifier files
+
+commit 90206743922d37afe95273f268dbe0264d12e230
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Tue Jan 28 20:05:37 2025 +0100
+
+    fix final(hope) de mon bug
+
+commit 02486127b99e20af0c8ebd7a1709fbb4333ae332
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Tue Jan 28 20:03:21 2025 +0100
+
+    fix final(hope) de mon bug
+
+commit 07a892f7f85a67e0c5be3b9321faa23908694107
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Tue Jan 28 19:02:26 2025 +0100
+
+    commit buggé
+
+commit 3a65cfa66aa3604cc4cef9e8dc4abf03b9a7c20e
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Tue Jan 28 18:32:02 2025 +0100
+
+    commit vide buggé
+
+commit 2029fec7d5daef72e46201bf1410650b8ccb7463
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Jan 28 15:02:34 2025 +0100
+
+    Add initialRect to Text struct and implement updateTextPosition function for dynamic text scaling
+
+commit f937832fd54ee924e55724a0987390a83d8d0767
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Jan 28 14:23:35 2025 +0100
+
+    Add new game functionality with button handling and background texture
+
+commit a586921cc39ca9d6dce926e84ad97be4edd75e5b
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Jan 28 10:43:33 2025 +0100
+
+    Add Text struct and update renderText function for improved text handling
+
+commit a58d12daf8624d56971ad260a80a7ae27b42d283
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Jan 27 22:46:24 2025 +0100
+
+    Reorder state and event handlers to include renderMenu and handleMenuEvent
+
+commit 6baf2412c50c8440f017fd780ea51ddbe477b626
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Mon Jan 27 18:27:28 2025 +0100
+
+    removed warnings + added insertionSort function for AI decision making purpose
+
+commit 052ed282ba428cd9db8c3ae3a7a118fbfdf6016b
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Mon Jan 27 17:24:34 2025 +0100
+
+    fonction de création de fichier et rendu de jeux
+
+commit 19e62f05bd0cd20b7683ce8751babcaf103243b8
+Merge: 516ea5c d1b49e1
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Jan 27 15:25:57 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket
+
+commit 516ea5c75cafdc5eb08093af4c2e61551393d79a
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Jan 27 15:25:01 2025 +0100
+
+    Refactor include paths and update Makefile directory structure
+
+commit d1b49e111fb9881c20b63088eb10c7ac08a6f33c
+Merge: 20d69f7 dbbb4a1
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Mon Jan 27 14:43:59 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket
+
+commit 20d69f76eebc4a3cb1c634c803fe040b28257a24
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Mon Jan 27 14:43:01 2025 +0100
+
+    fix files
+
+commit dbbb4a1fab880a4cd0aaeea5cdf84a35ecd2e437
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Jan 27 14:19:52 2025 +0100
+
+    Add text speed adjustment buttons and update settings event handling
+
+commit 063ae0336819e130b961e45a9a356560769f3956
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Jan 27 13:21:02 2025 +0100
+
+    Refactor button texture initialization and improve stat calculation logic
+
+commit a8f91c1ee585b72bb84559e5da0cfe0868c7c262
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Jan 27 13:13:40 2025 +0100
+
+    Add text rendering functionality to GameEngine
+
+commit bb5368ed75a13c8c7272d38a1916fa2da1b362b8
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Mon Jan 27 13:11:03 2025 +0100
+
+    add button settings
+
+commit 73c2c1ee335e17665860997d48d2e5b2cd7bab52
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Jan 27 12:07:31 2025 +0100
+
+    Fix duplication
+
+commit 03ae9856dc9bae9c0327d7828764d07dc53a12af
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Jan 27 12:04:59 2025 +0100
+
+    Fix duplication
+
+commit fc5b0c4510f7b7b4312100e04559267135e8947b
+Author: William Littre <littrewilliam@gmail.com>
+Date:   Mon Jan 27 11:57:53 2025 +0100
+
+    Affichage des bases stats OK, Ajout des 12 premiers poke dans dataPoke
+
+commit aba2606d2dbb5390e78bc1b4631cc3d8ed330dbb
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Mon Jan 27 11:46:36 2025 +0100
+
+    boutons Menu en place
+
+commit 3b0cb164841e95ec62f94b92fa09b99d97e507fc
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Sun Jan 26 20:34:32 2025 +0100
+
+    Add background texture support for game rendering and clean up button creation code
+
+commit 9d65b98d47664dca47d50cbe5a906eefacddc9d0
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Sun Jan 26 18:11:04 2025 +0100
+
+    Enhance button creation with customizable font and improve memory management
+
+commit 6b30dcfcc2b137ef0811949dab472db75003ec9d
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Sun Jan 26 17:16:28 2025 +0100
+
+    MASSIVE UPDATE:
+    optimized memory usage of structures (causing rewriting of every function) + bug fix struggle + bug fix crit
+
+commit 784ba7f606219bc7ebc20599fbd791b10fffb713
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Sun Jan 26 11:38:23 2025 +0100
+
+    update makefile for proper separated compiling + added AI trainer files (empty for now)
+
+commit 02ae84a6136e1b6d266963a36734c4e1837aa96a
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Sat Jan 25 20:04:18 2025 +0100
+
+    Bug Fix of testActionValidity
+
+commit 7e519566ec8850b0ea1b9574be7508f63114908c
+Merge: 7cd6786 13282a5
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Sat Jan 25 19:29:25 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket
+
+commit 7cd67864033f81ecac73922ccf12d7ac7695ad51
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Sat Jan 25 19:27:59 2025 +0100
+
+    added struggle move (base) + bugfix
+
+commit 13282a5977828161e9c51fc7108cf4ee22eb7436
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Sat Jan 25 18:50:45 2025 +0100
+
+    Update renderer settings and enhance window structure for improved performance and font management
+
+commit d8d33499ce00bdc08b14538bdd6df470a93f1140
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Sat Jan 25 18:38:38 2025 +0100
+
+    Update slider cursor positioning for improved accuracy and rendering
+
+commit f802a7e090d16e3b7f9d784d23f5c90d6bd5ec44
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Sat Jan 25 18:30:14 2025 +0100
+
+    Refactor slider rendering and event handling for improved clarity and efficiency
+
+commit 928e0337358f8201693778d82ccffb4852d27a85
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Sat Jan 25 18:04:55 2025 +0100
+
+    Add testDuel target to Makefile and rename test target to testMain
+
+commit 24ecb99a65ef78491cdead2cfc71a897269a9244
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Sat Jan 25 18:00:13 2025 +0100
+
+    Refactor button creation to include text rendering and update window initialization to load font
+
+commit 991834546859f4f87a4d79a8610fcd1718c75a23
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Sat Jan 25 16:23:39 2025 +0100
+
+    added headers to duelLib + update makefile
+
+commit 4dd36e62c26d13739ccf7f7a97ac4c7b447bbda8
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Fri Jan 24 18:30:15 2025 +0100
+
+    affichage nom boutons(pas finis)
+
+commit 59809eaa9212ccba10c00fbc56e6e3ab19a5c112
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Jan 24 16:32:29 2025 +0100
+
+    ajout gantt
+
+commit 4756fb6e021a134c3c9997ddef713a60a27b1c37
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Jan 24 16:19:58 2025 +0100
+
+    Remove generatePoke function and associated file for code cleanup
+
+commit 50a444b92d136b737aa47c198d44e3cd4688d1b1
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Jan 24 16:19:44 2025 +0100
+
+    MAJ generatePokeF , creation de fichier dataPoke(BDDD des poke)
+
+commit 223798f177f6f15e29115bbb0577cff75f3b1c99
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Fri Jan 24 16:17:51 2025 +0100
+
+    mise a jour des boutons
+
+commit 98f21f6527d90a77114fec69539c1d39a5e0bd1f
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Jan 24 15:44:24 2025 +0100
+
+    minor change
+
+commit b7c35f157ad661347cd7d3bd932a7999ff3214d7
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Jan 24 14:54:43 2025 +0100
+
+    added priority level + created bin folder
+
+commit 9c21fa3affc886e7cf4f5f8c4a3bbf285200c12c
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Fri Jan 24 14:27:10 2025 +0100
+
+    Remove unused constants and state management files; introduce GameEngine structure for improved organization
+
+commit 5d6537ca1a93bf8e6cf45a2428eaadaf0caa3eff
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Jan 24 14:14:18 2025 +0100
+
+    added accuracy + pp + testPP
+
+commit 44f58c39f2e5099a83cc831b60c973e8f01b4620
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Thu Jan 23 16:27:40 2025 +0100
+
+    added action validity check
+
+commit 019473afa5296d5e50fa7ada929c9d851524d8af
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Thu Jan 23 16:15:17 2025 +0100
+
+    added type efficiency + split att/spa + STAB + rework structures
+
+commit 35cc5a0a12b0791be0d68f948d0b7e5154c57a56
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Mon Jan 20 17:26:01 2025 +0100
+
+    Update button images and add drawButtonImage function for improved rendering
+
+commit 878384e470b935fb92b43c306d155f1530401858
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Mon Jan 20 16:32:30 2025 +0100
+
+    Refactor menu and state management; improve window handling and input processing
+
+commit 4b957185a800b94d2dbe5ee00d4f910e1a42e06a
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Sun Jan 19 21:32:38 2025 +0100
+
+    Refactor button initialization and improve event handling in main loop
+
+commit d71aa82ed8d738758f4b7b93bc1c571441539bac
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Sun Jan 19 17:39:08 2025 +0100
+
+    SizeUpdate Buttons
+
+commit 477560db2552bf9ccb43a533f714f9b723587408
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sun Jan 19 16:18:00 2025 +0100
+
+    Fix segmentation fault caused by buttons
+
+commit 8758c2b76682d4ee3345102219d2a1929dcc61d0
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Fri Jan 17 12:43:13 2025 +0100
+
+    Rectification Boutons
+
+commit e88545d9503f15796830f696ce39d22025c7b92c
+Author: Lounol72 <s2301149@ic2s120-10.univ-lemans.fr>
+Date:   Fri Jan 17 10:14:46 2025 +0100
+
+    Gestion FPS
+
+commit 963779bf317a7bfa31a65e177a2537d49ddba319
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 16 20:59:34 2025 +0100
+
+    Update Main
+
+commit c120e1b26c1800e0f5d9241f78e303cd03620a77
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 16 20:56:17 2025 +0100
+
+    Fix buttons
+
+commit 80e95dff97ef288e67f8ab817dc8bd571187df2e
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 16 18:31:51 2025 +0100
+
+    Gestion responsive boutons
+
+commit 766a88cb68993c1c9699211b9289afcfb7b560c5
+Merge: bdb8f0b d57e815
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 16 17:04:05 2025 +0100
+
+    Merge
+
+commit bdb8f0bc2a14b76e64aa09730ffb846cbca8632d
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 16 17:02:54 2025 +0100
+
+    Update Boutons
+
+commit d57e8150a1649d01c3162ea79a04c6be74a2b1b0
+Merge: cbe2eaf 03e8ccf
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Thu Jan 16 16:57:34 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket
+
+commit cbe2eafbf6aa0dcdf5e073a41bc934aae7d977aa
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Thu Jan 16 16:53:54 2025 +0100
+
+    adding initial types
+
+commit 03e8ccfbcf6e8bdd2b08b4aded4440e10825a5ee
+Merge: 96b8dc7 4aec0a9
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Thu Jan 16 16:41:46 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket into main
+
+commit 96b8dc7b098c7f880898d1c3fe75063b15c460f3
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Thu Jan 16 16:39:50 2025 +0100
+
+    ajout generatePoke.c et correction ouverture de fichier
+
+commit 4aec0a951f0bf24f820934597ae244a2e1ec5f38
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Thu Jan 16 16:34:30 2025 +0100
+
+    fix conflict
+
+commit a79c1af7ef5dabed5d2f6e495126001aafc135d4
+Merge: 203292f b94636b
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Thu Jan 16 16:34:54 2025 +0100
+
+    fonction initboutons
+
+commit 203292f7dc82df4c1813f875595fa41150dc4004
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Thu Jan 16 16:33:03 2025 +0100
+
+    fonction initboutons
+
+commit b94636b91d0afc6e0d4318f19b86ef0f6cd899dd
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 16 16:21:10 2025 +0100
+
+    ajout fichier
+
+commit 7c19193faba8c411efe211cb3a0af7dd359f028a
+Author: AstroZr <166394902+AstroZr@users.noreply.github.com>
+Date:   Thu Jan 16 16:13:20 2025 +0100
+
+    Add files via upload
+
+commit 6427bd65037c99cdac812ef4d0c30d1a9308b23b
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Thu Jan 16 16:03:45 2025 +0100
+
+    compte rendu
+
+commit da3d4a3912c355675caa595714d62aa51b1c623d
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Thu Jan 16 16:02:11 2025 +0100
+
+    Ajout fichier CR
+
+commit 1d28b48695f4e33cc6484bde3720e5470809f0cc
+Merge: 2a5f4ce c8743ee
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Thu Jan 16 15:58:18 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket into main
+
+commit c8743eecf8b5d3186601a0d60da4f5d57f81fac8
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Thu Jan 16 15:42:20 2025 +0100
+
+    fusion
+
+commit d0cdc46ad3549ffa3ab64f982780567769a23ded
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 16 15:17:43 2025 +0100
+
+    flag Fix
+
+commit ad700d706788b07eff22420095454687609a5593
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Thu Jan 16 15:01:09 2025 +0100
+
+    uptade boutons.c+ gestion affichage
+
+commit 984df5cfcc47ddc69ac4503343c04bbc793352d6
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 16 14:43:12 2025 +0100
+
+    Window now resizable
+
+commit 98e7ec087ff462839c74b4903890212ecb9a96d0
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Thu Jan 16 13:11:18 2025 +0100
+
+    conflicts
+
+commit 356942edc3aad934d9ce2b806758277ffac6ae8d
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 16 13:00:29 2025 +0100
+
+     Update Buttons
+
+commit 2a5f4cea777d2003e401b33fd6d16dffa0ab7e3d
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Thu Jan 16 11:28:35 2025 +0100
+
+    J'ai reussi a ouvir le fichier PokeBDD
+
+commit 5a3c224992e75bb35c7bf20fcf1316dde8f9e55d
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 15 19:03:01 2025 +0100
+
+    Arrangement de code
+
+commit 92db11a855598415fa9dc39aeb9536b9f2a1817a
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 15 18:54:38 2025 +0100
+
+    Ajout bouton jouer
+
+commit 4be4d43f8c66614b4e019be7b908133429226c78
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 15 18:45:06 2025 +0100
+
+    Réglage des flags
+
+commit b70e2920a01da184e9c53f051c669b1931f97076
+Author: Littre William <l204564@ic2s122-13.univ-lemans.fr>
+Date:   Wed Jan 15 17:56:57 2025 +0100
+
+    generatePoke changé: le nom n'est plus automatique
+
+commit e89f9b3a4a38117945c6c4a87f3cc56160d43a6e
+Author: Lounol72 <s2301149@ic2s122-14.univ-lemans.fr>
+Date:   Wed Jan 15 17:29:14 2025 +0100
+
+    Optimisation fichier parametre
+
+commit da79f04e5590029bfc0f919767e1ff83c073b94b
+Author: Lounol72 <s2301149@ic2s122-14.univ-lemans.fr>
+Date:   Wed Jan 15 17:01:18 2025 +0100
+
+    Update Makefile
+
+commit 1c5a747c01dddd87bb478a92c8d4debd01c6f92a
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Wed Jan 15 16:59:57 2025 +0100
+
+    ajout bouton save
+
+commit a156e3b761a36aae14bc1cb9087c8bfbe88f1a8d
+Author: Lounol72 <s2301149@ic2s122-14.univ-lemans.fr>
+Date:   Wed Jan 15 16:44:26 2025 +0100
+
+     fonction pour les boutons
+
+commit c7b3742343af7db44170d5e38faa86b520bf973a
+Author: Lounol72 <s2301149@ic2s122-14.univ-lemans.fr>
+Date:   Wed Jan 15 15:51:45 2025 +0100
+
+     Ajout de la gestion des images
+
+commit 4f9d00f72f8039931891af29b41f43a19837e9a8
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Wed Jan 15 15:17:26 2025 +0100
+
+    modification makefile + gitignore
+
+commit a1fb3e2592b484fb9f1c714bd7d39a2e6d508d9c
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 15 08:49:10 2025 +0100
+
+    Fix
+
+commit c3c94517aeea04bd63e3fa6cb80a31411d9b7537
+Merge: b50dd04 48517ce
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 9 16:34:46 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket
+
+commit b50dd044bc21105a348254b6f38f9bf87bc5014f
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 9 16:32:19 2025 +0100
+
+    Boutons Page param
+
+commit 48517ceb62f695fa6ece05c526f299a42d795576
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Thu Jan 9 16:23:02 2025 +0100
+
+    modif de touche
+
+commit 48b2043db110ae9c5b2eb22b93b6a2e6dd2cde6e
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 9 16:15:23 2025 +0100
+
+    Fonctionnement de la page menu
+
+commit 35bb902d5797033b6a0742b97277e0f4f70bc262
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 9 16:03:35 2025 +0100
+
+    Bouton fonctionnel
+
+commit a0a01c44eb6f6e8240b2c9e30be51cfc2296de12
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 8 19:19:33 2025 +0100
+
+    Fonction pour affichage de parametre | Pas encore fini
+
+commit f0ed1403410ba59a23a71fecb2db5866eaf3eac0
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 8 18:41:35 2025 +0100
+
+    SDL Window gérée par structure
+
+commit ad342d4c7466b0ea0793ce5a0f11109f47479dd1
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 8 14:37:19 2025 +0100
+
+    Update main.c
+
+commit dd9e26bc215aab4c4f7477252aa63ebf6a3f457c
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 8 14:22:30 2025 +0100
+
+    Documentation boutons
+
+commit 915a6113b89651358ff56cc25fad31235ff54432
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 8 14:08:40 2025 +0100
+
+    Gestion de boutons par fonction | Final
+
+commit ea54b9fae81f1996d02e32ad18fc7ba61ca8166b
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 8 11:19:29 2025 +0100
+
+    Modification du slider | ne fonctionne pas encore
+
+commit ced481e642f9917b4e203581631463887193522a
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Jan 8 09:55:30 2025 +0100
+
+    Boutons en struct avec fonction sur pointeur
+
+commit 10eda63d590f29a8a8912fc23a85a62a4ec697d3
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Jan 7 21:27:35 2025 +0100
+
+    Boutons par fonction ! Ne fonctionne pas encore | ne pas make
+
+commit 318f77fc7709966e5e9341483e3dba597f8193b2
+Author: Lounol72 <104394576+Lounol72@users.noreply.github.com>
+Date:   Tue Jan 7 11:40:11 2025 +0100
+
+    Update README.md
+
+commit e117bca03e41d9675ebda3c4ee62945482bf071c
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Jan 7 11:12:55 2025 +0100
+
+    Modification des boutons
+
+commit 5f42464bccf1b2a40d16b23a45c7333e83275bd5
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sun Jan 5 16:33:06 2025 +0100
+
+    Ajout table raci
+
+commit 79fc5bfc81a69ec6eac1a1145edb09bd26ab308a
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sun Jan 5 12:23:46 2025 +0100
+
+    Fichiers pour gestion de sauvegardes
+
+commit dd2a092bfeaac5a364edfbb057013c2a75ea4ae8
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sun Jan 5 12:16:47 2025 +0100
+
+    Ajout d'Initialisation de boutons
+
+commit 213fd9d23b0304f9e795787efd507a808d868357
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sat Jan 4 17:36:51 2025 +0100
+
+    Update Main
+
+commit 8ff668a6e19eb67df46edec60cec19115bc26366
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sat Jan 4 17:35:25 2025 +0100
+
+    Ajout d'une icone temporaire
+
+commit 3cda4c0c064f8c883d868a6690cdcee9ee37bbb9
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 3 22:02:34 2025 +0100
+
+    volume.c Update
+
+commit a0b54eed17d6ba00039027c7e0af3fb5fd2a8305
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 3 21:59:47 2025 +0100
+
+    Ajout de la police pokémon
+
+commit 15bcb5ef6a08ab27337aa81b60db29490867a319
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 3 18:43:29 2025 +0100
+
+    Ajout de commentaires pour rendre plus lisible le code
+
+commit d4daeebf77f66583a7205349b7008d2783ef536a
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 3 15:07:23 2025 +0100
+
+    Update README
+
+commit 71b6a007e4352a2f654db28208c52f063acfa4f0
+Author: Lounol72 <104394576+Lounol72@users.noreply.github.com>
+Date:   Fri Jan 3 15:00:17 2025 +0100
+
+    Update README.md
+
+commit 548ab5b0c4913066cc2a45d8dcf50073d2ad76de
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Jan 3 14:56:39 2025 +0100
+
+    README update
+
+commit 019cd0b19df14913225347d12bdf7929d3d81df2
+Author: Lounol72 <104394576+Lounol72@users.noreply.github.com>
+Date:   Fri Jan 3 14:55:59 2025 +0100
+
+    Update README.md
+
+commit 67ddb1af28e17a14d033c259881e79f16e23f5e2
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Thu Jan 2 23:50:03 2025 +0100
+
+    Update README.md
+
+commit d6d5168b63c48e3d1348758a5b7f565c1fd87f88
+Author: Lounol72 <104394576+Lounol72@users.noreply.github.com>
+Date:   Thu Jan 2 23:34:52 2025 +0100
+
+    Update README.md
+
+commit 617130bf94747e31c966658ac2eb98001f4b782b
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Thu Jan 2 23:31:31 2025 +0100
+
+    Add volume control functionality and refactor input handling
+
+commit f3e7bb5ec28b617566ffbef027c5da4d6970e974
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 2 22:25:22 2025 +0100
+
+    Correction des bugs de reference
+
+commit 0727a3610404b1c98ce7049a0c4277e132b273e2
+Author: Lounol72 <104394576+Lounol72@users.noreply.github.com>
+Date:   Thu Jan 2 22:14:05 2025 +0100
+
+    Update README.md
+
+commit 04d362b8b68f965b8e462b0047eafcc48535a28a
+Author: Lounol72 <104394576+Lounol72@users.noreply.github.com>
+Date:   Thu Jan 2 22:13:37 2025 +0100
+
+    Update and rename README.me to README.md
+
+commit bb8ac88a72b34c5dbf8820e9e25b333ee5023769
+Author: Lounol72 <104394576+Lounol72@users.noreply.github.com>
+Date:   Thu Jan 2 22:03:31 2025 +0100
+
+    Update README.me
+
+commit 9d2fd5426c79175f80c0f3117e3c31a167073b50
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 2 21:49:50 2025 +0100
+
+    Update main
+
+commit 02728a6e19eb2898903bb201d8fb4698004b2922
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 2 21:48:58 2025 +0100
+
+    Update main
+
+commit 645d08086a52781af8ca8f213b72aef51e42aeab
+Author: AstroZr <166394902+AstroZr@users.noreply.github.com>
+Date:   Thu Jan 2 19:22:59 2025 +0100
+
+    Update README.me
+
+commit 1285a3e20b908db5d235c7a6d8def6af79cc4bf2
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 2 19:02:46 2025 +0100
+
+    Ajout de la gestion audio
+
+commit 4c3f754be5faba2d8e7976a5c0e17efae99c5c2a
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 2 17:44:45 2025 +0100
+
+    Manipulation du bouton
+
+commit 9020d00ff45a620fad53e92470ec8974c146fbe4
+Author: Lounol72 <104394576+Lounol72@users.noreply.github.com>
+Date:   Thu Jan 2 16:38:25 2025 +0100
+
+    Update README.me
+
+commit 9fba18ca9f866c45448f140f636fb7d55e3d898d
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 2 15:31:39 2025 +0100
+
+    Extraction de code dans différents fichiers afin d'alléger les fichiers
+
+commit 2ffaffd6bc78ea6a1d5b3b8cb92eb1ac5aa87240
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 2 14:38:57 2025 +0100
+
+    Affichages des différents menus
+
+commit 5aed3853aeb27fbcc0931d547f62e5dae10a9929
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Jan 2 13:05:58 2025 +0100
+
+    Gestion des boutons avec structure
+
+commit 809a25916333afff9e5f525ba60c16f7b490accd
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Mon Dec 30 23:07:22 2024 +0100
+
+    Added swapping pokémon option in battle
+
+commit 170edbb3fa1da2224c79f09d1d766485d62fae60
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Sun Dec 29 23:37:14 2024 +0100
+
+    Retouches pour les fonctions
+
+commit 280d8950e611312d73c1a5d5fdf80536592976f9
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Sun Dec 29 23:30:42 2024 +0100
+
+    Gestions boutons par fonction
+
+commit 93d2413226468ad3dc5718cbb019dbb1f5556986
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sun Dec 29 23:12:03 2024 +0100
+
+    Test 2
+
+commit 508759c6eddd6bcd406e23c0c1f7b4e74f65226e
+Author: Louis Subtil <subtil.louis2005@gmail.com>
+Date:   Sun Dec 29 23:06:13 2024 +0100
+
+    TEST
+
+commit 7d6047ad3cd35a664b84e2f2ce4c3b5f29a77096
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Sun Dec 29 21:29:31 2024 +0100
+
+    ajout des quelques idées notées
+
+commit 86db66264f99278caf936fa9db41621bae0a28a6
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Sun Dec 29 21:21:08 2024 +0100
+
+    added critical hits and stats changes, fixed speed bug
+
+commit 5624403ac228cfdbfd602fbcf03ca8bff4622d66
+Merge: 2164009 dabf8da
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Sat Dec 28 23:07:12 2024 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket
+
+commit 2164009863705e0516448c6ae4f5c22960ad1974
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Sat Dec 28 23:05:34 2024 +0100
+
+    import basics for battles
+
+commit dabf8dada0c1e6a073b9b2f849d5510ae243ace2
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sat Dec 28 22:45:11 2024 +0100
+
+    Exploration de la création d'un bouton
+
+commit a9e1879b0c938c912b409e53e178e12f5f14a80d
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sat Dec 28 21:55:27 2024 +0100
+
+    Gestion des images + affichage de menu test
+
+commit 72eb8f08d729afb05b93f26d8f32abe53145f8ad
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sat Dec 28 21:44:08 2024 +0100
+
+    Ajout du dossier assets
+
+commit 46f4c13617d1674f67e942b0f3374f17b1b46e48
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sat Dec 28 21:40:28 2024 +0100
+
+    Ajout du dossier assets
+
+commit 2051b78c09880a7dc095e15ea613dc45924942bd
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sat Dec 28 21:34:58 2024 +0100
+
+    Gestion des cliques & récupération des coodonnées
+
+commit 5a5fe9e528b4aee9f90e3e0a72522dd1969b9c3c
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Dec 27 19:04:58 2024 +0100
+
+    Boutons attaques A Z E R
+
+commit 50b2d48ebb62adbb6d4c30597e6098aaaa4d7245
+Author: Lounol72 <104394576+Lounol72@users.noreply.github.com>
+Date:   Thu Dec 26 10:28:59 2024 +0100
+
+    Update main.c
+
+commit 660f0cacd923d4393f5f4403ebb6b9affab08817
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Dec 24 19:28:28 2024 +0100
+
+     Makefile changé
+
+commit 2d8fa989a0bf6b499bf4f2d2d4e4bcbcc2abe93e
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Dec 24 17:40:20 2024 +0100
+
+    Probleme de Makefile résolu
+
+commit 7c8d241cb6cfa3f262eb67c26dc2257a644876d3
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Dec 24 17:47:13 2024 +0100
+
+    Ignore dossier .vscode
+
+commit 01bba327859fb6e4e6a10ce98adb1e621e83f7db
+Author: Lounol72 <104394576+Lounol72@users.noreply.github.com>
+Date:   Tue Dec 24 17:02:41 2024 +0100
+
+    Add files via upload
+    
+    Librairie SDL si besoin pour compiler sur windows + Makefile
+
+commit 1605543dae2244980e967da1cddb99cf6d91c843
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Mon Dec 9 18:31:30 2024 +0100
+
+    Import base structures
+
+commit babb336b3fa17851add449d56a0a6fafa6f986c8
+Author: Lounol72 <104394576+Lounol72@users.noreply.github.com>
+Date:   Mon Dec 9 15:47:39 2024 +0100
+
+    Add files via upload
+
+commit 529a952acf6ebce6eea4031c78dd09832062fb7b
+Author: Lounol72 <104394576+Lounol72@users.noreply.github.com>
+Date:   Mon Dec 9 15:06:19 2024 +0100
+
+    Add files via upload
+
+commit 7a07d08e30b79a474d538072dbb4b4d22da32cb9
+Author: Lounol72 <104394576+Lounol72@users.noreply.github.com>
+Date:   Mon Dec 9 14:59:50 2024 +0100
+
+    Initial commit
