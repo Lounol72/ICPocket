@@ -1,5 +1,0 @@
-#ifndef HANDLEEVENTS_H
-#define HANDLEEVENTS_H
-
-
-#endif /* HANDLEEVENTS_H */

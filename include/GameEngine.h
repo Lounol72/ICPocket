@@ -82,6 +82,7 @@ typedef struct Game {
 } Game;
 
 #include "Game.h"
+#include "Events.h"
 
 /* ------------- Function Prototypes ------------- */
 
@@ -101,8 +102,7 @@ void changeState(Window *win, void *data);
 /* Text-related updates for attacks */
 void updateICButtons(Window *win, t_Team *team);
 
-/* ICMons selection */
-void handleICMonsEvent(Window *win, SDL_Event *event);
+
 
 /*Inter*/
 void nextDuel(Window* win, void *data);
@@ -112,16 +112,6 @@ void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
 void renderICMonsSprite(Window *win, t_Poke *poke);
 void destroyICMonsSprite(Window *win, t_Poke *poke);
 void updateCurrentButton();
-
-/* */
-
-void handleIntermediateEvent(Window *win, SDL_Event *event);
-void handleQuitEvent(Window *win, SDL_Event *event);
-void handleSettingsEvent(Window *win, SDL_Event *event);
-void handleMenuEvent(Window *win, SDL_Event *event);
-void handleGameEvent(Window *win, SDL_Event *event);
-void handleNewGameEvent(Window *win, SDL_Event *event);
-void handleLoadGameEvent(Window *win, SDL_Event *event);
 
 
 #endif /* GAMEENGINE_H */

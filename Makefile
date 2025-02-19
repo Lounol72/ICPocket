@@ -10,7 +10,7 @@ DUEL_EXE  = duel
 SAVE_EXE  = save
 
 # Fichiers source
-SRCS      = main.c $(SRC_DIR)/GameEngine.c $(SRC_DIR)/Buttons.c $(SRC_DIR)/structPoke.c $(SRC_DIR)/duel.c $(SRC_DIR)/trainerAI.c $(SRC_DIR)/save.c $(SRC_DIR)/interDuel.c $(SRC_DIR)/Log.c $(SRC_DIR)/Audio.c $(SRC_DIR)/Window.c $(SRC_DIR)/Text.c $(SRC_DIR)/Game.c
+SRCS      = main.c $(SRC_DIR)/GameEngine.c $(SRC_DIR)/Buttons.c $(SRC_DIR)/structPoke.c $(SRC_DIR)/duel.c $(SRC_DIR)/trainerAI.c $(SRC_DIR)/save.c $(SRC_DIR)/interDuel.c $(SRC_DIR)/Log.c $(SRC_DIR)/Audio.c $(SRC_DIR)/Window.c $(SRC_DIR)/Text.c $(SRC_DIR)/Game.c $(SRC_DIR)/Events.c
 
 # Fichiers objets généraux
 OBJS      = $(patsubst %.c,$(OBJ_DIR)/%.o,$(notdir $(SRCS)))
