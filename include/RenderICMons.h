@@ -1,5 +1,5 @@
-#ifndef 
-#define
+#ifndef RENDERICMONS_H
+#define RENDERICMONS_H
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -8,10 +8,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include "GameEngine.h"
+#include "Text.h"
 #include "structPoke.h"
 
-
-typedef struct {
+typedef struct IMG_ICMons {
     SDL_Renderer *renderer;
     SDL_Texture *ICMonTexture;
     SDL_Rect rect;
@@ -26,9 +26,11 @@ typedef struct {
     SDL_Rect nameInitialRect;
 }IMG_ICMons;
 
-IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, const char *imagePath, int x, int y, int w, int h, t_Poke *poke, TTF_Font *font);
+#include "structPoke.h"
 
-void renderICMonSprite(IMG_ICMons *poke);
-void updateICMonSprite(IMG_ICMons *poke, t_Poke *pokeData);
-void updateICMonPosition(IMG_ICMons *poke, int ScaleX, int ScaleY);
-void destroyICMonSprite(IMG_ICMons *poke);
+IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, const char *imagePath, int x, int y, int w, int h, t_Poke *poke, TTF_Font *font);
+void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
+void renderICMonsSprite(Window *win, t_Poke *poke);
+void destroyICMonsSprite(Window *win, t_Poke *poke);
+
+#endif

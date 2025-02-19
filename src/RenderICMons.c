@@ -1,4 +1,4 @@
-#include "../include/RenduICMons.h"
+#include "../include/RenderICMons.h"
 
 IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, const char *imagePath, int x, int y, int w, int h, t_Poke *poke, TTF_Font *font) {
     IMG_ICMons *img = malloc(sizeof(IMG_ICMons));
@@ -21,14 +21,19 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, const char *imagePath, int x
         return NULL;
     }
     img->rect = img->initialRect = (SDL_Rect){x, y, w, h};
-    char PV[10], name[10];
-    snprintf(PV, sizeof(PV), "%d/%d", poke->current_pv, poke->baseStats[PV]);
-    img->PVText = initText(renderer, PV, font, x, y, w, h);
+    char pv[10], Name[20];
+    snprintf(pv, sizeof(pv), "%d/%d", poke->current_pv, poke->baseStats[PV]);
+    img->PVText = createText(pv,renderer, img->rect,(SDL_Color){255,255,255,255},font);
     img->PVbarTexture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
     img->PVbarTextureBack = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
     img->PVRect = img->PVInitialRect = (SDL_Rect){x, y, w, h};
-    snprintf(name, sizeof(name), "%s", poke->name);
-    img->nameTexture = SDL_CreateTextureFromSurface(renderer, TTF_RenderText_Solid(font, name, (SDL_Color){255, 255, 255, 255}));
+    snprintf(Name, sizeof(Name), "%s", poke->name);
+    img->nameTexture = SDL_CreateTextureFromSurface(renderer, TTF_RenderText_Solid(font, Name, (SDL_Color){255, 255, 255, 255}));
     img->nameRect = img->nameInitialRect = (SDL_Rect){x, y, w, h};
     return img;
+}
+
+void renderICMonsSprite(Window *win, t_Poke *poke) {
+    (void)win;
+    (void)poke;
 }

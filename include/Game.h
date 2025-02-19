@@ -12,5 +12,6 @@
 
 extern Game game;
 void initGame(Window *win);
+void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath) ;
 
 #endif /* GAME_H */

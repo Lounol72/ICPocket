@@ -6,6 +6,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include "GameEngine.h"
+#include "Utils.h"
 
 typedef struct Game Game;
 extern Game game;

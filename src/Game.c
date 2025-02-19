@@ -59,3 +59,17 @@ void initGame(Window *win) {
 
     initText(win);
 }
+
+void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath) {
+    if (!renderer || !imagePath) {
+        SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur : Le renderer ou le chemin de l'image est NULL.");
+        return;
+    }
+    SDL_Surface *surface = IMG_Load(imagePath);
+    if (!surface) {
+        SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur : Impossible de charger l'image de fond '%s'. Message SDL_image : %s", imagePath, IMG_GetError());
+        return;
+    }
+    *Background = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+}

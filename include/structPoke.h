@@ -28,6 +28,8 @@ typedef enum{noEffect = 0,burn,poison,paralyze,flinch,confusion} t_Effect;
 
 typedef struct{char nature[15];float coeff[6];} t_Nature;
 
+typedef struct IMG_ICMons IMG_ICMons;
+
 typedef struct
 {	
 	int id;
@@ -61,9 +63,7 @@ typedef struct
 	int nb_move;
 	t_Effect main_effect;
 	// Affichage
-	SDL_Rect rect;
-	SDL_Texture *texture;
-	SDL_Rect initialRect;
+	IMG_ICMons *img;
 } t_Poke;
 
 

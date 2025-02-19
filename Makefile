@@ -10,7 +10,7 @@ DUEL_EXE  = duel
 SAVE_EXE  = save
 
 # Fichiers source
-SRCS      = main.c $(SRC_DIR)/GameEngine.c $(SRC_DIR)/Buttons.c $(SRC_DIR)/structPoke.c $(SRC_DIR)/duel.c $(SRC_DIR)/trainerAI.c $(SRC_DIR)/save.c $(SRC_DIR)/interDuel.c $(SRC_DIR)/Log.c $(SRC_DIR)/Audio.c $(SRC_DIR)/Window.c $(SRC_DIR)/Text.c $(SRC_DIR)/Game.c $(SRC_DIR)/Events.c
+SRCS      = main.c $(SRC_DIR)/GameEngine.c $(SRC_DIR)/Buttons.c $(SRC_DIR)/structPoke.c $(SRC_DIR)/duel.c $(SRC_DIR)/trainerAI.c $(SRC_DIR)/save.c $(SRC_DIR)/interDuel.c $(SRC_DIR)/Log.c $(SRC_DIR)/Audio.c $(SRC_DIR)/Window.c $(SRC_DIR)/Text.c $(SRC_DIR)/Game.c $(SRC_DIR)/Events.c $(SRC_DIR)/RenderICMons.c
 
 # Fichiers objets généraux
 OBJS      = $(patsubst %.c,$(OBJ_DIR)/%.o,$(notdir $(SRCS)))
@@ -30,16 +30,16 @@ LIBS    = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 all: $(MAIN_EXE) $(DUEL_EXE)
 
 $(MAIN_EXE): $(OBJ_DIR)/main.o $(OBJS)
-	$(CC) -o $@ $^ $(LIBS)
-	@echo "Compilation terminée"
+	@$(CC) -o $@ $^ $(LIBS)
+	@echo "✅ Compilation terminée"
 
 $(DUEL_EXE): $(DUEL_OBJS)
 	$(CC) $^ -o $(BIN_DIR)/$@
-	@echo "Compilation duel terminée"
+	@echo "✅ Compilation duel terminée"
 
 $(SAVE_EXE): $(SAVE_OBJS)
 	$(CC) $^ -o $(BIN_DIR)/$@
-	@echo "Compilation save terminée"
+	@echo "✅ Compilation save terminée"
 
 # Création des répertoires
 $(OBJ_DIR):
@@ -48,11 +48,12 @@ $(OBJ_DIR):
 
 # Règles de compilation génériques pour les sources situés dans SRC_DIR
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Règle spécifique pour main.c
 $(OBJ_DIR)/main.o: main.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "🛠️ Compilation en cours..."
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Cibles de tests
 testDuel: $(DUEL_EXE)
@@ -66,8 +67,9 @@ testValgrind: $(MAIN_EXE)
 
 # Cible de nettoyage
 clean:
-	rm -f $(OBJ_DIR)/*.o $(MAIN_EXE)
-	rm -f $(BIN_DIR)/$(DUEL_EXE) $(BIN_DIR)/$(SAVE_EXE)
-	@echo "Nettoyage terminé"
+	@echo "🧹 Nettoyage en cours..."
+	@rm -f $(OBJ_DIR)/*.o $(MAIN_EXE)
+	@rm -f $(BIN_DIR)/$(DUEL_EXE) $(BIN_DIR)/$(SAVE_EXE)
+	@echo "✅ Nettoyage terminé"
 
 .PHONY: all clean

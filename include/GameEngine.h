@@ -15,22 +15,7 @@
 #include "trainerAI.h"
 #include "save.h"
 #include "interDuel.h"
-
-
-
-/* Define the state of the application */
-typedef enum AppState {
-    QUIT = 0, // 0
-    SETTINGS, // 1
-    MENU, // 2
-    GAME,  // 3
-    NEWGAME,  // 4
-    LOADGAME, // 5
-    ICMONS, // 6
-    INTER
-} AppState;
-
-
+#include "Utils.h"
 #include "Text.h"
 #include "Window.h"
 
@@ -86,6 +71,8 @@ typedef struct Game {
 
 /* ------------- Function Prototypes ------------- */
 
+void initAllButtons(Window *win);
+
 /* Render */
 void render(Window *win);
 
@@ -102,15 +89,8 @@ void changeState(Window *win, void *data);
 /* Text-related updates for attacks */
 void updateICButtons(Window *win, t_Team *team);
 
-
-
-/*Inter*/
 void nextDuel(Window* win, void *data);
 
-void initICMonsSprite(SDL_Renderer *renderer, const char *imagePath, t_Poke *poke, int x, int y, int w, int h);
-void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
-void renderICMonsSprite(Window *win, t_Poke *poke);
-void destroyICMonsSprite(Window *win, t_Poke *poke);
 void updateCurrentButton();
 
 

@@ -151,20 +151,6 @@ void mainLoop(Window *win) {
 
 // Functions for the buttons
 
-void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath) {
-    if (!renderer || !imagePath) {
-        SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur : Le renderer ou le chemin de l'image est NULL.");
-        return;
-    }
-    SDL_Surface *surface = IMG_Load(imagePath);
-    if (!surface) {
-        SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur : Impossible de charger l'image de fond '%s'. Message SDL_image : %s", imagePath, IMG_GetError());
-        return;
-    }
-    *Background = SDL_CreateTextureFromSurface(renderer, surface);
-    SDL_FreeSurface(surface);
-}
-
 void initAllButtons(Window * win)
 {
     int nbButtonsLoad = 3;
@@ -278,23 +264,23 @@ void initAllButtons(Window * win)
         buttonsGame[0] = createButton(
             "Attack 1", win, startX, startY, buttonWidth, buttonHeight,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            attqButtonClicked, 0, win->LargeFont
+            attqButtonClicked, (void*)(intptr_t)0, win->LargeFont
         );
         buttonsGame[1] = createButton(
             "Attack 2", win, startX , startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            attqButtonClicked, 1, win->LargeFont
+            attqButtonClicked, (void*)(intptr_t)1, win->LargeFont
         );
         
         buttonsGame[2] = createButton(
             "Attack 3", win, startX + buttonWidth + spacingX, startY , buttonWidth, buttonHeight,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            attqButtonClicked, 2, win->LargeFont
+            attqButtonClicked, (void*)(intptr_t)2, win->LargeFont
         );
         buttonsGame[3] = createButton(
             "Attack 4", win, startX + buttonWidth + spacingX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            attqButtonClicked, 3, win->LargeFont
+            attqButtonClicked, (void*)(intptr_t)3, win->LargeFont
         );
         buttonsGame[4] = createButton(
             "ICMons", win, 950, startY, 300, 180,
@@ -307,32 +293,32 @@ void initAllButtons(Window * win)
         buttonsICMons[0] = createButton(
             "ICMon1", win, 20, 20, 160, 100,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            NULL, 0, win->LargeFont
+            NULL, (void*)(intptr_t)0, win->LargeFont
         );
         buttonsICMons[1] = createButton(
             "ICMon2", win, 240, 20, 160, 100,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            changePokemon, 11, win->LargeFont
+            changePokemon, (void*)(intptr_t)11, win->LargeFont
         );
         buttonsICMons[2] = createButton(
             "ICMon3", win, 460, 20, 160, 100,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            changePokemon, 12, win->LargeFont
+            changePokemon, (void*)(intptr_t)12, win->LargeFont
         );
         buttonsICMons[3] = createButton(
             "ICMon4", win, 680, 20, 160, 100,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            changePokemon, 13, win->LargeFont
+            changePokemon, (void*)(intptr_t)13, win->LargeFont
         );
         buttonsICMons[4] = createButton(
             "ICMon5", win, 900, 20, 160, 100,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            changePokemon, 14, win->LargeFont
+            changePokemon, (void*)(intptr_t)14, win->LargeFont
         );
         buttonsICMons[5] = createButton(
             "ICMon6", win, 1120, 20, 160, 100,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            changePokemon, 15, win->LargeFont
+            changePokemon, (void*)(intptr_t)15, win->LargeFont
         );
         buttonsICMons[6] = createButton(
             "Back", win, 100, 600, 300, 100,
@@ -343,7 +329,7 @@ void initAllButtons(Window * win)
         buttonsInter[0] = createButton(
             "Next Duel", win, 500, 200, 300, 100,
             (SDL_Color){128,128,128, 255}, (SDL_Color){0, 0, 0, 255},
-            nextDuel, 0, win->LargeFont
+            nextDuel, (void*)(intptr_t)0, win->LargeFont
         );
 
         buttonsInter[1] = createButton(
