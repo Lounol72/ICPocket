@@ -1,5 +1,6 @@
 [0] [3] 🔧 Initialisation de la fenêtre ...
 [0] [3] ✅ Initialisation de la fenêtre réussie
+<<<<<<< HEAD
 [4] [3] 🔊 Initialisation de l'audio ...
 [4] [3] ✅ Mix_Init réussi.
 [4] [3] ✅ Mix_OpenAudio réussi.
@@ -7,3 +8,9 @@
 [0] [3] Changement d'état : 5
 [0] [3] Changement d'état : 2
 [0] [3] Changement d'état : 0
+=======
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 6
+[0] [3] Changement d'état : 6
+>>>>>>> cd61b8dfed7dd54f660c8e81532d8bccdc43c494
