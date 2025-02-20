@@ -2,7 +2,51 @@
 #include "../include/ministdlib.h"
 #include "../include/save.h"
 
-
+void sauvegarder2(t_Team * joueur,t_Team * adverse){
+    char nomFichier[1024];
+    strcpy(nomFichier , "src/data/save/");
+    int nomSave;
+    printf("Sauvegarder dans le fichier 1 ou 2?\n");
+    scanf("%d",nomSave);
+    do{
+        if(nomSave == 1)
+        strcat(nomFichier,"Save_1");
+        else if(nomSave == 2)
+        strcat(nomFichier,"Save_2");
+        else{
+        printf("Erreur : veuillez choisir 1 ou 2\n");
+        exit(1);
+        }
+    }while(nomSave != 1 && nomSave != 2);
+    
+    strcat(nomFichier,nomSave);
+    strcat(nomFichier,".txt");
+    FILE *fichier = fopen(nomFichier, "w");
+    if(fichier == NULL){
+        printf("Erreur : impossible d'ouvrir le fichier.\n");
+        exit(1);
+    } else {
+        fprintf(fichier, "User name : SAVE1\n");
+        fprintf(fichier, "%d\n" , joueur->nb_poke);
+        for(int i = 0; i < joueur->nb_poke; i++){
+            fprintf(fichier, "%d\n", joueur->team[i].id);
+            fprintf(fichier, "%d\n", joueur->team[i].lvl);
+            fprintf(fichier, "%d\n", joueur->team[i].nature);
+            fprintf(fichier, "%d\n", joueur->team[i].nb_move);
+            for(int j = 0 ; j < 6 ; j++)
+                fprintf(fichier, "%d\n", joueur->team[i].iv[j]);
+            for(int j = 0 ; j < 1 ; j++)
+                fprintf(fichier, "%d\n", joueur->team[i].type[j]);
+            for(int j = 0 ; j < joueur->team[i].nb_move ; j++){
+                fprintf(fichier, "%d\n", joueur->team[i].moveList[j].id);
+            }
+            fprintf(fichier,"\n\n");
+        }
+        fprintf(fichier, "Dernier dresseur battu : %s id: %d\n", adverse->trainerName, adverse->id);
+        printf("Sauvegarde effectuée\n");
+        fclose(fichier);
+    }
+}
 void sauvegarder(char * nomSave ,t_Team * joueur,t_Team * adverse){
     char nomFichier[1024];
     strcpy(nomFichier , "src/data/save/");
