@@ -21,7 +21,15 @@ SAVE_OBJS = $(OBJ_DIR)/save.o $(OBJ_DIR)/structPoke.o $(OBJ_DIR)/duel.o $(OBJ_DI
 
 # Compilateur et options
 CC      = gcc
-CFLAGS  = -Wall -Wextra -std=c11 -g `sdl2-config --cflags` -I/usr/include/SDL2
+CFLAGS  = -Wall -Werror -Wextra -std=c11 -g `sdl2-config --cflags` -I/usr/include/SDL2
+
+# -Wall : affiche tous les warnings
+# -Werror : transforme les warnings en erreurs
+# -Wextra : affiche des warnings supplémentaires
+# -std=c11 : utilise le standard C11
+# -g : ajoute des informations de débogage
+# `sdl2-config --cflags` : ajoute les flags de compilation pour SDL2
+# -I/usr/include/SDL2 : ajoute le répertoire d'inclusion de SDL2
 
 # Bibliothèques à lier
 LIBS    = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
@@ -30,7 +38,7 @@ LIBS    = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 all: $(MAIN_EXE) $(DUEL_EXE)
 
 $(MAIN_EXE): $(OBJ_DIR)/main.o $(OBJS)
-	@$(CC) -o $@ $^ $(LIBS)
+	@$(CC) -o $(BIN_DIR)/$@ $^ $(LIBS)
 	@echo "✅ Compilation terminée"
 
 $(DUEL_EXE): $(DUEL_OBJS)
@@ -60,7 +68,7 @@ testDuel: $(DUEL_EXE)
 	./$(BIN_DIR)/$(DUEL_EXE)
 
 testMain: $(MAIN_EXE)
-	./$(MAIN_EXE)
+	./$(BIN_DIR)/$(MAIN_EXE)
 
 testValgrind: $(MAIN_EXE)
 	valgrind --leak-check=full ./$(MAIN_EXE)
@@ -68,8 +76,8 @@ testValgrind: $(MAIN_EXE)
 # Cible de nettoyage
 clean:
 	@echo "🧹 Nettoyage en cours..."
-	@rm -f $(OBJ_DIR)/*.o $(MAIN_EXE)
-	@rm -f $(BIN_DIR)/$(DUEL_EXE) $(BIN_DIR)/$(SAVE_EXE)
+	@rm -f $(OBJ_DIR)/*.o
+	@rm -f $(BIN_DIR)/*.o
 	@echo "✅ Nettoyage terminé"
 
 .PHONY: all clean
