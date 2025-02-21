@@ -1,5 +1,11 @@
 [0] [3] 🔧 Initialisation de la fenêtre ...
 [6] [3] Created renderer: software
+[0] [3] Differents flags pour le renderer :
+[0] [3] ✅ SDL Renderer Software: 1
+[0] [3] ✅ SDL Renderer Accelerated: 2
+[0] [3] ✅ SDL Renderer V-Sync: 4
+[0] [3] ✅ SDL Renderer Target Texture: 8
+[0] [3] ✅ SDL Renderer : 1
 [0] [3] ✅ Initialisation de la fenêtre réussie
 [4] [3] 🔊 Initialisation de l'audio ...
 [4] [3] ✅ Mix_Init réussi.
@@ -7,4 +13,9 @@
 [4] [3] ✅ Mix_OpenAudio réussi.
 [1] [2] You must call Mix_SetMusicCMD() first
 [4] [3] ✅ Chargement de la musique réussi.
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 6
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 2
 [0] [3] Changement d'état : 0

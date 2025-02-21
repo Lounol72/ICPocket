@@ -24,6 +24,6 @@ Text *createText(const char *text,SDL_Renderer *renderer,SDL_Rect rect, SDL_Colo
 void renderText(struct Window *win, Text *text);
 void updateTextPosition(Text *text, float scaleX, float scaleY);
 void destroyText(Text *text);
-
+void updateText(Text *text, const char *newText, SDL_Renderer *renderer);
 void changeTextSpeed(struct Window *win, void *data);
 #endif /* TEXT_H */

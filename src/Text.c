@@ -71,6 +71,25 @@ void renderText(struct Window * win, Text * text){
     SDL_RenderCopy(win->renderer, text->texture, NULL, &text->rect);
 }
 
+void updateText(Text *text, const char *newText, SDL_Renderer *renderer) {
+    if (text && newText) {
+        text->text = newText;
+        SDL_Surface *newSurface = TTF_RenderText_Solid(text->font, newText, text->color);
+        if (!newSurface) {
+            SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur de rendu du texte : %s", TTF_GetError());
+            return;
+        }
+        SDL_DestroyTexture(text->texture);
+        text->texture = SDL_CreateTextureFromSurface(renderer, newSurface);
+        if (!text->texture) {
+            SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur de création de la texture : %s", SDL_GetError());
+            SDL_FreeSurface(newSurface);
+            return;
+        }
+        text->surface = newSurface;
+    }
+}
+
 
 void updateTextPosition(Text *text, float scaleX, float scaleY) {
     if (text && text->texture) {

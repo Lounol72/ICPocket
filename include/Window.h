@@ -1,12 +1,16 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-/* Window init/destroy */
-
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include "GameEngine.h"
 #include "Utils.h"
+
+#ifdef USE_HW_RENDERER
+    #define DEFAULT_RENDERER_FLAGS (SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC)
+#else
+    #define DEFAULT_RENDERER_FLAGS SDL_RENDERER_SOFTWARE
+#endif
 
 typedef struct Game Game;
 extern Game game;

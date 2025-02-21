@@ -53,3 +53,23 @@ void renderICMonsSprite(Window *win, t_Poke *poke) {
     //render the name
     SDL_RenderCopy(poke->img->renderer, poke->img->nameTexture, NULL, &poke->img->nameRect);
 }
+
+
+void destroyICMonsSprite(t_Poke *poke) {
+    if(!poke->img) return;
+    SDL_DestroyTexture(poke->img->ICMonTexture);
+    SDL_DestroyTexture(poke->img->PVbarTexture);
+    SDL_DestroyTexture(poke->img->PVbarTextureBack);
+    SDL_DestroyTexture(poke->img->nameTexture);
+    destroyText(poke->img->PVText);
+    free(poke->img);
+    poke->img = NULL;
+}
+
+void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY) {
+    if(!poke->img) return;
+    poke->img->rect = (SDL_Rect){poke->img->initialRect.x * scaleX, poke->img->initialRect.y * scaleY, poke->img->initialRect.w * scaleX, poke->img->initialRect.h * scaleY};
+    poke->img->PVRect = (SDL_Rect){poke->img->PVInitialRect.x * scaleX, poke->img->PVInitialRect.y * scaleY, poke->img->PVInitialRect.w * scaleX, poke->img->PVInitialRect.h * scaleY};
+    poke->img->nameRect = (SDL_Rect){poke->img->nameInitialRect.x * scaleX, poke->img->nameInitialRect.y * scaleY, poke->img->nameInitialRect.w * scaleX, poke->img->nameInitialRect.h * scaleY};
+    updateTextPosition(poke->img->PVText, scaleX, scaleY);
+}

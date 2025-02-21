@@ -7,7 +7,7 @@ void sauvegarder2(t_Team * joueur,t_Team * adverse){
     strcpy(nomFichier , "src/data/save/");
     int nomSave;
     printf("Sauvegarder dans le fichier 1 ou 2?\n");
-    scanf("%d",nomSave);
+    scanf("%d",&nomSave);
     do{
         if(nomSave == 1)
         strcat(nomFichier,"Save_1");
@@ -19,7 +19,9 @@ void sauvegarder2(t_Team * joueur,t_Team * adverse){
         }
     }while(nomSave != 1 && nomSave != 2);
     
-    strcat(nomFichier,nomSave);
+    char nomSaveStr[10];
+    sprintf(nomSaveStr, "%d", nomSave);
+    strcat(nomFichier, nomSaveStr);
     strcat(nomFichier,".txt");
     FILE *fichier = fopen(nomFichier, "w");
     if(fichier == NULL){

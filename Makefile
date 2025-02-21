@@ -10,7 +10,7 @@ DUEL_EXE  = duel
 SAVE_EXE  = save
 
 # Fichiers source
-SRCS      = main.c $(SRC_DIR)/GameEngine.c $(SRC_DIR)/Buttons.c $(SRC_DIR)/structPoke.c $(SRC_DIR)/duel.c $(SRC_DIR)/trainerAI.c $(SRC_DIR)/save.c $(SRC_DIR)/interDuel.c $(SRC_DIR)/Log.c $(SRC_DIR)/Audio.c $(SRC_DIR)/Window.c $(SRC_DIR)/Text.c $(SRC_DIR)/Game.c $(SRC_DIR)/Events.c $(SRC_DIR)/RenderICMons.c
+SRCS      = main.c $(filter-out $(SRC_DIR)/mainDuel.c $(SRC_DIR)/ministdlib.c, $(wildcard $(SRC_DIR)/*.c))
 
 # Fichiers objets généraux
 OBJS      = $(patsubst %.c,$(OBJ_DIR)/%.o,$(notdir $(SRCS)))
@@ -20,33 +20,33 @@ DUEL_OBJS = $(OBJ_DIR)/mainDuel.o $(OBJ_DIR)/structPoke.o $(OBJ_DIR)/duel.o $(OB
 SAVE_OBJS = $(OBJ_DIR)/save.o $(OBJ_DIR)/structPoke.o $(OBJ_DIR)/duel.o $(OBJ_DIR)/trainerAI.o $(OBJ_DIR)/ministdlib.o
 
 # Compilateur et options
-CC      = gcc
-CFLAGS  = -Wall -Werror -Wextra -std=c11 -g `sdl2-config --cflags` -I/usr/include/SDL2
+CC        = gcc
+CFLAGS    = -Wall -Wextra -Werror -std=c11 -g `sdl2-config --cflags` -I/usr/include/SDL2
 
 # -Wall : affiche tous les warnings
-# -Werror : transforme les warnings en erreurs
 # -Wextra : affiche des warnings supplémentaires
+# -Werror : transforme les warnings en erreurs
 # -std=c11 : utilise le standard C11
 # -g : ajoute des informations de débogage
 # `sdl2-config --cflags` : ajoute les flags de compilation pour SDL2
 # -I/usr/include/SDL2 : ajoute le répertoire d'inclusion de SDL2
 
 # Bibliothèques à lier
-LIBS    = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
+LIBS      = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 
 # Cibles principales
-all: $(MAIN_EXE) $(DUEL_EXE)
+all: $(MAIN_EXE) $(DUEL_EXE) 
 
 $(MAIN_EXE): $(OBJ_DIR)/main.o $(OBJS)
 	@$(CC) -o $(BIN_DIR)/$@ $^ $(LIBS)
 	@echo "✅ Compilation terminée"
 
 $(DUEL_EXE): $(DUEL_OBJS)
-	$(CC) $^ -o $(BIN_DIR)/$@
+	@$(CC) $^ -o $(BIN_DIR)/$@
 	@echo "✅ Compilation duel terminée"
 
 $(SAVE_EXE): $(SAVE_OBJS)
-	$(CC) $^ -o $(BIN_DIR)/$@
+	@$(CC) $^ -o $(BIN_DIR)/$@
 	@echo "✅ Compilation save terminée"
 
 # Création des répertoires
