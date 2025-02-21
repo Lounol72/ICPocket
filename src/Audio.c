@@ -15,6 +15,7 @@ void initAudio() {
     } else {
         SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_INFO, "✅ Mix_OpenAudio réussi.");
     }
+    Mix_SetMusicCMD("");
 }
 
 void loadMusic(Mix_Music **music, const char *musicPath) {

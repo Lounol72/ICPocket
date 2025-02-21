@@ -7,7 +7,7 @@
 #include "Text.h"
 #include "structPoke.h"
 #include <SDL2/SDL.h>
-
+#include <SDL2/SDL_gamecontroller.h>
 
 /* Handeling Events */
 void handleEvent(Window *win, SDL_Event *event);

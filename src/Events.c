@@ -21,6 +21,8 @@ void handleEvent(Window *win, SDL_Event *event) {
                 }
             }
             break;
+        
+        case SDL_CONTROLLERBUTTONDOWN: { int max = game.ui[game.gameState.currentState].buttons->size - 1; switch(event->cbutton.button){ case SDL_CONTROLLER_BUTTON_A: ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[game.currentButton], -1, -1, win); break; case SDL_CONTROLLER_BUTTON_DPAD_UP: game.currentButton = game.currentButton > 0 ? game.currentButton - 1 : game.currentButton; break; case SDL_CONTROLLER_BUTTON_DPAD_DOWN: game.currentButton = game.currentButton < max ? game.currentButton + 1 : game.currentButton; break; case SDL_CONTROLLER_BUTTON_DPAD_LEFT: game.currentButton = game.currentButton >= max/2 ? game.currentButton - max/2 : game.currentButton; break; case SDL_CONTROLLER_BUTTON_DPAD_RIGHT: game.currentButton = game.currentButton + max/2 <= max ? game.currentButton + max/2 : game.currentButton; break; default: break; } } break;
         case SDL_QUIT:
             win->quit = 1;
             break;

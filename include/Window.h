@@ -3,14 +3,16 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_gamecontroller.h>
 #include "GameEngine.h"
 #include "Utils.h"
 
-#ifdef USE_HW_RENDERER
-    #define DEFAULT_RENDERER_FLAGS (SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC)
-#else
-    #define DEFAULT_RENDERER_FLAGS SDL_RENDERER_SOFTWARE
-#endif
+
+#if defined(SDL_RENDERER_PRESENTVSYNC)
+        #define renderer_flags DEFAULT_RENDERER_FLAGS
+    #else
+        #define renderer_flags SDL_RENDERER_SOFTWARE
+    #endif
 
 typedef struct Game Game;
 extern Game game;

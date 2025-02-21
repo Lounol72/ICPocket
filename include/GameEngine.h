@@ -5,6 +5,7 @@
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_gamecontroller.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "Log.h"
@@ -94,6 +95,6 @@ void updateICButtons(Window *win, t_Team *team);
 void nextDuel(Window* win, void *data);
 
 void updateCurrentButton();
-
+void updateMusic();
 
 #endif /* GAMEENGINE_H */
