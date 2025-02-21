@@ -48,6 +48,9 @@ void makeWindowFullScreen(Window *win, void *data) {
 }
 void makeWindowWindowed(Window *win, void *data) {
     (void)data;
+    if (!(SDL_GetWindowFlags(win->window) & SDL_WINDOW_FULLSCREEN_DESKTOP)) {
+        return;
+    }
     SDL_SetWindowFullscreen(win->window, 0);
     SDL_SetWindowSize(win->window, win->InitialWidth, win->InitialHeight);
     SDL_GetWindowSize(win->window, &win->width, &win->height);

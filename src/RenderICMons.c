@@ -1,13 +1,15 @@
 #include "../include/RenderICMons.h"
 
-IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, const char *imagePath, int x, int y, int w, int h, t_Poke *poke, TTF_Font *font) {
+IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, int x, int y, int w, int h, t_Poke *poke, TTF_Font *font) {
     IMG_ICMons *img = malloc(sizeof(IMG_ICMons));
     if (!img) {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Erreur lors de l'allocation de la mémoire pour l'image");
         return NULL;
     }
     img->renderer = renderer;
-    SDL_Surface *surface = IMG_Load(imagePath);
+    char path[50];
+    snprintf(path, sizeof(path), "assets/Monsters/%s.png", poke->name);
+    SDL_Surface *surface = IMG_Load(path);
     if (!surface) {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Erreur lors du chargement de l'image : %s", IMG_GetError());
         free(img);
