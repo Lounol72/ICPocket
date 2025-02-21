@@ -388,11 +388,5 @@ void updateCurrentButton() {
     }
 }
 void updateMusic() {
-    if (game.gameState.currentState == GAME || game.gameState.currentState == ICMONS) {
-        if (!Mix_PlayingMusic()) {  // Verify if the music is already playing
-            Mix_PlayMusic(game.gameState.music, -1);
-        }
-    } else {
-        Mix_HaltMusic();
-    }
+    if(game.gameState.currentState==GAME||game.gameState.currentState==ICMONS){if(!Mix_PlayingMusic())Mix_PlayMusic(game.gameState.music,-1);}else Mix_HaltMusic();
 }

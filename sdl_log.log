@@ -11,6 +11,9 @@
 [4] [3] ✅ Mix_Init réussi.
 [1] [2] setpriority() failed
 [4] [3] ✅ Mix_OpenAudio réussi.
+[1] [2] You must call Mix_SetMusicCMD() first
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
-[0] [3] Changement d'état : 0
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[7] [3] Quit

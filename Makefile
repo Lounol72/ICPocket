@@ -51,8 +51,8 @@ $(SAVE_EXE): $(SAVE_OBJS)
 
 # Création des répertoires
 $(OBJ_DIR):
-	mkdir -p $@
-	mkdir -p $(BIN_DIR)
+	@mkdir -p $@
+	@mkdir -p $(BIN_DIR)
 
 # Règles de compilation génériques pour les sources situés dans SRC_DIR
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
@@ -65,13 +65,17 @@ $(OBJ_DIR)/main.o: main.c | $(OBJ_DIR)
 
 # Cibles de tests
 testDuel: $(DUEL_EXE)
-	./$(BIN_DIR)/$(DUEL_EXE)
+	@echo "🚀 Lancement du programme duel..."
+	@./$(BIN_DIR)/$(DUEL_EXE)
 
 testMain: $(MAIN_EXE)
-	./$(BIN_DIR)/$(MAIN_EXE)
+	@echo "🚀 Lancement du programme main..."
+	@./$(BIN_DIR)/$(MAIN_EXE)
+	@echo "✅ Main terminé"
 
 testValgrind: $(MAIN_EXE)
-	valgrind --leak-check=full ./$(MAIN_EXE)
+	@echo "🚀 Lancement de Valgrind..."
+	@valgrind --leak-check=full ./$(MAIN_EXE)
 
 # Cible de nettoyage
 clean:
