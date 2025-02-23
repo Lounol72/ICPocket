@@ -69,7 +69,9 @@ void attqButtonClicked(Window *win, void *data) {
         printf("\t\t\tPV avant : %d\n", game.battleState.rouge.team[0].current_pv);
         if (isAlive(&(game.battleState.rouge.team[0]))) 
             playATurn(&game.battleState.rouge, moveIndex, &game.battleState.bleu, AI_move_choice(&game.battleState.ia, &game.battleState.rouge));
-
+        if (!isAlive(&(game.battleState.bleu.team[0]))){
+            gainExp(&(game.battleState.rouge),&(game.battleState.bleu.team[0]));
+        }
         while (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))){
             int swap=rand() % 5 + 11;
             if(testActionValidity(swap,&game.battleState.bleu)) swapActualAttacker(&game.battleState.bleu, swap);

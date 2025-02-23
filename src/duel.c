@@ -113,7 +113,7 @@ void initTeam(t_Team * t, int nb_poke){
 		t->team[i].main_effect=noEffect;
 		generate_poke(&(t->team[i]),((i * 12335634 )%16)); // temporaire
 		for(int j=0;j<6;j++) t->statChanges[j]=NEUTRAL_STAT_CHANGE;
-		t->team[i].current_pv=calcStatFrom(&(t->team[i]),PV);//POKE_IS_ABSENT;
+		t->team[i].current_pv=calcStatFrom(&(t->team[i]),PV);
 	}
 }
 
