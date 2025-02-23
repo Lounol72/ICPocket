@@ -20,12 +20,12 @@ int main(){
 	testBattle(&rouge,&bleu);
 	getchar();
 	printf("TEAM ROUGE:\n\n");
-	printTeam(&rouge);
+	//printTeam(&rouge);
 	printf("TEAM BLEU:\n\n");
-	printTeam(&bleu);
+	//printTeam(&bleu);
 
-	getPokeFromTeam(&rouge,0,&bleu,0);
+	//getPokeFromTeam(&rouge,0,&bleu,0);
 	printf("TEAM ROUGE:\n\n");
-	printTeam(&rouge);
+	//printTeam(&rouge);
 	return 0;
 }

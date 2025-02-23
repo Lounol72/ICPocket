@@ -55,6 +55,7 @@ typedef struct
 	t_Gender gender;
 	t_Type type[2];
 	int lvl;
+	unsigned exp;
 	int nature;
 	int current_pv;
 	int baseStats[6];

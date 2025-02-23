@@ -54,6 +54,10 @@ void affectDamage(t_Team * offender, t_Team * defender, int indexMove);
 void swapActualAttacker(t_Team * t, int swapIndex);
 int playATurn(t_Team * t1, int move1, t_Team * t2, int move2);
 
+extern unsigned expCurve(int lvl);
+int reachedNextLvl(t_Poke * p);
+void gainExp(t_Team * target, t_Poke * source);
+
 void testBattle(t_Team * rouge, t_Team * bleu);
 void testSwitch(t_Team * rouge, t_Team * bleu);
 void testPP(t_Team * rouge, t_Team * bleu);

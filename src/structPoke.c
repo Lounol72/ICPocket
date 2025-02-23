@@ -60,6 +60,7 @@ void generate_poke(t_Poke *p, int line)
 		p->type[1] = rand() % typeNumber;
 
 		p->lvl = rand() % 100 + 1;
+		p->exp = expCurve(p->lvl); /*This is to match the start of a random generated level*/
 		/*IV et Moves*/
 		for (int i = 0; i < 6; i++)
 			p->iv[i] = rand() % 32;

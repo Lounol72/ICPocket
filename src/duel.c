@@ -114,11 +114,6 @@ void initTeam(t_Team * t, int nb_poke){
 		generate_poke(&(t->team[i]),((i * 12335634 )%16)); // temporaire
 		for(int j=0;j<6;j++) t->statChanges[j]=NEUTRAL_STAT_CHANGE;
 		t->team[i].current_pv=calcStatFrom(&(t->team[i]),PV);//POKE_IS_ABSENT;
-		for(int j=0;j<t->team[i].nb_move;j++){
-			t->team[i].moveList[j] = generateRandomMoveBetter(&(t->team[i]));
-			t->team[i].moveList[j]=generateRandomMoveBetter(&(t->team[i]));
-			t->team[i].moveList[j].current_pp=t->team[i].moveList[j].max_pp;
-		}
 	}
 }
 
@@ -382,6 +377,41 @@ int playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 
 }
 
+unsigned expCurve(int lvl){
+	/*Used Fast exp curve formula : lvl**3 */
+	return lvl*lvl*lvl;
+}
+
+int reachedNextLvl(t_Poke * p){
+	if(p->exp>=expCurve(p->lvl+1)){
+		p->lvl++;
+		printf("%s monte au niveau %d\n",p->name,p->lvl);
+		/*TO ADD HERE : apprendre une nouvelle attaque si disponible*/
+		return TRUE;
+	}
+	return FALSE;
+}
+
+void gainExp(t_Team * target, t_Poke * source){
+	int exp_amount;
+	int pv_before_lvl_up;
+	for(int i=0;i<target->nb_poke;i++){
+		if(target->team[i].lvl<100){
+			/*formula is IsTrainerPoke? * EXPBoost? * FaintedLvl * BaseEXP / 7 */
+			/*isTrainerPoke and EXPBoost are always True by technical reasons therefore their values are 1.5*/
+			/*BaseEXP has no real formula so I defined it with BasePV * 2 */
+			exp_amount=1.5 * 1.5 * source->lvl * 2 * calcStatFrom(source,PV) /7;
+			target->team[i].exp+= (unsigned)exp_amount;
+			printf("%s gagne %d exp\n",target->team[i].name,exp_amount);
+			pv_before_lvl_up=target->team[i].current_pv;
+			while(reachedNextLvl(&(target->team[i])));
+			if(pv_before_lvl_up){
+				target->team[i].current_pv+=calcStatFrom(&(target->team[i]),PV)-pv_before_lvl_up;
+			}
+		}
+	}
+}
+
 void testBattle(t_Team * rouge, t_Team * bleu){
 	printPoke(&(rouge->team[0]));
 	printPoke(&(bleu->team[0]));
@@ -389,6 +419,9 @@ void testBattle(t_Team * rouge, t_Team * bleu){
 	printf("pv bleu : %d\n\n",bleu->team[0].current_pv);
 	while(isTeamAlive(rouge) && isTeamAlive(bleu)){
 		playATurn(rouge,AI_move_choice(&iaTest2,bleu),bleu,AI_move_choice(&iaTest,rouge));
+		if (!isAlive(&(bleu->team[0]))){
+			gainExp(rouge,&(bleu->team[0]));
+		}
 		while (isTeamAlive(rouge) && !isAlive(&(rouge->team[0]))){
 			int swap=rand()%5+11;
 			if(testActionValidity(swap,rouge)) swapActualAttacker(rouge,swap);
