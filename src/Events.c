@@ -58,6 +58,9 @@ void handleICMonsEvent(Window *win, SDL_Event *event) {
             ButtonClicked(game.ui[6].buttons->buttons[i], x, y, win);
         }
     }
+    if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
+        changeState(win, &game.stateHandlers[2].state);
+    }
     handleEvent(win, event);
 }
 
