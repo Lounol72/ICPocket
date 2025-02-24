@@ -23,29 +23,66 @@ void handleEvent(Window *win, SDL_Event *event) {
                     break;
             }
             if (game.ui[game.gameState.currentState].buttons) {
-                int max = game.ui[game.gameState.currentState].buttons->size - 1;
+                const int maxButtons = game.ui[game.gameState.currentState].buttons->size - 1;
+                const int halfMaxButtons = maxButtons / 2;
                 switch (event->key.keysym.sym) {
-                    case SDLK_UP: game.currentButton = (game.currentButton > 0) ? game.currentButton - 1 : game.currentButton; break;
-                    case SDLK_DOWN: game.currentButton = (game.currentButton < max) ? game.currentButton + 1 : game.currentButton; break;
-                    case SDLK_LEFT: game.currentButton = (game.currentButton >= max / 2) ? game.currentButton - max / 2 : game.currentButton; break;
-                    case SDLK_RIGHT: game.currentButton = (game.currentButton + max / 2 <= max) ? game.currentButton + max / 2 : game.currentButton; break;
-                    case SDLK_c: ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[game.currentButton], -1, -1, win); break;
-                    default: break;
+                    case SDLK_UP: 
+                        game.currentButton = (game.currentButton > 0) ? game.currentButton - 1 : game.currentButton; 
+                        break;
+                    case SDLK_DOWN: 
+                        game.currentButton = (game.currentButton < maxButtons) ? game.currentButton + 1 : game.currentButton; 
+                        break;
+                    case SDLK_LEFT: 
+                        game.currentButton = (game.currentButton >= halfMaxButtons) ? game.currentButton - halfMaxButtons : game.currentButton; 
+                        break;
+                    case SDLK_RIGHT: 
+                        game.currentButton = (game.currentButton + halfMaxButtons <= maxButtons) ? game.currentButton + halfMaxButtons : game.currentButton; 
+                        break;
+                    case SDLK_c: 
+                        ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[game.currentButton], -1, -1, win); 
+                        break;
+                    default: 
+                        break;
                 }
             }
             break;
         
-        case SDL_CONTROLLERBUTTONDOWN: { int max = game.ui[game.gameState.currentState].buttons->size - 1; switch(event->cbutton.button){ case SDL_CONTROLLER_BUTTON_A: ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[game.currentButton], -1, -1, win); break; case SDL_CONTROLLER_BUTTON_DPAD_UP: game.currentButton = game.currentButton > 0 ? game.currentButton - 1 : game.currentButton; break; case SDL_CONTROLLER_BUTTON_DPAD_DOWN: game.currentButton = game.currentButton < max ? game.currentButton + 1 : game.currentButton; break; case SDL_CONTROLLER_BUTTON_DPAD_LEFT: game.currentButton = game.currentButton >= max/2 ? game.currentButton - max/2 : game.currentButton; break; case SDL_CONTROLLER_BUTTON_DPAD_RIGHT: game.currentButton = game.currentButton + max/2 <= max ? game.currentButton + max/2 : game.currentButton; break; default: break; } } break;
+        case SDL_CONTROLLERBUTTONDOWN: {
+            const int maxButtons = game.ui[game.gameState.currentState].buttons->size - 1;
+            const int halfMaxButtons = maxButtons / 2;
+            switch(event->cbutton.button) {
+                case SDL_CONTROLLER_BUTTON_A: 
+                    ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[game.currentButton], -1, -1, win); 
+                    break;
+                case SDL_CONTROLLER_BUTTON_DPAD_UP: 
+                    game.currentButton = game.currentButton > 0 ? game.currentButton - 1 : game.currentButton; 
+                    break;
+                case SDL_CONTROLLER_BUTTON_DPAD_DOWN: 
+                    game.currentButton = game.currentButton < maxButtons ? game.currentButton + 1 : game.currentButton; 
+                    break;
+                case SDL_CONTROLLER_BUTTON_DPAD_LEFT: 
+                    game.currentButton = game.currentButton >= halfMaxButtons ? game.currentButton - halfMaxButtons : game.currentButton; 
+                    break;
+                case SDL_CONTROLLER_BUTTON_DPAD_RIGHT: 
+                    game.currentButton = game.currentButton + halfMaxButtons <= maxButtons ? game.currentButton + halfMaxButtons : game.currentButton; 
+                    break;
+                default: 
+                    break;
+            }
+        } break;
+
         case SDL_QUIT:
             win->quit = 1;
             SDL_LogMessage(SDL_LOG_CATEGORY_INPUT, SDL_LOG_PRIORITY_INFO, "Quit");
             break;
+
         case SDL_WINDOWEVENT:
             if (event->window.event == SDL_WINDOWEVENT_RESIZED) {
                 win->width = event->window.data1;
                 win->height = event->window.data2;
                 float scaleX = (float)win->width / win->InitialWidth;
                 float scaleY = (float)win->height / win->InitialHeight;
+                
                 for (int i = 1; i < game.nbMenu; i++) {
                     if (game.ui[i].buttons) updateButtonPosition(game.ui[i].buttons, scaleX, scaleY);
                     if (game.ui[i].sliders) updateSliderPosition(game.ui[i].sliders, scaleX, scaleY);
@@ -53,17 +90,18 @@ void handleEvent(Window *win, SDL_Event *event) {
                 
                 updateTextPosition(&NewGameText, scaleX, scaleY);
                 updateTextPosition(&title, scaleX, scaleY);
-                for(int i = 0; i < game.battleState.rouge.nb_poke; i++){
+                
+                for(int i = 0; i < game.battleState.rouge.nb_poke; i++) {
                     updateICMonsSprite(&(game.battleState.rouge.team[i]), scaleX, scaleY);
                 }
-                for(int i = 0; i < game.battleState.bleu.nb_poke; i++){
+                for(int i = 0; i < game.battleState.bleu.nb_poke; i++) {
                     updateICMonsSprite(&(game.battleState.bleu.team[i]), scaleX, scaleY);
                 }
             }
             break;
         
-        default: break;
-        
+        default: 
+            break;
     }
 }
 
@@ -74,8 +112,8 @@ void handleICMonsEvent(Window *win, SDL_Event *event) {
     if(event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
         SDL_GetMouseState(&x, &y);
-        for (int i = 0; i < game.ui[6].buttons->size; i++) {
-            ButtonClicked(game.ui[6].buttons->buttons[i], x, y, win);
+        for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
+            ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
         }
     }
     if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
@@ -93,8 +131,8 @@ void handleIntermediateEvent(Window *win, SDL_Event *event) {
     if(event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
         SDL_GetMouseState(&x, &y);
-        for (int i = 0; i < game.ui[7].buttons->size; i++) {
-            ButtonClicked(game.ui[7].buttons->buttons[i], x, y, win);
+        for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
+            ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
         }
     }
     if(!game.saved){
@@ -107,8 +145,8 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
         SDL_GetMouseState(&x, &y);
-        for (int i = 0; i < game.ui[2].buttons->size; i++) {
-            ButtonClicked(game.ui[2].buttons->buttons[i], x, y, win);
+        for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
+            ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
         }
     }
     handleEvent(win, event);
@@ -147,8 +185,8 @@ void handleGameEvent(Window *win, SDL_Event *event) {
     else if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
         SDL_GetMouseState(&x, &y);
-        for (int i = 0; i < game.ui[3].buttons->size; i++) {
-            ButtonClicked(game.ui[3].buttons->buttons[i], x, y, win);
+        for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
+            ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
         }
     }
     handleEvent(win, event);
@@ -159,16 +197,16 @@ void handleGameEvent(Window *win, SDL_Event *event) {
 // Functions for the settings
 
 void handleSettingsEvent(Window *win, SDL_Event *event) {
-    if (!win || !event || !game.ui[1].sliders->sliders || game.ui[1].sliders->size <= 0) return;
+    if (!win || !event || !game.ui[game.gameState.currentState].sliders->sliders || game.ui[game.gameState.currentState].sliders->size <= 0) return;
     // Parcourt et gère les événements des sliders
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
         SDL_GetMouseState(&x, &y);
-        for (int i = 0; i < game.ui[1].sliders->size; i++) {
-            if (handleSliderEvent(game.ui[1].sliders->sliders[i], x,y)) break;
+        for (int i = 0; i < game.ui[game.gameState.currentState].sliders->size; i++) {
+            if (handleSliderEvent(game.ui[game.gameState.currentState].sliders->sliders[i], x,y)) break;
         }
-        for(int i = 0; i < game.ui[1].buttons->size; i++){
-            ButtonClicked(game.ui[1].buttons->buttons[i], x, y, win);
+        for(int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++){
+            ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
         }
     }
     // Gérer les autres événements
@@ -209,13 +247,13 @@ void handleNewGameEvent(Window * win, SDL_Event * event) {
             SDL_Rect nameRect = {
                 spriteRect.x,
                 spriteRect.y - NAME_Y_OFFSET,
-                spriteRect.w/2,
+                spriteRect.w / 2,
                 NAME_HEIGHT
             };
             SDL_Rect pvRect = {
                 spriteRect.x,
                 spriteRect.y + spriteRect.h + PV_Y_OFFSET,
-                spriteRect.w,
+                spriteRect.w / 3,
                 PV_BAR_HEIGHT
             };
             poke->img = initICMonSprite(win->renderer, spriteRect, nameRect, pvRect, poke, win->LargeFont, 0);
@@ -243,7 +281,7 @@ void handleNewGameEvent(Window * win, SDL_Event * event) {
             SDL_Rect pvRect = {
                 spriteRect.x,
                 spriteRect.y + spriteRect.h + PV_Y_OFFSET,
-                spriteRect.w,
+                spriteRect.w / 3,
                 PV_BAR_HEIGHT
             };
             poke->img = initICMonSprite(win->renderer, spriteRect, nameRect, pvRect, poke, win->LargeFont, 1);
@@ -277,8 +315,8 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
         SDL_GetMouseState(&x, &y);
-        for (int i = 0; i < game.ui[5].buttons->size; i++) {
-            ButtonClicked(game.ui[5].buttons->buttons[i], x, y, win);
+        for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
+            ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
         }
     }
     // Gérer les autres événements

@@ -1,3 +1,57 @@
+commit d2d29c8907a72f85e2bbbb5b340f7a7153f61f1e
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 24 22:20:05 2025 +0100
+
+    Remove UIConstants.h as sprite positioning and sizing constants are no longer needed
+
+commit d18957ae37be058c3b71e779f0d9814e8750e44e
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 24 22:19:10 2025 +0100
+
+    Refactor sprite initialization and packaging process for Linux and Windows
+
+commit e38b2cbfc4f403784150239601a568d14fdcbc32
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Mon Feb 24 21:04:05 2025 +0100
+
+    implementing load (unfinished) + 3 new sprites
+
+commit 67d1670ea66e458571c52cebf6af85ae72a6512b
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 24 17:01:36 2025 +0100
+
+    Refactor packaging process in Makefile and improve logging output
+
+commit 7eea4d39788907e41a907d3d507d676d2b157fa4
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 24 15:13:02 2025 +0100
+
+    Update game assets and improve sprite initialization for team differentiation
+
+commit a73cfacbca89ab528e5cb858085dc8375cfb068f
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 24 13:55:15 2025 +0100
+
+    Add initial health tracking for Pokémon and update health display logic
+
+commit a532a9fda400f698f9957591ececfb99fa7e587d
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 24 11:56:39 2025 +0100
+
+    Add pause functionality and update game state management
+
+commit 7a6c08122d6afc7d95aa1a62b6888251688aef57
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 24 11:47:02 2025 +0100
+
+    Update sprite initialization positions for red and blue teams
+
+commit 517dc1d7e5687fd204129da97dacac326a1fec02
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 24 11:38:49 2025 +0100
+
+    Add dynamic text handling and improve resource cleanup in window destruction & Rendering sprites
+
 commit 8fb99afe86ec2b01a19167e939209b05309ec804
 Author: Lounol72 <subtil.louis2005@gmail.com>
 Date:   Sun Feb 23 22:11:07 2025 +0100

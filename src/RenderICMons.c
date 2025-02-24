@@ -66,7 +66,7 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer,SDL_Rect spriteRect,SDL_Rect 
     img->PVText = createText(pv, renderer, pvRect, (SDL_Color){255,255,255,255}, font);
     
     // Initialize PV bar textures
-    img->PVRect = img->PVInitialRect = pvRect;
+    img->PVRect = img->PVInitialRect = (SDL_Rect){pvRect.x, pvRect.y, spriteRect.w, pvRect.h};
     
     // Create name texture
     SDL_Surface *nameSurface = TTF_RenderText_Solid(font, poke->name, (SDL_Color){255, 255, 255, 255});
