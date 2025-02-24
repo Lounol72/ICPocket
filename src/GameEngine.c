@@ -2,8 +2,8 @@
 // Global variables
 Game game;
 
-Text title = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
-Text NewGameText = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL};
+Text title = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL,0};
+Text NewGameText = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL,0};
 
 int marginBottom = 200; // Marge en bas en pixels
 int marginRight = 0;  // Marge à droite en pixels
@@ -16,8 +16,14 @@ int marginRight = 0;  // Marge à droite en pixels
 
 void render(Window *win) {
     if (game.gameState.currentState == GAME){
+        // TODO : render a white rectangle on the bottom of the screen
+        SDL_Rect rect = {0, 0, win->width, win->height};
+        SDL_SetRenderDrawColor(win->renderer, 255, 255, 255, 255);
+        SDL_RenderFillRect(win->renderer, &rect);
+        
         SDL_Rect renderQuad = {0, 0, win->width, (int)(win->height * 0.722)};
         SDL_RenderCopy(win->renderer, game.ui[3].background, NULL, &renderQuad);
+        
     }
     else if (game.ui[game.gameState.currentState].background) SDL_RenderCopy(win->renderer, game.ui[game.gameState.currentState].background, NULL, NULL);
     if (game.ui[game.gameState.currentState].buttons )renderButtonList(game.ui[game.gameState.currentState].buttons);
@@ -26,6 +32,9 @@ void render(Window *win) {
         renderText(win, &title);
     }else if(game.gameState.currentState == NEWGAME){
         renderText(win, &NewGameText);
+    }else if(game.gameState.currentState == GAME){
+        if (game.battleState.rouge.team[0].name[0] != '\0') renderICMonsSprite(win, &(game.battleState.rouge.team[0]));
+        if (game.battleState.bleu.team[0].name[0] != '\0') renderICMonsSprite(win, &(game.battleState.bleu.team[0]));
     }
 }
 

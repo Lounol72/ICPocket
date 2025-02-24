@@ -48,6 +48,7 @@ void destroyWindow(Window *win)
     if (game.gameState.music) {
         Mix_FreeMusic(game.gameState.music);
         game.gameState.music = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Musique libérée");
     }
 
     // 2) Destroy UI elements
@@ -73,53 +74,79 @@ void destroyWindow(Window *win)
         }
         free(game.ui);
         game.ui = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ UI libérée");
+    }
+
+    if(game.battleState.rouge.nb_poke != 0) {
+        for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
+            destroyICMonsSprite(&game.battleState.rouge.team[i]);
+            free(game.battleState.rouge.team[i].img);
+        }
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ ICMons rougeslibérés");
+        
+    }
+    if(game.battleState.bleu.nb_poke != 0) {
+        for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+            destroyICMonsSprite(&game.battleState.bleu.team[i]);
+            free(game.battleState.bleu.team[i].img);
+        }
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ ICMons bleus libérés");
     }
 
     // 3) Free state handlers
     if (game.stateHandlers) {
         free(game.stateHandlers);
         game.stateHandlers = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ State handlers libérés");
     }
 
     // 4) Free speeds array
     if (game.speeds) {
         free(game.speeds);
         game.speeds = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Speeds libérés");
     }
 
     // 5) Close fonts
     if (win->LargeFont) {
         TTF_CloseFont(win->LargeFont);
         win->LargeFont = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ LargeFont libéré");
     }
     if (win->MediumFont) {
         TTF_CloseFont(win->MediumFont);
         win->MediumFont = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ MediumFont libéré");
     }
     if (win->SmallFont) {
         TTF_CloseFont(win->SmallFont);
         win->SmallFont = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ SmallFont libéré");
     }
     if (win->font) {
         TTF_CloseFont(win->font);
         win->font = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ font libéré");
     }
 
     // 6) Destroy renderer & window
     if (win->renderer) {
         SDL_DestroyRenderer(win->renderer);
         win->renderer = NULL;
-    }
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ renderer libéré");
+        }
     if (win->window) {
         SDL_DestroyWindow(win->window);
         win->window = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ window libéré");
     }
 
     // 7) Close audio
     Mix_CloseAudio();
-
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ audio libéré");
     // 8) Quit TTF, IMG, SDL
     TTF_Quit();
     IMG_Quit();
     SDL_Quit();
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ SDL quitté");
 }

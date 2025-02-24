@@ -25,6 +25,7 @@ void handleEvent(Window *win, SDL_Event *event) {
         case SDL_CONTROLLERBUTTONDOWN: { int max = game.ui[game.gameState.currentState].buttons->size - 1; switch(event->cbutton.button){ case SDL_CONTROLLER_BUTTON_A: ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[game.currentButton], -1, -1, win); break; case SDL_CONTROLLER_BUTTON_DPAD_UP: game.currentButton = game.currentButton > 0 ? game.currentButton - 1 : game.currentButton; break; case SDL_CONTROLLER_BUTTON_DPAD_DOWN: game.currentButton = game.currentButton < max ? game.currentButton + 1 : game.currentButton; break; case SDL_CONTROLLER_BUTTON_DPAD_LEFT: game.currentButton = game.currentButton >= max/2 ? game.currentButton - max/2 : game.currentButton; break; case SDL_CONTROLLER_BUTTON_DPAD_RIGHT: game.currentButton = game.currentButton + max/2 <= max ? game.currentButton + max/2 : game.currentButton; break; default: break; } } break;
         case SDL_QUIT:
             win->quit = 1;
+            SDL_LogMessage(SDL_LOG_CATEGORY_INPUT, SDL_LOG_PRIORITY_INFO, "Quit");
             break;
         case SDL_WINDOWEVENT:
             if (event->window.event == SDL_WINDOWEVENT_RESIZED) {
@@ -97,33 +98,39 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
 
 // Functions for the game
 
-void handleGameEvent(Window *win, SDL_Event *event) 
-{
-    if (!game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
+void handleGameEvent(Window *win, SDL_Event *event) {
+    if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
         
-        //printf("pv rouge : %d\npv bleu : %d\n", rouge.team[0].current_pv, bleu.team[0].current_pv);
-        if (!isAlive(&(game.battleState.rouge.team[0]))){
+        // Reset game state
+        game.gameState.initialized = 0;
+        game.gameState.playerTurn = 0;
+        
+        // Change state
+        AppState newState = isTeamAlive(&game.battleState.rouge) ? INTER : MENU;
+        win->state = newState;
+        game.gameState.currentState = newState;
+        return;
+    }
+
+    // Rest of the function remains the same
+    if (!game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
+        if (!isAlive(&(game.battleState.rouge.team[0]))) {
             game.gameState.currentState = ICMONS;
             win->state = ICMONS;
             return;
         }
         game.gameState.playerTurn = 1;
-    } else if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
-        printf("VICTOIRE DES %s!!!\n", isTeamAlive(&game.battleState.rouge) ? "ROUGES" : "BLEUS");
-        win->state = isTeamAlive(&game.battleState.rouge) ? INTER : MENU;
-        game.gameState.currentState = win->state;
-        game.gameState.initialized = 0;
-        return;
     }
+    
     if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
         changeState(win, &game.stateHandlers[2].state);
     }
     else if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
         SDL_GetMouseState(&x, &y);
-        // Handle game event
-        for (int i = 0; i < game.ui[3].buttons->size; i++)
+        for (int i = 0; i < game.ui[3].buttons->size; i++) {
             ButtonClicked(game.ui[3].buttons->buttons[i], x, y, win);
+        }
     }
     handleEvent(win, event);
 }
@@ -162,20 +169,43 @@ void handleQuitEvent(Window *win, SDL_Event *event) {
 
 // Functions for new game
 
-void handleNewGameEvent(Window * win, SDL_Event * event){
+void handleNewGameEvent(Window * win, SDL_Event * event) {
     handleEvent(win, event);
     if (!game.gameState.initialized) {
         initData();
         initTeam(&game.battleState.rouge, 3);
         initTeam(&game.battleState.bleu, 3);
         game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
-        for(int i = 0; i < game.battleState.rouge.nb_poke; i++){
-            printPoke(&(game.battleState.rouge.team[i]));
+        
+        // Initialize sprites for both teams
+        for(int i = 0; i < game.battleState.rouge.nb_poke; i++) {
+            t_Poke *poke = &(game.battleState.rouge.team[i]);
+            poke->img = initICMonSprite(win->renderer, 100, 300, 200, 200, poke, win->LargeFont);
+            if (!poke->img || !poke->img->ICMonTexture) {
+                SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
+                    "❌ Failed to initialize sprite for red team pokemon %d", i);
+                return;
+            }
         }
-        printf("pv rouge : %d\n\n",game.battleState.rouge.team[0].current_pv);
-        printf("pv bleu : %d\n\n",game.battleState.bleu.team[0].current_pv);
+        
+        for(int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+            t_Poke *poke = &(game.battleState.bleu.team[i]);
+            poke->img = initICMonSprite(win->renderer, 900, 100, 200, 200, poke, win->LargeFont);
+            if (!poke->img || !poke->img->ICMonTexture) {
+                SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
+                    "❌ Failed to initialize sprite for blue team pokemon %d", i);
+                return;
+            }
+        }
+
         updateICButtons(win, &game.battleState.rouge);
-        bleu = game.battleState.bleu;
+        
+        // Debug info
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, 
+            "Red team PV: %d, Blue team PV: %d", 
+            game.battleState.rouge.team[0].current_pv,
+            game.battleState.bleu.team[0].current_pv);
+            
         game.gameState.initialized = 1;
     }
 }

@@ -14,6 +14,7 @@ typedef struct Text {
     TTF_Font *font;
     SDL_Surface *surface;
     SDL_Texture *texture;
+    int is_dynamic;
 } Text;
 
 extern Text title;

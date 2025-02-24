@@ -1,3 +1,63 @@
+commit 8fb99afe86ec2b01a19167e939209b05309ec804
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Sun Feb 23 22:11:07 2025 +0100
+
+    Update event handling to allow state change on ESC key press and log state transitions
+
+commit 35d580ed47d64e241c5de242bd6ad4e5b7e4a79f
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Sun Feb 23 18:58:58 2025 +0100
+
+    fixed a crash + added leveling up into main
+
+commit 90a4eb6a6f72dc18e20f5c24da361bb1721265fd
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Sun Feb 23 15:00:18 2025 +0100
+
+    added exp and level up mechanics
+
+commit 4ca35c0d936932993acb1718b0117c17cf3fae7d
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 21 14:41:41 2025 +0100
+
+    Remove unused monster assets and update sprite initialization logic
+
+commit e165ac91cc047f9c11faa2abd1ad7fd0882a51b5
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 21 13:47:20 2025 +0100
+
+    Refactor Makefile for improved directory creation and add launch messages for test targets; update audio command handling and clean up music playback logic
+
+commit 35208d9eb244fcbebbc2c1af5f76d470a3cfced3
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 21 12:02:16 2025 +0100
+
+    Add SDL game controller support and improve renderer flag handling
+
+commit de6394b22fae642a3f9d603c279752c14d54d190
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 21 11:05:21 2025 +0100
+
+    Refactor Makefile and update renderer initialization; add updateText function and improve sprite management
+
+commit e38c5c9aa91629142dfeb421237b24a16c1db492
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Fri Feb 21 00:17:36 2025 +0100
+
+    Add 4 legendary sprites
+
+commit 20ad997748265ae071328d9b4f38f213aa8f0666
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Thu Feb 20 20:20:02 2025 +0100
+
+    Update save
+
+commit 5d619bb92ba7e0af52a0deb2650d654b41fa02b5
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 20 19:02:50 2025 +0100
+
+    Update Makefile to improve compilation flags and output paths
+
 commit c840067773df34badc088f437b3041af63c466f9
 Author: lOkaal11 <littrewilliam@gmail.com>
 Date:   Wed Feb 19 21:36:32 2025 +0100

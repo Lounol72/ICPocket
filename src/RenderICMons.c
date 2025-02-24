@@ -1,59 +1,93 @@
 #include "../include/RenderICMons.h"
 
 IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, int x, int y, int w, int h, t_Poke *poke, TTF_Font *font) {
+    if (!renderer || !poke || !font) {
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Invalid parameters for initICMonSprite");
+        return NULL;
+    }
+    
     IMG_ICMons *img = malloc(sizeof(IMG_ICMons));
     if (!img) {
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Erreur lors de l'allocation de la mémoire pour l'image");
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Memory allocation failed for IMG_ICMons");
         return NULL;
     }
+    
+    memset(img, 0, sizeof(IMG_ICMons)); // Initialize all members to 0/NULL
     img->renderer = renderer;
-    char path[50];
-    snprintf(path, sizeof(path), "assets/Monsters/%s.png", poke->name);
+    
+    char path[128];
+    snprintf(path, sizeof(path), "assets/Monsters/New Versions/%s.png", poke->name);
+    
     SDL_Surface *surface = IMG_Load(path);
     if (!surface) {
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Erreur lors du chargement de l'image : %s", IMG_GetError());
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Failed to load image: %s", path);
         free(img);
         return NULL;
     }
+    
     img->ICMonTexture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
+    
     if (!img->ICMonTexture) {
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Erreur lors de la création de la texture : %s", SDL_GetError());
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Failed to create texture");
         free(img);
         return NULL;
     }
+    
     img->rect = img->initialRect = (SDL_Rect){x, y, w, h};
-    char pv[10], Name[20];
+    
+    // Create PV text
+    char pv[32];
     snprintf(pv, sizeof(pv), "%d/%d", poke->current_pv, poke->baseStats[PV]);
-    img->PVText = createText(pv,renderer, img->rect,(SDL_Color){255,255,255,255},font);
-    img->PVbarTexture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
-    img->PVbarTextureBack = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
-    img->PVRect = img->PVInitialRect = (SDL_Rect){x, y, w, h};
-    snprintf(Name, sizeof(Name), "%s", poke->name);
-    img->nameTexture = SDL_CreateTextureFromSurface(renderer, TTF_RenderText_Solid(font, Name, (SDL_Color){255, 255, 255, 255}));
-    img->nameRect = img->nameInitialRect = (SDL_Rect){x, y, w, h};
-    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Initialisation de l'image réussie");
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "PV : %s", pv);
+    SDL_Rect pvRect = {x, y + h + 5, w/2, 20}; // Adjust position below sprite
+    img->PVText = createText(pv, renderer, pvRect, (SDL_Color){255,255,255,255}, font);
+    
+    // Initialize PV bar textures
+    img->PVRect = img->PVInitialRect = (SDL_Rect){x, y + h + 25, w, 10}; // Adjust position
+    
+    // Create name texture
+    SDL_Surface *nameSurface = TTF_RenderText_Solid(font, poke->name, (SDL_Color){255, 255, 255, 255});
+    if (nameSurface) {
+        img->nameTexture = SDL_CreateTextureFromSurface(renderer, nameSurface);
+        SDL_FreeSurface(nameSurface);
+        img->nameRect = img->nameInitialRect = (SDL_Rect){x, y - 25, w/2, 20}; // Position above sprite
+    }
+    
     return img;
 }
 
 void renderICMonsSprite(Window *win, t_Poke *poke) {
-    if(!poke->img) return;
-    //render the ICmons texture
+    if(!poke || !poke->img) return;
+    
+    // Set render target back to the default
+    SDL_SetRenderTarget(poke->img->renderer, NULL);
+    
+    // Render the ICmons texture
     SDL_RenderCopy(poke->img->renderer, poke->img->ICMonTexture, NULL, &poke->img->rect);
-    //render the PV bar background
-    SDL_SetRenderTarget(poke->img->renderer, poke->img->PVbarTextureBack);
+    
+    // Render the PV bar background
     SDL_SetRenderDrawColor(poke->img->renderer, 255, 0, 0, 255);
     SDL_RenderFillRect(poke->img->renderer, &poke->img->PVRect);
-    //render the PV bar foreground
-    SDL_SetRenderTarget(poke->img->renderer, poke->img->PVbarTexture);
+    
+    // Render the PV bar foreground
     SDL_SetRenderDrawColor(poke->img->renderer, 0, 255, 0, 255);
     SDL_Rect pvForeground = poke->img->PVRect;
-    pvForeground.w = (int)(pvForeground.w * ((float)poke->current_pv / poke->baseStats[PV]));
+    float healthPercentage = ((float)poke->current_pv / poke->baseStats[PV]);
+    // Clamp health percentage between 0 and 1
+    healthPercentage = healthPercentage > 1.0f ? 1.0f : (healthPercentage < 0.0f ? 0.0f : healthPercentage);
+    pvForeground.w = (int)(pvForeground.w * healthPercentage);
     SDL_RenderFillRect(poke->img->renderer, &pvForeground);
-    //render the PV text
-    renderText(win, poke->img->PVText);
-    //render the name
-    SDL_RenderCopy(poke->img->renderer, poke->img->nameTexture, NULL, &poke->img->nameRect);
+    
+    // Render the PV text
+    if(poke->img->PVText) {
+        renderText(win, poke->img->PVText);
+    }
+    
+    // Render the name
+    if(poke->img->nameTexture) {
+        SDL_RenderCopy(poke->img->renderer, poke->img->nameTexture, NULL, &poke->img->nameRect);
+    }
 }
 
 
