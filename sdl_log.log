@@ -15,25 +15,15 @@
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
 [0] [3] Changement d'état : 4
-[0] [3] PV : 223/100
-[0] [3] PV : 117/20
-[0] [3] PV : 161/97
-[0] [3] PV : 303/100
-[0] [3] PV : 49/20
-[0] [3] PV : 231/97
-[0] [3] Red team PV: 223, Blue team PV: 303
+[0] [3] PV : 40/100
+[0] [3] PV : 26/20
+[0] [3] PV : 52/97
+[0] [3] PV : 181/100
+[0] [3] PV : 52/20
+[0] [3] PV : 126/97
+[0] [3] Red team PV: 40, Blue team PV: 181
 [0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 4
-[0] [3] PV : 70/100
-[0] [3] PV : 22/20
-[0] [3] PV : 142/97
-[0] [3] PV : 62/100
-[0] [3] PV : 38/20
-[0] [3] PV : 98/97
-[0] [3] Red team PV: 70, Blue team PV: 62
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 0
+[7] [3] Quit
 [0] [3] ✅ Musique libérée
 [0] [3] ✅ UI libérée
 [1] [2] Parameter 'texture' is invalid
