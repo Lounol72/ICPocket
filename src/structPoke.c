@@ -54,7 +54,6 @@ void generate_poke(t_Poke *p, int line)
 
 		/*Load Base stats*/
 		fscanf(dataPoke, "%d,%[^,],%d,%d,%d,%d,%d,%d\n", &(p->id), p->name, &(p->baseStats[PV]), &(p->baseStats[ATT]), &(p->baseStats[DEF]), &(p->baseStats[SPA]), &(p->baseStats[SPD]), &(p->baseStats[SPE]));
-		p->current_pv = p->baseStats[PV];
 		
 		/*Load Types*/
 		p->type[0] = rand() % (typeNumber-1) + 1;

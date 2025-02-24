@@ -38,7 +38,7 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, int x, int y, int w, int h, 
     
     // Create PV text
     char pv[32];
-    snprintf(pv, sizeof(pv), "%d/%d", poke->current_pv, poke->baseStats[PV]);
+    snprintf(pv, sizeof(pv), "%d/%d", poke->current_pv, poke->initial_pv);
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "PV : %s", pv);
     SDL_Rect pvRect = {x, y + h + 5, w/2, 20}; // Adjust position below sprite
     img->PVText = createText(pv, renderer, pvRect, (SDL_Color){255,255,255,255}, font);
@@ -60,6 +60,11 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, int x, int y, int w, int h, 
 void renderICMonsSprite(Window *win, t_Poke *poke) {
     if(!poke || !poke->img) return;
     
+    // Update PV text
+    char pv[32];
+    snprintf(pv, sizeof(pv), "%d/%d", poke->current_pv, poke->initial_pv);
+    updateText(poke->img->PVText, pv, win->renderer);
+    
     // Set render target back to the default
     SDL_SetRenderTarget(poke->img->renderer, NULL);
     
@@ -73,7 +78,7 @@ void renderICMonsSprite(Window *win, t_Poke *poke) {
     // Render the PV bar foreground
     SDL_SetRenderDrawColor(poke->img->renderer, 0, 255, 0, 255);
     SDL_Rect pvForeground = poke->img->PVRect;
-    float healthPercentage = ((float)poke->current_pv / poke->baseStats[PV]);
+    float healthPercentage = ((float)poke->current_pv / poke->initial_pv);
     // Clamp health percentage between 0 and 1
     healthPercentage = healthPercentage > 1.0f ? 1.0f : (healthPercentage < 0.0f ? 0.0f : healthPercentage);
     pvForeground.w = (int)(pvForeground.w * healthPercentage);
