@@ -1,6 +1,6 @@
 #include "../include/RenderICMons.h"
 
-IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, int x, int y, int w, int h, t_Poke *poke, TTF_Font *font, int team) {
+IMG_ICMons *initICMonSprite(SDL_Renderer *renderer,SDL_Rect spriteRect,SDL_Rect nameRect, SDL_Rect pvRect, t_Poke *poke, TTF_Font *font, int team) {
     if (!renderer || !poke || !font) {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Invalid parameters for initICMonSprite");
         return NULL;
@@ -57,24 +57,23 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, int x, int y, int w, int h, 
         return NULL;
     }
     
-    img->rect = img->initialRect = (SDL_Rect){x, y, w, h};
+    img->rect = img->initialRect = spriteRect;
     
     // Create PV text
     char pv[32];
     snprintf(pv, sizeof(pv), "%d/%d", poke->current_pv, poke->initial_pv);
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "PV : %s", pv);
-    SDL_Rect pvRect = {x, y + h + 5, w/2, 20}; // Adjust position below sprite
     img->PVText = createText(pv, renderer, pvRect, (SDL_Color){255,255,255,255}, font);
     
     // Initialize PV bar textures
-    img->PVRect = img->PVInitialRect = (SDL_Rect){x, y + h + 25, w, 10}; // Adjust position
+    img->PVRect = img->PVInitialRect = pvRect;
     
     // Create name texture
     SDL_Surface *nameSurface = TTF_RenderText_Solid(font, poke->name, (SDL_Color){255, 255, 255, 255});
     if (nameSurface) {
         img->nameTexture = SDL_CreateTextureFromSurface(renderer, nameSurface);
         SDL_FreeSurface(nameSurface);
-        img->nameRect = img->nameInitialRect = (SDL_Rect){x, y - 25, w/2, 20}; // Position above sprite
+        img->nameRect = img->nameInitialRect = nameRect;
     }
     
     return img;

@@ -1,5 +1,18 @@
 #include "../include/Events.h"
 
+// Constants for sprite positioning and sizing
+#define RED_SPRITE_X_RATIO 0.23f
+#define RED_SPRITE_Y_RATIO 0.35f
+#define BLUE_SPRITE_X_RATIO 0.60f 
+#define BLUE_SPRITE_Y_RATIO 0.15f
+#define SPRITE_WIDTH_RATIO 0.2f
+#define SPRITE_HEIGHT_RATIO 0.25f
+#define NAME_Y_OFFSET 25
+#define PV_Y_OFFSET 25
+#define NAME_HEIGHT 20
+#define PV_BAR_HEIGHT 15
+
+
 void handleEvent(Window *win, SDL_Event *event) {
     switch(event->type) {
         case SDL_KEYDOWN:
@@ -184,9 +197,28 @@ void handleNewGameEvent(Window * win, SDL_Event * event) {
         game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
         
         // Initialize sprites for both teams
+
         for(int i = 0; i < game.battleState.rouge.nb_poke; i++) {
             t_Poke *poke = &(game.battleState.rouge.team[i]);
-            poke->img = initICMonSprite(win->renderer, 250, 275, 200, 200, poke, win->LargeFont,0);
+            SDL_Rect spriteRect = {
+                win->width * RED_SPRITE_X_RATIO, 
+                win->height * RED_SPRITE_Y_RATIO,
+                win->width * SPRITE_WIDTH_RATIO,
+                win->height * SPRITE_HEIGHT_RATIO
+            };
+            SDL_Rect nameRect = {
+                spriteRect.x,
+                spriteRect.y - NAME_Y_OFFSET,
+                spriteRect.w/2,
+                NAME_HEIGHT
+            };
+            SDL_Rect pvRect = {
+                spriteRect.x,
+                spriteRect.y + spriteRect.h + PV_Y_OFFSET,
+                spriteRect.w,
+                PV_BAR_HEIGHT
+            };
+            poke->img = initICMonSprite(win->renderer, spriteRect, nameRect, pvRect, poke, win->LargeFont, 0);
             if (!poke->img || !poke->img->ICMonTexture) {
                 SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
                     "❌ Failed to initialize sprite for red team pokemon %d", i);
@@ -196,7 +228,25 @@ void handleNewGameEvent(Window * win, SDL_Event * event) {
         
         for(int i = 0; i < game.battleState.bleu.nb_poke; i++) {
             t_Poke *poke = &(game.battleState.bleu.team[i]);
-            poke->img = initICMonSprite(win->renderer, 750, 100, 200, 200, poke, win->LargeFont,1);
+            SDL_Rect spriteRect = {
+                win->width * BLUE_SPRITE_X_RATIO,
+                win->height * BLUE_SPRITE_Y_RATIO,
+                win->width * SPRITE_WIDTH_RATIO,
+                win->height * SPRITE_HEIGHT_RATIO
+            };
+            SDL_Rect nameRect = {
+                spriteRect.x,
+                spriteRect.y - NAME_Y_OFFSET,
+                spriteRect.w/2,
+                NAME_HEIGHT
+            };
+            SDL_Rect pvRect = {
+                spriteRect.x,
+                spriteRect.y + spriteRect.h + PV_Y_OFFSET,
+                spriteRect.w,
+                PV_BAR_HEIGHT
+            };
+            poke->img = initICMonSprite(win->renderer, spriteRect, nameRect, pvRect, poke, win->LargeFont, 1);
             if (!poke->img || !poke->img->ICMonTexture) {
                 SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
                     "❌ Failed to initialize sprite for blue team pokemon %d", i);

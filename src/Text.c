@@ -90,6 +90,7 @@ void updateText(Text *text, const char *newText, SDL_Renderer *renderer) {
             SDL_FreeSurface(newSurface);
             return;
         }
+        SDL_FreeSurface(text->surface);
         text->surface = newSurface;
     }
 }

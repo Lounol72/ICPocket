@@ -399,16 +399,30 @@ void gainExp(t_Team * target, t_Poke * source){
 	int pv_before_lvl_up;
 	for(int i=0;i<target->nb_poke;i++){
 		if(target->team[i].lvl<100){
-			/*formula is IsTrainerPoke? * EXPBoost? * FaintedLvl * BaseEXP / 7 */
-			/*isTrainerPoke and EXPBoost are always True by technical reasons therefore their values are 1.5*/
-			/*BaseEXP has no real formula so I defined it with BasePV * 2 */
-			exp_amount=1.5 * 1.5 * source->lvl * 2 * calcStatFrom(source,PV) /7;
-			target->team[i].exp+= (unsigned)exp_amount;
-			printf("%s gagne %d exp\n",target->team[i].name,exp_amount);
-			pv_before_lvl_up=target->team[i].current_pv;
+			//* formula is IsTrainerPoke? * EXPBoost? * FaintedLvl * BaseEXP / 7
+			//* isTrainerPoke and EXPBoost are always True by technical reasons therefore their values are 1.5
+			//* BaseEXP has no real formula so I defined it with BasePV * 2 
+			// Calculate exp gain using constants for clarity
+			const float TRAINER_BONUS = 1.5;
+			const float EXP_BOOST = 1.5;
+			const int BASE_EXP_MULTIPLIER = 2;
+			const int EXP_DIVISOR = 7;
+			
+			exp_amount = (TRAINER_BONUS * EXP_BOOST * source->lvl * BASE_EXP_MULTIPLIER * calcStatFrom(source, PV)) / EXP_DIVISOR;
+			target->team[i].exp += (unsigned)exp_amount;
+			printf("%s gagne %d exp\n", target->team[i].name, exp_amount);
+			
+			// Store initial HP before level up
+			pv_before_lvl_up = target->team[i].current_pv;
+			
+			// Process any level ups
 			while(reachedNextLvl(&(target->team[i])));
-			if(pv_before_lvl_up){
-				target->team[i].current_pv+=calcStatFrom(&(target->team[i]),PV)-pv_before_lvl_up;
+			
+			// Update HP if pokemon was alive
+			if(pv_before_lvl_up) {
+				int hp_increase = calcStatFrom(&(target->team[i]), PV) - pv_before_lvl_up;
+				target->team[i].current_pv += hp_increase;
+				target->team[i].initial_pv += hp_increase;
 			}
 		}
 	}

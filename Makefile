@@ -84,8 +84,8 @@ clean:
 	@rm -f $(BIN_DIR)/*.o
 	@echo "✅ Nettoyage terminé"
 
-package:
-	@echo "📦 Création du package..."
+package-linux:
+	@echo "📦 Création du package linux..."
 	@mkdir -p $(BIN_DIR)/libs >/dev/null 2>&1
 	@ldd $(BIN_DIR)/$(MAIN_EXE) | awk '{print $$3}' | grep -v "ld-linux" | grep -v "linux-vdso.so" | xargs -I{} cp -v {} $(BIN_DIR)/libs/ >/dev/null 2>&1 || true
 	@echo '#!/bin/bash' > $(BIN_DIR)/run.sh
@@ -94,6 +94,13 @@ package:
 	@echo './bin/main "$$@"' >> $(BIN_DIR)/run.sh
 	@chmod +x $(BIN_DIR)/run.sh >/dev/null 2>&1
 	@tar -czf ICPocket.tar.gz $(BIN_DIR) assets README.md data >/dev/null 2>&1 || true
-	@echo "✅ Package créé : ICPocket.tar.gz"
+	@echo "✅ Package linux créé : ICPocket.tar.gz"
 
-.PHONY: all clean
+package-windows:
+	@echo "📦 Création du package windows..."
+	# TODO: Créer le package windows
+	# * Trouver la commande pour téléchager les dll nécessaires
+	
+	
+
+.PHONY: clean all 
