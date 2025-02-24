@@ -3,7 +3,7 @@
 void initGame(Window *win) {
     game.win = win;
     
-    game.nbMenu = 8;
+    game.nbMenu = 9;
     game.ui = malloc(game.nbMenu * sizeof(UI_Elements));
     game.ui[0] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Quit Page            = 0
     game.ui[1] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders=malloc(sizeof(SliderList)) ,.background=NULL};                        // Settings Page        = 1
@@ -13,7 +13,7 @@ void initGame(Window *win) {
     game.ui[5] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Load Game Page       = 5
     game.ui[6] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // ICMons Page          = 6
     game.ui[7] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Intermediate         = 7
-
+    game.ui[8] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Pause Page           = 8
     for (int i = 0; i < game.nbMenu; i++) {
         game.ui[i].buttons->buttons = NULL;
         game.ui[i].buttons->size = 0;
@@ -23,16 +23,17 @@ void initGame(Window *win) {
 
     game.gameState = (GameState){.music = NULL, .playerTurn = 1, .initialized = 0, .currentState = MENU};
 
-    game.nbStates = 8;
+    game.nbStates = 9;
     game.stateHandlers = malloc(game.nbStates * sizeof(StateHandler));
-    game.stateHandlers[0] = (StateHandler){QUIT, handleQuitEvent}; // Quit = 0
-    game.stateHandlers[1] = (StateHandler){SETTINGS, handleSettingsEvent}; // Settings = 1
-    game.stateHandlers[2] = (StateHandler){MENU, handleMenuEvent}; // Menu = 2
-    game.stateHandlers[3] = (StateHandler){GAME, handleGameEvent}; // Game = 3
-    game.stateHandlers[4] = (StateHandler){NEWGAME, handleNewGameEvent}; // New game = 4
-    game.stateHandlers[5] = (StateHandler){LOADGAME, handleLoadGameEvent}; // Load game = 5
-    game.stateHandlers[6] = (StateHandler){ICMONS, handleICMonsEvent}; // ICMons = 6
-    game.stateHandlers[7] = (StateHandler){INTER, handleIntermediateEvent}; // Intermediate = 7
+    game.stateHandlers[0] = (StateHandler){QUIT, handleQuitEvent};
+    game.stateHandlers[1] = (StateHandler){SETTINGS, handleSettingsEvent};
+    game.stateHandlers[2] = (StateHandler){MENU, handleMenuEvent};
+    game.stateHandlers[3] = (StateHandler){GAME, handleGameEvent};
+    game.stateHandlers[4] = (StateHandler){NEWGAME, handleNewGameEvent};
+    game.stateHandlers[5] = (StateHandler){LOADGAME, handleLoadGameEvent};
+    game.stateHandlers[6] = (StateHandler){ICMONS, handleICMonsEvent};
+    game.stateHandlers[7] = (StateHandler){INTER, handleIntermediateEvent};
+    game.stateHandlers[8] = (StateHandler){PAUSE, handlePauseEvent};
 
 
     game.FPS = 60;
@@ -53,6 +54,7 @@ void initGame(Window *win) {
     loadBackground(&game.ui[3].background, win->renderer, "assets/Title Screen/combat.png");
     loadBackground(&game.ui[6].background, win->renderer, "assets/Title Screen/BG.jpg");
     loadBackground(&game.ui[7].background, win->renderer, "assets/Title Screen/combat.png");
+    loadBackground(&game.ui[8].background, win->renderer, "assets/Title Screen/BG.jpg");
 
     initAudio();
     loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");

@@ -40,6 +40,12 @@ void handleEvent(Window *win, SDL_Event *event) {
                 
                 updateTextPosition(&NewGameText, scaleX, scaleY);
                 updateTextPosition(&title, scaleX, scaleY);
+                for(int i = 0; i < game.battleState.rouge.nb_poke; i++){
+                    updateICMonsSprite(&(game.battleState.rouge.team[i]), scaleX, scaleY);
+                }
+                for(int i = 0; i < game.battleState.bleu.nb_poke; i++){
+                    updateICMonsSprite(&(game.battleState.bleu.team[i]), scaleX, scaleY);
+                }
             }
             break;
         
@@ -226,5 +232,16 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
         }
     }
     // Gérer les autres événements
+    handleEvent(win, event);
+}
+
+//---------------------------------------------------------------------------------
+
+// Functions for pause
+
+void handlePauseEvent(Window *win, SDL_Event *event) {
+    if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
+        changeState(win, &game.stateHandlers[2].state);
+    }
     handleEvent(win, event);
 }

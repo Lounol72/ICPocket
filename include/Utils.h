@@ -9,7 +9,8 @@ typedef enum AppState {
     NEWGAME,  // 4
     LOADGAME, // 5
     ICMONS, // 6
-    INTER
+    INTER, // 7
+    PAUSE, // 8
 } AppState;
 
 #endif /* UTILS_H */
