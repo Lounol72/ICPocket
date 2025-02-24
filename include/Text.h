@@ -14,13 +14,13 @@ typedef struct Text {
     TTF_Font *font;
     SDL_Surface *surface;
     SDL_Texture *texture;
-    int is_dynamic;
+    int is_dynamic; / temporary
 } Text;
 
 extern Text title;
 extern Text NewGameText;
 
-void initText(struct Window *win); // Initialize the text objects TEMPORARY
+void initText(struct Window *win); // ! Initialize the text objects TEMPORARY
 Text *createText(const char *text,SDL_Renderer *renderer,SDL_Rect rect, SDL_Color color, TTF_Font *font);
 void renderText(struct Window *win, Text *text);
 void updateTextPosition(Text *text, float scaleX, float scaleY);
