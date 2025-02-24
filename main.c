@@ -6,15 +6,18 @@
 
 
 int main(void) {
+    printf("🟢 Starting ICPocket...\n");
     Window *win = (Window *)malloc(sizeof(Window));
+
     if (!win) {
-        fprintf(stderr, "Erreur : Impossible d'allouer la mémoire pour la fenêtre\n");
+        printf("🔴 ICPocket closed\n");
         return EXIT_FAILURE;
     }
     
     initWindow(win, 1280,720, "assets/fonts/Axolotl.ttf");
     mainLoop(win);
     destroyWindow(win); 
-    free(win);              
+    free(win);          
+    printf("🟢 ICPocket closed\n");
     return EXIT_SUCCESS;
 }

@@ -1,13 +1,20 @@
 # ICPocket
 
-## Prérequis
+## Installation
 
-Avant de lancer `make`, assurez-vous d'avoir installé toutes les bibliothèques nécessaires :
-
-```sh
-sudo apt-get update
-sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
-```
+1. Téléchargez l'archive ICPocket.tar.gz
+2. Décompressez l'archive :
+   ```sh
+   tar -xzf ICPocket.tar.gz -C ./ICPocket
+   ```
+3. Accédez au répertoire :
+   ```sh
+   cd ICPocket
+   ```
+4. Lancez le jeu :
+   ```sh
+   ./bin/main
+   ```
 
 ## Ajouter un son
 

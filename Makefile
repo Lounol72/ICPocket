@@ -1,7 +1,7 @@
 # Répertoires
 SRC_DIR      = src
 OBJ_DIR      = obj
-BIN_DIR      = $(SRC_DIR)/bin
+BIN_DIR      = bin
 INCLUDE_DIR  = include
 
 # Noms des exécutables
@@ -83,5 +83,24 @@ clean:
 	@rm -f $(OBJ_DIR)/*.o
 	@rm -f $(BIN_DIR)/*.o
 	@echo "✅ Nettoyage terminé"
+
+package:
+	@echo "📦 Création du package..."
+	@mkdir -p $(BIN_DIR)/libs
+
+	# Copier les bibliothèques dynamiques requises
+	@ldd $(BIN_DIR)/$(MAIN_EXE) | awk '{print $$3}' | grep -v "ld-linux" | grep -v "linux-vdso.so" | xargs -I{} cp -v {} $(BIN_DIR)/libs/ || true
+
+	# Générer un script d'exécution avec un chemin absolu
+	@echo '#!/bin/bash' > $(BIN_DIR)/run.sh
+	@echo 'cd "$(dirname "$0")"' >> $(BIN_DIR)/run.sh
+	@echo 'export LD_LIBRARY_PATH=$(pwd)/libs' >> $(BIN_DIR)/run.sh
+	@echo './bin/main "$@"' >> $(BIN_DIR)/run.sh
+	@chmod +x $(BIN_DIR)/run.sh
+
+	# Créer l'archive
+	@tar -czf ICPocket.tar.gz $(BIN_DIR) assets README.md || true
+	@echo "✅ Package créé : ICPocket.tar.gz"
+
 
 .PHONY: all clean

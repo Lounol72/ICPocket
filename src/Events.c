@@ -186,7 +186,7 @@ void handleNewGameEvent(Window * win, SDL_Event * event) {
         // Initialize sprites for both teams
         for(int i = 0; i < game.battleState.rouge.nb_poke; i++) {
             t_Poke *poke = &(game.battleState.rouge.team[i]);
-            poke->img = initICMonSprite(win->renderer, 250, 275, 200, 200, poke, win->LargeFont);
+            poke->img = initICMonSprite(win->renderer, 250, 275, 200, 200, poke, win->LargeFont,0);
             if (!poke->img || !poke->img->ICMonTexture) {
                 SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
                     "❌ Failed to initialize sprite for red team pokemon %d", i);
@@ -196,7 +196,7 @@ void handleNewGameEvent(Window * win, SDL_Event * event) {
         
         for(int i = 0; i < game.battleState.bleu.nb_poke; i++) {
             t_Poke *poke = &(game.battleState.bleu.team[i]);
-            poke->img = initICMonSprite(win->renderer, 750, 100, 200, 200, poke, win->LargeFont);
+            poke->img = initICMonSprite(win->renderer, 750, 100, 200, 200, poke, win->LargeFont,1);
             if (!poke->img || !poke->img->ICMonTexture) {
                 SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
                     "❌ Failed to initialize sprite for blue team pokemon %d", i);

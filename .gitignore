@@ -20,6 +20,8 @@
 # Executables
 *.exe
 *.out
+*.sh 
+*.tar.gz
 
 
 *.Identifier

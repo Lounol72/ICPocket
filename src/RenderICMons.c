@@ -1,6 +1,6 @@
 #include "../include/RenderICMons.h"
 
-IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, int x, int y, int w, int h, t_Poke *poke, TTF_Font *font) {
+IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, int x, int y, int w, int h, t_Poke *poke, TTF_Font *font, int team) {
     if (!renderer || !poke || !font) {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Invalid parameters for initICMonSprite");
         return NULL;
@@ -19,6 +19,29 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, int x, int y, int w, int h, 
     snprintf(path, sizeof(path), "assets/Monsters/New Versions/%s.png", poke->name);
     
     SDL_Surface *surface = IMG_Load(path);
+    if (team == 1) {
+        // flip the surface horizontally
+        SDL_Surface *flippedSurface = SDL_CreateRGBSurface(0, surface->w, surface->h, 
+            surface->format->BitsPerPixel, 
+            surface->format->Rmask, 
+            surface->format->Gmask, 
+            surface->format->Bmask, 
+            surface->format->Amask);
+        
+        SDL_Rect srcRect = {0, 0, surface->w, surface->h};
+        SDL_Rect dstRect = {0, 0, surface->w, surface->h};
+        
+        for (int x = 0; x < surface->w; x++) {
+            srcRect.x = x;
+            dstRect.x = surface->w - 1 - x;
+            srcRect.w = 1;
+            dstRect.w = 1;
+            SDL_BlitSurface(surface, &srcRect, flippedSurface, &dstRect);
+        }
+        
+        SDL_FreeSurface(surface);
+        surface = flippedSurface;
+    }
     if (!surface) {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Failed to load image: %s", path);
         free(img);

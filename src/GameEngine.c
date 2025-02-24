@@ -255,12 +255,12 @@ void initAllButtons(Window *win)
     buttonsLoadGame[0] = createButton(
         "Save 1", win, 500, 104, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[5].state, win->LargeFont
+        NULL, (void*)(intptr_t)1, win->LargeFont
     );
     buttonsLoadGame[1] = createButton(
         "Save 2", win, 500, 258, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[5].state, win->LargeFont
+        NULL, (void*)(intptr_t)2, win->LargeFont
     );
     buttonsLoadGame[2] = createButton(
         "Back", win, 100, 600, 300, 100,
