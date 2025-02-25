@@ -75,33 +75,35 @@ void handleEvent(Window *win, SDL_Event *event) {
             win->quit = 1;
             SDL_LogMessage(SDL_LOG_CATEGORY_INPUT, SDL_LOG_PRIORITY_INFO, "Quit");
             break;
-
         case SDL_WINDOWEVENT:
             if (event->window.event == SDL_WINDOWEVENT_RESIZED) {
-                win->width = event->window.data1;
-                win->height = event->window.data2;
-                float scaleX = (float)win->width / win->InitialWidth;
-                float scaleY = (float)win->height / win->InitialHeight;
-                
-                for (int i = 1; i < game.nbMenu; i++) {
-                    if (game.ui[i].buttons) updateButtonPosition(game.ui[i].buttons, scaleX, scaleY);
-                    if (game.ui[i].sliders) updateSliderPosition(game.ui[i].sliders, scaleX, scaleY);
-                }
-                
-                updateTextPosition(&NewGameText, scaleX, scaleY);
-                updateTextPosition(&title, scaleX, scaleY);
-                
-                for(int i = 0; i < game.battleState.rouge.nb_poke; i++) {
-                    updateICMonsSprite(&(game.battleState.rouge.team[i]), scaleX, scaleY);
-                }
-                for(int i = 0; i < game.battleState.bleu.nb_poke; i++) {
-                    updateICMonsSprite(&(game.battleState.bleu.team[i]), scaleX, scaleY);
-                }
+                handleWindowSizeChange(win);
             }
             break;
-        
         default: 
             break;
+    }
+}
+
+void handleWindowSizeChange(Window *win) {
+    win->width = event->window.data1;
+    win->height = event->window.data2;
+    float scaleX = (float)win->width / win->InitialWidth;
+    float scaleY = (float)win->height / win->InitialHeight;
+    
+    for (int i = 1; i < game.nbMenu; i++) {
+        if (game.ui[i].buttons) updateButtonPosition(game.ui[i].buttons, scaleX, scaleY);
+        if (game.ui[i].sliders) updateSliderPosition(game.ui[i].sliders, scaleX, scaleY);
+    }
+    
+    updateTextPosition(&NewGameText, scaleX, scaleY);
+    updateTextPosition(&title, scaleX, scaleY);
+    
+    for(int i = 0; i < game.battleState.rouge.nb_poke; i++) {
+        updateICMonsSprite(&(game.battleState.rouge.team[i]), scaleX, scaleY);
+    }
+    for(int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+        updateICMonsSprite(&(game.battleState.bleu.team[i]), scaleX, scaleY);
     }
 }
 
