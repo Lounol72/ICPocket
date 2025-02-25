@@ -5,119 +5,165 @@
 #include "include/Window.h"
 #include "include/Map.h"
 #include "include/Player.h"
+#include "include/Camera.h"
 #include <stdbool.h>
+
+#define WINDOWS_W 1280
+#define WINDOWS_H 720
 
 int main(int argc, char *argv[]) {
     if(argc > 1 && strcmp(argv[1], "-debug") == 0) {
         printf("🟢 Starting ICPocket in debug mode...\n");
-        SDL_Init(SDL_INIT_EVERYTHING);
-        SDL_Window *window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, SDL_WINDOW_SHOWN);
+        
+        // Initialisation SDL avec vérification
+        if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+            printf("❌ SDL Init failed: %s\n", SDL_GetError());
+            return 1;
+        }
+
+        SDL_Window *window = SDL_CreateWindow("ICPocket Debug Mode", 
+                                            SDL_WINDOWPOS_CENTERED, 
+                                            SDL_WINDOWPOS_CENTERED, 
+                                            WINDOWS_W, WINDOWS_H, 
+                                            SDL_WINDOW_SHOWN);
+        if (!window) {
+            printf("❌ Window creation failed: %s\n", SDL_GetError());
+            return 1;
+        }
+
         SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
+        if (!renderer) {
+            printf("❌ Renderer creation failed: %s\n", SDL_GetError());
+            SDL_DestroyWindow(window);
+            return 1;
+        }
 
+        // Initialisation des composants avec vérification
         Map *map = initMap(renderer, "assets/Tileset/Map/MapFloor.png");
-        Player *player = createPlayer(renderer, "assets/Characters/Character 1.png");
+        if (!map) {
+            printf("❌ Map initialization failed\n");
+            return 1;
+        }
 
-        // Position initiale du joueur
-        player->matrixX = MAP_WIDTH / 2;
-        player->matrixY = MAP_HEIGHT / 2;
-        player->position.x = player->matrixX * TILE_SIZE_W_SCALE;
-        player->position.y = player->matrixY * TILE_SIZE_H_SCALE;
+        Player *player = createPlayer(renderer, "assets/Characters/Character 1.png");
+        if (!player) {
+            printf("❌ Player initialization failed\n");
+            return 1;
+        }
+
+        // Debug info initiale
+        printf("\n📊 Debug Information:\n");
+        printf("Window size: %dx%d\n", WINDOWS_W, WINDOWS_H);
+        printf("Tile size: %dx%d\n", TILE_SIZE_W_SCALE, TILE_SIZE_H_SCALE);
+        printf("Matrix size: %dx%d\n", MAP_WIDTH, MAP_HEIGHT);
 
         SDL_Event event;
         int running = 1;
         Uint32 lastTime = SDL_GetTicks();
         float deltaTime = 0.0f;
+        int frameCount = 0;
+        Uint32 fpsLastTime = SDL_GetTicks();
+        float fps = 0.0f;
         
-        if (!player) {
-            printf("Erreur création player\n");
-            // Cleanup et return
-        }
-
+        Camera* camera = createCamera(WINDOWS_W, WINDOWS_H);
+        
         while(running) {
             Uint32 currentTime = SDL_GetTicks();
             deltaTime = (currentTime - lastTime) / 1000.0f;
             lastTime = currentTime;
 
-            if(SDL_PollEvent(&event)) {
+            // Calcul FPS
+            frameCount++;
+            if (currentTime - fpsLastTime >= 1000) {
+                fps = frameCount * 1000.0f / (currentTime - fpsLastTime);
+                frameCount = 0;
+                fpsLastTime = currentTime;
+                
+                // Afficher les infos de performance une fois par seconde
+                printf("\r⚡ FPS: %.1f | Player Pos: [%d,%d] | State: %d  ", 
+                       fps, player->matrixX, player->matrixY, player->state);
+                fflush(stdout);
+            }
+
+            while(SDL_PollEvent(&event)) {
                 if(event.type == SDL_QUIT) {
                     running = 0;
                 }
-                else if(event.type == SDL_KEYDOWN) {
-                    int newMatrixX = player->matrixX;
-                    int newMatrixY = player->matrixY;
-                    bool shouldMove = false;
+            }
 
-                    switch(event.key.keysym.sym) {
-                        case SDLK_UP:
-                            if(newMatrixY > 0) {
-                                newMatrixY--;
-                                player->state = WALK_UP;
-                                shouldMove = true;
-                            }
-                            break;
-                        case SDLK_DOWN:
-                            if(newMatrixY < MAP_HEIGHT - 1) {
-                                newMatrixY++;
-                                player->state = WALK_DOWN;
-                                shouldMove = true;
-                            }
-                            break;
-                        case SDLK_LEFT:
-                            if(newMatrixX > 0) {
-                                newMatrixX--;
-                                player->state = WALK_LEFT;
-                                shouldMove = true;
-                            }
-                            break;
-                        case SDLK_RIGHT:
-                            if(newMatrixX < MAP_WIDTH - 1) {
-                                newMatrixX++;
-                                player->state = WALK_RIGHT;
-                                shouldMove = true;
-                            }
-                            break;
-                        case SDLK_ESCAPE:
-                            running = 0;
-                            break;
-                    }
+            // Ne traiter les inputs que si le joueur n'est PAS en mouvement
+            if (!player->isMovingToTarget) {
+                const Uint8 *keyState = SDL_GetKeyboardState(NULL);
+                int newMatrixX = player->matrixX;
+                int newMatrixY = player->matrixY;
+                PlayerState newState = player->state;
+                bool shouldMove = false;
 
-                    if(shouldMove && map->mat[newMatrixY][newMatrixX] != COLLISION) {
-                        player->matrixX = newMatrixX;
-                        player->matrixY = newMatrixY;
-                        player->position.x = player->matrixX * TILE_SIZE_W_SCALE;
-                        player->position.y = player->matrixY * TILE_SIZE_H_SCALE;
-                        player->isMoving = 1;
+                if (keyState[SDL_SCANCODE_RIGHT]) {
+                    if(newMatrixX < MAP_WIDTH - 1 && !player->isMovingToTarget) {
+                        newMatrixX++;
+                        newState = WALK_RIGHT;
+                        shouldMove = true;
                     }
                 }
-                else if(event.type == SDL_KEYUP) {
-                    player->isMoving = 0;
-                    switch(player->state) {
-                        case WALK_UP: player->state = IDLE_UP; break;
-                        case WALK_DOWN: player->state = IDLE_DOWN; break;
-                        case WALK_LEFT: player->state = IDLE_LEFT; break;
-                        case WALK_RIGHT: player->state = IDLE_RIGHT; break;
-                        default: break;
+                else if (keyState[SDL_SCANCODE_LEFT]) {
+                    if(newMatrixX > 0 && !player->isMovingToTarget) {
+                        newMatrixX--;
+                        newState = WALK_LEFT;
+                        shouldMove = true;
                     }
+                }
+                else if (keyState[SDL_SCANCODE_DOWN]) {
+                    if(newMatrixY < MAP_HEIGHT - 1 && !player->isMovingToTarget) {
+                        newMatrixY++;
+                        newState = WALK_DOWN;
+                        shouldMove = true;
+                    }
+                }
+                else if (keyState[SDL_SCANCODE_UP]) {
+                    if(newMatrixY > 0 && !player->isMovingToTarget) {
+                        newMatrixY--;
+                        newState = WALK_UP;
+                        shouldMove = true;
+                    }
+                }
+
+                if (shouldMove && map->mat[newMatrixY][newMatrixX] != COLLISION) {
+                    // Sauvegarder la position de départ
+                    player->startX = player->position.x;
+                    player->startY = player->position.y;
+                    
+                    // Définir la cible
+                    player->targetMatrixX = newMatrixX;
+                    player->targetMatrixY = newMatrixY;
+                    player->targetX = newMatrixX * TILE_SIZE_W_SCALE;
+                    player->targetY = newMatrixY * TILE_SIZE_H_SCALE;
+                    
+                    // Initialiser le mouvement
+                    player->state = newState;
+                    player->isMovingToTarget = true;
+                    player->interpolationTime = 0.0f;
                 }
             }
 
-            // Debug: afficher la position du joueur
-            printf("Position joueur: [%d,%d], Collision: %d\n", 
-                   player->matrixX, player->matrixY, 
-                   map->mat[player->matrixY][player->matrixX]);
+            // Mettre à jour la position avec interpolation
+            updatePlayerPosition(player, deltaTime);
+            updatePlayerAnimation(player, deltaTime);
 
-            printf("\n--- Nouveau frame ---\n");
+            // Mettre à jour la caméra pour suivre le joueur
+            updateCamera(camera, player->position.x, player->position.y, deltaTime);
+
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
             SDL_RenderClear(renderer);
 
-            updatePlayerAnimation(player, deltaTime);
-            renderMap(map);
-            renderPlayer(renderer, player);
+            // Modifier les fonctions de rendu pour utiliser la caméra
+            renderMapWithCamera(map, renderer, camera);
+            renderPlayerWithCamera(player, renderer, camera);
             
             SDL_RenderPresent(renderer);
-            SDL_Delay(16);
         }
 
+        printf("\n👋 Exiting debug mode...\n");
         destroyMap(map);
         destroyPlayer(player);
         SDL_DestroyRenderer(renderer);

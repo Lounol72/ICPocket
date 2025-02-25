@@ -1,7 +1,8 @@
 #include "../include/Player.h"
 
 
-#define ANIMATION_SPEED 0.15f // Temps entre chaque frame
+
+#define ANIMATION_SPEED 0.10f // Temps entre chaque frame
 #define FRAMES_PER_ANIMATION 4 // Nombre de frames par animation
 
 Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath) {
@@ -11,14 +12,12 @@ Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath) {
         return NULL;
     }
 
-    printf("Chargement de la spritesheet: %s\n", spritesheetPath);
     SDL_Surface *surface = IMG_Load(spritesheetPath);
     if (!surface) {
         printf("Erreur chargement spritesheet: %s\n", IMG_GetError());
         free(player);
         return NULL;
     }
-    printf("Dimensions spritesheet: %dx%d\n", surface->w, surface->h);
 
     player->spriteSheet = SDL_CreateTextureFromSurface(renderer, surface);
     if (!player->spriteSheet) {
@@ -27,13 +26,20 @@ Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath) {
         free(player);
         return NULL;
     }
-    printf("Texture créée avec succès\n");
 
-    // Initialisation des dimensions
-    player->position.w = TILE_SIZE_W_SCALE;  // Utiliser la taille des tuiles
+    // Calculer la position centrale dans la matrice
+    player->matrixX = MAP_WIDTH / 2;
+    player->matrixY = MAP_HEIGHT / 2;
+
+    // Calculer la position en pixels au centre de l'écran
+    player->position.w = TILE_SIZE_W_SCALE;
     player->position.h = TILE_SIZE_H_SCALE;
-    player->position.x = 0;
-    player->position.y = 0;
+    player->position.x = player->matrixX * TILE_SIZE_W_SCALE;
+    player->position.y = player->matrixY * TILE_SIZE_H_SCALE;
+
+    printf("Position initiale du joueur: [%d,%d] en matrice, [%d,%d] en pixels\n", 
+           player->matrixX, player->matrixY, 
+           player->position.x, player->position.y);
 
     player->currentFrame.w = FRAME_WIDTH;
     player->currentFrame.h = FRAME_HEIGHT;
@@ -47,53 +53,86 @@ Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath) {
     player->isMoving = 0;
     player->state = IDLE_DOWN;
 
-    player->mat = (int **)malloc(sizeof(int *) * MAP_WIDTH);
-    for (int i = 0; i < MAP_WIDTH; i++) {
-        player->mat[i] = (int *)malloc(sizeof(int) * MAP_HEIGHT);
+    player->mat = (int **)malloc(sizeof(int *) * MAP_HEIGHT);
+    for (int i = 0; i < MAP_HEIGHT; i++) {
+        player->mat[i] = (int *)malloc(sizeof(int) * MAP_WIDTH);
     }
-    for (int i = 0; i < MAP_WIDTH; i++) {
-        for (int j = 0; j < MAP_HEIGHT; j++) {
+    for (int i = 0; i < MAP_HEIGHT; i++) {
+        for (int j = 0; j < MAP_WIDTH; j++) {
             player->mat[i][j] = 0;
         }
     }
+
+    player->interpolationTime = 0.0f;
+    player->moveSpeed = 0.4f;  // Augmenté à 0.4 secondes par case (était 0.2)
+    player->targetMatrixX = player->matrixX;
+    player->targetMatrixY = player->matrixY;
+    player->startX = player->position.x;
+    player->startY = player->position.y;
+    player->targetX = player->position.x;
+    player->targetY = player->position.y;
+    player->isMovingToTarget = false;
 
     SDL_FreeSurface(surface);
     return player;
 }
 
-void updatePlayerAnimation(Player *player, float deltaTime) {
-    if (!player) return;
+// ! DEBUG
+void DEBUG_printPlayerMat(Player *player) {
+    for (int i = 0; i < MAP_HEIGHT; i++) {
+        for (int j = 0; j < MAP_WIDTH; j++) {
+            printf("%d ", player->mat[i][j]);
+        }
+        printf("\n");
+    }
+}
 
-    // Mise à jour de l'animation
-    if (player->isMoving) {
+void updatePlayerAnimation(Player *player, float deltaTime) {
+    if (player->isMovingToTarget) {
+        // Mettre à jour le timer d'animation pendant le déplacement
         player->animationTimer += deltaTime;
-        if (player->animationTimer >= player->animationSpeed) {
-            player->animationTimer = 0;
-            player->currentFrameIndex = (player->currentFrameIndex + 1) % FRAME_COUNT;
+        
+        // Calculer le nombre de frames en fonction de la durée du déplacement
+        float animationProgress = player->interpolationTime / player->moveSpeed;
+        int totalFrames = player->frameCount - 1; // -1 car on commence à 0
+        
+        // Calculer l'index de frame actuel
+        player->currentFrameIndex = (int)(animationProgress * totalFrames);
+        
+        // S'assurer que l'index reste dans les limites
+        if (player->currentFrameIndex > totalFrames) {
+            player->currentFrameIndex = totalFrames;
+        }
+
+        // Calculer la position dans la spritesheet
+        player->currentFrame.x = player->currentFrameIndex * FRAME_WIDTH;
+        
+        // Mettre à jour la ligne selon l'état de déplacement
+        switch (player->state) {
+            case WALK_DOWN:  player->currentFrame.y = 0; break;
+            case WALK_LEFT:  player->currentFrame.y = 2* FRAME_HEIGHT; break;
+            case WALK_RIGHT: player->currentFrame.y = 3 * FRAME_HEIGHT; break;
+            case WALK_UP:    player->currentFrame.y = FRAME_HEIGHT; break;
+            default: break;
         }
     } else {
+        // En état idle, rester sur la première frame de la direction correspondante
         player->currentFrameIndex = 0;
         player->animationTimer = 0;
+        
+        switch (player->state) {
+            case IDLE_DOWN:  player->currentFrame.y = 0; break;
+            case IDLE_LEFT:  player->currentFrame.y = 2 * FRAME_HEIGHT; break;
+            case IDLE_RIGHT: player->currentFrame.y = 3 * FRAME_HEIGHT; break;
+            case IDLE_UP:    player->currentFrame.y = FRAME_HEIGHT; break;
+            default: break;
+        }
+        player->currentFrame.x = 0;
     }
 
-    // Calcul de la position dans la spritesheet
-    player->currentFrame.x = player->currentFrameIndex * FRAME_WIDTH;
-    
-    // Mise à jour de la ligne selon l'état
-    switch (player->state) {
-        case IDLE_DOWN:  player->currentFrame.y = 0; break;
-        case IDLE_UP:    player->currentFrame.y = FRAME_HEIGHT; break;
-        case IDLE_LEFT:  player->currentFrame.y = 2 * FRAME_HEIGHT; break;
-        case IDLE_RIGHT: player->currentFrame.y = 3 * FRAME_HEIGHT; break;
-        case WALK_DOWN:  player->currentFrame.y = 4 * FRAME_HEIGHT; break;
-        case WALK_UP:    player->currentFrame.y = 5 * FRAME_HEIGHT; break;
-        case WALK_LEFT:  player->currentFrame.y = 6 * FRAME_HEIGHT; break;
-        case WALK_RIGHT: player->currentFrame.y = 7 * FRAME_HEIGHT; break;
-    }
-
-    printf("Update - État: %d, Frame: %d, Position: (%d,%d)\n",
-           player->state, player->currentFrameIndex,
-           player->position.x, player->position.y);
+    // S'assurer que les dimensions de la frame sont correctes
+    player->currentFrame.w = FRAME_WIDTH;
+    player->currentFrame.h = FRAME_HEIGHT;
 }
 
 void renderPlayer(SDL_Renderer *renderer, Player *player) {
@@ -101,18 +140,16 @@ void renderPlayer(SDL_Renderer *renderer, Player *player) {
         printf("Erreur: player ou spritesheet NULL\n");
         return;
     }
-
-    printf("Position: x=%d, y=%d, w=%d, h=%d\n", 
-           player->position.x, player->position.y, 
-           player->position.w, player->position.h);
-    printf("Frame: x=%d, y=%d, w=%d, h=%d\n", 
-           player->currentFrame.x, player->currentFrame.y, 
-           player->currentFrame.w, player->currentFrame.h);
-    printf("État: %d, FrameIndex: %d\n", player->state, player->currentFrameIndex);
-
     if (SDL_RenderCopy(renderer, player->spriteSheet, &player->currentFrame, &player->position) != 0) {
         printf("Erreur rendu: %s\n", SDL_GetError());
     }
+}
+
+void renderPlayerWithCamera(Player* player, SDL_Renderer* renderer, Camera* camera) {
+    SDL_Rect worldRect = player->position;
+    SDL_Rect screenRect = getWorldToScreenRect(camera, worldRect);
+
+    SDL_RenderCopy(renderer, player->spriteSheet, &player->currentFrame, &screenRect);
 }
 
 void destroyPlayer(Player *player) {
@@ -121,5 +158,40 @@ void destroyPlayer(Player *player) {
             SDL_DestroyTexture(player->spriteSheet);
         }
         free(player);
+    }
+}
+
+void updatePlayerPosition(Player *player, float deltaTime) {
+    if (player->isMovingToTarget) {
+        player->interpolationTime += deltaTime;
+        float t = player->interpolationTime / player->moveSpeed;
+        
+        // Limiter t à 1.0
+        if (t > 1.0f) t = 1.0f;
+        
+        // Interpolation linéaire de la position
+        float newX = player->startX + (player->targetX - player->startX) * t;
+        float newY = player->startY + (player->targetY - player->startY) * t;
+        
+        // Mettre à jour la position en pixels
+        player->position.x = (int)newX;
+        player->position.y = (int)newY;
+
+        // Si le mouvement est terminé
+        if (t >= 1.0f) {
+            player->matrixX = player->targetMatrixX;
+            player->matrixY = player->targetMatrixY;
+            player->isMovingToTarget = false;
+            player->interpolationTime = 0.0f;
+            
+            // Retour à l'état idle
+            switch(player->state) {
+                case WALK_UP: player->state = IDLE_UP; break;
+                case WALK_DOWN: player->state = IDLE_DOWN; break;
+                case WALK_LEFT: player->state = IDLE_LEFT; break;
+                case WALK_RIGHT: player->state = IDLE_RIGHT; break;
+                default: break;
+            }
+        }
     }
 }

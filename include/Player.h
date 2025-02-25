@@ -4,6 +4,14 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "Map.h"
+#include "Camera.h"
+#include <stdbool.h>
+
+#define FRAME_WIDTH 16   // Largeur d'une frame dans la spritesheet
+#define FRAME_HEIGHT 20  // Hauteur d'une frame dans la spritesheet
+#define FRAME_COUNT 4    // Nombre de frames par animation
+#define ANIMATION_SPEED 0.10f
+
 
 typedef enum {
     IDLE_DOWN,
@@ -31,17 +39,28 @@ typedef struct {
     float velocityY;
     int matrixX;
     int matrixY;
+    float interpolationTime;    // Temps écoulé pendant l'interpolation
+    float moveSpeed;           // Vitesse de déplacement (en secondes)
+    int targetMatrixX;         // Position cible X dans la matrice
+    int targetMatrixY;         // Position cible Y dans la matrice
+    float startX;             // Position de départ X en pixels
+    float startY;             // Position de départ Y en pixels
+    float targetX;            // Position cible X en pixels
+    float targetY;            // Position cible Y en pixels
+    bool isMovingToTarget;
 } Player;
-#define FRAME_WIDTH 16   // Largeur d'une frame dans la spritesheet
-#define FRAME_HEIGHT 20  // Hauteur d'une frame dans la spritesheet
-#define FRAME_COUNT 4    // Nombre de frames par animation
-#define ANIMATION_SPEED 0.15f
+
 
 Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath);
 void updatePlayerAnimation(Player *player, float deltaTime);
+void updatePlayerPosition(Player *player, float deltaTime);
 void renderPlayer(SDL_Renderer *renderer, Player *player);
 void movePlayer(Player *player);
 void checkCollision(Player *player);
 void destroyPlayer(Player *player);
+void renderPlayerWithCamera(Player* player, SDL_Renderer* renderer, Camera* camera);
+
+// ! DEBUG
+void DEBUG_printPlayerMat(Player *player);
 
 #endif
