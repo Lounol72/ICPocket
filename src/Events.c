@@ -77,7 +77,7 @@ void handleEvent(Window *win, SDL_Event *event) {
             break;
         case SDL_WINDOWEVENT:
             if (event->window.event == SDL_WINDOWEVENT_RESIZED) {
-                handleWindowSizeChange(win);
+                handleWindowSizeChange(win, event);
             }
             break;
         default: 
@@ -85,7 +85,7 @@ void handleEvent(Window *win, SDL_Event *event) {
     }
 }
 
-void handleWindowSizeChange(Window *win) {
+void handleWindowSizeChange(Window *win, SDL_Event *event) {
     win->width = event->window.data1;
     win->height = event->window.data2;
     float scaleX = (float)win->width / win->InitialWidth;

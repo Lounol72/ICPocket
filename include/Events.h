@@ -19,7 +19,7 @@ void handleEvent(Window *win, SDL_Event *event);
  *  @param win Pointer to the Window structure containing game state
  *  @param event Pointer to the SDL_Event to process
  */
-void handleWindowSizeChange(Window *win);
+void handleWindowSizeChange(Window *win, SDL_Event *event);
 
 /** @brief Handles events in the intermediate game state
  *  @param win Pointer to the Window structure containing game state

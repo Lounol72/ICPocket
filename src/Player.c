@@ -1,5 +1,5 @@
 #include "../include/Player.h"
-
+/*
 Player initPlayer(SDL_Renderer *renderer, int offsetX, int offsetY, int width, int height) {
     Player player = malloc(sizeof(Player));
     player->renderer = renderer;
@@ -33,4 +33,4 @@ void nextSprite(Player *player) {
 }
 
 void renderPlayer(Player *player) {
-    
+    */
