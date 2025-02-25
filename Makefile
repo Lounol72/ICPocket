@@ -98,8 +98,8 @@ package-linux:
 
 package-windows:
 	@echo "📦 Création du package windows..."
-	# TODO: Créer le package windows
-	# * Trouver la commande pour téléchager les dll nécessaires
+	@mkdir -p $(BIN_DIR)/libs >/dev/null 2>&1
+	
 	
 	
 

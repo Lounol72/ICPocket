@@ -2,29 +2,46 @@
 #define PLAYER_H
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include "Map.h"
 
-typedef struct Player {
-    SDL_Rect rect;
-    SDL_Renderer *renderer;
-    SDL_Texture *texture;
-    SDL_Rect initialRect;
+typedef enum {
+    IDLE_DOWN,
+    IDLE_UP,
+    IDLE_LEFT,
+    IDLE_RIGHT,
+    WALK_DOWN,
+    WALK_UP,
+    WALK_LEFT,
+    WALK_RIGHT
+} PlayerState;
 
-    int positionSprite[4];
-    int currentSprite;
-    int maxSprite;
-    int currentFrame;
-    int maxFrame;
-    int currentAnimation;
-    int maxAnimation;
-    int state; //* Boolean to check if the player is moving or not
+typedef struct {
+    SDL_Texture *spriteSheet;
+    SDL_Rect position;
+    SDL_Rect currentFrame;
+    PlayerState state;
+    int **mat;
+    int frameCount;
+    int currentFrameIndex;
+    float animationTimer;
+    float animationSpeed;
+    int isMoving;
+    float velocityX;
+    float velocityY;
+    int matrixX;
+    int matrixY;
 } Player;
+#define FRAME_WIDTH 16   // Largeur d'une frame dans la spritesheet
+#define FRAME_HEIGHT 20  // Hauteur d'une frame dans la spritesheet
+#define FRAME_COUNT 4    // Nombre de frames par animation
+#define ANIMATION_SPEED 0.15f
 
-Player initPlayer(SDL_Renderer *renderer, int offsetX, int offsetY, int width, int height);
-void nextSprite(Player *player);
-void renderPlayer(Player *player);
+Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath);
+void updatePlayerAnimation(Player *player, float deltaTime);
+void renderPlayer(SDL_Renderer *renderer, Player *player);
 void movePlayer(Player *player);
 void checkCollision(Player *player);
 void destroyPlayer(Player *player);
-
 
 #endif
