@@ -75,7 +75,22 @@ void makeWindowWindowed(Window *win, void *data) {
     SDL_SetWindowFullscreen(win->window, 0);
     SDL_SetWindowSize(win->window, win->InitialWidth, win->InitialHeight);
     SDL_GetWindowSize(win->window, &win->width, &win->height);
-    handleWindowSizeChange(win);
+    float scaleX = (float)win->width / win->InitialWidth;
+    float scaleY = (float)win->height / win->InitialHeight;
+    
+    for (int i = 1; i < game.nbMenu; i++) {
+        if (game.ui[i].buttons) updateButtonPosition(game.ui[i].buttons, scaleX, scaleY);
+        if (game.ui[i].sliders) updateSliderPosition(game.ui[i].sliders, scaleX, scaleY);
+    }
+    updateTextPosition(&NewGameText, scaleX, scaleY);
+    updateTextPosition(&title, scaleX, scaleY);
+    
+    for(int i = 0; i < game.battleState.rouge.nb_poke; i++) {
+        updateICMonsSprite(&(game.battleState.rouge.team[i]), scaleX, scaleY);
+    }
+    for(int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+        updateICMonsSprite(&(game.battleState.bleu.team[i]), scaleX, scaleY);
+    }
 }
 
 void attqButtonClicked(Window *win, void *data) {
