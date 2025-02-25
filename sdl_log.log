@@ -14,6 +14,7 @@
 [1] [2] You must call Mix_SetMusicCMD() first
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
+<<<<<<< Updated upstream
 [0] [3] Changement d'état : 4
 [0] [3] PV : 192/192
 [0] [3] PV : 18/18
@@ -22,10 +23,51 @@
 [0] [3] PV : 146/146
 [0] [3] PV : 204/204
 [0] [3] Red team PV: 192, Blue team PV: 147
+=======
+[0] [3] Changement d'état : 1
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 4
+[0] [3] PV : 109/109
+[0] [3] PV : 148/148
+[0] [3] PV : 272/272
+[0] [3] PV : 166/166
+[0] [3] PV : 157/157
+[0] [3] PV : 297/297
+[0] [3] Red team PV: 109, Blue team PV: 166
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 6
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 4
+[0] [3] PV : 158/158
+[0] [3] PV : 150/150
+[0] [3] PV : 118/118
+[0] [3] PV : 61/61
+[0] [3] PV : 114/114
+[0] [3] PV : 108/108
+[0] [3] Red team PV: 158, Blue team PV: 61
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] PV : 191/191
+[0] [3] PV : 54/54
+[0] [3] PV : 234/234
+[0] [3] PV : 42/42
+[0] [3] PV : 61/61
+[0] [3] PV : 77/77
+[0] [3] Red team PV: 191, Blue team PV: 42
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 1
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 3
+>>>>>>> Stashed changes
 [0] [3] Changement d'état : 3
 [0] [3] Changement d'état : 0
 [0] [3] ✅ Musique libérée
 [0] [3] ✅ UI libérée
+<<<<<<< Updated upstream
 [1] [2] Parameter 'texture' is invalid
 [1] [2] Parameter 'texture' is invalid
 [1] [2] Parameter 'texture' is invalid
@@ -39,6 +81,21 @@
 [1] [2] Parameter 'texture' is invalid
 [1] [2] Parameter 'texture' is invalid
 [1] [2] Parameter 'texture' is invalid
+=======
+[1] [2] Invalid texture
+[1] [2] Invalid texture
+[1] [2] Invalid texture
+[1] [2] Invalid texture
+[1] [2] Invalid texture
+[1] [2] Invalid texture
+[0] [3] ✅ ICMons rougeslibérés
+[1] [2] Invalid texture
+[1] [2] Invalid texture
+[1] [2] Invalid texture
+[1] [2] Invalid texture
+[1] [2] Invalid texture
+[1] [2] Invalid texture
+>>>>>>> Stashed changes
 [0] [3] ✅ ICMons bleus libérés
 [0] [3] ✅ State handlers libérés
 [0] [3] ✅ Speeds libérés
