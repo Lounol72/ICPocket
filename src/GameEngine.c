@@ -54,11 +54,12 @@ void chargerCallBack(Window *win, void *data) {
     (void)win; // Marquer le paramètre comme inutilisé
     (void)data; // Marquer le paramètre comme inutilisé
     charger("Save_1", &game.battleState.rouge, &game.battleState.bleu);
-    printTeam(&game.battleState.rouge);
+    // printTeam(&game.battleState.rouge);
     game.gameState.currentState = GAME;
     game.gameState.playerTurn = 1;
     game.gameState.initialized = 1;
     game.currentButton = 0;
+    changeState(win, &game.stateHandlers[4].state);
 }
 
 void makeWindowFullScreen(Window *win, void *data) {
@@ -74,6 +75,7 @@ void makeWindowWindowed(Window *win, void *data) {
     SDL_SetWindowFullscreen(win->window, 0);
     SDL_SetWindowSize(win->window, win->InitialWidth, win->InitialHeight);
     SDL_GetWindowSize(win->window, &win->width, &win->height);
+    handleWindowSizeChange(win);
 }
 
 void attqButtonClicked(Window *win, void *data) {
@@ -132,7 +134,7 @@ void mainLoop(Window *win) {
     
     initAllButtons(win);
 
-    // TEMPORARY
+    
 
     int nbJoysticks = SDL_NumJoysticks();
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Nombre de manettes connectées : %d", nbJoysticks);

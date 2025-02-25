@@ -18,12 +18,12 @@ typedef struct Map {
     SDL_Rect nameRect;
     SDL_Rect pvRect;
     SDL_Renderer *renderer;
-    int mat[MAP_HEIGHT][MAP_WIDTH];
+    int **mat;
     SDL_Texture *texture;
 } Map;
 
-Map *initMap(SDL_Renderer *renderer);
-void renderMap(Map *map, SDL_Renderer *renderer);
+Map *initMap(SDL_Renderer *renderer, const char *path);
+void renderMap(Map *map);
 void destroyMap(Map *map);
 void updateMap(Map *map);
 void loadMapIMG(Map *map, const char *path);
