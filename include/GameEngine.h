@@ -19,6 +19,7 @@
 #include "Utils.h"
 #include "Text.h"
 #include "Window.h"
+#include "Map.h"
 
 
 /* ------------- Structs ------------- */
