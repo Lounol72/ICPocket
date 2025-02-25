@@ -77,7 +77,7 @@ void handleEvent(Window *win, SDL_Event *event) {
             break;
         case SDL_WINDOWEVENT:
             if (event->window.event == SDL_WINDOWEVENT_RESIZED) {
-                handleWindowSizeChange(win, event);
+                handleWindowSizeChange(win);
             }
             break;
         default: 
@@ -85,9 +85,8 @@ void handleEvent(Window *win, SDL_Event *event) {
     }
 }
 
-void handleWindowSizeChange(Window *win, SDL_Event *event) {
-    win->width = event->window.data1;
-    win->height = event->window.data2;
+void handleWindowSizeChange(Window *win) {
+    SDL_GetWindowSize(win->window, &win->width, &win->height);
     float scaleX = (float)win->width / win->InitialWidth;
     float scaleY = (float)win->height / win->InitialHeight;
     
@@ -95,7 +94,6 @@ void handleWindowSizeChange(Window *win, SDL_Event *event) {
         if (game.ui[i].buttons) updateButtonPosition(game.ui[i].buttons, scaleX, scaleY);
         if (game.ui[i].sliders) updateSliderPosition(game.ui[i].sliders, scaleX, scaleY);
     }
-    
     updateTextPosition(&NewGameText, scaleX, scaleY);
     updateTextPosition(&title, scaleX, scaleY);
     
@@ -105,6 +103,7 @@ void handleWindowSizeChange(Window *win, SDL_Event *event) {
     for(int i = 0; i < game.battleState.bleu.nb_poke; i++) {
         updateICMonsSprite(&(game.battleState.bleu.team[i]), scaleX, scaleY);
     }
+    
 }
 
 // Functions for the ICMons selection

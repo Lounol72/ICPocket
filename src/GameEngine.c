@@ -74,23 +74,7 @@ void makeWindowWindowed(Window *win, void *data) {
     }
     SDL_SetWindowFullscreen(win->window, 0);
     SDL_SetWindowSize(win->window, win->InitialWidth, win->InitialHeight);
-    SDL_GetWindowSize(win->window, &win->width, &win->height);
-    float scaleX = (float)win->width / win->InitialWidth;
-    float scaleY = (float)win->height / win->InitialHeight;
-    
-    for (int i = 1; i < game.nbMenu; i++) {
-        if (game.ui[i].buttons) updateButtonPosition(game.ui[i].buttons, scaleX, scaleY);
-        if (game.ui[i].sliders) updateSliderPosition(game.ui[i].sliders, scaleX, scaleY);
-    }
-    updateTextPosition(&NewGameText, scaleX, scaleY);
-    updateTextPosition(&title, scaleX, scaleY);
-    
-    for(int i = 0; i < game.battleState.rouge.nb_poke; i++) {
-        updateICMonsSprite(&(game.battleState.rouge.team[i]), scaleX, scaleY);
-    }
-    for(int i = 0; i < game.battleState.bleu.nb_poke; i++) {
-        updateICMonsSprite(&(game.battleState.bleu.team[i]), scaleX, scaleY);
-    }
+    handleWindowSizeChange(win);
 }
 
 void attqButtonClicked(Window *win, void *data) {
@@ -101,9 +85,7 @@ void attqButtonClicked(Window *win, void *data) {
             SDL_Log("Indice de mouvement invalide : %d", moveIndex);
             return;
         }
-        //debug purposes
-        printf("\t\t\tPP avant : %d\n", game.battleState.rouge.team[0].moveList[(intptr_t)data].current_pp);
-        printf("\t\t\tPV avant : %d\n", game.battleState.rouge.team[0].current_pv);
+        
         if (isAlive(&(game.battleState.rouge.team[0]))) 
             playATurn(&game.battleState.rouge, moveIndex, &game.battleState.bleu, AI_move_choice(&game.battleState.ia, &game.battleState.rouge));
         if (!isAlive(&(game.battleState.bleu.team[0]))){
@@ -113,7 +95,7 @@ void attqButtonClicked(Window *win, void *data) {
             int swap=rand() % 5 + 11;
             if(testActionValidity(swap,&game.battleState.bleu)) swapActualAttacker(&game.battleState.bleu, swap);
         }
-        printf("pv rouge : %d\npv bleu : %d\n", game.battleState.rouge.team[0].current_pv, game.battleState.bleu.team[0].current_pv);
+        updateICButtons(win, &game.battleState.rouge);
         game.gameState.playerTurn = 0;
     }
 }
@@ -412,16 +394,30 @@ void initAllButtons(Window *win)
     addListButton(game.ui[7].buttons, buttonsInter, nbButtonsInter);
 }
 
-void updateICButtons(Window *win, t_Team *team) {
-    for (int i = 0; i < 4; i++) {
-        if(team->team[0].nb_move > i) setButtonText(game.ui[3].buttons->buttons[i], team->team[0].moveList[i].name, win->renderer);
-        else setButtonText(game.ui[3].buttons->buttons[i], "  ", win->renderer);
-    }
+static void updateICMonsButtonText(Window *win, t_Team *team) {
     for (int i  = 0; i < 6; i++) {
         if (team->team[i].name[0] != '\0') setButtonText(game.ui[6].buttons->buttons[i], team->team[i].name, win->renderer);
         else setButtonText(game.ui[6].buttons->buttons[i], "  ", win->renderer);
     }
 }
+
+void updateICButtons(Window *win, t_Team *team) {
+    char temp[100];
+    for (int i = 0; i < 4; i++) {
+        if(team->team[0].nb_move > i) {
+            snprintf(temp, sizeof(temp), "%s  %d/%d", 
+                team->team[0].moveList[i].name,
+                team->team[0].moveList[i].current_pp, 
+                team->team[0].moveList[i].max_pp);
+            setButtonText(game.ui[3].buttons->buttons[i], temp, win->renderer);
+        }
+        else {
+            setButtonText(game.ui[3].buttons->buttons[i], "  ", win->renderer);
+        }
+    }
+    if (game.gameState.currentState == NEWGAME) updateICMonsButtonText(win, team);
+}
+
 
 void updateCurrentButton() {
     if (game.ui[game.gameState.currentState].buttons->size > 0) {
