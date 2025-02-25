@@ -31,3 +31,7 @@ SDL_Rect getWorldToScreenRect(Camera* camera, SDL_Rect worldRect) {
     screenRect.h = (int)(worldRect.h * camera->scale);
     return screenRect;
 }
+
+void destroyCamera(Camera* camera) {
+    free(camera);
+}

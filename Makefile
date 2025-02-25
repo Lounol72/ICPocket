@@ -77,6 +77,10 @@ testValgrind: $(MAIN_EXE)
 	@echo "🚀 Lancement de Valgrind..."
 	@valgrind --leak-check=full ./$(BIN_DIR)/$(MAIN_EXE)
 
+testValgrind-debug: $(MAIN_EXE)
+	@echo "🚀 Lancement de Valgrind..."
+	@valgrind --leak-check=full ./$(BIN_DIR)/$(MAIN_EXE) -debug
+
 # Cible de nettoyage
 clean:
 	@echo "🧹 Nettoyage en cours..."

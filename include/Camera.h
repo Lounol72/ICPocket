@@ -17,5 +17,6 @@ typedef struct {
 Camera* createCamera(int windowWidth, int windowHeight);
 void updateCamera(Camera* camera, int playerX, int playerY, float deltaTime);
 SDL_Rect getWorldToScreenRect(Camera* camera, SDL_Rect worldRect);
+void destroyCamera(Camera* camera);
 
 #endif

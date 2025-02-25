@@ -85,6 +85,9 @@ void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera) {
         SDL_RenderCopy(renderer, map->texture, NULL, &screenRect);
     }
 
+    // ! DEBUG
+    /*
+
     // Pour le debug, rendre les collisions
     int startTileX = (int)(camera->x / TILE_SIZE_W_SCALE);
     int startTileY = (int)(camera->y / TILE_SIZE_H_SCALE);
@@ -97,24 +100,30 @@ void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera) {
     endTileX = (endTileX > MAP_WIDTH) ? MAP_WIDTH : endTileX;
     endTileY = (endTileY > MAP_HEIGHT) ? MAP_HEIGHT : endTileY;
 
+    
     // Rendre les collisions par-dessus la map
+    
     for(int y = startTileY; y < endTileY; y++) {
         for(int x = startTileX; x < endTileX; x++) {
             if(map->mat[y][x] == COLLISION) {
+                
                 SDL_Rect collisionRect = {
                     x * TILE_SIZE_W_SCALE,
                     y * TILE_SIZE_H_SCALE,
                     TILE_SIZE_W_SCALE,
                     TILE_SIZE_H_SCALE
                 };
+                
                 SDL_Rect screenCollisionRect = getWorldToScreenRect(camera, collisionRect);
                 
                 // Rendre uniquement le contour des collisions en mode debug
                 //SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
                 SDL_RenderDrawRect(renderer, &screenCollisionRect);
+                
             }
         }
     }
+    */
 }
 
 void destroyMap(Map *map) {

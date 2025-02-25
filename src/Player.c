@@ -103,6 +103,9 @@ void updatePlayerAnimation(Player *player, float deltaTime) {
         if (player->currentFrameIndex > totalFrames) {
             player->currentFrameIndex = totalFrames;
         }
+        else {
+            player->currentFrameIndex ++;
+        }
 
         // Calculer la position dans la spritesheet
         player->currentFrame.x = player->currentFrameIndex * FRAME_WIDTH;
@@ -157,6 +160,10 @@ void destroyPlayer(Player *player) {
         if (player->spriteSheet) {
             SDL_DestroyTexture(player->spriteSheet);
         }
+        for (int i = 0; i < MAP_HEIGHT; i++) {
+            free(player->mat[i]);
+        }
+        free(player->mat);
         free(player);
     }
 }

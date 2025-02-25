@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
             return 1;
         }
 
-        Player *player = createPlayer(renderer, "assets/Characters/Character 1.png");
+        Player *player = createPlayer(renderer, "assets/Characters/Character 2.png");
         if (!player) {
             printf("❌ Player initialization failed\n");
             return 1;
@@ -166,6 +166,7 @@ int main(int argc, char *argv[]) {
         printf("\n👋 Exiting debug mode...\n");
         destroyMap(map);
         destroyPlayer(player);
+        destroyCamera(camera);
         SDL_DestroyRenderer(renderer);
         SDL_DestroyWindow(window);
         SDL_Quit();
