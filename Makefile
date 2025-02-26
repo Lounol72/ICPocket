@@ -77,6 +77,10 @@ testValgrind: $(MAIN_EXE)
 	@echo "🚀 Lancement de Valgrind..."
 	@valgrind --leak-check=full ./$(BIN_DIR)/$(MAIN_EXE)
 
+testValgrind-debug: $(MAIN_EXE)
+	@echo "🚀 Lancement de Valgrind..."
+	@valgrind --leak-check=full ./$(BIN_DIR)/$(MAIN_EXE) -debug
+
 # Cible de nettoyage
 clean:
 	@echo "🧹 Nettoyage en cours..."
@@ -98,8 +102,8 @@ package-linux:
 
 package-windows:
 	@echo "📦 Création du package windows..."
-	# TODO: Créer le package windows
-	# * Trouver la commande pour téléchager les dll nécessaires
+	@mkdir -p $(BIN_DIR)/libs >/dev/null 2>&1
+	
 	
 	
 

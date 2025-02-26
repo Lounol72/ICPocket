@@ -14,42 +14,16 @@
 [1] [2] You must call Mix_SetMusicCMD() first
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
-[0] [3] Changement d'état : 4
-[0] [3] PV : 131/131
-[0] [3] PV : 33/33
-[0] [3] PV : 255/255
-[0] [3] PV : 217/217
-[0] [3] PV : 33/33
-[0] [3] PV : 282/282
-[0] [3] Red team PV: 131, Blue team PV: 217
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 4
-[0] [3] PV : 241/241
-[0] [3] PV : 107/107
-[0] [3] PV : 228/228
-[0] [3] PV : 133/133
-[0] [3] PV : 89/89
-[0] [3] PV : 153/153
-[0] [3] Red team PV: 241, Blue team PV: 133
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 4
-[0] [3] PV : 330/330
-[0] [3] PV : 31/31
-[0] [3] PV : 207/207
-[0] [3] PV : 131/131
-[0] [3] PV : 154/154
-[0] [3] PV : 110/110
-[0] [3] Red team PV: 330, Blue team PV: 131
+[0] [3] Changement d'état : 0
+[0] [3] ✅ Musique libérée
+[0] [3] ✅ UI libérée
+[0] [3] ✅ State handlers libérés
+[0] [3] ✅ Speeds libérés
+[0] [3] ✅ LargeFont libéré
+[0] [3] ✅ MediumFont libéré
+[0] [3] ✅ SmallFont libéré
+[0] [3] ✅ font libéré
+[0] [3] ✅ renderer libéré
+[0] [3] ✅ window libéré
+[0] [3] ✅ audio libéré
+[0] [3] ✅ SDL quitté
