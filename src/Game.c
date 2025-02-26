@@ -63,7 +63,7 @@ void initGame(Window *win) {
     loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");
 
     game.gameData.player = createPlayer(win->renderer, "assets/Characters/Character 2.png");
-    game.gameData.map = createMap(win->renderer, "assets/Maps/map.png");
+    game.gameData.map = initMap(win->renderer, "assets/Tileset/Map/MapFloor.png");
     game.gameData.camera = createCamera(WINDOWS_W, WINDOWS_H);
     
     initText(win);

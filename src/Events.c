@@ -414,6 +414,8 @@ void handlePauseEvent(Window *win, SDL_Event *event) {
 //Function for the Player
 
 void handlePlayerEvent(Window *win, SDL_Event *event) {
+    (void)win;
+    (void)event;
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
     int newMatrixX = game.gameData.player->matrixX;
     int newMatrixY = game.gameData.player->matrixY;
