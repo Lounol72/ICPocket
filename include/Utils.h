@@ -11,6 +11,7 @@ typedef enum AppState {
     ICMONS, // 6
     INTER, // 7
     PAUSE, // 8
+    MAP, // 9
 } AppState;
 
 #endif /* UTILS_H */

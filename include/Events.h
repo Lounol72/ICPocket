@@ -80,4 +80,10 @@ void handleICMonsEvent(Window *win, SDL_Event *event);
  */
 void handlePauseEvent(Window *win, SDL_Event *event);
 
+/** @brief Handles events when the player is in the map
+ *  @param win Pointer to the Window structure containing game state
+ *  @param event Pointer to the SDL_Event to process
+ */
+void handlePlayerEvent(Window *win, SDL_Event *event);
+
 #endif /* HANDLEEVENTS_H */

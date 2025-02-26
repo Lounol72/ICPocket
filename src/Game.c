@@ -6,7 +6,7 @@
 void initGame(Window *win) {
     game.win = win;
     
-    game.nbMenu = 9;
+    game.nbMenu = 10;
     game.ui = malloc(game.nbMenu * sizeof(UI_Elements));
     game.ui[0] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Quit Page            = 0
     game.ui[1] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders=malloc(sizeof(SliderList)) ,.background=NULL};                        // Settings Page        = 1
@@ -17,6 +17,8 @@ void initGame(Window *win) {
     game.ui[6] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // ICMons Page          = 6
     game.ui[7] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Intermediate         = 7
     game.ui[8] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Pause Page           = 8
+    game.ui[9] = (UI_Elements){.buttons=malloc(sizeof(ButtonList)),.sliders   = NULL, .background=NULL};                                          // Map Page             = 9
+
     for (int i = 0; i < game.nbMenu; i++) {
         game.ui[i].buttons->buttons = NULL;
         game.ui[i].buttons->size = 0;
@@ -26,7 +28,7 @@ void initGame(Window *win) {
 
     game.gameState = (GameState){.music = NULL, .playerTurn = 1, .initialized = 0, .currentState = MENU};
 
-    game.nbStates = 9;
+    game.nbStates =10;
     game.stateHandlers = malloc(game.nbStates * sizeof(StateHandler));
     game.stateHandlers[0] = (StateHandler){QUIT, handleQuitEvent};
     game.stateHandlers[1] = (StateHandler){SETTINGS, handleSettingsEvent};
@@ -37,11 +39,11 @@ void initGame(Window *win) {
     game.stateHandlers[6] = (StateHandler){ICMONS, handleICMonsEvent};
     game.stateHandlers[7] = (StateHandler){INTER, handleIntermediateEvent};
     game.stateHandlers[8] = (StateHandler){PAUSE, handlePauseEvent};
-
+    game.stateHandlers[9] = (StateHandler){MAP, handlePlayerEvent};
 
     game.FPS = 60;
     game.frameDelay = 1000 / game.FPS;
-    game.newGameStartTime = 0;
+    
     game.currentButton = 0;
     game.saved = 0;
 

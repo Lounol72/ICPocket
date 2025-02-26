@@ -8,7 +8,62 @@ Text NewGameText = {NULL,{0,0,0,0},{0,0,0,0}, {0,0,0,0}, NULL, NULL, NULL,0};
 int marginBottom = 200; // Marge en bas en pixels
 int marginRight = 0;  // Marge à droite en pixels
 
+// Helper function to initialize controller
+static SDL_GameController* initializeController(void) {
+    int nbJoysticks = SDL_NumJoysticks();
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, 
+                  "✅ Nombre de manettes connectées : %d", nbJoysticks);
 
+    SDL_GameController *controller = NULL;
+    for (int i = 0; i < nbJoysticks; i++) {
+        if (SDL_IsGameController(i)) {
+            controller = SDL_GameControllerOpen(i);
+            if (controller) {
+                SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, 
+                             "✅ Manette %d : %s", i, SDL_GameControllerName(controller));
+            }
+        }
+    }
+    return controller;
+}
+
+// Helper function to manage frame rate
+static void manageFrameRate(int frameStart) {
+    // Définir le FPS cible (60 FPS)
+    const int TARGET_FPS = 60;
+    const int FRAME_DELAY = 1000 / TARGET_FPS;
+
+    int frameTime = SDL_GetTicks() - frameStart;
+    
+    // Si le frame a été rendu plus rapidement que nécessaire, on attend
+    if (frameTime < FRAME_DELAY) {
+        SDL_Delay(FRAME_DELAY - frameTime);
+        frameTime = FRAME_DELAY; // Pour un calcul précis du deltaTime
+    }
+    
+    game.deltaTime = frameTime / 1000.0f;
+    
+    printf("\rDeltaTime: %f | FPS: %f", game.deltaTime, 1/game.deltaTime);
+    fflush(stdout);
+}
+
+
+// Helper function to cleanup resources
+static void cleanupResources(Window *win, SDL_GameController *controller) {
+    (void)win;
+    if (NewGameText.texture) {
+        destroyText(&NewGameText);
+    }
+    if (title.texture) {
+        destroyText(&title);
+    }
+    if (controller) {
+        SDL_GameControllerClose(controller);
+    }
+    destroyMap(game.gameData.map);
+    destroyPlayer(game.gameData.player);
+    destroyCamera(game.gameData.camera);
+}
 
 //---------------------------------------------------------------------------------
 
@@ -16,7 +71,6 @@ int marginRight = 0;  // Marge à droite en pixels
 
 void render(Window *win) {
     if (game.gameState.currentState == GAME){
-        // TODO : render a white rectangle on the bottom of the screen
         SDL_Rect rect = {0, 0, win->width, win->height};
         SDL_SetRenderDrawColor(win->renderer, 255, 255, 255, 255);
         SDL_RenderFillRect(win->renderer, &rect);
@@ -35,6 +89,17 @@ void render(Window *win) {
     }else if(game.gameState.currentState == GAME){
         if (game.battleState.rouge.team[0].name[0] != '\0') renderICMonsSprite(win, &(game.battleState.rouge.team[0]));
         if (game.battleState.bleu.team[0].name[0] != '\0') renderICMonsSprite(win, &(game.battleState.bleu.team[0]));
+    }
+    if (game.gameState.currentState == MAP) {
+        // Mettre à jour la position avec interpolation
+        updatePlayerPosition(game.gameData.player, game.deltaTime);
+        updatePlayerAnimation(game.gameData.player, game.deltaTime);
+
+        // Mettre à jour la caméra pour suivre le joueur
+        updateCamera(game.gameData.camera, game.gameData.player->position.x, game.gameData.player->position.y, game.deltaTime);
+
+        renderMapWithCamera(game.gameData.map, win->renderer, game.gameData.camera);
+        renderPlayerWithCamera(game.gameData.player, win->renderer, game.gameData.camera);
     }
 }
 
@@ -112,67 +177,41 @@ void nextDuel(Window *win, void *data) {
 }
 
 void mainLoop(Window *win) {
-    
+    // Initialize game components
     initGame(win);
+    initAllButtons(win);
+    
+    // Controller setup
+    SDL_GameController *controller = initializeController();
+    
+    // Main game variables
     int frameStart;
     SDL_Event event;
     
-    initAllButtons(win);
-
-    
-
-    int nbJoysticks = SDL_NumJoysticks();
-    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Nombre de manettes connectées : %d", nbJoysticks);
-
-    SDL_GameController *controller = NULL;
-    for (int i = 0; i < nbJoysticks; i++) {
-        if (SDL_IsGameController(i)) {
-            controller = SDL_GameControllerOpen(i);
-            if (controller) {
-                SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Manette %d : %s", i, SDL_GameControllerName(controller));
-            }
-        }
-    }
-    
-    // Boucle principale
+    // Main game loop
     while (!win->quit) {
         frameStart = SDL_GetTicks();
 
-        // Manage events
+        // Handle events
         while (SDL_PollEvent(&event)) {
             game.stateHandlers[win->state].handleEvent(win, &event);
         }
-        // Render the window
+
+        // Update game state
         updateMusic();
+        updateCurrentButton();
+        
+        // Render frame
         SDL_RenderClear(win->renderer);
         render(win);
-        updateCurrentButton();
         SDL_RenderPresent(win->renderer);
 
-
-        // Manage frame rate
-        int frameTime = SDL_GetTicks() - frameStart;
-        if (frameTime < game.frameDelay) {
-            SDL_Delay(game.frameDelay - frameTime);
-        }
-        // If the state is NEWGAME and 5 seconds have passed, go to game state, NON BLOCKING WAIT 
-        if (win->state == NEWGAME && game.newGameStartTime == 0) game.newGameStartTime = SDL_GetTicks();
-        else if (win->state == NEWGAME && SDL_GetTicks() - game.newGameStartTime >= 1000) { // 1 second
-            changeState(win, &game.stateHandlers[3].state); // Change state to GAME
-            game.newGameStartTime = 0;
-        }
-    }
-    // Destroy text objects
-    if (NewGameText.texture) {
-        destroyText(&NewGameText);
-    }
-    if (title.texture) {
-        destroyText(&title);
+        // Frame rate control
+        manageFrameRate(frameStart);
     }
 
-    if (controller) {
-        SDL_GameControllerClose(controller);
-    }
+    // Cleanup
+    cleanupResources(win, controller);
 }
 
 //---------------------------------------------------------------------------------

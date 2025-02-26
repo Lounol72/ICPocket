@@ -80,8 +80,8 @@ int main(int argc, char *argv[]) {
                 fpsLastTime = currentTime;
                 
                 // Afficher les infos de performance une fois par seconde
-                printf("\r⚡ FPS: %.1f | Player Pos: [%d,%d] | State: %d  ", 
-                       fps, player->matrixX, player->matrixY, player->state);
+                printf("\r⚡ FPS: %.1f | Player Pos: [%d,%d] | State: %d  | DeltaTime: %.3f", 
+                       fps, player->matrixX, player->matrixY, player->state, deltaTime);
                 fflush(stdout);
             }
 

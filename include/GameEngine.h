@@ -79,9 +79,9 @@ typedef struct Game {
     int FPS;
     int frameDelay;
     int frameStart;
-    int newGameStartTime;
     int currentButton;
     int saved;
+    float deltaTime;
 } Game;
 
 #include "Game.h"

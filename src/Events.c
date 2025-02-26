@@ -41,6 +41,9 @@ void handleEvent(Window *win, SDL_Event *event) {
                     case SDLK_c: 
                         ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[game.currentButton], -1, -1, win); 
                         break;
+                    case SDLK_F1:
+                        changeState(win, &game.stateHandlers[9].state);
+                        break;
                     default: 
                         break;
                 }
@@ -325,7 +328,7 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
     if (!game.gameState.initialized) {
         initData();
         initTeam(&game.battleState.bleu, 3);
-        charger("Save_2",&game.battleState.rouge, &game.battleState.bleu);
+        charger("Save_1",&game.battleState.rouge, &game.battleState.bleu);
         game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
         
         // Initialize sprites for both teams
@@ -467,4 +470,5 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
         game.gameData.player->isMovingToTarget = true;
         game.gameData.player->interpolationTime = 0.0f;
     }
+    handleEvent(win, event);
 }
