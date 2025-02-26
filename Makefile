@@ -104,7 +104,9 @@ package-windows:
 	@echo "📦 Création du package windows..."
 	@mkdir -p $(BIN_DIR)/libs >/dev/null 2>&1
 	
-	
-	
-
+doxygen:
+	@echo "🧹 Nettoyage en cours..."
+	@rm -rf docs/html
+	@doxygen Doxyfile
+	@echo "✅ Documentation générée dans docs/html"
 .PHONY: clean all 

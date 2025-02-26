@@ -1,6 +1,28 @@
 var searchData=
 [
-  ['1709744959_20gid_201709744959_20gantt_20a_0',['&lt;a href=&quot;https://docs.google.com/spreadsheets/d/1JiNN4hBVWgQdRoLmsXpOZefp3q4jUFyiuYVRdjpeE_4/edit?gid=1709744959#gid=1709744959&quot; &gt;GANTT&lt;/a&gt;',['../index.html#autotoc_md7',1,'']]],
-  ['18grbhojjpintjth3fe337hzvougalminaeefcjldmgy_20edit_20usp_20sharing_20table_20raci_20a_1',['&lt;a href=&quot;https://docs.google.com/spreadsheets/d/18GRBhOJjPINtjTH3fe337HzVoUgaLmINAeefcjlDmGY/edit?usp=sharing&quot; &gt;Table RACI&lt;/a&gt;',['../index.html#autotoc_md6',1,'']]],
-  ['1jinn4hbvwgqdrolmsxpozefp3q4jufyiuyvrdjpee_5f4_20edit_20gid_201709744959_20gid_201709744959_20gantt_20a_2',['&lt;a href=&quot;https://docs.google.com/spreadsheets/d/1JiNN4hBVWgQdRoLmsXpOZefp3q4jUFyiuYVRdjpeE_4/edit?gid=1709744959#gid=1709744959&quot; &gt;GANTT&lt;/a&gt;',['../index.html#autotoc_md7',1,'']]]
+  ['accuracy_0',['accuracy',['../d1/d68/structt__Move.html#a011c3f41ffa44433ed940f6e4ba2008e',1,'t_Move']]],
+  ['accuracycheck_1',['accuracycheck',['../d1/d18/duel_8c.html#a82732f92530a8627b7d1c8a55e55444c',1,'accuracyCheck(int accuracy):&#160;duel.c'],['../d6/d8e/duel_8h.html#a82732f92530a8627b7d1c8a55e55444c',1,'accuracyCheck(int accuracy):&#160;duel.c']]],
+  ['addlistbutton_2',['addlistbutton',['../d9/d0e/Buttons_8c.html#ae76e871e4375b26d06e1e703325002ad',1,'addListButton(ButtonList *list, Button **buttons, int count):&#160;Buttons.c'],['../d3/d70/Buttons_8h.html#ae76e871e4375b26d06e1e703325002ad',1,'addListButton(ButtonList *list, Button **buttons, int count):&#160;Buttons.c']]],
+  ['addlistslider_3',['addlistslider',['../d9/d0e/Buttons_8c.html#ab4f0f8d2f09eef09c6ba3cadb1f66f5c',1,'addListSlider(SliderList *S, Slider *sliders[], int size):&#160;Buttons.c'],['../d3/d70/Buttons_8h.html#ab4f0f8d2f09eef09c6ba3cadb1f66f5c',1,'addListSlider(SliderList *S, Slider *sliders[], int size):&#160;Buttons.c']]],
+  ['affectdamage_4',['affectdamage',['../d1/d18/duel_8c.html#a2cdb2c620c0e4c3077d6ae74c45ceb36',1,'affectDamage(t_Team *offender, t_Team *defender, int indexMove):&#160;duel.c'],['../d6/d8e/duel_8h.html#a2cdb2c620c0e4c3077d6ae74c45ceb36',1,'affectDamage(t_Team *offender, t_Team *defender, int indexMove):&#160;duel.c']]],
+  ['ai_5',['AI',['../d5/d48/structAI.html',1,'']]],
+  ['ai_5flvl_6',['AI_lvl',['../d5/d48/structAI.html#a06cff8b0ff2c1bf4db023f932e51cbfa',1,'AI']]],
+  ['ai_5fmove_5fchoice_7',['ai_move_choice',['../df/d27/trainerAI_8h.html#ae1208db074f4b5b1f2209722c157da92',1,'AI_move_choice(t_AI *ai_team, t_Team *player_team):&#160;trainerAI.c'],['../de/d53/trainerAI_8c.html#a67e74b5adb24ca0a8baab32479585aba',1,'AI_move_choice(t_AI *ai, t_Team *opponent):&#160;trainerAI.c']]],
+  ['ai_5ft_5fteam_8',['AI_t_Team',['../d5/d48/structAI.html#a08a3cc2ed75b658bbc0900465490549f',1,'AI']]],
+  ['air_9',['AIR',['../df/d79/Map_8h.html#a9c9ed176f84de328afaf7f514ded7df3',1,'Map.h']]],
+  ['ajouter_20un_20son_10',['Ajouter un son',['../index.html#autotoc_md2',1,'']]],
+  ['animation_5fspeed_11',['animation_speed',['../d1/d12/Player_8c.html#aaa69f89df4c8e47abeb574bfdd11d9f4',1,'ANIMATION_SPEED:&#160;Player.c'],['../da/dbf/Player_8h.html#aaa69f89df4c8e47abeb574bfdd11d9f4',1,'ANIMATION_SPEED:&#160;Player.h']]],
+  ['animationspeed_12',['animationSpeed',['../dc/d7b/structPlayer.html#a1bc59107f6c4bb4bc46121ddcde2780a',1,'Player']]],
+  ['animationtimer_13',['animationTimer',['../dc/d7b/structPlayer.html#a1080f28d4ead19d394ca18d347a51f47',1,'Player']]],
+  ['applyeffect_14',['applyeffect',['../d1/d18/duel_8c.html#aa6f1d50587260f5a4957edc4dae26e35',1,'applyEffect(t_Team *target, int probability, int effect, int bool_main_effect):&#160;duel.c'],['../d6/d8e/duel_8h.html#aa6f1d50587260f5a4957edc4dae26e35',1,'applyEffect(t_Team *target, int probability, int effect, int bool_main_effect):&#160;duel.c']]],
+  ['appstate_15',['appstate',['../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428',1,'AppState:&#160;Utils.h'],['../d9/ded/Utils_8h.html#af18642bfb6229ca25b25c60e12cffa6c',1,'AppState:&#160;Utils.h']]],
+  ['att_16',['ATT',['../da/d71/structPoke_8h.html#ac0e9e8b25a91810f74372a05cba70777',1,'structPoke.h']]],
+  ['attaque_5f1_17',['ATTAQUE_1',['../d6/d8e/duel_8h.html#a6b5a19d44831a7f2be0d9be0276d478c',1,'duel.h']]],
+  ['attaque_5f2_18',['ATTAQUE_2',['../d6/d8e/duel_8h.html#a4a381e7575fc4042d463c7b326d72249',1,'duel.h']]],
+  ['attaque_5f3_19',['ATTAQUE_3',['../d6/d8e/duel_8h.html#ac419152371c156bf45d75a3cd6657661',1,'duel.h']]],
+  ['attaque_5f4_20',['ATTAQUE_4',['../d6/d8e/duel_8h.html#a4387846cbc27ec370d916ce7222c5d12',1,'duel.h']]],
+  ['attqbuttonclicked_21',['attqbuttonclicked',['../d5/d81/GameEngine_8c.html#a8f8e57777ac436d2bfa2a87224c0eb8c',1,'attqButtonClicked(Window *win, void *data):&#160;GameEngine.c'],['../d7/d1f/GameEngine_8h.html#a8f8e57777ac436d2bfa2a87224c0eb8c',1,'attqButtonClicked(Window *win, void *data):&#160;GameEngine.c']]],
+  ['audio_2ec_22',['Audio.c',['../d3/d48/Audio_8c.html',1,'']]],
+  ['audio_2eh_23',['Audio.h',['../d8/daa/Audio_8h.html',1,'']]],
+  ['audio_5ffreq_24',['AUDIO_FREQ',['../d8/daa/Audio_8h.html#adebb5f0699c0e5707af99a22c23d6fe2',1,'Audio.h']]]
 ];
