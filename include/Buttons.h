@@ -16,7 +16,8 @@ typedef struct SliderList SliderList;
 
 /**
  * @file Buttons.h
- * 
+ * @author Alban Louis
+ * @date 27/12/2024
  */
 
 /**
