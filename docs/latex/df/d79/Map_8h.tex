@@ -1,0 +1,144 @@
+\doxysection{Référence du fichier include/\+Map.h}
+\hypertarget{Map_8h}{}\label{Map_8h}\index{include/Map.h@{include/Map.h}}
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include "{}Camera.\+h"{}}\newline
+Graphe des dépendances par inclusion de Map.\+h\+:
+% FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structMap}{Map}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Map_8h_aa037a6d6a4f04d51c7ec1c9ee9054e76}{MAP\+\_\+\+WIDTH}}~64
+\item 
+\#define \mbox{\hyperlink{Map_8h_a529d5ebb449edf31d9835d13f4fb9f89}{MAP\+\_\+\+HEIGHT}}~40
+\item 
+\#define \mbox{\hyperlink{Map_8h_a62fd79d09fbf7702d076db82bc7220dc}{TILE\+\_\+\+SIZE\+\_\+\+W\+\_\+\+SCALE}}~20
+\item 
+\#define \mbox{\hyperlink{Map_8h_a753f2756c680e7ad1cf607b8d7a8ebe4}{TILE\+\_\+\+SIZE\+\_\+\+H\+\_\+\+SCALE}}~18
+\item 
+\#define \mbox{\hyperlink{Map_8h_a9c9ed176f84de328afaf7f514ded7df3}{AIR}}~0
+\item 
+\#define \mbox{\hyperlink{Map_8h_aafd826a123a41fd03a9c88842387a821}{COLLISION}}~1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structMap}{Map}} \mbox{\hyperlink{Map_8h_a767ff9e0c58d27b070f30636b66d2603}{Map}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Map_8h_a2d3b5b6a74e6800de411e1edf7dfea2e}{init\+Map}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const char \texorpdfstring{$\ast$}{*}path)
+\item 
+void \mbox{\hyperlink{Map_8h_a0e9d1e84f532ef978d191e6011e3a675}{render\+Map}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map)
+\item 
+void \mbox{\hyperlink{Map_8h_a64df896c814cef549bef88fcd20d9a67}{destroy\+Map}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map)
+\item 
+void \mbox{\hyperlink{Map_8h_a68ba8a390de3a556e314c6b60d45232e}{update\+Map}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map)
+\item 
+void \mbox{\hyperlink{Map_8h_a184a6d0c81c91133a682450fa7807b06}{load\+Map\+IMG}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map, const char \texorpdfstring{$\ast$}{*}path)
+\item 
+void \mbox{\hyperlink{Map_8h_addb7cea9964f63947c5e882c547d3d7d}{render\+Map\+With\+Camera}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}camera)
+\item 
+void \mbox{\hyperlink{Map_8h_a6a8408146457cc93ec3694e180bb5574}{DEBUG\+\_\+print\+Map}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{Map_8h_a9c9ed176f84de328afaf7f514ded7df3}\label{Map_8h_a9c9ed176f84de328afaf7f514ded7df3} 
+\index{Map.h@{Map.h}!AIR@{AIR}}
+\index{AIR@{AIR}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{AIR}{AIR}}
+{\footnotesize\ttfamily \#define AIR~0}
+
+\Hypertarget{Map_8h_aafd826a123a41fd03a9c88842387a821}\label{Map_8h_aafd826a123a41fd03a9c88842387a821} 
+\index{Map.h@{Map.h}!COLLISION@{COLLISION}}
+\index{COLLISION@{COLLISION}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{COLLISION}{COLLISION}}
+{\footnotesize\ttfamily \#define COLLISION~1}
+
+\Hypertarget{Map_8h_a529d5ebb449edf31d9835d13f4fb9f89}\label{Map_8h_a529d5ebb449edf31d9835d13f4fb9f89} 
+\index{Map.h@{Map.h}!MAP\_HEIGHT@{MAP\_HEIGHT}}
+\index{MAP\_HEIGHT@{MAP\_HEIGHT}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{MAP\_HEIGHT}{MAP\_HEIGHT}}
+{\footnotesize\ttfamily \#define MAP\+\_\+\+HEIGHT~40}
+
+\Hypertarget{Map_8h_aa037a6d6a4f04d51c7ec1c9ee9054e76}\label{Map_8h_aa037a6d6a4f04d51c7ec1c9ee9054e76} 
+\index{Map.h@{Map.h}!MAP\_WIDTH@{MAP\_WIDTH}}
+\index{MAP\_WIDTH@{MAP\_WIDTH}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{MAP\_WIDTH}{MAP\_WIDTH}}
+{\footnotesize\ttfamily \#define MAP\+\_\+\+WIDTH~64}
+
+\Hypertarget{Map_8h_a753f2756c680e7ad1cf607b8d7a8ebe4}\label{Map_8h_a753f2756c680e7ad1cf607b8d7a8ebe4} 
+\index{Map.h@{Map.h}!TILE\_SIZE\_H\_SCALE@{TILE\_SIZE\_H\_SCALE}}
+\index{TILE\_SIZE\_H\_SCALE@{TILE\_SIZE\_H\_SCALE}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{TILE\_SIZE\_H\_SCALE}{TILE\_SIZE\_H\_SCALE}}
+{\footnotesize\ttfamily \#define TILE\+\_\+\+SIZE\+\_\+\+H\+\_\+\+SCALE~18}
+
+\Hypertarget{Map_8h_a62fd79d09fbf7702d076db82bc7220dc}\label{Map_8h_a62fd79d09fbf7702d076db82bc7220dc} 
+\index{Map.h@{Map.h}!TILE\_SIZE\_W\_SCALE@{TILE\_SIZE\_W\_SCALE}}
+\index{TILE\_SIZE\_W\_SCALE@{TILE\_SIZE\_W\_SCALE}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{TILE\_SIZE\_W\_SCALE}{TILE\_SIZE\_W\_SCALE}}
+{\footnotesize\ttfamily \#define TILE\+\_\+\+SIZE\+\_\+\+W\+\_\+\+SCALE~20}
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{Map_8h_a767ff9e0c58d27b070f30636b66d2603}\label{Map_8h_a767ff9e0c58d27b070f30636b66d2603} 
+\index{Map.h@{Map.h}!Map@{Map}}
+\index{Map@{Map}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{Map}{Map}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structMap}{Map}} \mbox{\hyperlink{structMap}{Map}}}
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{Map_8h_a6a8408146457cc93ec3694e180bb5574}\label{Map_8h_a6a8408146457cc93ec3694e180bb5574} 
+\index{Map.h@{Map.h}!DEBUG\_printMap@{DEBUG\_printMap}}
+\index{DEBUG\_printMap@{DEBUG\_printMap}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_printMap()}{DEBUG\_printMap()}}
+{\footnotesize\ttfamily void DEBUG\+\_\+print\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map }\end{DoxyParamCaption})}
+
+\Hypertarget{Map_8h_a64df896c814cef549bef88fcd20d9a67}\label{Map_8h_a64df896c814cef549bef88fcd20d9a67} 
+\index{Map.h@{Map.h}!destroyMap@{destroyMap}}
+\index{destroyMap@{destroyMap}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{destroyMap()}{destroyMap()}}
+{\footnotesize\ttfamily void destroy\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map }\end{DoxyParamCaption})}
+
+\Hypertarget{Map_8h_a2d3b5b6a74e6800de411e1edf7dfea2e}\label{Map_8h_a2d3b5b6a74e6800de411e1edf7dfea2e} 
+\index{Map.h@{Map.h}!initMap@{initMap}}
+\index{initMap@{initMap}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{initMap()}{initMap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*} init\+Map (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{path }\end{DoxyParamCaption})}
+
+\Hypertarget{Map_8h_a184a6d0c81c91133a682450fa7807b06}\label{Map_8h_a184a6d0c81c91133a682450fa7807b06} 
+\index{Map.h@{Map.h}!loadMapIMG@{loadMapIMG}}
+\index{loadMapIMG@{loadMapIMG}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{loadMapIMG()}{loadMapIMG()}}
+{\footnotesize\ttfamily void load\+Map\+IMG (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{path }\end{DoxyParamCaption})}
+
+\Hypertarget{Map_8h_a0e9d1e84f532ef978d191e6011e3a675}\label{Map_8h_a0e9d1e84f532ef978d191e6011e3a675} 
+\index{Map.h@{Map.h}!renderMap@{renderMap}}
+\index{renderMap@{renderMap}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{renderMap()}{renderMap()}}
+{\footnotesize\ttfamily void render\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map }\end{DoxyParamCaption})}
+
+\Hypertarget{Map_8h_addb7cea9964f63947c5e882c547d3d7d}\label{Map_8h_addb7cea9964f63947c5e882c547d3d7d} 
+\index{Map.h@{Map.h}!renderMapWithCamera@{renderMapWithCamera}}
+\index{renderMapWithCamera@{renderMapWithCamera}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{renderMapWithCamera()}{renderMapWithCamera()}}
+{\footnotesize\ttfamily void render\+Map\+With\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}}]{camera }\end{DoxyParamCaption})}
+
+\Hypertarget{Map_8h_a68ba8a390de3a556e314c6b60d45232e}\label{Map_8h_a68ba8a390de3a556e314c6b60d45232e} 
+\index{Map.h@{Map.h}!updateMap@{updateMap}}
+\index{updateMap@{updateMap}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{updateMap()}{updateMap()}}
+{\footnotesize\ttfamily void update\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map }\end{DoxyParamCaption})}
+

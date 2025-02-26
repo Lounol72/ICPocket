@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ICPocket:  Fichier source de include/Map.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ICPocket
+   </div>
+   <div id="projectbrief">A Pokemon like game</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Map.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../df/d79/Map_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MAP_HEADER_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define MAP_HEADER_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="../../df/d79/Map_8h.html#aa037a6d6a4f04d51c7ec1c9ee9054e76">    4</a></span><span class="preprocessor">#define MAP_WIDTH 64</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="../../df/d79/Map_8h.html#a529d5ebb449edf31d9835d13f4fb9f89">    5</a></span><span class="preprocessor">#define MAP_HEIGHT 40</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="../../df/d79/Map_8h.html#a62fd79d09fbf7702d076db82bc7220dc">    6</a></span><span class="preprocessor">#define TILE_SIZE_W_SCALE 20 </span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="../../df/d79/Map_8h.html#a753f2756c680e7ad1cf607b8d7a8ebe4">    7</a></span><span class="preprocessor">#define TILE_SIZE_H_SCALE 18</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="../../df/d79/Map_8h.html#a9c9ed176f84de328afaf7f514ded7df3">    9</a></span><span class="preprocessor">#define AIR 0</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../df/d79/Map_8h.html#aafd826a123a41fd03a9c88842387a821">   10</a></span><span class="preprocessor">#define COLLISION 1</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/de4/Camera_8h.html">Camera.h</a>&quot;</span></div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../da/ddc/structMap.html">   16</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../da/ddc/structMap.html">Map</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../da/ddc/structMap.html#aaf3855c86505c42a21b7320d8135b38c">   17</a></span>    SDL_Rect <a class="code hl_variable" href="../../da/ddc/structMap.html#aaf3855c86505c42a21b7320d8135b38c">rect</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../da/ddc/structMap.html#aa6003025459aaf81e265a8d952a27ec8">   18</a></span>    SDL_Rect <a class="code hl_variable" href="../../da/ddc/structMap.html#aa6003025459aaf81e265a8d952a27ec8">nameRect</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../da/ddc/structMap.html#acdf38cf48a19c24a9c77447fec1de5eb">   19</a></span>    SDL_Rect <a class="code hl_variable" href="../../da/ddc/structMap.html#acdf38cf48a19c24a9c77447fec1de5eb">pvRect</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../da/ddc/structMap.html#a92378f27d8c961168ac079ef6d019fc7">   20</a></span>    SDL_Renderer *<a class="code hl_variable" href="../../da/ddc/structMap.html#a92378f27d8c961168ac079ef6d019fc7">renderer</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../da/ddc/structMap.html#a13973d475de860c9fd9fc3764b299f6a">   21</a></span>    <span class="keywordtype">int</span> **<a class="code hl_variable" href="../../da/ddc/structMap.html#a13973d475de860c9fd9fc3764b299f6a">mat</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../da/ddc/structMap.html#a6cc56acfe807be88e919bd949528c05f">   22</a></span>    SDL_Texture *<a class="code hl_variable" href="../../da/ddc/structMap.html#a6cc56acfe807be88e919bd949528c05f">texture</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../df/d79/Map_8h.html#a767ff9e0c58d27b070f30636b66d2603">   23</a></span>} <a class="code hl_struct" href="../../da/ddc/structMap.html">Map</a>;</div>
+</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><a class="code hl_struct" href="../../da/ddc/structMap.html">Map</a> *<a class="code hl_function" href="../../df/d79/Map_8h.html#a2d3b5b6a74e6800de411e1edf7dfea2e">initMap</a>(SDL_Renderer *renderer, <span class="keyword">const</span> <span class="keywordtype">char</span> *path);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d79/Map_8h.html#a0e9d1e84f532ef978d191e6011e3a675">renderMap</a>(<a class="code hl_struct" href="../../da/ddc/structMap.html">Map</a> *map);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d79/Map_8h.html#a64df896c814cef549bef88fcd20d9a67">destroyMap</a>(<a class="code hl_struct" href="../../da/ddc/structMap.html">Map</a> *map);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../df/d79/Map_8h.html#a68ba8a390de3a556e314c6b60d45232e">   28</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d79/Map_8h.html#a68ba8a390de3a556e314c6b60d45232e">updateMap</a>(<a class="code hl_struct" href="../../da/ddc/structMap.html">Map</a> *map);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../df/d79/Map_8h.html#a184a6d0c81c91133a682450fa7807b06">   29</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d79/Map_8h.html#a184a6d0c81c91133a682450fa7807b06">loadMapIMG</a>(<a class="code hl_struct" href="../../da/ddc/structMap.html">Map</a> *map, <span class="keyword">const</span> <span class="keywordtype">char</span> *path);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d79/Map_8h.html#addb7cea9964f63947c5e882c547d3d7d">renderMapWithCamera</a>(<a class="code hl_struct" href="../../da/ddc/structMap.html">Map</a>* map, SDL_Renderer* renderer, <a class="code hl_struct" href="../../d7/d7e/structCamera.html">Camera</a>* camera);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">// ! DEBUG</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d79/Map_8h.html#a6a8408146457cc93ec3694e180bb5574">DEBUG_printMap</a>(<a class="code hl_struct" href="../../da/ddc/structMap.html">Map</a> *map);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aCamera_8h_html"><div class="ttname"><a href="../../dd/de4/Camera_8h.html">Camera.h</a></div></div>
+<div class="ttc" id="aMap_8h_html_a0e9d1e84f532ef978d191e6011e3a675"><div class="ttname"><a href="../../df/d79/Map_8h.html#a0e9d1e84f532ef978d191e6011e3a675">renderMap</a></div><div class="ttdeci">void renderMap(Map *map)</div><div class="ttdef"><b>Definition</b> Map.c:54</div></div>
+<div class="ttc" id="aMap_8h_html_a184a6d0c81c91133a682450fa7807b06"><div class="ttname"><a href="../../df/d79/Map_8h.html#a184a6d0c81c91133a682450fa7807b06">loadMapIMG</a></div><div class="ttdeci">void loadMapIMG(Map *map, const char *path)</div></div>
+<div class="ttc" id="aMap_8h_html_a2d3b5b6a74e6800de411e1edf7dfea2e"><div class="ttname"><a href="../../df/d79/Map_8h.html#a2d3b5b6a74e6800de411e1edf7dfea2e">initMap</a></div><div class="ttdeci">Map * initMap(SDL_Renderer *renderer, const char *path)</div><div class="ttdef"><b>Definition</b> Map.c:5</div></div>
+<div class="ttc" id="aMap_8h_html_a64df896c814cef549bef88fcd20d9a67"><div class="ttname"><a href="../../df/d79/Map_8h.html#a64df896c814cef549bef88fcd20d9a67">destroyMap</a></div><div class="ttdeci">void destroyMap(Map *map)</div><div class="ttdef"><b>Definition</b> Map.c:129</div></div>
+<div class="ttc" id="aMap_8h_html_a68ba8a390de3a556e314c6b60d45232e"><div class="ttname"><a href="../../df/d79/Map_8h.html#a68ba8a390de3a556e314c6b60d45232e">updateMap</a></div><div class="ttdeci">void updateMap(Map *map)</div></div>
+<div class="ttc" id="aMap_8h_html_a6a8408146457cc93ec3694e180bb5574"><div class="ttname"><a href="../../df/d79/Map_8h.html#a6a8408146457cc93ec3694e180bb5574">DEBUG_printMap</a></div><div class="ttdeci">void DEBUG_printMap(Map *map)</div><div class="ttdef"><b>Definition</b> Map.c:45</div></div>
+<div class="ttc" id="aMap_8h_html_addb7cea9964f63947c5e882c547d3d7d"><div class="ttname"><a href="../../df/d79/Map_8h.html#addb7cea9964f63947c5e882c547d3d7d">renderMapWithCamera</a></div><div class="ttdeci">void renderMapWithCamera(Map *map, SDL_Renderer *renderer, Camera *camera)</div><div class="ttdef"><b>Definition</b> Map.c:73</div></div>
+<div class="ttc" id="astructCamera_html"><div class="ttname"><a href="../../d7/d7e/structCamera.html">Camera</a></div><div class="ttdef"><b>Definition</b> Camera.h:10</div></div>
+<div class="ttc" id="astructMap_html"><div class="ttname"><a href="../../da/ddc/structMap.html">Map</a></div><div class="ttdef"><b>Definition</b> Map.h:16</div></div>
+<div class="ttc" id="astructMap_html_a13973d475de860c9fd9fc3764b299f6a"><div class="ttname"><a href="../../da/ddc/structMap.html#a13973d475de860c9fd9fc3764b299f6a">Map::mat</a></div><div class="ttdeci">int ** mat</div><div class="ttdef"><b>Definition</b> Map.h:21</div></div>
+<div class="ttc" id="astructMap_html_a6cc56acfe807be88e919bd949528c05f"><div class="ttname"><a href="../../da/ddc/structMap.html#a6cc56acfe807be88e919bd949528c05f">Map::texture</a></div><div class="ttdeci">SDL_Texture * texture</div><div class="ttdef"><b>Definition</b> Map.h:22</div></div>
+<div class="ttc" id="astructMap_html_a92378f27d8c961168ac079ef6d019fc7"><div class="ttname"><a href="../../da/ddc/structMap.html#a92378f27d8c961168ac079ef6d019fc7">Map::renderer</a></div><div class="ttdeci">SDL_Renderer * renderer</div><div class="ttdef"><b>Definition</b> Map.h:20</div></div>
+<div class="ttc" id="astructMap_html_aa6003025459aaf81e265a8d952a27ec8"><div class="ttname"><a href="../../da/ddc/structMap.html#aa6003025459aaf81e265a8d952a27ec8">Map::nameRect</a></div><div class="ttdeci">SDL_Rect nameRect</div><div class="ttdef"><b>Definition</b> Map.h:18</div></div>
+<div class="ttc" id="astructMap_html_aaf3855c86505c42a21b7320d8135b38c"><div class="ttname"><a href="../../da/ddc/structMap.html#aaf3855c86505c42a21b7320d8135b38c">Map::rect</a></div><div class="ttdeci">SDL_Rect rect</div><div class="ttdef"><b>Definition</b> Map.h:17</div></div>
+<div class="ttc" id="astructMap_html_acdf38cf48a19c24a9c77447fec1de5eb"><div class="ttname"><a href="../../da/ddc/structMap.html#acdf38cf48a19c24a9c77447fec1de5eb">Map::pvRect</a></div><div class="ttdeci">SDL_Rect pvRect</div><div class="ttdef"><b>Definition</b> Map.h:19</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,403 @@
+\doxysection{Référence du fichier include/duel.h}
+\hypertarget{duel_8h}{}\label{duel_8h}\index{include/duel.h@{include/duel.h}}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 0
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{duel_8h_a73481505b6cdf382ecfc1e3c0faaa593}{NEUTRAL\+\_\+\+STAT\+\_\+\+CHANGE}}~6
+\item 
+\#define \mbox{\hyperlink{duel_8h_a925c3d26c7e99b966e2656f91943f27c}{POKE\+\_\+\+IS\+\_\+\+ABSCENT}}~-\/1
+\item 
+\#define \mbox{\hyperlink{duel_8h_ad17fa6eb61b38334f7b136e02a78ff37}{STRUGGLE}}~-\/10
+\item 
+\#define \mbox{\hyperlink{duel_8h_a80705627450b48083f1a1a04e38cd488}{CONFUSED\+\_\+\+MOVE}}~-\/20
+\item 
+\#define \mbox{\hyperlink{duel_8h_a6b5a19d44831a7f2be0d9be0276d478c}{ATTAQUE\+\_\+1}}~0
+\item 
+\#define \mbox{\hyperlink{duel_8h_a4a381e7575fc4042d463c7b326d72249}{ATTAQUE\+\_\+2}}~1
+\item 
+\#define \mbox{\hyperlink{duel_8h_ac419152371c156bf45d75a3cd6657661}{ATTAQUE\+\_\+3}}~2
+\item 
+\#define \mbox{\hyperlink{duel_8h_a4387846cbc27ec370d916ce7222c5d12}{ATTAQUE\+\_\+4}}~3
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{duel_8h_af43f8a6685d1709bbcd8603ab0dbdc63}{is\+Attacking}} (int)
+\item 
+int \mbox{\hyperlink{duel_8h_a35136d8ab44fb65a4df9ab46633e533c}{is\+Switching}} (int)
+\item 
+int \mbox{\hyperlink{duel_8h_aa112c976011418f424765e88722d77d4}{pp\+Check}} (\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*})
+\item 
+int \mbox{\hyperlink{duel_8h_a6ce143cdd82c5149e2b103f7e64b0d41}{is\+Existing}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*})
+\item 
+int \mbox{\hyperlink{duel_8h_a58123fcf9acb6bb6b68e7b1213f374ff}{is\+Alive}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p)
+\item 
+int \mbox{\hyperlink{duel_8h_a99cbc73f28e07ad276d0979276e5ba80}{is\+Team\+Alive}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*})
+\item 
+int \mbox{\hyperlink{duel_8h_a856d1b8c22a68e78412f1d4a4ca3c0b0}{test\+Action\+Validity}} (int action, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t)
+\item 
+int \mbox{\hyperlink{duel_8h_a82732f92530a8627b7d1c8a55e55444c}{accuracy\+Check}} (int accuracy)
+\item 
+int \mbox{\hyperlink{duel_8h_a1b5d03e9edfe6df9d2a3df248fc25944}{has\+Move\+Left}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*})
+\item 
+int \mbox{\hyperlink{duel_8h_a9a93d0239783d82c323ee9581d82a3b7}{is\+Struggling}} (int)
+\item 
+int \mbox{\hyperlink{duel_8h_a135734ce30fed1100fd7e060f672f018}{stat\+Var\+Change}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}target, int probability, int modifier, int targeted\+Stat)
+\item 
+int \mbox{\hyperlink{duel_8h_aa6f1d50587260f5a4957edc4dae26e35}{apply\+Effect}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}target, int probability, int effect, int bool\+\_\+main\+\_\+effect)
+\item 
+int \mbox{\hyperlink{duel_8h_a8a4770999605ebb93a222787153477c8}{recoil\+Damage}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}target, int probability, int percentage\+\_\+of\+\_\+val, int index\+Poke)
+\item 
+void \mbox{\hyperlink{duel_8h_afb8420f65f7cdf37b44746b5ba2f27e0}{launch\+Sec\+Effect}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}offender, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}defender, \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}action)
+\item 
+void \mbox{\hyperlink{duel_8h_ae1589871f2fb9f4bf5da22519ef13c6a}{print\+Team}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t)
+\item 
+int \mbox{\hyperlink{duel_8h_a0e27a0c4136f1f57a6f4f3e052ab2e54}{calc\+Stat\+From}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p, int stat)
+\item 
+void \mbox{\hyperlink{duel_8h_a4b3832f2db59021e5a2a8f4438ddadc1}{init\+Team}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t, int)
+\item 
+void \mbox{\hyperlink{duel_8h_a1c2ca0c1ff43f1025edfb079aff2dc00}{init\+Blue\+Team}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t)
+\item 
+int \mbox{\hyperlink{duel_8h_a74d793946dc5e0e5f1dc6ed14d3d96dc}{calc\+Damage}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}offender, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}defender, \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{duel_8h_a8fc0892b3753845a32113b61ce8b1b6c}{set\+Default\+Stat\+Changes}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}p)
+\item 
+int \mbox{\hyperlink{duel_8h_af3283b0d510afb01446c27bf1600ba88}{resolve\+Speed\+Duel}} (int speed1, int speed2)
+\item 
+int \mbox{\hyperlink{duel_8h_a692a701927e61a06fd8dce887742c7d9}{Priority\+For\+First\+Poke}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}p1, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}p2, \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}move1, \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}move2, int index1, int index2)
+\item 
+void \mbox{\hyperlink{duel_8h_a2cdb2c620c0e4c3077d6ae74c45ceb36}{affect\+Damage}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}offender, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}defender, int index\+Move)
+\item 
+void \mbox{\hyperlink{duel_8h_a785cf59b04b080c32b51ca8300b62507}{swap\+Actual\+Attacker}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t, int swap\+Index)
+\item 
+int \mbox{\hyperlink{duel_8h_a37d0046e530324685213ff50a4c36cdb}{play\+ATurn}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t1, int move1, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t2, int move2)
+\item 
+unsigned \mbox{\hyperlink{duel_8h_a3e88ec315719a73455623551f124fb62}{exp\+Curve}} (int lvl)
+\item 
+int \mbox{\hyperlink{duel_8h_a109762b4b492c870f576af03d9c9a805}{reached\+Next\+Lvl}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p)
+\item 
+void \mbox{\hyperlink{duel_8h_a00cc566806ad551410ecb3ef95be9d0b}{gain\+Exp}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}target, \mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}source)
+\item 
+void \mbox{\hyperlink{duel_8h_a87e1b1c2e8da8aa3dcbafa486727c992}{test\+Battle}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{duel_8c_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}}, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{duel_8c_a2318bae80db59839bf744d39a02a2931}{bleu}})
+\item 
+void \mbox{\hyperlink{duel_8h_aae3304431eebf95aac22ed64a644d398}{test\+Switch}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{duel_8c_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}}, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{duel_8c_a2318bae80db59839bf744d39a02a2931}{bleu}})
+\item 
+void \mbox{\hyperlink{duel_8h_a858a472c0ca54271f0d933926e73b293}{test\+PP}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{duel_8c_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}}, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{duel_8c_a2318bae80db59839bf744d39a02a2931}{bleu}})
+\item 
+void \mbox{\hyperlink{duel_8h_a08067d722870f62b736a1c2f55d2f74f}{test\+Struggle}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{duel_8c_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}}, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{duel_8c_a2318bae80db59839bf744d39a02a2931}{bleu}})
+\item 
+void \mbox{\hyperlink{duel_8h_ac6cffd77abaf025f5e27d4c1320dc4c0}{team\+Test}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t, int)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{duel_8h_affbbdc8741a394a968366d77c640f1ff}{stat\+Variations}} \mbox{[}13\mbox{]}
+\item 
+\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{duel_8h_a69f8229a1c94eb0a11e091d8b54570f3}{struggle}}
+\item 
+\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{duel_8h_acde9cb2f6b18119fde97bf6be55639c9}{confused\+Move}}
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{duel_8h_adc50e7669e9a8b080c36aff121cf7836}{Sec\+Effect\+Tab}} \mbox{[}3\mbox{]})(\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}, int, int, int)
+\item 
+\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}}
+\item 
+\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{duel_8h_a6b5a19d44831a7f2be0d9be0276d478c}\label{duel_8h_a6b5a19d44831a7f2be0d9be0276d478c} 
+\index{duel.h@{duel.h}!ATTAQUE\_1@{ATTAQUE\_1}}
+\index{ATTAQUE\_1@{ATTAQUE\_1}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{ATTAQUE\_1}{ATTAQUE\_1}}
+{\footnotesize\ttfamily \#define ATTAQUE\+\_\+1~0}
+
+\Hypertarget{duel_8h_a4a381e7575fc4042d463c7b326d72249}\label{duel_8h_a4a381e7575fc4042d463c7b326d72249} 
+\index{duel.h@{duel.h}!ATTAQUE\_2@{ATTAQUE\_2}}
+\index{ATTAQUE\_2@{ATTAQUE\_2}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{ATTAQUE\_2}{ATTAQUE\_2}}
+{\footnotesize\ttfamily \#define ATTAQUE\+\_\+2~1}
+
+\Hypertarget{duel_8h_ac419152371c156bf45d75a3cd6657661}\label{duel_8h_ac419152371c156bf45d75a3cd6657661} 
+\index{duel.h@{duel.h}!ATTAQUE\_3@{ATTAQUE\_3}}
+\index{ATTAQUE\_3@{ATTAQUE\_3}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{ATTAQUE\_3}{ATTAQUE\_3}}
+{\footnotesize\ttfamily \#define ATTAQUE\+\_\+3~2}
+
+\Hypertarget{duel_8h_a4387846cbc27ec370d916ce7222c5d12}\label{duel_8h_a4387846cbc27ec370d916ce7222c5d12} 
+\index{duel.h@{duel.h}!ATTAQUE\_4@{ATTAQUE\_4}}
+\index{ATTAQUE\_4@{ATTAQUE\_4}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{ATTAQUE\_4}{ATTAQUE\_4}}
+{\footnotesize\ttfamily \#define ATTAQUE\+\_\+4~3}
+
+\Hypertarget{duel_8h_a80705627450b48083f1a1a04e38cd488}\label{duel_8h_a80705627450b48083f1a1a04e38cd488} 
+\index{duel.h@{duel.h}!CONFUSED\_MOVE@{CONFUSED\_MOVE}}
+\index{CONFUSED\_MOVE@{CONFUSED\_MOVE}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{CONFUSED\_MOVE}{CONFUSED\_MOVE}}
+{\footnotesize\ttfamily \#define CONFUSED\+\_\+\+MOVE~-\/20}
+
+\Hypertarget{duel_8h_a73481505b6cdf382ecfc1e3c0faaa593}\label{duel_8h_a73481505b6cdf382ecfc1e3c0faaa593} 
+\index{duel.h@{duel.h}!NEUTRAL\_STAT\_CHANGE@{NEUTRAL\_STAT\_CHANGE}}
+\index{NEUTRAL\_STAT\_CHANGE@{NEUTRAL\_STAT\_CHANGE}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{NEUTRAL\_STAT\_CHANGE}{NEUTRAL\_STAT\_CHANGE}}
+{\footnotesize\ttfamily \#define NEUTRAL\+\_\+\+STAT\+\_\+\+CHANGE~6}
+
+\Hypertarget{duel_8h_a925c3d26c7e99b966e2656f91943f27c}\label{duel_8h_a925c3d26c7e99b966e2656f91943f27c} 
+\index{duel.h@{duel.h}!POKE\_IS\_ABSCENT@{POKE\_IS\_ABSCENT}}
+\index{POKE\_IS\_ABSCENT@{POKE\_IS\_ABSCENT}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{POKE\_IS\_ABSCENT}{POKE\_IS\_ABSCENT}}
+{\footnotesize\ttfamily \#define POKE\+\_\+\+IS\+\_\+\+ABSCENT~-\/1}
+
+\Hypertarget{duel_8h_ad17fa6eb61b38334f7b136e02a78ff37}\label{duel_8h_ad17fa6eb61b38334f7b136e02a78ff37} 
+\index{duel.h@{duel.h}!STRUGGLE@{STRUGGLE}}
+\index{STRUGGLE@{STRUGGLE}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{STRUGGLE}{STRUGGLE}}
+{\footnotesize\ttfamily \#define STRUGGLE~-\/10}
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{duel_8h_a82732f92530a8627b7d1c8a55e55444c}\label{duel_8h_a82732f92530a8627b7d1c8a55e55444c} 
+\index{duel.h@{duel.h}!accuracyCheck@{accuracyCheck}}
+\index{accuracyCheck@{accuracyCheck}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{accuracyCheck()}{accuracyCheck()}}
+{\footnotesize\ttfamily int accuracy\+Check (\begin{DoxyParamCaption}\item[{int}]{accuracy }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a2cdb2c620c0e4c3077d6ae74c45ceb36}\label{duel_8h_a2cdb2c620c0e4c3077d6ae74c45ceb36} 
+\index{duel.h@{duel.h}!affectDamage@{affectDamage}}
+\index{affectDamage@{affectDamage}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{affectDamage()}{affectDamage()}}
+{\footnotesize\ttfamily void affect\+Damage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{offender,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{defender,  }\item[{int}]{index\+Move }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_aa6f1d50587260f5a4957edc4dae26e35}\label{duel_8h_aa6f1d50587260f5a4957edc4dae26e35} 
+\index{duel.h@{duel.h}!applyEffect@{applyEffect}}
+\index{applyEffect@{applyEffect}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{applyEffect()}{applyEffect()}}
+{\footnotesize\ttfamily int apply\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{target,  }\item[{int}]{probability,  }\item[{int}]{effect,  }\item[{int}]{bool\+\_\+main\+\_\+effect }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a74d793946dc5e0e5f1dc6ed14d3d96dc}\label{duel_8h_a74d793946dc5e0e5f1dc6ed14d3d96dc} 
+\index{duel.h@{duel.h}!calcDamage@{calcDamage}}
+\index{calcDamage@{calcDamage}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{calcDamage()}{calcDamage()}}
+{\footnotesize\ttfamily int calc\+Damage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{offender,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{defender,  }\item[{\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}}]{move }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a0e27a0c4136f1f57a6f4f3e052ab2e54}\label{duel_8h_a0e27a0c4136f1f57a6f4f3e052ab2e54} 
+\index{duel.h@{duel.h}!calcStatFrom@{calcStatFrom}}
+\index{calcStatFrom@{calcStatFrom}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{calcStatFrom()}{calcStatFrom()}}
+{\footnotesize\ttfamily int calc\+Stat\+From (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{int}]{stat }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a3e88ec315719a73455623551f124fb62}\label{duel_8h_a3e88ec315719a73455623551f124fb62} 
+\index{duel.h@{duel.h}!expCurve@{expCurve}}
+\index{expCurve@{expCurve}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{expCurve()}{expCurve()}}
+{\footnotesize\ttfamily unsigned exp\+Curve (\begin{DoxyParamCaption}\item[{int}]{lvl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{duel_8h_a00cc566806ad551410ecb3ef95be9d0b}\label{duel_8h_a00cc566806ad551410ecb3ef95be9d0b} 
+\index{duel.h@{duel.h}!gainExp@{gainExp}}
+\index{gainExp@{gainExp}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{gainExp()}{gainExp()}}
+{\footnotesize\ttfamily void gain\+Exp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{target,  }\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{source }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a1b5d03e9edfe6df9d2a3df248fc25944}\label{duel_8h_a1b5d03e9edfe6df9d2a3df248fc25944} 
+\index{duel.h@{duel.h}!hasMoveLeft@{hasMoveLeft}}
+\index{hasMoveLeft@{hasMoveLeft}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{hasMoveLeft()}{hasMoveLeft()}}
+{\footnotesize\ttfamily int has\+Move\+Left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a1c2ca0c1ff43f1025edfb079aff2dc00}\label{duel_8h_a1c2ca0c1ff43f1025edfb079aff2dc00} 
+\index{duel.h@{duel.h}!initBlueTeam@{initBlueTeam}}
+\index{initBlueTeam@{initBlueTeam}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{initBlueTeam()}{initBlueTeam()}}
+{\footnotesize\ttfamily void init\+Blue\+Team (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a4b3832f2db59021e5a2a8f4438ddadc1}\label{duel_8h_a4b3832f2db59021e5a2a8f4438ddadc1} 
+\index{duel.h@{duel.h}!initTeam@{initTeam}}
+\index{initTeam@{initTeam}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{initTeam()}{initTeam()}}
+{\footnotesize\ttfamily void init\+Team (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{int}]{nb\+\_\+poke }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a58123fcf9acb6bb6b68e7b1213f374ff}\label{duel_8h_a58123fcf9acb6bb6b68e7b1213f374ff} 
+\index{duel.h@{duel.h}!isAlive@{isAlive}}
+\index{isAlive@{isAlive}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{isAlive()}{isAlive()}}
+{\footnotesize\ttfamily int is\+Alive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_af43f8a6685d1709bbcd8603ab0dbdc63}\label{duel_8h_af43f8a6685d1709bbcd8603ab0dbdc63} 
+\index{duel.h@{duel.h}!isAttacking@{isAttacking}}
+\index{isAttacking@{isAttacking}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{isAttacking()}{isAttacking()}}
+{\footnotesize\ttfamily int is\+Attacking (\begin{DoxyParamCaption}\item[{int}]{move }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a6ce143cdd82c5149e2b103f7e64b0d41}\label{duel_8h_a6ce143cdd82c5149e2b103f7e64b0d41} 
+\index{duel.h@{duel.h}!isExisting@{isExisting}}
+\index{isExisting@{isExisting}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{isExisting()}{isExisting()}}
+{\footnotesize\ttfamily int is\+Existing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a9a93d0239783d82c323ee9581d82a3b7}\label{duel_8h_a9a93d0239783d82c323ee9581d82a3b7} 
+\index{duel.h@{duel.h}!isStruggling@{isStruggling}}
+\index{isStruggling@{isStruggling}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{isStruggling()}{isStruggling()}}
+{\footnotesize\ttfamily int is\+Struggling (\begin{DoxyParamCaption}\item[{int}]{move }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a35136d8ab44fb65a4df9ab46633e533c}\label{duel_8h_a35136d8ab44fb65a4df9ab46633e533c} 
+\index{duel.h@{duel.h}!isSwitching@{isSwitching}}
+\index{isSwitching@{isSwitching}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{isSwitching()}{isSwitching()}}
+{\footnotesize\ttfamily int is\+Switching (\begin{DoxyParamCaption}\item[{int}]{move }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a99cbc73f28e07ad276d0979276e5ba80}\label{duel_8h_a99cbc73f28e07ad276d0979276e5ba80} 
+\index{duel.h@{duel.h}!isTeamAlive@{isTeamAlive}}
+\index{isTeamAlive@{isTeamAlive}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{isTeamAlive()}{isTeamAlive()}}
+{\footnotesize\ttfamily int is\+Team\+Alive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_afb8420f65f7cdf37b44746b5ba2f27e0}\label{duel_8h_afb8420f65f7cdf37b44746b5ba2f27e0} 
+\index{duel.h@{duel.h}!launchSecEffect@{launchSecEffect}}
+\index{launchSecEffect@{launchSecEffect}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{launchSecEffect()}{launchSecEffect()}}
+{\footnotesize\ttfamily void launch\+Sec\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{offender,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{defender,  }\item[{\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}}]{action }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a37d0046e530324685213ff50a4c36cdb}\label{duel_8h_a37d0046e530324685213ff50a4c36cdb} 
+\index{duel.h@{duel.h}!playATurn@{playATurn}}
+\index{playATurn@{playATurn}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{playATurn()}{playATurn()}}
+{\footnotesize\ttfamily int play\+ATurn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t1,  }\item[{int}]{move1,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t2,  }\item[{int}]{move2 }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_aa112c976011418f424765e88722d77d4}\label{duel_8h_aa112c976011418f424765e88722d77d4} 
+\index{duel.h@{duel.h}!ppCheck@{ppCheck}}
+\index{ppCheck@{ppCheck}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{ppCheck()}{ppCheck()}}
+{\footnotesize\ttfamily int pp\+Check (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}}]{move }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_ae1589871f2fb9f4bf5da22519ef13c6a}\label{duel_8h_ae1589871f2fb9f4bf5da22519ef13c6a} 
+\index{duel.h@{duel.h}!printTeam@{printTeam}}
+\index{printTeam@{printTeam}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{printTeam()}{printTeam()}}
+{\footnotesize\ttfamily void print\+Team (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a692a701927e61a06fd8dce887742c7d9}\label{duel_8h_a692a701927e61a06fd8dce887742c7d9} 
+\index{duel.h@{duel.h}!PriorityForFirstPoke@{PriorityForFirstPoke}}
+\index{PriorityForFirstPoke@{PriorityForFirstPoke}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{PriorityForFirstPoke()}{PriorityForFirstPoke()}}
+{\footnotesize\ttfamily int Priority\+For\+First\+Poke (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{p1,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{p2,  }\item[{\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}}]{move1,  }\item[{\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}}]{move2,  }\item[{int}]{index1,  }\item[{int}]{index2 }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a109762b4b492c870f576af03d9c9a805}\label{duel_8h_a109762b4b492c870f576af03d9c9a805} 
+\index{duel.h@{duel.h}!reachedNextLvl@{reachedNextLvl}}
+\index{reachedNextLvl@{reachedNextLvl}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{reachedNextLvl()}{reachedNextLvl()}}
+{\footnotesize\ttfamily int reached\+Next\+Lvl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a8a4770999605ebb93a222787153477c8}\label{duel_8h_a8a4770999605ebb93a222787153477c8} 
+\index{duel.h@{duel.h}!recoilDamage@{recoilDamage}}
+\index{recoilDamage@{recoilDamage}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{recoilDamage()}{recoilDamage()}}
+{\footnotesize\ttfamily int recoil\+Damage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{target,  }\item[{int}]{probability,  }\item[{int}]{percentage\+\_\+of\+\_\+val,  }\item[{int}]{index\+Poke }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_af3283b0d510afb01446c27bf1600ba88}\label{duel_8h_af3283b0d510afb01446c27bf1600ba88} 
+\index{duel.h@{duel.h}!resolveSpeedDuel@{resolveSpeedDuel}}
+\index{resolveSpeedDuel@{resolveSpeedDuel}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{resolveSpeedDuel()}{resolveSpeedDuel()}}
+{\footnotesize\ttfamily int resolve\+Speed\+Duel (\begin{DoxyParamCaption}\item[{int}]{speed1,  }\item[{int}]{speed2 }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a8fc0892b3753845a32113b61ce8b1b6c}\label{duel_8h_a8fc0892b3753845a32113b61ce8b1b6c} 
+\index{duel.h@{duel.h}!setDefaultStatChanges@{setDefaultStatChanges}}
+\index{setDefaultStatChanges@{setDefaultStatChanges}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{setDefaultStatChanges()}{setDefaultStatChanges()}}
+{\footnotesize\ttfamily void set\+Default\+Stat\+Changes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a135734ce30fed1100fd7e060f672f018}\label{duel_8h_a135734ce30fed1100fd7e060f672f018} 
+\index{duel.h@{duel.h}!statVarChange@{statVarChange}}
+\index{statVarChange@{statVarChange}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{statVarChange()}{statVarChange()}}
+{\footnotesize\ttfamily int stat\+Var\+Change (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{target,  }\item[{int}]{probability,  }\item[{int}]{modifier,  }\item[{int}]{targeted\+Stat }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a785cf59b04b080c32b51ca8300b62507}\label{duel_8h_a785cf59b04b080c32b51ca8300b62507} 
+\index{duel.h@{duel.h}!swapActualAttacker@{swapActualAttacker}}
+\index{swapActualAttacker@{swapActualAttacker}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{swapActualAttacker()}{swapActualAttacker()}}
+{\footnotesize\ttfamily void swap\+Actual\+Attacker (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{int}]{swap\+Index }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_ac6cffd77abaf025f5e27d4c1320dc4c0}\label{duel_8h_ac6cffd77abaf025f5e27d4c1320dc4c0} 
+\index{duel.h@{duel.h}!teamTest@{teamTest}}
+\index{teamTest@{teamTest}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{teamTest()}{teamTest()}}
+{\footnotesize\ttfamily void team\+Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{int}]{nb\+\_\+poke }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a856d1b8c22a68e78412f1d4a4ca3c0b0}\label{duel_8h_a856d1b8c22a68e78412f1d4a4ca3c0b0} 
+\index{duel.h@{duel.h}!testActionValidity@{testActionValidity}}
+\index{testActionValidity@{testActionValidity}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{testActionValidity()}{testActionValidity()}}
+{\footnotesize\ttfamily int test\+Action\+Validity (\begin{DoxyParamCaption}\item[{int}]{action,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a87e1b1c2e8da8aa3dcbafa486727c992}\label{duel_8h_a87e1b1c2e8da8aa3dcbafa486727c992} 
+\index{duel.h@{duel.h}!testBattle@{testBattle}}
+\index{testBattle@{testBattle}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{testBattle()}{testBattle()}}
+{\footnotesize\ttfamily void test\+Battle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{rouge,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{bleu }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a858a472c0ca54271f0d933926e73b293}\label{duel_8h_a858a472c0ca54271f0d933926e73b293} 
+\index{duel.h@{duel.h}!testPP@{testPP}}
+\index{testPP@{testPP}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{testPP()}{testPP()}}
+{\footnotesize\ttfamily void test\+PP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{rouge,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{bleu }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a08067d722870f62b736a1c2f55d2f74f}\label{duel_8h_a08067d722870f62b736a1c2f55d2f74f} 
+\index{duel.h@{duel.h}!testStruggle@{testStruggle}}
+\index{testStruggle@{testStruggle}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{testStruggle()}{testStruggle()}}
+{\footnotesize\ttfamily void test\+Struggle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{rouge,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{bleu }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_aae3304431eebf95aac22ed64a644d398}\label{duel_8h_aae3304431eebf95aac22ed64a644d398} 
+\index{duel.h@{duel.h}!testSwitch@{testSwitch}}
+\index{testSwitch@{testSwitch}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{testSwitch()}{testSwitch()}}
+{\footnotesize\ttfamily void test\+Switch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{rouge,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{bleu }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{duel_8h_a2318bae80db59839bf744d39a02a2931}\label{duel_8h_a2318bae80db59839bf744d39a02a2931} 
+\index{duel.h@{duel.h}!bleu@{bleu}}
+\index{bleu@{bleu}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{bleu}{bleu}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} bleu\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{duel_8h_acde9cb2f6b18119fde97bf6be55639c9}\label{duel_8h_acde9cb2f6b18119fde97bf6be55639c9} 
+\index{duel.h@{duel.h}!confusedMove@{confusedMove}}
+\index{confusedMove@{confusedMove}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{confusedMove}{confusedMove}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} confused\+Move\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}\label{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa} 
+\index{duel.h@{duel.h}!rouge@{rouge}}
+\index{rouge@{rouge}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{rouge}{rouge}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} rouge\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{duel_8h_adc50e7669e9a8b080c36aff121cf7836}\label{duel_8h_adc50e7669e9a8b080c36aff121cf7836} 
+\index{duel.h@{duel.h}!SecEffectTab@{SecEffectTab}}
+\index{SecEffectTab@{SecEffectTab}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{SecEffectTab}{SecEffectTab}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} Sec\+Effect\+Tab\mbox{[}3\mbox{]})(\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}, int, int, int) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{,  }\item[{int}]{,  }\item[{int}]{,  }\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{duel_8h_affbbdc8741a394a968366d77c640f1ff}\label{duel_8h_affbbdc8741a394a968366d77c640f1ff} 
+\index{duel.h@{duel.h}!statVariations@{statVariations}}
+\index{statVariations@{statVariations}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{statVariations}{statVariations}}
+{\footnotesize\ttfamily float stat\+Variations\mbox{[}13\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{duel_8h_a69f8229a1c94eb0a11e091d8b54570f3}\label{duel_8h_a69f8229a1c94eb0a11e091d8b54570f3} 
+\index{duel.h@{duel.h}!struggle@{struggle}}
+\index{struggle@{struggle}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{struggle}{struggle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} struggle\hspace{0.3cm}{\ttfamily [extern]}}
+

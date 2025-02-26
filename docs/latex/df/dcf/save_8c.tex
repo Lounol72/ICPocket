@@ -1,0 +1,61 @@
+\doxysection{Référence du fichier src/save.c}
+\hypertarget{save_8c}{}\label{save_8c}\index{src/save.c@{src/save.c}}
+{\ttfamily \#include "{}../include/\+Game\+Engine.\+h"{}}\newline
+{\ttfamily \#include "{}../include/ministdlib.\+h"{}}\newline
+{\ttfamily \#include "{}../include/save.\+h"{}}\newline
+Graphe des dépendances par inclusion de save.\+c\+:
+% FIG 0
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{save_8c_af8d46cb16bdb5b101e5794f64e57c9dc}{sauvegarder2}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}joueur, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}adverse)
+\item 
+void \mbox{\hyperlink{save_8c_a99e08d9f5d3c3c967b93a9b9595c110e}{sauvegarder}} (char \texorpdfstring{$\ast$}{*}nom\+Save, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}joueur, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}adverse)
+\begin{DoxyCompactList}\small\item\em Save the player\textquotesingle{}s data in a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{save_8c_a03edadc67bcf129fad1098e0ae09461c}{charger}} (char \texorpdfstring{$\ast$}{*}nom\+Save, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}joueur, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}dresseur)
+\begin{DoxyCompactList}\small\item\em Load the player\textquotesingle{}s data from a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{save_8c_a03edadc67bcf129fad1098e0ae09461c}\label{save_8c_a03edadc67bcf129fad1098e0ae09461c} 
+\index{save.c@{save.c}!charger@{charger}}
+\index{charger@{charger}!save.c@{save.c}}
+\doxysubsubsection{\texorpdfstring{charger()}{charger()}}
+{\footnotesize\ttfamily void charger (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{name,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{team\+J1,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{dresseur }\end{DoxyParamCaption})}
+
+
+
+Load the player\textquotesingle{}s data from a file. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom\+Save} & \+: the name of the save \\
+\hline
+{\em joueur} & \+: the player\textquotesingle{}s data \\
+\hline
+\end{DoxyParams}
+\Hypertarget{save_8c_a99e08d9f5d3c3c967b93a9b9595c110e}\label{save_8c_a99e08d9f5d3c3c967b93a9b9595c110e} 
+\index{save.c@{save.c}!sauvegarder@{sauvegarder}}
+\index{sauvegarder@{sauvegarder}!save.c@{save.c}}
+\doxysubsubsection{\texorpdfstring{sauvegarder()}{sauvegarder()}}
+{\footnotesize\ttfamily void sauvegarder (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{name,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{team\+J1,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{dresseur }\end{DoxyParamCaption})}
+
+
+
+Save the player\textquotesingle{}s data in a file. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom\+Save} & \+: the name of the save \\
+\hline
+{\em joueur} & \+: the player\textquotesingle{}s data \\
+\hline
+{\em dresseur} & \+: the last defeated trainer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{save_8c_af8d46cb16bdb5b101e5794f64e57c9dc}\label{save_8c_af8d46cb16bdb5b101e5794f64e57c9dc} 
+\index{save.c@{save.c}!sauvegarder2@{sauvegarder2}}
+\index{sauvegarder2@{sauvegarder2}!save.c@{save.c}}
+\doxysubsubsection{\texorpdfstring{sauvegarder2()}{sauvegarder2()}}
+{\footnotesize\ttfamily void sauvegarder2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{joueur,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{adverse }\end{DoxyParamCaption})}
+

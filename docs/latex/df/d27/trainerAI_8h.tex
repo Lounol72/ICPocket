@@ -1,0 +1,112 @@
+\doxysection{Référence du fichier include/trainer\+AI.h}
+\hypertarget{trainerAI_8h}{}\label{trainerAI_8h}\index{include/trainerAI.h@{include/trainerAI.h}}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 0
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structAI}{AI}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{trainerAI_8h_a2a3e93635dd47b8c73a6ceae4430f2b6}{MAX\+\_\+\+AI\+\_\+\+LVL}}~20
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structAI}{AI}} \mbox{\hyperlink{trainerAI_8h_a225b41f1ec2d7bee2a3a7b0ed0699bdb}{t\+\_\+\+AI}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{trainerAI_8h_a57d6e306e6a876cacd7cd69e71eb23e0}{t\+\_\+\+AI\+\_\+type}} \{ \mbox{\hyperlink{trainerAI_8h_a57d6e306e6a876cacd7cd69e71eb23e0ab7e4e0120a041dbe6528b050c04269e0}{none}} =1
+, \mbox{\hyperlink{trainerAI_8h_a57d6e306e6a876cacd7cd69e71eb23e0a920c8b9f9bf7a6053a37342bc18021d4}{status\+First}} =2
+, \mbox{\hyperlink{trainerAI_8h_a57d6e306e6a876cacd7cd69e71eb23e0a27d8a8f645f9c425741d92a2d23f5e6e}{damage\+Only}} =3
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{trainerAI_8h_ab5282f939c091a7de8a92f4e155cba66}{insertion\+Sort}} (int tab\+Degats\mbox{[}$\,$\mbox{]}, int tab\+Move\mbox{[}$\,$\mbox{]}, int n)
+\item 
+int \mbox{\hyperlink{trainerAI_8h_ae1208db074f4b5b1f2209722c157da92}{AI\+\_\+move\+\_\+choice}} (\mbox{\hyperlink{trainerAI_8h_a225b41f1ec2d7bee2a3a7b0ed0699bdb}{t\+\_\+\+AI}} \texorpdfstring{$\ast$}{*}ai\+\_\+team, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}player\+\_\+team)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{trainerAI_8h_a225b41f1ec2d7bee2a3a7b0ed0699bdb}{t\+\_\+\+AI}} \mbox{\hyperlink{trainerAI_8h_a1f6bc376d419917fe343d3d5432b8079}{ia\+Test}}
+\item 
+\mbox{\hyperlink{trainerAI_8h_a225b41f1ec2d7bee2a3a7b0ed0699bdb}{t\+\_\+\+AI}} \mbox{\hyperlink{trainerAI_8h_a2363fbb8b3625e95861e09fb53dfd7f5}{ia\+Test2}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{trainerAI_8h_a2a3e93635dd47b8c73a6ceae4430f2b6}\label{trainerAI_8h_a2a3e93635dd47b8c73a6ceae4430f2b6} 
+\index{trainerAI.h@{trainerAI.h}!MAX\_AI\_LVL@{MAX\_AI\_LVL}}
+\index{MAX\_AI\_LVL@{MAX\_AI\_LVL}!trainerAI.h@{trainerAI.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_AI\_LVL}{MAX\_AI\_LVL}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+AI\+\_\+\+LVL~20}
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{trainerAI_8h_a225b41f1ec2d7bee2a3a7b0ed0699bdb}\label{trainerAI_8h_a225b41f1ec2d7bee2a3a7b0ed0699bdb} 
+\index{trainerAI.h@{trainerAI.h}!t\_AI@{t\_AI}}
+\index{t\_AI@{t\_AI}!trainerAI.h@{trainerAI.h}}
+\doxysubsubsection{\texorpdfstring{t\_AI}{t\_AI}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structAI}{AI}} \mbox{\hyperlink{trainerAI_8h_a225b41f1ec2d7bee2a3a7b0ed0699bdb}{t\+\_\+\+AI}}}
+
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\Hypertarget{trainerAI_8h_a57d6e306e6a876cacd7cd69e71eb23e0}\label{trainerAI_8h_a57d6e306e6a876cacd7cd69e71eb23e0} 
+\index{trainerAI.h@{trainerAI.h}!t\_AI\_type@{t\_AI\_type}}
+\index{t\_AI\_type@{t\_AI\_type}!trainerAI.h@{trainerAI.h}}
+\doxysubsubsection{\texorpdfstring{t\_AI\_type}{t\_AI\_type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{trainerAI_8h_a57d6e306e6a876cacd7cd69e71eb23e0}{t\+\_\+\+AI\+\_\+type}}}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{none@{none}!trainerAI.h@{trainerAI.h}}\index{trainerAI.h@{trainerAI.h}!none@{none}}}\Hypertarget{trainerAI_8h_a57d6e306e6a876cacd7cd69e71eb23e0ab7e4e0120a041dbe6528b050c04269e0}\label{trainerAI_8h_a57d6e306e6a876cacd7cd69e71eb23e0ab7e4e0120a041dbe6528b050c04269e0} 
+none&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{statusFirst@{statusFirst}!trainerAI.h@{trainerAI.h}}\index{trainerAI.h@{trainerAI.h}!statusFirst@{statusFirst}}}\Hypertarget{trainerAI_8h_a57d6e306e6a876cacd7cd69e71eb23e0a920c8b9f9bf7a6053a37342bc18021d4}\label{trainerAI_8h_a57d6e306e6a876cacd7cd69e71eb23e0a920c8b9f9bf7a6053a37342bc18021d4} 
+status\+First&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{damageOnly@{damageOnly}!trainerAI.h@{trainerAI.h}}\index{trainerAI.h@{trainerAI.h}!damageOnly@{damageOnly}}}\Hypertarget{trainerAI_8h_a57d6e306e6a876cacd7cd69e71eb23e0a27d8a8f645f9c425741d92a2d23f5e6e}\label{trainerAI_8h_a57d6e306e6a876cacd7cd69e71eb23e0a27d8a8f645f9c425741d92a2d23f5e6e} 
+damage\+Only&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{trainerAI_8h_ae1208db074f4b5b1f2209722c157da92}\label{trainerAI_8h_ae1208db074f4b5b1f2209722c157da92} 
+\index{trainerAI.h@{trainerAI.h}!AI\_move\_choice@{AI\_move\_choice}}
+\index{AI\_move\_choice@{AI\_move\_choice}!trainerAI.h@{trainerAI.h}}
+\doxysubsubsection{\texorpdfstring{AI\_move\_choice()}{AI\_move\_choice()}}
+{\footnotesize\ttfamily int AI\+\_\+move\+\_\+choice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{trainerAI_8h_a225b41f1ec2d7bee2a3a7b0ed0699bdb}{t\+\_\+\+AI}} \texorpdfstring{$\ast$}{*}}]{ai\+\_\+team,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{player\+\_\+team }\end{DoxyParamCaption})}
+
+\Hypertarget{trainerAI_8h_ab5282f939c091a7de8a92f4e155cba66}\label{trainerAI_8h_ab5282f939c091a7de8a92f4e155cba66} 
+\index{trainerAI.h@{trainerAI.h}!insertionSort@{insertionSort}}
+\index{insertionSort@{insertionSort}!trainerAI.h@{trainerAI.h}}
+\doxysubsubsection{\texorpdfstring{insertionSort()}{insertionSort()}}
+{\footnotesize\ttfamily void insertion\+Sort (\begin{DoxyParamCaption}\item[{int}]{tab\+Degats\mbox{[}$\,$\mbox{]},  }\item[{int}]{tab\+Move\mbox{[}$\,$\mbox{]},  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{trainerAI_8h_a1f6bc376d419917fe343d3d5432b8079}\label{trainerAI_8h_a1f6bc376d419917fe343d3d5432b8079} 
+\index{trainerAI.h@{trainerAI.h}!iaTest@{iaTest}}
+\index{iaTest@{iaTest}!trainerAI.h@{trainerAI.h}}
+\doxysubsubsection{\texorpdfstring{iaTest}{iaTest}}
+{\footnotesize\ttfamily \mbox{\hyperlink{trainerAI_8h_a225b41f1ec2d7bee2a3a7b0ed0699bdb}{t\+\_\+\+AI}} ia\+Test\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{trainerAI_8h_a2363fbb8b3625e95861e09fb53dfd7f5}\label{trainerAI_8h_a2363fbb8b3625e95861e09fb53dfd7f5} 
+\index{trainerAI.h@{trainerAI.h}!iaTest2@{iaTest2}}
+\index{iaTest2@{iaTest2}!trainerAI.h@{trainerAI.h}}
+\doxysubsubsection{\texorpdfstring{iaTest2}{iaTest2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{trainerAI_8h_a225b41f1ec2d7bee2a3a7b0ed0699bdb}{t\+\_\+\+AI}} ia\+Test2\hspace{0.3cm}{\ttfamily [extern]}}
+

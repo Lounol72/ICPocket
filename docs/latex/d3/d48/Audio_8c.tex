@@ -1,0 +1,55 @@
+\doxysection{Référence du fichier src/\+Audio.c}
+\hypertarget{Audio_8c}{}\label{Audio_8c}\index{src/Audio.c@{src/Audio.c}}
+
+
+Gestion de l\textquotesingle{}audio.  
+
+
+{\ttfamily \#include "{}../include/\+Audio.\+h"{}}\newline
+Graphe des dépendances par inclusion de Audio.\+c\+:
+% FIG 0
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Audio_8c_ab74d84d6d4c90b2b18669590af038a07}{init\+Audio}} ()
+\begin{DoxyCompactList}\small\item\em Initialise l\textquotesingle{}audio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Audio_8c_a442ac79688294b67c76dbe10c87e1383}{load\+Music}} (Mix\+\_\+\+Music \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}music, const char \texorpdfstring{$\ast$}{*}music\+Path)
+\begin{DoxyCompactList}\small\item\em Charge la musique. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Gestion de l\textquotesingle{}audio. 
+
+\begin{DoxyAuthor}{Auteur}
+Louis Subtil 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{Audio_8c_ab74d84d6d4c90b2b18669590af038a07}\label{Audio_8c_ab74d84d6d4c90b2b18669590af038a07} 
+\index{Audio.c@{Audio.c}!initAudio@{initAudio}}
+\index{initAudio@{initAudio}!Audio.c@{Audio.c}}
+\doxysubsubsection{\texorpdfstring{initAudio()}{initAudio()}}
+{\footnotesize\ttfamily void init\+Audio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialise l\textquotesingle{}audio. 
+
+\Hypertarget{Audio_8c_a442ac79688294b67c76dbe10c87e1383}\label{Audio_8c_a442ac79688294b67c76dbe10c87e1383} 
+\index{Audio.c@{Audio.c}!loadMusic@{loadMusic}}
+\index{loadMusic@{loadMusic}!Audio.c@{Audio.c}}
+\doxysubsubsection{\texorpdfstring{loadMusic()}{loadMusic()}}
+{\footnotesize\ttfamily void load\+Music (\begin{DoxyParamCaption}\item[{Mix\+\_\+\+Music \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{music,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{music\+Path }\end{DoxyParamCaption})}
+
+
+
+Charge la musique. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em music} & Pointeur vers la musique à charger \\
+\hline
+{\em music\+Path} & Chemin de la musique à charger \\
+\hline
+\end{DoxyParams}

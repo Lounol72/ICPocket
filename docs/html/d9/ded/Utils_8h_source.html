@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ICPocket:  Fichier source de include/Utils.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ICPocket
+   </div>
+   <div id="projectbrief">A Pokemon like game</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Utils.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d9/ded/Utils_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef UTILS_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define UTILS_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="foldopen" id="foldopen00004" data-start="{" data-end="};">
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428">    4</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code hl_enumeration" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428">AppState</a> {</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a76bdc8adfd6c6463ab269ff4c06be9b4">    5</a></span>    <a class="code hl_enumvalue" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a76bdc8adfd6c6463ab269ff4c06be9b4">QUIT</a> = 0, <span class="comment">// 0</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428ac678338caea29d77d56be2ea56325610">    6</a></span>    <a class="code hl_enumvalue" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428ac678338caea29d77d56be2ea56325610">SETTINGS</a>, <span class="comment">// 1</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a4c40e60bc71a32b924ce1f08d57f9721">    7</a></span>    <a class="code hl_enumvalue" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a4c40e60bc71a32b924ce1f08d57f9721">MENU</a>, <span class="comment">// 2</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428ad50cf309d7568040619ed26ee6835a84">    8</a></span>    <a class="code hl_enumvalue" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428ad50cf309d7568040619ed26ee6835a84">GAME</a>,  <span class="comment">// 3</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a7d66b8866cc7667b15bb0ac8a7e62f4a">    9</a></span>    <a class="code hl_enumvalue" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a7d66b8866cc7667b15bb0ac8a7e62f4a">NEWGAME</a>,  <span class="comment">// 4</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a8ea08ca82a0d1952666e6b27cc459795">   10</a></span>    <a class="code hl_enumvalue" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a8ea08ca82a0d1952666e6b27cc459795">LOADGAME</a>, <span class="comment">// 5</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a42325efb02e5d8c573c338df4378367d">   11</a></span>    <a class="code hl_enumvalue" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a42325efb02e5d8c573c338df4378367d">ICMONS</a>, <span class="comment">// 6</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a5efa5610d5a2c5e9123d6894dd72e335">   12</a></span>    <a class="code hl_enumvalue" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a5efa5610d5a2c5e9123d6894dd72e335">INTER</a>, <span class="comment">// 7</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a56b36d0d0bb01b339cf1041adc08e262">   13</a></span>    <a class="code hl_enumvalue" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a56b36d0d0bb01b339cf1041adc08e262">PAUSE</a>, <span class="comment">// 8</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d9/ded/Utils_8h.html#af18642bfb6229ca25b25c60e12cffa6c">   14</a></span>} <a class="code hl_enumeration" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428">AppState</a>;</div>
+</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#endif </span><span class="comment">/* UTILS_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aUtils_8h_html_a83fc559664fc7c7e310c93586457b428"><div class="ttname"><a href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428">AppState</a></div><div class="ttdeci">AppState</div><div class="ttdef"><b>Definition</b> Utils.h:4</div></div>
+<div class="ttc" id="aUtils_8h_html_a83fc559664fc7c7e310c93586457b428a42325efb02e5d8c573c338df4378367d"><div class="ttname"><a href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a42325efb02e5d8c573c338df4378367d">ICMONS</a></div><div class="ttdeci">@ ICMONS</div><div class="ttdef"><b>Definition</b> Utils.h:11</div></div>
+<div class="ttc" id="aUtils_8h_html_a83fc559664fc7c7e310c93586457b428a4c40e60bc71a32b924ce1f08d57f9721"><div class="ttname"><a href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a4c40e60bc71a32b924ce1f08d57f9721">MENU</a></div><div class="ttdeci">@ MENU</div><div class="ttdef"><b>Definition</b> Utils.h:7</div></div>
+<div class="ttc" id="aUtils_8h_html_a83fc559664fc7c7e310c93586457b428a56b36d0d0bb01b339cf1041adc08e262"><div class="ttname"><a href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a56b36d0d0bb01b339cf1041adc08e262">PAUSE</a></div><div class="ttdeci">@ PAUSE</div><div class="ttdef"><b>Definition</b> Utils.h:13</div></div>
+<div class="ttc" id="aUtils_8h_html_a83fc559664fc7c7e310c93586457b428a5efa5610d5a2c5e9123d6894dd72e335"><div class="ttname"><a href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a5efa5610d5a2c5e9123d6894dd72e335">INTER</a></div><div class="ttdeci">@ INTER</div><div class="ttdef"><b>Definition</b> Utils.h:12</div></div>
+<div class="ttc" id="aUtils_8h_html_a83fc559664fc7c7e310c93586457b428a76bdc8adfd6c6463ab269ff4c06be9b4"><div class="ttname"><a href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a76bdc8adfd6c6463ab269ff4c06be9b4">QUIT</a></div><div class="ttdeci">@ QUIT</div><div class="ttdef"><b>Definition</b> Utils.h:5</div></div>
+<div class="ttc" id="aUtils_8h_html_a83fc559664fc7c7e310c93586457b428a7d66b8866cc7667b15bb0ac8a7e62f4a"><div class="ttname"><a href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a7d66b8866cc7667b15bb0ac8a7e62f4a">NEWGAME</a></div><div class="ttdeci">@ NEWGAME</div><div class="ttdef"><b>Definition</b> Utils.h:9</div></div>
+<div class="ttc" id="aUtils_8h_html_a83fc559664fc7c7e310c93586457b428a8ea08ca82a0d1952666e6b27cc459795"><div class="ttname"><a href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a8ea08ca82a0d1952666e6b27cc459795">LOADGAME</a></div><div class="ttdeci">@ LOADGAME</div><div class="ttdef"><b>Definition</b> Utils.h:10</div></div>
+<div class="ttc" id="aUtils_8h_html_a83fc559664fc7c7e310c93586457b428ac678338caea29d77d56be2ea56325610"><div class="ttname"><a href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428ac678338caea29d77d56be2ea56325610">SETTINGS</a></div><div class="ttdeci">@ SETTINGS</div><div class="ttdef"><b>Definition</b> Utils.h:6</div></div>
+<div class="ttc" id="aUtils_8h_html_a83fc559664fc7c7e310c93586457b428ad50cf309d7568040619ed26ee6835a84"><div class="ttname"><a href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428ad50cf309d7568040619ed26ee6835a84">GAME</a></div><div class="ttdeci">@ GAME</div><div class="ttdef"><b>Definition</b> Utils.h:8</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

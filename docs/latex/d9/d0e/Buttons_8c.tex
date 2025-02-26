@@ -1,0 +1,398 @@
+\doxysection{Référence du fichier src/\+Buttons.c}
+\hypertarget{Buttons_8c}{}\label{Buttons_8c}\index{src/Buttons.c@{src/Buttons.c}}
+{\ttfamily \#include "{}../include/\+Buttons.\+h"{}}\newline
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Graphe des dépendances par inclusion de Buttons.\+c\+:
+% FIG 0
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Buttons_8c_a53d64ae5037fd74d0de80f678ab1e518}{create\+Button}} (char \texorpdfstring{$\ast$}{*}text, \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, int x, int y, int w, int h, SDL\+\_\+\+Color color, SDL\+\_\+\+Color textcolor, void(\texorpdfstring{$\ast$}{*}on\+Click)(\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}), void \texorpdfstring{$\ast$}{*}data, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font)
+\begin{DoxyCompactList}\small\item\em Creates and returns a new \doxylink{structButton}{Button} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Buttons_8c_a35aed4a2d403e0d35ea6f353e9e318f8}{destroy\+Button}} (\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}button)
+\begin{DoxyCompactList}\small\item\em Performs the specified action for the given button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Buttons_8c_ae76e871e4375b26d06e1e703325002ad}{add\+List\+Button}} (\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}list, \mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buttons, int count)
+\begin{DoxyCompactList}\small\item\em Processes the provided list of button structures. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Buttons_8c_a6f2d10aaa75aec651d944a49824dfaca}{destroy\+Button\+List}} (\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}list)
+\begin{DoxyCompactList}\small\item\em Processes the specified list of items. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Buttons_8c_a3c5543de3f97098d0098510de08e7dcd}{Init\+Texture\+Button}} (\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}button, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const char \texorpdfstring{$\ast$}{*}image\+Path)
+\begin{DoxyCompactList}\small\item\em Initializes a button with the specified image and associates it with the given renderer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Buttons_8c_a73fede4267ce18db513f7ea5e430cdca}{render\+Button\+List}} (\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}B)
+\begin{DoxyCompactList}\small\item\em Brief description of the function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Buttons_8c_ad346eafe3f2839d87b9851e36f497040}{render\+Button}} (\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}button)
+\begin{DoxyCompactList}\small\item\em Processes the specified button action. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Buttons_8c_ad1f08565a6d9a8c92fc8f2c752b8e915}{Button\+Clicked}} (\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}button, int mouseX, int mouseY, \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
+\begin{DoxyCompactList}\small\item\em Processes button interaction given the current mouse position and window context. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Buttons_8c_a604a2e476e66033908fc016c70138aac}{update\+Button\+Position}} (\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}buttons, float Scalex, float Scaley)
+\begin{DoxyCompactList}\small\item\em Updates button states and applies scaling factors to the user interface elements. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Buttons_8c_a46d3f067fb44669bc3438b8030823799}{set\+Button\+Text}} (\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}button, const char \texorpdfstring{$\ast$}{*}text, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\begin{DoxyCompactList}\small\item\em Renders a button with the specified text. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Buttons_8c_a38653592fe2d409f3a7a620a1d6de080}{create\+Slider}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, int x, int y, int w, int h, SDL\+\_\+\+Color color, SDL\+\_\+\+Color cursor\+Color)
+\begin{DoxyCompactList}\small\item\em Create a \doxylink{structSlider}{Slider} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Buttons_8c_afa394eaa634219089d84e0d91e3a6345}{destroy\+Slider}} (\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}slider)
+\item 
+void \mbox{\hyperlink{Buttons_8c_abcb6effb395215a5c8d11247edfcaaf2}{destroy\+Slider\+List}} (\mbox{\hyperlink{structSliderList}{Slider\+List}} \texorpdfstring{$\ast$}{*}list)
+\begin{DoxyCompactList}\small\item\em Processes a list of button events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Buttons_8c_ab4f0f8d2f09eef09c6ba3cadb1f66f5c}{add\+List\+Slider}} (\mbox{\hyperlink{structSliderList}{Slider\+List}} \texorpdfstring{$\ast$}{*}S, \mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}sliders\mbox{[}$\,$\mbox{]}, int size)
+\begin{DoxyCompactList}\small\item\em Processes the button inputs and updates the sliders accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Buttons_8c_a160b73f6e05ac0b81b4fd57a404393f0}{render\+Slider\+List}} (\mbox{\hyperlink{structSliderList}{Slider\+List}} \texorpdfstring{$\ast$}{*}S)
+\begin{DoxyCompactList}\small\item\em Handles button press events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Buttons_8c_a36eeecc07a5e96684859833ad0986c4a}{render\+Slider}} (\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}slider)
+\begin{DoxyCompactList}\small\item\em Handles the button press events. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Buttons_8c_ab2651492b9cdec9f58253f8ba23f25f5}{handle\+Slider\+Event}} (\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}slider, int x, int y)
+\begin{DoxyCompactList}\small\item\em Handles the button press event. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Buttons_8c_a109411bd394d38718374d0b1fde9a020}{update\+Slider\+Position}} (\mbox{\hyperlink{structSliderList}{Slider\+List}} \texorpdfstring{$\ast$}{*}sliders, float Scalex, float Scaley)
+\begin{DoxyCompactList}\small\item\em Update the position of the sliders based on the mouse\textquotesingle{}s X and Y coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{Buttons_8c_ae76e871e4375b26d06e1e703325002ad}\label{Buttons_8c_ae76e871e4375b26d06e1e703325002ad} 
+\index{Buttons.c@{Buttons.c}!addListButton@{addListButton}}
+\index{addListButton@{addListButton}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{addListButton()}{addListButton()}}
+{\footnotesize\ttfamily void add\+List\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}}]{list,  }\item[{\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buttons,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+
+
+Processes the provided list of button structures. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em list} & Pointer to the data structure that accumulates button states. \\
+\hline
+{\em buttons} & Pointer to the array of button information to be processed. \\
+\hline
+{\em count} & Number of buttons within the provided array. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Buttons_8c_ab4f0f8d2f09eef09c6ba3cadb1f66f5c}\label{Buttons_8c_ab4f0f8d2f09eef09c6ba3cadb1f66f5c} 
+\index{Buttons.c@{Buttons.c}!addListSlider@{addListSlider}}
+\index{addListSlider@{addListSlider}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{addListSlider()}{addListSlider()}}
+{\footnotesize\ttfamily void add\+List\+Slider (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSliderList}{Slider\+List}} \texorpdfstring{$\ast$}{*}}]{S,  }\item[{\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}}]{sliders\mbox{[}$\,$\mbox{]},  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Processes the button inputs and updates the sliders accordingly. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em S} & A pointer to the structure containing the button states. \\
+\hline
+{\em sliders} & An array of slider values to be updated based on button inputs. \\
+\hline
+{\em size} & The number of sliders in the array. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Buttons_8c_ad1f08565a6d9a8c92fc8f2c752b8e915}\label{Buttons_8c_ad1f08565a6d9a8c92fc8f2c752b8e915} 
+\index{Buttons.c@{Buttons.c}!ButtonClicked@{ButtonClicked}}
+\index{ButtonClicked@{ButtonClicked}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{ButtonClicked()}{ButtonClicked()}}
+{\footnotesize\ttfamily void Button\+Clicked (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}}]{button,  }\item[{int}]{mouseX,  }\item[{int}]{mouseY,  }\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+
+
+
+Processes button interaction given the current mouse position and window context. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & The identifier or reference to the button being interacted with. \\
+\hline
+{\em mouseX} & The x-\/coordinate of the mouse pointer. \\
+\hline
+{\em mouseY} & The y-\/coordinate of the mouse pointer. \\
+\hline
+{\em win} & The window or graphical context in which the interaction occurs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+A status or boolean indicating whether the interaction was handled successfully. 
+\end{DoxyReturn}
+\Hypertarget{Buttons_8c_a53d64ae5037fd74d0de80f678ab1e518}\label{Buttons_8c_a53d64ae5037fd74d0de80f678ab1e518} 
+\index{Buttons.c@{Buttons.c}!createButton@{createButton}}
+\index{createButton@{createButton}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{createButton()}{createButton()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*} create\+Button (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{text,  }\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h,  }\item[{SDL\+\_\+\+Color}]{color,  }\item[{SDL\+\_\+\+Color}]{textcolor,  }\item[{void(\texorpdfstring{$\ast$}{*})(\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})}]{on\+Click,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{font }\end{DoxyParamCaption})}
+
+
+
+Creates and returns a new \doxylink{structButton}{Button} object. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em text} & The text displayed on the button \\
+\hline
+{\em win} & The window where the button will appear \\
+\hline
+{\em x} & The x-\/coordinate (top-\/left corner) of the button \\
+\hline
+{\em y} & The y-\/coordinate (top-\/left corner) of the button \\
+\hline
+{\em w} & The width of the button \\
+\hline
+{\em h} & The height of the button \\
+\hline
+{\em color} & The background color of the button \\
+\hline
+{\em textcolor} & The color to use for the button text \\
+\hline
+{\em on\+Click} & The callback function called when the button is clicked \\
+\hline
+{\em data} & The user-\/defined data passed to the callback \\
+\hline
+{\em font} & The font used to draw the button text\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+A pointer to the newly created \doxylink{structButton}{Button} object 
+\end{DoxyReturn}
+\Hypertarget{Buttons_8c_a38653592fe2d409f3a7a620a1d6de080}\label{Buttons_8c_a38653592fe2d409f3a7a620a1d6de080} 
+\index{Buttons.c@{Buttons.c}!createSlider@{createSlider}}
+\index{createSlider@{createSlider}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{createSlider()}{createSlider()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*} create\+Slider (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h,  }\item[{SDL\+\_\+\+Color}]{color,  }\item[{SDL\+\_\+\+Color}]{cursor\+Color }\end{DoxyParamCaption})}
+
+
+
+Create a \doxylink{structSlider}{Slider} object. 
+
+This function initializes a new \doxylink{structSlider}{Slider} object with the specified parameters.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & The SDL\+\_\+\+Renderer to use for rendering the slider. \\
+\hline
+{\em x} & The x-\/coordinate of the slider\textquotesingle{}s position. \\
+\hline
+{\em y} & The y-\/coordinate of the slider\textquotesingle{}s position. \\
+\hline
+{\em w} & The width of the slider. \\
+\hline
+{\em h} & The height of the slider. \\
+\hline
+{\em color} & The color of the slider. \\
+\hline
+{\em cursor\+Color} & The color of the slider\textquotesingle{}s cursor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Slider\texorpdfstring{$\ast$}{*} A pointer to the newly created \doxylink{structSlider}{Slider} object. 
+\end{DoxyReturn}
+\Hypertarget{Buttons_8c_a35aed4a2d403e0d35ea6f353e9e318f8}\label{Buttons_8c_a35aed4a2d403e0d35ea6f353e9e318f8} 
+\index{Buttons.c@{Buttons.c}!destroyButton@{destroyButton}}
+\index{destroyButton@{destroyButton}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{destroyButton()}{destroyButton()}}
+{\footnotesize\ttfamily void destroy\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}}]{button }\end{DoxyParamCaption})}
+
+
+
+Performs the specified action for the given button. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & Identifier of the button to act upon. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Buttons_8c_a6f2d10aaa75aec651d944a49824dfaca}\label{Buttons_8c_a6f2d10aaa75aec651d944a49824dfaca} 
+\index{Buttons.c@{Buttons.c}!destroyButtonList@{destroyButtonList}}
+\index{destroyButtonList@{destroyButtonList}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{destroyButtonList()}{destroyButtonList()}}
+{\footnotesize\ttfamily void destroy\+Button\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}}]{list }\end{DoxyParamCaption})}
+
+
+
+Processes the specified list of items. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em list} & A pointer or reference to the list of items to be processed. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Buttons_8c_afa394eaa634219089d84e0d91e3a6345}\label{Buttons_8c_afa394eaa634219089d84e0d91e3a6345} 
+\index{Buttons.c@{Buttons.c}!destroySlider@{destroySlider}}
+\index{destroySlider@{destroySlider}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{destroySlider()}{destroySlider()}}
+{\footnotesize\ttfamily void destroy\+Slider (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}}]{slider }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em slider} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Buttons_8c_abcb6effb395215a5c8d11247edfcaaf2}\label{Buttons_8c_abcb6effb395215a5c8d11247edfcaaf2} 
+\index{Buttons.c@{Buttons.c}!destroySliderList@{destroySliderList}}
+\index{destroySliderList@{destroySliderList}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{destroySliderList()}{destroySliderList()}}
+{\footnotesize\ttfamily void destroy\+Slider\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSliderList}{Slider\+List}} \texorpdfstring{$\ast$}{*}}]{list }\end{DoxyParamCaption})}
+
+
+
+Processes a list of button events. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em list} & A pointer to the list of button events to be processed. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Buttons_8c_ab2651492b9cdec9f58253f8ba23f25f5}\label{Buttons_8c_ab2651492b9cdec9f58253f8ba23f25f5} 
+\index{Buttons.c@{Buttons.c}!handleSliderEvent@{handleSliderEvent}}
+\index{handleSliderEvent@{handleSliderEvent}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{handleSliderEvent()}{handleSliderEvent()}}
+{\footnotesize\ttfamily int handle\+Slider\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}}]{slider,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Handles the button press event. 
+
+This function processes the button press event based on the given slider and coordinates.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em slider} & The slider value associated with the button press. \\
+\hline
+{\em x} & The x-\/coordinate of the button press. \\
+\hline
+{\em y} & The y-\/coordinate of the button press. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int Returns 0 on success, or an error code on failure. 
+\end{DoxyReturn}
+\Hypertarget{Buttons_8c_a3c5543de3f97098d0098510de08e7dcd}\label{Buttons_8c_a3c5543de3f97098d0098510de08e7dcd} 
+\index{Buttons.c@{Buttons.c}!InitTextureButton@{InitTextureButton}}
+\index{InitTextureButton@{InitTextureButton}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{InitTextureButton()}{InitTextureButton()}}
+{\footnotesize\ttfamily void Init\+Texture\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}}]{button,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{image\+Path }\end{DoxyParamCaption})}
+
+
+
+Initializes a button with the specified image and associates it with the given renderer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & Pointer to the button structure to be initialized. \\
+\hline
+{\em renderer} & Pointer to the renderer used for drawing the button. \\
+\hline
+{\em image\+Path} & File path to the image resource for the button. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Buttons_8c_ad346eafe3f2839d87b9851e36f497040}\label{Buttons_8c_ad346eafe3f2839d87b9851e36f497040} 
+\index{Buttons.c@{Buttons.c}!renderButton@{renderButton}}
+\index{renderButton@{renderButton}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{renderButton()}{renderButton()}}
+{\footnotesize\ttfamily void render\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}}]{button }\end{DoxyParamCaption})}
+
+
+
+Processes the specified button action. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & The identifier of the button to process. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Buttons_8c_a73fede4267ce18db513f7ea5e430cdca}\label{Buttons_8c_a73fede4267ce18db513f7ea5e430cdca} 
+\index{Buttons.c@{Buttons.c}!renderButtonList@{renderButtonList}}
+\index{renderButtonList@{renderButtonList}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{renderButtonList()}{renderButtonList()}}
+{\footnotesize\ttfamily void render\+Button\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}}]{B }\end{DoxyParamCaption})}
+
+
+
+Brief description of the function. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em B} & Description of the input parameter. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Buttons_8c_a36eeecc07a5e96684859833ad0986c4a}\label{Buttons_8c_a36eeecc07a5e96684859833ad0986c4a} 
+\index{Buttons.c@{Buttons.c}!renderSlider@{renderSlider}}
+\index{renderSlider@{renderSlider}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{renderSlider()}{renderSlider()}}
+{\footnotesize\ttfamily void render\+Slider (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}}]{slider }\end{DoxyParamCaption})}
+
+
+
+Handles the button press events. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em slider} & A pointer to the slider object that the button interacts with. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Buttons_8c_a160b73f6e05ac0b81b4fd57a404393f0}\label{Buttons_8c_a160b73f6e05ac0b81b4fd57a404393f0} 
+\index{Buttons.c@{Buttons.c}!renderSliderList@{renderSliderList}}
+\index{renderSliderList@{renderSliderList}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{renderSliderList()}{renderSliderList()}}
+{\footnotesize\ttfamily void render\+Slider\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSliderList}{Slider\+List}} \texorpdfstring{$\ast$}{*}}]{S }\end{DoxyParamCaption})}
+
+
+
+Handles button press events. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em S} & The state of the buttons. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Buttons_8c_a46d3f067fb44669bc3438b8030823799}\label{Buttons_8c_a46d3f067fb44669bc3438b8030823799} 
+\index{Buttons.c@{Buttons.c}!setButtonText@{setButtonText}}
+\index{setButtonText@{setButtonText}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{setButtonText()}{setButtonText()}}
+{\footnotesize\ttfamily void set\+Button\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}}]{button,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{text,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Renders a button with the specified text. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & The button to render. \\
+\hline
+{\em text} & The text to display on the button. \\
+\hline
+{\em renderer} & The renderer to use for drawing the button. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Buttons_8c_a604a2e476e66033908fc016c70138aac}\label{Buttons_8c_a604a2e476e66033908fc016c70138aac} 
+\index{Buttons.c@{Buttons.c}!updateButtonPosition@{updateButtonPosition}}
+\index{updateButtonPosition@{updateButtonPosition}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{updateButtonPosition()}{updateButtonPosition()}}
+{\footnotesize\ttfamily void update\+Button\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}}]{buttons,  }\item[{float}]{Scalex,  }\item[{float}]{Scaley }\end{DoxyParamCaption})}
+
+
+
+Updates button states and applies scaling factors to the user interface elements. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em buttons} & A structure or collection representing the buttons to be managed or updated. \\
+\hline
+{\em Scalex} & The horizontal scaling factor to apply. \\
+\hline
+{\em Scaley} & The vertical scaling factor to apply. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Buttons_8c_a109411bd394d38718374d0b1fde9a020}\label{Buttons_8c_a109411bd394d38718374d0b1fde9a020} 
+\index{Buttons.c@{Buttons.c}!updateSliderPosition@{updateSliderPosition}}
+\index{updateSliderPosition@{updateSliderPosition}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{updateSliderPosition()}{updateSliderPosition()}}
+{\footnotesize\ttfamily void update\+Slider\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSliderList}{Slider\+List}} \texorpdfstring{$\ast$}{*}}]{sliders,  }\item[{float}]{Scalex,  }\item[{float}]{Scaley }\end{DoxyParamCaption})}
+
+
+
+Update the position of the sliders based on the mouse\textquotesingle{}s X and Y coordinates. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sliders} & A pointer to the structure containing the sliders to be updated. \\
+\hline
+{\em Scalex} & Scale factor for the horizontal axis. \\
+\hline
+{\em Scaley} & Scale factor for the vertical axis. \\
+\hline
+\end{DoxyParams}

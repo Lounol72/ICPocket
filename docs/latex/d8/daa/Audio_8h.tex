@@ -1,0 +1,60 @@
+\doxysection{Référence du fichier include/\+Audio.h}
+\hypertarget{Audio_8h}{}\label{Audio_8h}\index{include/Audio.h@{include/Audio.h}}
+{\ttfamily \#include "{}Log.\+h"{}}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+Graphe des dépendances par inclusion de Audio.\+h\+:
+% FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Audio_8h_adebb5f0699c0e5707af99a22c23d6fe2}{AUDIO\+\_\+\+FREQ}}~44100
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Audio_8h_ab74d84d6d4c90b2b18669590af038a07}{init\+Audio}} ()
+\begin{DoxyCompactList}\small\item\em Initialise l\textquotesingle{}audio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Audio_8h_a442ac79688294b67c76dbe10c87e1383}{load\+Music}} (Mix\+\_\+\+Music \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}music, const char \texorpdfstring{$\ast$}{*}music\+Path)
+\begin{DoxyCompactList}\small\item\em Charge la musique. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{Audio_8h_adebb5f0699c0e5707af99a22c23d6fe2}\label{Audio_8h_adebb5f0699c0e5707af99a22c23d6fe2} 
+\index{Audio.h@{Audio.h}!AUDIO\_FREQ@{AUDIO\_FREQ}}
+\index{AUDIO\_FREQ@{AUDIO\_FREQ}!Audio.h@{Audio.h}}
+\doxysubsubsection{\texorpdfstring{AUDIO\_FREQ}{AUDIO\_FREQ}}
+{\footnotesize\ttfamily \#define AUDIO\+\_\+\+FREQ~44100}
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{Audio_8h_ab74d84d6d4c90b2b18669590af038a07}\label{Audio_8h_ab74d84d6d4c90b2b18669590af038a07} 
+\index{Audio.h@{Audio.h}!initAudio@{initAudio}}
+\index{initAudio@{initAudio}!Audio.h@{Audio.h}}
+\doxysubsubsection{\texorpdfstring{initAudio()}{initAudio()}}
+{\footnotesize\ttfamily void init\+Audio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialise l\textquotesingle{}audio. 
+
+\Hypertarget{Audio_8h_a442ac79688294b67c76dbe10c87e1383}\label{Audio_8h_a442ac79688294b67c76dbe10c87e1383} 
+\index{Audio.h@{Audio.h}!loadMusic@{loadMusic}}
+\index{loadMusic@{loadMusic}!Audio.h@{Audio.h}}
+\doxysubsubsection{\texorpdfstring{loadMusic()}{loadMusic()}}
+{\footnotesize\ttfamily void load\+Music (\begin{DoxyParamCaption}\item[{Mix\+\_\+\+Music \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{music,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{music\+Path }\end{DoxyParamCaption})}
+
+
+
+Charge la musique. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em music} & Pointeur vers la musique à charger \\
+\hline
+{\em music\+Path} & Chemin de la musique à charger \\
+\hline
+\end{DoxyParams}

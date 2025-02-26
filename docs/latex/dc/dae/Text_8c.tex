@@ -1,0 +1,68 @@
+\doxysection{Référence du fichier src/\+Text.c}
+\hypertarget{Text_8c}{}\label{Text_8c}\index{src/Text.c@{src/Text.c}}
+{\ttfamily \#include "{}../include/\+Text.\+h"{}}\newline
+{\ttfamily \#include "{}../include/\+Window.\+h"{}}\newline
+Graphe des dépendances par inclusion de Text.\+c\+:
+% FIG 0
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Text_8c_af5e6443549548b45c6ea809665001cd0}{init\+Text}} (struct \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
+\item 
+\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Text_8c_a1311acdef7d344c53fe43c83769610e9}{create\+Text}} (const char \texorpdfstring{$\ast$}{*}text, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Rect rect, SDL\+\_\+\+Color color, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font)
+\item 
+void \mbox{\hyperlink{Text_8c_a452ccfba136e1b799b2f51cc82e66638}{destroy\+Text}} (\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}text)
+\item 
+void \mbox{\hyperlink{Text_8c_a279a58d3ade7f4395fb329895f439ba0}{render\+Text}} (struct \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}text)
+\item 
+void \mbox{\hyperlink{Text_8c_aa873f47f05aa894283bed1c93b836b09}{update\+Text}} (\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}text, const char \texorpdfstring{$\ast$}{*}new\+Text, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\item 
+void \mbox{\hyperlink{Text_8c_a015ae8ec886baef9970798a86f682b27}{update\+Text\+Position}} (\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}text, float scaleX, float scaleY)
+\item 
+void \mbox{\hyperlink{Text_8c_ad2c3f488e42d303d4d334936535dcf62}{change\+Text\+Speed}} (struct \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{Text_8c_ad2c3f488e42d303d4d334936535dcf62}\label{Text_8c_ad2c3f488e42d303d4d334936535dcf62} 
+\index{Text.c@{Text.c}!changeTextSpeed@{changeTextSpeed}}
+\index{changeTextSpeed@{changeTextSpeed}!Text.c@{Text.c}}
+\doxysubsubsection{\texorpdfstring{changeTextSpeed()}{changeTextSpeed()}}
+{\footnotesize\ttfamily void change\+Text\+Speed (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+\Hypertarget{Text_8c_a1311acdef7d344c53fe43c83769610e9}\label{Text_8c_a1311acdef7d344c53fe43c83769610e9} 
+\index{Text.c@{Text.c}!createText@{createText}}
+\index{createText@{createText}!Text.c@{Text.c}}
+\doxysubsubsection{\texorpdfstring{createText()}{createText()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*} create\+Text (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{text,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Rect}]{rect,  }\item[{SDL\+\_\+\+Color}]{color,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{font }\end{DoxyParamCaption})}
+
+\Hypertarget{Text_8c_a452ccfba136e1b799b2f51cc82e66638}\label{Text_8c_a452ccfba136e1b799b2f51cc82e66638} 
+\index{Text.c@{Text.c}!destroyText@{destroyText}}
+\index{destroyText@{destroyText}!Text.c@{Text.c}}
+\doxysubsubsection{\texorpdfstring{destroyText()}{destroyText()}}
+{\footnotesize\ttfamily void destroy\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}}]{text }\end{DoxyParamCaption})}
+
+\Hypertarget{Text_8c_af5e6443549548b45c6ea809665001cd0}\label{Text_8c_af5e6443549548b45c6ea809665001cd0} 
+\index{Text.c@{Text.c}!initText@{initText}}
+\index{initText@{initText}!Text.c@{Text.c}}
+\doxysubsubsection{\texorpdfstring{initText()}{initText()}}
+{\footnotesize\ttfamily void init\+Text (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+
+\Hypertarget{Text_8c_a279a58d3ade7f4395fb329895f439ba0}\label{Text_8c_a279a58d3ade7f4395fb329895f439ba0} 
+\index{Text.c@{Text.c}!renderText@{renderText}}
+\index{renderText@{renderText}!Text.c@{Text.c}}
+\doxysubsubsection{\texorpdfstring{renderText()}{renderText()}}
+{\footnotesize\ttfamily void render\+Text (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}}]{text }\end{DoxyParamCaption})}
+
+\Hypertarget{Text_8c_aa873f47f05aa894283bed1c93b836b09}\label{Text_8c_aa873f47f05aa894283bed1c93b836b09} 
+\index{Text.c@{Text.c}!updateText@{updateText}}
+\index{updateText@{updateText}!Text.c@{Text.c}}
+\doxysubsubsection{\texorpdfstring{updateText()}{updateText()}}
+{\footnotesize\ttfamily void update\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}}]{text,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{new\+Text,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
+
+\Hypertarget{Text_8c_a015ae8ec886baef9970798a86f682b27}\label{Text_8c_a015ae8ec886baef9970798a86f682b27} 
+\index{Text.c@{Text.c}!updateTextPosition@{updateTextPosition}}
+\index{updateTextPosition@{updateTextPosition}!Text.c@{Text.c}}
+\doxysubsubsection{\texorpdfstring{updateTextPosition()}{updateTextPosition()}}
+{\footnotesize\ttfamily void update\+Text\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}}]{text,  }\item[{float}]{scaleX,  }\item[{float}]{scaleY }\end{DoxyParamCaption})}
+

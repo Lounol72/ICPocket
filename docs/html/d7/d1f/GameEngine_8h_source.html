@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ICPocket:  Fichier source de include/GameEngine.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ICPocket
+   </div>
+   <div id="projectbrief">A Pokemon like game</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">GameEngine.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d7/d1f/GameEngine_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef GAMEENGINE_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define GAMEENGINE_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;SDL2/SDL_mixer.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;SDL2/SDL_gamecontroller.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/d45/Log_8h.html">Log.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/daa/Audio_8h.html">Audio.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d70/Buttons_8h.html">Buttons.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d71/structPoke_8h.html">structPoke.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d8e/duel_8h.html">duel.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d27/trainerAI_8h.html">trainerAI.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/d5e/save_8h.html">save.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d1d/interDuel_8h.html">interDuel.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/ded/Utils_8h.html">Utils.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d35/Text_8h.html">Text.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/ded/Window_8h.html">Window.h</a>&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d79/Map_8h.html">Map.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">/* ------------- Structs ------------- */</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/* UI element container, referencing the ButtonList &amp; SliderList defined in Buttons.h */</span></div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d8/de4/structUI__Elements.html">   27</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d8/de4/structUI__Elements.html#adc0dba6f531b96dd74bf79d66c24fb84">   28</a></span>    <a class="code hl_struct" href="../../da/db4/structButtonList.html">ButtonList</a> *<a class="code hl_variable" href="../../d8/de4/structUI__Elements.html#adc0dba6f531b96dd74bf79d66c24fb84">buttons</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d8/de4/structUI__Elements.html#a81dd7be9de23fa9878fe34cdef448ce7">   29</a></span>    <a class="code hl_struct" href="../../db/d53/structSliderList.html">SliderList</a> *<a class="code hl_variable" href="../../d8/de4/structUI__Elements.html#a81dd7be9de23fa9878fe34cdef448ce7">sliders</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d8/de4/structUI__Elements.html#acb53ca49376987c102feddfe35fb52b4">   30</a></span>    SDL_Texture *<a class="code hl_variable" href="../../d8/de4/structUI__Elements.html#acb53ca49376987c102feddfe35fb52b4">background</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>} <a class="code hl_struct" href="../../d8/de4/structUI__Elements.html">UI_Elements</a>;</div>
+</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">/* Battle data (assuming t_Team is defined in structPoke.h or similar) */</span></div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d2/d52/structBattleState.html">   34</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d2/d52/structBattleState.html#abd7c28f22ad6901f0b4a4128798d48d8">   35</a></span>    <a class="code hl_struct" href="../../da/d63/structt__Team.html">t_Team</a> <a class="code hl_variable" href="../../d2/d52/structBattleState.html#abd7c28f22ad6901f0b4a4128798d48d8">rouge</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d2/d52/structBattleState.html#abafeca3c7481e25cccd09cfe2e5fe250">   36</a></span>    <a class="code hl_struct" href="../../da/d63/structt__Team.html">t_Team</a> <a class="code hl_variable" href="../../d2/d52/structBattleState.html#abafeca3c7481e25cccd09cfe2e5fe250">bleu</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d2/d52/structBattleState.html#af2211c8d64aae65a70184ebacf5de475">   37</a></span>    <a class="code hl_struct" href="../../d5/d48/structAI.html">t_AI</a> <a class="code hl_variable" href="../../d2/d52/structBattleState.html#af2211c8d64aae65a70184ebacf5de475">ia</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>} <a class="code hl_struct" href="../../d2/d52/structBattleState.html">BattleState</a>;</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">/* General game state info */</span></div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../d2/d3d/structGameState.html">   41</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../d2/d3d/structGameState.html#a52a85cc148348dad5cf3e5c9c106d59f">   42</a></span>    Mix_Music *<a class="code hl_variable" href="../../d2/d3d/structGameState.html#a52a85cc148348dad5cf3e5c9c106d59f">music</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d2/d3d/structGameState.html#ab59b804acb3666c52c22d51d6dd0fa06">   43</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d2/d3d/structGameState.html#ab59b804acb3666c52c22d51d6dd0fa06">playerTurn</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d2/d3d/structGameState.html#a2c4f9e46c2e120ee9e7245ece5a3bf44">   44</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d2/d3d/structGameState.html#a2c4f9e46c2e120ee9e7245ece5a3bf44">initialized</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d2/d3d/structGameState.html#a7aaeec31cfc3ac5268711c33896fe18f">   45</a></span>    <a class="code hl_enumeration" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428">AppState</a> <a class="code hl_variable" href="../../d2/d3d/structGameState.html#a7aaeec31cfc3ac5268711c33896fe18f">currentState</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>} <a class="code hl_struct" href="../../d2/d3d/structGameState.html">GameState</a>;</div>
+</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">/* Each state has a render function and an event handler. */</span></div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d3/daf/structStateHandler.html">   49</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../d3/daf/structStateHandler.html">StateHandler</a> {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d3/daf/structStateHandler.html#a1558caa96281f74de85e437b470b29b7">   50</a></span>    <a class="code hl_enumeration" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428">AppState</a> <a class="code hl_variable" href="../../d3/daf/structStateHandler.html#a1558caa96281f74de85e437b470b29b7">state</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d3/daf/structStateHandler.html#a5315c5e930efb62245d1d49338d142c3">   51</a></span>    void (*<a class="code hl_variable" href="../../d3/daf/structStateHandler.html#a5315c5e930efb62245d1d49338d142c3">handleEvent</a>)(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *, SDL_Event *);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../d7/d1f/GameEngine_8h.html#a5ab6a5b30161707f158cd5b051db5e7d">   52</a></span>} <a class="code hl_struct" href="../../d3/daf/structStateHandler.html">StateHandler</a>;</div>
+</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">/* Main Game struct that ties everything together */</span></div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="};">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../de/de9/structGame.html">   55</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../de/de9/structGame.html">Game</a> {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../de/de9/structGame.html#a1983960f961427e4f38cca321f7e34e3">   56</a></span>    <a class="code hl_struct" href="../../d8/de4/structUI__Elements.html">UI_Elements</a> *<a class="code hl_variable" href="../../de/de9/structGame.html#a1983960f961427e4f38cca321f7e34e3">ui</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../de/de9/structGame.html#a911428bfef2d00d5ece40210d3488fdb">   57</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../de/de9/structGame.html#a911428bfef2d00d5ece40210d3488fdb">nbMenu</a>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../de/de9/structGame.html#a26bdba7ef4c61fbc52e955bd928547b9">   58</a></span>    <a class="code hl_struct" href="../../d2/d52/structBattleState.html">BattleState</a> <a class="code hl_variable" href="../../de/de9/structGame.html#a26bdba7ef4c61fbc52e955bd928547b9">battleState</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../de/de9/structGame.html#a4573dd85e0711a78cc27eb0b51c79f44">   59</a></span>    <a class="code hl_struct" href="../../d2/d3d/structGameState.html">GameState</a> <a class="code hl_variable" href="../../de/de9/structGame.html#a4573dd85e0711a78cc27eb0b51c79f44">gameState</a>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../de/de9/structGame.html#a2de84fee9a0524573b36b51c1cd15039">   60</a></span>    <a class="code hl_struct" href="../../d3/daf/structStateHandler.html">StateHandler</a> *<a class="code hl_variable" href="../../de/de9/structGame.html#a2de84fee9a0524573b36b51c1cd15039">stateHandlers</a>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../de/de9/structGame.html#ad6d4967c8a2102963029b9db9dbc1b91">   61</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../de/de9/structGame.html#ad6d4967c8a2102963029b9db9dbc1b91">nbStates</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../de/de9/structGame.html#a1ab9219c52f831df72ec2bb42c56aa2b">   62</a></span>    <a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *<a class="code hl_variable" href="../../de/de9/structGame.html#a1ab9219c52f831df72ec2bb42c56aa2b">win</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../de/de9/structGame.html#ad40f89a1120708699357c341a9f56e4e">   63</a></span>    <span class="keywordtype">float</span> *<a class="code hl_variable" href="../../de/de9/structGame.html#ad40f89a1120708699357c341a9f56e4e">speeds</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../de/de9/structGame.html#abdcdb055424572d4d18a0758eaea2cf4">   64</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../de/de9/structGame.html#abdcdb055424572d4d18a0758eaea2cf4">FPS</a>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../de/de9/structGame.html#a57b1ff7ca0dabafbf59df1c64f00558a">   65</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../de/de9/structGame.html#a57b1ff7ca0dabafbf59df1c64f00558a">frameDelay</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../de/de9/structGame.html#ad806f8bf1f420ca7e83fa1075ba61014">   66</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../de/de9/structGame.html#ad806f8bf1f420ca7e83fa1075ba61014">frameStart</a>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../de/de9/structGame.html#aa4fe6f6f2becd7da426b5af03c0cda3e">   67</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../de/de9/structGame.html#aa4fe6f6f2becd7da426b5af03c0cda3e">newGameStartTime</a>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../de/de9/structGame.html#a1923324b49a0383e183d760ae84280aa">   68</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../de/de9/structGame.html#a1923324b49a0383e183d760ae84280aa">currentButton</a>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="../../de/de9/structGame.html#ae4bd951ed7cce7f1c9424f816e765b73">   69</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../de/de9/structGame.html#ae4bd951ed7cce7f1c9424f816e765b73">saved</a>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../d7/d1f/GameEngine_8h.html#a69b5df78d315f81ed77df30fdbfb7002">   70</a></span>} <a class="code hl_struct" href="../../de/de9/structGame.html">Game</a>;</div>
+</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d5f/Game_8h.html">Game.h</a>&quot;</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/dbb/Events_8h.html">Events.h</a>&quot;</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/d98/RenderICMons_8h.html">RenderICMons.h</a>&quot;</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">/* ------------- Function Prototypes ------------- */</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d1f/GameEngine_8h.html#ac7a261e0d935ffeeca4d7a0713913bd2">initAllButtons</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">/* Render */</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d1f/GameEngine_8h.html#adce05963537a78c4c589298117616864">render</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">/* Main loop */</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d1f/GameEngine_8h.html#ad119335fdbed767125510c855f2629ce">mainLoop</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">/* Attack button */</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d1f/GameEngine_8h.html#a8f8e57777ac436d2bfa2a87224c0eb8c">attqButtonClicked</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, <span class="keywordtype">void</span> *data);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">/* Generic state change button callback */</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d1f/GameEngine_8h.html#ae30f21d07d1066ecda7ed1097d584e6b">changeState</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, <span class="keywordtype">void</span> *data);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">/* Text-related updates for attacks */</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d1f/GameEngine_8h.html#aa9e620870df635719d54d19fd83bb423">updateICButtons</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, <a class="code hl_struct" href="../../da/d63/structt__Team.html">t_Team</a> *team);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d1f/GameEngine_8h.html#a275ae329d3830bface72c1c30db48b04">nextDuel</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a>* win, <span class="keywordtype">void</span> *data);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d1f/GameEngine_8h.html#aa35dc6fb12b09280f097e5781e5892e1">updateCurrentButton</a>();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d1f/GameEngine_8h.html#ae728be2d7ae42605618aa49e1a837466">updateMusic</a>();</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#endif </span><span class="comment">/* GAMEENGINE_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aAudio_8h_html"><div class="ttname"><a href="../../d8/daa/Audio_8h.html">Audio.h</a></div></div>
+<div class="ttc" id="aButtons_8h_html"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html">Buttons.h</a></div></div>
+<div class="ttc" id="aEvents_8h_html"><div class="ttname"><a href="../../d0/dbb/Events_8h.html">Events.h</a></div></div>
+<div class="ttc" id="aGameEngine_8h_html_a275ae329d3830bface72c1c30db48b04"><div class="ttname"><a href="../../d7/d1f/GameEngine_8h.html#a275ae329d3830bface72c1c30db48b04">nextDuel</a></div><div class="ttdeci">void nextDuel(Window *win, void *data)</div><div class="ttdef"><b>Definition</b> GameEngine.c:116</div></div>
+<div class="ttc" id="aGameEngine_8h_html_a8f8e57777ac436d2bfa2a87224c0eb8c"><div class="ttname"><a href="../../d7/d1f/GameEngine_8h.html#a8f8e57777ac436d2bfa2a87224c0eb8c">attqButtonClicked</a></div><div class="ttdeci">void attqButtonClicked(Window *win, void *data)</div><div class="ttdef"><b>Definition</b> GameEngine.c:80</div></div>
+<div class="ttc" id="aGameEngine_8h_html_aa35dc6fb12b09280f097e5781e5892e1"><div class="ttname"><a href="../../d7/d1f/GameEngine_8h.html#aa35dc6fb12b09280f097e5781e5892e1">updateCurrentButton</a></div><div class="ttdeci">void updateCurrentButton()</div><div class="ttdef"><b>Definition</b> GameEngine.c:422</div></div>
+<div class="ttc" id="aGameEngine_8h_html_aa9e620870df635719d54d19fd83bb423"><div class="ttname"><a href="../../d7/d1f/GameEngine_8h.html#aa9e620870df635719d54d19fd83bb423">updateICButtons</a></div><div class="ttdeci">void updateICButtons(Window *win, t_Team *team)</div><div class="ttdef"><b>Definition</b> GameEngine.c:404</div></div>
+<div class="ttc" id="aGameEngine_8h_html_ac7a261e0d935ffeeca4d7a0713913bd2"><div class="ttname"><a href="../../d7/d1f/GameEngine_8h.html#ac7a261e0d935ffeeca4d7a0713913bd2">initAllButtons</a></div><div class="ttdeci">void initAllButtons(Window *win)</div><div class="ttdef"><b>Definition</b> GameEngine.c:194</div></div>
+<div class="ttc" id="aGameEngine_8h_html_ad119335fdbed767125510c855f2629ce"><div class="ttname"><a href="../../d7/d1f/GameEngine_8h.html#ad119335fdbed767125510c855f2629ce">mainLoop</a></div><div class="ttdeci">void mainLoop(Window *win)</div><div class="ttdef"><b>Definition</b> GameEngine.c:126</div></div>
+<div class="ttc" id="aGameEngine_8h_html_adce05963537a78c4c589298117616864"><div class="ttname"><a href="../../d7/d1f/GameEngine_8h.html#adce05963537a78c4c589298117616864">render</a></div><div class="ttdeci">void render(Window *win)</div><div class="ttdef"><b>Definition</b> GameEngine.c:17</div></div>
+<div class="ttc" id="aGameEngine_8h_html_ae30f21d07d1066ecda7ed1097d584e6b"><div class="ttname"><a href="../../d7/d1f/GameEngine_8h.html#ae30f21d07d1066ecda7ed1097d584e6b">changeState</a></div><div class="ttdeci">void changeState(Window *win, void *data)</div><div class="ttdef"><b>Definition</b> GameEngine.c:45</div></div>
+<div class="ttc" id="aGameEngine_8h_html_ae728be2d7ae42605618aa49e1a837466"><div class="ttname"><a href="../../d7/d1f/GameEngine_8h.html#ae728be2d7ae42605618aa49e1a837466">updateMusic</a></div><div class="ttdeci">void updateMusic()</div><div class="ttdef"><b>Definition</b> GameEngine.c:430</div></div>
+<div class="ttc" id="aGame_8h_html"><div class="ttname"><a href="../../d3/d5f/Game_8h.html">Game.h</a></div></div>
+<div class="ttc" id="aLog_8h_html"><div class="ttname"><a href="../../d1/d45/Log_8h.html">Log.h</a></div></div>
+<div class="ttc" id="aMap_8h_html"><div class="ttname"><a href="../../df/d79/Map_8h.html">Map.h</a></div></div>
+<div class="ttc" id="aRenderICMons_8h_html"><div class="ttname"><a href="../../d2/d98/RenderICMons_8h.html">RenderICMons.h</a></div></div>
+<div class="ttc" id="aText_8h_html"><div class="ttname"><a href="../../d6/d35/Text_8h.html">Text.h</a></div></div>
+<div class="ttc" id="aUtils_8h_html"><div class="ttname"><a href="../../d9/ded/Utils_8h.html">Utils.h</a></div></div>
+<div class="ttc" id="aUtils_8h_html_a83fc559664fc7c7e310c93586457b428"><div class="ttname"><a href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428">AppState</a></div><div class="ttdeci">AppState</div><div class="ttdef"><b>Definition</b> Utils.h:4</div></div>
+<div class="ttc" id="aWindow_8h_html"><div class="ttname"><a href="../../d3/ded/Window_8h.html">Window.h</a></div></div>
+<div class="ttc" id="aduel_8h_html"><div class="ttname"><a href="../../d6/d8e/duel_8h.html">duel.h</a></div></div>
+<div class="ttc" id="ainterDuel_8h_html"><div class="ttname"><a href="../../da/d1d/interDuel_8h.html">interDuel.h</a></div></div>
+<div class="ttc" id="asave_8h_html"><div class="ttname"><a href="../../d5/d5e/save_8h.html">save.h</a></div></div>
+<div class="ttc" id="astructAI_html"><div class="ttname"><a href="../../d5/d48/structAI.html">AI</a></div><div class="ttdef"><b>Definition</b> trainerAI.h:7</div></div>
+<div class="ttc" id="astructBattleState_html"><div class="ttname"><a href="../../d2/d52/structBattleState.html">BattleState</a></div><div class="ttdef"><b>Definition</b> GameEngine.h:34</div></div>
+<div class="ttc" id="astructBattleState_html_abafeca3c7481e25cccd09cfe2e5fe250"><div class="ttname"><a href="../../d2/d52/structBattleState.html#abafeca3c7481e25cccd09cfe2e5fe250">BattleState::bleu</a></div><div class="ttdeci">t_Team bleu</div><div class="ttdef"><b>Definition</b> GameEngine.h:36</div></div>
+<div class="ttc" id="astructBattleState_html_abd7c28f22ad6901f0b4a4128798d48d8"><div class="ttname"><a href="../../d2/d52/structBattleState.html#abd7c28f22ad6901f0b4a4128798d48d8">BattleState::rouge</a></div><div class="ttdeci">t_Team rouge</div><div class="ttdef"><b>Definition</b> GameEngine.h:35</div></div>
+<div class="ttc" id="astructBattleState_html_af2211c8d64aae65a70184ebacf5de475"><div class="ttname"><a href="../../d2/d52/structBattleState.html#af2211c8d64aae65a70184ebacf5de475">BattleState::ia</a></div><div class="ttdeci">t_AI ia</div><div class="ttdef"><b>Definition</b> GameEngine.h:37</div></div>
+<div class="ttc" id="astructButtonList_html"><div class="ttname"><a href="../../da/db4/structButtonList.html">ButtonList</a></div><div class="ttdef"><b>Definition</b> Buttons.h:43</div></div>
+<div class="ttc" id="astructGameState_html"><div class="ttname"><a href="../../d2/d3d/structGameState.html">GameState</a></div><div class="ttdef"><b>Definition</b> GameEngine.h:41</div></div>
+<div class="ttc" id="astructGameState_html_a2c4f9e46c2e120ee9e7245ece5a3bf44"><div class="ttname"><a href="../../d2/d3d/structGameState.html#a2c4f9e46c2e120ee9e7245ece5a3bf44">GameState::initialized</a></div><div class="ttdeci">int initialized</div><div class="ttdef"><b>Definition</b> GameEngine.h:44</div></div>
+<div class="ttc" id="astructGameState_html_a52a85cc148348dad5cf3e5c9c106d59f"><div class="ttname"><a href="../../d2/d3d/structGameState.html#a52a85cc148348dad5cf3e5c9c106d59f">GameState::music</a></div><div class="ttdeci">Mix_Music * music</div><div class="ttdef"><b>Definition</b> GameEngine.h:42</div></div>
+<div class="ttc" id="astructGameState_html_a7aaeec31cfc3ac5268711c33896fe18f"><div class="ttname"><a href="../../d2/d3d/structGameState.html#a7aaeec31cfc3ac5268711c33896fe18f">GameState::currentState</a></div><div class="ttdeci">AppState currentState</div><div class="ttdef"><b>Definition</b> GameEngine.h:45</div></div>
+<div class="ttc" id="astructGameState_html_ab59b804acb3666c52c22d51d6dd0fa06"><div class="ttname"><a href="../../d2/d3d/structGameState.html#ab59b804acb3666c52c22d51d6dd0fa06">GameState::playerTurn</a></div><div class="ttdeci">int playerTurn</div><div class="ttdef"><b>Definition</b> GameEngine.h:43</div></div>
+<div class="ttc" id="astructGame_html"><div class="ttname"><a href="../../de/de9/structGame.html">Game</a></div><div class="ttdef"><b>Definition</b> GameEngine.h:55</div></div>
+<div class="ttc" id="astructGame_html_a1923324b49a0383e183d760ae84280aa"><div class="ttname"><a href="../../de/de9/structGame.html#a1923324b49a0383e183d760ae84280aa">Game::currentButton</a></div><div class="ttdeci">int currentButton</div><div class="ttdef"><b>Definition</b> GameEngine.h:68</div></div>
+<div class="ttc" id="astructGame_html_a1983960f961427e4f38cca321f7e34e3"><div class="ttname"><a href="../../de/de9/structGame.html#a1983960f961427e4f38cca321f7e34e3">Game::ui</a></div><div class="ttdeci">UI_Elements * ui</div><div class="ttdef"><b>Definition</b> GameEngine.h:56</div></div>
+<div class="ttc" id="astructGame_html_a1ab9219c52f831df72ec2bb42c56aa2b"><div class="ttname"><a href="../../de/de9/structGame.html#a1ab9219c52f831df72ec2bb42c56aa2b">Game::win</a></div><div class="ttdeci">Window * win</div><div class="ttdef"><b>Definition</b> GameEngine.h:62</div></div>
+<div class="ttc" id="astructGame_html_a26bdba7ef4c61fbc52e955bd928547b9"><div class="ttname"><a href="../../de/de9/structGame.html#a26bdba7ef4c61fbc52e955bd928547b9">Game::battleState</a></div><div class="ttdeci">BattleState battleState</div><div class="ttdef"><b>Definition</b> GameEngine.h:58</div></div>
+<div class="ttc" id="astructGame_html_a2de84fee9a0524573b36b51c1cd15039"><div class="ttname"><a href="../../de/de9/structGame.html#a2de84fee9a0524573b36b51c1cd15039">Game::stateHandlers</a></div><div class="ttdeci">StateHandler * stateHandlers</div><div class="ttdef"><b>Definition</b> GameEngine.h:60</div></div>
+<div class="ttc" id="astructGame_html_a4573dd85e0711a78cc27eb0b51c79f44"><div class="ttname"><a href="../../de/de9/structGame.html#a4573dd85e0711a78cc27eb0b51c79f44">Game::gameState</a></div><div class="ttdeci">GameState gameState</div><div class="ttdef"><b>Definition</b> GameEngine.h:59</div></div>
+<div class="ttc" id="astructGame_html_a57b1ff7ca0dabafbf59df1c64f00558a"><div class="ttname"><a href="../../de/de9/structGame.html#a57b1ff7ca0dabafbf59df1c64f00558a">Game::frameDelay</a></div><div class="ttdeci">int frameDelay</div><div class="ttdef"><b>Definition</b> GameEngine.h:65</div></div>
+<div class="ttc" id="astructGame_html_a911428bfef2d00d5ece40210d3488fdb"><div class="ttname"><a href="../../de/de9/structGame.html#a911428bfef2d00d5ece40210d3488fdb">Game::nbMenu</a></div><div class="ttdeci">int nbMenu</div><div class="ttdef"><b>Definition</b> GameEngine.h:57</div></div>
+<div class="ttc" id="astructGame_html_aa4fe6f6f2becd7da426b5af03c0cda3e"><div class="ttname"><a href="../../de/de9/structGame.html#aa4fe6f6f2becd7da426b5af03c0cda3e">Game::newGameStartTime</a></div><div class="ttdeci">int newGameStartTime</div><div class="ttdef"><b>Definition</b> GameEngine.h:67</div></div>
+<div class="ttc" id="astructGame_html_abdcdb055424572d4d18a0758eaea2cf4"><div class="ttname"><a href="../../de/de9/structGame.html#abdcdb055424572d4d18a0758eaea2cf4">Game::FPS</a></div><div class="ttdeci">int FPS</div><div class="ttdef"><b>Definition</b> GameEngine.h:64</div></div>
+<div class="ttc" id="astructGame_html_ad40f89a1120708699357c341a9f56e4e"><div class="ttname"><a href="../../de/de9/structGame.html#ad40f89a1120708699357c341a9f56e4e">Game::speeds</a></div><div class="ttdeci">float * speeds</div><div class="ttdef"><b>Definition</b> GameEngine.h:63</div></div>
+<div class="ttc" id="astructGame_html_ad6d4967c8a2102963029b9db9dbc1b91"><div class="ttname"><a href="../../de/de9/structGame.html#ad6d4967c8a2102963029b9db9dbc1b91">Game::nbStates</a></div><div class="ttdeci">int nbStates</div><div class="ttdef"><b>Definition</b> GameEngine.h:61</div></div>
+<div class="ttc" id="astructGame_html_ad806f8bf1f420ca7e83fa1075ba61014"><div class="ttname"><a href="../../de/de9/structGame.html#ad806f8bf1f420ca7e83fa1075ba61014">Game::frameStart</a></div><div class="ttdeci">int frameStart</div><div class="ttdef"><b>Definition</b> GameEngine.h:66</div></div>
+<div class="ttc" id="astructGame_html_ae4bd951ed7cce7f1c9424f816e765b73"><div class="ttname"><a href="../../de/de9/structGame.html#ae4bd951ed7cce7f1c9424f816e765b73">Game::saved</a></div><div class="ttdeci">int saved</div><div class="ttdef"><b>Definition</b> GameEngine.h:69</div></div>
+<div class="ttc" id="astructPoke_8h_html"><div class="ttname"><a href="../../da/d71/structPoke_8h.html">structPoke.h</a></div></div>
+<div class="ttc" id="astructSliderList_html"><div class="ttname"><a href="../../db/d53/structSliderList.html">SliderList</a></div><div class="ttdef"><b>Definition</b> Buttons.h:60</div></div>
+<div class="ttc" id="astructStateHandler_html"><div class="ttname"><a href="../../d3/daf/structStateHandler.html">StateHandler</a></div><div class="ttdef"><b>Definition</b> GameEngine.h:49</div></div>
+<div class="ttc" id="astructStateHandler_html_a1558caa96281f74de85e437b470b29b7"><div class="ttname"><a href="../../d3/daf/structStateHandler.html#a1558caa96281f74de85e437b470b29b7">StateHandler::state</a></div><div class="ttdeci">AppState state</div><div class="ttdef"><b>Definition</b> GameEngine.h:50</div></div>
+<div class="ttc" id="astructStateHandler_html_a5315c5e930efb62245d1d49338d142c3"><div class="ttname"><a href="../../d3/daf/structStateHandler.html#a5315c5e930efb62245d1d49338d142c3">StateHandler::handleEvent</a></div><div class="ttdeci">void(* handleEvent)(Window *, SDL_Event *)</div><div class="ttdef"><b>Definition</b> GameEngine.h:51</div></div>
+<div class="ttc" id="astructUI__Elements_html"><div class="ttname"><a href="../../d8/de4/structUI__Elements.html">UI_Elements</a></div><div class="ttdef"><b>Definition</b> GameEngine.h:27</div></div>
+<div class="ttc" id="astructUI__Elements_html_a81dd7be9de23fa9878fe34cdef448ce7"><div class="ttname"><a href="../../d8/de4/structUI__Elements.html#a81dd7be9de23fa9878fe34cdef448ce7">UI_Elements::sliders</a></div><div class="ttdeci">SliderList * sliders</div><div class="ttdef"><b>Definition</b> GameEngine.h:29</div></div>
+<div class="ttc" id="astructUI__Elements_html_acb53ca49376987c102feddfe35fb52b4"><div class="ttname"><a href="../../d8/de4/structUI__Elements.html#acb53ca49376987c102feddfe35fb52b4">UI_Elements::background</a></div><div class="ttdeci">SDL_Texture * background</div><div class="ttdef"><b>Definition</b> GameEngine.h:30</div></div>
+<div class="ttc" id="astructUI__Elements_html_adc0dba6f531b96dd74bf79d66c24fb84"><div class="ttname"><a href="../../d8/de4/structUI__Elements.html#adc0dba6f531b96dd74bf79d66c24fb84">UI_Elements::buttons</a></div><div class="ttdeci">ButtonList * buttons</div><div class="ttdef"><b>Definition</b> GameEngine.h:28</div></div>
+<div class="ttc" id="astructWindow_html"><div class="ttname"><a href="../../d6/d08/structWindow.html">Window</a></div><div class="ttdef"><b>Definition</b> Window.h:20</div></div>
+<div class="ttc" id="astructt__Team_html"><div class="ttname"><a href="../../da/d63/structt__Team.html">t_Team</a></div><div class="ttdef"><b>Definition</b> duel.h:15</div></div>
+<div class="ttc" id="atrainerAI_8h_html"><div class="ttname"><a href="../../df/d27/trainerAI_8h.html">trainerAI.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

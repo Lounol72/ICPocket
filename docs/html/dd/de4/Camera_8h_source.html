@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ICPocket:  Fichier source de include/Camera.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ICPocket
+   </div>
+   <div id="projectbrief">A Pokemon like game</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Camera.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/de4/Camera_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CAMERA_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CAMERA_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// Définir les constantes de la fenêtre</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="../../dd/de4/Camera_8h.html#a498d9f026138406895e9a34b504ac6a6">    7</a></span><span class="preprocessor">#define WINDOW_WIDTH 1280</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="../../dd/de4/Camera_8h.html#a5473cf64fa979b48335079c99532e243">    8</a></span><span class="preprocessor">#define WINDOW_HEIGHT 720</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../d7/d7e/structCamera.html">   10</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../d7/d7e/structCamera.html#ae270fbd3b09b36f240a2d55b3b5b9cec">   11</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="../../d7/d7e/structCamera.html#ae270fbd3b09b36f240a2d55b3b5b9cec">x</a>, y;           <span class="comment">// Position de la caméra</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../d7/d7e/structCamera.html#a50152f7c8f2ce7601dd6086c90b3a65c">   12</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="../../d7/d7e/structCamera.html#a50152f7c8f2ce7601dd6086c90b3a65c">scale</a>;          <span class="comment">// Niveau de zoom</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d7/d7e/structCamera.html#aaf4723593207c0f1cb02edfc2f4731f2">   13</a></span>    SDL_Rect <a class="code hl_variable" href="../../d7/d7e/structCamera.html#aaf4723593207c0f1cb02edfc2f4731f2">viewport</a>;    <span class="comment">// Rectangle de vue</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d7/d7e/structCamera.html#a697db4776f19aba20c6bd1f1cb323bc6">   14</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d7/d7e/structCamera.html#a697db4776f19aba20c6bd1f1cb323bc6">targetX</a>, targetY; <span class="comment">// Position cible (joueur)</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>} <a class="code hl_struct" href="../../d7/d7e/structCamera.html">Camera</a>;</div>
+</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><a class="code hl_struct" href="../../d7/d7e/structCamera.html">Camera</a>* <a class="code hl_function" href="../../dd/de4/Camera_8h.html#a2066b5ada76e803c9b0e2ae818c73b85">createCamera</a>(<span class="keywordtype">int</span> windowWidth, <span class="keywordtype">int</span> windowHeight);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/de4/Camera_8h.html#a1f82183277c2e3bb2c0ed552111a932f">updateCamera</a>(<a class="code hl_struct" href="../../d7/d7e/structCamera.html">Camera</a>* camera, <span class="keywordtype">int</span> playerX, <span class="keywordtype">int</span> playerY, <span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>SDL_Rect <a class="code hl_function" href="../../dd/de4/Camera_8h.html#a92559a351d5f83f829609acfd7d585d4">getWorldToScreenRect</a>(<a class="code hl_struct" href="../../d7/d7e/structCamera.html">Camera</a>* camera, SDL_Rect worldRect);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/de4/Camera_8h.html#a30b237a47aec83d888c3d194d1a03209">destroyCamera</a>(<a class="code hl_struct" href="../../d7/d7e/structCamera.html">Camera</a>* camera);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aCamera_8h_html_a1f82183277c2e3bb2c0ed552111a932f"><div class="ttname"><a href="../../dd/de4/Camera_8h.html#a1f82183277c2e3bb2c0ed552111a932f">updateCamera</a></div><div class="ttdeci">void updateCamera(Camera *camera, int playerX, int playerY, float deltaTime)</div><div class="ttdef"><b>Definition</b> Camera.c:15</div></div>
+<div class="ttc" id="aCamera_8h_html_a2066b5ada76e803c9b0e2ae818c73b85"><div class="ttname"><a href="../../dd/de4/Camera_8h.html#a2066b5ada76e803c9b0e2ae818c73b85">createCamera</a></div><div class="ttdeci">Camera * createCamera(int windowWidth, int windowHeight)</div><div class="ttdef"><b>Definition</b> Camera.c:3</div></div>
+<div class="ttc" id="aCamera_8h_html_a30b237a47aec83d888c3d194d1a03209"><div class="ttname"><a href="../../dd/de4/Camera_8h.html#a30b237a47aec83d888c3d194d1a03209">destroyCamera</a></div><div class="ttdeci">void destroyCamera(Camera *camera)</div><div class="ttdef"><b>Definition</b> Camera.c:35</div></div>
+<div class="ttc" id="aCamera_8h_html_a92559a351d5f83f829609acfd7d585d4"><div class="ttname"><a href="../../dd/de4/Camera_8h.html#a92559a351d5f83f829609acfd7d585d4">getWorldToScreenRect</a></div><div class="ttdeci">SDL_Rect getWorldToScreenRect(Camera *camera, SDL_Rect worldRect)</div><div class="ttdef"><b>Definition</b> Camera.c:26</div></div>
+<div class="ttc" id="astructCamera_html"><div class="ttname"><a href="../../d7/d7e/structCamera.html">Camera</a></div><div class="ttdef"><b>Definition</b> Camera.h:10</div></div>
+<div class="ttc" id="astructCamera_html_a50152f7c8f2ce7601dd6086c90b3a65c"><div class="ttname"><a href="../../d7/d7e/structCamera.html#a50152f7c8f2ce7601dd6086c90b3a65c">Camera::scale</a></div><div class="ttdeci">float scale</div><div class="ttdef"><b>Definition</b> Camera.h:12</div></div>
+<div class="ttc" id="astructCamera_html_a697db4776f19aba20c6bd1f1cb323bc6"><div class="ttname"><a href="../../d7/d7e/structCamera.html#a697db4776f19aba20c6bd1f1cb323bc6">Camera::targetX</a></div><div class="ttdeci">int targetX</div><div class="ttdef"><b>Definition</b> Camera.h:14</div></div>
+<div class="ttc" id="astructCamera_html_aaf4723593207c0f1cb02edfc2f4731f2"><div class="ttname"><a href="../../d7/d7e/structCamera.html#aaf4723593207c0f1cb02edfc2f4731f2">Camera::viewport</a></div><div class="ttdeci">SDL_Rect viewport</div><div class="ttdef"><b>Definition</b> Camera.h:13</div></div>
+<div class="ttc" id="astructCamera_html_ae270fbd3b09b36f240a2d55b3b5b9cec"><div class="ttname"><a href="../../d7/d7e/structCamera.html#ae270fbd3b09b36f240a2d55b3b5b9cec">Camera::x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Definition</b> Camera.h:11</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

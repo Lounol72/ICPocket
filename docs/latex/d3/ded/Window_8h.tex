@@ -1,0 +1,88 @@
+\doxysection{Référence du fichier include/\+Window.h}
+\hypertarget{Window_8h}{}\label{Window_8h}\index{include/Window.h@{include/Window.h}}
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+gamecontroller.\+h$>$}\newline
+{\ttfamily \#include "{}Game\+Engine.\+h"{}}\newline
+{\ttfamily \#include "{}Utils.\+h"{}}\newline
+Graphe des dépendances par inclusion de Window.\+h\+:
+% FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structWindow}{Window}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Window_8h_a24ffa112f1eba911f31af1ab31dd0c4c}{renderer\+\_\+flags}}~SDL\+\_\+\+RENDERER\+\_\+\+SOFTWARE
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structGame}{Game}} \mbox{\hyperlink{Window_8h_a69b5df78d315f81ed77df30fdbfb7002}{Game}}
+\item 
+typedef struct \mbox{\hyperlink{structWindow}{Window}} \mbox{\hyperlink{Window_8h_adb2a551453af16dd3214a23b16e67544}{Window}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Window_8h_ab072fc478679f5b8fb5ffae288d1e7f2}{init\+Window}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, int width, int height, const char \texorpdfstring{$\ast$}{*}Font\+Path)
+\item 
+void \mbox{\hyperlink{Window_8h_a5b2abeb6aa788d11a7bfe251fb1d4a25}{destroy\+Window}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structGame}{Game}} \mbox{\hyperlink{Window_8h_ac6a5ed6191fcf3a5bf0445921feb4f48}{game}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{Window_8h_a24ffa112f1eba911f31af1ab31dd0c4c}\label{Window_8h_a24ffa112f1eba911f31af1ab31dd0c4c} 
+\index{Window.h@{Window.h}!renderer\_flags@{renderer\_flags}}
+\index{renderer\_flags@{renderer\_flags}!Window.h@{Window.h}}
+\doxysubsubsection{\texorpdfstring{renderer\_flags}{renderer\_flags}}
+{\footnotesize\ttfamily \#define renderer\+\_\+flags~SDL\+\_\+\+RENDERER\+\_\+\+SOFTWARE}
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{Window_8h_a69b5df78d315f81ed77df30fdbfb7002}\label{Window_8h_a69b5df78d315f81ed77df30fdbfb7002} 
+\index{Window.h@{Window.h}!Game@{Game}}
+\index{Game@{Game}!Window.h@{Window.h}}
+\doxysubsubsection{\texorpdfstring{Game}{Game}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structGame}{Game}} \mbox{\hyperlink{structGame}{Game}}}
+
+\Hypertarget{Window_8h_adb2a551453af16dd3214a23b16e67544}\label{Window_8h_adb2a551453af16dd3214a23b16e67544} 
+\index{Window.h@{Window.h}!Window@{Window}}
+\index{Window@{Window}!Window.h@{Window.h}}
+\doxysubsubsection{\texorpdfstring{Window}{Window}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structWindow}{Window}} \mbox{\hyperlink{structWindow}{Window}}}
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{Window_8h_a5b2abeb6aa788d11a7bfe251fb1d4a25}\label{Window_8h_a5b2abeb6aa788d11a7bfe251fb1d4a25} 
+\index{Window.h@{Window.h}!destroyWindow@{destroyWindow}}
+\index{destroyWindow@{destroyWindow}!Window.h@{Window.h}}
+\doxysubsubsection{\texorpdfstring{destroyWindow()}{destroyWindow()}}
+{\footnotesize\ttfamily void destroy\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+
+\Hypertarget{Window_8h_ab072fc478679f5b8fb5ffae288d1e7f2}\label{Window_8h_ab072fc478679f5b8fb5ffae288d1e7f2} 
+\index{Window.h@{Window.h}!initWindow@{initWindow}}
+\index{initWindow@{initWindow}!Window.h@{Window.h}}
+\doxysubsubsection{\texorpdfstring{initWindow()}{initWindow()}}
+{\footnotesize\ttfamily void init\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{Font\+Path }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{Window_8h_ac6a5ed6191fcf3a5bf0445921feb4f48}\label{Window_8h_ac6a5ed6191fcf3a5bf0445921feb4f48} 
+\index{Window.h@{Window.h}!game@{game}}
+\index{game@{game}!Window.h@{Window.h}}
+\doxysubsubsection{\texorpdfstring{game}{game}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGame}{Game}} game\hspace{0.3cm}{\ttfamily [extern]}}
+

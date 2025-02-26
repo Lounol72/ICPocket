@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ICPocket:  Fichier source de include/RenderICMons.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ICPocket
+   </div>
+   <div id="projectbrief">A Pokemon like game</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(1); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">RenderICMons.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d2/d98/RenderICMons_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef RENDERICMONS_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define RENDERICMONS_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d1f/GameEngine_8h.html">GameEngine.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d35/Text_8h.html">Text.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d71/structPoke_8h.html">structPoke.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../dd/d1a/structIMG__ICMons.html">   14</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../dd/d1a/structIMG__ICMons.html">IMG_ICMons</a> {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../dd/d1a/structIMG__ICMons.html#aa08e4de210817826ea3a6ea843d05f77">   15</a></span>    SDL_Renderer *<a class="code hl_variable" href="../../dd/d1a/structIMG__ICMons.html#aa08e4de210817826ea3a6ea843d05f77">renderer</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../dd/d1a/structIMG__ICMons.html#aca5f72f238f579cbf502c1f323a4d3ba">   16</a></span>    SDL_Texture *<a class="code hl_variable" href="../../dd/d1a/structIMG__ICMons.html#aca5f72f238f579cbf502c1f323a4d3ba">ICMonTexture</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../dd/d1a/structIMG__ICMons.html#a992f76fe06dfeb67fd0baf7f257177b5">   17</a></span>    SDL_Rect <a class="code hl_variable" href="../../dd/d1a/structIMG__ICMons.html#a992f76fe06dfeb67fd0baf7f257177b5">rect</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../dd/d1a/structIMG__ICMons.html#a59ff78849260d7a61cbc9bed404134f7">   18</a></span>    SDL_Rect <a class="code hl_variable" href="../../dd/d1a/structIMG__ICMons.html#a59ff78849260d7a61cbc9bed404134f7">initialRect</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../dd/d1a/structIMG__ICMons.html#aebb4857364a22bdf15be0b7d0c3cfba3">   19</a></span>    <a class="code hl_struct" href="../../d2/dda/structText.html">Text</a> *<a class="code hl_variable" href="../../dd/d1a/structIMG__ICMons.html#aebb4857364a22bdf15be0b7d0c3cfba3">PVText</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../dd/d1a/structIMG__ICMons.html#acb7140b981aa01e0ad9837ab9e56c463">   20</a></span>    SDL_Texture *<a class="code hl_variable" href="../../dd/d1a/structIMG__ICMons.html#acb7140b981aa01e0ad9837ab9e56c463">PVbarTexture</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../dd/d1a/structIMG__ICMons.html#aedc2c4d60f1716f6294db1f02c0a6608">   21</a></span>    SDL_Texture *<a class="code hl_variable" href="../../dd/d1a/structIMG__ICMons.html#aedc2c4d60f1716f6294db1f02c0a6608">PVbarTextureBack</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../dd/d1a/structIMG__ICMons.html#a920729e4a0e89e6a983e2822d57c922a">   22</a></span>    SDL_Rect <a class="code hl_variable" href="../../dd/d1a/structIMG__ICMons.html#a920729e4a0e89e6a983e2822d57c922a">PVRect</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../dd/d1a/structIMG__ICMons.html#a57fb3a66d7ea350c7260bf105859f63f">   23</a></span>    SDL_Rect <a class="code hl_variable" href="../../dd/d1a/structIMG__ICMons.html#a57fb3a66d7ea350c7260bf105859f63f">PVInitialRect</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../dd/d1a/structIMG__ICMons.html#a3513d719b2068011a34e8e15ad980dc7">   24</a></span>    SDL_Texture *<a class="code hl_variable" href="../../dd/d1a/structIMG__ICMons.html#a3513d719b2068011a34e8e15ad980dc7">nameTexture</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../dd/d1a/structIMG__ICMons.html#a6ae164e8baad59442d65fd29d087e1e5">   25</a></span>    SDL_Rect <a class="code hl_variable" href="../../dd/d1a/structIMG__ICMons.html#a6ae164e8baad59442d65fd29d087e1e5">nameRect</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../dd/d1a/structIMG__ICMons.html#a2686bcf03f4286886383b8cd5f33415b">   26</a></span>    SDL_Rect <a class="code hl_variable" href="../../dd/d1a/structIMG__ICMons.html#a2686bcf03f4286886383b8cd5f33415b">nameInitialRect</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d2/d98/RenderICMons_8h.html#a362189cf9bfedb5a5046138a7c7d4413">   27</a></span>}<a class="code hl_struct" href="../../dd/d1a/structIMG__ICMons.html">IMG_ICMons</a>;</div>
+</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><a class="code hl_struct" href="../../dd/d1a/structIMG__ICMons.html">IMG_ICMons</a> *<a class="code hl_function" href="../../d2/d98/RenderICMons_8h.html#ac4e6519f6e42e14df90574527af9e3f8">initICMonSprite</a>(SDL_Renderer *renderer,SDL_Rect spriteRect,SDL_Rect nameRect, SDL_Rect pvRect, <a class="code hl_struct" href="../../d7/d09/structt__Poke.html">t_Poke</a> *poke, TTF_Font *font, <span class="keywordtype">int</span> team);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/d98/RenderICMons_8h.html#a00792a5dc944c5d8992198d436c219d7">updateICMonsSprite</a>(<a class="code hl_struct" href="../../d7/d09/structt__Poke.html">t_Poke</a> *poke, <span class="keywordtype">float</span> scaleX, <span class="keywordtype">float</span> scaleY);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/d98/RenderICMons_8h.html#a1f0630ab702e1360f9f72e55ac3a347e">renderICMonsSprite</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, <a class="code hl_struct" href="../../d7/d09/structt__Poke.html">t_Poke</a> *poke);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/d98/RenderICMons_8h.html#ad5893493e984d32da31956aa3cb09ca8">destroyICMonsSprite</a>(<a class="code hl_struct" href="../../d7/d09/structt__Poke.html">t_Poke</a> *poke);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aGameEngine_8h_html"><div class="ttname"><a href="../../d7/d1f/GameEngine_8h.html">GameEngine.h</a></div></div>
+<div class="ttc" id="aRenderICMons_8h_html_a00792a5dc944c5d8992198d436c219d7"><div class="ttname"><a href="../../d2/d98/RenderICMons_8h.html#a00792a5dc944c5d8992198d436c219d7">updateICMonsSprite</a></div><div class="ttdeci">void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY)</div><div class="ttdef"><b>Definition</b> RenderICMons.c:132</div></div>
+<div class="ttc" id="aRenderICMons_8h_html_a1f0630ab702e1360f9f72e55ac3a347e"><div class="ttname"><a href="../../d2/d98/RenderICMons_8h.html#a1f0630ab702e1360f9f72e55ac3a347e">renderICMonsSprite</a></div><div class="ttdeci">void renderICMonsSprite(Window *win, t_Poke *poke)</div><div class="ttdef"><b>Definition</b> RenderICMons.c:82</div></div>
+<div class="ttc" id="aRenderICMons_8h_html_ac4e6519f6e42e14df90574527af9e3f8"><div class="ttname"><a href="../../d2/d98/RenderICMons_8h.html#ac4e6519f6e42e14df90574527af9e3f8">initICMonSprite</a></div><div class="ttdeci">IMG_ICMons * initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rect nameRect, SDL_Rect pvRect, t_Poke *poke, TTF_Font *font, int team)</div><div class="ttdef"><b>Definition</b> RenderICMons.c:3</div></div>
+<div class="ttc" id="aRenderICMons_8h_html_ad5893493e984d32da31956aa3cb09ca8"><div class="ttname"><a href="../../d2/d98/RenderICMons_8h.html#ad5893493e984d32da31956aa3cb09ca8">destroyICMonsSprite</a></div><div class="ttdeci">void destroyICMonsSprite(t_Poke *poke)</div><div class="ttdef"><b>Definition</b> RenderICMons.c:121</div></div>
+<div class="ttc" id="aText_8h_html"><div class="ttname"><a href="../../d6/d35/Text_8h.html">Text.h</a></div></div>
+<div class="ttc" id="astructIMG__ICMons_html"><div class="ttname"><a href="../../dd/d1a/structIMG__ICMons.html">IMG_ICMons</a></div><div class="ttdef"><b>Definition</b> RenderICMons.h:14</div></div>
+<div class="ttc" id="astructIMG__ICMons_html_a2686bcf03f4286886383b8cd5f33415b"><div class="ttname"><a href="../../dd/d1a/structIMG__ICMons.html#a2686bcf03f4286886383b8cd5f33415b">IMG_ICMons::nameInitialRect</a></div><div class="ttdeci">SDL_Rect nameInitialRect</div><div class="ttdef"><b>Definition</b> RenderICMons.h:26</div></div>
+<div class="ttc" id="astructIMG__ICMons_html_a3513d719b2068011a34e8e15ad980dc7"><div class="ttname"><a href="../../dd/d1a/structIMG__ICMons.html#a3513d719b2068011a34e8e15ad980dc7">IMG_ICMons::nameTexture</a></div><div class="ttdeci">SDL_Texture * nameTexture</div><div class="ttdef"><b>Definition</b> RenderICMons.h:24</div></div>
+<div class="ttc" id="astructIMG__ICMons_html_a57fb3a66d7ea350c7260bf105859f63f"><div class="ttname"><a href="../../dd/d1a/structIMG__ICMons.html#a57fb3a66d7ea350c7260bf105859f63f">IMG_ICMons::PVInitialRect</a></div><div class="ttdeci">SDL_Rect PVInitialRect</div><div class="ttdef"><b>Definition</b> RenderICMons.h:23</div></div>
+<div class="ttc" id="astructIMG__ICMons_html_a59ff78849260d7a61cbc9bed404134f7"><div class="ttname"><a href="../../dd/d1a/structIMG__ICMons.html#a59ff78849260d7a61cbc9bed404134f7">IMG_ICMons::initialRect</a></div><div class="ttdeci">SDL_Rect initialRect</div><div class="ttdef"><b>Definition</b> RenderICMons.h:18</div></div>
+<div class="ttc" id="astructIMG__ICMons_html_a6ae164e8baad59442d65fd29d087e1e5"><div class="ttname"><a href="../../dd/d1a/structIMG__ICMons.html#a6ae164e8baad59442d65fd29d087e1e5">IMG_ICMons::nameRect</a></div><div class="ttdeci">SDL_Rect nameRect</div><div class="ttdef"><b>Definition</b> RenderICMons.h:25</div></div>
+<div class="ttc" id="astructIMG__ICMons_html_a920729e4a0e89e6a983e2822d57c922a"><div class="ttname"><a href="../../dd/d1a/structIMG__ICMons.html#a920729e4a0e89e6a983e2822d57c922a">IMG_ICMons::PVRect</a></div><div class="ttdeci">SDL_Rect PVRect</div><div class="ttdef"><b>Definition</b> RenderICMons.h:22</div></div>
+<div class="ttc" id="astructIMG__ICMons_html_a992f76fe06dfeb67fd0baf7f257177b5"><div class="ttname"><a href="../../dd/d1a/structIMG__ICMons.html#a992f76fe06dfeb67fd0baf7f257177b5">IMG_ICMons::rect</a></div><div class="ttdeci">SDL_Rect rect</div><div class="ttdef"><b>Definition</b> RenderICMons.h:17</div></div>
+<div class="ttc" id="astructIMG__ICMons_html_aa08e4de210817826ea3a6ea843d05f77"><div class="ttname"><a href="../../dd/d1a/structIMG__ICMons.html#aa08e4de210817826ea3a6ea843d05f77">IMG_ICMons::renderer</a></div><div class="ttdeci">SDL_Renderer * renderer</div><div class="ttdef"><b>Definition</b> RenderICMons.h:15</div></div>
+<div class="ttc" id="astructIMG__ICMons_html_aca5f72f238f579cbf502c1f323a4d3ba"><div class="ttname"><a href="../../dd/d1a/structIMG__ICMons.html#aca5f72f238f579cbf502c1f323a4d3ba">IMG_ICMons::ICMonTexture</a></div><div class="ttdeci">SDL_Texture * ICMonTexture</div><div class="ttdef"><b>Definition</b> RenderICMons.h:16</div></div>
+<div class="ttc" id="astructIMG__ICMons_html_acb7140b981aa01e0ad9837ab9e56c463"><div class="ttname"><a href="../../dd/d1a/structIMG__ICMons.html#acb7140b981aa01e0ad9837ab9e56c463">IMG_ICMons::PVbarTexture</a></div><div class="ttdeci">SDL_Texture * PVbarTexture</div><div class="ttdef"><b>Definition</b> RenderICMons.h:20</div></div>
+<div class="ttc" id="astructIMG__ICMons_html_aebb4857364a22bdf15be0b7d0c3cfba3"><div class="ttname"><a href="../../dd/d1a/structIMG__ICMons.html#aebb4857364a22bdf15be0b7d0c3cfba3">IMG_ICMons::PVText</a></div><div class="ttdeci">Text * PVText</div><div class="ttdef"><b>Definition</b> RenderICMons.h:19</div></div>
+<div class="ttc" id="astructIMG__ICMons_html_aedc2c4d60f1716f6294db1f02c0a6608"><div class="ttname"><a href="../../dd/d1a/structIMG__ICMons.html#aedc2c4d60f1716f6294db1f02c0a6608">IMG_ICMons::PVbarTextureBack</a></div><div class="ttdeci">SDL_Texture * PVbarTextureBack</div><div class="ttdef"><b>Definition</b> RenderICMons.h:21</div></div>
+<div class="ttc" id="astructPoke_8h_html"><div class="ttname"><a href="../../da/d71/structPoke_8h.html">structPoke.h</a></div></div>
+<div class="ttc" id="astructText_html"><div class="ttname"><a href="../../d2/dda/structText.html">Text</a></div><div class="ttdef"><b>Definition</b> Text.h:9</div></div>
+<div class="ttc" id="astructWindow_html"><div class="ttname"><a href="../../d6/d08/structWindow.html">Window</a></div><div class="ttdef"><b>Definition</b> Window.h:20</div></div>
+<div class="ttc" id="astructt__Poke_html"><div class="ttname"><a href="../../d7/d09/structt__Poke.html">t_Poke</a></div><div class="ttdef"><b>Definition</b> structPoke.h:52</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

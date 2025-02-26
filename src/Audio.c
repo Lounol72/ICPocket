@@ -1,5 +1,15 @@
 #include "../include/Audio.h"
 
+/**
+ * @file Audio.c
+ * @brief Gestion de l'audio
+ * @author Louis Subtil
+ */
+
+
+/**
+ * @brief Initialise l'audio
+ */
 void initAudio() {
     SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_INFO, "🔊 Initialisation de l'audio ...");
 
@@ -18,6 +28,12 @@ void initAudio() {
     Mix_SetMusicCMD(NULL);
 }
 
+/**
+ * @brief Charge la musique
+ * 
+ * @param music Pointeur vers la musique à charger
+ * @param musicPath Chemin de la musique à charger
+ */
 void loadMusic(Mix_Music **music, const char *musicPath) {
     *music = Mix_LoadMUS(musicPath);
     if (!*music) {

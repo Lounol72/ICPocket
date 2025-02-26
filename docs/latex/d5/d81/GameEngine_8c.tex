@@ -1,0 +1,169 @@
+\doxysection{Référence du fichier src/\+Game\+Engine.c}
+\hypertarget{GameEngine_8c}{}\label{GameEngine_8c}\index{src/GameEngine.c@{src/GameEngine.c}}
+{\ttfamily \#include "{}../include/\+Game\+Engine.\+h"{}}\newline
+Graphe des dépendances par inclusion de Game\+Engine.\+c\+:
+% FIG 0
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{GameEngine_8c_adce05963537a78c4c589298117616864}{render}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
+\item 
+void \mbox{\hyperlink{GameEngine_8c_ae30f21d07d1066ecda7ed1097d584e6b}{change\+State}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+\item 
+void \mbox{\hyperlink{GameEngine_8c_afd9dc76fbbe7f34592713c3a289799b4}{charger\+Call\+Back}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+\item 
+void \mbox{\hyperlink{GameEngine_8c_a5e16d7cc1bf7868bf8f67575b2a0ef1c}{make\+Window\+Full\+Screen}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+\item 
+void \mbox{\hyperlink{GameEngine_8c_afebb7c43646aae14210881f147faed62}{make\+Window\+Windowed}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+\item 
+void \mbox{\hyperlink{GameEngine_8c_a8f8e57777ac436d2bfa2a87224c0eb8c}{attq\+Button\+Clicked}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+\item 
+void \mbox{\hyperlink{GameEngine_8c_ad415d6a187bef9acb06baf2b8cdda059}{change\+Pokemon}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+\item 
+void \mbox{\hyperlink{GameEngine_8c_a275ae329d3830bface72c1c30db48b04}{next\+Duel}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+\item 
+void \mbox{\hyperlink{GameEngine_8c_ad119335fdbed767125510c855f2629ce}{main\+Loop}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
+\item 
+void \mbox{\hyperlink{GameEngine_8c_ac7a261e0d935ffeeca4d7a0713913bd2}{init\+All\+Buttons}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
+\item 
+static void \mbox{\hyperlink{GameEngine_8c_a4f753c6bc89433428e693ca6b0a94204}{update\+ICMons\+Button\+Text}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}team)
+\item 
+void \mbox{\hyperlink{GameEngine_8c_aa9e620870df635719d54d19fd83bb423}{update\+ICButtons}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}team)
+\item 
+void \mbox{\hyperlink{GameEngine_8c_aa35dc6fb12b09280f097e5781e5892e1}{update\+Current\+Button}} ()
+\item 
+void \mbox{\hyperlink{GameEngine_8c_ae728be2d7ae42605618aa49e1a837466}{update\+Music}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structGame}{Game}} \mbox{\hyperlink{GameEngine_8c_ac6a5ed6191fcf3a5bf0445921feb4f48}{game}}
+\item 
+\mbox{\hyperlink{structText}{Text}} \mbox{\hyperlink{GameEngine_8c_aa7b28bc428ccbbcf4f77ed6ec1deccf9}{title}} = \{NULL,\{0,0,0,0\},\{0,0,0,0\}, \{0,0,0,0\}, NULL, NULL, NULL,0\}
+\item 
+\mbox{\hyperlink{structText}{Text}} \mbox{\hyperlink{GameEngine_8c_a4cc75f256324e33385aa00bd67430368}{New\+Game\+Text}} = \{NULL,\{0,0,0,0\},\{0,0,0,0\}, \{0,0,0,0\}, NULL, NULL, NULL,0\}
+\item 
+int \mbox{\hyperlink{GameEngine_8c_ac95724d68ae903b0939e67bf82c53206}{margin\+Bottom}} = 200
+\item 
+int \mbox{\hyperlink{GameEngine_8c_ab1a5ae8b7bb9953bedd47d22db911a87}{margin\+Right}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{GameEngine_8c_a8f8e57777ac436d2bfa2a87224c0eb8c}\label{GameEngine_8c_a8f8e57777ac436d2bfa2a87224c0eb8c} 
+\index{GameEngine.c@{GameEngine.c}!attqButtonClicked@{attqButtonClicked}}
+\index{attqButtonClicked@{attqButtonClicked}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{attqButtonClicked()}{attqButtonClicked()}}
+{\footnotesize\ttfamily void attq\+Button\+Clicked (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8c_ad415d6a187bef9acb06baf2b8cdda059}\label{GameEngine_8c_ad415d6a187bef9acb06baf2b8cdda059} 
+\index{GameEngine.c@{GameEngine.c}!changePokemon@{changePokemon}}
+\index{changePokemon@{changePokemon}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{changePokemon()}{changePokemon()}}
+{\footnotesize\ttfamily void change\+Pokemon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8c_ae30f21d07d1066ecda7ed1097d584e6b}\label{GameEngine_8c_ae30f21d07d1066ecda7ed1097d584e6b} 
+\index{GameEngine.c@{GameEngine.c}!changeState@{changeState}}
+\index{changeState@{changeState}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{changeState()}{changeState()}}
+{\footnotesize\ttfamily void change\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8c_afd9dc76fbbe7f34592713c3a289799b4}\label{GameEngine_8c_afd9dc76fbbe7f34592713c3a289799b4} 
+\index{GameEngine.c@{GameEngine.c}!chargerCallBack@{chargerCallBack}}
+\index{chargerCallBack@{chargerCallBack}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{chargerCallBack()}{chargerCallBack()}}
+{\footnotesize\ttfamily void charger\+Call\+Back (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8c_ac7a261e0d935ffeeca4d7a0713913bd2}\label{GameEngine_8c_ac7a261e0d935ffeeca4d7a0713913bd2} 
+\index{GameEngine.c@{GameEngine.c}!initAllButtons@{initAllButtons}}
+\index{initAllButtons@{initAllButtons}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{initAllButtons()}{initAllButtons()}}
+{\footnotesize\ttfamily void init\+All\+Buttons (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8c_ad119335fdbed767125510c855f2629ce}\label{GameEngine_8c_ad119335fdbed767125510c855f2629ce} 
+\index{GameEngine.c@{GameEngine.c}!mainLoop@{mainLoop}}
+\index{mainLoop@{mainLoop}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{mainLoop()}{mainLoop()}}
+{\footnotesize\ttfamily void main\+Loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8c_a5e16d7cc1bf7868bf8f67575b2a0ef1c}\label{GameEngine_8c_a5e16d7cc1bf7868bf8f67575b2a0ef1c} 
+\index{GameEngine.c@{GameEngine.c}!makeWindowFullScreen@{makeWindowFullScreen}}
+\index{makeWindowFullScreen@{makeWindowFullScreen}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{makeWindowFullScreen()}{makeWindowFullScreen()}}
+{\footnotesize\ttfamily void make\+Window\+Full\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8c_afebb7c43646aae14210881f147faed62}\label{GameEngine_8c_afebb7c43646aae14210881f147faed62} 
+\index{GameEngine.c@{GameEngine.c}!makeWindowWindowed@{makeWindowWindowed}}
+\index{makeWindowWindowed@{makeWindowWindowed}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{makeWindowWindowed()}{makeWindowWindowed()}}
+{\footnotesize\ttfamily void make\+Window\+Windowed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8c_a275ae329d3830bface72c1c30db48b04}\label{GameEngine_8c_a275ae329d3830bface72c1c30db48b04} 
+\index{GameEngine.c@{GameEngine.c}!nextDuel@{nextDuel}}
+\index{nextDuel@{nextDuel}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{nextDuel()}{nextDuel()}}
+{\footnotesize\ttfamily void next\+Duel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8c_adce05963537a78c4c589298117616864}\label{GameEngine_8c_adce05963537a78c4c589298117616864} 
+\index{GameEngine.c@{GameEngine.c}!render@{render}}
+\index{render@{render}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8c_aa35dc6fb12b09280f097e5781e5892e1}\label{GameEngine_8c_aa35dc6fb12b09280f097e5781e5892e1} 
+\index{GameEngine.c@{GameEngine.c}!updateCurrentButton@{updateCurrentButton}}
+\index{updateCurrentButton@{updateCurrentButton}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{updateCurrentButton()}{updateCurrentButton()}}
+{\footnotesize\ttfamily void update\+Current\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8c_aa9e620870df635719d54d19fd83bb423}\label{GameEngine_8c_aa9e620870df635719d54d19fd83bb423} 
+\index{GameEngine.c@{GameEngine.c}!updateICButtons@{updateICButtons}}
+\index{updateICButtons@{updateICButtons}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{updateICButtons()}{updateICButtons()}}
+{\footnotesize\ttfamily void update\+ICButtons (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{team }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8c_a4f753c6bc89433428e693ca6b0a94204}\label{GameEngine_8c_a4f753c6bc89433428e693ca6b0a94204} 
+\index{GameEngine.c@{GameEngine.c}!updateICMonsButtonText@{updateICMonsButtonText}}
+\index{updateICMonsButtonText@{updateICMonsButtonText}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{updateICMonsButtonText()}{updateICMonsButtonText()}}
+{\footnotesize\ttfamily static void update\+ICMons\+Button\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{team }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{GameEngine_8c_ae728be2d7ae42605618aa49e1a837466}\label{GameEngine_8c_ae728be2d7ae42605618aa49e1a837466} 
+\index{GameEngine.c@{GameEngine.c}!updateMusic@{updateMusic}}
+\index{updateMusic@{updateMusic}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{updateMusic()}{updateMusic()}}
+{\footnotesize\ttfamily void update\+Music (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{GameEngine_8c_ac6a5ed6191fcf3a5bf0445921feb4f48}\label{GameEngine_8c_ac6a5ed6191fcf3a5bf0445921feb4f48} 
+\index{GameEngine.c@{GameEngine.c}!game@{game}}
+\index{game@{game}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{game}{game}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGame}{Game}} game}
+
+\Hypertarget{GameEngine_8c_ac95724d68ae903b0939e67bf82c53206}\label{GameEngine_8c_ac95724d68ae903b0939e67bf82c53206} 
+\index{GameEngine.c@{GameEngine.c}!marginBottom@{marginBottom}}
+\index{marginBottom@{marginBottom}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{marginBottom}{marginBottom}}
+{\footnotesize\ttfamily int margin\+Bottom = 200}
+
+\Hypertarget{GameEngine_8c_ab1a5ae8b7bb9953bedd47d22db911a87}\label{GameEngine_8c_ab1a5ae8b7bb9953bedd47d22db911a87} 
+\index{GameEngine.c@{GameEngine.c}!marginRight@{marginRight}}
+\index{marginRight@{marginRight}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{marginRight}{marginRight}}
+{\footnotesize\ttfamily int margin\+Right = 0}
+
+\Hypertarget{GameEngine_8c_a4cc75f256324e33385aa00bd67430368}\label{GameEngine_8c_a4cc75f256324e33385aa00bd67430368} 
+\index{GameEngine.c@{GameEngine.c}!NewGameText@{NewGameText}}
+\index{NewGameText@{NewGameText}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{NewGameText}{NewGameText}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structText}{Text}} New\+Game\+Text = \{NULL,\{0,0,0,0\},\{0,0,0,0\}, \{0,0,0,0\}, NULL, NULL, NULL,0\}}
+
+\Hypertarget{GameEngine_8c_aa7b28bc428ccbbcf4f77ed6ec1deccf9}\label{GameEngine_8c_aa7b28bc428ccbbcf4f77ed6ec1deccf9} 
+\index{GameEngine.c@{GameEngine.c}!title@{title}}
+\index{title@{title}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{title}{title}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structText}{Text}} title = \{NULL,\{0,0,0,0\},\{0,0,0,0\}, \{0,0,0,0\}, NULL, NULL, NULL,0\}}
+

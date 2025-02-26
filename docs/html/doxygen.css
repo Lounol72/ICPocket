@@ -342,22 +342,9 @@ html {
 --font-family-tooltip: Roboto,sans-serif;
 
 }}
-/* Définir la police Axolotl */
-@font-face {
-    font-family: 'Axolotl';
-    src: url('../../assets/fonts/Axolotl.ttf') format('truetype');
-}
-
-/* Appliquer la police Axolotl */
 body {
     background-color: var(--page-background-color);
     color: var(--page-foreground-color);
-    margin: 0;
-    padding: 0;
-    background: url("../../assets/Title Screen/BG.jpg") no-repeat center center fixed;
-    background-size: cover;
-    font-family: 'Axolotl', sans-serif; /* Utiliser la police Axolotl */
-    color: #2C3E50; /* Couleur de texte globale */
 }
 
 body, table, div, p, dl {
@@ -380,13 +367,13 @@ body, table, div, p, dl {
 }
 
 h1.groupheader {
-	font-size: 34px;
+	font-size: 150%;
 }
 
 h2.groupheader {
 	border-bottom: 1px solid var(--group-header-separator-color);
 	color: var(--group-header-color);
-	font-size: 34px;
+	font-size: 150%;
 	font-weight: normal;
 	margin-top: 1.75em;
 	padding-top: 8px;
@@ -409,12 +396,6 @@ h1, h2, h3, h4, h5, h6 {
 
 h1.glow, h2.glow, h3.glow, h4.glow, h5.glow, h6.glow {
 	text-shadow: 0 0 15px var(--glow-color);
-}
-
-h2, .headertitle .title {
-  color: #2C3E50;
-  font-weight: bold;
-  font-family: 'Axolotl', sans-serif; /* Utiliser la police Axolotl */
 }
 
 dt {

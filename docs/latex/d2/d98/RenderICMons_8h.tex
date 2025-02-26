@@ -1,0 +1,72 @@
+\doxysection{Référence du fichier include/\+Render\+ICMons.h}
+\hypertarget{RenderICMons_8h}{}\label{RenderICMons_8h}\index{include/RenderICMons.h@{include/RenderICMons.h}}
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}Game\+Engine.\+h"{}}\newline
+{\ttfamily \#include "{}Text.\+h"{}}\newline
+{\ttfamily \#include "{}struct\+Poke.\+h"{}}\newline
+Graphe des dépendances par inclusion de Render\+ICMons.\+h\+:
+% FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structIMG__ICMons}{IMG\+\_\+\+ICMons}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structIMG__ICMons}{IMG\+\_\+\+ICMons}} \mbox{\hyperlink{RenderICMons_8h_a362189cf9bfedb5a5046138a7c7d4413}{IMG\+\_\+\+ICMons}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structIMG__ICMons}{IMG\+\_\+\+ICMons}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{RenderICMons_8h_ac4e6519f6e42e14df90574527af9e3f8}{init\+ICMon\+Sprite}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Rect sprite\+Rect, SDL\+\_\+\+Rect name\+Rect, SDL\+\_\+\+Rect pv\+Rect, \mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}poke, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font, int team)
+\item 
+void \mbox{\hyperlink{RenderICMons_8h_a00792a5dc944c5d8992198d436c219d7}{update\+ICMons\+Sprite}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}poke, float scaleX, float scaleY)
+\item 
+void \mbox{\hyperlink{RenderICMons_8h_a1f0630ab702e1360f9f72e55ac3a347e}{render\+ICMons\+Sprite}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}poke)
+\item 
+void \mbox{\hyperlink{RenderICMons_8h_ad5893493e984d32da31956aa3cb09ca8}{destroy\+ICMons\+Sprite}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}poke)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{RenderICMons_8h_a362189cf9bfedb5a5046138a7c7d4413}\label{RenderICMons_8h_a362189cf9bfedb5a5046138a7c7d4413} 
+\index{RenderICMons.h@{RenderICMons.h}!IMG\_ICMons@{IMG\_ICMons}}
+\index{IMG\_ICMons@{IMG\_ICMons}!RenderICMons.h@{RenderICMons.h}}
+\doxysubsubsection{\texorpdfstring{IMG\_ICMons}{IMG\_ICMons}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structIMG__ICMons}{IMG\+\_\+\+ICMons}} \mbox{\hyperlink{structIMG__ICMons}{IMG\+\_\+\+ICMons}}}
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{RenderICMons_8h_ad5893493e984d32da31956aa3cb09ca8}\label{RenderICMons_8h_ad5893493e984d32da31956aa3cb09ca8} 
+\index{RenderICMons.h@{RenderICMons.h}!destroyICMonsSprite@{destroyICMonsSprite}}
+\index{destroyICMonsSprite@{destroyICMonsSprite}!RenderICMons.h@{RenderICMons.h}}
+\doxysubsubsection{\texorpdfstring{destroyICMonsSprite()}{destroyICMonsSprite()}}
+{\footnotesize\ttfamily void destroy\+ICMons\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{poke }\end{DoxyParamCaption})}
+
+\Hypertarget{RenderICMons_8h_ac4e6519f6e42e14df90574527af9e3f8}\label{RenderICMons_8h_ac4e6519f6e42e14df90574527af9e3f8} 
+\index{RenderICMons.h@{RenderICMons.h}!initICMonSprite@{initICMonSprite}}
+\index{initICMonSprite@{initICMonSprite}!RenderICMons.h@{RenderICMons.h}}
+\doxysubsubsection{\texorpdfstring{initICMonSprite()}{initICMonSprite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIMG__ICMons}{IMG\+\_\+\+ICMons}} \texorpdfstring{$\ast$}{*} init\+ICMon\+Sprite (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Rect}]{sprite\+Rect,  }\item[{SDL\+\_\+\+Rect}]{name\+Rect,  }\item[{SDL\+\_\+\+Rect}]{pv\+Rect,  }\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{poke,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{font,  }\item[{int}]{team }\end{DoxyParamCaption})}
+
+\Hypertarget{RenderICMons_8h_a1f0630ab702e1360f9f72e55ac3a347e}\label{RenderICMons_8h_a1f0630ab702e1360f9f72e55ac3a347e} 
+\index{RenderICMons.h@{RenderICMons.h}!renderICMonsSprite@{renderICMonsSprite}}
+\index{renderICMonsSprite@{renderICMonsSprite}!RenderICMons.h@{RenderICMons.h}}
+\doxysubsubsection{\texorpdfstring{renderICMonsSprite()}{renderICMonsSprite()}}
+{\footnotesize\ttfamily void render\+ICMons\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{poke }\end{DoxyParamCaption})}
+
+\Hypertarget{RenderICMons_8h_a00792a5dc944c5d8992198d436c219d7}\label{RenderICMons_8h_a00792a5dc944c5d8992198d436c219d7} 
+\index{RenderICMons.h@{RenderICMons.h}!updateICMonsSprite@{updateICMonsSprite}}
+\index{updateICMonsSprite@{updateICMonsSprite}!RenderICMons.h@{RenderICMons.h}}
+\doxysubsubsection{\texorpdfstring{updateICMonsSprite()}{updateICMonsSprite()}}
+{\footnotesize\ttfamily void update\+ICMons\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{poke,  }\item[{float}]{scaleX,  }\item[{float}]{scaleY }\end{DoxyParamCaption})}
+

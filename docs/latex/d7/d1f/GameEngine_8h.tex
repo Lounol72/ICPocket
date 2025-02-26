@@ -1,0 +1,141 @@
+\doxysection{Référence du fichier include/\+Game\+Engine.h}
+\hypertarget{GameEngine_8h}{}\label{GameEngine_8h}\index{include/GameEngine.h@{include/GameEngine.h}}
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+gamecontroller.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}Log.\+h"{}}\newline
+{\ttfamily \#include "{}Audio.\+h"{}}\newline
+{\ttfamily \#include "{}Buttons.\+h"{}}\newline
+{\ttfamily \#include "{}struct\+Poke.\+h"{}}\newline
+{\ttfamily \#include "{}duel.\+h"{}}\newline
+{\ttfamily \#include "{}trainer\+AI.\+h"{}}\newline
+{\ttfamily \#include "{}save.\+h"{}}\newline
+{\ttfamily \#include "{}inter\+Duel.\+h"{}}\newline
+{\ttfamily \#include "{}Utils.\+h"{}}\newline
+{\ttfamily \#include "{}Text.\+h"{}}\newline
+{\ttfamily \#include "{}Window.\+h"{}}\newline
+{\ttfamily \#include "{}Map.\+h"{}}\newline
+{\ttfamily \#include "{}Game.\+h"{}}\newline
+{\ttfamily \#include "{}Events.\+h"{}}\newline
+{\ttfamily \#include "{}Render\+ICMons.\+h"{}}\newline
+Graphe des dépendances par inclusion de Game\+Engine.\+h\+:
+% FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structUI__Elements}{UI\+\_\+\+Elements}}
+\item 
+struct \mbox{\hyperlink{structBattleState}{Battle\+State}}
+\item 
+struct \mbox{\hyperlink{structGameState}{Game\+State}}
+\item 
+struct \mbox{\hyperlink{structStateHandler}{State\+Handler}}
+\item 
+struct \mbox{\hyperlink{structGame}{Game}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structStateHandler}{State\+Handler}} \mbox{\hyperlink{GameEngine_8h_a5ab6a5b30161707f158cd5b051db5e7d}{State\+Handler}}
+\item 
+typedef struct \mbox{\hyperlink{structGame}{Game}} \mbox{\hyperlink{GameEngine_8h_a69b5df78d315f81ed77df30fdbfb7002}{Game}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{GameEngine_8h_ac7a261e0d935ffeeca4d7a0713913bd2}{init\+All\+Buttons}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
+\item 
+void \mbox{\hyperlink{GameEngine_8h_adce05963537a78c4c589298117616864}{render}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
+\item 
+void \mbox{\hyperlink{GameEngine_8h_ad119335fdbed767125510c855f2629ce}{main\+Loop}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
+\item 
+void \mbox{\hyperlink{GameEngine_8h_a8f8e57777ac436d2bfa2a87224c0eb8c}{attq\+Button\+Clicked}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+\item 
+void \mbox{\hyperlink{GameEngine_8h_ae30f21d07d1066ecda7ed1097d584e6b}{change\+State}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+\item 
+void \mbox{\hyperlink{GameEngine_8h_aa9e620870df635719d54d19fd83bb423}{update\+ICButtons}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}team)
+\item 
+void \mbox{\hyperlink{GameEngine_8h_a275ae329d3830bface72c1c30db48b04}{next\+Duel}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+\item 
+void \mbox{\hyperlink{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1}{update\+Current\+Button}} ()
+\item 
+void \mbox{\hyperlink{GameEngine_8h_ae728be2d7ae42605618aa49e1a837466}{update\+Music}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{GameEngine_8h_a69b5df78d315f81ed77df30fdbfb7002}\label{GameEngine_8h_a69b5df78d315f81ed77df30fdbfb7002} 
+\index{GameEngine.h@{GameEngine.h}!Game@{Game}}
+\index{Game@{Game}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{Game}{Game}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structGame}{Game}} \mbox{\hyperlink{structGame}{Game}}}
+
+\Hypertarget{GameEngine_8h_a5ab6a5b30161707f158cd5b051db5e7d}\label{GameEngine_8h_a5ab6a5b30161707f158cd5b051db5e7d} 
+\index{GameEngine.h@{GameEngine.h}!StateHandler@{StateHandler}}
+\index{StateHandler@{StateHandler}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{StateHandler}{StateHandler}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structStateHandler}{State\+Handler}} \mbox{\hyperlink{structStateHandler}{State\+Handler}}}
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{GameEngine_8h_a8f8e57777ac436d2bfa2a87224c0eb8c}\label{GameEngine_8h_a8f8e57777ac436d2bfa2a87224c0eb8c} 
+\index{GameEngine.h@{GameEngine.h}!attqButtonClicked@{attqButtonClicked}}
+\index{attqButtonClicked@{attqButtonClicked}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{attqButtonClicked()}{attqButtonClicked()}}
+{\footnotesize\ttfamily void attq\+Button\+Clicked (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8h_ae30f21d07d1066ecda7ed1097d584e6b}\label{GameEngine_8h_ae30f21d07d1066ecda7ed1097d584e6b} 
+\index{GameEngine.h@{GameEngine.h}!changeState@{changeState}}
+\index{changeState@{changeState}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{changeState()}{changeState()}}
+{\footnotesize\ttfamily void change\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8h_ac7a261e0d935ffeeca4d7a0713913bd2}\label{GameEngine_8h_ac7a261e0d935ffeeca4d7a0713913bd2} 
+\index{GameEngine.h@{GameEngine.h}!initAllButtons@{initAllButtons}}
+\index{initAllButtons@{initAllButtons}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{initAllButtons()}{initAllButtons()}}
+{\footnotesize\ttfamily void init\+All\+Buttons (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8h_ad119335fdbed767125510c855f2629ce}\label{GameEngine_8h_ad119335fdbed767125510c855f2629ce} 
+\index{GameEngine.h@{GameEngine.h}!mainLoop@{mainLoop}}
+\index{mainLoop@{mainLoop}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{mainLoop()}{mainLoop()}}
+{\footnotesize\ttfamily void main\+Loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8h_a275ae329d3830bface72c1c30db48b04}\label{GameEngine_8h_a275ae329d3830bface72c1c30db48b04} 
+\index{GameEngine.h@{GameEngine.h}!nextDuel@{nextDuel}}
+\index{nextDuel@{nextDuel}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{nextDuel()}{nextDuel()}}
+{\footnotesize\ttfamily void next\+Duel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8h_adce05963537a78c4c589298117616864}\label{GameEngine_8h_adce05963537a78c4c589298117616864} 
+\index{GameEngine.h@{GameEngine.h}!render@{render}}
+\index{render@{render}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1}\label{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1} 
+\index{GameEngine.h@{GameEngine.h}!updateCurrentButton@{updateCurrentButton}}
+\index{updateCurrentButton@{updateCurrentButton}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{updateCurrentButton()}{updateCurrentButton()}}
+{\footnotesize\ttfamily void update\+Current\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8h_aa9e620870df635719d54d19fd83bb423}\label{GameEngine_8h_aa9e620870df635719d54d19fd83bb423} 
+\index{GameEngine.h@{GameEngine.h}!updateICButtons@{updateICButtons}}
+\index{updateICButtons@{updateICButtons}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{updateICButtons()}{updateICButtons()}}
+{\footnotesize\ttfamily void update\+ICButtons (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{team }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8h_ae728be2d7ae42605618aa49e1a837466}\label{GameEngine_8h_ae728be2d7ae42605618aa49e1a837466} 
+\index{GameEngine.h@{GameEngine.h}!updateMusic@{updateMusic}}
+\index{updateMusic@{updateMusic}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{updateMusic()}{updateMusic()}}
+{\footnotesize\ttfamily void update\+Music (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+

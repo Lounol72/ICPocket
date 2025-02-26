@@ -1,0 +1,72 @@
+\doxysection{Référence du fichier include/\+Camera.h}
+\hypertarget{Camera_8h}{}\label{Camera_8h}\index{include/Camera.h@{include/Camera.h}}
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+Graphe des dépendances par inclusion de Camera.\+h\+:
+% FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCamera}{Camera}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Camera_8h_a498d9f026138406895e9a34b504ac6a6}{WINDOW\+\_\+\+WIDTH}}~1280
+\item 
+\#define \mbox{\hyperlink{Camera_8h_a5473cf64fa979b48335079c99532e243}{WINDOW\+\_\+\+HEIGHT}}~720
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Camera_8h_a2066b5ada76e803c9b0e2ae818c73b85}{create\+Camera}} (int window\+Width, int window\+Height)
+\item 
+void \mbox{\hyperlink{Camera_8h_a1f82183277c2e3bb2c0ed552111a932f}{update\+Camera}} (\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}camera, int playerX, int playerY, float delta\+Time)
+\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{Camera_8h_a92559a351d5f83f829609acfd7d585d4}{get\+World\+To\+Screen\+Rect}} (\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}camera, SDL\+\_\+\+Rect world\+Rect)
+\item 
+void \mbox{\hyperlink{Camera_8h_a30b237a47aec83d888c3d194d1a03209}{destroy\+Camera}} (\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}camera)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{Camera_8h_a5473cf64fa979b48335079c99532e243}\label{Camera_8h_a5473cf64fa979b48335079c99532e243} 
+\index{Camera.h@{Camera.h}!WINDOW\_HEIGHT@{WINDOW\_HEIGHT}}
+\index{WINDOW\_HEIGHT@{WINDOW\_HEIGHT}!Camera.h@{Camera.h}}
+\doxysubsubsection{\texorpdfstring{WINDOW\_HEIGHT}{WINDOW\_HEIGHT}}
+{\footnotesize\ttfamily \#define WINDOW\+\_\+\+HEIGHT~720}
+
+\Hypertarget{Camera_8h_a498d9f026138406895e9a34b504ac6a6}\label{Camera_8h_a498d9f026138406895e9a34b504ac6a6} 
+\index{Camera.h@{Camera.h}!WINDOW\_WIDTH@{WINDOW\_WIDTH}}
+\index{WINDOW\_WIDTH@{WINDOW\_WIDTH}!Camera.h@{Camera.h}}
+\doxysubsubsection{\texorpdfstring{WINDOW\_WIDTH}{WINDOW\_WIDTH}}
+{\footnotesize\ttfamily \#define WINDOW\+\_\+\+WIDTH~1280}
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{Camera_8h_a2066b5ada76e803c9b0e2ae818c73b85}\label{Camera_8h_a2066b5ada76e803c9b0e2ae818c73b85} 
+\index{Camera.h@{Camera.h}!createCamera@{createCamera}}
+\index{createCamera@{createCamera}!Camera.h@{Camera.h}}
+\doxysubsubsection{\texorpdfstring{createCamera()}{createCamera()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*} create\+Camera (\begin{DoxyParamCaption}\item[{int}]{window\+Width,  }\item[{int}]{window\+Height }\end{DoxyParamCaption})}
+
+\Hypertarget{Camera_8h_a30b237a47aec83d888c3d194d1a03209}\label{Camera_8h_a30b237a47aec83d888c3d194d1a03209} 
+\index{Camera.h@{Camera.h}!destroyCamera@{destroyCamera}}
+\index{destroyCamera@{destroyCamera}!Camera.h@{Camera.h}}
+\doxysubsubsection{\texorpdfstring{destroyCamera()}{destroyCamera()}}
+{\footnotesize\ttfamily void destroy\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}}]{camera }\end{DoxyParamCaption})}
+
+\Hypertarget{Camera_8h_a92559a351d5f83f829609acfd7d585d4}\label{Camera_8h_a92559a351d5f83f829609acfd7d585d4} 
+\index{Camera.h@{Camera.h}!getWorldToScreenRect@{getWorldToScreenRect}}
+\index{getWorldToScreenRect@{getWorldToScreenRect}!Camera.h@{Camera.h}}
+\doxysubsubsection{\texorpdfstring{getWorldToScreenRect()}{getWorldToScreenRect()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect get\+World\+To\+Screen\+Rect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}}]{camera,  }\item[{SDL\+\_\+\+Rect}]{world\+Rect }\end{DoxyParamCaption})}
+
+\Hypertarget{Camera_8h_a1f82183277c2e3bb2c0ed552111a932f}\label{Camera_8h_a1f82183277c2e3bb2c0ed552111a932f} 
+\index{Camera.h@{Camera.h}!updateCamera@{updateCamera}}
+\index{updateCamera@{updateCamera}!Camera.h@{Camera.h}}
+\doxysubsubsection{\texorpdfstring{updateCamera()}{updateCamera()}}
+{\footnotesize\ttfamily void update\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}}]{camera,  }\item[{int}]{playerX,  }\item[{int}]{playerY,  }\item[{float}]{delta\+Time }\end{DoxyParamCaption})}
+
