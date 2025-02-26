@@ -50,18 +50,6 @@ void changeState(Window *win, void *data) {
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Changement d'état : %d", newState);
 }
 
-void chargerCallBack(Window *win, void *data) {
-    (void)win; // Marquer le paramètre comme inutilisé
-    (void)data; // Marquer le paramètre comme inutilisé
-    charger("Save_1", &game.battleState.rouge, &game.battleState.bleu);
-    // printTeam(&game.battleState.rouge);
-    game.gameState.currentState = GAME;
-    game.gameState.playerTurn = 1;
-    game.gameState.initialized = 1;
-    game.currentButton = 0;
-    changeState(win, &game.stateHandlers[4].state);
-}
-
 void makeWindowFullScreen(Window *win, void *data) {
     (void)data;
     SDL_SetWindowFullscreen(win->window, SDL_WINDOW_FULLSCREEN_DESKTOP);
@@ -267,12 +255,12 @@ void initAllButtons(Window *win)
     buttonsLoadGame[0] = createButton(
         "Save 1", win, 500, 104, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        chargerCallBack, (void*)(intptr_t)1, win->LargeFont
+        changeState, &game.stateHandlers[4].state, win->LargeFont
     );
     buttonsLoadGame[1] = createButton(
         "Save 2", win, 500, 258, 300, 100,
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        chargerCallBack, (void*)(intptr_t)2, win->LargeFont
+        changeState, &game.stateHandlers[4].state, win->LargeFont
     );
     buttonsLoadGame[2] = createButton(
         "Back", win, 100, 600, 300, 100,

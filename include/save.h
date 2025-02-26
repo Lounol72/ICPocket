@@ -2,6 +2,8 @@
 #define SAVE_H
 
 /**
+*@file save.h
+*@author William
 *@brief Save the player's data in a file
 *@param nomSave : the name of the save
 *@param joueur : the player's data

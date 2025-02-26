@@ -5,7 +5,6 @@
 #include "../include/save.h"
 
 int main(){
-	printf("stp");
 	initData();
 	char choix;
 	printf("Charger ou nouveau jeu ?\n");
@@ -16,16 +15,13 @@ int main(){
 	} else {
 		initTeam(&rouge,3);
 	}
+
 	//use testSwitch or testBattle to try the program's features
 	testBattle(&rouge,&bleu);
 	getchar();
 	printf("TEAM ROUGE:\n\n");
-	//printTeam(&rouge);
+	printTeam(&rouge);
 	printf("TEAM BLEU:\n\n");
-	//printTeam(&bleu);
-
-	//getPokeFromTeam(&rouge,0,&bleu,0);
-	printf("TEAM ROUGE:\n\n");
-	//printTeam(&rouge);
+	printTeam(&bleu);
 	return 0;
 }

@@ -1,46 +1,51 @@
-User name : SAVE2
-3
-12
-100
-0
-1
-4
-28
-18
-4
-31
-22
-2
-2
+User name : SAVE1
+nb:3
+id:4
+lvl:99
+nature:0
+nbmove:3
+iv:20
+iv:25
+iv:16
+iv:27
+iv:14
+iv:27
+type:1
+move:7
+move:4
+move:3
 
 
-12
-100
-0
-1
-21
-27
-14
-12
-30
-17
-2
-5
+id:4
+lvl:99
+nature:0
+nbmove:3
+iv:18
+iv:24
+iv:28
+iv:5
+iv:2
+iv:28
+type:2
+move:2
+move:7
+move:5
 
 
-12
-100
-0
-2
-0
-16
-26
-4
-6
-2
-2
-1
-6
+id:4
+lvl:99
+nature:0
+nbmove:3
+iv:7
+iv:25
+iv:3
+iv:27
+iv:18
+iv:19
+type:2
+move:6
+move:1
+move:2
 
 
 Dernier dresseur battu :  id: 0

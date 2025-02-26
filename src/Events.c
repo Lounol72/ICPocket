@@ -312,7 +312,7 @@ void handleNewGameEvent(Window * win, SDL_Event * event) {
 
 void handleLoadGameEvent(Window *win, SDL_Event *event) {
     if (!win || !event) return;
-    // Parcourt et gère les événements des boutons
+    
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
         SDL_GetMouseState(&x, &y);
@@ -322,6 +322,80 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
     }
     // Gérer les autres événements
     handleEvent(win, event);
+    if (!game.gameState.initialized) {
+        initData();
+        initTeam(&game.battleState.bleu, 3);
+        charger("Save_2",&game.battleState.rouge, &game.battleState.bleu);
+        game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
+        
+        // Initialize sprites for both teams
+
+        for(int i = 0; i < game.battleState.rouge.nb_poke; i++) {
+            t_Poke *poke = &(game.battleState.rouge.team[i]);
+            SDL_Rect spriteRect = {
+                win->width * RED_SPRITE_X_RATIO, 
+                win->height * RED_SPRITE_Y_RATIO,
+                win->width * SPRITE_WIDTH_RATIO,
+                win->height * SPRITE_HEIGHT_RATIO
+            };
+            SDL_Rect nameRect = {
+                spriteRect.x,
+                spriteRect.y - NAME_Y_OFFSET,
+                spriteRect.w / 2,
+                NAME_HEIGHT
+            };
+            SDL_Rect pvRect = {
+                spriteRect.x,
+                spriteRect.y + spriteRect.h + PV_Y_OFFSET,
+                spriteRect.w / 3,
+                PV_BAR_HEIGHT
+            };
+            poke->img = initICMonSprite(win->renderer, spriteRect, nameRect, pvRect, poke, win->LargeFont, 0);
+            if (!poke->img || !poke->img->ICMonTexture) {
+                SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
+                    "❌ Failed to initialize sprite for red team pokemon %d", i);
+                return;
+            }
+        }
+        
+        for(int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+            t_Poke *poke = &(game.battleState.bleu.team[i]);
+            SDL_Rect spriteRect = {
+                win->width * BLUE_SPRITE_X_RATIO,
+                win->height * BLUE_SPRITE_Y_RATIO,
+                win->width * SPRITE_WIDTH_RATIO,
+                win->height * SPRITE_HEIGHT_RATIO
+            };
+            SDL_Rect nameRect = {
+                spriteRect.x,
+                spriteRect.y - NAME_Y_OFFSET,
+                spriteRect.w/2,
+                NAME_HEIGHT
+            };
+            SDL_Rect pvRect = {
+                spriteRect.x,
+                spriteRect.y + spriteRect.h + PV_Y_OFFSET,
+                spriteRect.w / 3,
+                PV_BAR_HEIGHT
+            };
+            poke->img = initICMonSprite(win->renderer, spriteRect, nameRect, pvRect, poke, win->LargeFont, 1);
+            if (!poke->img || !poke->img->ICMonTexture) {
+                SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
+                    "❌ Failed to initialize sprite for blue team pokemon %d", i);
+                return;
+            }
+        }
+
+        updateICButtons(win, &game.battleState.rouge);
+        
+        // Debug info
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, 
+            "Red team PV: %d, Blue team PV: %d", 
+            game.battleState.rouge.team[0].current_pv,
+            game.battleState.bleu.team[0].current_pv);
+            
+        game.gameState.initialized = 1;
+    }
 }
 
 //---------------------------------------------------------------------------------

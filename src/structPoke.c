@@ -164,7 +164,6 @@ void learnMove(t_Poke *p, t_Move *m, int ind)
 void printPoke(t_Poke * p)
 {
 	printf("name=%s\n", p->name);
-	printf("%d\n", p->gender);
 	switch (p->gender)
 	{
 	case male:
