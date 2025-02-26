@@ -1,3 +1,9 @@
+/**
+*@file structPoke.h
+*@author Nathan William
+*@date 09/12/24
+*/
+
 #ifndef STRUCTPOKE_H
 #define STRUCTPOKE_H
 #include <stdio.h>
@@ -30,6 +36,9 @@ typedef struct{char nature[15];float coeff[6];} t_Nature;
 
 typedef struct IMG_ICMons IMG_ICMons;
 
+/**
+*Structures des caractéristiques d'une attaque d'un ICMon
+*/
 typedef struct
 {	
 	int id;
@@ -48,6 +57,9 @@ typedef struct
 	int effect_modifier;//Modificateur de l'effet
 } t_Move;
 
+/**
+*Structures d'un ICMon
+*/
 typedef struct
 {
 	int id;
