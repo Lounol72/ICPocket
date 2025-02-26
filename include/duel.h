@@ -60,8 +60,7 @@ void swapActualAttacker(t_Team * t, int swapIndex);
  * @fn int playATurn(t_Team * t1, int move1, t_Team * t2, int move2);
  * @brief La fonction playATurn permet de jouer un tour d'un duel Pokémon classique, pour deux équipes au préalable générées et initialisées.
  * La fonction modifie l'état des équipes en paramètre et gère tout les cas particuliers (actions invalides, gestion des afflictions, cas de lutte).
- * @param t1
- * @param t2 Deux pointeurs sur structures t_Team, pointant sur deux équipes supposé initialisées (voir initTeam).
+ * @param t1,t2 Deux pointeurs sur structures t_Team, pointant sur deux équipes supposé initialisées (voir initTeam).
  * @param move1 Un entier repésentant l'action de l'équipe n°1, comprise entre 0 et 3. Il est recommandé d'utiliser les macros ATTAQUE_X pour renseigner cette valeur.
  * @param move1 Un entier repésentant l'action de l'équipe n°2, comprise entre 0 et 3. Il est recommandé d'utiliser les macros ATTAQUE_X pour renseigner cette valeur.
  * @return un booléen informant si un tour à été joué ou n'était pas valide pour l'être.

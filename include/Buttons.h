@@ -1,6 +1,11 @@
 #ifndef BUTTONS_H
 #define BUTTONS_H
 
+/**
+ * @file Buttons.h
+ * @author Alban Louis
+ * @date 27/12/2024
+ */
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
@@ -14,21 +19,7 @@ typedef struct SliderList SliderList;
 
 #include "GameEngine.h" 
 
-/**
- * @file Buttons.h
- * @author Alban Louis
- * @date 27/12/2024
- */
 
-/**
- * @brief The FontSize enum represents the different font sizes that can be used for the button text.
- * 
- * The FontSize enum represents the different font sizes that can be used for the button text.
- * The font sizes are defined as LARGE, MEDIUM, and SMALL.
- * 
- * The CUSTOM value can be used to specify a custom font size.
- * 
- */
 
 typedef enum FontSize {
     LARGE = 56,

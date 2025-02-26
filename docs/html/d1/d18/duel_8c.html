@@ -159,6 +159,7 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a785cf59b04b080c32b51ca8300b62507" id="r_a785cf59b04b080c32b51ca8300b62507"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d18/duel_8c.html#a785cf59b04b080c32b51ca8300b62507">swapActualAttacker</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t, int swapIndex)</td></tr>
 <tr class="separator:a785cf59b04b080c32b51ca8300b62507"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37d0046e530324685213ff50a4c36cdb" id="r_a37d0046e530324685213ff50a4c36cdb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d18/duel_8c.html#a37d0046e530324685213ff50a4c36cdb">playATurn</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t1, int move1, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t2, int move2)</td></tr>
+<tr class="memdesc:a37d0046e530324685213ff50a4c36cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">La fonction playATurn permet de jouer un tour d'un duel Pokémon classique, pour deux équipes au préalable générées et initialisées. La fonction modifie l'état des équipes en paramètre et gère tout les cas particuliers (actions invalides, gestion des afflictions, cas de lutte).  <br /></td></tr>
 <tr class="separator:a37d0046e530324685213ff50a4c36cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e88ec315719a73455623551f124fb62" id="r_a3e88ec315719a73455623551f124fb62"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d18/duel_8c.html#a3e88ec315719a73455623551f124fb62">expCurve</a> (int lvl)</td></tr>
 <tr class="separator:a3e88ec315719a73455623551f124fb62"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -616,6 +617,17 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>La fonction playATurn permet de jouer un tour d'un duel Pokémon classique, pour deux équipes au préalable générées et initialisées. La fonction modifie l'état des équipes en paramètre et gère tout les cas particuliers (actions invalides, gestion des afflictions, cas de lutte). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t1,t2</td><td>Deux pointeurs sur structures <a class="el" href="../../da/d63/structt__Team.html">t_Team</a>, pointant sur deux équipes supposé initialisées (voir initTeam). </td></tr>
+    <tr><td class="paramname">move1</td><td>Un entier repésentant l'action de l'équipe n°1, comprise entre 0 et 3. Il est recommandé d'utiliser les macros ATTAQUE_X pour renseigner cette valeur. </td></tr>
+    <tr><td class="paramname">move1</td><td>Un entier repésentant l'action de l'équipe n°2, comprise entre 0 et 3. Il est recommandé d'utiliser les macros ATTAQUE_X pour renseigner cette valeur. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un booléen informant si un tour à été joué ou n'était pas valide pour l'être. </dd></dl>
 
 </div>
 </div>

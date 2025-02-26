@@ -107,6 +107,6 @@ package-windows:
 doxygen:
 	@echo "🧹 Nettoyage en cours..."
 	@rm -rf docs/html
-	@doxygen Doxyfile
+	@doxygen Doxyfile 
 	@echo "✅ Documentation générée dans docs/html"
 .PHONY: clean all 

@@ -1,3 +1,114 @@
+commit 8ce9c934365c205b510901215e466e300ecf927f
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 26 15:03:23 2025 +0100
+
+    Generate Doxygen documentation for various source files and update Makefile for documentation build process
+
+commit 58030ea3bd60ffcb288ee6c3e6a8c33f90025b87
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 26 14:47:40 2025 +0100
+
+    Add Doxygen search data for AI, Map, Camera, Player, Window, and UI elements; update graph legend and file references
+
+commit 7ada2117d2ae8235534bb5817c33b33466ae0277
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 26 14:47:25 2025 +0100
+
+    Add Doxygen Awesome CSS submodule for improved documentation styling
+
+commit 0e5285f2265e160f75dffc5b228cfb2306791538
+Merge: 6b23c8d a1df6fd
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Wed Feb 26 14:33:52 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket into main
+
+commit 6b23c8de9639064dac5c5c04e0c1581ff9d93498
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Wed Feb 26 14:29:41 2025 +0100
+
+    ```
+    No code changes made; skipping commit.
+    ```
+
+commit a1df6fd3abe5be0e137de82b30ecb25ff549c033
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 25 21:51:54 2025 +0100
+
+    Add camera destruction function, update player destruction logic, and enhance Makefile for Valgrind debugging
+
+commit 77940f05e29c3e27289faef4e4792aea87f76406
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 25 20:46:27 2025 +0100
+
+    Implement camera functionality; add Camera struct and related methods, update map rendering with camera support, and adjust player rendering accordingly
+
+commit 9a5f33646e68d8bbb1297e40cbefbc79b2104865
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 25 16:48:31 2025 +0100
+
+    Refactor Player structure and animation handling; implement player creation and update functions
+
+commit e59c2c4b3e6a5f25085f9e4203ff8e01a9f4fe44
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Tue Feb 25 15:06:08 2025 +0100
+
+    Remove unused monster asset and update character data; adjust save file values and clean up log entries
+
+commit 13ec50409281d133dc592ec9cce92cb6cc570e35
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 25 15:05:17 2025 +0100
+
+    Add new character and monster assets for enhanced gameplay experience
+
+commit b4beabad2269fce5537fca560f6e55dc996c8738
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Tue Feb 25 14:58:25 2025 +0100
+
+    Add new monster assets and update related data files
+
+commit 4295d7bd146bfddf856bd66df8c325fe66c6ec40
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 25 14:56:51 2025 +0100
+
+    Refactor handleWindowSizeChange to remove SDL_Event parameter and directly retrieve window size
+
+commit cd6bdb7991d6d6e781f9a872101e77a82ae7d001
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 25 14:35:44 2025 +0100
+
+    Enhance window resizing functionality to update UI elements and sprites dynamically
+
+commit b30207085d9f09100d78684330ce41a3e9c1bb36
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 25 14:26:47 2025 +0100
+
+    Update handleWindowSizeChange to accept SDL_Event parameter for improved event handling
+
+commit 1fb1aed8393603e0b9936e23e3e8607b22efac30
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 25 14:25:24 2025 +0100
+
+    Add window size change handling to improve UI responsiveness
+
+commit e35d94f08fe983487cb3a5d3d09e6bd3208a0977
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 25 14:22:21 2025 +0100
+
+    Implement Player module and enhance Map initialization with texture loading
+
+commit aaa100c60ab3f86940b72a3074b9a5c8a8d9fb14
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Tue Feb 25 12:04:05 2025 +0100
+
+    Add Map module with initialization and rendering functions
+
+commit a576563be38f5a52623edbb4f8c6a354e5815ead
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Mon Feb 24 22:35:50 2025 +0100
+
+    Update save file data and adjust PV initialization for sprite rendering
+
 commit d2d29c8907a72f85e2bbbb5b340f7a7153f61f1e
 Author: Lounol72 <subtil.louis2005@gmail.com>
 Date:   Mon Feb 24 22:20:05 2025 +0100

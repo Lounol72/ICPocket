@@ -78,7 +78,7 @@ void \mbox{\hyperlink{duel_8h_a2cdb2c620c0e4c3077d6ae74c45ceb36}{affect\+Damage}
 void \mbox{\hyperlink{duel_8h_a785cf59b04b080c32b51ca8300b62507}{swap\+Actual\+Attacker}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t, int swap\+Index)
 \item 
 int \mbox{\hyperlink{duel_8h_a37d0046e530324685213ff50a4c36cdb}{play\+ATurn}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t1, int move1, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t2, int move2)
-\item 
+\begin{DoxyCompactList}\small\item\em La fonction play\+ATurn permet de jouer un tour d\textquotesingle{}un duel Pokémon classique, pour deux équipes au préalable générées et initialisées. La fonction modifie l\textquotesingle{}état des équipes en paramètre et gère tout les cas particuliers (actions invalides, gestion des afflictions, cas de lutte). \end{DoxyCompactList}\item 
 unsigned \mbox{\hyperlink{duel_8h_a3e88ec315719a73455623551f124fb62}{exp\+Curve}} (int lvl)
 \item 
 int \mbox{\hyperlink{duel_8h_a109762b4b492c870f576af03d9c9a805}{reached\+Next\+Lvl}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p)
@@ -272,6 +272,22 @@ int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{duel_8h_adc50e7669e9a8b080c36aff
 \doxysubsubsection{\texorpdfstring{playATurn()}{playATurn()}}
 {\footnotesize\ttfamily int play\+ATurn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t1,  }\item[{int}]{move1,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t2,  }\item[{int}]{move2 }\end{DoxyParamCaption})}
 
+
+
+La fonction play\+ATurn permet de jouer un tour d\textquotesingle{}un duel Pokémon classique, pour deux équipes au préalable générées et initialisées. La fonction modifie l\textquotesingle{}état des équipes en paramètre et gère tout les cas particuliers (actions invalides, gestion des afflictions, cas de lutte). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em t1,t2} & Deux pointeurs sur structures \doxylink{structt__Team}{t\+\_\+\+Team}, pointant sur deux équipes supposé initialisées (voir init\+Team). \\
+\hline
+{\em move1} & Un entier repésentant l\textquotesingle{}action de l\textquotesingle{}équipe n°1, comprise entre 0 et 3. Il est recommandé d\textquotesingle{}utiliser les macros ATTAQUE\+\_\+X pour renseigner cette valeur. \\
+\hline
+{\em move1} & Un entier repésentant l\textquotesingle{}action de l\textquotesingle{}équipe n°2, comprise entre 0 et 3. Il est recommandé d\textquotesingle{}utiliser les macros ATTAQUE\+\_\+X pour renseigner cette valeur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un booléen informant si un tour à été joué ou n\textquotesingle{}était pas valide pour l\textquotesingle{}être. 
+\end{DoxyReturn}
 \Hypertarget{duel_8h_aa112c976011418f424765e88722d77d4}\label{duel_8h_aa112c976011418f424765e88722d77d4} 
 \index{duel.h@{duel.h}!ppCheck@{ppCheck}}
 \index{ppCheck@{ppCheck}!duel.h@{duel.h}}
