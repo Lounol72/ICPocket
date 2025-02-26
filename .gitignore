@@ -23,5 +23,7 @@
 *.sh 
 *.tar.gz
 
+src/data/save/Save_*.txt
+bin/
 
 *.Identifier

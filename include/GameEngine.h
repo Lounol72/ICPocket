@@ -22,6 +22,7 @@
 #include "Map.h"
 #include "Player.h"
 #include "Camera.h"
+#include "ThreadManager.h"
 /**
  * @file GameEngine.h
  * @author Louis Alban
@@ -82,6 +83,7 @@ typedef struct Game {
     int currentButton;
     int saved;
     float deltaTime;
+    ThreadManager threadManager;
 } Game;
 
 #include "Game.h"
