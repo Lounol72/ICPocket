@@ -6,7 +6,6 @@
 #include <SDL2/SDL_gamecontroller.h>
 #include "GameEngine.h"
 #include "Utils.h"
-
 /**
  * @file Window.h
  * @author Louis Alban

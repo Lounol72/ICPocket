@@ -115,4 +115,6 @@ void nextDuel(Window* win, void *data);
 void updateCurrentButton();
 void updateMusic();
 
+void manageFrameRate(int frameStart);
+
 #endif /* GAMEENGINE_H */

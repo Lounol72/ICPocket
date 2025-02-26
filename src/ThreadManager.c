@@ -49,25 +49,56 @@ void* renderThreadFunction(void* arg) {
     Game* game = (Game*)arg;
     while (game->threadManager.isRunning) {
         pthread_mutex_lock(&game->threadManager.renderMutex);
-        render(game->win);
-        SDL_RenderPresent(game->win->renderer);
+        
+        if (game->win && game->win->renderer) {
+            // Verrouiller le mutex physique seulement pendant le rendu du joueur
+            if (game->gameState.currentState == MAP) {
+                pthread_mutex_lock(&game->threadManager.physicsMutex);
+                render(game->win);
+                pthread_mutex_unlock(&game->threadManager.physicsMutex);
+            } else {
+                render(game->win);
+            }
+            
+            updateCurrentButton();
+            SDL_RenderPresent(game->win->renderer);
+        }
+        
         pthread_mutex_unlock(&game->threadManager.renderMutex);
-        SDL_Delay(16); // ~60fps
+        SDL_Delay(8);
     }
     return NULL;
 }
 
 void* physicsThreadFunction(void* arg) {
     Game* game = (Game*)arg;
+    Uint32 lastTime = SDL_GetTicks();
+    
     while (game->threadManager.isRunning) {
-        pthread_mutex_lock(&game->threadManager.physicsMutex);
-        if (game->gameState.currentState == MAP) {
-            updatePlayerPosition(game->gameData.player, game->deltaTime);
-            updateCamera(game->gameData.camera, game->gameData.player->position.x, 
-                        game->gameData.player->position.y, game->deltaTime);
+        // Calcul du deltaTime avant le verrouillage pour minimiser le temps de verrouillage
+        Uint32 currentTime = SDL_GetTicks();
+        float deltaTime = (currentTime - lastTime) / 1000.0f;
+        lastTime = currentTime;
+        
+        if (game->gameState.currentState == MAP && game->gameData.player) {
+            pthread_mutex_lock(&game->threadManager.physicsMutex);
+            
+            // Si le joueur est en mouvement, mettre à jour sa position
+            if (game->gameData.player->isMovingToTarget) {
+                updatePlayerPosition(game->gameData.player, deltaTime);
+                updateCamera(game->gameData.camera, 
+                           game->gameData.player->position.x, 
+                           game->gameData.player->position.y, 
+                           deltaTime);
+            }
+            
+            // Mettre à jour l'animation indépendamment du mouvement
+            updatePlayerAnimation(game->gameData.player, deltaTime);
+            
+            pthread_mutex_unlock(&game->threadManager.physicsMutex);
         }
-        pthread_mutex_unlock(&game->threadManager.physicsMutex);
-        SDL_Delay(16); // ~60fps
+        
+        //SDL_Delay(8); // Légère pause pour éviter la surcharge CPU
     }
     return NULL;
 }

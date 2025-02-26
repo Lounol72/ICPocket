@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "Window.h"
 #include "GameEngine.h"
+#include "ThreadManager.h"
 
 /**
  * @file Game.h

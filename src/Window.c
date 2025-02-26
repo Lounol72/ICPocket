@@ -44,7 +44,6 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
 
 void destroyWindow(Window *win)
 {
-    // 1) Stop playing & free music
     if (game.gameState.music) {
         Mix_FreeMusic(game.gameState.music);
         game.gameState.music = NULL;

@@ -65,6 +65,15 @@ void initGame(Window *win) {
     loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");
 
     game.gameData.player = createPlayer(win->renderer, "assets/Characters/Character 2.png");
+    if (!game.gameData.player) {
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
+                      "❌ Erreur : Impossible de créer le joueur");
+        return;
+    }
+    
+    game.gameData.player->position.x = WINDOWS_W / 2;
+    game.gameData.player->position.y = WINDOWS_H / 2;
+    
     game.gameData.map = initMap(win->renderer, "assets/Tileset/Map/MapFloor.png");
     game.gameData.camera = createCamera(WINDOWS_W, WINDOWS_H);
     

@@ -305,6 +305,8 @@ void handleNewGameEvent(Window * win, SDL_Event * event) {
             game.battleState.bleu.team[0].current_pv);
             
         game.gameState.initialized = 1;
+    }else{
+        changeState(win, &game.stateHandlers[3].state);
     }
 }
 
@@ -419,6 +421,7 @@ void handlePauseEvent(Window *win, SDL_Event *event) {
 void handlePlayerEvent(Window *win, SDL_Event *event) {
     (void)win;
     (void)event;
+    
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
     int newMatrixX = game.gameData.player->matrixX;
     int newMatrixY = game.gameData.player->matrixY;
@@ -470,5 +473,6 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
         game.gameData.player->isMovingToTarget = true;
         game.gameData.player->interpolationTime = 0.0f;
     }
+    
     handleEvent(win, event);
 }

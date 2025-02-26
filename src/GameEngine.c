@@ -28,7 +28,7 @@ static SDL_GameController* initializeController(void) {
 }
 
 // Helper function to manage frame rate
-static void manageFrameRate(int frameStart) {
+void manageFrameRate(int frameStart) {
     // Définir le FPS cible (60 FPS)
     const int TARGET_FPS = 60;
     const int FRAME_DELAY = 1000 / TARGET_FPS;
@@ -70,36 +70,32 @@ static void cleanupResources(Window *win, SDL_GameController *controller) {
 // Functions for the menu
 
 void render(Window *win) {
-    if (game.gameState.currentState == GAME){
+    if (game.gameState.currentState == MAP) {
+        SDL_SetRenderDrawColor(win->renderer, 0, 0, 0, 255);
+        SDL_RenderClear(win->renderer);
+        renderMapWithCamera(game.gameData.map, win->renderer, game.gameData.camera);
+        renderPlayerWithCamera(game.gameData.player, win->renderer, game.gameData.camera);
+    }
+    else if (game.gameState.currentState == GAME) {
         SDL_Rect rect = {0, 0, win->width, win->height};
         SDL_SetRenderDrawColor(win->renderer, 255, 255, 255, 255);
         SDL_RenderFillRect(win->renderer, &rect);
         
         SDL_Rect renderQuad = {0, 0, win->width, (int)(win->height * 0.722)};
         SDL_RenderCopy(win->renderer, game.ui[3].background, NULL, &renderQuad);
-        
-    }
-    else if (game.ui[game.gameState.currentState].background) SDL_RenderCopy(win->renderer, game.ui[game.gameState.currentState].background, NULL, NULL);
-    if (game.ui[game.gameState.currentState].buttons )renderButtonList(game.ui[game.gameState.currentState].buttons);
-    if (game.ui[game.gameState.currentState].sliders)renderSliderList(game.ui[game.gameState.currentState].sliders);
-    if(game.gameState.currentState == MENU) {
-        renderText(win, &title);
-    }else if(game.gameState.currentState == NEWGAME){
-        renderText(win, &NewGameText);
-    }else if(game.gameState.currentState == GAME){
         if (game.battleState.rouge.team[0].name[0] != '\0') renderICMonsSprite(win, &(game.battleState.rouge.team[0]));
         if (game.battleState.bleu.team[0].name[0] != '\0') renderICMonsSprite(win, &(game.battleState.bleu.team[0]));
     }
-    if (game.gameState.currentState == MAP) {
-        // Mettre à jour la position avec interpolation
-        updatePlayerPosition(game.gameData.player, game.deltaTime);
-        updatePlayerAnimation(game.gameData.player, game.deltaTime);
-
-        // Mettre à jour la caméra pour suivre le joueur
-        updateCamera(game.gameData.camera, game.gameData.player->position.x, game.gameData.player->position.y, game.deltaTime);
-
-        renderMapWithCamera(game.gameData.map, win->renderer, game.gameData.camera);
-        renderPlayerWithCamera(game.gameData.player, win->renderer, game.gameData.camera);
+    else if (game.ui[game.gameState.currentState].background) {
+        SDL_RenderCopy(win->renderer, game.ui[game.gameState.currentState].background, NULL, NULL);
+    }
+    
+    if (game.ui[game.gameState.currentState].buttons) renderButtonList(game.ui[game.gameState.currentState].buttons);
+    if (game.ui[game.gameState.currentState].sliders) renderSliderList(game.ui[game.gameState.currentState].sliders);
+    if (game.gameState.currentState == MENU) {
+        renderText(win, &title);
+    } else if (game.gameState.currentState == NEWGAME) {
+        renderText(win, &NewGameText);
     }
 }
 
@@ -184,33 +180,30 @@ void mainLoop(Window *win) {
     // Controller setup
     SDL_GameController *controller = initializeController();
     
+    // Initialize thread manager AFTER all resources are loaded
+    initThreadManager(&game);
+    
     // Main game variables
-    int frameStart;
     SDL_Event event;
+    Uint32 frameStart;
     
     // Main game loop
     while (!win->quit) {
         frameStart = SDL_GetTicks();
-
+        
         // Handle events
         while (SDL_PollEvent(&event)) {
             game.stateHandlers[win->state].handleEvent(win, &event);
         }
-
-        // Update game state
-        updateMusic();
-        updateCurrentButton();
         
-        // Render frame
-        SDL_RenderClear(win->renderer);
-        render(win);
-        SDL_RenderPresent(win->renderer);
-
-        // Frame rate control
-        manageFrameRate(frameStart);
+        // Update deltaTime
+        game.deltaTime = (SDL_GetTicks() - frameStart) / 1000.0f;
+        
+        //SDL_Delay(16); // Prevent CPU overuse
     }
 
     // Cleanup
+    cleanupThreads(&game);
     cleanupResources(win, controller);
 }
 
