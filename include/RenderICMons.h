@@ -11,6 +11,12 @@
 #include "Text.h"
 #include "structPoke.h"
 
+/**
+ * @file RenderICMons.h
+ * @author Alban Louis
+ * @date 19/02/2025
+ */
+
 typedef struct IMG_ICMons {
     SDL_Renderer *renderer;
     SDL_Texture *ICMonTexture;

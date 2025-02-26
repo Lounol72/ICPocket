@@ -9,6 +9,12 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_gamecontroller.h>
 
+/**
+ * @file Events.h
+ * @author Louis Alban
+ * @date 17/02/2025
+ */
+
 /** @brief Main event handler that processes all SDL events
  *  @param win Pointer to the Window structure containing game state
  *  @param event Pointer to the SDL_Event to process

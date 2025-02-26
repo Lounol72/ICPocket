@@ -1,3 +1,5 @@
+#ifndef SAVE_H
+#define SAVE_H
 
 /**
 *@brief Save the player's data in a file
@@ -12,3 +14,5 @@ void sauvegarder(char * name,t_Team * teamJ1,t_Team * dresseur);
 *@param joueur : the player's data
  */
 void charger(char * name,t_Team * teamJ1,t_Team * dresseur);
+
+#endif // SAVE_H

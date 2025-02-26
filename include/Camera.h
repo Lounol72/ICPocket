@@ -1,6 +1,12 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
+/**
+ * @file Camera.h
+ * @author Louis
+ * @date 25/02/2025
+ */
+
 #include <SDL2/SDL.h>
 
 // Définir les constantes de la fenêtre

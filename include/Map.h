@@ -13,6 +13,13 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "Camera.h"
+
+/**
+ * @file Map.h
+ * @author Louis
+ * @date 25/02/2025
+ */
+
 typedef struct Map {
     SDL_Rect rect;
     SDL_Rect nameRect;

@@ -1,6 +1,10 @@
 #ifndef AUDIO_H
 #define AUDIO_H
-
+/**
+ * @file Audio.h
+ * @author Louis
+ * @date 2/01/2025
+ */
 #include "Log.h"
 
 #if defined(_WIN32) || defined(_WIN64)

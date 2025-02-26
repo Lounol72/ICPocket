@@ -11,7 +11,11 @@
 #define FRAME_HEIGHT 20  // Hauteur d'une frame dans la spritesheet
 #define FRAME_COUNT 4    // Nombre de frames par animation
 #define ANIMATION_SPEED 0.10f
-
+/**
+ * @file Player.h
+ * @author Louis
+ * @date 25/02/2025
+ */
 
 typedef enum {
     IDLE_DOWN,

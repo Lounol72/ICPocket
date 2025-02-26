@@ -20,7 +20,11 @@
 #include "Text.h"
 #include "Window.h"
 #include "Map.h"
-
+/**
+ * @file GameEngine.h
+ * @author Louis Alban
+ * @date 24/01/2025
+ */
 
 /* ------------- Structs ------------- */
 /* UI element container, referencing the ButtonList & SliderList defined in Buttons.h */

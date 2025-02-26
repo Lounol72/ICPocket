@@ -7,6 +7,11 @@
 #include "GameEngine.h"
 #include "Utils.h"
 
+/**
+ * @file Window.h
+ * @author Louis Alban
+ * @date 17/02/2025
+ */
 
 #if defined(SDL_RENDERER_PRESENTVSYNC)
         #define renderer_flags DEFAULT_RENDERER_FLAGS
