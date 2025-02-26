@@ -1,5 +1,8 @@
 #include "../include/Game.h"
 
+#define WINDOWS_W 1280
+#define WINDOWS_H 720
+
 void initGame(Window *win) {
     game.win = win;
     
@@ -59,6 +62,10 @@ void initGame(Window *win) {
     initAudio();
     loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");
 
+    game.gameData.player = createPlayer(win->renderer, "assets/Characters/Character 2.png");
+    game.gameData.map = createMap(win->renderer, "assets/Maps/map.png");
+    game.gameData.camera = createCamera(WINDOWS_W, WINDOWS_H);
+    
     initText(win);
 }
 

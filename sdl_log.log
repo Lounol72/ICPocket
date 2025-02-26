@@ -14,9 +14,45 @@
 [1] [2] You must call Mix_SetMusicCMD() first
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
-[0] [3] Changement d'état : 0
+[0] [3] Changement d'état : 5
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 4
+[0] [3] PV : 202/202
+[0] [3] PV : 40/40
+[0] [3] PV : 32/32
+[0] [3] PV : 250/250
+[0] [3] PV : 25/25
+[0] [3] PV : 127/127
+[0] [3] Red team PV: 202, Blue team PV: 250
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] PV : 186/186
+[0] [3] PV : 60/60
+[0] [3] PV : 30/30
+[0] [3] PV : 114/114
+[0] [3] PV : 66/66
+[0] [3] PV : 240/240
+[0] [3] Red team PV: 186, Blue team PV: 114
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 3
+[7] [3] Quit
 [0] [3] ✅ Musique libérée
 [0] [3] ✅ UI libérée
+[1] [2] Parameter 'texture' is invalid
+[1] [2] Parameter 'texture' is invalid
+[1] [2] Parameter 'texture' is invalid
+[1] [2] Parameter 'texture' is invalid
+[1] [2] Parameter 'texture' is invalid
+[1] [2] Parameter 'texture' is invalid
+[0] [3] ✅ ICMons rougeslibérés
+[1] [2] Parameter 'texture' is invalid
+[1] [2] Parameter 'texture' is invalid
+[1] [2] Parameter 'texture' is invalid
+[1] [2] Parameter 'texture' is invalid
+[1] [2] Parameter 'texture' is invalid
+[1] [2] Parameter 'texture' is invalid
+[0] [3] ✅ ICMons bleus libérés
 [0] [3] ✅ State handlers libérés
 [0] [3] ✅ Speeds libérés
 [0] [3] ✅ LargeFont libéré

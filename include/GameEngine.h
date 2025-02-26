@@ -20,11 +20,15 @@
 #include "Text.h"
 #include "Window.h"
 #include "Map.h"
+#include "Player.h"
+#include "Camera.h"
 /**
  * @file GameEngine.h
  * @author Louis Alban
  * @date 24/01/2025
  */
+
+
 
 /* ------------- Structs ------------- */
 /* UI element container, referencing the ButtonList & SliderList defined in Buttons.h */
@@ -55,10 +59,17 @@ typedef struct StateHandler {
     void (*handleEvent)(Window *, SDL_Event *);
 } StateHandler;
 
+typedef struct {
+    Player *player;
+    Map *map;
+    Camera *camera;
+} GameData;
+
 /* Main Game struct that ties everything together */
 typedef struct Game {
     UI_Elements *ui;
     int nbMenu;
+    GameData gameData;
     BattleState battleState;
     GameState gameState;
     StateHandler *stateHandlers;

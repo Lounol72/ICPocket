@@ -408,3 +408,61 @@ void handlePauseEvent(Window *win, SDL_Event *event) {
     }
     handleEvent(win, event);
 }
+
+//---------------------------------------------------------------------------------
+
+//Function for the Player
+
+void handlePlayerEvent(Window *win, SDL_Event *event) {
+    const Uint8 *keyState = SDL_GetKeyboardState(NULL);
+    int newMatrixX = game.gameData.player->matrixX;
+    int newMatrixY = game.gameData.player->matrixY;
+    PlayerState newState = game.gameData.player->state;
+    bool shouldMove = false;
+
+    if (keyState[SDL_SCANCODE_RIGHT]) {
+        if(newMatrixX < MAP_WIDTH - 1 && !game.gameData.player->isMovingToTarget) {
+            newMatrixX++;
+            newState = WALK_RIGHT;
+            shouldMove = true;
+        }
+    }
+    else if (keyState[SDL_SCANCODE_LEFT]) {
+        if(newMatrixX > 0 && !game.gameData.player->isMovingToTarget) {
+            newMatrixX--;
+            newState = WALK_LEFT;
+            shouldMove = true;
+        }
+    }
+    else if (keyState[SDL_SCANCODE_DOWN]) {
+        if(newMatrixY < MAP_HEIGHT - 1 && !game.gameData.player->isMovingToTarget) {
+            newMatrixY++;
+            newState = WALK_DOWN;
+            shouldMove = true;
+        }
+    }
+    else if (keyState[SDL_SCANCODE_UP]) {
+        if(newMatrixY > 0 && !game.gameData.player->isMovingToTarget) {
+            newMatrixY--;
+            newState = WALK_UP;
+            shouldMove = true;
+        }
+    }
+
+    if (shouldMove && game.gameData.map->mat[newMatrixY][newMatrixX] != COLLISION) {
+        // Sauvegarder la position de départ
+        game.gameData.player->startX = game.gameData.player->position.x;
+        game.gameData.player->startY = game.gameData.player->position.y;
+        
+        // Définir la cible
+        game.gameData.player->targetMatrixX = newMatrixX;
+        game.gameData.player->targetMatrixY = newMatrixY;
+        game.gameData.player->targetX = newMatrixX * TILE_SIZE_W_SCALE;
+        game.gameData.player->targetY = newMatrixY * TILE_SIZE_H_SCALE;
+        
+        // Initialiser le mouvement
+        game.gameData.player->state = newState;
+        game.gameData.player->isMovingToTarget = true;
+        game.gameData.player->interpolationTime = 0.0f;
+    }
+}
