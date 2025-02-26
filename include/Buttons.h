@@ -14,6 +14,21 @@ typedef struct SliderList SliderList;
 
 #include "GameEngine.h" 
 
+/**
+ * @file Buttons.h
+ * 
+ */
+
+/**
+ * @brief The FontSize enum represents the different font sizes that can be used for the button text.
+ * 
+ * The FontSize enum represents the different font sizes that can be used for the button text.
+ * The font sizes are defined as LARGE, MEDIUM, and SMALL.
+ * 
+ * The CUSTOM value can be used to specify a custom font size.
+ * 
+ */
+
 typedef enum FontSize {
     LARGE = 56,
     MEDIUM = 36,
@@ -62,6 +77,9 @@ typedef struct SliderList
     int size;
 }SliderList;
 /**
+ * 
+ * @fn Button *createButton(char *text, Window *win, int x, int y, int w, int h, SDL_Color color, SDL_Color textcolor, void (*onClick)(Window *, void *), void *data, TTF_Font *font)
+ * 
  * @brief Creates and returns a new Button object.
  *
  *
