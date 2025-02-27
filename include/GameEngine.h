@@ -118,6 +118,8 @@ typedef struct Game {
     int saved;                 /**< Indicateur de sauvegarde. */
     float deltaTime;           /**< Temps écoulé entre les trames. */
     ThreadManager threadManager; /**< Gestionnaire de threads. */
+    SDL_Surface *cursor;       /**< Surface du curseur. */
+    SDL_Surface *cursor_hover; /**< Surface du curseur au survol. */
 } Game;
 
 #include "Game.h"

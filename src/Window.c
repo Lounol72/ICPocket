@@ -140,6 +140,18 @@ void destroyWindow(Window *win)
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ window libéré");
     }
 
+    if (game.cursor) {
+        SDL_FreeSurface(game.cursor);
+        game.cursor = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ cursor libéré");
+    }
+
+    if (game.cursor_hover) {
+        SDL_FreeSurface(game.cursor_hover);
+        game.cursor_hover = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ cursor_hover libéré");
+    }
+
     // 7) Close audio
     Mix_CloseAudio();
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ audio libéré");

@@ -187,10 +187,6 @@ void mainLoop(Window *win) {
     // Main game variables
     SDL_Event event;
     Uint32 frameStart;
-
-    SDL_Surface *cursor = IMG_Load("assets/Characters/Lou.png");
-    //SDL_Surface *cursor = IMG_Load("assets/pointer_d.png");
-    SDL_SetCursor(SDL_CreateColorCursor(cursor, 0, 0));
     
     // Main game loop
     while (!win->quit) {
@@ -206,7 +202,7 @@ void mainLoop(Window *win) {
         
         //SDL_Delay(16); // Prevent CPU overuse
     }
-    free(cursor);
+    
     // Cleanup
     cleanupThreads(&game);
     cleanupResources(win, controller);

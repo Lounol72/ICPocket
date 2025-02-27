@@ -78,6 +78,18 @@ void initGame(Window *win) {
     game.gameData.camera = createCamera(WINDOWS_W, WINDOWS_H);
     
     initText(win);
+
+    game.cursor = IMG_Load("assets/Characters/Lou.png");
+    if (!game.cursor) {
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Erreur : Impossible de charger le curseur 'Lou.png'.");
+        return;
+    }
+    SDL_SetCursor(SDL_CreateColorCursor(game.cursor, 0, 0));
+    game.cursor_hover = IMG_Load("assets/pointer_d.png");
+    if (!game.cursor_hover) {
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ Erreur : Impossible de charger le curseur 'Lou_hover.png'.");
+        return;
+    }
 }
 
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath) {

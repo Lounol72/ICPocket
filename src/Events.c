@@ -13,9 +13,11 @@
 #define PV_BAR_HEIGHT 15
 
 
+
 void handleEvent(Window *win, SDL_Event *event) {
     // Early exit if no window or event
     if (!win || !event) return;
+    SDL_Surface *newCursor = game.cursor;
 
     // Handle quit events first
     if (event->type == SDL_QUIT) {
@@ -95,14 +97,17 @@ void handleEvent(Window *win, SDL_Event *event) {
             if (game.ui[game.gameState.currentState].buttons) {
                 int x, y;
                 SDL_GetMouseState(&x, &y);
+                
                 for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
                     Button *button = game.ui[game.gameState.currentState].buttons->buttons[i];
                     if (x >= button->rect.x && x <= button->rect.x + button->rect.w &&
                         y >= button->rect.y && y <= button->rect.y + button->rect.h) {
                         game.currentButton = i;
+                        newCursor = game.cursor_hover;
                         break;
                     }
                 }
+                SDL_SetCursor(SDL_CreateColorCursor(newCursor, 0, 0));
             }
             break;
 
