@@ -17,10 +17,15 @@ void updateCamera(Camera* camera, int playerX, int playerY, float deltaTime) {
     float targetCameraX = playerX - (camera->viewport.w / camera->scale) / 2;
     float targetCameraY = playerY - (camera->viewport.h / camera->scale) / 2;
     
-    // Interpolation douce vers la cible
+    // Interpolation linéaire douce vers la cible
     float smoothSpeed = 5.0f;
     camera->x += (targetCameraX - camera->x) * smoothSpeed * deltaTime;
     camera->y += (targetCameraY - camera->y) * smoothSpeed * deltaTime;
+}
+
+void updateCameraViewport(Camera* camera, int windowWidth, int windowHeight) {
+    camera->viewport.w = windowWidth;
+    camera->viewport.h = windowHeight;
 }
 
 SDL_Rect getWorldToScreenRect(Camera* camera, SDL_Rect worldRect) {

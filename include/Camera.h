@@ -71,6 +71,17 @@ void updateCamera(Camera* camera, int playerX, int playerY, float deltaTime);
 SDL_Rect getWorldToScreenRect(Camera* camera, SDL_Rect worldRect);
 
 /**
+ * @brief Met à jour la taille de la zone visible de la caméra.
+ * 
+ * Actualise la taille de la zone visible de la caméra en fonction des dimensions de la fenêtre.
+ * 
+ * @param camera Pointeur vers la caméra à mettre à jour.
+ * @param windowWidth Largeur de la fenêtre en pixels.
+ * @param windowHeight Hauteur de la fenêtre en pixels.
+ */
+void updateCameraViewport(Camera* camera, int windowWidth, int windowHeight);
+
+/**
  * @brief Libère les ressources utilisées par la caméra.
  * 
  * Détruit l'instance de la caméra et libère la mémoire associée.

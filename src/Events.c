@@ -114,6 +114,7 @@ void handleEvent(Window *win, SDL_Event *event) {
         case SDL_WINDOWEVENT:
             if (event->window.event == SDL_WINDOWEVENT_RESIZED) {
                 handleWindowSizeChange(win);
+                updateCameraViewport(game.gameData.camera, win->width, win->height);
             }
             break;
     }
