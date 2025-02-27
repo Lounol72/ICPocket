@@ -14,22 +14,39 @@
 
 
 void handleEvent(Window *win, SDL_Event *event) {
+    // Early exit if no window or event
+    if (!win || !event) return;
+
+    // Handle quit events first
+    if (event->type == SDL_QUIT) {
+        win->quit = 1;
+        SDL_LogMessage(SDL_LOG_CATEGORY_INPUT, SDL_LOG_PRIORITY_INFO, "Quit");
+        return;
+    }
+
+
+    const int maxButtons = game.ui[game.gameState.currentState].buttons ? game.ui[game.gameState.currentState].buttons->size - 1 : -1;
+    const int halfMaxButtons = maxButtons / 2;
+
     switch(event->type) {
-        case SDL_KEYDOWN:
-            switch (event->key.keysym.sym) {
-                case SDLK_DELETE:
-                    win->quit = 1;
-                    SDL_LogMessage(SDL_LOG_CATEGORY_INPUT, SDL_LOG_PRIORITY_INFO, "Quit");
-                    break;
-                case SDLK_ESCAPE:
-                    if (game.gameState.currentState == MAP)
-                        changeState(win, &game.stateHandlers[2].state);
-                    break;
+        case SDL_KEYDOWN: {
+            SDL_Keycode key = event->key.keysym.sym;
+            
+            // Handle global keys first
+            if (key == SDLK_DELETE) {
+                win->quit = 1;
+                SDL_LogMessage(SDL_LOG_CATEGORY_INPUT, SDL_LOG_PRIORITY_INFO, "Quit");
+                return;
             }
+            
+            if (key == SDLK_ESCAPE && game.gameState.currentState == MAP) {
+                changeState(win, &game.stateHandlers[2].state);
+                return;
+            }
+
+            // Handle button navigation if buttons exist
             if (game.ui[game.gameState.currentState].buttons) {
-                const int maxButtons = game.ui[game.gameState.currentState].buttons->size - 1;
-                const int halfMaxButtons = maxButtons / 2;
-                switch (event->key.keysym.sym) {
+                switch (key) {
                     case SDLK_UP: 
                         game.currentButton = (game.currentButton > 0) ? game.currentButton - 1 : game.currentButton; 
                         break;
@@ -48,38 +65,33 @@ void handleEvent(Window *win, SDL_Event *event) {
                     case SDLK_F1:
                         changeState(win, &game.stateHandlers[9].state);
                         break;
-                    default: 
-                        break;
                 }
             }
-            break;
+        } break;
         
         case SDL_CONTROLLERBUTTONDOWN: {
-            const int maxButtons = game.ui[game.gameState.currentState].buttons->size - 1;
-            const int halfMaxButtons = maxButtons / 2;
+            if (!game.ui[game.gameState.currentState].buttons) break;
+            
             switch(event->cbutton.button) {
                 case SDL_CONTROLLER_BUTTON_A: 
                     ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[game.currentButton], -1, -1, win); 
                     break;
                 case SDL_CONTROLLER_BUTTON_DPAD_UP: 
-                    game.currentButton = game.currentButton > 0 ? game.currentButton - 1 : game.currentButton; 
+                    game.currentButton = (game.currentButton > 0) ? game.currentButton - 1 : game.currentButton; 
                     break;
                 case SDL_CONTROLLER_BUTTON_DPAD_DOWN: 
-                    game.currentButton = game.currentButton < maxButtons ? game.currentButton + 1 : game.currentButton; 
+                    game.currentButton = (game.currentButton < maxButtons) ? game.currentButton + 1 : game.currentButton; 
                     break;
                 case SDL_CONTROLLER_BUTTON_DPAD_LEFT: 
-                    game.currentButton = game.currentButton >= halfMaxButtons ? game.currentButton - halfMaxButtons : game.currentButton; 
+                    game.currentButton = (game.currentButton >= halfMaxButtons) ? game.currentButton - halfMaxButtons : game.currentButton; 
                     break;
                 case SDL_CONTROLLER_BUTTON_DPAD_RIGHT: 
-                    game.currentButton = game.currentButton + halfMaxButtons <= maxButtons ? game.currentButton + halfMaxButtons : game.currentButton; 
-                    break;
-                default: 
+                    game.currentButton = (game.currentButton + halfMaxButtons <= maxButtons) ? game.currentButton + halfMaxButtons : game.currentButton; 
                     break;
             }
         } break;
 
         case SDL_MOUSEMOTION:
-            // Add button hover detection
             if (game.ui[game.gameState.currentState].buttons) {
                 int x, y;
                 SDL_GetMouseState(&x, &y);
@@ -94,16 +106,10 @@ void handleEvent(Window *win, SDL_Event *event) {
             }
             break;
 
-        case SDL_QUIT:
-            win->quit = 1;
-            SDL_LogMessage(SDL_LOG_CATEGORY_INPUT, SDL_LOG_PRIORITY_INFO, "Quit");
-            break;
         case SDL_WINDOWEVENT:
             if (event->window.event == SDL_WINDOWEVENT_RESIZED) {
                 handleWindowSizeChange(win);
             }
-            break;
-        default: 
             break;
     }
 }
