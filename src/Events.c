@@ -21,6 +21,10 @@ void handleEvent(Window *win, SDL_Event *event) {
                     win->quit = 1;
                     SDL_LogMessage(SDL_LOG_CATEGORY_INPUT, SDL_LOG_PRIORITY_INFO, "Quit");
                     break;
+                case SDLK_ESCAPE:
+                    if (game.gameState.currentState == MAP)
+                        changeState(win, &game.stateHandlers[2].state);
+                    break;
             }
             if (game.ui[game.gameState.currentState].buttons) {
                 const int maxButtons = game.ui[game.gameState.currentState].buttons->size - 1;

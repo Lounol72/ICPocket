@@ -8,7 +8,7 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0 || 
         !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || 
-        !(win->renderer = SDL_CreateRenderer(win->window, -1, renderer_flags)) || 
+        !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_ACCELERATED)) || 
         (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || 
         TTF_Init() == -1 || 
         !(win->LargeFont = TTF_OpenFont(FontPath, 70)) || 

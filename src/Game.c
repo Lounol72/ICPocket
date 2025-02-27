@@ -64,7 +64,7 @@ void initGame(Window *win) {
     initAudio();
     loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");
 
-    game.gameData.player = createPlayer(win->renderer, "assets/Characters/Character 2.png");
+    game.gameData.player = createPlayer(win->renderer, "assets/Characters/Character 10.png");
     if (!game.gameData.player) {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
                       "❌ Erreur : Impossible de créer le joueur");
