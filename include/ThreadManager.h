@@ -14,7 +14,6 @@
  * 
  */
 
-// Structure forward declarations
 struct Game;
 
 /**

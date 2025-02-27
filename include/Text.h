@@ -11,6 +11,7 @@
  * Ce fichier définit la structure Text et les fonctions associées pour la gestion du rendu de texte dans une application SDL.
  */
 
+typedef struct Window Window;
 /**
  * @struct Text
  * @brief Représente un élément de texte dans l'application.
@@ -39,7 +40,7 @@ extern Text NewGameText;     /**< L'élément de texte pour le nouveau jeu. */
  * 
  * @param win Un pointeur vers la structure Window.
  */
-void initText(struct Window *win);
+void initText( Window *win);
 
 /**
  * @brief Crée un nouvel objet texte.
@@ -63,7 +64,7 @@ Text *createText(const char *text, SDL_Renderer *renderer, SDL_Rect rect, SDL_Co
  * @param win Un pointeur vers la structure Window.
  * @param text Un pointeur vers l'objet Text à rendre.
  */
-void renderText(struct Window *win, Text *text);
+void renderText( Window *win, Text *text);
 
 /**
  * @brief Met à jour la position d'un objet texte.
@@ -104,6 +105,6 @@ void updateText(Text *text, const char *newText, SDL_Renderer *renderer);
  * @param win Un pointeur vers la structure Window.
  * @param data Données supplémentaires pour changer la vitesse du texte.
  */
-void changeTextSpeed(struct Window *win, void *data);
+void changeTextSpeed(Window *win, void *data);
 
 #endif /* TEXT_H */

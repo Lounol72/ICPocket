@@ -206,7 +206,7 @@ void mainLoop(Window *win) {
         
         //SDL_Delay(16); // Prevent CPU overuse
     }
-
+    free(cursor);
     // Cleanup
     cleanupThreads(&game);
     cleanupResources(win, controller);
