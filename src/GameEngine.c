@@ -187,6 +187,10 @@ void mainLoop(Window *win) {
     // Main game variables
     SDL_Event event;
     Uint32 frameStart;
+
+    SDL_Surface *cursor = IMG_Load("assets/Characters/Lou.png");
+    //SDL_Surface *cursor = IMG_Load("assets/pointer_d.png");
+    SDL_SetCursor(SDL_CreateColorCursor(cursor, 0, 0));
     
     // Main game loop
     while (!win->quit) {

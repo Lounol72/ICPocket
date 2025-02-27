@@ -1,6 +1,5 @@
 [0] [3] 🔧 Initialisation de la fenêtre ...
-[6] [3] OpenGL shaders: ENABLED
-[6] [3] Created renderer: opengl
+[6] [3] Created renderer: software
 [0] [3] Détails des flags pour le renderer :
 [0] [3] ✅ SDL Renderer Software: 1
 [0] [3] ✅ SDL Renderer Accelerated: 2
@@ -15,13 +14,11 @@
 [1] [2] You must call Mix_SetMusicCMD() first
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
-[0] [3] Changement d'état : 9
-[0] [3] Changement d'état : 2
-[0] [3] Changement d'état : 9
+[0] [3] Changement d'état : 1
 [0] [3] Changement d'état : 2
 [0] [3] Changement d'état : 1
 [0] [3] Changement d'état : 2
-[0] [3] Changement d'état : 9
+[0] [3] Changement d'état : 1
 [0] [3] Changement d'état : 2
 [0] [3] Changement d'état : 0
 [0] [3] ✅ Musique libérée

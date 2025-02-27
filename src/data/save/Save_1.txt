@@ -1,5 +1,19 @@
 User name : SAVE1
 nb:3
+id:4
+lvl:82
+nature:0
+nbmove:1
+iv:6
+iv:0
+iv:26
+iv:2
+iv:11
+iv:15
+type:1
+move:2
+
+
 id:1
 lvl:77
 nature:0
@@ -17,22 +31,8 @@ move:2
 move:3
 
 
-id:4
-lvl:82
-nature:0
-nbmove:1
-iv:6
-iv:0
-iv:26
-iv:2
-iv:11
-iv:15
-type:1
-move:2
-
-
 id:2
-lvl:59
+lvl:75
 nature:0
 nbmove:2
 iv:26

@@ -78,6 +78,22 @@ void handleEvent(Window *win, SDL_Event *event) {
             }
         } break;
 
+        case SDL_MOUSEMOTION:
+            // Add button hover detection
+            if (game.ui[game.gameState.currentState].buttons) {
+                int x, y;
+                SDL_GetMouseState(&x, &y);
+                for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
+                    Button *button = game.ui[game.gameState.currentState].buttons->buttons[i];
+                    if (x >= button->rect.x && x <= button->rect.x + button->rect.w &&
+                        y >= button->rect.y && y <= button->rect.y + button->rect.h) {
+                        game.currentButton = i;
+                        break;
+                    }
+                }
+            }
+            break;
+
         case SDL_QUIT:
             win->quit = 1;
             SDL_LogMessage(SDL_LOG_CATEGORY_INPUT, SDL_LOG_PRIORITY_INFO, "Quit");
