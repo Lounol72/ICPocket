@@ -274,6 +274,7 @@ void affectDamage(t_Team * offender, t_Team * defender, int indexMove){
 
 	if(!accuracyCheck(moveToDo->accuracy)){
 		printf("%s rate son attaque (%d precision)\n",offender->team[0].name,moveToDo->accuracy);
+		if (!(indexMove<0)) (moveToDo->current_pp)--;
 		return;
 	}
 	printf("Attaque subis d'une puissance de %d\n avec une attaque de %d\ncontre une defence de %d\n",moveToDo->power,(int)(calcStatFrom(&(offender->team[0]),targetedStatOff) * statVariations[offender->statChanges[targetedStatOff]])

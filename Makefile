@@ -32,7 +32,7 @@ CFLAGS    = -Wall -Wextra -Werror -std=c11 -g `sdl2-config --cflags` -I/usr/incl
 # -I/usr/include/SDL2 : ajoute le répertoire d'inclusion de SDL2
 
 # Bibliothèques à lier
-LIBS      = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
+LIBS      = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lpthread
 
 # Cibles principales
 all: $(MAIN_EXE) $(DUEL_EXE) 
