@@ -19,5 +19,6 @@ var searchData=
   ['is_5fdynamic_16',['is_dynamic',['../d2/dda/structText.html#af3b5cd8831bae56013cf3acb84fbf903',1,'Text']]],
   ['ismoving_17',['isMoving',['../dc/d7b/structPlayer.html#af0b9c632e6cccce66bc4256a8a472703',1,'Player']]],
   ['ismovingtotarget_18',['isMovingToTarget',['../dc/d7b/structPlayer.html#ab60da680497ca6ce13a4b56159b0ba14',1,'Player']]],
-  ['iv_19',['iv',['../d7/d09/structt__Poke.html#a41f39b9149000b74eefdd7841c18f4fd',1,'t_Poke']]]
+  ['isrunning_19',['isRunning',['../d5/d64/structThreadManager.html#a4f9008ea31202fda3bc2d5629827eb2b',1,'ThreadManager']]],
+  ['iv_20',['iv',['../d7/d09/structt__Poke.html#a41f39b9149000b74eefdd7841c18f4fd',1,'t_Poke']]]
 ];

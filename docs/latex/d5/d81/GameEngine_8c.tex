@@ -6,11 +6,15 @@ Graphe des dépendances par inclusion de Game\+Engine.\+c\+:
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
+static SDL\+\_\+\+Game\+Controller \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{GameEngine_8c_a4a1fa4c820fe7db5a69d6b4d576f2813}{initialize\+Controller}} (void)
+\item 
+void \mbox{\hyperlink{GameEngine_8c_a6ed42cf8883eef51f3764c8587d7bc59}{manage\+Frame\+Rate}} (int frame\+Start)
+\item 
+static void \mbox{\hyperlink{GameEngine_8c_a1d524967f0f5e8abb47a3e5e9db3d81b}{cleanup\+Resources}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Game\+Controller \texorpdfstring{$\ast$}{*}controller)
+\item 
 void \mbox{\hyperlink{GameEngine_8c_adce05963537a78c4c589298117616864}{render}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
 \item 
 void \mbox{\hyperlink{GameEngine_8c_ae30f21d07d1066ecda7ed1097d584e6b}{change\+State}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
-\item 
-void \mbox{\hyperlink{GameEngine_8c_afd9dc76fbbe7f34592713c3a289799b4}{charger\+Call\+Back}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
 \item 
 void \mbox{\hyperlink{GameEngine_8c_a5e16d7cc1bf7868bf8f67575b2a0ef1c}{make\+Window\+Full\+Screen}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
 \item 
@@ -68,17 +72,23 @@ int \mbox{\hyperlink{GameEngine_8c_ab1a5ae8b7bb9953bedd47d22db911a87}{margin\+Ri
 \doxysubsubsection{\texorpdfstring{changeState()}{changeState()}}
 {\footnotesize\ttfamily void change\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
 
-\Hypertarget{GameEngine_8c_afd9dc76fbbe7f34592713c3a289799b4}\label{GameEngine_8c_afd9dc76fbbe7f34592713c3a289799b4} 
-\index{GameEngine.c@{GameEngine.c}!chargerCallBack@{chargerCallBack}}
-\index{chargerCallBack@{chargerCallBack}!GameEngine.c@{GameEngine.c}}
-\doxysubsubsection{\texorpdfstring{chargerCallBack()}{chargerCallBack()}}
-{\footnotesize\ttfamily void charger\+Call\+Back (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+\Hypertarget{GameEngine_8c_a1d524967f0f5e8abb47a3e5e9db3d81b}\label{GameEngine_8c_a1d524967f0f5e8abb47a3e5e9db3d81b} 
+\index{GameEngine.c@{GameEngine.c}!cleanupResources@{cleanupResources}}
+\index{cleanupResources@{cleanupResources}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{cleanupResources()}{cleanupResources()}}
+{\footnotesize\ttfamily static void cleanup\+Resources (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Game\+Controller \texorpdfstring{$\ast$}{*}}]{controller }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 \Hypertarget{GameEngine_8c_ac7a261e0d935ffeeca4d7a0713913bd2}\label{GameEngine_8c_ac7a261e0d935ffeeca4d7a0713913bd2} 
 \index{GameEngine.c@{GameEngine.c}!initAllButtons@{initAllButtons}}
 \index{initAllButtons@{initAllButtons}!GameEngine.c@{GameEngine.c}}
 \doxysubsubsection{\texorpdfstring{initAllButtons()}{initAllButtons()}}
 {\footnotesize\ttfamily void init\+All\+Buttons (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8c_a4a1fa4c820fe7db5a69d6b4d576f2813}\label{GameEngine_8c_a4a1fa4c820fe7db5a69d6b4d576f2813} 
+\index{GameEngine.c@{GameEngine.c}!initializeController@{initializeController}}
+\index{initializeController@{initializeController}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{initializeController()}{initializeController()}}
+{\footnotesize\ttfamily static SDL\+\_\+\+Game\+Controller \texorpdfstring{$\ast$}{*} initialize\+Controller (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 \Hypertarget{GameEngine_8c_ad119335fdbed767125510c855f2629ce}\label{GameEngine_8c_ad119335fdbed767125510c855f2629ce} 
 \index{GameEngine.c@{GameEngine.c}!mainLoop@{mainLoop}}
@@ -97,6 +107,12 @@ int \mbox{\hyperlink{GameEngine_8c_ab1a5ae8b7bb9953bedd47d22db911a87}{margin\+Ri
 \index{makeWindowWindowed@{makeWindowWindowed}!GameEngine.c@{GameEngine.c}}
 \doxysubsubsection{\texorpdfstring{makeWindowWindowed()}{makeWindowWindowed()}}
 {\footnotesize\ttfamily void make\+Window\+Windowed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8c_a6ed42cf8883eef51f3764c8587d7bc59}\label{GameEngine_8c_a6ed42cf8883eef51f3764c8587d7bc59} 
+\index{GameEngine.c@{GameEngine.c}!manageFrameRate@{manageFrameRate}}
+\index{manageFrameRate@{manageFrameRate}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{manageFrameRate()}{manageFrameRate()}}
+{\footnotesize\ttfamily void manage\+Frame\+Rate (\begin{DoxyParamCaption}\item[{int}]{frame\+Start }\end{DoxyParamCaption})}
 
 \Hypertarget{GameEngine_8c_a275ae329d3830bface72c1c30db48b04}\label{GameEngine_8c_a275ae329d3830bface72c1c30db48b04} 
 \index{GameEngine.c@{GameEngine.c}!nextDuel@{nextDuel}}

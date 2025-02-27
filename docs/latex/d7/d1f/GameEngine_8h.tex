@@ -19,6 +19,9 @@
 {\ttfamily \#include "{}Text.\+h"{}}\newline
 {\ttfamily \#include "{}Window.\+h"{}}\newline
 {\ttfamily \#include "{}Map.\+h"{}}\newline
+{\ttfamily \#include "{}Player.\+h"{}}\newline
+{\ttfamily \#include "{}Camera.\+h"{}}\newline
+{\ttfamily \#include "{}Thread\+Manager.\+h"{}}\newline
 {\ttfamily \#include "{}Game.\+h"{}}\newline
 {\ttfamily \#include "{}Events.\+h"{}}\newline
 {\ttfamily \#include "{}Render\+ICMons.\+h"{}}\newline
@@ -36,6 +39,8 @@ struct \mbox{\hyperlink{structBattleState}{Battle\+State}}
 struct \mbox{\hyperlink{structGameState}{Game\+State}}
 \item 
 struct \mbox{\hyperlink{structStateHandler}{State\+Handler}}
+\item 
+struct \mbox{\hyperlink{structGameData}{Game\+Data}}
 \item 
 struct \mbox{\hyperlink{structGame}{Game}}
 \end{DoxyCompactItemize}
@@ -66,7 +71,18 @@ void \mbox{\hyperlink{GameEngine_8h_a275ae329d3830bface72c1c30db48b04}{next\+Due
 void \mbox{\hyperlink{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1}{update\+Current\+Button}} ()
 \item 
 void \mbox{\hyperlink{GameEngine_8h_ae728be2d7ae42605618aa49e1a837466}{update\+Music}} ()
+\item 
+void \mbox{\hyperlink{GameEngine_8h_a6ed42cf8883eef51f3764c8587d7bc59}{manage\+Frame\+Rate}} (int frame\+Start)
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\begin{DoxyAuthor}{Auteur}
+Louis Alban 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+24/01/2025 
+\end{DoxyDate}
 
 
 \doxysubsection{Documentation des définitions de type}
@@ -108,6 +124,12 @@ void \mbox{\hyperlink{GameEngine_8h_ae728be2d7ae42605618aa49e1a837466}{update\+M
 \index{mainLoop@{mainLoop}!GameEngine.h@{GameEngine.h}}
 \doxysubsubsection{\texorpdfstring{mainLoop()}{mainLoop()}}
 {\footnotesize\ttfamily void main\+Loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+
+\Hypertarget{GameEngine_8h_a6ed42cf8883eef51f3764c8587d7bc59}\label{GameEngine_8h_a6ed42cf8883eef51f3764c8587d7bc59} 
+\index{GameEngine.h@{GameEngine.h}!manageFrameRate@{manageFrameRate}}
+\index{manageFrameRate@{manageFrameRate}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{manageFrameRate()}{manageFrameRate()}}
+{\footnotesize\ttfamily void manage\+Frame\+Rate (\begin{DoxyParamCaption}\item[{int}]{frame\+Start }\end{DoxyParamCaption})}
 
 \Hypertarget{GameEngine_8h_a275ae329d3830bface72c1c30db48b04}\label{GameEngine_8h_a275ae329d3830bface72c1c30db48b04} 
 \index{GameEngine.h@{GameEngine.h}!nextDuel@{nextDuel}}

@@ -10,6 +10,7 @@ var Utils_8h =
       [ "LOADGAME", "d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a8ea08ca82a0d1952666e6b27cc459795", null ],
       [ "ICMONS", "d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a42325efb02e5d8c573c338df4378367d", null ],
       [ "INTER", "d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a5efa5610d5a2c5e9123d6894dd72e335", null ],
-      [ "PAUSE", "d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a56b36d0d0bb01b339cf1041adc08e262", null ]
+      [ "PAUSE", "d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a56b36d0d0bb01b339cf1041adc08e262", null ],
+      [ "MAP", "d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a4cafa5feda04184537b4d7d346e1e89b", null ]
     ] ]
 ];

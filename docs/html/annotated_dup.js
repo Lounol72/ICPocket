@@ -6,6 +6,7 @@ var annotated_dup =
     [ "ButtonList", "da/db4/structButtonList.html", "da/db4/structButtonList" ],
     [ "Camera", "d7/d7e/structCamera.html", "d7/d7e/structCamera" ],
     [ "Game", "de/de9/structGame.html", "de/de9/structGame" ],
+    [ "GameData", "d4/d6e/structGameData.html", "d4/d6e/structGameData" ],
     [ "GameState", "d2/d3d/structGameState.html", "d2/d3d/structGameState" ],
     [ "IMG_ICMons", "dd/d1a/structIMG__ICMons.html", "dd/d1a/structIMG__ICMons" ],
     [ "Map", "da/ddc/structMap.html", "da/ddc/structMap" ],
@@ -18,6 +19,7 @@ var annotated_dup =
     [ "t_Poke", "d7/d09/structt__Poke.html", "d7/d09/structt__Poke" ],
     [ "t_Team", "da/d63/structt__Team.html", "da/d63/structt__Team" ],
     [ "Text", "d2/dda/structText.html", "d2/dda/structText" ],
+    [ "ThreadManager", "d5/d64/structThreadManager.html", "d5/d64/structThreadManager" ],
     [ "UI_Elements", "d8/de4/structUI__Elements.html", "d8/de4/structUI__Elements" ],
     [ "Window", "d6/d08/structWindow.html", "d6/d08/structWindow" ]
 ];

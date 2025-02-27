@@ -50,7 +50,9 @@ void \mbox{\hyperlink{Events_8c_a2eb85b27aa836abb19135fc494112449}{handle\+New\+
 void \mbox{\hyperlink{Events_8c_aade80eb59d9a637677b7a309cd8c702c}{handle\+Load\+Game\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
 \begin{DoxyCompactList}\small\item\em Handles events when loading a saved game. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Events_8c_a353673ce0aa1c823efdc9087cbde90cc}{handle\+Pause\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
-\begin{DoxyCompactList}\small\item\em Handles events when the game is paused. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Handles events when the game is paused. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Events_8c_a244d37073550388354a68561ac959ecb}{handle\+Player\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
+\begin{DoxyCompactList}\small\item\em Handles events when the player is in the map. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Documentation des macros}
@@ -245,6 +247,23 @@ Handles events when starting a new game.
 
 
 Handles events when the game is paused. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+\hline
+{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Events_8c_a244d37073550388354a68561ac959ecb}\label{Events_8c_a244d37073550388354a68561ac959ecb} 
+\index{Events.c@{Events.c}!handlePlayerEvent@{handlePlayerEvent}}
+\index{handlePlayerEvent@{handlePlayerEvent}!Events.c@{Events.c}}
+\doxysubsubsection{\texorpdfstring{handlePlayerEvent()}{handlePlayerEvent()}}
+{\footnotesize\ttfamily void handle\+Player\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
+
+
+
+Handles events when the player is in the map. 
 
 
 \begin{DoxyParams}{Paramètres}

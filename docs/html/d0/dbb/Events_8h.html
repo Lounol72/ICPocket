@@ -151,8 +151,14 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a353673ce0aa1c823efdc9087cbde90cc" id="r_a353673ce0aa1c823efdc9087cbde90cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dbb/Events_8h.html#a353673ce0aa1c823efdc9087cbde90cc">handlePauseEvent</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event)</td></tr>
 <tr class="memdesc:a353673ce0aa1c823efdc9087cbde90cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles events when the game is paused.  <br /></td></tr>
 <tr class="separator:a353673ce0aa1c823efdc9087cbde90cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a244d37073550388354a68561ac959ecb" id="r_a244d37073550388354a68561ac959ecb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dbb/Events_8h.html#a244d37073550388354a68561ac959ecb">handlePlayerEvent</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event)</td></tr>
+<tr class="memdesc:a244d37073550388354a68561ac959ecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles events when the player is in the map.  <br /></td></tr>
+<tr class="separator:a244d37073550388354a68561ac959ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des fonctions</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><dl class="section author"><dt>Auteur</dt><dd>Louis Alban </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>17/02/2025 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="a6f17bb9492dd6a4e5ace526c8686679f" name="a6f17bb9492dd6a4e5ace526c8686679f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f17bb9492dd6a4e5ace526c8686679f">&#9670;&#160;</a></span>handleEvent()</h2>
 
@@ -439,6 +445,43 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Handles events when the game is paused. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Pointer to the <a class="el" href="../../d6/d08/structWindow.html">Window</a> structure containing game state </td></tr>
+    <tr><td class="paramname">event</td><td>Pointer to the SDL_Event to process </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a244d37073550388354a68561ac959ecb" name="a244d37073550388354a68561ac959ecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a244d37073550388354a68561ac959ecb">&#9670;&#160;</a></span>handlePlayerEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void handlePlayerEvent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d08/structWindow.html">Window</a> *&#160;</td>
+          <td class="paramname"><em>win</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Event *&#160;</td>
+          <td class="paramname"><em>event</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles events when the player is in the map. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">win</td><td>Pointer to the <a class="el" href="../../d6/d08/structWindow.html">Window</a> structure containing game state </td></tr>

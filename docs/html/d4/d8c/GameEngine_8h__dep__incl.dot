@@ -38,5 +38,7 @@ digraph "include/GameEngine.h"
   Node1 -> Node13 [id="edge20_Node000001_Node000013",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node13 [id="Node000013",label="src/GameEngine.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d5/d81/GameEngine_8c.html",tooltip=" "];
   Node1 -> Node14 [id="edge21_Node000001_Node000014",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node14 [id="Node000014",label="src/save.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/dcf/save_8c.html",tooltip=" "];
+  Node14 [id="Node000014",label="src/ThreadManager.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d1/dd5/ThreadManager_8c.html",tooltip=" "];
+  Node1 -> Node15 [id="edge22_Node000001_Node000015",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node15 [id="Node000015",label="src/save.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/dcf/save_8c.html",tooltip=" "];
 }

@@ -2,91 +2,92 @@
 \hypertarget{structPoke_8h_source}{}\label{structPoke_8h_source}\index{include/structPoke.h@{include/structPoke.h}}
 \mbox{\hyperlink{structPoke_8h}{Aller à la documentation de ce fichier.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ STRUCTPOKE\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ STRUCTPOKE\_H}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <time.h>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string.h>}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_image.h>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ PV\ 0}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ ATT\ 1}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ DEF\ 2}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ SPA\ 3}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ SPD\ 4}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ SPE\ 5}}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ TRUE\ 1}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ FALSE\ 0}}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ typeNumber\ 4}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165a9a6940c3bba41cdd6dacae1a00176a30}{status}}=-\/1,\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}}=1,\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165acc08a28789c5d7212478c59f2246a627}{special}}=3\}\ \mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165}{t\_Categ}};}
-\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{noType}}=0,\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2abeaed13a6c54935151875013008013a3}{feu}},\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2a80963026e42f86adaf9240e84768d9f9}{plante}},\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2a0729b1e157ef30cedeef889f7a263594}{eau}}\}\ \mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2}{t\_Type}};}
-\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{\mbox{\hyperlink{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6fadf25e9c17aa25418942eca3003c33410}{male}}\ =\ 0,\mbox{\hyperlink{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6fafc8285f7507b26f68c8b72f4dc38e34f}{female}}\}\ \mbox{\hyperlink{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6f}{t\_Gender}};}
-\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{\mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0aebfdd0b3c9deecff63099935f3dc1bfb}{noEffect}}\ =\ 0,\mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a8d1646261b24f1db3163721c6377e386}{burn}},\mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a8b190bd2899a6dfc2e663da9fbe6bd0e}{poison}},\mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a713e5cd4219d601e6e2e0877e4279c73}{paralyze}},\mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0aa04bf1e6db05af091f02b833e3c89cc4}{flinch}},\mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a1a1bc99ed53028c3175d51260cb3f233}{confusion}}\}\ \mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0}{t\_Effect}};}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{\textcolor{keywordtype}{char}\ nature[15];\textcolor{keywordtype}{float}\ coeff[6];\}\ \mbox{\hyperlink{structt__Nature}{t\_Nature}};}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structIMG__ICMons}{IMG\_ICMons}}\ \mbox{\hyperlink{structIMG__ICMons}{IMG\_ICMons}};}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
-\DoxyCodeLine{00034\ \{\ \ \ }
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_a142b673c3bd5657f10bade3b9bb858a7}{id}};}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{char}\ name[15];}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_a0b7411c0d24bb5042fca30e80c3b756a}{power}};}
-\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2}{t\_Type}}\ \mbox{\hyperlink{structt__Move_ab4011a4ea5b57bda20a69e870bc4f2ce}{type}};}
-\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165}{t\_Categ}}\ \mbox{\hyperlink{structt__Move_a217ce22c9b4b9788bddfc01b3b07110b}{categ}};}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_a011c3f41ffa44433ed940f6e4ba2008e}{accuracy}};}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_ad8e1af3029d0f5687558c08ab504a7f4}{current\_pp}};}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_ae1c24e65900a4ec3f539382aa15ef0a9}{max\_pp}};}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_ab38f5abac10fd494f08c84d3a1438113}{priority\_lvl}};}
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_a1b5306500999e3e3822f085437e4a82e}{target}};\ \textcolor{comment}{//0:\ ennemi,\ 1:\ soi}}
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_a5ce1ec91e9283ec488352d05c55ca173}{ind\_secEffect}};}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_add7fb7c2b2e094579bd40a640c31e3c3}{probability}};}
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_af2801d96ca253fc7ef0c7e27211a457b}{value\_effect}};\ \textcolor{comment}{//Puissance\ de\ l'effet}}
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_a7445184dec0654cfeed37838113912e4}{effect\_modifier}};\textcolor{comment}{//Modificateur\ de\ l'effet}}
-\DoxyCodeLine{00049\ \}\ \mbox{\hyperlink{structt__Move}{t\_Move}};}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
-\DoxyCodeLine{00052\ \{}
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Poke_a266fcc82359838d3e905b5f9b8c6b105}{id}};}
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{char}\ name[20];}
-\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6f}{t\_Gender}}\ \mbox{\hyperlink{structt__Poke_a001739d4eda48019d33bb054935b49de}{gender}};}
-\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2}{t\_Type}}\ type[2];}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Poke_aeaf2143d32858b7b9c0529da3d886876}{lvl}};}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{structt__Poke_afc7243b0a23a9ade0b20033d4970e1c8}{exp}};}
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Poke_aa9c902c5c9e448a5653e498ab435fbeb}{nature}};}
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Poke_a9241fd7ccc01d414ab09cef1a5bed51e}{current\_pv}};}
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ baseStats[6];}
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Poke_ab81a2405378517706eac87f6864d0622}{initial\_pv}};}
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ iv[6];}
-\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{structt__Move}{t\_Move}}\ moveList[4];}
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Poke_acee009eb148401afe29349b45c2c358c}{nb\_move}};}
-\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0}{t\_Effect}}\ \mbox{\hyperlink{structt__Poke_a0c6f6137780537388f8c8b2f19fdb4ac}{main\_effect}};}
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ Affichage}}
-\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{structIMG__ICMons}{IMG\_ICMons}}\ *\mbox{\hyperlink{structt__Poke_a89656996ef0abcdf7b17733e7d7afb3a}{img}};}
-\DoxyCodeLine{00069\ \}\ \mbox{\hyperlink{structt__Poke}{t\_Poke}};}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structt__Nature}{t\_Nature}}\ \mbox{\hyperlink{structPoke_8h_a3e0b3eb9a62d3b43c0f95146281bba83}{tabNature}}[25];}
-\DoxyCodeLine{00073\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structPoke_8h_ab3f16f2365e129e0337bae5d412816e3}{typeChart}}[\mbox{\hyperlink{structPoke_8h_ad5122cd563904de0bfe762d37bdfacdf}{typeNumber}}][\mbox{\hyperlink{structPoke_8h_ad5122cd563904de0bfe762d37bdfacdf}{typeNumber}}];}
-\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structPoke_8h_afe2be4dcf1abaf503e3ce46c3af588e9}{generate\_poke}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *p,\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structPoke_8h_a2654983666510a2dc455ff7e1a4e281a}{generatePoke}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *);}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00086\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ \mbox{\hyperlink{structPoke_8h_aff185784e3522330be3818416ad1cb93}{generateMove}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00087\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ \mbox{\hyperlink{structPoke_8h_a0c149d758c5a0d385c66b6cfe90abd73}{generateRandomMove}}();}
-\DoxyCodeLine{00088\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ \mbox{\hyperlink{structPoke_8h_a69afa9b406c2e19b2821261e7bc00bac}{generateRandomMoveBetter}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *p);}
-\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structPoke_8h_aa6e57a0e7270157be9d895337f9dea6c}{learnMove}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *,\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ *,\ \textcolor{keywordtype}{int});}
-\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structPoke_8h_ae4f820b89cf498b99b912c97e95a2414}{printPoke}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *);}
-\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structPoke_8h_ad8d8693792c2e018b7e452a36fd161e9}{initNature}}();}
-\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structPoke_8h_a057e50bb0d116718182997db0f1e7b53}{initData}}();}
-\DoxyCodeLine{00093\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structPoke_8h_adc5adb43430a43f36c770a469f434abb}{printChart}}();}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ STRUCTPOKE\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ STRUCTPOKE\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_image.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ PV\ 0}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ ATT\ 1}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ DEF\ 2}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ SPA\ 3}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ SPD\ 4}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ SPE\ 5}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ TRUE\ 1}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ FALSE\ 0}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ typeNumber\ 4}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165a9a6940c3bba41cdd6dacae1a00176a30}{status}}=-\/1,\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}}=1,\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165acc08a28789c5d7212478c59f2246a627}{special}}=3\}\ \mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165}{t\_Categ}};}
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{noType}}=0,\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2abeaed13a6c54935151875013008013a3}{feu}},\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2a80963026e42f86adaf9240e84768d9f9}{plante}},\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2a0729b1e157ef30cedeef889f7a263594}{eau}}\}\ \mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2}{t\_Type}};}
+\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{\mbox{\hyperlink{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6fadf25e9c17aa25418942eca3003c33410}{male}}\ =\ 0,\mbox{\hyperlink{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6fafc8285f7507b26f68c8b72f4dc38e34f}{female}}\}\ \mbox{\hyperlink{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6f}{t\_Gender}};}
+\DoxyCodeLine{00033\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{\mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0aebfdd0b3c9deecff63099935f3dc1bfb}{noEffect}}\ =\ 0,\mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a8d1646261b24f1db3163721c6377e386}{burn}},\mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a8b190bd2899a6dfc2e663da9fbe6bd0e}{poison}},\mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a713e5cd4219d601e6e2e0877e4279c73}{paralyze}},\mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0aa04bf1e6db05af091f02b833e3c89cc4}{flinch}},\mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a1a1bc99ed53028c3175d51260cb3f233}{confusion}}\}\ \mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0}{t\_Effect}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{\textcolor{keywordtype}{char}\ nature[15];\textcolor{keywordtype}{float}\ coeff[6];\}\ \mbox{\hyperlink{structt__Nature}{t\_Nature}};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structIMG__ICMons}{IMG\_ICMons}}\ \mbox{\hyperlink{structIMG__ICMons}{IMG\_ICMons}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00043\ \{\ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_a142b673c3bd5657f10bade3b9bb858a7}{id}};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{char}\ name[15];}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_a0b7411c0d24bb5042fca30e80c3b756a}{power}};}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2}{t\_Type}}\ \mbox{\hyperlink{structt__Move_ab4011a4ea5b57bda20a69e870bc4f2ce}{type}};}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165}{t\_Categ}}\ \mbox{\hyperlink{structt__Move_a217ce22c9b4b9788bddfc01b3b07110b}{categ}};}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_a011c3f41ffa44433ed940f6e4ba2008e}{accuracy}};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_ad8e1af3029d0f5687558c08ab504a7f4}{current\_pp}};}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_ae1c24e65900a4ec3f539382aa15ef0a9}{max\_pp}};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_ab38f5abac10fd494f08c84d3a1438113}{priority\_lvl}};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_a1b5306500999e3e3822f085437e4a82e}{target}};\ \textcolor{comment}{//0:\ ennemi,\ 1:\ soi}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_a5ce1ec91e9283ec488352d05c55ca173}{ind\_secEffect}};}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_add7fb7c2b2e094579bd40a640c31e3c3}{probability}};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_af2801d96ca253fc7ef0c7e27211a457b}{value\_effect}};\ \textcolor{comment}{//Puissance\ de\ l'effet}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Move_a7445184dec0654cfeed37838113912e4}{effect\_modifier}};\textcolor{comment}{//Modificateur\ de\ l'effet}}
+\DoxyCodeLine{00058\ \}\ \mbox{\hyperlink{structt__Move}{t\_Move}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00064\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Poke_a266fcc82359838d3e905b5f9b8c6b105}{id}};}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{char}\ name[20];}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6f}{t\_Gender}}\ \mbox{\hyperlink{structt__Poke_a001739d4eda48019d33bb054935b49de}{gender}};}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2}{t\_Type}}\ type[2];}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Poke_aeaf2143d32858b7b9c0529da3d886876}{lvl}};}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{structt__Poke_afc7243b0a23a9ade0b20033d4970e1c8}{exp}};}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Poke_aa9c902c5c9e448a5653e498ab435fbeb}{nature}};}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Poke_a9241fd7ccc01d414ab09cef1a5bed51e}{current\_pv}};}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ baseStats[6];}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Poke_ab81a2405378517706eac87f6864d0622}{initial\_pv}};}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{int}\ iv[6];}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{structt__Move}{t\_Move}}\ moveList[4];}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Poke_acee009eb148401afe29349b45c2c358c}{nb\_move}};}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0}{t\_Effect}}\ \mbox{\hyperlink{structt__Poke_a0c6f6137780537388f8c8b2f19fdb4ac}{main\_effect}};}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ Affichage}}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{structIMG__ICMons}{IMG\_ICMons}}\ *\mbox{\hyperlink{structt__Poke_a89656996ef0abcdf7b17733e7d7afb3a}{img}};}
+\DoxyCodeLine{00081\ \}\ \mbox{\hyperlink{structt__Poke}{t\_Poke}};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structt__Nature}{t\_Nature}}\ \mbox{\hyperlink{structPoke_8h_a3e0b3eb9a62d3b43c0f95146281bba83}{tabNature}}[25];}
+\DoxyCodeLine{00085\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structPoke_8h_ab3f16f2365e129e0337bae5d412816e3}{typeChart}}[\mbox{\hyperlink{structPoke_8h_ad5122cd563904de0bfe762d37bdfacdf}{typeNumber}}][\mbox{\hyperlink{structPoke_8h_ad5122cd563904de0bfe762d37bdfacdf}{typeNumber}}];}
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structPoke_8h_afe2be4dcf1abaf503e3ce46c3af588e9}{generate\_poke}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *p,\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structPoke_8h_a2654983666510a2dc455ff7e1a4e281a}{generatePoke}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ \mbox{\hyperlink{structPoke_8h_aff185784e3522330be3818416ad1cb93}{generateMove}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00099\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ \mbox{\hyperlink{structPoke_8h_a0c149d758c5a0d385c66b6cfe90abd73}{generateRandomMove}}();}
+\DoxyCodeLine{00100\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ \mbox{\hyperlink{structPoke_8h_a69afa9b406c2e19b2821261e7bc00bac}{generateRandomMoveBetter}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *p);}
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structPoke_8h_aa6e57a0e7270157be9d895337f9dea6c}{learnMove}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *,\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ *,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structPoke_8h_ae4f820b89cf498b99b912c97e95a2414}{printPoke}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *);}
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structPoke_8h_ad8d8693792c2e018b7e452a36fd161e9}{initNature}}();}
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structPoke_8h_a057e50bb0d116718182997db0f1e7b53}{initData}}();}
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structPoke_8h_adc5adb43430a43f36c770a469f434abb}{printChart}}();}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

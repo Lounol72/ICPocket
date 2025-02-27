@@ -4,26 +4,25 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ AUDIO\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ AUDIO\_H}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Log_8h}{Log.h}}"{}}}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#if\ defined(\_WIN32)\ ||\ defined(\_WIN64)}}
-\DoxyCodeLine{00007\ \ \ \ \ \textcolor{comment}{//\ Sur\ Windows}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#define\ AUDIO\_FREQ\ 44100}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#elif\ defined(\_\_linux\_\_)}}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{comment}{//\ Sur\ Linux}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \ \ \#define\ AUDIO\_FREQ\ 22050}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ macOS,\ BSD,\ etc.}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ \#define\ AUDIO\_FREQ\ 44100}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_mixer.h>}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Audio_8h_ab74d84d6d4c90b2b18669590af038a07}{initAudio}}();}
-\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Audio_8h_a442ac79688294b67c76dbe10c87e1383}{loadMusic}}(Mix\_Music\ **music,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *musicPath);}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ AUDIO\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Log_8h}{Log.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#if\ defined(\_WIN32)\ ||\ defined(\_WIN64)}}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{comment}{//\ Sur\ Windows}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \#define\ AUDIO\_FREQ\ 44100}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#elif\ defined(\_\_linux\_\_)}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{comment}{//\ Sur\ Linux}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ \#define\ AUDIO\_FREQ\ 22050}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ macOS,\ BSD,\ etc.}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\ \ \ \ \#define\ AUDIO\_FREQ\ 44100}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_mixer.h>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Audio_8h_ab74d84d6d4c90b2b18669590af038a07}{initAudio}}();}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Audio_8h_a442ac79688294b67c76dbe10c87e1383}{loadMusic}}(Mix\_Music\ **music,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *musicPath);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ AUDIO\_H}}
 
 \end{DoxyCode}

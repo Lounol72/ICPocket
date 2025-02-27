@@ -28,5 +28,5 @@ digraph "src/mainDuel.c"
   Node1 -> Node12 [id="edge23_Node000001_Node000012",color="steelblue1",style="solid",tooltip=" "];
   Node12 [id="Node000012",label="../include/interDuel.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$da/d1d/interDuel_8h.html",tooltip=" "];
   Node1 -> Node13 [id="edge24_Node000001_Node000013",color="steelblue1",style="solid",tooltip=" "];
-  Node13 [id="Node000013",label="../include/save.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d5/d5e/save_8h.html",tooltip=" "];
+  Node13 [id="Node000013",label="../include/save.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d5/d5e/save_8h.html",tooltip="Save the player's data in a file."];
 }

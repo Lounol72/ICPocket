@@ -4,7 +4,7 @@ var searchData=
   ['accuracycheck_1',['accuracycheck',['../d1/d18/duel_8c.html#a82732f92530a8627b7d1c8a55e55444c',1,'accuracyCheck(int accuracy):&#160;duel.c'],['../d6/d8e/duel_8h.html#a82732f92530a8627b7d1c8a55e55444c',1,'accuracyCheck(int accuracy):&#160;duel.c']]],
   ['addlistbutton_2',['addlistbutton',['../d9/d0e/Buttons_8c.html#ae76e871e4375b26d06e1e703325002ad',1,'addListButton(ButtonList *list, Button **buttons, int count):&#160;Buttons.c'],['../d3/d70/Buttons_8h.html#ae76e871e4375b26d06e1e703325002ad',1,'addListButton(ButtonList *list, Button **buttons, int count):&#160;Buttons.c']]],
   ['addlistslider_3',['addlistslider',['../d9/d0e/Buttons_8c.html#ab4f0f8d2f09eef09c6ba3cadb1f66f5c',1,'addListSlider(SliderList *S, Slider *sliders[], int size):&#160;Buttons.c'],['../d3/d70/Buttons_8h.html#ab4f0f8d2f09eef09c6ba3cadb1f66f5c',1,'addListSlider(SliderList *S, Slider *sliders[], int size):&#160;Buttons.c']]],
-  ['affectdamage_4',['affectdamage',['../d1/d18/duel_8c.html#a2cdb2c620c0e4c3077d6ae74c45ceb36',1,'affectDamage(t_Team *offender, t_Team *defender, int indexMove):&#160;duel.c'],['../d6/d8e/duel_8h.html#a2cdb2c620c0e4c3077d6ae74c45ceb36',1,'affectDamage(t_Team *offender, t_Team *defender, int indexMove):&#160;duel.c']]],
+  ['affectdamage_4',['affectdamage',['../d6/d8e/duel_8h.html#a2cdb2c620c0e4c3077d6ae74c45ceb36',1,'affectDamage(t_Team *offender, t_Team *defender, int indexMove):&#160;duel.c'],['../d1/d18/duel_8c.html#a2cdb2c620c0e4c3077d6ae74c45ceb36',1,'affectDamage(t_Team *offender, t_Team *defender, int indexMove):&#160;duel.c']]],
   ['ai_5',['AI',['../d5/d48/structAI.html',1,'']]],
   ['ai_5flvl_6',['AI_lvl',['../d5/d48/structAI.html#a06cff8b0ff2c1bf4db023f932e51cbfa',1,'AI']]],
   ['ai_5fmove_5fchoice_7',['ai_move_choice',['../df/d27/trainerAI_8h.html#ae1208db074f4b5b1f2209722c157da92',1,'AI_move_choice(t_AI *ai_team, t_Team *player_team):&#160;trainerAI.c'],['../de/d53/trainerAI_8c.html#a67e74b5adb24ca0a8baab32479585aba',1,'AI_move_choice(t_AI *ai, t_Team *opponent):&#160;trainerAI.c']]],
@@ -24,5 +24,8 @@ var searchData=
   ['attqbuttonclicked_21',['attqbuttonclicked',['../d5/d81/GameEngine_8c.html#a8f8e57777ac436d2bfa2a87224c0eb8c',1,'attqButtonClicked(Window *win, void *data):&#160;GameEngine.c'],['../d7/d1f/GameEngine_8h.html#a8f8e57777ac436d2bfa2a87224c0eb8c',1,'attqButtonClicked(Window *win, void *data):&#160;GameEngine.c']]],
   ['audio_2ec_22',['Audio.c',['../d3/d48/Audio_8c.html',1,'']]],
   ['audio_2eh_23',['Audio.h',['../d8/daa/Audio_8h.html',1,'']]],
-  ['audio_5ffreq_24',['AUDIO_FREQ',['../d8/daa/Audio_8h.html#adebb5f0699c0e5707af99a22c23d6fe2',1,'Audio.h']]]
+  ['audio_5ffreq_24',['AUDIO_FREQ',['../d8/daa/Audio_8h.html#adebb5f0699c0e5707af99a22c23d6fe2',1,'Audio.h']]],
+  ['audiomutex_25',['audioMutex',['../d5/d64/structThreadManager.html#ad897c405c4f5d79c60e3a1a3e3ad7c2a',1,'ThreadManager']]],
+  ['audiothread_26',['audioThread',['../d5/d64/structThreadManager.html#a45814cb0ecbb18c7204bc8bf1b79fcd3',1,'ThreadManager']]],
+  ['audiothreadfunction_27',['audiothreadfunction',['../d1/dd5/ThreadManager_8c.html#aca5053a41c03f29919bee861884c0a70',1,'audioThreadFunction(void *arg):&#160;ThreadManager.c'],['../d0/daa/ThreadManager_8h.html#aca5053a41c03f29919bee861884c0a70',1,'audioThreadFunction(void *arg):&#160;ThreadManager.c']]]
 ];

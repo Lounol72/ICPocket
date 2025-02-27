@@ -8,3 +8,247 @@
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+gamecontroller.\+h$>$}\newline
 Graphe des dépendances par inclusion de Events.\+h\+:
+% FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Events_8h_a6f17bb9492dd6a4e5ace526c8686679f}{handle\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
+\begin{DoxyCompactList}\small\item\em Main event handler that processes all SDL events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Events_8h_a9e83431dc3f66988e64a74a4e0a2ed58}{handle\+Window\+Size\+Change}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
+\begin{DoxyCompactList}\small\item\em Handles window size change events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Events_8h_a513da2d00e9995e84d9033ef82316ba9}{handle\+Intermediate\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
+\begin{DoxyCompactList}\small\item\em Handles events in the intermediate game state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Events_8h_a25c2257aeb4db95d02ee807d21f2b387}{handle\+Quit\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
+\begin{DoxyCompactList}\small\item\em Handles quit events to close the application. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Events_8h_ab14649f183a1cbf95f28b1cda31acb8e}{handle\+Settings\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
+\begin{DoxyCompactList}\small\item\em Handles events in the settings menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Events_8h_a3dd192e3954e5e38c991024ad04b4b5a}{handle\+Menu\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
+\begin{DoxyCompactList}\small\item\em Handles events in the main menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Events_8h_a7e807113e014d5725e945ee30180483c}{handle\+Game\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
+\begin{DoxyCompactList}\small\item\em Handles events during active gameplay. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Events_8h_a2eb85b27aa836abb19135fc494112449}{handle\+New\+Game\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
+\begin{DoxyCompactList}\small\item\em Handles events when starting a new game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Events_8h_aade80eb59d9a637677b7a309cd8c702c}{handle\+Load\+Game\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
+\begin{DoxyCompactList}\small\item\em Handles events when loading a saved game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Events_8h_abb1d99ee132734d10ca7f03286da3b18}{handle\+ICMons\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
+\begin{DoxyCompactList}\small\item\em Handles events in the ICMons interface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Events_8h_a353673ce0aa1c823efdc9087cbde90cc}{handle\+Pause\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
+\begin{DoxyCompactList}\small\item\em Handles events when the game is paused. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Events_8h_a244d37073550388354a68561ac959ecb}{handle\+Player\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
+\begin{DoxyCompactList}\small\item\em Handles events when the player is in the map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\begin{DoxyAuthor}{Auteur}
+Louis Alban 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+17/02/2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{Events_8h_a6f17bb9492dd6a4e5ace526c8686679f}\label{Events_8h_a6f17bb9492dd6a4e5ace526c8686679f} 
+\index{Events.h@{Events.h}!handleEvent@{handleEvent}}
+\index{handleEvent@{handleEvent}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{handleEvent()}{handleEvent()}}
+{\footnotesize\ttfamily void handle\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
+
+
+
+Main event handler that processes all SDL events. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+\hline
+{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Events_8h_a7e807113e014d5725e945ee30180483c}\label{Events_8h_a7e807113e014d5725e945ee30180483c} 
+\index{Events.h@{Events.h}!handleGameEvent@{handleGameEvent}}
+\index{handleGameEvent@{handleGameEvent}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{handleGameEvent()}{handleGameEvent()}}
+{\footnotesize\ttfamily void handle\+Game\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
+
+
+
+Handles events during active gameplay. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+\hline
+{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Events_8h_abb1d99ee132734d10ca7f03286da3b18}\label{Events_8h_abb1d99ee132734d10ca7f03286da3b18} 
+\index{Events.h@{Events.h}!handleICMonsEvent@{handleICMonsEvent}}
+\index{handleICMonsEvent@{handleICMonsEvent}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{handleICMonsEvent()}{handleICMonsEvent()}}
+{\footnotesize\ttfamily void handle\+ICMons\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
+
+
+
+Handles events in the ICMons interface. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+\hline
+{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Events_8h_a513da2d00e9995e84d9033ef82316ba9}\label{Events_8h_a513da2d00e9995e84d9033ef82316ba9} 
+\index{Events.h@{Events.h}!handleIntermediateEvent@{handleIntermediateEvent}}
+\index{handleIntermediateEvent@{handleIntermediateEvent}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{handleIntermediateEvent()}{handleIntermediateEvent()}}
+{\footnotesize\ttfamily void handle\+Intermediate\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
+
+
+
+Handles events in the intermediate game state. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+\hline
+{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Events_8h_aade80eb59d9a637677b7a309cd8c702c}\label{Events_8h_aade80eb59d9a637677b7a309cd8c702c} 
+\index{Events.h@{Events.h}!handleLoadGameEvent@{handleLoadGameEvent}}
+\index{handleLoadGameEvent@{handleLoadGameEvent}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{handleLoadGameEvent()}{handleLoadGameEvent()}}
+{\footnotesize\ttfamily void handle\+Load\+Game\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
+
+
+
+Handles events when loading a saved game. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+\hline
+{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Events_8h_a3dd192e3954e5e38c991024ad04b4b5a}\label{Events_8h_a3dd192e3954e5e38c991024ad04b4b5a} 
+\index{Events.h@{Events.h}!handleMenuEvent@{handleMenuEvent}}
+\index{handleMenuEvent@{handleMenuEvent}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{handleMenuEvent()}{handleMenuEvent()}}
+{\footnotesize\ttfamily void handle\+Menu\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
+
+
+
+Handles events in the main menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+\hline
+{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Events_8h_a2eb85b27aa836abb19135fc494112449}\label{Events_8h_a2eb85b27aa836abb19135fc494112449} 
+\index{Events.h@{Events.h}!handleNewGameEvent@{handleNewGameEvent}}
+\index{handleNewGameEvent@{handleNewGameEvent}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{handleNewGameEvent()}{handleNewGameEvent()}}
+{\footnotesize\ttfamily void handle\+New\+Game\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
+
+
+
+Handles events when starting a new game. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+\hline
+{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Events_8h_a353673ce0aa1c823efdc9087cbde90cc}\label{Events_8h_a353673ce0aa1c823efdc9087cbde90cc} 
+\index{Events.h@{Events.h}!handlePauseEvent@{handlePauseEvent}}
+\index{handlePauseEvent@{handlePauseEvent}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{handlePauseEvent()}{handlePauseEvent()}}
+{\footnotesize\ttfamily void handle\+Pause\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
+
+
+
+Handles events when the game is paused. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+\hline
+{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Events_8h_a244d37073550388354a68561ac959ecb}\label{Events_8h_a244d37073550388354a68561ac959ecb} 
+\index{Events.h@{Events.h}!handlePlayerEvent@{handlePlayerEvent}}
+\index{handlePlayerEvent@{handlePlayerEvent}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{handlePlayerEvent()}{handlePlayerEvent()}}
+{\footnotesize\ttfamily void handle\+Player\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
+
+
+
+Handles events when the player is in the map. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+\hline
+{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Events_8h_a25c2257aeb4db95d02ee807d21f2b387}\label{Events_8h_a25c2257aeb4db95d02ee807d21f2b387} 
+\index{Events.h@{Events.h}!handleQuitEvent@{handleQuitEvent}}
+\index{handleQuitEvent@{handleQuitEvent}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{handleQuitEvent()}{handleQuitEvent()}}
+{\footnotesize\ttfamily void handle\+Quit\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
+
+
+
+Handles quit events to close the application. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+\hline
+{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Events_8h_ab14649f183a1cbf95f28b1cda31acb8e}\label{Events_8h_ab14649f183a1cbf95f28b1cda31acb8e} 
+\index{Events.h@{Events.h}!handleSettingsEvent@{handleSettingsEvent}}
+\index{handleSettingsEvent@{handleSettingsEvent}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{handleSettingsEvent()}{handleSettingsEvent()}}
+{\footnotesize\ttfamily void handle\+Settings\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
+
+
+
+Handles events in the settings menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+\hline
+{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Events_8h_a9e83431dc3f66988e64a74a4e0a2ed58}\label{Events_8h_a9e83431dc3f66988e64a74a4e0a2ed58} 
+\index{Events.h@{Events.h}!handleWindowSizeChange@{handleWindowSizeChange}}
+\index{handleWindowSizeChange@{handleWindowSizeChange}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{handleWindowSizeChange()}{handleWindowSizeChange()}}
+{\footnotesize\ttfamily void handle\+Window\+Size\+Change (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+
+
+
+Handles window size change events. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+\hline
+\end{DoxyParams}

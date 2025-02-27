@@ -40,6 +40,8 @@ digraph "include/Utils.h"
   Node2 -> Node14 [id="edge21_Node000002_Node000014",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node14 [id="Node000014",label="src/GameEngine.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d5/d81/GameEngine_8c.html",tooltip=" "];
   Node2 -> Node15 [id="edge22_Node000002_Node000015",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node15 [id="Node000015",label="src/save.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/dcf/save_8c.html",tooltip=" "];
-  Node1 -> Node11 [id="edge23_Node000001_Node000011",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node15 [id="Node000015",label="src/ThreadManager.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d1/dd5/ThreadManager_8c.html",tooltip=" "];
+  Node2 -> Node16 [id="edge23_Node000002_Node000016",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node16 [id="Node000016",label="src/save.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/dcf/save_8c.html",tooltip=" "];
+  Node1 -> Node11 [id="edge24_Node000001_Node000011",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }

@@ -40,11 +40,14 @@ digraph "include/Map.h"
   Node2 -> Node14 [id="edge21_Node000002_Node000014",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node14 [id="Node000014",label="src/GameEngine.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d5/d81/GameEngine_8c.html",tooltip=" "];
   Node2 -> Node15 [id="edge22_Node000002_Node000015",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node15 [id="Node000015",label="src/save.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/dcf/save_8c.html",tooltip=" "];
-  Node1 -> Node16 [id="edge23_Node000001_Node000016",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node16 [id="Node000016",label="include/Player.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$da/dbf/Player_8h.html",tooltip=" "];
-  Node16 -> Node17 [id="edge24_Node000016_Node000017",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node17 [id="Node000017",label="src/Player.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d1/d12/Player_8c.html",tooltip=" "];
-  Node1 -> Node18 [id="edge25_Node000001_Node000018",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node18 [id="Node000018",label="src/Map.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$dc/df2/Map_8c.html",tooltip=" "];
+  Node15 [id="Node000015",label="src/ThreadManager.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d1/dd5/ThreadManager_8c.html",tooltip=" "];
+  Node2 -> Node16 [id="edge23_Node000002_Node000016",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node16 [id="Node000016",label="src/save.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/dcf/save_8c.html",tooltip=" "];
+  Node1 -> Node17 [id="edge24_Node000001_Node000017",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node17 [id="Node000017",label="include/Player.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$da/dbf/Player_8h.html",tooltip=" "];
+  Node17 -> Node2 [id="edge25_Node000017_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node17 -> Node18 [id="edge26_Node000017_Node000018",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node18 [id="Node000018",label="src/Player.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d1/d12/Player_8c.html",tooltip=" "];
+  Node1 -> Node19 [id="edge27_Node000001_Node000019",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node19 [id="Node000019",label="src/Map.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$dc/df2/Map_8c.html",tooltip=" "];
 }

@@ -13,11 +13,10 @@ var searchData=
   ['nbstates_10',['nbStates',['../de/de9/structGame.html#ad6d4967c8a2102963029b9db9dbc1b91',1,'Game']]],
   ['neutral_5fstat_5fchange_11',['NEUTRAL_STAT_CHANGE',['../d6/d8e/duel_8h.html#a73481505b6cdf382ecfc1e3c0faaa593',1,'duel.h']]],
   ['newgame_12',['NEWGAME',['../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a7d66b8866cc7667b15bb0ac8a7e62f4a',1,'Utils.h']]],
-  ['newgamestarttime_13',['newGameStartTime',['../de/de9/structGame.html#aa4fe6f6f2becd7da426b5af03c0cda3e',1,'Game']]],
-  ['newgametext_14',['newgametext',['../d5/d81/GameEngine_8c.html#a4cc75f256324e33385aa00bd67430368',1,'NewGameText:&#160;GameEngine.c'],['../d6/d35/Text_8h.html#a4cc75f256324e33385aa00bd67430368',1,'NewGameText:&#160;GameEngine.c']]],
-  ['nextduel_15',['nextduel',['../d5/d81/GameEngine_8c.html#a275ae329d3830bface72c1c30db48b04',1,'nextDuel(Window *win, void *data):&#160;GameEngine.c'],['../d7/d1f/GameEngine_8h.html#a275ae329d3830bface72c1c30db48b04',1,'nextDuel(Window *win, void *data):&#160;GameEngine.c']]],
-  ['noeffect_16',['noEffect',['../da/d71/structPoke_8h.html#a76147bdc67aed9a2286c8facfd7b8ce0aebfdd0b3c9deecff63099935f3dc1bfb',1,'structPoke.h']]],
-  ['nom_17',['nom',['../d7/d19/structButton.html#a245d00855479e4efa9408976b902292f',1,'Button']]],
-  ['none_18',['none',['../df/d27/trainerAI_8h.html#a57d6e306e6a876cacd7cd69e71eb23e0ab7e4e0120a041dbe6528b050c04269e0',1,'trainerAI.h']]],
-  ['notype_19',['noType',['../da/d71/structPoke_8h.html#a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c',1,'structPoke.h']]]
+  ['newgametext_13',['newgametext',['../d5/d81/GameEngine_8c.html#a4cc75f256324e33385aa00bd67430368',1,'NewGameText:&#160;GameEngine.c'],['../d6/d35/Text_8h.html#a4cc75f256324e33385aa00bd67430368',1,'NewGameText:&#160;GameEngine.c']]],
+  ['nextduel_14',['nextduel',['../d5/d81/GameEngine_8c.html#a275ae329d3830bface72c1c30db48b04',1,'nextDuel(Window *win, void *data):&#160;GameEngine.c'],['../d7/d1f/GameEngine_8h.html#a275ae329d3830bface72c1c30db48b04',1,'nextDuel(Window *win, void *data):&#160;GameEngine.c']]],
+  ['noeffect_15',['noEffect',['../da/d71/structPoke_8h.html#a76147bdc67aed9a2286c8facfd7b8ce0aebfdd0b3c9deecff63099935f3dc1bfb',1,'structPoke.h']]],
+  ['nom_16',['nom',['../d7/d19/structButton.html#a245d00855479e4efa9408976b902292f',1,'Button']]],
+  ['none_17',['none',['../df/d27/trainerAI_8h.html#a57d6e306e6a876cacd7cd69e71eb23e0ab7e4e0120a041dbe6528b050c04269e0',1,'trainerAI.h']]],
+  ['notype_18',['noType',['../da/d71/structPoke_8h.html#a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c',1,'structPoke.h']]]
 ];

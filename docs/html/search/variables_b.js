@@ -9,7 +9,6 @@ var searchData=
   ['nb_5fpoke_6',['nb_poke',['../da/d63/structt__Team.html#a0e57efa0c1f03ab0492862d52cfc605a',1,'t_Team']]],
   ['nbmenu_7',['nbMenu',['../de/de9/structGame.html#a911428bfef2d00d5ece40210d3488fdb',1,'Game']]],
   ['nbstates_8',['nbStates',['../de/de9/structGame.html#ad6d4967c8a2102963029b9db9dbc1b91',1,'Game']]],
-  ['newgamestarttime_9',['newGameStartTime',['../de/de9/structGame.html#aa4fe6f6f2becd7da426b5af03c0cda3e',1,'Game']]],
-  ['newgametext_10',['newgametext',['../d5/d81/GameEngine_8c.html#a4cc75f256324e33385aa00bd67430368',1,'NewGameText:&#160;GameEngine.c'],['../d6/d35/Text_8h.html#a4cc75f256324e33385aa00bd67430368',1,'NewGameText:&#160;GameEngine.c']]],
-  ['nom_11',['nom',['../d7/d19/structButton.html#a245d00855479e4efa9408976b902292f',1,'Button']]]
+  ['newgametext_9',['newgametext',['../d5/d81/GameEngine_8c.html#a4cc75f256324e33385aa00bd67430368',1,'NewGameText:&#160;GameEngine.c'],['../d6/d35/Text_8h.html#a4cc75f256324e33385aa00bd67430368',1,'NewGameText:&#160;GameEngine.c']]],
+  ['nom_10',['nom',['../d7/d19/structButton.html#a245d00855479e4efa9408976b902292f',1,'Button']]]
 ];

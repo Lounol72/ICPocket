@@ -42,10 +42,12 @@ digraph "include/Log.h"
   Node3 -> Node15 [id="edge22_Node000003_Node000015",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node15 [id="Node000015",label="src/GameEngine.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d5/d81/GameEngine_8c.html",tooltip=" "];
   Node3 -> Node16 [id="edge23_Node000003_Node000016",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node16 [id="Node000016",label="src/save.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/dcf/save_8c.html",tooltip=" "];
-  Node2 -> Node17 [id="edge24_Node000002_Node000017",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node17 [id="Node000017",label="src/Audio.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d3/d48/Audio_8c.html",tooltip="Gestion de l'audio."];
-  Node1 -> Node3 [id="edge25_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node1 -> Node18 [id="edge26_Node000001_Node000018",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node18 [id="Node000018",label="src/Log.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d6/df2/Log_8c.html",tooltip=" "];
+  Node16 [id="Node000016",label="src/ThreadManager.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d1/dd5/ThreadManager_8c.html",tooltip=" "];
+  Node3 -> Node17 [id="edge24_Node000003_Node000017",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node17 [id="Node000017",label="src/save.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/dcf/save_8c.html",tooltip=" "];
+  Node2 -> Node18 [id="edge25_Node000002_Node000018",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node18 [id="Node000018",label="src/Audio.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d3/d48/Audio_8c.html",tooltip="Gestion de l'audio."];
+  Node1 -> Node3 [id="edge26_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node19 [id="edge27_Node000001_Node000019",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node19 [id="Node000019",label="src/Log.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d6/df2/Log_8c.html",tooltip=" "];
 }

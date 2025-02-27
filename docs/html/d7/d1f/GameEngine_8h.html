@@ -117,6 +117,9 @@ $(document).ready(function(){initNavTree('d7/d1f/GameEngine_8h.html','../../'); 
 <code>#include &quot;<a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d3/ded/Window_8h_source.html">Window.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../df/d79/Map_8h_source.html">Map.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dbf/Player_8h_source.html">Player.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/de4/Camera_8h_source.html">Camera.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/daa/ThreadManager_8h_source.html">ThreadManager.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d3/d5f/Game_8h_source.html">Game.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d0/dbb/Events_8h_source.html">Events.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d2/d98/RenderICMons_8h_source.html">RenderICMons.h</a>&quot;</code><br />
@@ -142,6 +145,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3d/structGameState.html">GameState</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/daf/structStateHandler.html">StateHandler</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6e/structGameData.html">GameData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de9/structGame.html">Game</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,8 +178,13 @@ Fonctions</h2></td></tr>
 <tr class="separator:aa35dc6fb12b09280f097e5781e5892e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae728be2d7ae42605618aa49e1a837466" id="r_ae728be2d7ae42605618aa49e1a837466"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d1f/GameEngine_8h.html#ae728be2d7ae42605618aa49e1a837466">updateMusic</a> ()</td></tr>
 <tr class="separator:ae728be2d7ae42605618aa49e1a837466"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ed42cf8883eef51f3764c8587d7bc59" id="r_a6ed42cf8883eef51f3764c8587d7bc59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d1f/GameEngine_8h.html#a6ed42cf8883eef51f3764c8587d7bc59">manageFrameRate</a> (int frameStart)</td></tr>
+<tr class="separator:a6ed42cf8883eef51f3764c8587d7bc59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des définitions de type</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><dl class="section author"><dt>Auteur</dt><dd>Louis Alban </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>24/01/2025 </dd></dl>
+</div><h2 class="groupheader">Documentation des définitions de type</h2>
 <a id="a69b5df78d315f81ed77df30fdbfb7002" name="a69b5df78d315f81ed77df30fdbfb7002"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a69b5df78d315f81ed77df30fdbfb7002">&#9670;&#160;</a></span>Game</h2>
 
@@ -289,6 +299,24 @@ Fonctions</h2></td></tr>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d6/d08/structWindow.html">Window</a> *&#160;</td>
           <td class="paramname"><em>win</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ed42cf8883eef51f3764c8587d7bc59" name="a6ed42cf8883eef51f3764c8587d7bc59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ed42cf8883eef51f3764c8587d7bc59">&#9670;&#160;</a></span>manageFrameRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void manageFrameRate </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>frameStart</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

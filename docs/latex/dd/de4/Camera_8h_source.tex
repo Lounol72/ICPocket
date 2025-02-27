@@ -5,24 +5,24 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CAMERA\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CAMERA\_H}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{comment}{//\ Définir\ les\ constantes\ de\ la\ fenêtre}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ WINDOW\_WIDTH\ 1280}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ WINDOW\_HEIGHT\ 720}}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structCamera_ae270fbd3b09b36f240a2d55b3b5b9cec}{x}},\ y;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Position\ de\ la\ caméra}}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structCamera_a50152f7c8f2ce7601dd6086c90b3a65c}{scale}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Niveau\ de\ zoom}}
-\DoxyCodeLine{00013\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structCamera_aaf4723593207c0f1cb02edfc2f4731f2}{viewport}};\ \ \ \ \textcolor{comment}{//\ Rectangle\ de\ vue}}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structCamera_a697db4776f19aba20c6bd1f1cb323bc6}{targetX}},\ targetY;\ \textcolor{comment}{//\ Position\ cible\ (joueur)}}
-\DoxyCodeLine{00015\ \}\ \mbox{\hyperlink{structCamera}{Camera}};}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \mbox{\hyperlink{structCamera}{Camera}}*\ \mbox{\hyperlink{Camera_8h_a2066b5ada76e803c9b0e2ae818c73b85}{createCamera}}(\textcolor{keywordtype}{int}\ windowWidth,\ \textcolor{keywordtype}{int}\ windowHeight);}
-\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Camera_8h_a1f82183277c2e3bb2c0ed552111a932f}{updateCamera}}(\mbox{\hyperlink{structCamera}{Camera}}*\ camera,\ \textcolor{keywordtype}{int}\ playerX,\ \textcolor{keywordtype}{int}\ playerY,\ \textcolor{keywordtype}{float}\ deltaTime);}
-\DoxyCodeLine{00019\ SDL\_Rect\ \mbox{\hyperlink{Camera_8h_a92559a351d5f83f829609acfd7d585d4}{getWorldToScreenRect}}(\mbox{\hyperlink{structCamera}{Camera}}*\ camera,\ SDL\_Rect\ worldRect);}
-\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Camera_8h_a30b237a47aec83d888c3d194d1a03209}{destroyCamera}}(\mbox{\hyperlink{structCamera}{Camera}}*\ camera);}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ Définir\ les\ constantes\ de\ la\ fenêtre}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ WINDOW\_WIDTH\ 1280}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ WINDOW\_HEIGHT\ 720}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structCamera_ae270fbd3b09b36f240a2d55b3b5b9cec}{x}},\ y;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Position\ de\ la\ caméra}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structCamera_a50152f7c8f2ce7601dd6086c90b3a65c}{scale}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Niveau\ de\ zoom}}
+\DoxyCodeLine{00019\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structCamera_aaf4723593207c0f1cb02edfc2f4731f2}{viewport}};\ \ \ \ \textcolor{comment}{//\ Rectangle\ de\ vue}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structCamera_a697db4776f19aba20c6bd1f1cb323bc6}{targetX}},\ targetY;\ \textcolor{comment}{//\ Position\ cible\ (joueur)}}
+\DoxyCodeLine{00021\ \}\ \mbox{\hyperlink{structCamera}{Camera}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \mbox{\hyperlink{structCamera}{Camera}}*\ \mbox{\hyperlink{Camera_8h_a2066b5ada76e803c9b0e2ae818c73b85}{createCamera}}(\textcolor{keywordtype}{int}\ windowWidth,\ \textcolor{keywordtype}{int}\ windowHeight);}
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Camera_8h_a1f82183277c2e3bb2c0ed552111a932f}{updateCamera}}(\mbox{\hyperlink{structCamera}{Camera}}*\ camera,\ \textcolor{keywordtype}{int}\ playerX,\ \textcolor{keywordtype}{int}\ playerY,\ \textcolor{keywordtype}{float}\ deltaTime);}
+\DoxyCodeLine{00025\ SDL\_Rect\ \mbox{\hyperlink{Camera_8h_a92559a351d5f83f829609acfd7d585d4}{getWorldToScreenRect}}(\mbox{\hyperlink{structCamera}{Camera}}*\ camera,\ SDL\_Rect\ worldRect);}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Camera_8h_a30b237a47aec83d888c3d194d1a03209}{destroyCamera}}(\mbox{\hyperlink{structCamera}{Camera}}*\ camera);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

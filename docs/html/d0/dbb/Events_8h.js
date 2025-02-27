@@ -8,6 +8,7 @@ var Events_8h =
     [ "handleMenuEvent", "d0/dbb/Events_8h.html#a3dd192e3954e5e38c991024ad04b4b5a", null ],
     [ "handleNewGameEvent", "d0/dbb/Events_8h.html#a2eb85b27aa836abb19135fc494112449", null ],
     [ "handlePauseEvent", "d0/dbb/Events_8h.html#a353673ce0aa1c823efdc9087cbde90cc", null ],
+    [ "handlePlayerEvent", "d0/dbb/Events_8h.html#a244d37073550388354a68561ac959ecb", null ],
     [ "handleQuitEvent", "d0/dbb/Events_8h.html#a25c2257aeb4db95d02ee807d21f2b387", null ],
     [ "handleSettingsEvent", "d0/dbb/Events_8h.html#ab14649f183a1cbf95f28b1cda31acb8e", null ],
     [ "handleWindowSizeChange", "d0/dbb/Events_8h.html#a9e83431dc3f66988e64a74a4e0a2ed58", null ]

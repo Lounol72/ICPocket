@@ -17,6 +17,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "save.c", "df/dcf/save_8c.html", "df/dcf/save_8c" ],
     [ "structPoke.c", "d3/dfe/structPoke_8c.html", "d3/dfe/structPoke_8c" ],
     [ "Text.c", "dc/dae/Text_8c.html", "dc/dae/Text_8c" ],
+    [ "ThreadManager.c", "d1/dd5/ThreadManager_8c.html", "d1/dd5/ThreadManager_8c" ],
     [ "trainerAI.c", "de/d53/trainerAI_8c.html", "de/d53/trainerAI_8c" ],
     [ "Window.c", "d4/d41/Window_8c.html", "d4/d41/Window_8c" ]
 ];
