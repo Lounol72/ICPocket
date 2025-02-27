@@ -93,11 +93,21 @@ $(document).ready(function(){initNavTree('d9/ded/Utils_8h.html','../../'); initR
 <div class="header">
   <div class="summary">
 <a href="#typedef-members">Définitions de type</a> &#124;
-<a href="#enum-members">Énumérations</a>  </div>
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle"><div class="title">Référence du fichier Utils.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div class="dynheader">
+
+<p>Fonctions utilitaires pour l'application.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de Utils.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d5d/Utils_8h__incl.png" border="0" usemap="#ainclude_2Utils_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
 Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d2/dc8/Utils_8h__dep__incl.png" border="0" usemap="#ainclude_2Utils_8hdep" alt=""/></div>
@@ -127,9 +137,23 @@ Définitions de type</h2></td></tr>
 , <a class="el" href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a4cafa5feda04184537b4d7d346e1e89b">MAP</a>
 <br />
  }</td></tr>
+<tr class="memdesc:a83fc559664fc7c7e310c93586457b428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the various states of the application.  <a href="../../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a83fc559664fc7c7e310c93586457b428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a7ff3780681b488f1d4bf7650f1ceae86" id="r_a7ff3780681b488f1d4bf7650f1ceae86"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/ded/Utils_8h.html#a7ff3780681b488f1d4bf7650f1ceae86">loadTexture</a> (const char *filePath, SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:a7ff3780681b488f1d4bf7650f1ceae86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge une texture à partir d'un fichier image.  <br /></td></tr>
+<tr class="separator:a7ff3780681b488f1d4bf7650f1ceae86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2465ff3708d53a0354948a945490742" id="r_ac2465ff3708d53a0354948a945490742"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/ded/Utils_8h.html#ac2465ff3708d53a0354948a945490742">logSDLError</a> (const char *message)</td></tr>
+<tr class="memdesc:ac2465ff3708d53a0354948a945490742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche un message d'erreur SDL.  <br /></td></tr>
+<tr class="separator:ac2465ff3708d53a0354948a945490742"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des définitions de type</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fonctions utilitaires pour l'application. </p>
+<p>Ce fichier contient des fonctions utilitaires qui sont utilisées dans différentes parties de l'application SDL.</p>
+<dl class="section author"><dt>Auteur</dt><dd>Louis </dd></dl>
+</div><h2 class="groupheader">Documentation des définitions de type</h2>
 <a id="af18642bfb6229ca25b25c60e12cffa6c" name="af18642bfb6229ca25b25c60e12cffa6c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af18642bfb6229ca25b25c60e12cffa6c">&#9670;&#160;</a></span>AppState</h2>
 
@@ -156,6 +180,9 @@ Définitions de type</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Represents the various states of the application. </p>
+<p>Cette énumération définit les différents états dans lesquels l'application peut se trouver. Chaque état correspond à une partie spécifique de l'application, comme le menu principal, les paramètres du jeu, ou le jeu lui-même. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a83fc559664fc7c7e310c93586457b428a76bdc8adfd6c6463ab269ff4c06be9b4" name="a83fc559664fc7c7e310c93586457b428a76bdc8adfd6c6463ab269ff4c06be9b4"></a>QUIT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a83fc559664fc7c7e310c93586457b428ac678338caea29d77d56be2ea56325610" name="a83fc559664fc7c7e310c93586457b428ac678338caea29d77d56be2ea56325610"></a>SETTINGS&#160;</td><td class="fielddoc"></td></tr>
@@ -168,6 +195,73 @@ Définitions de type</h2></td></tr>
 <tr><td class="fieldname"><a id="a83fc559664fc7c7e310c93586457b428a56b36d0d0bb01b339cf1041adc08e262" name="a83fc559664fc7c7e310c93586457b428a56b36d0d0bb01b339cf1041adc08e262"></a>PAUSE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a83fc559664fc7c7e310c93586457b428a4cafa5feda04184537b4d7d346e1e89b" name="a83fc559664fc7c7e310c93586457b428a4cafa5feda04184537b4d7d346e1e89b"></a>MAP&#160;</td><td class="fielddoc"></td></tr>
 </table>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a7ff3780681b488f1d4bf7650f1ceae86" name="a7ff3780681b488f1d4bf7650f1ceae86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ff3780681b488f1d4bf7650f1ceae86">&#9670;&#160;</a></span>loadTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture * loadTexture </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge une texture à partir d'un fichier image. </p>
+<p>Cette fonction charge une texture SDL à partir d'un fichier image spécifié.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filePath</td><td>Le chemin du fichier image. </td></tr>
+    <tr><td class="paramname">renderer</td><td>Le renderer SDL utilisé pour créer la texture. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un pointeur vers la texture SDL chargée, ou NULL en cas d'échec. </dd></dl>
+
+</div>
+</div>
+<a id="ac2465ff3708d53a0354948a945490742" name="ac2465ff3708d53a0354948a945490742"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2465ff3708d53a0354948a945490742">&#9670;&#160;</a></span>logSDLError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void logSDLError </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche un message d'erreur SDL. </p>
+<p>Cette fonction affiche un message d'erreur SDL dans la console.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>Le message d'erreur à afficher. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"da/d71/structPoke_8h.html#af85da7ebd9ff08847f7abd0ef9cc0d6fafc8285f7507b26f68c8b72f4dc38e34f":[7,0,0,14,15,1],
+"da/d71/structPoke_8h.html#afe2be4dcf1abaf503e3ce46c3af588e9":[7,0,0,14,17],
 "da/d71/structPoke_8h.html#aff185784e3522330be3818416ad1cb93":[7,0,0,14,18],
 "da/d71/structPoke_8h_source.html":[7,0,0,14],
 "da/db4/structButtonList.html":[6,0,3],

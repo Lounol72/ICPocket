@@ -7,9 +7,9 @@ Graphe des dépendances par inclusion de Window.\+c\+:
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{Window_8c_ab072fc478679f5b8fb5ffae288d1e7f2}{init\+Window}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, int width, int height, const char \texorpdfstring{$\ast$}{*}Font\+Path)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialise la fenêtre principale de l\textquotesingle{}application. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Window_8c_a5b2abeb6aa788d11a7bfe251fb1d4a25}{destroy\+Window}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Détruit la fenêtre principale de l\textquotesingle{}application. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Documentation des fonctions}
@@ -19,9 +19,37 @@ void \mbox{\hyperlink{Window_8c_a5b2abeb6aa788d11a7bfe251fb1d4a25}{destroy\+Wind
 \doxysubsubsection{\texorpdfstring{destroyWindow()}{destroyWindow()}}
 {\footnotesize\ttfamily void destroy\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
 
+
+
+Détruit la fenêtre principale de l\textquotesingle{}application. 
+
+Cette fonction libère les ressources associées à la fenêtre principale de l\textquotesingle{}application.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window} à détruire. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{Window_8c_ab072fc478679f5b8fb5ffae288d1e7f2}\label{Window_8c_ab072fc478679f5b8fb5ffae288d1e7f2} 
 \index{Window.c@{Window.c}!initWindow@{initWindow}}
 \index{initWindow@{initWindow}!Window.c@{Window.c}}
 \doxysubsubsection{\texorpdfstring{initWindow()}{initWindow()}}
 {\footnotesize\ttfamily void init\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{Font\+Path }\end{DoxyParamCaption})}
 
+
+
+Initialise la fenêtre principale de l\textquotesingle{}application. 
+
+Cette fonction initialise la fenêtre principale de l\textquotesingle{}application avec les dimensions et le chemin de police spécifiés.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window} à initialiser. \\
+\hline
+{\em width} & La largeur initiale de la fenêtre. \\
+\hline
+{\em height} & La hauteur initiale de la fenêtre. \\
+\hline
+{\em Font\+Path} & Le chemin du fichier de police à utiliser. \\
+\hline
+\end{DoxyParams}

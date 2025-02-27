@@ -1,5 +1,10 @@
 \doxysection{Référence du fichier include/\+Window.h}
 \hypertarget{Window_8h}{}\label{Window_8h}\index{include/Window.h@{include/Window.h}}
+
+
+Définition et gestion de la fenêtre principale de l\textquotesingle{}application.  
+
+
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+gamecontroller.\+h$>$}\newline
@@ -13,7 +18,7 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structWindow}{Window}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Représente la fenêtre principale de l\textquotesingle{}application. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -30,9 +35,9 @@ typedef struct \mbox{\hyperlink{structWindow}{Window}} \mbox{\hyperlink{Window_8
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{Window_8h_ab072fc478679f5b8fb5ffae288d1e7f2}{init\+Window}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, int width, int height, const char \texorpdfstring{$\ast$}{*}Font\+Path)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialise la fenêtre principale de l\textquotesingle{}application. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Window_8h_a5b2abeb6aa788d11a7bfe251fb1d4a25}{destroy\+Window}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Détruit la fenêtre principale de l\textquotesingle{}application. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -41,8 +46,12 @@ void \mbox{\hyperlink{Window_8h_a5b2abeb6aa788d11a7bfe251fb1d4a25}{destroy\+Wind
 
 
 \doxysubsection{Description détaillée}
+Définition et gestion de la fenêtre principale de l\textquotesingle{}application. 
+
+Ce fichier définit la structure \doxylink{structWindow}{Window} et les fonctions associées pour gérer la fenêtre principale de l\textquotesingle{}application et ses propriétés.
+
 \begin{DoxyAuthor}{Auteur}
-Louis Alban 
+Louis 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
 17/02/2025 
@@ -56,7 +65,7 @@ Louis Alban
 \doxysubsubsection{\texorpdfstring{renderer\_flags}{renderer\_flags}}
 {\footnotesize\ttfamily \#define renderer\+\_\+flags~SDL\+\_\+\+RENDERER\+\_\+\+SOFTWARE}
 
-
+Repli sur le rendu logiciel si VSYNC n\textquotesingle{}est pas disponible. 
 
 \doxysubsection{Documentation des définitions de type}
 \Hypertarget{Window_8h_a69b5df78d315f81ed77df30fdbfb7002}\label{Window_8h_a69b5df78d315f81ed77df30fdbfb7002} 
@@ -65,7 +74,7 @@ Louis Alban
 \doxysubsubsection{\texorpdfstring{Game}{Game}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structGame}{Game}} \mbox{\hyperlink{structGame}{Game}}}
 
-\Hypertarget{Window_8h_adb2a551453af16dd3214a23b16e67544}\label{Window_8h_adb2a551453af16dd3214a23b16e67544} 
+Déclaration anticipée de la structure \doxylink{structGame}{Game}. \Hypertarget{Window_8h_adb2a551453af16dd3214a23b16e67544}\label{Window_8h_adb2a551453af16dd3214a23b16e67544} 
 \index{Window.h@{Window.h}!Window@{Window}}
 \index{Window@{Window}!Window.h@{Window.h}}
 \doxysubsubsection{\texorpdfstring{Window}{Window}}
@@ -80,12 +89,40 @@ Louis Alban
 \doxysubsubsection{\texorpdfstring{destroyWindow()}{destroyWindow()}}
 {\footnotesize\ttfamily void destroy\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
 
+
+
+Détruit la fenêtre principale de l\textquotesingle{}application. 
+
+Cette fonction libère les ressources associées à la fenêtre principale de l\textquotesingle{}application.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window} à détruire. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{Window_8h_ab072fc478679f5b8fb5ffae288d1e7f2}\label{Window_8h_ab072fc478679f5b8fb5ffae288d1e7f2} 
 \index{Window.h@{Window.h}!initWindow@{initWindow}}
 \index{initWindow@{initWindow}!Window.h@{Window.h}}
 \doxysubsubsection{\texorpdfstring{initWindow()}{initWindow()}}
 {\footnotesize\ttfamily void init\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{Font\+Path }\end{DoxyParamCaption})}
 
+
+
+Initialise la fenêtre principale de l\textquotesingle{}application. 
+
+Cette fonction initialise la fenêtre principale de l\textquotesingle{}application avec les dimensions et le chemin de police spécifiés.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window} à initialiser. \\
+\hline
+{\em width} & La largeur initiale de la fenêtre. \\
+\hline
+{\em height} & La hauteur initiale de la fenêtre. \\
+\hline
+{\em Font\+Path} & Le chemin du fichier de police à utiliser. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Documentation des variables}
@@ -95,3 +132,4 @@ Louis Alban
 \doxysubsubsection{\texorpdfstring{game}{game}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structGame}{Game}} game\hspace{0.3cm}{\ttfamily [extern]}}
 
+Instance globale du jeu. 

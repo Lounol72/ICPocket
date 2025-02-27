@@ -2,6 +2,11 @@
 \hypertarget{structThreadManager}{}\label{structThreadManager}\index{ThreadManager@{ThreadManager}}
 
 
+Structure de gestion des threads.  
+
+
+
+
 {\ttfamily \#include $<$Thread\+Manager.\+h$>$}
 
 
@@ -25,6 +30,37 @@ pthread\+\_\+mutex\+\_\+t \mbox{\hyperlink{structThreadManager_adff666c7c26f1502
 \item 
 int \mbox{\hyperlink{structThreadManager_a4f9008ea31202fda3bc2d5629827eb2b}{is\+Running}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure de gestion des threads. 
+
+Cette structure contient les threads et mutex nécessaires pour gérer \+:
+\begin{DoxyItemize}
+\item Le rendu graphique (render\+Thread)
+\item La physique du jeu (physics\+Thread)
+\item L\textquotesingle{}audio (audio\+Thread)
+\end{DoxyItemize}
+
+Les mutex permettent de synchroniser l\textquotesingle{}accès aux ressources partagées entre les différents threads.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em audio\+Thread} & Thread dédié au traitement audio \\
+\hline
+{\em render\+Thread} & Thread dédié au rendu graphique \\
+\hline
+{\em physics\+Thread} & Thread dédié aux calculs physiques \\
+\hline
+{\em audio\+Mutex} & Mutex pour synchroniser l\textquotesingle{}accès aux ressources audio \\
+\hline
+{\em render\+Mutex} & Mutex pour synchroniser l\textquotesingle{}accès au rendu \\
+\hline
+{\em physics\+Mutex} & Mutex pour synchroniser l\textquotesingle{}accès aux données physiques \\
+\hline
+{\em is\+Running} & Flag indiquant si les threads doivent continuer à s\textquotesingle{}exécuter \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Documentation des données membres}

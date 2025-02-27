@@ -98,6 +98,9 @@ $(document).ready(function(){initNavTree('d5/d64/structThreadManager.html','../.
 </div><!--header-->
 <div class="contents">
 
+<p>Structure de gestion des threads.  
+ <a href="../../d5/d64/structThreadManager.html#details">Plus de détails...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d0/daa/ThreadManager_8h_source.html">ThreadManager.h</a>&gt;</code></p>
 <div class="dynheader">
 Graphe de collaboration de ThreadManager:</div>
@@ -122,7 +125,27 @@ Attributs publics</h2></td></tr>
 <tr class="memitem:a4f9008ea31202fda3bc2d5629827eb2b" id="r_a4f9008ea31202fda3bc2d5629827eb2b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d64/structThreadManager.html#a4f9008ea31202fda3bc2d5629827eb2b">isRunning</a></td></tr>
 <tr class="separator:a4f9008ea31202fda3bc2d5629827eb2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des données membres</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Structure de gestion des threads. </p>
+<p>Cette structure contient les threads et mutex nécessaires pour gérer :</p><ul>
+<li>Le rendu graphique (renderThread)</li>
+<li>La physique du jeu (physicsThread)</li>
+<li>L'audio (audioThread)</li>
+</ul>
+<p>Les mutex permettent de synchroniser l'accès aux ressources partagées entre les différents threads.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">audioThread</td><td>Thread dédié au traitement audio </td></tr>
+    <tr><td class="paramname">renderThread</td><td>Thread dédié au rendu graphique </td></tr>
+    <tr><td class="paramname">physicsThread</td><td>Thread dédié aux calculs physiques </td></tr>
+    <tr><td class="paramname">audioMutex</td><td>Mutex pour synchroniser l'accès aux ressources audio </td></tr>
+    <tr><td class="paramname">renderMutex</td><td>Mutex pour synchroniser l'accès au rendu </td></tr>
+    <tr><td class="paramname">physicsMutex</td><td>Mutex pour synchroniser l'accès aux données physiques </td></tr>
+    <tr><td class="paramname">isRunning</td><td>Flag indiquant si les threads doivent continuer à s'exécuter </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Documentation des données membres</h2>
 <a id="ad897c405c4f5d79c60e3a1a3e3ad7c2a" name="ad897c405c4f5d79c60e3a1a3e3ad7c2a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad897c405c4f5d79c60e3a1a3e3ad7c2a">&#9670;&#160;</a></span>audioMutex</h2>
 

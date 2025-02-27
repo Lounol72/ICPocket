@@ -185,6 +185,7 @@ var NAVTREEINDEX1 =
 "d9/d0e/Buttons_8c.html#ae76e871e4375b26d06e1e703325002ad":[7,0,1,1,0],
 "d9/d0e/Buttons_8c.html#afa394eaa634219089d84e0d91e3a6345":[7,0,1,1,7],
 "d9/ded/Utils_8h.html":[7,0,0,18],
+"d9/ded/Utils_8h.html#a7ff3780681b488f1d4bf7650f1ceae86":[7,0,0,18,2],
 "d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428":[7,0,0,18,1],
 "d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a42325efb02e5d8c573c338df4378367d":[7,0,0,18,1,6],
 "d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a4c40e60bc71a32b924ce1f08d57f9721":[7,0,0,18,1,2],
@@ -196,6 +197,7 @@ var NAVTREEINDEX1 =
 "d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a8ea08ca82a0d1952666e6b27cc459795":[7,0,0,18,1,5],
 "d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428ac678338caea29d77d56be2ea56325610":[7,0,0,18,1,1],
 "d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428ad50cf309d7568040619ed26ee6835a84":[7,0,0,18,1,3],
+"d9/ded/Utils_8h.html#ac2465ff3708d53a0354948a945490742":[7,0,0,18,3],
 "d9/ded/Utils_8h.html#af18642bfb6229ca25b25c60e12cffa6c":[7,0,0,18,0],
 "d9/ded/Utils_8h_source.html":[7,0,0,18],
 "da/d1d/interDuel_8h.html":[7,0,0,7],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "da/d71/structPoke_8h.html#adc5adb43430a43f36c770a469f434abb":[7,0,0,14,25],
 "da/d71/structPoke_8h.html#ae4f820b89cf498b99b912c97e95a2414":[7,0,0,14,26],
 "da/d71/structPoke_8h.html#af85da7ebd9ff08847f7abd0ef9cc0d6f":[7,0,0,14,15],
-"da/d71/structPoke_8h.html#af85da7ebd9ff08847f7abd0ef9cc0d6fadf25e9c17aa25418942eca3003c33410":[7,0,0,14,15,0],
-"da/d71/structPoke_8h.html#af85da7ebd9ff08847f7abd0ef9cc0d6fafc8285f7507b26f68c8b72f4dc38e34f":[7,0,0,14,15,1],
-"da/d71/structPoke_8h.html#afe2be4dcf1abaf503e3ce46c3af588e9":[7,0,0,14,17]
+"da/d71/structPoke_8h.html#af85da7ebd9ff08847f7abd0ef9cc0d6fadf25e9c17aa25418942eca3003c33410":[7,0,0,14,15,0]
 };

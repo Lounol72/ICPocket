@@ -12,5 +12,7 @@ var Utils_8h =
       [ "INTER", "d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a5efa5610d5a2c5e9123d6894dd72e335", null ],
       [ "PAUSE", "d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a56b36d0d0bb01b339cf1041adc08e262", null ],
       [ "MAP", "d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a4cafa5feda04184537b4d7d346e1e89b", null ]
-    ] ]
+    ] ],
+    [ "loadTexture", "d9/ded/Utils_8h.html#a7ff3780681b488f1d4bf7650f1ceae86", null ],
+    [ "logSDLError", "d9/ded/Utils_8h.html#ac2465ff3708d53a0354948a945490742", null ]
 ];

@@ -106,8 +106,10 @@ Graphe des dépendances par inclusion de Window.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:ab072fc478679f5b8fb5ffae288d1e7f2" id="r_ab072fc478679f5b8fb5ffae288d1e7f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d41/Window_8c.html#ab072fc478679f5b8fb5ffae288d1e7f2">initWindow</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, int width, int height, const char *FontPath)</td></tr>
+<tr class="memdesc:ab072fc478679f5b8fb5ffae288d1e7f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise la fenêtre principale de l'application.  <br /></td></tr>
 <tr class="separator:ab072fc478679f5b8fb5ffae288d1e7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b2abeb6aa788d11a7bfe251fb1d4a25" id="r_a5b2abeb6aa788d11a7bfe251fb1d4a25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d41/Window_8c.html#a5b2abeb6aa788d11a7bfe251fb1d4a25">destroyWindow</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win)</td></tr>
+<tr class="memdesc:a5b2abeb6aa788d11a7bfe251fb1d4a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit la fenêtre principale de l'application.  <br /></td></tr>
 <tr class="separator:a5b2abeb6aa788d11a7bfe251fb1d4a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des fonctions</h2>
@@ -126,6 +128,15 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Détruit la fenêtre principale de l'application. </p>
+<p>Cette fonction libère les ressources associées à la fenêtre principale de l'application.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Un pointeur vers la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> à détruire. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -166,6 +177,18 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialise la fenêtre principale de l'application. </p>
+<p>Cette fonction initialise la fenêtre principale de l'application avec les dimensions et le chemin de police spécifiés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Un pointeur vers la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> à initialiser. </td></tr>
+    <tr><td class="paramname">width</td><td>La largeur initiale de la fenêtre. </td></tr>
+    <tr><td class="paramname">height</td><td>La hauteur initiale de la fenêtre. </td></tr>
+    <tr><td class="paramname">FontPath</td><td>Le chemin du fichier de police à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -2,6 +2,11 @@
 \hypertarget{structStateHandler}{}\label{structStateHandler}\index{StateHandler@{StateHandler}}
 
 
+Gestionnaire d\textquotesingle{}état.  
+
+
+
+
 {\ttfamily \#include $<$Game\+Engine.\+h$>$}
 
 
@@ -17,6 +22,11 @@ void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structStateHandler_a5315c5e930e
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Description détaillée}
+Gestionnaire d\textquotesingle{}état. 
+
+Chaque état a une fonction de rendu et un gestionnaire d\textquotesingle{}événements. 
+
 \doxysubsection{Documentation des données membres}
 \Hypertarget{structStateHandler_a5315c5e930efb62245d1d49338d142c3}\label{structStateHandler_a5315c5e930efb62245d1d49338d142c3} 
 \index{StateHandler@{StateHandler}!handleEvent@{handleEvent}}
@@ -24,13 +34,13 @@ void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structStateHandler_a5315c5e930e
 \doxysubsubsection{\texorpdfstring{handleEvent}{handleEvent}}
 {\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} State\+Handler\+::handle\+Event) (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*})}
 
-\Hypertarget{structStateHandler_a1558caa96281f74de85e437b470b29b7}\label{structStateHandler_a1558caa96281f74de85e437b470b29b7} 
+Pointeur vers la fonction de gestion des événements. \Hypertarget{structStateHandler_a1558caa96281f74de85e437b470b29b7}\label{structStateHandler_a1558caa96281f74de85e437b470b29b7} 
 \index{StateHandler@{StateHandler}!state@{state}}
 \index{state@{state}!StateHandler@{StateHandler}}
 \doxysubsubsection{\texorpdfstring{state}{state}}
 {\footnotesize\ttfamily \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428}{App\+State}} State\+Handler\+::state}
 
-
+État de l\textquotesingle{}application. 
 
 La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 

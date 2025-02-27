@@ -106,12 +106,16 @@ Graphe des dépendances par inclusion de RenderICMons.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:ac4e6519f6e42e14df90574527af9e3f8" id="r_ac4e6519f6e42e14df90574527af9e3f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d1a/structIMG__ICMons.html">IMG_ICMons</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d0c/RenderICMons_8c.html#ac4e6519f6e42e14df90574527af9e3f8">initICMonSprite</a> (SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rect nameRect, SDL_Rect pvRect, <a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *poke, TTF_Font *font, int team)</td></tr>
+<tr class="memdesc:ac4e6519f6e42e14df90574527af9e3f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise un sprite ICMons.  <br /></td></tr>
 <tr class="separator:ac4e6519f6e42e14df90574527af9e3f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f0630ab702e1360f9f72e55ac3a347e" id="r_a1f0630ab702e1360f9f72e55ac3a347e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d0c/RenderICMons_8c.html#a1f0630ab702e1360f9f72e55ac3a347e">renderICMonsSprite</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, <a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *poke)</td></tr>
+<tr class="memdesc:a1f0630ab702e1360f9f72e55ac3a347e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rend un sprite ICMons.  <br /></td></tr>
 <tr class="separator:a1f0630ab702e1360f9f72e55ac3a347e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5893493e984d32da31956aa3cb09ca8" id="r_ad5893493e984d32da31956aa3cb09ca8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d0c/RenderICMons_8c.html#ad5893493e984d32da31956aa3cb09ca8">destroyICMonsSprite</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *poke)</td></tr>
+<tr class="memdesc:ad5893493e984d32da31956aa3cb09ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un sprite ICMons.  <br /></td></tr>
 <tr class="separator:ad5893493e984d32da31956aa3cb09ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00792a5dc944c5d8992198d436c219d7" id="r_a00792a5dc944c5d8992198d436c219d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d0c/RenderICMons_8c.html#a00792a5dc944c5d8992198d436c219d7">updateICMonsSprite</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *poke, float scaleX, float scaleY)</td></tr>
+<tr class="memdesc:a00792a5dc944c5d8992198d436c219d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour la position et la taille d'un sprite ICMons.  <br /></td></tr>
 <tr class="separator:a00792a5dc944c5d8992198d436c219d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des fonctions</h2>
@@ -130,6 +134,15 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Détruit un sprite ICMons. </p>
+<p>Cette fonction libère les ressources associées au sprite ICMons spécifié.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">poke</td><td>Un pointeur vers la structure <a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> représentant l'ICMons. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -189,6 +202,22 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialise un sprite ICMons. </p>
+<p>Cette fonction initialise un sprite ICMons avec les paramètres spécifiés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Le renderer SDL. </td></tr>
+    <tr><td class="paramname">spriteRect</td><td>Le rectangle définissant la position et la taille du sprite. </td></tr>
+    <tr><td class="paramname">nameRect</td><td>Le rectangle pour l'affichage du nom. </td></tr>
+    <tr><td class="paramname">pvRect</td><td>Le rectangle pour la barre de PV. </td></tr>
+    <tr><td class="paramname">poke</td><td>Un pointeur vers la structure <a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> représentant l'ICMons. </td></tr>
+    <tr><td class="paramname">font</td><td>La police utilisée pour le rendu du texte. </td></tr>
+    <tr><td class="paramname">team</td><td>L'identifiant de l'équipe pour l'ICMons. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un pointeur vers la structure <a class="el" href="../../dd/d1a/structIMG__ICMons.html" title="Représente un sprite ICMons dans l&#39;application.">IMG_ICMons</a> initialisée. </dd></dl>
+
 </div>
 </div>
 <a id="a1f0630ab702e1360f9f72e55ac3a347e" name="a1f0630ab702e1360f9f72e55ac3a347e"></a>
@@ -216,6 +245,16 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Rend un sprite ICMons. </p>
+<p>Cette fonction rend le sprite ICMons spécifié à l'écran.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Un pointeur vers la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a>. </td></tr>
+    <tr><td class="paramname">poke</td><td>Un pointeur vers la structure <a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> représentant l'ICMons. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -250,6 +289,17 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Met à jour la position et la taille d'un sprite ICMons. </p>
+<p>Cette fonction met à jour la position et la taille d'un sprite ICMons en fonction des facteurs de mise à l'échelle donnés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">poke</td><td>Un pointeur vers la structure <a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> représentant l'ICMons. </td></tr>
+    <tr><td class="paramname">scaleX</td><td>Le facteur de mise à l'échelle horizontal. </td></tr>
+    <tr><td class="paramname">scaleY</td><td>Le facteur de mise à l'échelle vertical. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -38,7 +38,7 @@ var searchData=
   ['statvariations_35',['statvariations',['../d1/d18/duel_8c.html#affbbdc8741a394a968366d77c640f1ff',1,'statVariations:&#160;duel.c'],['../d6/d8e/duel_8h.html#affbbdc8741a394a968366d77c640f1ff',1,'statVariations:&#160;duel.c']]],
   ['structpoke_2ec_36',['structPoke.c',['../d3/dfe/structPoke_8c.html',1,'']]],
   ['structpoke_2eh_37',['structPoke.h',['../da/d71/structPoke_8h.html',1,'']]],
-  ['struggle_38',['struggle',['../d6/d8e/duel_8h.html#ad17fa6eb61b38334f7b136e02a78ff37',1,'STRUGGLE:&#160;duel.h'],['../d1/d18/duel_8c.html#a69f8229a1c94eb0a11e091d8b54570f3',1,'struggle:&#160;duel.c'],['../d6/d8e/duel_8h.html#a69f8229a1c94eb0a11e091d8b54570f3',1,'struggle:&#160;duel.c']]],
+  ['struggle_38',['struggle',['../d1/d18/duel_8c.html#a69f8229a1c94eb0a11e091d8b54570f3',1,'struggle:&#160;duel.c'],['../d6/d8e/duel_8h.html#a69f8229a1c94eb0a11e091d8b54570f3',1,'struggle:&#160;duel.c'],['../d6/d8e/duel_8h.html#ad17fa6eb61b38334f7b136e02a78ff37',1,'STRUGGLE:&#160;duel.h']]],
   ['surface_39',['surface',['../d2/dda/structText.html#a881e261364e0678ddcf6865bf9d668b9',1,'Text']]],
   ['swapactualattacker_40',['swapactualattacker',['../d1/d18/duel_8c.html#a785cf59b04b080c32b51ca8300b62507',1,'swapActualAttacker(t_Team *t, int swapIndex):&#160;duel.c'],['../d6/d8e/duel_8h.html#a785cf59b04b080c32b51ca8300b62507',1,'swapActualAttacker(t_Team *t, int swapIndex):&#160;duel.c']]]
 ];

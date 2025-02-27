@@ -1,3 +1,112 @@
+commit 4a325537f26bb6a17fdd3f3cbd8fefd05cc1b4ee
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 27 18:59:49 2025 +0100
+
+    Refactor event handling in Events.c for improved readability and robustness
+
+commit 43636416bf4f6473cf11f4231bf00bf78080a6ea
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 27 18:55:54 2025 +0100
+
+    Implement mouse hover detection and custom cursor, switch to software rendering
+
+commit c87667d85388345d23e855786cbd84d80c9c2ef5
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 27 18:35:51 2025 +0100
+
+    Update documentation files for HTML and LaTeX
+
+commit 661a924d99790d0a57561274330b2295c116ee45
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 27 12:51:41 2025 +0100
+
+    Mise à jour du rendu avec OpenGL, ajout de la gestion de l'état pour la touche Échap, et changement du personnage du joueur.
+
+commit 186e18f96d93e9593cdff5d1886fe475a3deecd8
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 27 11:26:39 2025 +0100
+
+    Amélioration de la gestion des états et des boutons dans GameEngine, ajustement de la fréquence de rendu dans ThreadManager
+
+commit 17b066200ba2fcddfc6101ec708ba377b6e0c7e7
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Thu Feb 27 11:26:11 2025 +0100
+
+    fixed a bug where pp weren't decreased if attack missed
+
+commit e79ab1a7606c89f1cfc60d538cf34151a18ea5e7
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 26 22:12:40 2025 +0100
+
+    Remodulation de la boucle du jeu avec des threads et amélioration de la synchronisation et des performances
+    ATTENTION bug d'affichage de la map (F1)
+
+commit f00c562d9b47b7427ed148a88bbc6342d2076190
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 26 21:23:20 2025 +0100
+
+    Update .gitignore and include ThreadManager in GameEngine
+
+commit 9d88f1828b9e51904a43512528ba255c574bdef5
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 26 21:16:56 2025 +0100
+
+    Add ThreadManager for handling audio, rendering, and physics threads
+
+commit 0e08573624d19fb4e1463aba5a2ea97715d505ff
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 26 20:12:42 2025 +0100
+
+    Add map state and player event handling to GameEngine
+
+commit be609b6362b17c742d1c76d3ca3190b5add02694
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Wed Feb 26 20:10:08 2025 +0100
+
+    Dox to structPoke
+
+commit 6e9a6dbfadc468d480ec8cf6033b578912e3b575
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 26 19:17:49 2025 +0100
+
+    Update game map initialization and refine player event handling
+
+commit a28523483d40aa69cbf61b5567dc383762dd67de
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 26 19:17:40 2025 +0100
+
+    Add player event handling and game data structure to GameEngine
+
+commit 606634e1344d40bc7a6c3f1e8afef54ab5ce9d06
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Wed Feb 26 19:15:53 2025 +0100
+
+    Update Charger, Add more ICmon
+
+commit 0ab7cc4687a78cb50219bc916e45925b4beed19f
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Wed Feb 26 15:30:57 2025 +0100
+
+    Add author and date information to header files for documentation consistency
+
+commit defe44ab71c63bb3dbb903ac56ecc56757995b2d
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Wed Feb 26 15:29:36 2025 +0100
+
+    Remove obsolete search data file and update Doxygen documentation for Buttons.h and duel.h
+
+commit 084bb138962404ec0ab70d24530da617f5cb85e6
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Wed Feb 26 15:28:05 2025 +0100
+
+    added beginning of doxygen for duel.h
+
+commit 4674f7d923284cad2c950057415b5272a6266920
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Wed Feb 26 15:09:41 2025 +0100
+
+    Add author and date information to Buttons.h file
+
 commit 8ce9c934365c205b510901215e466e300ecf927f
 Author: Lounol72 <subtil.louis2005@gmail.com>
 Date:   Wed Feb 26 15:03:23 2025 +0100

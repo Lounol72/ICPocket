@@ -82,7 +82,7 @@ digraph "AI"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$dd/d1a/structIMG__ICMons.html",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$dd/d1a/structIMG__ICMons.html",tooltip="Représente un sprite ICMons dans l'application."];
   Node6 -> Node5 [id="edge5_Node000005_Node000006",color="steelblue1",style="solid",tooltip=" ",label=" +PVText",fontcolor="grey" ,arrowhead="odiamond"];
   Node6 [id="Node000006",shape=plain,label=<<TABLE CELLBORDER="0" BORDER="1"><TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">Text</TD></TR>
 <HR/>
@@ -97,5 +97,5 @@ digraph "AI"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d2/dda/structText.html",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d2/dda/structText.html",tooltip="Représente un élément de texte dans l'application."];
 }

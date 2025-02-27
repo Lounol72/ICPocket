@@ -1,7 +1,15 @@
 \doxysection{Référence du fichier include/\+Utils.h}
 \hypertarget{Utils_8h}{}\label{Utils_8h}\index{include/Utils.h@{include/Utils.h}}
-Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+
+
+Fonctions utilitaires pour l\textquotesingle{}application.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+Graphe des dépendances par inclusion de Utils.\+h\+:
 % FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
 \doxysubsubsection*{Définitions de type}
 \begin{DoxyCompactItemize}
 \item 
@@ -24,7 +32,24 @@ enum \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428}{App\+State}} \
 \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a56b36d0d0bb01b339cf1041adc08e262}{PAUSE}}
 , \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a4cafa5feda04184537b4d7d346e1e89b}{MAP}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Represents the various states of the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Utils_8h_a7ff3780681b488f1d4bf7650f1ceae86}{load\+Texture}} (const char \texorpdfstring{$\ast$}{*}file\+Path, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\begin{DoxyCompactList}\small\item\em Charge une texture à partir d\textquotesingle{}un fichier image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Utils_8h_ac2465ff3708d53a0354948a945490742}{log\+SDLError}} (const char \texorpdfstring{$\ast$}{*}message)
+\begin{DoxyCompactList}\small\item\em Affiche un message d\textquotesingle{}erreur SDL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fonctions utilitaires pour l\textquotesingle{}application. 
+
+Ce fichier contient des fonctions utilitaires qui sont utilisées dans différentes parties de l\textquotesingle{}application SDL.
+
+\begin{DoxyAuthor}{Auteur}
+Louis 
+\end{DoxyAuthor}
 
 
 \doxysubsection{Documentation des définitions de type}
@@ -43,7 +68,11 @@ enum \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428}{App\+State}} \
 \doxysubsubsection{\texorpdfstring{AppState}{AppState}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428}{App\+State}}}
 
-\begin{DoxyEnumFields}{Valeurs énumérées}
+
+
+Represents the various states of the application. 
+
+Cette énumération définit les différents états dans lesquels l\textquotesingle{}application peut se trouver. Chaque état correspond à une partie spécifique de l\textquotesingle{}application, comme le menu principal, les paramètres du jeu, ou le jeu lui-\/même. \begin{DoxyEnumFields}{Valeurs énumérées}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{QUIT@{QUIT}!Utils.h@{Utils.h}}\index{Utils.h@{Utils.h}!QUIT@{QUIT}}}\Hypertarget{Utils_8h_a83fc559664fc7c7e310c93586457b428a76bdc8adfd6c6463ab269ff4c06be9b4}\label{Utils_8h_a83fc559664fc7c7e310c93586457b428a76bdc8adfd6c6463ab269ff4c06be9b4} 
 QUIT&\\
 \hline
@@ -85,3 +114,45 @@ MAP&\\
 \hline
 
 \end{DoxyEnumFields}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{Utils_8h_a7ff3780681b488f1d4bf7650f1ceae86}\label{Utils_8h_a7ff3780681b488f1d4bf7650f1ceae86} 
+\index{Utils.h@{Utils.h}!loadTexture@{loadTexture}}
+\index{loadTexture@{loadTexture}!Utils.h@{Utils.h}}
+\doxysubsubsection{\texorpdfstring{loadTexture()}{loadTexture()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} load\+Texture (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+Path,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Charge une texture à partir d\textquotesingle{}un fichier image. 
+
+Cette fonction charge une texture SDL à partir d\textquotesingle{}un fichier image spécifié.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em file\+Path} & Le chemin du fichier image. \\
+\hline
+{\em renderer} & Le renderer SDL utilisé pour créer la texture. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un pointeur vers la texture SDL chargée, ou NULL en cas d\textquotesingle{}échec. 
+\end{DoxyReturn}
+\Hypertarget{Utils_8h_ac2465ff3708d53a0354948a945490742}\label{Utils_8h_ac2465ff3708d53a0354948a945490742} 
+\index{Utils.h@{Utils.h}!logSDLError@{logSDLError}}
+\index{logSDLError@{logSDLError}!Utils.h@{Utils.h}}
+\doxysubsubsection{\texorpdfstring{logSDLError()}{logSDLError()}}
+{\footnotesize\ttfamily void log\+SDLError (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{message }\end{DoxyParamCaption})}
+
+
+
+Affiche un message d\textquotesingle{}erreur SDL. 
+
+Cette fonction affiche un message d\textquotesingle{}erreur SDL dans la console.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em message} & Le message d\textquotesingle{}erreur à afficher. \\
+\hline
+\end{DoxyParams}

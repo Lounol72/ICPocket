@@ -116,11 +116,13 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d64/structThreadManager.html">ThreadManager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de gestion des threads.  <a href="../../d5/d64/structThreadManager.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Définitions de type</h2></td></tr>
 <tr class="memitem:a9a6bb720b545cd20bb13c0a0947dc050" id="r_a9a6bb720b545cd20bb13c0a0947dc050"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="../../d5/d64/structThreadManager.html">ThreadManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#a9a6bb720b545cd20bb13c0a0947dc050">ThreadManager</a></td></tr>
+<tr class="memdesc:a9a6bb720b545cd20bb13c0a0947dc050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de gestion des threads.  <br /></td></tr>
 <tr class="separator:a9a6bb720b545cd20bb13c0a0947dc050"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -129,12 +131,16 @@ Fonctions</h2></td></tr>
 <tr class="memdesc:afee76d915ed992e08d60d5aeb57fd94b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le gestionnaire de threads.  <br /></td></tr>
 <tr class="separator:afee76d915ed992e08d60d5aeb57fd94b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad734831476cb021f3c4b0e5ba8a20ab0" id="r_ad734831476cb021f3c4b0e5ba8a20ab0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#ad734831476cb021f3c4b0e5ba8a20ab0">cleanupThreads</a> (struct <a class="el" href="../../de/de9/structGame.html">Game</a> *<a class="el" href="../../d5/d81/GameEngine_8c.html#ac6a5ed6191fcf3a5bf0445921feb4f48">game</a>)</td></tr>
+<tr class="memdesc:ad734831476cb021f3c4b0e5ba8a20ab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nettoie et termine les threads.  <br /></td></tr>
 <tr class="separator:ad734831476cb021f3c4b0e5ba8a20ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca5053a41c03f29919bee861884c0a70" id="r_aca5053a41c03f29919bee861884c0a70"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#aca5053a41c03f29919bee861884c0a70">audioThreadFunction</a> (void *arg)</td></tr>
+<tr class="memdesc:aca5053a41c03f29919bee861884c0a70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction du thread audio.  <br /></td></tr>
 <tr class="separator:aca5053a41c03f29919bee861884c0a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaff54a9d240b3e5d945861bc3d16e7d3" id="r_aaff54a9d240b3e5d945861bc3d16e7d3"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#aaff54a9d240b3e5d945861bc3d16e7d3">renderThreadFunction</a> (void *arg)</td></tr>
+<tr class="memdesc:aaff54a9d240b3e5d945861bc3d16e7d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction du thread de rendu.  <br /></td></tr>
 <tr class="separator:aaff54a9d240b3e5d945861bc3d16e7d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7fd089aeb14f8bcbf5722455366c8fa" id="r_ab7fd089aeb14f8bcbf5722455366c8fa"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#ab7fd089aeb14f8bcbf5722455366c8fa">physicsThreadFunction</a> (void *arg)</td></tr>
+<tr class="memdesc:ab7fd089aeb14f8bcbf5722455366c8fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction du thread de physique.  <br /></td></tr>
 <tr class="separator:ab7fd089aeb14f8bcbf5722455366c8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des définitions de type</h2>
@@ -149,6 +155,26 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Structure de gestion des threads. </p>
+<p>Cette structure contient les threads et mutex nécessaires pour gérer :</p><ul>
+<li>Le rendu graphique (renderThread)</li>
+<li>La physique du jeu (physicsThread)</li>
+<li>L'audio (audioThread)</li>
+</ul>
+<p>Les mutex permettent de synchroniser l'accès aux ressources partagées entre les différents threads.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">audioThread</td><td>Thread dédié au traitement audio </td></tr>
+    <tr><td class="paramname">renderThread</td><td>Thread dédié au rendu graphique </td></tr>
+    <tr><td class="paramname">physicsThread</td><td>Thread dédié aux calculs physiques </td></tr>
+    <tr><td class="paramname">audioMutex</td><td>Mutex pour synchroniser l'accès aux ressources audio </td></tr>
+    <tr><td class="paramname">renderMutex</td><td>Mutex pour synchroniser l'accès au rendu </td></tr>
+    <tr><td class="paramname">physicsMutex</td><td>Mutex pour synchroniser l'accès aux données physiques </td></tr>
+    <tr><td class="paramname">isRunning</td><td>Flag indiquant si les threads doivent continuer à s'exécuter </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -169,6 +195,16 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Fonction du thread audio. </p>
+<p>Cette fonction est exécutée par le thread audio. Elle gère le traitement audio en boucle tant que le jeu est en cours d'exécution.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td>Pointeur vers la structure <a class="el" href="../../de/de9/structGame.html" title="Structure principale du jeu.">Game</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>NULL </dd></dl>
+
 </div>
 </div>
 <a id="ad734831476cb021f3c4b0e5ba8a20ab0" name="ad734831476cb021f3c4b0e5ba8a20ab0"></a>
@@ -186,6 +222,15 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Nettoie et termine les threads. </p>
+<p>Cette fonction arrête tous les threads en cours d'exécution, attend leur terminaison et détruit les mutex associés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>Pointeur vers la structure <a class="el" href="../../de/de9/structGame.html" title="Structure principale du jeu.">Game</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -208,7 +253,7 @@ Fonctions</h2></td></tr>
 <p>Initialise le gestionnaire de threads. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">game</td><td>Pointeur vers la structure <a class="el" href="../../de/de9/structGame.html">Game</a> Initialise les différent verrous mutex pour les ressourcers partagées et crée les threads parallèles </td></tr>
+    <tr><td class="paramname">game</td><td>Pointeur vers la structure <a class="el" href="../../de/de9/structGame.html" title="Structure principale du jeu.">Game</a> Initialise les différent verrous mutex pour les ressourcers partagées et crée les threads parallèles </td></tr>
   </table>
   </dd>
 </dl>
@@ -231,6 +276,16 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Fonction du thread de physique. </p>
+<p>Cette fonction est exécutée par le thread de physique. Elle gère les calculs physiques en boucle tant que le jeu est en cours d'exécution.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td>Pointeur vers la structure <a class="el" href="../../de/de9/structGame.html" title="Structure principale du jeu.">Game</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>NULL </dd></dl>
+
 </div>
 </div>
 <a id="aaff54a9d240b3e5d945861bc3d16e7d3" name="aaff54a9d240b3e5d945861bc3d16e7d3"></a>
@@ -248,6 +303,16 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Fonction du thread de rendu. </p>
+<p>Cette fonction est exécutée par le thread de rendu. Elle gère le rendu graphique en boucle tant que le jeu est en cours d'exécution.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td>Pointeur vers la structure <a class="el" href="../../de/de9/structGame.html" title="Structure principale du jeu.">Game</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>NULL </dd></dl>
 
 </div>
 </div>

@@ -10,7 +10,7 @@ digraph "BattleState"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Données de combat."];
   Node2 -> Node1 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" ",label=" +bleu\n+rouge",fontcolor="grey" ,arrowhead="odiamond"];
   Node2 [id="Node000002",shape=plain,label=<<TABLE CELLBORDER="0" BORDER="1"><TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">t_Team</TD></TR>
 <HR/>
@@ -81,7 +81,7 @@ digraph "BattleState"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$dd/d1a/structIMG__ICMons.html",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$dd/d1a/structIMG__ICMons.html",tooltip="Représente un sprite ICMons dans l'application."];
   Node6 -> Node5 [id="edge5_Node000005_Node000006",color="steelblue1",style="solid",tooltip=" ",label=" +PVText",fontcolor="grey" ,arrowhead="odiamond"];
   Node6 [id="Node000006",shape=plain,label=<<TABLE CELLBORDER="0" BORDER="1"><TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">Text</TD></TR>
 <HR/>
@@ -96,7 +96,7 @@ digraph "BattleState"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d2/dda/structText.html",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d2/dda/structText.html",tooltip="Représente un élément de texte dans l'application."];
   Node7 -> Node1 [id="edge6_Node000001_Node000007",color="steelblue1",style="solid",tooltip=" ",label=" +ia",fontcolor="grey" ,arrowhead="odiamond"];
   Node7 [id="Node000007",shape=plain,label=<<TABLE CELLBORDER="0" BORDER="1"><TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">AI</TD></TR>
 <HR/>

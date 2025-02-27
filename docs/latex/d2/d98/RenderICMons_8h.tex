@@ -1,5 +1,10 @@
 \doxysection{Référence du fichier include/\+Render\+ICMons.h}
 \hypertarget{RenderICMons_8h}{}\label{RenderICMons_8h}\index{include/RenderICMons.h@{include/RenderICMons.h}}
+
+
+Définition et gestion du rendu des ICMons.  
+
+
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
@@ -17,7 +22,7 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structIMG__ICMons}{IMG\+\_\+\+ICMons}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Représente un sprite ICMons dans l\textquotesingle{}application. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Définitions de type}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,16 +32,20 @@ typedef struct \mbox{\hyperlink{structIMG__ICMons}{IMG\+\_\+\+ICMons}} \mbox{\hy
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{structIMG__ICMons}{IMG\+\_\+\+ICMons}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{RenderICMons_8h_ac4e6519f6e42e14df90574527af9e3f8}{init\+ICMon\+Sprite}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Rect sprite\+Rect, SDL\+\_\+\+Rect name\+Rect, SDL\+\_\+\+Rect pv\+Rect, \mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}poke, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font, int team)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialise un sprite ICMons. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{RenderICMons_8h_a00792a5dc944c5d8992198d436c219d7}{update\+ICMons\+Sprite}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}poke, float scaleX, float scaleY)
-\item 
+\begin{DoxyCompactList}\small\item\em Met à jour la position et la taille d\textquotesingle{}un sprite ICMons. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{RenderICMons_8h_a1f0630ab702e1360f9f72e55ac3a347e}{render\+ICMons\+Sprite}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}poke)
-\item 
+\begin{DoxyCompactList}\small\item\em Rend un sprite ICMons. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{RenderICMons_8h_ad5893493e984d32da31956aa3cb09ca8}{destroy\+ICMons\+Sprite}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}poke)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Détruit un sprite ICMons. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
+Définition et gestion du rendu des ICMons. 
+
+Ce fichier définit la structure \doxylink{structIMG__ICMons}{IMG\+\_\+\+ICMons} et les fonctions associées pour le rendu des sprites ICMons dans une application SDL.
+
 \begin{DoxyAuthor}{Auteur}
 Alban Louis 
 \end{DoxyAuthor}
@@ -61,21 +70,86 @@ Alban Louis
 \doxysubsubsection{\texorpdfstring{destroyICMonsSprite()}{destroyICMonsSprite()}}
 {\footnotesize\ttfamily void destroy\+ICMons\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{poke }\end{DoxyParamCaption})}
 
+
+
+Détruit un sprite ICMons. 
+
+Cette fonction libère les ressources associées au sprite ICMons spécifié.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em poke} & Un pointeur vers la structure \doxylink{structt__Poke}{t\+\_\+\+Poke} représentant l\textquotesingle{}ICMons. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{RenderICMons_8h_ac4e6519f6e42e14df90574527af9e3f8}\label{RenderICMons_8h_ac4e6519f6e42e14df90574527af9e3f8} 
 \index{RenderICMons.h@{RenderICMons.h}!initICMonSprite@{initICMonSprite}}
 \index{initICMonSprite@{initICMonSprite}!RenderICMons.h@{RenderICMons.h}}
 \doxysubsubsection{\texorpdfstring{initICMonSprite()}{initICMonSprite()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structIMG__ICMons}{IMG\+\_\+\+ICMons}} \texorpdfstring{$\ast$}{*} init\+ICMon\+Sprite (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Rect}]{sprite\+Rect,  }\item[{SDL\+\_\+\+Rect}]{name\+Rect,  }\item[{SDL\+\_\+\+Rect}]{pv\+Rect,  }\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{poke,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{font,  }\item[{int}]{team }\end{DoxyParamCaption})}
 
+
+
+Initialise un sprite ICMons. 
+
+Cette fonction initialise un sprite ICMons avec les paramètres spécifiés.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Le renderer SDL. \\
+\hline
+{\em sprite\+Rect} & Le rectangle définissant la position et la taille du sprite. \\
+\hline
+{\em name\+Rect} & Le rectangle pour l\textquotesingle{}affichage du nom. \\
+\hline
+{\em pv\+Rect} & Le rectangle pour la barre de PV. \\
+\hline
+{\em poke} & Un pointeur vers la structure \doxylink{structt__Poke}{t\+\_\+\+Poke} représentant l\textquotesingle{}ICMons. \\
+\hline
+{\em font} & La police utilisée pour le rendu du texte. \\
+\hline
+{\em team} & L\textquotesingle{}identifiant de l\textquotesingle{}équipe pour l\textquotesingle{}ICMons. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un pointeur vers la structure \doxylink{structIMG__ICMons}{IMG\+\_\+\+ICMons} initialisée. 
+\end{DoxyReturn}
 \Hypertarget{RenderICMons_8h_a1f0630ab702e1360f9f72e55ac3a347e}\label{RenderICMons_8h_a1f0630ab702e1360f9f72e55ac3a347e} 
 \index{RenderICMons.h@{RenderICMons.h}!renderICMonsSprite@{renderICMonsSprite}}
 \index{renderICMonsSprite@{renderICMonsSprite}!RenderICMons.h@{RenderICMons.h}}
 \doxysubsubsection{\texorpdfstring{renderICMonsSprite()}{renderICMonsSprite()}}
 {\footnotesize\ttfamily void render\+ICMons\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{poke }\end{DoxyParamCaption})}
 
+
+
+Rend un sprite ICMons. 
+
+Cette fonction rend le sprite ICMons spécifié à l\textquotesingle{}écran.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window}. \\
+\hline
+{\em poke} & Un pointeur vers la structure \doxylink{structt__Poke}{t\+\_\+\+Poke} représentant l\textquotesingle{}ICMons. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{RenderICMons_8h_a00792a5dc944c5d8992198d436c219d7}\label{RenderICMons_8h_a00792a5dc944c5d8992198d436c219d7} 
 \index{RenderICMons.h@{RenderICMons.h}!updateICMonsSprite@{updateICMonsSprite}}
 \index{updateICMonsSprite@{updateICMonsSprite}!RenderICMons.h@{RenderICMons.h}}
 \doxysubsubsection{\texorpdfstring{updateICMonsSprite()}{updateICMonsSprite()}}
 {\footnotesize\ttfamily void update\+ICMons\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{poke,  }\item[{float}]{scaleX,  }\item[{float}]{scaleY }\end{DoxyParamCaption})}
 
+
+
+Met à jour la position et la taille d\textquotesingle{}un sprite ICMons. 
+
+Cette fonction met à jour la position et la taille d\textquotesingle{}un sprite ICMons en fonction des facteurs de mise à l\textquotesingle{}échelle donnés.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em poke} & Un pointeur vers la structure \doxylink{structt__Poke}{t\+\_\+\+Poke} représentant l\textquotesingle{}ICMons. \\
+\hline
+{\em scaleX} & Le facteur de mise à l\textquotesingle{}échelle horizontal. \\
+\hline
+{\em scaleY} & Le facteur de mise à l\textquotesingle{}échelle vertical. \\
+\hline
+\end{DoxyParams}

@@ -2,6 +2,11 @@
 \hypertarget{structGame}{}\label{structGame}\index{Game@{Game}}
 
 
+Structure principale du jeu.  
+
+
+
+
 {\ttfamily \#include $<$Game\+Engine.\+h$>$}
 
 
@@ -45,6 +50,11 @@ float \mbox{\hyperlink{structGame_ad918e31c1644966465f822d912585f16}{delta\+Time
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Description détaillée}
+Structure principale du jeu. 
+
+Cette structure regroupe tous les éléments du jeu, y compris l\textquotesingle{}interface utilisateur, les états du jeu, et les données de combat. 
+
 \doxysubsection{Documentation des données membres}
 \Hypertarget{structGame_a26bdba7ef4c61fbc52e955bd928547b9}\label{structGame_a26bdba7ef4c61fbc52e955bd928547b9} 
 \index{Game@{Game}!battleState@{battleState}}
@@ -52,97 +62,97 @@ float \mbox{\hyperlink{structGame_ad918e31c1644966465f822d912585f16}{delta\+Time
 \doxysubsubsection{\texorpdfstring{battleState}{battleState}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structBattleState}{Battle\+State}} Game\+::battle\+State}
 
-\Hypertarget{structGame_a1923324b49a0383e183d760ae84280aa}\label{structGame_a1923324b49a0383e183d760ae84280aa} 
+État du combat. \Hypertarget{structGame_a1923324b49a0383e183d760ae84280aa}\label{structGame_a1923324b49a0383e183d760ae84280aa} 
 \index{Game@{Game}!currentButton@{currentButton}}
 \index{currentButton@{currentButton}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{currentButton}{currentButton}}
 {\footnotesize\ttfamily int Game\+::current\+Button}
 
-\Hypertarget{structGame_ad918e31c1644966465f822d912585f16}\label{structGame_ad918e31c1644966465f822d912585f16} 
+Bouton actuellement sélectionné. \Hypertarget{structGame_ad918e31c1644966465f822d912585f16}\label{structGame_ad918e31c1644966465f822d912585f16} 
 \index{Game@{Game}!deltaTime@{deltaTime}}
 \index{deltaTime@{deltaTime}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{deltaTime}{deltaTime}}
 {\footnotesize\ttfamily float Game\+::delta\+Time}
 
-\Hypertarget{structGame_abdcdb055424572d4d18a0758eaea2cf4}\label{structGame_abdcdb055424572d4d18a0758eaea2cf4} 
+Temps écoulé entre les trames. \Hypertarget{structGame_abdcdb055424572d4d18a0758eaea2cf4}\label{structGame_abdcdb055424572d4d18a0758eaea2cf4} 
 \index{Game@{Game}!FPS@{FPS}}
 \index{FPS@{FPS}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{FPS}{FPS}}
 {\footnotesize\ttfamily int Game\+::\+FPS}
 
-\Hypertarget{structGame_a57b1ff7ca0dabafbf59df1c64f00558a}\label{structGame_a57b1ff7ca0dabafbf59df1c64f00558a} 
+Images par seconde. \Hypertarget{structGame_a57b1ff7ca0dabafbf59df1c64f00558a}\label{structGame_a57b1ff7ca0dabafbf59df1c64f00558a} 
 \index{Game@{Game}!frameDelay@{frameDelay}}
 \index{frameDelay@{frameDelay}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{frameDelay}{frameDelay}}
 {\footnotesize\ttfamily int Game\+::frame\+Delay}
 
-\Hypertarget{structGame_ad806f8bf1f420ca7e83fa1075ba61014}\label{structGame_ad806f8bf1f420ca7e83fa1075ba61014} 
+Délai entre les images. \Hypertarget{structGame_ad806f8bf1f420ca7e83fa1075ba61014}\label{structGame_ad806f8bf1f420ca7e83fa1075ba61014} 
 \index{Game@{Game}!frameStart@{frameStart}}
 \index{frameStart@{frameStart}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{frameStart}{frameStart}}
 {\footnotesize\ttfamily int Game\+::frame\+Start}
 
-\Hypertarget{structGame_abd03c2e680627cef2ddda2c5f804049a}\label{structGame_abd03c2e680627cef2ddda2c5f804049a} 
+Début de la trame. \Hypertarget{structGame_abd03c2e680627cef2ddda2c5f804049a}\label{structGame_abd03c2e680627cef2ddda2c5f804049a} 
 \index{Game@{Game}!gameData@{gameData}}
 \index{gameData@{gameData}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{gameData}{gameData}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structGameData}{Game\+Data}} Game\+::game\+Data}
 
-\Hypertarget{structGame_a4573dd85e0711a78cc27eb0b51c79f44}\label{structGame_a4573dd85e0711a78cc27eb0b51c79f44} 
+Données du jeu. \Hypertarget{structGame_a4573dd85e0711a78cc27eb0b51c79f44}\label{structGame_a4573dd85e0711a78cc27eb0b51c79f44} 
 \index{Game@{Game}!gameState@{gameState}}
 \index{gameState@{gameState}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{gameState}{gameState}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structGameState}{Game\+State}} Game\+::game\+State}
 
-\Hypertarget{structGame_a911428bfef2d00d5ece40210d3488fdb}\label{structGame_a911428bfef2d00d5ece40210d3488fdb} 
+État général du jeu. \Hypertarget{structGame_a911428bfef2d00d5ece40210d3488fdb}\label{structGame_a911428bfef2d00d5ece40210d3488fdb} 
 \index{Game@{Game}!nbMenu@{nbMenu}}
 \index{nbMenu@{nbMenu}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{nbMenu}{nbMenu}}
 {\footnotesize\ttfamily int Game\+::nb\+Menu}
 
-\Hypertarget{structGame_ad6d4967c8a2102963029b9db9dbc1b91}\label{structGame_ad6d4967c8a2102963029b9db9dbc1b91} 
+Nombre de menus. \Hypertarget{structGame_ad6d4967c8a2102963029b9db9dbc1b91}\label{structGame_ad6d4967c8a2102963029b9db9dbc1b91} 
 \index{Game@{Game}!nbStates@{nbStates}}
 \index{nbStates@{nbStates}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{nbStates}{nbStates}}
 {\footnotesize\ttfamily int Game\+::nb\+States}
 
-\Hypertarget{structGame_ae4bd951ed7cce7f1c9424f816e765b73}\label{structGame_ae4bd951ed7cce7f1c9424f816e765b73} 
+Nombre d\textquotesingle{}états. \Hypertarget{structGame_ae4bd951ed7cce7f1c9424f816e765b73}\label{structGame_ae4bd951ed7cce7f1c9424f816e765b73} 
 \index{Game@{Game}!saved@{saved}}
 \index{saved@{saved}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{saved}{saved}}
 {\footnotesize\ttfamily int Game\+::saved}
 
-\Hypertarget{structGame_ad40f89a1120708699357c341a9f56e4e}\label{structGame_ad40f89a1120708699357c341a9f56e4e} 
+Indicateur de sauvegarde. \Hypertarget{structGame_ad40f89a1120708699357c341a9f56e4e}\label{structGame_ad40f89a1120708699357c341a9f56e4e} 
 \index{Game@{Game}!speeds@{speeds}}
 \index{speeds@{speeds}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{speeds}{speeds}}
 {\footnotesize\ttfamily float\texorpdfstring{$\ast$}{*} Game\+::speeds}
 
-\Hypertarget{structGame_a2de84fee9a0524573b36b51c1cd15039}\label{structGame_a2de84fee9a0524573b36b51c1cd15039} 
+Tableau des vitesses. \Hypertarget{structGame_a2de84fee9a0524573b36b51c1cd15039}\label{structGame_a2de84fee9a0524573b36b51c1cd15039} 
 \index{Game@{Game}!stateHandlers@{stateHandlers}}
 \index{stateHandlers@{stateHandlers}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{stateHandlers}{stateHandlers}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structStateHandler}{State\+Handler}}\texorpdfstring{$\ast$}{*} Game\+::state\+Handlers}
 
-\Hypertarget{structGame_aa9455d40a57196c6fe96dcf3c20203b3}\label{structGame_aa9455d40a57196c6fe96dcf3c20203b3} 
+Gestionnaires d\textquotesingle{}état. \Hypertarget{structGame_aa9455d40a57196c6fe96dcf3c20203b3}\label{structGame_aa9455d40a57196c6fe96dcf3c20203b3} 
 \index{Game@{Game}!threadManager@{threadManager}}
 \index{threadManager@{threadManager}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{threadManager}{threadManager}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structThreadManager}{Thread\+Manager}} Game\+::thread\+Manager}
 
-\Hypertarget{structGame_a1983960f961427e4f38cca321f7e34e3}\label{structGame_a1983960f961427e4f38cca321f7e34e3} 
+Gestionnaire de threads. \Hypertarget{structGame_a1983960f961427e4f38cca321f7e34e3}\label{structGame_a1983960f961427e4f38cca321f7e34e3} 
 \index{Game@{Game}!ui@{ui}}
 \index{ui@{ui}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{ui}{ui}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structUI__Elements}{UI\+\_\+\+Elements}}\texorpdfstring{$\ast$}{*} Game\+::ui}
 
-\Hypertarget{structGame_a1ab9219c52f831df72ec2bb42c56aa2b}\label{structGame_a1ab9219c52f831df72ec2bb42c56aa2b} 
+Éléments de l\textquotesingle{}interface utilisateur. \Hypertarget{structGame_a1ab9219c52f831df72ec2bb42c56aa2b}\label{structGame_a1ab9219c52f831df72ec2bb42c56aa2b} 
 \index{Game@{Game}!win@{win}}
 \index{win@{win}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{win}{win}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structWindow}{Window}}\texorpdfstring{$\ast$}{*} Game\+::win}
 
-
+Pointeur vers la fenêtre du jeu. 
 
 La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 

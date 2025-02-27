@@ -100,6 +100,9 @@ $(document).ready(function(){initNavTree('d3/ded/Window_8h.html','../../'); init
   <div class="headertitle"><div class="title">Référence du fichier Window.h</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Définition et gestion de la fenêtre principale de l'application.  
+<a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
 <code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
 <code>#include &lt;SDL2/SDL_gamecontroller.h&gt;</code><br />
@@ -121,6 +124,7 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d08/structWindow.html">Window</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente la fenêtre principale de l'application.  <a href="../../d6/d08/structWindow.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -138,8 +142,10 @@ Définitions de type</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:ab072fc478679f5b8fb5ffae288d1e7f2" id="r_ab072fc478679f5b8fb5ffae288d1e7f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/ded/Window_8h.html#ab072fc478679f5b8fb5ffae288d1e7f2">initWindow</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, int width, int height, const char *FontPath)</td></tr>
+<tr class="memdesc:ab072fc478679f5b8fb5ffae288d1e7f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise la fenêtre principale de l'application.  <br /></td></tr>
 <tr class="separator:ab072fc478679f5b8fb5ffae288d1e7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b2abeb6aa788d11a7bfe251fb1d4a25" id="r_a5b2abeb6aa788d11a7bfe251fb1d4a25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/ded/Window_8h.html#a5b2abeb6aa788d11a7bfe251fb1d4a25">destroyWindow</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win)</td></tr>
+<tr class="memdesc:a5b2abeb6aa788d11a7bfe251fb1d4a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit la fenêtre principale de l'application.  <br /></td></tr>
 <tr class="separator:a5b2abeb6aa788d11a7bfe251fb1d4a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -148,7 +154,9 @@ Variables</h2></td></tr>
 <tr class="separator:ac6a5ed6191fcf3a5bf0445921feb4f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><dl class="section author"><dt>Auteur</dt><dd>Louis Alban </dd></dl>
+<div class="textblock"><p>Définition et gestion de la fenêtre principale de l'application. </p>
+<p>Ce fichier définit la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> et les fonctions associées pour gérer la fenêtre principale de l'application et ses propriétés.</p>
+<dl class="section author"><dt>Auteur</dt><dd>Louis </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>17/02/2025 </dd></dl>
 </div><h2 class="groupheader">Documentation des macros</h2>
 <a id="a24ffa112f1eba911f31af1ab31dd0c4c" name="a24ffa112f1eba911f31af1ab31dd0c4c"></a>
@@ -162,6 +170,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Repli sur le rendu logiciel si VSYNC n'est pas disponible. </p>
 
 </div>
 </div>
@@ -177,6 +186,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Déclaration anticipée de la structure <a class="el" href="../../de/de9/structGame.html" title="Structure principale du jeu.">Game</a>. </p>
 
 </div>
 </div>
@@ -210,6 +220,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Détruit la fenêtre principale de l'application. </p>
+<p>Cette fonction libère les ressources associées à la fenêtre principale de l'application.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Un pointeur vers la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> à détruire. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -251,6 +270,18 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialise la fenêtre principale de l'application. </p>
+<p>Cette fonction initialise la fenêtre principale de l'application avec les dimensions et le chemin de police spécifiés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Un pointeur vers la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> à initialiser. </td></tr>
+    <tr><td class="paramname">width</td><td>La largeur initiale de la fenêtre. </td></tr>
+    <tr><td class="paramname">height</td><td>La hauteur initiale de la fenêtre. </td></tr>
+    <tr><td class="paramname">FontPath</td><td>Le chemin du fichier de police à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Documentation des variables</h2>
@@ -273,6 +304,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Instance globale du jeu. </p>
 
 </div>
 </div>

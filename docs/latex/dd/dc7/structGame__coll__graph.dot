@@ -18,7 +18,7 @@ digraph "Game"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Structure principale du jeu."];
   Node2 -> Node1 [id="edge22_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" ",label=" +ui",fontcolor="grey" ,arrowhead="odiamond"];
   Node2 [id="Node000002",shape=plain,label=<<TABLE CELLBORDER="0" BORDER="1"><TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">UI_Elements</TD></TR>
 <HR/>
@@ -26,7 +26,7 @@ digraph "Game"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d8/de4/structUI__Elements.html",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d8/de4/structUI__Elements.html",tooltip="Conteneur pour les éléments de l'interface utilisateur."];
   Node3 -> Node2 [id="edge23_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" ",label=" +buttons",fontcolor="grey" ,arrowhead="odiamond"];
   Node3 [id="Node000003",shape=plain,label=<<TABLE CELLBORDER="0" BORDER="1"><TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">ButtonList</TD></TR>
 <HR/>
@@ -138,7 +138,7 @@ digraph "Game"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d2/d52/structBattleState.html",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d2/d52/structBattleState.html",tooltip="Données de combat."];
   Node12 -> Node11 [id="edge32_Node000011_Node000012",color="steelblue1",style="solid",tooltip=" ",label=" +bleu\n+rouge",fontcolor="grey" ,arrowhead="odiamond"];
   Node12 [id="Node000012",shape=plain,label=<<TABLE CELLBORDER="0" BORDER="1"><TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">t_Team</TD></TR>
 <HR/>
@@ -209,7 +209,7 @@ digraph "Game"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$dd/d1a/structIMG__ICMons.html",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$dd/d1a/structIMG__ICMons.html",tooltip="Représente un sprite ICMons dans l'application."];
   Node16 -> Node15 [id="edge36_Node000015_Node000016",color="steelblue1",style="solid",tooltip=" ",label=" +PVText",fontcolor="grey" ,arrowhead="odiamond"];
   Node16 [id="Node000016",shape=plain,label=<<TABLE CELLBORDER="0" BORDER="1"><TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">Text</TD></TR>
 <HR/>
@@ -224,7 +224,7 @@ digraph "Game"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d2/dda/structText.html",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d2/dda/structText.html",tooltip="Représente un élément de texte dans l'application."];
   Node17 -> Node11 [id="edge37_Node000011_Node000017",color="steelblue1",style="solid",tooltip=" ",label=" +ia",fontcolor="grey" ,arrowhead="odiamond"];
   Node17 [id="Node000017",shape=plain,label=<<TABLE CELLBORDER="0" BORDER="1"><TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">AI</TD></TR>
 <HR/>
@@ -245,7 +245,7 @@ digraph "Game"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d2/d3d/structGameState.html",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d2/d3d/structGameState.html",tooltip="Informations générales sur l'état du jeu."];
   Node19 -> Node1 [id="edge40_Node000001_Node000019",color="steelblue1",style="solid",tooltip=" ",label=" +stateHandlers",fontcolor="grey" ,arrowhead="odiamond"];
   Node19 [id="Node000019",shape=plain,label=<<TABLE CELLBORDER="0" BORDER="1"><TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">StateHandler</TD></TR>
 <HR/>
@@ -254,7 +254,7 @@ digraph "Game"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d3/daf/structStateHandler.html",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d3/daf/structStateHandler.html",tooltip="Gestionnaire d'état."];
   Node20 -> Node1 [id="edge41_Node000001_Node000020",color="steelblue1",style="solid",tooltip=" ",label=" +win",fontcolor="grey" ,arrowhead="odiamond"];
   Node20 [id="Node000020",shape=plain,label=<<TABLE CELLBORDER="0" BORDER="1"><TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">Window</TD></TR>
 <HR/>
@@ -274,7 +274,7 @@ digraph "Game"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d6/d08/structWindow.html",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d6/d08/structWindow.html",tooltip="Représente la fenêtre principale de l'application."];
   Node21 -> Node1 [id="edge42_Node000001_Node000021",color="steelblue1",style="solid",tooltip=" ",label=" +threadManager",fontcolor="grey" ,arrowhead="odiamond"];
   Node21 [id="Node000021",shape=plain,label=<<TABLE CELLBORDER="0" BORDER="1"><TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">ThreadManager</TD></TR>
 <HR/>
@@ -288,5 +288,5 @@ digraph "Game"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d5/d64/structThreadManager.html",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d5/d64/structThreadManager.html",tooltip="Structure de gestion des threads."];
 }

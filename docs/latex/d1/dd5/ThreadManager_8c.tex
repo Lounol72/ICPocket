@@ -10,13 +10,13 @@ Graphe des dépendances par inclusion de Thread\+Manager.\+c\+:
 void \mbox{\hyperlink{ThreadManager_8c_a4b6b2a6acd02d23b40cbff20b70115fa}{init\+Thread\+Manager}} (\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{GameEngine_8c_ac6a5ed6191fcf3a5bf0445921feb4f48}{game}})
 \begin{DoxyCompactList}\small\item\em Initialise le gestionnaire de threads. \end{DoxyCompactList}\item 
 void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ThreadManager_8c_aca5053a41c03f29919bee861884c0a70}{audio\+Thread\+Function}} (void \texorpdfstring{$\ast$}{*}arg)
-\item 
+\begin{DoxyCompactList}\small\item\em Fonction du thread audio. \end{DoxyCompactList}\item 
 void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ThreadManager_8c_aaff54a9d240b3e5d945861bc3d16e7d3}{render\+Thread\+Function}} (void \texorpdfstring{$\ast$}{*}arg)
-\item 
+\begin{DoxyCompactList}\small\item\em Fonction du thread de rendu. \end{DoxyCompactList}\item 
 void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ThreadManager_8c_ab7fd089aeb14f8bcbf5722455366c8fa}{physics\+Thread\+Function}} (void \texorpdfstring{$\ast$}{*}arg)
-\item 
+\begin{DoxyCompactList}\small\item\em Fonction du thread de physique. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{ThreadManager_8c_a0205a3e56521f5147391f72cac4a75c6}{cleanup\+Threads}} (\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{GameEngine_8c_ac6a5ed6191fcf3a5bf0445921feb4f48}{game}})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Nettoie et termine les threads. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Documentation des fonctions}
@@ -26,12 +26,37 @@ void \mbox{\hyperlink{ThreadManager_8c_a0205a3e56521f5147391f72cac4a75c6}{cleanu
 \doxysubsubsection{\texorpdfstring{audioThreadFunction()}{audioThreadFunction()}}
 {\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} audio\+Thread\+Function (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg }\end{DoxyParamCaption})}
 
+
+
+Fonction du thread audio. 
+
+Cette fonction est exécutée par le thread audio. Elle gère le traitement audio en boucle tant que le jeu est en cours d\textquotesingle{}exécution.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em arg} & Pointeur vers la structure \doxylink{structGame}{Game} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+NULL 
+\end{DoxyReturn}
 \Hypertarget{ThreadManager_8c_a0205a3e56521f5147391f72cac4a75c6}\label{ThreadManager_8c_a0205a3e56521f5147391f72cac4a75c6} 
 \index{ThreadManager.c@{ThreadManager.c}!cleanupThreads@{cleanupThreads}}
 \index{cleanupThreads@{cleanupThreads}!ThreadManager.c@{ThreadManager.c}}
 \doxysubsubsection{\texorpdfstring{cleanupThreads()}{cleanupThreads()}}
-{\footnotesize\ttfamily void cleanup\+Threads (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void cleanup\+Threads (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
 
+
+
+Nettoie et termine les threads. 
+
+Cette fonction arrête tous les threads en cours d\textquotesingle{}exécution, attend leur terminaison et détruit les mutex associés.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em game} & Pointeur vers la structure \doxylink{structGame}{Game} \\
+\hline
+\end{DoxyParams}
 \Hypertarget{ThreadManager_8c_a4b6b2a6acd02d23b40cbff20b70115fa}\label{ThreadManager_8c_a4b6b2a6acd02d23b40cbff20b70115fa} 
 \index{ThreadManager.c@{ThreadManager.c}!initThreadManager@{initThreadManager}}
 \index{initThreadManager@{initThreadManager}!ThreadManager.c@{ThreadManager.c}}
@@ -53,9 +78,37 @@ Initialise le gestionnaire de threads.
 \doxysubsubsection{\texorpdfstring{physicsThreadFunction()}{physicsThreadFunction()}}
 {\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} physics\+Thread\+Function (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg }\end{DoxyParamCaption})}
 
+
+
+Fonction du thread de physique. 
+
+Cette fonction est exécutée par le thread de physique. Elle gère les calculs physiques en boucle tant que le jeu est en cours d\textquotesingle{}exécution.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em arg} & Pointeur vers la structure \doxylink{structGame}{Game} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+NULL 
+\end{DoxyReturn}
 \Hypertarget{ThreadManager_8c_aaff54a9d240b3e5d945861bc3d16e7d3}\label{ThreadManager_8c_aaff54a9d240b3e5d945861bc3d16e7d3} 
 \index{ThreadManager.c@{ThreadManager.c}!renderThreadFunction@{renderThreadFunction}}
 \index{renderThreadFunction@{renderThreadFunction}!ThreadManager.c@{ThreadManager.c}}
 \doxysubsubsection{\texorpdfstring{renderThreadFunction()}{renderThreadFunction()}}
 {\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} render\+Thread\+Function (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg }\end{DoxyParamCaption})}
 
+
+
+Fonction du thread de rendu. 
+
+Cette fonction est exécutée par le thread de rendu. Elle gère le rendu graphique en boucle tant que le jeu est en cours d\textquotesingle{}exécution.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em arg} & Pointeur vers la structure \doxylink{structGame}{Game} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+NULL 
+\end{DoxyReturn}
