@@ -65,7 +65,7 @@ void* renderThreadFunction(void* arg) {
         }
         
         pthread_mutex_unlock(&game->threadManager.renderMutex);
-        SDL_Delay(8);
+        SDL_Delay(16); // ~60fps
     }
     return NULL;
 }
@@ -82,15 +82,12 @@ void* physicsThreadFunction(void* arg) {
         
         if (game->gameState.currentState == MAP && game->gameData.player) {
             pthread_mutex_lock(&game->threadManager.physicsMutex);
-            
-            // Si le joueur est en mouvement, mettre à jour sa position
-            if (game->gameData.player->isMovingToTarget) {
-                updatePlayerPosition(game->gameData.player, deltaTime);
-                updateCamera(game->gameData.camera, 
-                           game->gameData.player->position.x, 
-                           game->gameData.player->position.y, 
-                           deltaTime);
-            }
+
+            updatePlayerPosition(game->gameData.player, deltaTime);
+            updateCamera(game->gameData.camera, 
+                       game->gameData.player->position.x, 
+                       game->gameData.player->position.y, 
+                       deltaTime);
             
             // Mettre à jour l'animation indépendamment du mouvement
             updatePlayerAnimation(game->gameData.player, deltaTime);

@@ -169,6 +169,7 @@ void nextDuel(Window *win, void *data) {
     sauvegarder("Save_1",&game.battleState.rouge,&game.battleState.bleu);
     healTeam(&game.battleState.rouge);
     initTeam(&game.battleState.bleu, 3);
+    updateICButtons(win, &game.battleState.rouge);
     changeState(win, &game.stateHandlers[3].state);
 }
 
@@ -427,7 +428,7 @@ void updateICButtons(Window *win, t_Team *team) {
         if(team->team[0].nb_move > i) {
             snprintf(temp, sizeof(temp), "%s  %d/%d", 
                 team->team[0].moveList[i].name,
-                team->team[0].moveList[i].current_pp, 
+                team->team[0].moveList[i].current_pp,
                 team->team[0].moveList[i].max_pp);
             setButtonText(game.ui[3].buttons->buttons[i], temp, win->renderer);
         }
@@ -435,7 +436,7 @@ void updateICButtons(Window *win, t_Team *team) {
             setButtonText(game.ui[3].buttons->buttons[i], "  ", win->renderer);
         }
     }
-    if (game.gameState.currentState == NEWGAME) updateICMonsButtonText(win, team);
+    if (game.gameState.currentState == NEWGAME || game.gameState.currentState == LOADGAME) updateICMonsButtonText(win, team);
 }
 
 
