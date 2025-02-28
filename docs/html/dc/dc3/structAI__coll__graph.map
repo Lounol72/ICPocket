@@ -1,0 +1,13 @@
+<map id="AI" name="AI">
+<area shape="rect" id="Node000001" title=" " alt="" coords="89,1237,155,1323"/>
+<area shape="rect" id="Node000002" href="$da/d63/structt__Team.html" title="La structure t_Team contient tout les attributs nécessaire à la génération et à l&#39;utilisation d&#39;une é..." alt="" coords="67,1029,177,1175"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,1175,125,1220,119,1220,119,1175"/>
+<area shape="rect" id="Node000003" href="$d7/d09/structt__Poke.html" title=" " alt="" coords="69,661,175,967"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="125,967,125,1013,119,1013,119,967"/>
+<area shape="rect" id="Node000004" href="$d1/d68/structt__Move.html" title=" " alt="" coords="5,273,132,599"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,599,99,637,100,645,95,645,94,638,89,599"/>
+<area shape="rect" id="Node000005" href="$dd/d1a/structIMG__ICMons.html" title="Représente un sprite ICMons dans l&#39;application." alt="" coords="157,303,303,569"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="195,570,175,638,173,646,168,645,170,637,190,568"/>
+<area shape="rect" id="Node000006" href="$d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application." alt="" coords="179,5,281,211"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="233,211,233,287,227,287,227,211"/>
+</map>

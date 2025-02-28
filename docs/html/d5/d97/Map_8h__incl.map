@@ -1,0 +1,10 @@
+<map id="include/Map.h" name="include/Map.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="37,5,150,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="60,152,156,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,33,44,46,22,63,9,82,8,92,12,103,33,127,61,144,58,149,30,131,7,105,3,93,4,81,18,59,41,42,65,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="22,79,166,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="96,31,96,65,91,65,91,31"/>
+<area shape="rect" id="Node000004" href="$dd/de4/Camera_8h.html" title="Gestion de la caméra pour le défilement de la vue du jeu." alt="" coords="190,79,275,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="117,28,199,70,196,75,115,33"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="214,106,142,147,139,143,211,102"/>
+</map>
