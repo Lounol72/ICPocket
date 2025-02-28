@@ -173,11 +173,7 @@ void changePokemon(Window *win, void *data) {
     int idx = (int)(intptr_t)data; 
     if (testActionValidity(idx, &game.battleState.rouge)) {
         if (game.battleState.rouge.team[0].current_pv != 0) {
-            if (idx >= 0 && idx < game.battleState.rouge.nb_poke) {
-                playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&(game.battleState.ia), &game.battleState.rouge));
-            } else {
-                SDL_Log("Indice de mouvement invalide : %d", idx);
-            }
+            playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&(game.battleState.ia), &game.battleState.rouge));
         } else {
             swapActualAttacker(&game.battleState.rouge, idx);
         }
