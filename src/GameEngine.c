@@ -148,14 +148,19 @@ void attqButtonClicked(Window *win, void *data) {
         if (isAlive(&(game.battleState.rouge.team[0]))) {
             playATurn(&game.battleState.rouge, moveIndex, &game.battleState.bleu, AI_move_choice(&game.battleState.ia, &game.battleState.rouge));
         }
-        while (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))){
-            int x = rand()%game.battleState.bleu.nb_poke;
-            if (isAlive(&(game.battleState.bleu.team[x]))) {
-                swapActualAttacker(&game.battleState.bleu, x);
-            }
-        }
         if (!isAlive(&(game.battleState.bleu.team[0]))) {
             gainExp(&(game.battleState.rouge), &(game.battleState.bleu.team[0]));
+        }
+        if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))){
+            int nb_valide=0;
+            int liste_valide[game.battleState.bleu.nb_poke];
+            for(int i=0;i<game.battleState.bleu.nb_poke;i++) if(isAlive(&(game.battleState.bleu.team[i]))) liste_valide[nb_valide++]=i+10;
+            for(int i=0;i<nb_valide;i++) printf("%d ",liste_valide[i]);
+            printf("\n");
+            int x = rand()%nb_valide;
+            printf("x=%d\n",x);
+            swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
+            printPoke(&game.battleState.bleu.team[0]);
         }
         updateICButtons(win, &game.battleState.rouge);
         game.gameState.playerTurn = 0;

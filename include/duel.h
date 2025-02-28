@@ -10,6 +10,7 @@
 
 /**
  * @file duel.h
+ * @author Natp24109
  */
 
 extern float statVariations[13];
@@ -62,9 +63,26 @@ void initBlueTeam(t_Team *t);
 int calcDamage(t_Team * offender,t_Team * defender, t_Move *);
 void setDefaultStatChanges(t_Team * p);
 int resolveSpeedDuel(int speed1, int speed2);
+
 int PriorityForFirstPoke(t_Team * p1, t_Team * p2, t_Move * move1, t_Move * move2, int index1, int index2);
+/**
+ * @fn void affectDamage(t_Team * offender, t_Team * defender int indexMove);
+ * @brief La fonction affectDamage applique la quantité de dégats infligées par offender ultilisant l'attaque positionnée à l'indice indexMove sur defender. La précision des attaques est également prise en compte ici, pouvant résulter sur une absence d'effet après l'appel. Cette fonction est automatiquement appelée par playATurn si une attaque est passé en paramètre de cette dernière.
+ * @param offender Un pointeur sur structure t_Team, pointant sur l'équipe attaquante suposée initialisée (voir initTeam).
+ * @param offender Un pointeur sur structure t_Team, pointant sur l'équipe subissant l'attaque suposée initialisée (voir initTeam).
+ * @param indexMove L'indice entier de l'attaque à réaliser 
+ 		-si l'indice est entre 0 et 3, l'attaque est celle connu par le pokémon offender->team[0]
+		-si il est négatif, l'attaque représente LUTTE si il vaut -1 ou CONFUSION si il vaut -2.
+		PlayATurn appelle automatiquement cette fonction avec l'indice adapté.
+*/
 void affectDamage(t_Team * offender, t_Team * defender, int indexMove);
-void swapActualAttacker(t_Team * t, int swapIndex);
+/**
+ * @fn void swapActualAttacker(t_Team * target, int swapIndex);
+ * @brief La fonction swapActualAttacker échange le pokémon présent à l'indice 0 avec celui présent à l'indice swapIndex donné en paramètre. La fonction est sans effet si l'indice spécifié est invalide (hors liste, pokémon ko).
+ * @param target Un pointeur sur structure t_Team, pointant sur une équipe suposée initialisée (voir initTeam).
+ * @param swapIndex L'indice entier du Pokémon cible de l'échange, généralement compris entre 1 et 5.
+*/
+void swapActualAttacker(t_Team * target, int swapIndex);
 /**
  * @fn int playATurn(t_Team * t1, int move1, t_Team * t2, int move2);
  * @brief La fonction playATurn permet de jouer un tour d'un duel Pokémon classique, pour deux équipes au préalable générées et initialisées.

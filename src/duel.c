@@ -194,7 +194,7 @@ void setDefaultStatChanges(t_Team * p){
 }
 
 int isAlive(t_Poke * p){
-	return p->current_pv!=0;
+	return isExisting(p) && p->current_pv!=0;
 }
 
 int isExisting(t_Poke * p){
