@@ -1,7 +1,5 @@
 [0] [3] 🔧 Initialisation de la fenêtre ...
-[1] [2] That operation is not supported
-[6] [3] OpenGL shaders: ENABLED
-[6] [3] Created renderer: opengl
+[6] [3] Created renderer: software
 [0] [3] Détails des flags pour le renderer :
 [0] [3] ✅ SDL Renderer Software: 1
 [0] [3] ✅ SDL Renderer Accelerated: 2
@@ -16,36 +14,9 @@
 [1] [2] You must call Mix_SetMusicCMD() first
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
-[0] [3] Changement d'état : 4
-[0] [3] PV : 300/300
-[0] [3] PV : 112/112
-[0] [3] PV : 238/238
-[0] [3] PV : 296/296
-[0] [3] PV : 131/131
-[0] [3] PV : 78/78
-[0] [3] Red team PV: 300, Blue team PV: 296
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 4
-[0] [3] Changement d'état : 3
-[0] [3] Changement d'état : 4
-[0] [3] Changement d'état : 3
 [0] [3] Changement d'état : 0
 [0] [3] ✅ Musique libérée
 [0] [3] ✅ UI libérée
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[0] [3] ✅ ICMons rougeslibérés
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[0] [3] ✅ ICMons bleus libérés
 [0] [3] ✅ State handlers libérés
 [0] [3] ✅ Speeds libérés
 [0] [3] ✅ LargeFont libéré

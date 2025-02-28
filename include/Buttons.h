@@ -108,25 +108,11 @@ typedef struct SliderList {
  * @param onClick La fonction de rappel appelée lors du clic sur le bouton.
  * @param data Les données utilisateur passées à la fonction de rappel.
  * @param font La police utilisée pour dessiner le texte du bouton.
+ * @param imagePath Chemin du fichier image pour le bouton.
  * @return Un pointeur vers le nouvel objet Button créé.
  */
-Button *createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SDL_Color textcolor, void (*onClick)(Window *, void *), void *data, TTF_Font *font);
+Button *createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SDL_Color textcolor, void (*onClick)(Window *, void *), void *data, TTF_Font *font, const char *imagePath);
 
-/**
- * @brief Initialise un bouton avec l'image spécifiée et l'associe au renderer donné.
- * 
- * @param button Pointeur vers la structure du bouton à initialiser.
- * @param renderer Pointeur vers le renderer utilisé pour dessiner le bouton.
- * @param imagePath Chemin du fichier image pour le bouton.
- */
-void InitTextureButton(Button *button, SDL_Renderer *renderer, const char *imagePath);
-
-/**
- * @brief Rend un bouton.
- * 
- * @param button Pointeur vers le bouton à rendre.
- */
-void renderButton(Button *button);
 
 /**
  * @brief Ajoute une liste de boutons à la liste de boutons.
@@ -151,12 +137,6 @@ void destroyButtonList(ButtonList *list);
  */
 void renderButtonList(ButtonList *B);
 
-/**
- * @brief Détruit un bouton.
- * 
- * @param button Pointeur vers le bouton à détruire.
- */
-void destroyButton(Button *button);
 
 /**
  * @brief Gère l'interaction avec le bouton en fonction de la position actuelle de la souris et du contexte de la fenêtre.
