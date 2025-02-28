@@ -6,5 +6,6 @@ var Camera_8h =
     [ "createCamera", "dd/de4/Camera_8h.html#a2066b5ada76e803c9b0e2ae818c73b85", null ],
     [ "destroyCamera", "dd/de4/Camera_8h.html#a30b237a47aec83d888c3d194d1a03209", null ],
     [ "getWorldToScreenRect", "dd/de4/Camera_8h.html#a92559a351d5f83f829609acfd7d585d4", null ],
-    [ "updateCamera", "dd/de4/Camera_8h.html#a1f82183277c2e3bb2c0ed552111a932f", null ]
+    [ "updateCamera", "dd/de4/Camera_8h.html#a1f82183277c2e3bb2c0ed552111a932f", null ],
+    [ "updateCameraViewport", "dd/de4/Camera_8h.html#a3705df95afd7ab87f9c1e6e48ad7a6f5", null ]
 ];

@@ -10,7 +10,7 @@ digraph "ButtonList"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Liste de boutons."];
   Node2 -> Node1 [id="edge2_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" ",label=" +buttons",fontcolor="grey" ,arrowhead="odiamond"];
   Node2 [id="Node000002",shape=plain,label=<<TABLE CELLBORDER="0" BORDER="1"><TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">Button</TD></TR>
 <HR/>
@@ -31,5 +31,5 @@ digraph "ButtonList"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d7/d19/structButton.html",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d7/d19/structButton.html",tooltip="Représente un bouton dans l'application."];
 }

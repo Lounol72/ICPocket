@@ -82,9 +82,9 @@ void \mbox{\hyperlink{structPoke_8h_afe2be4dcf1abaf503e3ce46c3af588e9}{generate\
 void \mbox{\hyperlink{structPoke_8h_a2654983666510a2dc455ff7e1a4e281a}{generate\+Poke}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*})
 \item 
 \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{structPoke_8h_aff185784e3522330be3818416ad1cb93}{generate\+Move}} (int id)
-\begin{DoxyCompactList}\small\item\em Generate a move. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Fonctions pour générer des moves ( attaques de nos montres) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{structPoke_8h_a0c149d758c5a0d385c66b6cfe90abd73}{generate\+Random\+Move}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em generer aleatoirement \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{structPoke_8h_a69afa9b406c2e19b2821261e7bc00bac}{generate\+Random\+Move\+Better}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p)
 \item 
 void \mbox{\hyperlink{structPoke_8h_aa6e57a0e7270157be9d895337f9dea6c}{learn\+Move}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}, int)
@@ -302,11 +302,16 @@ Generate a Icmon from a given id in the data\+Poke.\+csv file.
 
 
 
-Generate a move. 
+Fonctions pour générer des moves ( attaques de nos montres) 
 
 \begin{DoxyReturn}{Renvoie}
-the generated move 
+the generated move
 \end{DoxyReturn}
+génere une attaque non aléatoirement, selon une id donnée, utiliser 
+\begin{DoxyParams}{Paramètres}
+{\em id} & \+: l\textquotesingle{}id \\
+\hline
+\end{DoxyParams}
 \Hypertarget{structPoke_8h_a2654983666510a2dc455ff7e1a4e281a}\label{structPoke_8h_a2654983666510a2dc455ff7e1a4e281a} 
 \index{structPoke.h@{structPoke.h}!generatePoke@{generatePoke}}
 \index{generatePoke@{generatePoke}!structPoke.h@{structPoke.h}}
@@ -318,6 +323,10 @@ the generated move
 \index{generateRandomMove@{generateRandomMove}!structPoke.h@{structPoke.h}}
 \doxysubsubsection{\texorpdfstring{generateRandomMove()}{generateRandomMove()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} generate\+Random\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+generer aleatoirement 
 
 \Hypertarget{structPoke_8h_a69afa9b406c2e19b2821261e7bc00bac}\label{structPoke_8h_a69afa9b406c2e19b2821261e7bc00bac} 
 \index{structPoke.h@{structPoke.h}!generateRandomMoveBetter@{generateRandomMoveBetter}}

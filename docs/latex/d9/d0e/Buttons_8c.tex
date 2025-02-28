@@ -10,41 +10,41 @@ Graphe des dépendances par inclusion de Buttons.\+c\+:
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Buttons_8c_a53d64ae5037fd74d0de80f678ab1e518}{create\+Button}} (char \texorpdfstring{$\ast$}{*}text, \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, int x, int y, int w, int h, SDL\+\_\+\+Color color, SDL\+\_\+\+Color textcolor, void(\texorpdfstring{$\ast$}{*}on\+Click)(\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}), void \texorpdfstring{$\ast$}{*}data, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font)
-\begin{DoxyCompactList}\small\item\em Creates and returns a new \doxylink{structButton}{Button} object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Crée et retourne un nouvel objet \doxylink{structButton}{Button}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_a35aed4a2d403e0d35ea6f353e9e318f8}{destroy\+Button}} (\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}button)
-\begin{DoxyCompactList}\small\item\em Performs the specified action for the given button. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Détruit un bouton. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_ae76e871e4375b26d06e1e703325002ad}{add\+List\+Button}} (\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}list, \mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buttons, int count)
-\begin{DoxyCompactList}\small\item\em Processes the provided list of button structures. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Ajoute une liste de boutons à la liste de boutons. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_a6f2d10aaa75aec651d944a49824dfaca}{destroy\+Button\+List}} (\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}list)
-\begin{DoxyCompactList}\small\item\em Processes the specified list of items. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Détruit la liste de boutons. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_a3c5543de3f97098d0098510de08e7dcd}{Init\+Texture\+Button}} (\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}button, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const char \texorpdfstring{$\ast$}{*}image\+Path)
-\begin{DoxyCompactList}\small\item\em Initializes a button with the specified image and associates it with the given renderer. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initialise un bouton avec l\textquotesingle{}image spécifiée et l\textquotesingle{}associe au renderer donné. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_a73fede4267ce18db513f7ea5e430cdca}{render\+Button\+List}} (\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}B)
-\begin{DoxyCompactList}\small\item\em Brief description of the function. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Rend la liste de boutons. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_ad346eafe3f2839d87b9851e36f497040}{render\+Button}} (\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}button)
-\begin{DoxyCompactList}\small\item\em Processes the specified button action. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Rend un bouton. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_ad1f08565a6d9a8c92fc8f2c752b8e915}{Button\+Clicked}} (\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}button, int mouseX, int mouseY, \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
-\begin{DoxyCompactList}\small\item\em Processes button interaction given the current mouse position and window context. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}interaction avec le bouton en fonction de la position actuelle de la souris et du contexte de la fenêtre. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_a604a2e476e66033908fc016c70138aac}{update\+Button\+Position}} (\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}buttons, float Scalex, float Scaley)
-\begin{DoxyCompactList}\small\item\em Updates button states and applies scaling factors to the user interface elements. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Met à jour les états des boutons et applique des facteurs de mise à l\textquotesingle{}échelle aux éléments de l\textquotesingle{}interface utilisateur. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_a46d3f067fb44669bc3438b8030823799}{set\+Button\+Text}} (\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}button, const char \texorpdfstring{$\ast$}{*}text, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
-\begin{DoxyCompactList}\small\item\em Renders a button with the specified text. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Définit le texte d\textquotesingle{}un bouton. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Buttons_8c_a38653592fe2d409f3a7a620a1d6de080}{create\+Slider}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, int x, int y, int w, int h, SDL\+\_\+\+Color color, SDL\+\_\+\+Color cursor\+Color)
-\begin{DoxyCompactList}\small\item\em Create a \doxylink{structSlider}{Slider} object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Crée un objet \doxylink{structSlider}{Slider}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_afa394eaa634219089d84e0d91e3a6345}{destroy\+Slider}} (\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}slider)
-\item 
+\begin{DoxyCompactList}\small\item\em Détruit un curseur. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_abcb6effb395215a5c8d11247edfcaaf2}{destroy\+Slider\+List}} (\mbox{\hyperlink{structSliderList}{Slider\+List}} \texorpdfstring{$\ast$}{*}list)
-\begin{DoxyCompactList}\small\item\em Processes a list of button events. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Détruit la liste de curseurs. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_ab4f0f8d2f09eef09c6ba3cadb1f66f5c}{add\+List\+Slider}} (\mbox{\hyperlink{structSliderList}{Slider\+List}} \texorpdfstring{$\ast$}{*}S, \mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}sliders\mbox{[}$\,$\mbox{]}, int size)
-\begin{DoxyCompactList}\small\item\em Processes the button inputs and updates the sliders accordingly. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Ajoute une liste de curseurs à la liste de curseurs. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_a160b73f6e05ac0b81b4fd57a404393f0}{render\+Slider\+List}} (\mbox{\hyperlink{structSliderList}{Slider\+List}} \texorpdfstring{$\ast$}{*}S)
-\begin{DoxyCompactList}\small\item\em Handles button press events. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Rend la liste de curseurs. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_a36eeecc07a5e96684859833ad0986c4a}{render\+Slider}} (\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}slider)
-\begin{DoxyCompactList}\small\item\em Handles the button press events. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Rend un curseur. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{Buttons_8c_ab2651492b9cdec9f58253f8ba23f25f5}{handle\+Slider\+Event}} (\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}slider, int x, int y)
-\begin{DoxyCompactList}\small\item\em Handles the button press event. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}événement de curseur. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_a109411bd394d38718374d0b1fde9a020}{update\+Slider\+Position}} (\mbox{\hyperlink{structSliderList}{Slider\+List}} \texorpdfstring{$\ast$}{*}sliders, float Scalex, float Scaley)
-\begin{DoxyCompactList}\small\item\em Update the position of the sliders based on the mouse\textquotesingle{}s X and Y coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Met à jour la position des curseurs en fonction des coordonnées X et Y de la souris. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Documentation des fonctions}
@@ -56,15 +56,15 @@ void \mbox{\hyperlink{Buttons_8c_a109411bd394d38718374d0b1fde9a020}{update\+Slid
 
 
 
-Processes the provided list of button structures. 
+Ajoute une liste de boutons à la liste de boutons. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em list} & Pointer to the data structure that accumulates button states. \\
+{\em list} & Pointeur vers la structure qui accumule les états des boutons. \\
 \hline
-{\em buttons} & Pointer to the array of button information to be processed. \\
+{\em buttons} & Pointeur vers le tableau d\textquotesingle{}informations des boutons à traiter. \\
 \hline
-{\em count} & Number of buttons within the provided array. \\
+{\em count} & Nombre de boutons dans le tableau fourni. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Buttons_8c_ab4f0f8d2f09eef09c6ba3cadb1f66f5c}\label{Buttons_8c_ab4f0f8d2f09eef09c6ba3cadb1f66f5c} 
@@ -75,15 +75,15 @@ Processes the provided list of button structures.
 
 
 
-Processes the button inputs and updates the sliders accordingly. 
+Ajoute une liste de curseurs à la liste de curseurs. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em S} & A pointer to the structure containing the button states. \\
+{\em S} & Pointeur vers la structure contenant les curseurs à ajouter. \\
 \hline
-{\em sliders} & An array of slider values to be updated based on button inputs. \\
+{\em sliders} & Tableau de curseurs à ajouter. \\
 \hline
-{\em size} & The number of sliders in the array. \\
+{\em size} & Nombre de curseurs dans le tableau. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Buttons_8c_ad1f08565a6d9a8c92fc8f2c752b8e915}\label{Buttons_8c_ad1f08565a6d9a8c92fc8f2c752b8e915} 
@@ -94,21 +94,21 @@ Processes the button inputs and updates the sliders accordingly.
 
 
 
-Processes button interaction given the current mouse position and window context. 
+Gère l\textquotesingle{}interaction avec le bouton en fonction de la position actuelle de la souris et du contexte de la fenêtre. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em button} & The identifier or reference to the button being interacted with. \\
+{\em button} & Pointeur vers le bouton avec lequel interagir. \\
 \hline
-{\em mouseX} & The x-\/coordinate of the mouse pointer. \\
+{\em mouseX} & La coordonnée x du pointeur de la souris. \\
 \hline
-{\em mouseY} & The y-\/coordinate of the mouse pointer. \\
+{\em mouseY} & La coordonnée y du pointeur de la souris. \\
 \hline
-{\em win} & The window or graphical context in which the interaction occurs. \\
+{\em win} & La fenêtre ou le contexte graphique dans lequel l\textquotesingle{}interaction se produit. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-A status or boolean indicating whether the interaction was handled successfully. 
+Un statut ou un booléen indiquant si l\textquotesingle{}interaction a été traitée avec succès. 
 \end{DoxyReturn}
 \Hypertarget{Buttons_8c_a53d64ae5037fd74d0de80f678ab1e518}\label{Buttons_8c_a53d64ae5037fd74d0de80f678ab1e518} 
 \index{Buttons.c@{Buttons.c}!createButton@{createButton}}
@@ -118,35 +118,35 @@ A status or boolean indicating whether the interaction was handled successfully.
 
 
 
-Creates and returns a new \doxylink{structButton}{Button} object. 
+Crée et retourne un nouvel objet \doxylink{structButton}{Button}. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em text} & The text displayed on the button \\
+{\em text} & Le texte affiché sur le bouton. \\
 \hline
-{\em win} & The window where the button will appear \\
+{\em win} & La fenêtre où le bouton apparaîtra. \\
 \hline
-{\em x} & The x-\/coordinate (top-\/left corner) of the button \\
+{\em x} & La coordonnée x (coin supérieur gauche) du bouton. \\
 \hline
-{\em y} & The y-\/coordinate (top-\/left corner) of the button \\
+{\em y} & La coordonnée y (coin supérieur gauche) du bouton. \\
 \hline
-{\em w} & The width of the button \\
+{\em w} & La largeur du bouton. \\
 \hline
-{\em h} & The height of the button \\
+{\em h} & La hauteur du bouton. \\
 \hline
-{\em color} & The background color of the button \\
+{\em color} & La couleur de fond du bouton. \\
 \hline
-{\em textcolor} & The color to use for the button text \\
+{\em textcolor} & La couleur du texte du bouton. \\
 \hline
-{\em on\+Click} & The callback function called when the button is clicked \\
+{\em on\+Click} & La fonction de rappel appelée lors du clic sur le bouton. \\
 \hline
-{\em data} & The user-\/defined data passed to the callback \\
+{\em data} & Les données utilisateur passées à la fonction de rappel. \\
 \hline
-{\em font} & The font used to draw the button text\\
+{\em font} & La police utilisée pour dessiner le texte du bouton. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-A pointer to the newly created \doxylink{structButton}{Button} object 
+Un pointeur vers le nouvel objet \doxylink{structButton}{Button} créé. 
 \end{DoxyReturn}
 \Hypertarget{Buttons_8c_a38653592fe2d409f3a7a620a1d6de080}\label{Buttons_8c_a38653592fe2d409f3a7a620a1d6de080} 
 \index{Buttons.c@{Buttons.c}!createSlider@{createSlider}}
@@ -156,29 +156,29 @@ A pointer to the newly created \doxylink{structButton}{Button} object
 
 
 
-Create a \doxylink{structSlider}{Slider} object. 
+Crée un objet \doxylink{structSlider}{Slider}. 
 
-This function initializes a new \doxylink{structSlider}{Slider} object with the specified parameters.
+Cette fonction initialise un nouvel objet \doxylink{structSlider}{Slider} avec les paramètres spécifiés.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em renderer} & The SDL\+\_\+\+Renderer to use for rendering the slider. \\
+{\em renderer} & Le SDL\+\_\+\+Renderer à utiliser pour le rendu du curseur. \\
 \hline
-{\em x} & The x-\/coordinate of the slider\textquotesingle{}s position. \\
+{\em x} & La coordonnée x de la position du curseur. \\
 \hline
-{\em y} & The y-\/coordinate of the slider\textquotesingle{}s position. \\
+{\em y} & La coordonnée y de la position du curseur. \\
 \hline
-{\em w} & The width of the slider. \\
+{\em w} & La largeur du curseur. \\
 \hline
-{\em h} & The height of the slider. \\
+{\em h} & La hauteur du curseur. \\
 \hline
-{\em color} & The color of the slider. \\
+{\em color} & La couleur du curseur. \\
 \hline
-{\em cursor\+Color} & The color of the slider\textquotesingle{}s cursor. \\
+{\em cursor\+Color} & La couleur du curseur. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Slider\texorpdfstring{$\ast$}{*} A pointer to the newly created \doxylink{structSlider}{Slider} object. 
+Slider\texorpdfstring{$\ast$}{*} Un pointeur vers le nouvel objet \doxylink{structSlider}{Slider} créé. 
 \end{DoxyReturn}
 \Hypertarget{Buttons_8c_a35aed4a2d403e0d35ea6f353e9e318f8}\label{Buttons_8c_a35aed4a2d403e0d35ea6f353e9e318f8} 
 \index{Buttons.c@{Buttons.c}!destroyButton@{destroyButton}}
@@ -188,11 +188,11 @@ Slider\texorpdfstring{$\ast$}{*} A pointer to the newly created \doxylink{struct
 
 
 
-Performs the specified action for the given button. 
+Détruit un bouton. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em button} & Identifier of the button to act upon. \\
+{\em button} & Pointeur vers le bouton à détruire. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Buttons_8c_a6f2d10aaa75aec651d944a49824dfaca}\label{Buttons_8c_a6f2d10aaa75aec651d944a49824dfaca} 
@@ -203,11 +203,11 @@ Performs the specified action for the given button.
 
 
 
-Processes the specified list of items. 
+Détruit la liste de boutons. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em list} & A pointer or reference to the list of items to be processed. \\
+{\em list} & Pointeur vers la liste de boutons à détruire. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Buttons_8c_afa394eaa634219089d84e0d91e3a6345}\label{Buttons_8c_afa394eaa634219089d84e0d91e3a6345} 
@@ -217,8 +217,12 @@ Processes the specified list of items.
 {\footnotesize\ttfamily void destroy\+Slider (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}}]{slider }\end{DoxyParamCaption})}
 
 
+
+Détruit un curseur. 
+
+
 \begin{DoxyParams}{Paramètres}
-{\em slider} & \\
+{\em slider} & Pointeur vers le curseur à détruire. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Buttons_8c_abcb6effb395215a5c8d11247edfcaaf2}\label{Buttons_8c_abcb6effb395215a5c8d11247edfcaaf2} 
@@ -229,11 +233,11 @@ Processes the specified list of items.
 
 
 
-Processes a list of button events. 
+Détruit la liste de curseurs. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em list} & A pointer to the list of button events to be processed. \\
+{\em list} & Pointeur vers la liste de curseurs à détruire. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Buttons_8c_ab2651492b9cdec9f58253f8ba23f25f5}\label{Buttons_8c_ab2651492b9cdec9f58253f8ba23f25f5} 
@@ -244,21 +248,21 @@ Processes a list of button events.
 
 
 
-Handles the button press event. 
+Gère l\textquotesingle{}événement de curseur. 
 
-This function processes the button press event based on the given slider and coordinates.
+Cette fonction traite l\textquotesingle{}événement de curseur en fonction du curseur et des coordonnées donnés.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em slider} & The slider value associated with the button press. \\
+{\em slider} & Le curseur associé à l\textquotesingle{}événement. \\
 \hline
-{\em x} & The x-\/coordinate of the button press. \\
+{\em x} & La coordonnée x de l\textquotesingle{}événement. \\
 \hline
-{\em y} & The y-\/coordinate of the button press. \\
+{\em y} & La coordonnée y de l\textquotesingle{}événement. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-int Returns 0 on success, or an error code on failure. 
+int Retourne 0 en cas de succès, ou un code d\textquotesingle{}erreur en cas d\textquotesingle{}échec. 
 \end{DoxyReturn}
 \Hypertarget{Buttons_8c_a3c5543de3f97098d0098510de08e7dcd}\label{Buttons_8c_a3c5543de3f97098d0098510de08e7dcd} 
 \index{Buttons.c@{Buttons.c}!InitTextureButton@{InitTextureButton}}
@@ -268,15 +272,15 @@ int Returns 0 on success, or an error code on failure.
 
 
 
-Initializes a button with the specified image and associates it with the given renderer. 
+Initialise un bouton avec l\textquotesingle{}image spécifiée et l\textquotesingle{}associe au renderer donné. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em button} & Pointer to the button structure to be initialized. \\
+{\em button} & Pointeur vers la structure du bouton à initialiser. \\
 \hline
-{\em renderer} & Pointer to the renderer used for drawing the button. \\
+{\em renderer} & Pointeur vers le renderer utilisé pour dessiner le bouton. \\
 \hline
-{\em image\+Path} & File path to the image resource for the button. \\
+{\em image\+Path} & Chemin du fichier image pour le bouton. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Buttons_8c_ad346eafe3f2839d87b9851e36f497040}\label{Buttons_8c_ad346eafe3f2839d87b9851e36f497040} 
@@ -287,11 +291,11 @@ Initializes a button with the specified image and associates it with the given r
 
 
 
-Processes the specified button action. 
+Rend un bouton. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em button} & The identifier of the button to process. \\
+{\em button} & Pointeur vers le bouton à rendre. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Buttons_8c_a73fede4267ce18db513f7ea5e430cdca}\label{Buttons_8c_a73fede4267ce18db513f7ea5e430cdca} 
@@ -302,11 +306,11 @@ Processes the specified button action.
 
 
 
-Brief description of the function. 
+Rend la liste de boutons. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em B} & Description of the input parameter. \\
+{\em B} & Pointeur vers la liste de boutons à rendre. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Buttons_8c_a36eeecc07a5e96684859833ad0986c4a}\label{Buttons_8c_a36eeecc07a5e96684859833ad0986c4a} 
@@ -317,11 +321,11 @@ Brief description of the function.
 
 
 
-Handles the button press events. 
+Rend un curseur. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em slider} & A pointer to the slider object that the button interacts with. \\
+{\em slider} & Pointeur vers le curseur à rendre. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Buttons_8c_a160b73f6e05ac0b81b4fd57a404393f0}\label{Buttons_8c_a160b73f6e05ac0b81b4fd57a404393f0} 
@@ -332,11 +336,11 @@ Handles the button press events.
 
 
 
-Handles button press events. 
+Rend la liste de curseurs. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em S} & The state of the buttons. \\
+{\em S} & Pointeur vers la liste de curseurs à rendre. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Buttons_8c_a46d3f067fb44669bc3438b8030823799}\label{Buttons_8c_a46d3f067fb44669bc3438b8030823799} 
@@ -347,15 +351,15 @@ Handles button press events.
 
 
 
-Renders a button with the specified text. 
+Définit le texte d\textquotesingle{}un bouton. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em button} & The button to render. \\
+{\em button} & Le bouton à modifier. \\
 \hline
-{\em text} & The text to display on the button. \\
+{\em text} & Le texte à afficher sur le bouton. \\
 \hline
-{\em renderer} & The renderer to use for drawing the button. \\
+{\em renderer} & Le renderer à utiliser pour dessiner le bouton. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Buttons_8c_a604a2e476e66033908fc016c70138aac}\label{Buttons_8c_a604a2e476e66033908fc016c70138aac} 
@@ -366,15 +370,15 @@ Renders a button with the specified text.
 
 
 
-Updates button states and applies scaling factors to the user interface elements. 
+Met à jour les états des boutons et applique des facteurs de mise à l\textquotesingle{}échelle aux éléments de l\textquotesingle{}interface utilisateur. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em buttons} & A structure or collection representing the buttons to be managed or updated. \\
+{\em buttons} & Structure ou collection représentant les boutons à gérer ou à mettre à jour. \\
 \hline
-{\em Scalex} & The horizontal scaling factor to apply. \\
+{\em Scalex} & Le facteur de mise à l\textquotesingle{}échelle horizontal à appliquer. \\
 \hline
-{\em Scaley} & The vertical scaling factor to apply. \\
+{\em Scaley} & Le facteur de mise à l\textquotesingle{}échelle vertical à appliquer. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Buttons_8c_a109411bd394d38718374d0b1fde9a020}\label{Buttons_8c_a109411bd394d38718374d0b1fde9a020} 
@@ -385,14 +389,14 @@ Updates button states and applies scaling factors to the user interface elements
 
 
 
-Update the position of the sliders based on the mouse\textquotesingle{}s X and Y coordinates. 
+Met à jour la position des curseurs en fonction des coordonnées X et Y de la souris. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em sliders} & A pointer to the structure containing the sliders to be updated. \\
+{\em sliders} & Pointeur vers la structure contenant les curseurs à mettre à jour. \\
 \hline
-{\em Scalex} & Scale factor for the horizontal axis. \\
+{\em Scalex} & Facteur de mise à l\textquotesingle{}échelle pour l\textquotesingle{}axe horizontal. \\
 \hline
-{\em Scaley} & Scale factor for the vertical axis. \\
+{\em Scaley} & Facteur de mise à l\textquotesingle{}échelle pour l\textquotesingle{}axe vertical. \\
 \hline
 \end{DoxyParams}

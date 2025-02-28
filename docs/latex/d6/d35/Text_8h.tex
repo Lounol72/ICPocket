@@ -19,16 +19,18 @@ struct \mbox{\hyperlink{structText}{Text}}
 \doxysubsubsection*{Définitions de type}
 \begin{DoxyCompactItemize}
 \item 
+typedef struct \mbox{\hyperlink{structWindow}{Window}} \mbox{\hyperlink{Text_8h_adb2a551453af16dd3214a23b16e67544}{Window}}
+\item 
 typedef struct \mbox{\hyperlink{structText}{Text}} \mbox{\hyperlink{Text_8h_a230d9bf1ae79368f80b618fa0e4eda09}{Text}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{Text_8h_af5e6443549548b45c6ea809665001cd0}{init\+Text}} (struct \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
+void \mbox{\hyperlink{Text_8h_ae96d247380273da323d069ed370b9bb5}{init\+Text}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
 \begin{DoxyCompactList}\small\item\em Initialise les objets texte. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Text_8h_a1311acdef7d344c53fe43c83769610e9}{create\+Text}} (const char \texorpdfstring{$\ast$}{*}text, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Rect rect, SDL\+\_\+\+Color color, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font)
 \begin{DoxyCompactList}\small\item\em Crée un nouvel objet texte. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{Text_8h_a279a58d3ade7f4395fb329895f439ba0}{render\+Text}} (struct \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}text)
+void \mbox{\hyperlink{Text_8h_aa3e6ed3d92366b3bd8523a5d991cfb49}{render\+Text}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}text)
 \begin{DoxyCompactList}\small\item\em Rend un objet texte. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Text_8h_a015ae8ec886baef9970798a86f682b27}{update\+Text\+Position}} (\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}text, float scaleX, float scaleY)
 \begin{DoxyCompactList}\small\item\em Met à jour la position d\textquotesingle{}un objet texte. \end{DoxyCompactList}\item 
@@ -36,7 +38,7 @@ void \mbox{\hyperlink{Text_8h_a452ccfba136e1b799b2f51cc82e66638}{destroy\+Text}}
 \begin{DoxyCompactList}\small\item\em Détruit un objet texte. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Text_8h_aa873f47f05aa894283bed1c93b836b09}{update\+Text}} (\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}text, const char \texorpdfstring{$\ast$}{*}new\+Text, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
 \begin{DoxyCompactList}\small\item\em Met à jour le contenu d\textquotesingle{}un objet texte. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{Text_8h_ad2c3f488e42d303d4d334936535dcf62}{change\+Text\+Speed}} (struct \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+void \mbox{\hyperlink{Text_8h_a7d818bb937ba7baa5e9658e96d8f0fe4}{change\+Text\+Speed}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
 \begin{DoxyCompactList}\small\item\em Change la vitesse du texte. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -59,14 +61,20 @@ Ce fichier définit la structure \doxylink{structText}{Text} et les fonctions as
 \doxysubsubsection{\texorpdfstring{Text}{Text}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structText}{Text}} \mbox{\hyperlink{structText}{Text}}}
 
+\Hypertarget{Text_8h_adb2a551453af16dd3214a23b16e67544}\label{Text_8h_adb2a551453af16dd3214a23b16e67544} 
+\index{Text.h@{Text.h}!Window@{Window}}
+\index{Window@{Window}!Text.h@{Text.h}}
+\doxysubsubsection{\texorpdfstring{Window}{Window}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structWindow}{Window}} \mbox{\hyperlink{structWindow}{Window}}}
+
 
 
 \doxysubsection{Documentation des fonctions}
-\Hypertarget{Text_8h_ad2c3f488e42d303d4d334936535dcf62}\label{Text_8h_ad2c3f488e42d303d4d334936535dcf62} 
+\Hypertarget{Text_8h_a7d818bb937ba7baa5e9658e96d8f0fe4}\label{Text_8h_a7d818bb937ba7baa5e9658e96d8f0fe4} 
 \index{Text.h@{Text.h}!changeTextSpeed@{changeTextSpeed}}
 \index{changeTextSpeed@{changeTextSpeed}!Text.h@{Text.h}}
 \doxysubsubsection{\texorpdfstring{changeTextSpeed()}{changeTextSpeed()}}
-{\footnotesize\ttfamily void change\+Text\+Speed (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void change\+Text\+Speed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
 
 
 
@@ -126,11 +134,11 @@ Cette fonction libère les ressources associées à l\textquotesingle{}objet tex
 {\em text} & Un pointeur vers l\textquotesingle{}objet \doxylink{structText}{Text} à détruire. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{Text_8h_af5e6443549548b45c6ea809665001cd0}\label{Text_8h_af5e6443549548b45c6ea809665001cd0} 
+\Hypertarget{Text_8h_ae96d247380273da323d069ed370b9bb5}\label{Text_8h_ae96d247380273da323d069ed370b9bb5} 
 \index{Text.h@{Text.h}!initText@{initText}}
 \index{initText@{initText}!Text.h@{Text.h}}
 \doxysubsubsection{\texorpdfstring{initText()}{initText()}}
-{\footnotesize\ttfamily void init\+Text (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void init\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
 
 
 
@@ -143,11 +151,11 @@ Cette fonction initialise les objets texte utilisés dans l\textquotesingle{}app
 {\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window}. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{Text_8h_a279a58d3ade7f4395fb329895f439ba0}\label{Text_8h_a279a58d3ade7f4395fb329895f439ba0} 
+\Hypertarget{Text_8h_aa3e6ed3d92366b3bd8523a5d991cfb49}\label{Text_8h_aa3e6ed3d92366b3bd8523a5d991cfb49} 
 \index{Text.h@{Text.h}!renderText@{renderText}}
 \index{renderText@{renderText}!Text.h@{Text.h}}
 \doxysubsubsection{\texorpdfstring{renderText()}{renderText()}}
-{\footnotesize\ttfamily void render\+Text (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}}]{text }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void render\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}}]{text }\end{DoxyParamCaption})}
 
 
 
