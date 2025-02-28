@@ -1,7 +1,6 @@
 #include "../include/GameEngine.h"
 #include "../include/ministdlib.h"
 #include "../include/save.h"
-
 void sauvegarder2(t_Team * joueur,t_Team * adverse){
     char nomFichier[1024];
     strcpy(nomFichier , "src/data/save/");
@@ -76,6 +75,7 @@ void sauvegarder(char * nomSave ,t_Team * joueur,t_Team * adverse){
             fprintf(fichier,"\n\n");
         }
         fprintf(fichier, "Dernier dresseur battu : %s id: %d\n", adverse->trainerName, adverse->id);
+        joueur->lastEnemiID = adverse->id;
         printf("Sauvegarde effectuée\n");
         fclose(fichier);
     }
@@ -119,8 +119,9 @@ void charger(char *nomSave, t_Team *joueur, t_Team *dresseur) {
 		    }
         }
         
-
-        fscanf(fichier, "Dernier dresseur battu : %s id: %d\n", dresseur->trainerName, &(dresseur->id));
+        char temp[10];
+        strcpy(dresseur->trainerName,"oui");
+        fscanf(fichier, "Dernier dresseur battu : %s id: %d\n", temp, &(joueur->lastEnemiID));
         fclose(fichier);
     }
 }

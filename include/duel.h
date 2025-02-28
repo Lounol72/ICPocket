@@ -22,16 +22,15 @@ typedef struct{
 	t_Poke team[6];
 	int nb_poke;
 	int statChanges[6];
-	t_Effect effect;	
+	t_Effect effect;
+	int lastEnemiID;
+	int nb_enemiBeat;
 } t_Team;
 
-<<<<<<< Updated upstream
 typedef struct{
-	int moveId
+	int moveId;
 	t_Poke * target;
 } Lvl_Up_Buffer;
-=======
->>>>>>> Stashed changes
 
 extern int (*SecEffectTab[3])(t_Team *,int,int,int);
 
@@ -61,7 +60,7 @@ void launchSecEffect(t_Team * offender, t_Team * defender, t_Move * action);
 void printTeam(t_Team * t);
 int calcStatFrom(t_Poke * p,int stat);
 void initTeam(t_Team * t,int);
-void initBlueTeam(t_Team *t);
+//void initBlueTeam(t_Team *t,t_Team *joueur);
 int calcDamage(t_Team * offender,t_Team * defender, t_Move *);
 void setDefaultStatChanges(t_Team * p);
 int resolveSpeedDuel(int speed1, int speed2);

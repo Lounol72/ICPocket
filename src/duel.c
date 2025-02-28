@@ -111,6 +111,8 @@ int calcStatFrom(t_Poke * p, int stat) {
 void initTeam(t_Team * t, int nb_poke){
 	t->nb_poke=nb_poke;
 	t->effect=noEffect;
+	//t->lastEnemiID = NULL;
+	t->nb_enemiBeat = 0;
 	for(int i=0;i<nb_poke;i++){
 		t->team[i].nb_move=rand()%3+1;
 		t->team[i].main_effect=noEffect;
@@ -123,8 +125,8 @@ void initTeam(t_Team * t, int nb_poke){
 }
 
 //Non fonctionnel pour l'instant
-/*
-void initBlueTeam(t_Team *t) {
+
+/*void initBlueTeam(t_Team *t,t_Team *joueur) {
     FILE *fichierTrainer = fopen("src/data/dataTrainer.csv", "r");
     if (fichierTrainer == NULL) {
         printf("Erreur : impossible d'ouvrir le fichier.\n");
@@ -145,7 +147,7 @@ void initBlueTeam(t_Team *t) {
         t->nb_poke = nb_poke;
         for (int i = 0; i < nb_poke; i++) {
             fscanf(fichierTrainer, "%d\n", &id_poke);
-            generate_poke(&(t->team[i]), id_poke);
+            generate_poke_enemi(&(t->team[i]), id_poke,joueur);
             for (int j = 0; j < nb_poke; j++) t->statChanges[j] = NEUTRAL_STAT_CHANGE;
             t->team[i].current_pv = calcStatFrom(&(t->team[i]), PV);
             for (int j = 0; j < t->team[i].nb_move; j++) {
@@ -155,8 +157,8 @@ void initBlueTeam(t_Team *t) {
         }
         fclose(fichierTrainer);
     }
-}*/
-
+}
+*/
 int calcDamage(t_Team * offender, t_Team * defender, t_Move * move){
 	int coupCritique=((rand()%24)==0);
 	int damage;
