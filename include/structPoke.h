@@ -92,13 +92,25 @@ void generate_poke(t_Poke *p,int id);
 void generatePoke(t_Poke *);
 
 /**
-*@brief Generate a move
-*@return the generated move 
+*@brief Fonctions pour générer des moves ( attaques de nos montres)
+*@return the generated move
+*/
+
+/*---------------------------------------------------------------------------*/
+ 
+/**
+ * @brief génere une attaque non aléatoirement, selon une id donnée, utiliser
+ * @param id : l'id
  */
 t_Move generateMove(int id);
+
+/**
+ * @brief generer aleatoirement
+ */
 t_Move generateRandomMove();
 t_Move generateRandomMoveBetter(t_Poke *p);
 void learnMove(t_Poke *, t_Move *, int);
+/*----------------------------------------------------------------------------*/
 void printPoke(t_Poke *);
 void initNature();
 void initData();
