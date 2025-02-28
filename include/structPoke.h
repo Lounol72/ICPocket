@@ -89,6 +89,7 @@ extern float typeChart[typeNumber][typeNumber];
 *@param id : the id of the Icmon to generate
  */
 void generate_poke(t_Poke *p,int id);
+//void generate_poke_enemi(t_Poke *p, int line,t_Team * joueur);
 void generatePoke(t_Poke *);
 
 /**
