@@ -30,8 +30,8 @@ static SDL_GameController* initializeController(void) {
 // Helper function to manage frame rate
 void manageFrameRate(int frameStart) {
     // Définir le FPS cible (60 FPS)
-    const int TARGET_FPS = 60;
-    const int FRAME_DELAY = 1000 / TARGET_FPS;
+    static const int TARGET_FPS = 60;
+    static const int FRAME_DELAY = 1000 / TARGET_FPS;
 
     int frameTime = SDL_GetTicks() - frameStart;
     
@@ -43,7 +43,7 @@ void manageFrameRate(int frameStart) {
     
     game.deltaTime = frameTime / 1000.0f;
     
-    printf("\rDeltaTime: %f | FPS: %f", game.deltaTime, 1/game.deltaTime);
+    printf("\r⚡ Delta: %.2f | FPS: %.2f", game.deltaTime, 1/game.deltaTime);
     fflush(stdout);
 }
 
@@ -173,7 +173,7 @@ void changePokemon(Window *win, void *data) {
     int idx = (int)(intptr_t)data; 
     if (testActionValidity(idx, &game.battleState.rouge)) {
         if (game.battleState.rouge.team[0].current_pv != 0) {
-            if (idx >= 0 && idx < game.battleState.rouge.team[0].nb_move) {
+            if (idx >= 0 && idx < game.battleState.rouge.nb_poke) {
                 playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&(game.battleState.ia), &game.battleState.rouge));
             } else {
                 SDL_Log("Indice de mouvement invalide : %d", idx);
@@ -235,7 +235,7 @@ void mainLoop(Window *win) {
         // Update deltaTime
         game.deltaTime = (SDL_GetTicks() - frameStart) / 1000.0f;
         
-        //SDL_Delay(16); // Prevent CPU overuse
+        manageFrameRate(frameStart);
     }
     
     // Cleanup

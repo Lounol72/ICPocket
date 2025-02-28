@@ -4,7 +4,7 @@ Camera* createCamera(int windowWidth, int windowHeight) {
     Camera* camera = malloc(sizeof(Camera));
     camera->x = 0;
     camera->y = 0;
-    camera->scale = 2.5f;  // Zoom initial
+    camera->scale = 2.175f;  // Zoom initial
     camera->viewport.w = windowWidth;
     camera->viewport.h = windowHeight;
     camera->targetX = 0;

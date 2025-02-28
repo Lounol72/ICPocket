@@ -425,17 +425,17 @@ void gainExp(t_Team * target, t_Poke * source){
 			//* isTrainerPoke and EXPBoost are always True by technical reasons therefore their values are 1.5
 			//* BaseEXP has no real formula so I defined it with BasePV * 2 
 			// Calculate exp gain using constants for clarity
-			const float TRAINER_BONUS = 1.5;
-			const float EXP_BOOST = 1.5;
-			const int BASE_EXP_MULTIPLIER = 2;
-			const int EXP_DIVISOR = 7;
+			static const float TRAINER_BONUS = 1.5;
+			static const float EXP_BOOST = 1.5;
+			static const int BASE_EXP_MULTIPLIER = 2;
+			static const int EXP_DIVISOR = 7;
 			
 			exp_amount = (TRAINER_BONUS * EXP_BOOST * source->lvl * BASE_EXP_MULTIPLIER * calcStatFrom(source, PV)) / EXP_DIVISOR;
 			target->team[i].exp += (unsigned)exp_amount;
 			printf("%s gagne %d exp\n", target->team[i].name, exp_amount);
 			
 			// Store initial HP before level up
-			pv_before_lvl_up = target->team[i].current_pv;
+			pv_before_lvl_up = target->team[i].initial_pv;
 			
 			// Process any level ups
 			while(reachedNextLvl(&(target->team[i])));
