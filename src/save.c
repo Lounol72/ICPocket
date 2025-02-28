@@ -98,6 +98,7 @@ void charger(char *nomSave, t_Team *joueur, t_Team *dresseur) {
             fscanf(fichier, "id:%d\n", &(joueur->team[i].id));
             generate_poke(&(joueur->team[i]), joueur->team[i].id);
             fscanf(fichier, "lvl:%d\n", &(joueur->team[i].lvl));
+            joueur->team[i].exp=expCurve(joueur->team[i].lvl);
             fscanf(fichier, "nature:%d\n", &(joueur->team[i].nature));
             fscanf(fichier, "nbmove:%d\n", &(joueur->team[i].nb_move));
             for (int j = 0; j < 6; j++)

@@ -25,7 +25,16 @@ typedef struct{
 	t_Effect effect;	
 } t_Team;
 
+typedef struct{
+	int moveId
+	t_Poke * target;
+} Lvl_Up_Buffer;
+
 extern int (*SecEffectTab[3])(t_Team *,int,int,int);
+
+/*This buffer purpose is to allow leveling up learning moves to work without blocking the SDL window*/
+extern Lvl_Up_Buffer lvl_up_buffer[6];
+extern int lvl_up_buffer_size;
 
 extern t_Team rouge;
 extern t_Team bleu;
@@ -70,6 +79,7 @@ int playATurn(t_Team * t1, int move1, t_Team * t2, int move2);
 extern unsigned expCurve(int lvl);
 int reachedNextLvl(t_Poke * p);
 void gainExp(t_Team * target, t_Poke * source);
+void checkLearningMove(t_Poke * p);
 
 void testBattle(t_Team * rouge, t_Team * bleu);
 void testSwitch(t_Team * rouge, t_Team * bleu);

@@ -149,7 +149,7 @@ t_Move generateMove(int line){
 			}
 		}
 		fscanf(dataMove, "%d,%[^,],%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\n", &(move.id),move.name, &(move.power), (int*)&(move.type), &(move.categ), &(move.accuracy), &(move.max_pp), &(move.priority_lvl), &(move.target), &(move.ind_secEffect), &(move.probability), &(move.value_effect), &(move.effect_modifier));
-		
+		move.current_pp=move.max_pp;
 		fclose(dataMove);
 		return move;
 	}

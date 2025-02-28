@@ -14,6 +14,9 @@ t_Move struggle={-1,"lutte",50,noType,physical,200,1,1,0,1,2,100,25,0};
 
 t_Move confusedMove={-2,"Confus",40,noType,physical,200,1,1,0,1,-1,0,0,0};
 
+Lvl_Up_Buffer lvl_up_buffer[6];
+int lvl_up_buffer_size=0;
+
 int statVarChange(t_Team * target, int probability, int modifier, int targetedStat){
 	if(rand()%100<probability) {
 		if(target->statChanges[targetedStat]+modifier>12) target->statChanges[targetedStat]=12;
@@ -380,6 +383,23 @@ int playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 
 }
 
+
+void checkLearningMove(t_Poke * p){
+	FILE * movepoolFile=fopen("src/data/movepools.csv","r");
+	if (movepoolFile!=NULL){
+		char format[10];
+		int idMove;
+		/*format is 'idPoke;lvl;%d' where %d is the id of the move we search*/
+		sprintf(format,"%d;%d;%%d",p->id,p->lvl);
+		if(fscanf(movepoolFile,format,&idMove)!=0){
+			//potentiel malloc
+			lvl_up_buffer[lvl_up_buffer_size].moveId=idMove;
+			lvl_up_buffer[lvl_up_buffer_size++].target=p;
+		}
+	fclose(movepoolFile);
+	}
+}
+
 unsigned expCurve(int lvl){
 	/*Used Fast exp curve formula : lvl**3 */
 	return lvl*lvl*lvl;
@@ -390,6 +410,7 @@ int reachedNextLvl(t_Poke * p){
 		p->lvl++;
 		printf("%s monte au niveau %d\n",p->name,p->lvl);
 		/*TO ADD HERE : apprendre une nouvelle attaque si disponible*/
+		checkLearningMove(p);
 		return TRUE;
 	}
 	return FALSE;
