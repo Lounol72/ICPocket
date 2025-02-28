@@ -1,0 +1,44 @@
+<map id="include/Text.h" name="include/Text.h">
+<area shape="rect" id="Node000001" title="Définition et gestion des éléments de texte." alt="" coords="719,5,831,31"/>
+<area shape="rect" id="Node000002" href="$d0/dbb/Events_8h.html" title=" " alt="" coords="619,79,748,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="752,41,700,81,697,76,748,37"/>
+<area shape="rect" id="Node000003" href="$d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="487,152,655,177"/>
+<area shape="poly" id="edge24_Node000001_Node000003" title=" " alt="" coords="707,32,655,50,630,64,608,81,595,97,585,117,576,152,570,151,580,115,590,95,604,77,627,59,653,45,705,27"/>
+<area shape="rect" id="Node000008" href="$d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="906,225,1085,251"/>
+<area shape="poly" id="edge25_Node000001_Node000008" title=" " alt="" coords="820,34,855,52,889,77,925,115,955,157,992,224,988,226,950,159,921,118,886,81,852,57,817,39"/>
+<area shape="rect" id="Node000011" href="$dc/dae/Text_8c.html" title=" " alt="" coords="819,299,902,324"/>
+<area shape="poly" id="edge26_Node000001_Node000011" title=" " alt="" coords="792,41,820,90,845,151,854,193,860,235,863,298,858,299,855,236,849,194,839,153,815,93,788,44"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="648,113,584,154,581,150,645,108"/>
+<area shape="rect" id="Node000016" href="$d7/d9f/Events_8c.html" title=" " alt="" coords="731,152,831,177"/>
+<area shape="poly" id="edge23_Node000002_Node000016" title=" " alt="" coords="712,110,766,150,763,154,709,114"/>
+<area shape="poly" id="edge7_Node000003_Node000002" title=" " alt="" coords="607,143,671,102,674,106,610,147"/>
+<area shape="rect" id="Node000004" href="$d3/d70/Buttons_8h.html" title="Gestion des boutons et curseurs pour l&#39;application." alt="" coords="5,225,140,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="474,181,141,229,140,223,473,176"/>
+<area shape="rect" id="Node000006" href="$d3/d5f/Game_8h.html" title=" " alt="" coords="140,299,264,324"/>
+<area shape="poly" id="edge8_Node000003_Node000006" title=" " alt="" coords="474,173,400,180,324,191,259,206,234,216,217,227,205,243,198,262,196,282,197,298,192,298,190,282,193,261,200,241,214,223,232,211,258,201,323,186,399,175,474,168"/>
+<area shape="poly" id="edge11_Node000003_Node000008" title=" " alt="" coords="647,177,921,223,920,228,646,182"/>
+<area shape="rect" id="Node000010" href="$d3/ded/Window_8h.html" title="Définition et gestion de la fenêtre principale de l&#39;application." alt="" coords="695,225,831,251"/>
+<area shape="poly" id="edge14_Node000003_Node000010" title=" " alt="" coords="609,180,726,223,724,228,607,185"/>
+<area shape="rect" id="Node000013" href="$d5/d81/GameEngine_8c.html" title=" " alt="" coords="239,225,378,251"/>
+<area shape="poly" id="edge20_Node000003_Node000013" title=" " alt="" coords="517,183,352,228,351,223,515,178"/>
+<area shape="rect" id="Node000014" href="$d1/dd5/ThreadManager_8c.html" title=" " alt="" coords="402,225,559,251"/>
+<area shape="poly" id="edge21_Node000003_Node000014" title=" " alt="" coords="547,188,497,227,494,223,544,184"/>
+<area shape="rect" id="Node000015" href="$df/dcf/save_8c.html" title=" " alt="" coords="584,225,671,251"/>
+<area shape="poly" id="edge22_Node000003_Node000015" title=" " alt="" coords="591,187,620,224,616,227,587,190"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="134,220,634,101,636,107,135,225"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="154,223,498,175,498,180,154,229"/>
+<area shape="rect" id="Node000005" href="$d9/d0e/Buttons_8c.html" title=" " alt="" coords="9,299,115,324"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="72,265,66,299,61,298,66,264"/>
+<area shape="poly" id="edge9_Node000006_Node000003" title=" " alt="" coords="210,284,219,253,226,237,238,223,256,212,280,202,344,186,417,175,487,169,488,174,418,181,345,191,282,207,258,216,241,227,231,240,224,255,215,286"/>
+<area shape="rect" id="Node000007" href="$dc/d22/Game_8c.html" title=" " alt="" coords="155,372,249,397"/>
+<area shape="poly" id="edge10_Node000006_Node000007" title=" " alt="" coords="205,338,205,372,199,372,199,338"/>
+<area shape="poly" id="edge12_Node000008_Node000003" title=" " alt="" coords="920,226,646,180,647,175,921,220"/>
+<area shape="rect" id="Node000009" href="$d9/d0c/RenderICMons_8c.html" title=" " alt="" coords="927,299,1077,324"/>
+<area shape="poly" id="edge13_Node000008_Node000009" title=" " alt="" coords="1000,264,1004,298,998,299,995,265"/>
+<area shape="poly" id="edge15_Node000010_Node000002" title=" " alt="" coords="742,216,716,179,697,139,684,105,689,103,702,137,720,176,746,213"/>
+<area shape="poly" id="edge17_Node000010_Node000003" title=" " alt="" coords="725,223,608,180,610,175,727,218"/>
+<area shape="poly" id="edge16_Node000010_Node000006" title=" " alt="" coords="682,253,265,305,264,300,681,248"/>
+<area shape="poly" id="edge18_Node000010_Node000011" title=" " alt="" coords="792,257,846,296,843,301,789,261"/>
+<area shape="rect" id="Node000012" href="$d4/d41/Window_8c.html" title=" " alt="" coords="689,299,795,324"/>
+<area shape="poly" id="edge19_Node000010_Node000012" title=" " alt="" coords="758,265,748,299,743,298,753,263"/>
+</map>

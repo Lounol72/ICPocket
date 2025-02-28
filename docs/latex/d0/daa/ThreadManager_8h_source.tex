@@ -8,29 +8,24 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00017\ \textcolor{comment}{//\ Structure\ forward\ declarations}}
-\DoxyCodeLine{00018\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structGame}{Game}};}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structThreadManager}{ThreadManager}}\ \{}
-\DoxyCodeLine{00041\ \ \ \ \ pthread\_t\ \mbox{\hyperlink{structThreadManager_a45814cb0ecbb18c7204bc8bf1b79fcd3}{audioThread}};}
-\DoxyCodeLine{00042\ \ \ \ \ pthread\_t\ \mbox{\hyperlink{structThreadManager_a9e784c40b635c71b1f5d280a64fb5833}{renderThread}};}
-\DoxyCodeLine{00043\ \ \ \ \ pthread\_t\ \mbox{\hyperlink{structThreadManager_aa9424313a055ccf37e2ab6c45366ffcd}{physicsThread}};}
-\DoxyCodeLine{00044\ \ \ \ \ pthread\_mutex\_t\ \mbox{\hyperlink{structThreadManager_ad897c405c4f5d79c60e3a1a3e3ad7c2a}{audioMutex}};}
-\DoxyCodeLine{00045\ \ \ \ \ pthread\_mutex\_t\ \mbox{\hyperlink{structThreadManager_a153631ed872464ed553ead8bcf7aa58a}{renderMutex}};}
-\DoxyCodeLine{00046\ \ \ \ \ pthread\_mutex\_t\ \mbox{\hyperlink{structThreadManager_adff666c7c26f150223fd28b9ec24fc3c}{physicsMutex}};}
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structThreadManager_a4f9008ea31202fda3bc2d5629827eb2b}{isRunning}};}
-\DoxyCodeLine{00048\ \}\ \mbox{\hyperlink{structThreadManager}{ThreadManager}};}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ThreadManager_8h_afee76d915ed992e08d60d5aeb57fd94b}{initThreadManager}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGame}{Game}}*\ \mbox{\hyperlink{GameEngine_8c_ac6a5ed6191fcf3a5bf0445921feb4f48}{game}});}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ThreadManager_8h_ad734831476cb021f3c4b0e5ba8a20ab0}{cleanupThreads}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGame}{Game}}*\ \mbox{\hyperlink{GameEngine_8c_ac6a5ed6191fcf3a5bf0445921feb4f48}{game}});}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{ThreadManager_8h_aca5053a41c03f29919bee861884c0a70}{audioThreadFunction}}(\textcolor{keywordtype}{void}*\ arg);}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{ThreadManager_8h_aaff54a9d240b3e5d945861bc3d16e7d3}{renderThreadFunction}}(\textcolor{keywordtype}{void}*\ arg);}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{ThreadManager_8h_ab7fd089aeb14f8bcbf5722455366c8fa}{physicsThreadFunction}}(\textcolor{keywordtype}{void}*\ arg);}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ THREAD\_MANAGER\_H\ */}\textcolor{preprocessor}{\ }}
+\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structGame}{Game}};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structThreadManager}{ThreadManager}}\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ pthread\_t\ \mbox{\hyperlink{structThreadManager_a45814cb0ecbb18c7204bc8bf1b79fcd3}{audioThread}};}
+\DoxyCodeLine{00041\ \ \ \ \ pthread\_t\ \mbox{\hyperlink{structThreadManager_aa9424313a055ccf37e2ab6c45366ffcd}{physicsThread}};}
+\DoxyCodeLine{00042\ \ \ \ \ pthread\_mutex\_t\ \mbox{\hyperlink{structThreadManager_ad897c405c4f5d79c60e3a1a3e3ad7c2a}{audioMutex}};}
+\DoxyCodeLine{00043\ \ \ \ \ pthread\_mutex\_t\ \mbox{\hyperlink{structThreadManager_adff666c7c26f150223fd28b9ec24fc3c}{physicsMutex}};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structThreadManager_a4f9008ea31202fda3bc2d5629827eb2b}{isRunning}};}
+\DoxyCodeLine{00045\ \}\ \mbox{\hyperlink{structThreadManager}{ThreadManager}};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ThreadManager_8h_afee76d915ed992e08d60d5aeb57fd94b}{initThreadManager}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGame}{Game}}*\ \mbox{\hyperlink{GameEngine_8c_ac6a5ed6191fcf3a5bf0445921feb4f48}{game}});}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ThreadManager_8h_ad734831476cb021f3c4b0e5ba8a20ab0}{cleanupThreads}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGame}{Game}}*\ \mbox{\hyperlink{GameEngine_8c_ac6a5ed6191fcf3a5bf0445921feb4f48}{game}});}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{ThreadManager_8h_aca5053a41c03f29919bee861884c0a70}{audioThreadFunction}}(\textcolor{keywordtype}{void}*\ arg);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{ThreadManager_8h_ab7fd089aeb14f8bcbf5722455366c8fa}{physicsThreadFunction}}(\textcolor{keywordtype}{void}*\ arg);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ THREAD\_MANAGER\_H\ */}\textcolor{preprocessor}{\ }}
 
 \end{DoxyCode}

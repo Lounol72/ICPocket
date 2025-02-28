@@ -1,11 +1,12 @@
 [0] [3] 🔧 Initialisation de la fenêtre ...
-[6] [3] Created renderer: software
+[6] [3] OpenGL shaders: ENABLED
+[6] [3] Created renderer: opengl
 [0] [3] Détails des flags pour le renderer :
 [0] [3] ✅ SDL Renderer Software: 1
 [0] [3] ✅ SDL Renderer Accelerated: 2
 [0] [3] ✅ SDL Renderer V-Sync: Not available
 [0] [3] ✅ SDL Renderer Target Texture: 8
-[0] [3] ✅ Utilisation des Flags: 1
+[0] [3] ✅ Utilisation des Flags: 2
 [0] [3] ✅ Initialisation de la fenêtre réussie
 [4] [3] 🔊 Initialisation de l'audio ...
 [4] [3] ✅ Mix_Init réussi.
@@ -16,40 +17,13 @@
 [0] [3] ✅ Nombre de manettes connectées : 0
 [0] [3] Changement d'état : 9
 [0] [3] Changement d'état : 2
-[0] [3] Changement d'état : 4
-[0] [3] PV : 235/235
-[0] [3] PV : 119/119
-[0] [3] PV : 297/297
-[0] [3] PV : 196/196
-[0] [3] PV : 153/153
-[0] [3] PV : 55/55
-[0] [3] Red team PV: 235, Blue team PV: 196
-[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 1
 [0] [3] Changement d'état : 2
 [0] [3] Changement d'état : 9
-[0] [3] Changement d'état : 2
-[0] [3] Changement d'état : 1
-[0] [3] Changement d'état : 9
-[0] [3] Changement d'état : 2
-[0] [3] Changement d'état : 1
 [0] [3] Changement d'état : 2
 [0] [3] Changement d'état : 0
 [0] [3] ✅ Musique libérée
 [0] [3] ✅ UI libérée
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[0] [3] ✅ ICMons rougeslibérés
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[1] [2] Parameter 'texture' is invalid
-[0] [3] ✅ ICMons bleus libérés
 [0] [3] ✅ State handlers libérés
 [0] [3] ✅ Speeds libérés
 [0] [3] ✅ LargeFont libéré

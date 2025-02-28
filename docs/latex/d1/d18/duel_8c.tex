@@ -1,12 +1,18 @@
 \doxysection{Référence du fichier src/duel.c}
 \hypertarget{duel_8c}{}\label{duel_8c}\index{src/duel.c@{src/duel.c}}
-{\ttfamily \#include "{}../include/struct\+Poke.\+h"{}}\newline
-{\ttfamily \#include "{}../include/duel.\+h"{}}\newline
-{\ttfamily \#include "{}../include/trainer\+AI.\+h"{}}\newline
-{\ttfamily \#include "{}../include/inter\+Duel.\+h"{}}\newline
-{\ttfamily \#include "{}../include/save.\+h"{}}\newline
+{\ttfamily \#include \"{}../include/struct\+Poke.\+h\"{}}\newline
+{\ttfamily \#include \"{}../include/duel.\+h\"{}}\newline
+{\ttfamily \#include \"{}../include/trainer\+AI.\+h\"{}}\newline
+{\ttfamily \#include \"{}../include/inter\+Duel.\+h\"{}}\newline
+{\ttfamily \#include \"{}../include/save.\+h\"{}}\newline
 Graphe des dépendances par inclusion de duel.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d46/duel_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
@@ -57,9 +63,11 @@ int \mbox{\hyperlink{duel_8c_a9b7c88dfcaf3b3fb7cc7093fdb99e341}{pp\+Check}} (\mb
 void \mbox{\hyperlink{duel_8c_a2cdb2c620c0e4c3077d6ae74c45ceb36}{affect\+Damage}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}offender, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}defender, int index\+Move)
 \item 
 void \mbox{\hyperlink{duel_8c_a785cf59b04b080c32b51ca8300b62507}{swap\+Actual\+Attacker}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t, int swap\+Index)
-\item 
+\begin{DoxyCompactList}\small\item\em La fonction swap\+Actual\+Attacker échange le pokémon présent à l\textquotesingle{}indice 0 avec celui présent à l\textquotesingle{}indice swap\+Index donné en paramètre. La fonction est sans effet si l\textquotesingle{}indice spécifié est invalide (hors liste, pokémon ko). \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{duel_8c_a37d0046e530324685213ff50a4c36cdb}{play\+ATurn}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t1, int move1, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t2, int move2)
 \begin{DoxyCompactList}\small\item\em La fonction play\+ATurn permet de jouer un tour d\textquotesingle{}un duel Pokémon classique, pour deux équipes au préalable générées et initialisées. La fonction modifie l\textquotesingle{}état des équipes en paramètre et gère tout les cas particuliers (actions invalides, gestion des afflictions, cas de lutte). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{duel_8c_ab70b8a8232d95fc2bb0e4ead1bbcfd3d}{check\+Learning\+Move}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p)
+\item 
 unsigned \mbox{\hyperlink{duel_8c_a3e88ec315719a73455623551f124fb62}{exp\+Curve}} (int lvl)
 \item 
 int \mbox{\hyperlink{duel_8c_a109762b4b492c870f576af03d9c9a805}{reached\+Next\+Lvl}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p)
@@ -85,9 +93,20 @@ int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{duel_8c_adc50e7669e9a8b080c36aff
 \item 
 float \mbox{\hyperlink{duel_8c_affbbdc8741a394a968366d77c640f1ff}{stat\+Variations}} \mbox{[}13\mbox{]} =\{0.\+25,2./7,1./3,2./5,0.\+5,2./3,1,1.\+5,2,2.\+5,3,3.\+5,4\}
 \item 
-\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{duel_8c_a69f8229a1c94eb0a11e091d8b54570f3}{struggle}} =\{-\/1,"{}lutte"{},50,\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,2,100,25,0\}
+\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{duel_8c_a69f8229a1c94eb0a11e091d8b54570f3}{struggle}} =\{-\/1,\"{}lutte\"{},50,\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,2,100,25,0\}
 \item 
+\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{duel_8c_acde9cb2f6b18119fde97bf6be55639c9}{confused\+Move}} =\{-\/2,\"{}Confus\"{},40,\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,-\/1,0,0,0\}
+\item 
+\mbox{\hyperlink{structLvl__Up__Buffer}{Lvl\+\_\+\+Up\+\_\+\+Buffer}} \mbox{\hyperlink{duel_8c_a14297bdf3858bfcb9f2b5553c4a37ad2}{lvl\+\_\+up\+\_\+buffer}} \mbox{[}6\mbox{]}
+\item 
+<<<<<<< Updated upstream
 \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{duel_8c_acde9cb2f6b18119fde97bf6be55639c9}{confused\+Move}} =\{-\/2,"{}Confus"{},40,\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,-\/1,0,0,0\}
+\item 
+\mbox{\hyperlink{structLvl__Up__Buffer}{Lvl\+\_\+\+Up\+\_\+\+Buffer}} \mbox{\hyperlink{duel_8c_a14297bdf3858bfcb9f2b5553c4a37ad2}{lvl\+\_\+up\+\_\+buffer}} \mbox{[}6\mbox{]}
+\item 
+=======
+>>>>>>> Stashed changes
+int \mbox{\hyperlink{duel_8c_a5fa7c71ee69bf53efd73ff3978602ab6}{lvl\+\_\+up\+\_\+buffer\+\_\+size}} =0
 \end{DoxyCompactItemize}
 
 
@@ -121,6 +140,12 @@ float \mbox{\hyperlink{duel_8c_affbbdc8741a394a968366d77c640f1ff}{stat\+Variatio
 \index{calcStatFrom@{calcStatFrom}!duel.c@{duel.c}}
 \doxysubsubsection{\texorpdfstring{calcStatFrom()}{calcStatFrom()}}
 {\footnotesize\ttfamily int calc\+Stat\+From (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{int}]{stat }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8c_ab70b8a8232d95fc2bb0e4ead1bbcfd3d}\label{duel_8c_ab70b8a8232d95fc2bb0e4ead1bbcfd3d} 
+\index{duel.c@{duel.c}!checkLearningMove@{checkLearningMove}}
+\index{checkLearningMove@{checkLearningMove}!duel.c@{duel.c}}
+\doxysubsubsection{\texorpdfstring{checkLearningMove()}{checkLearningMove()}}
+{\footnotesize\ttfamily void check\+Learning\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
 
 \Hypertarget{duel_8c_a3e88ec315719a73455623551f124fb62}\label{duel_8c_a3e88ec315719a73455623551f124fb62} 
 \index{duel.c@{duel.c}!expCurve@{expCurve}}
@@ -262,8 +287,25 @@ un booléen informant si un tour à été joué ou n\textquotesingle{}était pas
 \index{duel.c@{duel.c}!swapActualAttacker@{swapActualAttacker}}
 \index{swapActualAttacker@{swapActualAttacker}!duel.c@{duel.c}}
 \doxysubsubsection{\texorpdfstring{swapActualAttacker()}{swapActualAttacker()}}
-{\footnotesize\ttfamily void swap\+Actual\+Attacker (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{int}]{swap\+Index }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void swap\+Actual\+Attacker (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{target,  }\item[{int}]{swap\+Index }\end{DoxyParamCaption})}
 
+
+<<<<<<< Updated upstream
+
+La fonction swap\+Actual\+Attacker échange le pokémon présent à l\textquotesingle{}indice 0 avec celui présent à l\textquotesingle{}indice swap\+Index donné en paramètre. La fonction est sans effet si l\textquotesingle{}indice spécifié est invalide (hors liste, pokémon ko). 
+
+=======
+
+La fonction swap\+Actual\+Attacker échange le pokémon présent à l\textquotesingle{}indice 0 avec celui présent à l\textquotesingle{}indice swap\+Index donné en paramètre. La fonction est sans effet si l\textquotesingle{}indice spécifié est invalide (hors liste, pokémon ko). 
+
+>>>>>>> Stashed changes
+
+\begin{DoxyParams}{Paramètres}
+{\em target} & Un pointeur sur structure \doxylink{structt__Team}{t\+\_\+\+Team}, pointant sur une équipe suposée initialisée (voir init\+Team). \\
+\hline
+{\em swap\+Index} & L\textquotesingle{}indice entier du Pokémon cible de l\textquotesingle{}échange, généralement compris entre 1 et 5. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{duel_8c_a60a537c458c630a9ee8156278582bfa6}\label{duel_8c_a60a537c458c630a9ee8156278582bfa6} 
 \index{duel.c@{duel.c}!teamTest@{teamTest}}
 \index{teamTest@{teamTest}!duel.c@{duel.c}}
@@ -313,7 +355,31 @@ un booléen informant si un tour à été joué ou n\textquotesingle{}était pas
 \index{duel.c@{duel.c}!confusedMove@{confusedMove}}
 \index{confusedMove@{confusedMove}!duel.c@{duel.c}}
 \doxysubsubsection{\texorpdfstring{confusedMove}{confusedMove}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} confused\+Move =\{-\/2,"{}Confus"{},40,\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,-\/1,0,0,0\}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} confused\+Move =\{-\/2,\"{}Confus\"{},40,\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,-\/1,0,0,0\}}
+
+\Hypertarget{duel_8c_a14297bdf3858bfcb9f2b5553c4a37ad2}\label{duel_8c_a14297bdf3858bfcb9f2b5553c4a37ad2} 
+\index{duel.c@{duel.c}!lvl\_up\_buffer@{lvl\_up\_buffer}}
+\index{lvl\_up\_buffer@{lvl\_up\_buffer}!duel.c@{duel.c}}
+\doxysubsubsection{\texorpdfstring{lvl\_up\_buffer}{lvl\_up\_buffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structLvl__Up__Buffer}{Lvl\+\_\+\+Up\+\_\+\+Buffer}} lvl\+\_\+up\+\_\+buffer\mbox{[}6\mbox{]}}
+
+\Hypertarget{duel_8c_a5fa7c71ee69bf53efd73ff3978602ab6}\label{duel_8c_a5fa7c71ee69bf53efd73ff3978602ab6} 
+\index{duel.c@{duel.c}!lvl\_up\_buffer\_size@{lvl\_up\_buffer\_size}}
+\index{lvl\_up\_buffer\_size@{lvl\_up\_buffer\_size}!duel.c@{duel.c}}
+\doxysubsubsection{\texorpdfstring{lvl\_up\_buffer\_size}{lvl\_up\_buffer\_size}}
+{\footnotesize\ttfamily int lvl\+\_\+up\+\_\+buffer\+\_\+size =0}
+
+\Hypertarget{duel_8c_a14297bdf3858bfcb9f2b5553c4a37ad2}\label{duel_8c_a14297bdf3858bfcb9f2b5553c4a37ad2} 
+\index{duel.c@{duel.c}!lvl\_up\_buffer@{lvl\_up\_buffer}}
+\index{lvl\_up\_buffer@{lvl\_up\_buffer}!duel.c@{duel.c}}
+\doxysubsubsection{\texorpdfstring{lvl\_up\_buffer}{lvl\_up\_buffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structLvl__Up__Buffer}{Lvl\+\_\+\+Up\+\_\+\+Buffer}} lvl\+\_\+up\+\_\+buffer\mbox{[}6\mbox{]}}
+
+\Hypertarget{duel_8c_a5fa7c71ee69bf53efd73ff3978602ab6}\label{duel_8c_a5fa7c71ee69bf53efd73ff3978602ab6} 
+\index{duel.c@{duel.c}!lvl\_up\_buffer\_size@{lvl\_up\_buffer\_size}}
+\index{lvl\_up\_buffer\_size@{lvl\_up\_buffer\_size}!duel.c@{duel.c}}
+\doxysubsubsection{\texorpdfstring{lvl\_up\_buffer\_size}{lvl\_up\_buffer\_size}}
+{\footnotesize\ttfamily int lvl\+\_\+up\+\_\+buffer\+\_\+size =0}
 
 \Hypertarget{duel_8c_a549b747fa4f6f9c153b959c84c2d5ffa}\label{duel_8c_a549b747fa4f6f9c153b959c84c2d5ffa} 
 \index{duel.c@{duel.c}!rouge@{rouge}}
@@ -337,5 +403,5 @@ un booléen informant si un tour à été joué ou n\textquotesingle{}était pas
 \index{duel.c@{duel.c}!struggle@{struggle}}
 \index{struggle@{struggle}!duel.c@{duel.c}}
 \doxysubsubsection{\texorpdfstring{struggle}{struggle}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} struggle =\{-\/1,"{}lutte"{},50,\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,2,100,25,0\}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} struggle =\{-\/1,\"{}lutte\"{},50,\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,2,100,25,0\}}
 

@@ -19,6 +19,8 @@
 
 #if defined(SDL_RENDERER_PRESENTVSYNC)
     #define renderer_flags DEFAULT_RENDERER_FLAGS /**< Drapeaux par défaut du renderer si VSYNC est disponible. */
+#elif defined(__linux__)
+    #define renderer_flags SDL_RENDERER_ACCELERATED /**< Drapeaux du renderer pour Linux. */
 #else
     #define renderer_flags SDL_RENDERER_SOFTWARE /**< Repli sur le rendu logiciel si VSYNC n'est pas disponible. */
 #endif

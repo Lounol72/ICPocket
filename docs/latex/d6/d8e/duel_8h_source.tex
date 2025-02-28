@@ -12,60 +12,140 @@
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ ATTAQUE\_3\ 2}}
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ ATTAQUE\_4\ 3}}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{duel_8h_affbbdc8741a394a968366d77c640f1ff}{statVariations}}[13];}
-\DoxyCodeLine{00016\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ \mbox{\hyperlink{duel_8h_a69f8229a1c94eb0a11e091d8b54570f3}{struggle}};}
-\DoxyCodeLine{00017\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ \mbox{\hyperlink{duel_8h_acde9cb2f6b18119fde97bf6be55639c9}{confusedMove}};}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Team_a319b1b04363c97462e5dfbb5a8e24b6a}{id}};}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{char}\ trainerName[20];}
-\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{structt__Poke}{t\_Poke}}\ team[6];}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Team_a0e57efa0c1f03ab0492862d52cfc605a}{nb\_poke}};}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ statChanges[6];}
-\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0}{t\_Effect}}\ \mbox{\hyperlink{structt__Team_a37dd491f0b97ebaf7332f67e7553ee39}{effect}};\ \ }
-\DoxyCodeLine{00026\ \}\ \mbox{\hyperlink{structt__Team}{t\_Team}};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{keyword}{extern}\ int\ (*\mbox{\hyperlink{duel_8h_adc50e7669e9a8b080c36aff121cf7836}{SecEffectTab}}[3])(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *,int,int,int);}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}};}
-\DoxyCodeLine{00031\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}};}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_af43f8a6685d1709bbcd8603ab0dbdc63}{isAttacking}}(\textcolor{keywordtype}{int});}
-\DoxyCodeLine{00034\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a35136d8ab44fb65a4df9ab46633e533c}{isSwitching}}(\textcolor{keywordtype}{int});}
-\DoxyCodeLine{00035\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_aa112c976011418f424765e88722d77d4}{ppCheck}}(\mbox{\hyperlink{structt__Move}{t\_Move}}\ *);}
-\DoxyCodeLine{00036\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a6ce143cdd82c5149e2b103f7e64b0d41}{isExisting}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *);}
-\DoxyCodeLine{00037\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a58123fcf9acb6bb6b68e7b1213f374ff}{isAlive}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ p);}
-\DoxyCodeLine{00038\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a99cbc73f28e07ad276d0979276e5ba80}{isTeamAlive}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *);}
-\DoxyCodeLine{00039\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a856d1b8c22a68e78412f1d4a4ca3c0b0}{testActionValidity}}(\textcolor{keywordtype}{int}\ action,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t);}
-\DoxyCodeLine{00040\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a82732f92530a8627b7d1c8a55e55444c}{accuracyCheck}}(\textcolor{keywordtype}{int}\ accuracy);}
-\DoxyCodeLine{00041\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a1b5d03e9edfe6df9d2a3df248fc25944}{hasMoveLeft}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *);}
-\DoxyCodeLine{00042\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a9a93d0239783d82c323ee9581d82a3b7}{isStruggling}}(\textcolor{keywordtype}{int});}
+<<<<<<< Updated upstream
+\DoxyCodeLine{00016\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{duel_8h_affbbdc8741a394a968366d77c640f1ff}{statVariations}}[13];}
+\DoxyCodeLine{00017\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ \mbox{\hyperlink{duel_8h_a69f8229a1c94eb0a11e091d8b54570f3}{struggle}};}
+\DoxyCodeLine{00018\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ \mbox{\hyperlink{duel_8h_acde9cb2f6b18119fde97bf6be55639c9}{confusedMove}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Team_a319b1b04363c97462e5dfbb5a8e24b6a}{id}};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{char}\ trainerName[20];}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{structt__Poke}{t\_Poke}}\ team[6];}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Team_a0e57efa0c1f03ab0492862d52cfc605a}{nb\_poke}};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ statChanges[6];}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0}{t\_Effect}}\ \mbox{\hyperlink{structt__Team_a37dd491f0b97ebaf7332f67e7553ee39}{effect}};\ \ }
+\DoxyCodeLine{00027\ \}\ \mbox{\hyperlink{structt__Team}{t\_Team}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structLvl__Up__Buffer_a91397717040f88f5ad02d703925a31ba}{moveId}};}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ \mbox{\hyperlink{structLvl__Up__Buffer_a4234e21b25061a081c461f9faf002cd5}{target}};}
+\DoxyCodeLine{00032\ \}\ \mbox{\hyperlink{structLvl__Up__Buffer}{Lvl\_Up\_Buffer}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ int\ (*\mbox{\hyperlink{duel_8h_adc50e7669e9a8b080c36aff121cf7836}{SecEffectTab}}[3])(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *,int,int,int);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{/*This\ buffer\ purpose\ is\ to\ allow\ leveling\ up\ learning\ moves\ to\ work\ without\ blocking\ the\ SDL\ window*/}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structLvl__Up__Buffer}{Lvl\_Up\_Buffer}}\ \mbox{\hyperlink{duel_8h_a14297bdf3858bfcb9f2b5553c4a37ad2}{lvl\_up\_buffer}}[6];}
+\DoxyCodeLine{00038\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a5fa7c71ee69bf53efd73ff3978602ab6}{lvl\_up\_buffer\_size}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_af43f8a6685d1709bbcd8603ab0dbdc63}{isAttacking}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a35136d8ab44fb65a4df9ab46633e533c}{isSwitching}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_aa112c976011418f424765e88722d77d4}{ppCheck}}(\mbox{\hyperlink{structt__Move}{t\_Move}}\ *);}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a6ce143cdd82c5149e2b103f7e64b0d41}{isExisting}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *);}
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a58123fcf9acb6bb6b68e7b1213f374ff}{isAlive}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ p);}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a99cbc73f28e07ad276d0979276e5ba80}{isTeamAlive}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *);}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a856d1b8c22a68e78412f1d4a4ca3c0b0}{testActionValidity}}(\textcolor{keywordtype}{int}\ action,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t);}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a82732f92530a8627b7d1c8a55e55444c}{accuracyCheck}}(\textcolor{keywordtype}{int}\ accuracy);}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a1b5d03e9edfe6df9d2a3df248fc25944}{hasMoveLeft}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *);}
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a9a93d0239783d82c323ee9581d82a3b7}{isStruggling}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a135734ce30fed1100fd7e060f672f018}{statVarChange}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ target,\ \textcolor{keywordtype}{int}\ probability,\ \textcolor{keywordtype}{int}\ modifier,\ \textcolor{keywordtype}{int}\ targetedStat);}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_aa6f1d50587260f5a4957edc4dae26e35}{applyEffect}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ target,\ \textcolor{keywordtype}{int}\ probability,\ \textcolor{keywordtype}{int}\ effect,\ \textcolor{keywordtype}{int}\ bool\_main\_effect);}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a8a4770999605ebb93a222787153477c8}{recoilDamage}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ target,\ \textcolor{keywordtype}{int}\ probability,\ \textcolor{keywordtype}{int}\ percentage\_of\_val,\ \textcolor{keywordtype}{int}\ indexPoke);}
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_afb8420f65f7cdf37b44746b5ba2f27e0}{launchSecEffect}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ offender,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ defender,\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ *\ action);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_ae1589871f2fb9f4bf5da22519ef13c6a}{printTeam}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t);}
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a0e27a0c4136f1f57a6f4f3e052ab2e54}{calcStatFrom}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ p,\textcolor{keywordtype}{int}\ stat);}
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a4b3832f2db59021e5a2a8f4438ddadc1}{initTeam}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t,\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a1c2ca0c1ff43f1025edfb079aff2dc00}{initBlueTeam}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *t);}
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a74d793946dc5e0e5f1dc6ed14d3d96dc}{calcDamage}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ offender,\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ defender,\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ *);}
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a8fc0892b3753845a32113b61ce8b1b6c}{setDefaultStatChanges}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ p);}
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_af3283b0d510afb01446c27bf1600ba88}{resolveSpeedDuel}}(\textcolor{keywordtype}{int}\ speed1,\ \textcolor{keywordtype}{int}\ speed2);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a692a701927e61a06fd8dce887742c7d9}{PriorityForFirstPoke}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ p1,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ p2,\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ *\ move1,\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ *\ move2,\ \textcolor{keywordtype}{int}\ index1,\ \textcolor{keywordtype}{int}\ index2);}
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a2cdb2c620c0e4c3077d6ae74c45ceb36}{affectDamage}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ offender,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ defender,\ \textcolor{keywordtype}{int}\ indexMove);}
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_ad567a4aec068790f989fb9ef909fcebb}{swapActualAttacker}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ target,\ \textcolor{keywordtype}{int}\ swapIndex);}
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a37d0046e530324685213ff50a4c36cdb}{playATurn}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t1,\ \textcolor{keywordtype}{int}\ move1,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t2,\ \textcolor{keywordtype}{int}\ move2);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{duel_8h_a3e88ec315719a73455623551f124fb62}{expCurve}}(\textcolor{keywordtype}{int}\ lvl);}
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a109762b4b492c870f576af03d9c9a805}{reachedNextLvl}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ p);}
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a00cc566806ad551410ecb3ef95be9d0b}{gainExp}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ target,\ \mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ source);}
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_ab70b8a8232d95fc2bb0e4ead1bbcfd3d}{checkLearningMove}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ p);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a87e1b1c2e8da8aa3dcbafa486727c992}{testBattle}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}},\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}});}
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_aae3304431eebf95aac22ed64a644d398}{testSwitch}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}},\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}});}
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a858a472c0ca54271f0d933926e73b293}{testPP}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}},\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}});}
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a08067d722870f62b736a1c2f55d2f74f}{testStruggle}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}},\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}});}
+\DoxyCodeLine{00106\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_ac6cffd77abaf025f5e27d4c1320dc4c0}{teamTest}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t,\ \textcolor{keywordtype}{int});}
+=======
+\DoxyCodeLine{00017\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{duel_8h_affbbdc8741a394a968366d77c640f1ff}{statVariations}}[13];}
+\DoxyCodeLine{00018\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ \mbox{\hyperlink{duel_8h_a69f8229a1c94eb0a11e091d8b54570f3}{struggle}};}
+\DoxyCodeLine{00019\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ \mbox{\hyperlink{duel_8h_acde9cb2f6b18119fde97bf6be55639c9}{confusedMove}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Team_a319b1b04363c97462e5dfbb5a8e24b6a}{id}};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{char}\ trainerName[20];}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{structt__Poke}{t\_Poke}}\ team[6];}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structt__Team_a0e57efa0c1f03ab0492862d52cfc605a}{nb\_poke}};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ statChanges[6];}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0}{t\_Effect}}\ \mbox{\hyperlink{structt__Team_a37dd491f0b97ebaf7332f67e7553ee39}{effect}};\ \ }
+\DoxyCodeLine{00037\ \}\ \mbox{\hyperlink{structt__Team}{t\_Team}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structLvl__Up__Buffer_a91397717040f88f5ad02d703925a31ba}{moveId}};}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ \mbox{\hyperlink{structLvl__Up__Buffer_a4234e21b25061a081c461f9faf002cd5}{target}};}
+\DoxyCodeLine{00042\ \}\ \mbox{\hyperlink{structLvl__Up__Buffer}{Lvl\_Up\_Buffer}};}
 \DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a135734ce30fed1100fd7e060f672f018}{statVarChange}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ target,\ \textcolor{keywordtype}{int}\ probability,\ \textcolor{keywordtype}{int}\ modifier,\ \textcolor{keywordtype}{int}\ targetedStat);}
-\DoxyCodeLine{00045\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_aa6f1d50587260f5a4957edc4dae26e35}{applyEffect}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ target,\ \textcolor{keywordtype}{int}\ probability,\ \textcolor{keywordtype}{int}\ effect,\ \textcolor{keywordtype}{int}\ bool\_main\_effect);}
-\DoxyCodeLine{00046\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a8a4770999605ebb93a222787153477c8}{recoilDamage}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ target,\ \textcolor{keywordtype}{int}\ probability,\ \textcolor{keywordtype}{int}\ percentage\_of\_val,\ \textcolor{keywordtype}{int}\ indexPoke);}
-\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_afb8420f65f7cdf37b44746b5ba2f27e0}{launchSecEffect}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ offender,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ defender,\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ *\ action);}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_ae1589871f2fb9f4bf5da22519ef13c6a}{printTeam}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t);}
-\DoxyCodeLine{00050\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a0e27a0c4136f1f57a6f4f3e052ab2e54}{calcStatFrom}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ p,\textcolor{keywordtype}{int}\ stat);}
-\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a4b3832f2db59021e5a2a8f4438ddadc1}{initTeam}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t,\textcolor{keywordtype}{int});}
-\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a1c2ca0c1ff43f1025edfb079aff2dc00}{initBlueTeam}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *t);}
-\DoxyCodeLine{00053\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a74d793946dc5e0e5f1dc6ed14d3d96dc}{calcDamage}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ offender,\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ defender,\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ *);}
-\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a8fc0892b3753845a32113b61ce8b1b6c}{setDefaultStatChanges}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ p);}
-\DoxyCodeLine{00055\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_af3283b0d510afb01446c27bf1600ba88}{resolveSpeedDuel}}(\textcolor{keywordtype}{int}\ speed1,\ \textcolor{keywordtype}{int}\ speed2);}
-\DoxyCodeLine{00056\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a692a701927e61a06fd8dce887742c7d9}{PriorityForFirstPoke}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ p1,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ p2,\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ *\ move1,\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ *\ move2,\ \textcolor{keywordtype}{int}\ index1,\ \textcolor{keywordtype}{int}\ index2);}
-\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a2cdb2c620c0e4c3077d6ae74c45ceb36}{affectDamage}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ offender,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ defender,\ \textcolor{keywordtype}{int}\ indexMove);}
-\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a785cf59b04b080c32b51ca8300b62507}{swapActualAttacker}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t,\ \textcolor{keywordtype}{int}\ swapIndex);}
-\DoxyCodeLine{00068\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a37d0046e530324685213ff50a4c36cdb}{playATurn}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t1,\ \textcolor{keywordtype}{int}\ move1,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t2,\ \textcolor{keywordtype}{int}\ move2);}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{duel_8h_a3e88ec315719a73455623551f124fb62}{expCurve}}(\textcolor{keywordtype}{int}\ lvl);}
-\DoxyCodeLine{00071\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a109762b4b492c870f576af03d9c9a805}{reachedNextLvl}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ p);}
-\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a00cc566806ad551410ecb3ef95be9d0b}{gainExp}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ target,\ \mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ source);}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a87e1b1c2e8da8aa3dcbafa486727c992}{testBattle}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}},\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}});}
-\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_aae3304431eebf95aac22ed64a644d398}{testSwitch}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}},\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}});}
-\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a858a472c0ca54271f0d933926e73b293}{testPP}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}},\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}});}
-\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a08067d722870f62b736a1c2f55d2f74f}{testStruggle}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}},\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}});}
-\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_ac6cffd77abaf025f5e27d4c1320dc4c0}{teamTest}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00044\ \textcolor{keyword}{extern}\ int\ (*\mbox{\hyperlink{duel_8h_adc50e7669e9a8b080c36aff121cf7836}{SecEffectTab}}[3])(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *,int,int,int);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{/*This\ buffer\ purpose\ is\ to\ allow\ leveling\ up\ learning\ moves\ to\ work\ without\ blocking\ the\ SDL\ window*/}}
+\DoxyCodeLine{00047\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structLvl__Up__Buffer}{Lvl\_Up\_Buffer}}\ \mbox{\hyperlink{duel_8h_a14297bdf3858bfcb9f2b5553c4a37ad2}{lvl\_up\_buffer}}[6];}
+\DoxyCodeLine{00048\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a5fa7c71ee69bf53efd73ff3978602ab6}{lvl\_up\_buffer\_size}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}};}
+\DoxyCodeLine{00051\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_af43f8a6685d1709bbcd8603ab0dbdc63}{isAttacking}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a35136d8ab44fb65a4df9ab46633e533c}{isSwitching}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_aa112c976011418f424765e88722d77d4}{ppCheck}}(\mbox{\hyperlink{structt__Move}{t\_Move}}\ *);}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a6ce143cdd82c5149e2b103f7e64b0d41}{isExisting}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *);}
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a58123fcf9acb6bb6b68e7b1213f374ff}{isAlive}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ p);}
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a99cbc73f28e07ad276d0979276e5ba80}{isTeamAlive}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *);}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a856d1b8c22a68e78412f1d4a4ca3c0b0}{testActionValidity}}(\textcolor{keywordtype}{int}\ action,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t);}
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a82732f92530a8627b7d1c8a55e55444c}{accuracyCheck}}(\textcolor{keywordtype}{int}\ accuracy);}
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a1b5d03e9edfe6df9d2a3df248fc25944}{hasMoveLeft}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *);}
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a9a93d0239783d82c323ee9581d82a3b7}{isStruggling}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a135734ce30fed1100fd7e060f672f018}{statVarChange}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ target,\ \textcolor{keywordtype}{int}\ probability,\ \textcolor{keywordtype}{int}\ modifier,\ \textcolor{keywordtype}{int}\ targetedStat);}
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_aa6f1d50587260f5a4957edc4dae26e35}{applyEffect}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ target,\ \textcolor{keywordtype}{int}\ probability,\ \textcolor{keywordtype}{int}\ effect,\ \textcolor{keywordtype}{int}\ bool\_main\_effect);}
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a8a4770999605ebb93a222787153477c8}{recoilDamage}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ target,\ \textcolor{keywordtype}{int}\ probability,\ \textcolor{keywordtype}{int}\ percentage\_of\_val,\ \textcolor{keywordtype}{int}\ indexPoke);}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_afb8420f65f7cdf37b44746b5ba2f27e0}{launchSecEffect}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ offender,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ defender,\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ *\ action);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_ae1589871f2fb9f4bf5da22519ef13c6a}{printTeam}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t);}
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a0e27a0c4136f1f57a6f4f3e052ab2e54}{calcStatFrom}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ p,\textcolor{keywordtype}{int}\ stat);}
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a4b3832f2db59021e5a2a8f4438ddadc1}{initTeam}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t,\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a1c2ca0c1ff43f1025edfb079aff2dc00}{initBlueTeam}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *t);}
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a74d793946dc5e0e5f1dc6ed14d3d96dc}{calcDamage}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ offender,\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ defender,\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ *);}
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a8fc0892b3753845a32113b61ce8b1b6c}{setDefaultStatChanges}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ p);}
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_af3283b0d510afb01446c27bf1600ba88}{resolveSpeedDuel}}(\textcolor{keywordtype}{int}\ speed1,\ \textcolor{keywordtype}{int}\ speed2);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a692a701927e61a06fd8dce887742c7d9}{PriorityForFirstPoke}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ p1,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ p2,\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ *\ move1,\ \mbox{\hyperlink{structt__Move}{t\_Move}}\ *\ move2,\ \textcolor{keywordtype}{int}\ index1,\ \textcolor{keywordtype}{int}\ index2);}
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a2cdb2c620c0e4c3077d6ae74c45ceb36}{affectDamage}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ offender,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ defender,\ \textcolor{keywordtype}{int}\ indexMove);}
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_ad567a4aec068790f989fb9ef909fcebb}{swapActualAttacker}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ target,\ \textcolor{keywordtype}{int}\ swapIndex);}
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a37d0046e530324685213ff50a4c36cdb}{playATurn}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t1,\ \textcolor{keywordtype}{int}\ move1,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t2,\ \textcolor{keywordtype}{int}\ move2);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{duel_8h_a3e88ec315719a73455623551f124fb62}{expCurve}}(\textcolor{keywordtype}{int}\ lvl);}
+\DoxyCodeLine{00108\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{duel_8h_a109762b4b492c870f576af03d9c9a805}{reachedNextLvl}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ p);}
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a00cc566806ad551410ecb3ef95be9d0b}{gainExp}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ target,\ \mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ source);}
+\DoxyCodeLine{00110\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_ab70b8a8232d95fc2bb0e4ead1bbcfd3d}{checkLearningMove}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *\ p);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a87e1b1c2e8da8aa3dcbafa486727c992}{testBattle}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}},\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}});}
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_aae3304431eebf95aac22ed64a644d398}{testSwitch}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}},\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}});}
+\DoxyCodeLine{00114\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a858a472c0ca54271f0d933926e73b293}{testPP}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}},\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}});}
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_a08067d722870f62b736a1c2f55d2f74f}{testStruggle}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}},\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}});}
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{duel_8h_ac6cffd77abaf025f5e27d4c1320dc4c0}{teamTest}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *\ t,\ \textcolor{keywordtype}{int});}
+>>>>>>> Stashed changes
 
 \end{DoxyCode}

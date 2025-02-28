@@ -18,7 +18,6 @@ void initThreadManager(Game* game) {
     // - renderMutex pour les opérations de rendu
     // - physicsMutex pour les calculs de physique/mouvement
     pthread_mutex_init(&game->threadManager.audioMutex, NULL);
-    pthread_mutex_init(&game->threadManager.renderMutex, NULL);
     pthread_mutex_init(&game->threadManager.physicsMutex, NULL);
     
     // Configure le drapeau d'exécution à vrai pour que les threads démarrent leurs boucles
@@ -30,7 +29,7 @@ void initThreadManager(Game* game) {
     // 3. Thread physique - gère les mouvements et les collisions
     // Chaque thread reçoit le pointeur game comme argument
     pthread_create(&game->threadManager.audioThread, NULL, audioThreadFunction, game);
-    pthread_create(&game->threadManager.renderThread, NULL, renderThreadFunction, game);
+
     pthread_create(&game->threadManager.physicsThread, NULL, physicsThreadFunction, game);
 }
 
@@ -40,31 +39,6 @@ void* audioThreadFunction(void* arg) {
         pthread_mutex_lock(&game->threadManager.audioMutex);
         updateMusic();
         pthread_mutex_unlock(&game->threadManager.audioMutex);
-        SDL_Delay(16); // ~60fps
-    }
-    return NULL;
-}
-
-void* renderThreadFunction(void* arg) {
-    Game* game = (Game*)arg;
-    while (game->threadManager.isRunning) {
-        pthread_mutex_lock(&game->threadManager.renderMutex);
-        
-        if (game->win && game->win->renderer) {
-            // Verrouiller le mutex physique seulement pendant le rendu du joueur
-            if (game->gameState.currentState == MAP) {
-                pthread_mutex_lock(&game->threadManager.physicsMutex);
-                render(game->win);
-                pthread_mutex_unlock(&game->threadManager.physicsMutex);
-            } else {
-                render(game->win);
-            }
-            
-            updateCurrentButton();
-            SDL_RenderPresent(game->win->renderer);
-        }
-        
-        pthread_mutex_unlock(&game->threadManager.renderMutex);
         SDL_Delay(16); // ~60fps
     }
     return NULL;
@@ -105,10 +79,7 @@ void cleanupThreads(Game* game) {
     
     game->threadManager.isRunning = 0;
     pthread_join(game->threadManager.audioThread, NULL);
-    pthread_join(game->threadManager.renderThread, NULL);
     pthread_join(game->threadManager.physicsThread, NULL);
-
     pthread_mutex_destroy(&game->threadManager.audioMutex);
-    pthread_mutex_destroy(&game->threadManager.renderMutex);
     pthread_mutex_destroy(&game->threadManager.physicsMutex);
 }

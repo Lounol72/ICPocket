@@ -1,5 +1,6 @@
 var searchData=
 [
+<<<<<<< Updated upstream
   ['paralyze_0',['paralyze',['../da/d71/structPoke_8h.html#a76147bdc67aed9a2286c8facfd7b8ce0a713e5cd4219d601e6e2e0877e4279c73',1,'structPoke.h']]],
   ['pause_1',['PAUSE',['../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a56b36d0d0bb01b339cf1041adc08e262',1,'Utils.h']]],
   ['physical_2',['physical',['../da/d71/structPoke_8h.html#a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e',1,'structPoke.h']]],
@@ -31,6 +32,10 @@ var searchData=
   ['pvbartexture_28',['PVbarTexture',['../dd/d1a/structIMG__ICMons.html#acb7140b981aa01e0ad9837ab9e56c463',1,'IMG_ICMons']]],
   ['pvbartextureback_29',['PVbarTextureBack',['../dd/d1a/structIMG__ICMons.html#aedc2c4d60f1716f6294db1f02c0a6608',1,'IMG_ICMons']]],
   ['pvinitialrect_30',['PVInitialRect',['../dd/d1a/structIMG__ICMons.html#a57fb3a66d7ea350c7260bf105859f63f',1,'IMG_ICMons']]],
-  ['pvrect_31',['pvrect',['../dd/d1a/structIMG__ICMons.html#a920729e4a0e89e6a983e2822d57c922a',1,'IMG_ICMons::PVRect'],['../da/ddc/structMap.html#acdf38cf48a19c24a9c77447fec1de5eb',1,'Map::pvRect']]],
+  ['pvrect_31',['pvrect',['../da/ddc/structMap.html#acdf38cf48a19c24a9c77447fec1de5eb',1,'Map::pvRect'],['../dd/d1a/structIMG__ICMons.html#a920729e4a0e89e6a983e2822d57c922a',1,'IMG_ICMons::PVRect']]],
   ['pvtext_32',['PVText',['../dd/d1a/structIMG__ICMons.html#aebb4857364a22bdf15be0b7d0c3cfba3',1,'IMG_ICMons']]]
+=======
+  ['quit_0',['quit',['../d6/d08/structWindow.html#a18acde62ad63dfc0613b6d17188ad1ea',1,'Window']]],
+  ['quit_1',['QUIT',['../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a76bdc8adfd6c6463ab269ff4c06be9b4',1,'Utils.h']]]
+>>>>>>> Stashed changes
 ];

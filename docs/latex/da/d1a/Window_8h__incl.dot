@@ -28,12 +28,12 @@ digraph "include/Window.h"
   Node10 [id="Node000010",label="Log.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d1/d45/Log_8h.html",tooltip=" "];
   Node10 -> Node2 [id="edge95_Node000010_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node5 -> Node11 [id="edge96_Node000005_Node000011",color="steelblue1",style="solid",tooltip=" "];
-  Node11 [id="Node000011",label="Audio.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d8/daa/Audio_8h.html",tooltip=" "];
+  Node11 [id="Node000011",label="Audio.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d8/daa/Audio_8h.html",tooltip="Gestion de l'audio pour l'application."];
   Node11 -> Node10 [id="edge97_Node000011_Node000010",color="steelblue1",style="solid",tooltip=" "];
   Node11 -> Node6 [id="edge98_Node000011_Node000006",color="steelblue1",style="solid",tooltip=" "];
   Node11 -> Node2 [id="edge99_Node000011_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node5 -> Node12 [id="edge100_Node000005_Node000012",color="steelblue1",style="solid",tooltip=" "];
-  Node12 [id="Node000012",label="Buttons.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d3/d70/Buttons_8h.html",tooltip=" "];
+  Node12 [id="Node000012",label="Buttons.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d3/d70/Buttons_8h.html",tooltip="Gestion des boutons et curseurs pour l'application."];
   Node12 -> Node2 [id="edge101_Node000012_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node12 -> Node6 [id="edge102_Node000012_Node000006",color="steelblue1",style="solid",tooltip=" "];
   Node12 -> Node5 [id="edge103_Node000012_Node000005",color="steelblue1",style="solid",tooltip=" "];
@@ -69,7 +69,7 @@ digraph "include/Window.h"
   Node22 -> Node2 [id="edge123_Node000022_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node22 -> Node7 [id="edge124_Node000022_Node000007",color="steelblue1",style="solid",tooltip=" "];
   Node22 -> Node23 [id="edge125_Node000022_Node000023",color="steelblue1",style="solid",tooltip=" "];
-  Node23 [id="Node000023",label="Camera.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$dd/de4/Camera_8h.html",tooltip=" "];
+  Node23 [id="Node000023",label="Camera.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$dd/de4/Camera_8h.html",tooltip="Gestion de la caméra pour le défilement de la vue du jeu."];
   Node23 -> Node2 [id="edge126_Node000023_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node5 -> Node24 [id="edge127_Node000005_Node000024",color="steelblue1",style="solid",tooltip=" "];
   Node24 [id="Node000024",label="Player.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$da/dbf/Player_8h.html",tooltip=" "];

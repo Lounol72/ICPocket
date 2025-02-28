@@ -1,36 +1,59 @@
 \doxysection{Référence du fichier include/\+Camera.h}
 \hypertarget{Camera_8h}{}\label{Camera_8h}\index{include/Camera.h@{include/Camera.h}}
+
+
+Gestion de la caméra pour le défilement de la vue du jeu.  
+
+
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
 Graphe des dépendances par inclusion de Camera.\+h\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{d0/d3d/Camera_8h__incl}
+\end{center}
+\end{figure}
 Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
-% FIG 1
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/df4/Camera_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structCamera}{Camera}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Structure représentant la caméra du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{Camera_8h_a498d9f026138406895e9a34b504ac6a6}{WINDOW\+\_\+\+WIDTH}}~1280
-\item 
+\begin{DoxyCompactList}\small\item\em Largeur par défaut de la fenêtre. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{Camera_8h_a5473cf64fa979b48335079c99532e243}{WINDOW\+\_\+\+HEIGHT}}~720
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Hauteur par défaut de la fenêtre. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Camera_8h_a2066b5ada76e803c9b0e2ae818c73b85}{create\+Camera}} (int window\+Width, int window\+Height)
-\item 
+\begin{DoxyCompactList}\small\item\em Crée une nouvelle instance de caméra. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Camera_8h_a1f82183277c2e3bb2c0ed552111a932f}{update\+Camera}} (\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}camera, int playerX, int playerY, float delta\+Time)
-\item 
+\begin{DoxyCompactList}\small\item\em Met à jour la position de la caméra. \end{DoxyCompactList}\item 
 SDL\+\_\+\+Rect \mbox{\hyperlink{Camera_8h_a92559a351d5f83f829609acfd7d585d4}{get\+World\+To\+Screen\+Rect}} (\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}camera, SDL\+\_\+\+Rect world\+Rect)
-\item 
+\begin{DoxyCompactList}\small\item\em Convertit les coordonnées du monde en coordonnées écran. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Camera_8h_a3705df95afd7ab87f9c1e6e48ad7a6f5}{update\+Camera\+Viewport}} (\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}camera, int window\+Width, int window\+Height)
+\begin{DoxyCompactList}\small\item\em Met à jour la taille de la zone visible de la caméra. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Camera_8h_a30b237a47aec83d888c3d194d1a03209}{destroy\+Camera}} (\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}camera)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Libère les ressources utilisées par la caméra. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
+Gestion de la caméra pour le défilement de la vue du jeu. 
+
+Ce fichier contient les définitions et les fonctions nécessaires pour gérer la caméra du jeu, permettant le suivi du joueur et la gestion du viewport.
+
 \begin{DoxyAuthor}{Auteur}
 Louis 
 \end{DoxyAuthor}
@@ -46,11 +69,19 @@ Louis
 \doxysubsubsection{\texorpdfstring{WINDOW\_HEIGHT}{WINDOW\_HEIGHT}}
 {\footnotesize\ttfamily \#define WINDOW\+\_\+\+HEIGHT~720}
 
+
+
+Hauteur par défaut de la fenêtre. 
+
 \Hypertarget{Camera_8h_a498d9f026138406895e9a34b504ac6a6}\label{Camera_8h_a498d9f026138406895e9a34b504ac6a6} 
 \index{Camera.h@{Camera.h}!WINDOW\_WIDTH@{WINDOW\_WIDTH}}
 \index{WINDOW\_WIDTH@{WINDOW\_WIDTH}!Camera.h@{Camera.h}}
 \doxysubsubsection{\texorpdfstring{WINDOW\_WIDTH}{WINDOW\_WIDTH}}
 {\footnotesize\ttfamily \#define WINDOW\+\_\+\+WIDTH~1280}
+
+
+
+Largeur par défaut de la fenêtre. 
 
 
 
@@ -61,21 +92,102 @@ Louis
 \doxysubsubsection{\texorpdfstring{createCamera()}{createCamera()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*} create\+Camera (\begin{DoxyParamCaption}\item[{int}]{window\+Width,  }\item[{int}]{window\+Height }\end{DoxyParamCaption})}
 
+
+
+Crée une nouvelle instance de caméra. 
+
+Initialise une nouvelle caméra avec les dimensions de fenêtre spécifiées.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window\+Width} & Largeur de la fenêtre en pixels. \\
+\hline
+{\em window\+Height} & Hauteur de la fenêtre en pixels. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un pointeur vers la nouvelle instance de \doxylink{structCamera}{Camera} créée. 
+\end{DoxyReturn}
 \Hypertarget{Camera_8h_a30b237a47aec83d888c3d194d1a03209}\label{Camera_8h_a30b237a47aec83d888c3d194d1a03209} 
 \index{Camera.h@{Camera.h}!destroyCamera@{destroyCamera}}
 \index{destroyCamera@{destroyCamera}!Camera.h@{Camera.h}}
 \doxysubsubsection{\texorpdfstring{destroyCamera()}{destroyCamera()}}
 {\footnotesize\ttfamily void destroy\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}}]{camera }\end{DoxyParamCaption})}
 
+
+
+Libère les ressources utilisées par la caméra. 
+
+Détruit l\textquotesingle{}instance de la caméra et libère la mémoire associée.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em camera} & Pointeur vers la caméra à détruire. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{Camera_8h_a92559a351d5f83f829609acfd7d585d4}\label{Camera_8h_a92559a351d5f83f829609acfd7d585d4} 
 \index{Camera.h@{Camera.h}!getWorldToScreenRect@{getWorldToScreenRect}}
 \index{getWorldToScreenRect@{getWorldToScreenRect}!Camera.h@{Camera.h}}
 \doxysubsubsection{\texorpdfstring{getWorldToScreenRect()}{getWorldToScreenRect()}}
 {\footnotesize\ttfamily SDL\+\_\+\+Rect get\+World\+To\+Screen\+Rect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}}]{camera,  }\item[{SDL\+\_\+\+Rect}]{world\+Rect }\end{DoxyParamCaption})}
 
+
+
+Convertit les coordonnées du monde en coordonnées écran. 
+
+Transforme un rectangle dans les coordonnées du monde en coordonnées écran en tenant compte de la position et du zoom de la caméra.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em camera} & Pointeur vers la caméra. \\
+\hline
+{\em world\+Rect} & Rectangle dans les coordonnées du monde à convertir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le rectangle converti en coordonnées écran. 
+\end{DoxyReturn}
 \Hypertarget{Camera_8h_a1f82183277c2e3bb2c0ed552111a932f}\label{Camera_8h_a1f82183277c2e3bb2c0ed552111a932f} 
 \index{Camera.h@{Camera.h}!updateCamera@{updateCamera}}
 \index{updateCamera@{updateCamera}!Camera.h@{Camera.h}}
 \doxysubsubsection{\texorpdfstring{updateCamera()}{updateCamera()}}
 {\footnotesize\ttfamily void update\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}}]{camera,  }\item[{int}]{playerX,  }\item[{int}]{playerY,  }\item[{float}]{delta\+Time }\end{DoxyParamCaption})}
 
+
+
+Met à jour la position de la caméra. 
+
+Actualise la position de la caméra en fonction de la position du joueur et du temps écoulé depuis la dernière mise à jour.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em camera} & Pointeur vers la caméra à mettre à jour. \\
+\hline
+{\em playerX} & Position X du joueur dans le monde. \\
+\hline
+{\em playerY} & Position Y du joueur dans le monde. \\
+\hline
+{\em delta\+Time} & Temps écoulé depuis la dernière mise à jour (en secondes). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Camera_8h_a3705df95afd7ab87f9c1e6e48ad7a6f5}\label{Camera_8h_a3705df95afd7ab87f9c1e6e48ad7a6f5} 
+\index{Camera.h@{Camera.h}!updateCameraViewport@{updateCameraViewport}}
+\index{updateCameraViewport@{updateCameraViewport}!Camera.h@{Camera.h}}
+\doxysubsubsection{\texorpdfstring{updateCameraViewport()}{updateCameraViewport()}}
+{\footnotesize\ttfamily void update\+Camera\+Viewport (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}}]{camera,  }\item[{int}]{window\+Width,  }\item[{int}]{window\+Height }\end{DoxyParamCaption})}
+
+
+
+Met à jour la taille de la zone visible de la caméra. 
+
+Actualise la taille de la zone visible de la caméra en fonction des dimensions de la fenêtre.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em camera} & Pointeur vers la caméra à mettre à jour. \\
+\hline
+{\em window\+Width} & Largeur de la fenêtre en pixels. \\
+\hline
+{\em window\+Height} & Hauteur de la fenêtre en pixels. \\
+\hline
+\end{DoxyParams}

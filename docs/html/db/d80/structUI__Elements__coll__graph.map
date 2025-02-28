@@ -1,0 +1,11 @@
+<map id="UI_Elements" name="UI_Elements">
+<area shape="rect" id="Node000001" title="Conteneur pour les éléments de l&#39;interface utilisateur." alt="" coords="80,521,185,587"/>
+<area shape="rect" id="Node000002" href="$da/db4/structButtonList.html" title="Liste de boutons." alt="" coords="42,393,122,459"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,458,90,497,95,506,90,508,85,498,78,459"/>
+<area shape="rect" id="Node000003" href="$d7/d19/structButton.html" title="Représente un bouton dans l&#39;application." alt="" coords="5,5,137,331"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,331,83,377,77,377,75,331"/>
+<area shape="rect" id="Node000004" href="$db/d53/structSliderList.html" title="Liste de curseurs." alt="" coords="167,393,242,459"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="189,460,161,508,157,506,184,458"/>
+<area shape="rect" id="Node000005" href="$df/dd7/structSlider.html" title="Représente un curseur dans l&#39;application." alt="" coords="161,65,269,271"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="214,271,209,377,204,377,208,271"/>
+</map>

@@ -12,7 +12,7 @@ var Map_8h =
     [ "destroyMap", "df/d79/Map_8h.html#a64df896c814cef549bef88fcd20d9a67", null ],
     [ "initMap", "df/d79/Map_8h.html#a2d3b5b6a74e6800de411e1edf7dfea2e", null ],
     [ "loadMapIMG", "df/d79/Map_8h.html#a184a6d0c81c91133a682450fa7807b06", null ],
-    [ "renderMap", "df/d79/Map_8h.html#a0e9d1e84f532ef978d191e6011e3a675", null ],
+    [ "renderMapDebug", "df/d79/Map_8h.html#a9903966da30d78752ca378caa3cb5dc5", null ],
     [ "renderMapWithCamera", "df/d79/Map_8h.html#addb7cea9964f63947c5e882c547d3d7d", null ],
     [ "updateMap", "df/d79/Map_8h.html#a68ba8a390de3a556e314c6b60d45232e", null ]
 ];

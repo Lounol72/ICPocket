@@ -12,6 +12,7 @@ var GameEngine_8c =
     [ "manageFrameRate", "d5/d81/GameEngine_8c.html#a6ed42cf8883eef51f3764c8587d7bc59", null ],
     [ "nextDuel", "d5/d81/GameEngine_8c.html#a275ae329d3830bface72c1c30db48b04", null ],
     [ "render", "d5/d81/GameEngine_8c.html#adce05963537a78c4c589298117616864", null ],
+    [ "renderMap", "d5/d81/GameEngine_8c.html#a2a3fa0ae69f283823d364fb5cdde4c09", null ],
     [ "updateCurrentButton", "d5/d81/GameEngine_8c.html#aa35dc6fb12b09280f097e5781e5892e1", null ],
     [ "updateICButtons", "d5/d81/GameEngine_8c.html#aa9e620870df635719d54d19fd83bb423", null ],
     [ "updateICMonsButtonText", "d5/d81/GameEngine_8c.html#a4f753c6bc89433428e693ca6b0a94204", null ],

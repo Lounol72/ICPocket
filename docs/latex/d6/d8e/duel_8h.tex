@@ -1,11 +1,28 @@
 \doxysection{Référence du fichier include/duel.h}
 \hypertarget{duel_8h}{}\label{duel_8h}\index{include/duel.h@{include/duel.h}}
+
+
+Gestion des duels dans le style de \"{}\+Pokémon\"{} \+: système de tour par tour avec 2 équipes opposées.  
+
+
 Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/db1/duel_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}}
+<<<<<<< Updated upstream
+\item 
+=======
+\begin{DoxyCompactList}\small\item\em La structure \doxylink{structt__Team}{t\+\_\+\+Team} contient tout les attributs nécessaire à la génération et à l\textquotesingle{}utilisation d\textquotesingle{}une équipe lors d\textquotesingle{}un combat. \end{DoxyCompactList}\item 
+>>>>>>> Stashed changes
+struct \mbox{\hyperlink{structLvl__Up__Buffer}{Lvl\+\_\+\+Up\+\_\+\+Buffer}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
@@ -75,8 +92,8 @@ int \mbox{\hyperlink{duel_8h_a692a701927e61a06fd8dce887742c7d9}{Priority\+For\+F
 \item 
 void \mbox{\hyperlink{duel_8h_a2cdb2c620c0e4c3077d6ae74c45ceb36}{affect\+Damage}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}offender, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}defender, int index\+Move)
 \item 
-void \mbox{\hyperlink{duel_8h_a785cf59b04b080c32b51ca8300b62507}{swap\+Actual\+Attacker}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t, int swap\+Index)
-\item 
+void \mbox{\hyperlink{duel_8h_ad567a4aec068790f989fb9ef909fcebb}{swap\+Actual\+Attacker}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}target, int swap\+Index)
+\begin{DoxyCompactList}\small\item\em La fonction swap\+Actual\+Attacker échange le pokémon présent à l\textquotesingle{}indice 0 avec celui présent à l\textquotesingle{}indice swap\+Index donné en paramètre. La fonction est sans effet si l\textquotesingle{}indice spécifié est invalide (hors liste, pokémon ko). \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{duel_8h_a37d0046e530324685213ff50a4c36cdb}{play\+ATurn}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t1, int move1, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t2, int move2)
 \begin{DoxyCompactList}\small\item\em La fonction play\+ATurn permet de jouer un tour d\textquotesingle{}un duel Pokémon classique, pour deux équipes au préalable générées et initialisées. La fonction modifie l\textquotesingle{}état des équipes en paramètre et gère tout les cas particuliers (actions invalides, gestion des afflictions, cas de lutte). \end{DoxyCompactList}\item 
 unsigned \mbox{\hyperlink{duel_8h_a3e88ec315719a73455623551f124fb62}{exp\+Curve}} (int lvl)
@@ -84,6 +101,8 @@ unsigned \mbox{\hyperlink{duel_8h_a3e88ec315719a73455623551f124fb62}{exp\+Curve}
 int \mbox{\hyperlink{duel_8h_a109762b4b492c870f576af03d9c9a805}{reached\+Next\+Lvl}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p)
 \item 
 void \mbox{\hyperlink{duel_8h_a00cc566806ad551410ecb3ef95be9d0b}{gain\+Exp}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}target, \mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}source)
+\item 
+void \mbox{\hyperlink{duel_8h_ab70b8a8232d95fc2bb0e4ead1bbcfd3d}{check\+Learning\+Move}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p)
 \item 
 void \mbox{\hyperlink{duel_8h_a87e1b1c2e8da8aa3dcbafa486727c992}{test\+Battle}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{duel_8c_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}}, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{duel_8c_a2318bae80db59839bf744d39a02a2931}{bleu}})
 \item 
@@ -106,10 +125,25 @@ float \mbox{\hyperlink{duel_8h_affbbdc8741a394a968366d77c640f1ff}{stat\+Variatio
 \item 
 int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{duel_8h_adc50e7669e9a8b080c36aff121cf7836}{Sec\+Effect\+Tab}} \mbox{[}3\mbox{]})(\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}, int, int, int)
 \item 
+\mbox{\hyperlink{structLvl__Up__Buffer}{Lvl\+\_\+\+Up\+\_\+\+Buffer}} \mbox{\hyperlink{duel_8h_a14297bdf3858bfcb9f2b5553c4a37ad2}{lvl\+\_\+up\+\_\+buffer}} \mbox{[}6\mbox{]}
+\item 
+int \mbox{\hyperlink{duel_8h_a5fa7c71ee69bf53efd73ff3978602ab6}{lvl\+\_\+up\+\_\+buffer\+\_\+size}}
+\item 
 \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \mbox{\hyperlink{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}{rouge}}
 \item 
 \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \mbox{\hyperlink{duel_8h_a2318bae80db59839bf744d39a02a2931}{bleu}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+<<<<<<< Updated upstream
+=======
+Gestion des duels dans le style de \"{}\+Pokémon\"{} \+: système de tour par tour avec 2 équipes opposées. 
+
+>>>>>>> Stashed changes
+\begin{DoxyAuthor}{Auteur}
+Natp24109 
+\end{DoxyAuthor}
 
 
 \doxysubsection{Documentation des macros}
@@ -194,11 +228,17 @@ int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{duel_8h_adc50e7669e9a8b080c36aff
 \doxysubsubsection{\texorpdfstring{calcStatFrom()}{calcStatFrom()}}
 {\footnotesize\ttfamily int calc\+Stat\+From (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{int}]{stat }\end{DoxyParamCaption})}
 
+\Hypertarget{duel_8h_ab70b8a8232d95fc2bb0e4ead1bbcfd3d}\label{duel_8h_ab70b8a8232d95fc2bb0e4ead1bbcfd3d} 
+\index{duel.h@{duel.h}!checkLearningMove@{checkLearningMove}}
+\index{checkLearningMove@{checkLearningMove}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{checkLearningMove()}{checkLearningMove()}}
+{\footnotesize\ttfamily void check\+Learning\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
+
 \Hypertarget{duel_8h_a3e88ec315719a73455623551f124fb62}\label{duel_8h_a3e88ec315719a73455623551f124fb62} 
 \index{duel.h@{duel.h}!expCurve@{expCurve}}
 \index{expCurve@{expCurve}!duel.h@{duel.h}}
 \doxysubsubsection{\texorpdfstring{expCurve()}{expCurve()}}
-{\footnotesize\ttfamily unsigned exp\+Curve (\begin{DoxyParamCaption}\item[{int}]{lvl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+{\footnotesize\ttfamily unsigned exp\+Curve (\begin{DoxyParamCaption}\item[{int}]{lvl }\end{DoxyParamCaption})}
 
 \Hypertarget{duel_8h_a00cc566806ad551410ecb3ef95be9d0b}\label{duel_8h_a00cc566806ad551410ecb3ef95be9d0b} 
 \index{duel.h@{duel.h}!gainExp@{gainExp}}
@@ -336,12 +376,23 @@ un booléen informant si un tour à été joué ou n\textquotesingle{}était pas
 \doxysubsubsection{\texorpdfstring{statVarChange()}{statVarChange()}}
 {\footnotesize\ttfamily int stat\+Var\+Change (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{target,  }\item[{int}]{probability,  }\item[{int}]{modifier,  }\item[{int}]{targeted\+Stat }\end{DoxyParamCaption})}
 
-\Hypertarget{duel_8h_a785cf59b04b080c32b51ca8300b62507}\label{duel_8h_a785cf59b04b080c32b51ca8300b62507} 
+\Hypertarget{duel_8h_ad567a4aec068790f989fb9ef909fcebb}\label{duel_8h_ad567a4aec068790f989fb9ef909fcebb} 
 \index{duel.h@{duel.h}!swapActualAttacker@{swapActualAttacker}}
 \index{swapActualAttacker@{swapActualAttacker}!duel.h@{duel.h}}
 \doxysubsubsection{\texorpdfstring{swapActualAttacker()}{swapActualAttacker()}}
 {\footnotesize\ttfamily void swap\+Actual\+Attacker (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{int}]{swap\+Index }\end{DoxyParamCaption})}
 
+
+
+La fonction swap\+Actual\+Attacker échange le pokémon présent à l\textquotesingle{}indice 0 avec celui présent à l\textquotesingle{}indice swap\+Index donné en paramètre. La fonction est sans effet si l\textquotesingle{}indice spécifié est invalide (hors liste, pokémon ko). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em target} & Un pointeur sur structure \doxylink{structt__Team}{t\+\_\+\+Team}, pointant sur une équipe suposée initialisée (voir init\+Team). \\
+\hline
+{\em swap\+Index} & L\textquotesingle{}indice entier du Pokémon cible de l\textquotesingle{}échange, généralement compris entre 1 et 5. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{duel_8h_ac6cffd77abaf025f5e27d4c1320dc4c0}\label{duel_8h_ac6cffd77abaf025f5e27d4c1320dc4c0} 
 \index{duel.h@{duel.h}!teamTest@{teamTest}}
 \index{teamTest@{teamTest}!duel.h@{duel.h}}
@@ -392,6 +443,18 @@ un booléen informant si un tour à été joué ou n\textquotesingle{}était pas
 \index{confusedMove@{confusedMove}!duel.h@{duel.h}}
 \doxysubsubsection{\texorpdfstring{confusedMove}{confusedMove}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} confused\+Move\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{duel_8h_a14297bdf3858bfcb9f2b5553c4a37ad2}\label{duel_8h_a14297bdf3858bfcb9f2b5553c4a37ad2} 
+\index{duel.h@{duel.h}!lvl\_up\_buffer@{lvl\_up\_buffer}}
+\index{lvl\_up\_buffer@{lvl\_up\_buffer}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{lvl\_up\_buffer}{lvl\_up\_buffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structLvl__Up__Buffer}{Lvl\+\_\+\+Up\+\_\+\+Buffer}} lvl\+\_\+up\+\_\+buffer\mbox{[}6\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{duel_8h_a5fa7c71ee69bf53efd73ff3978602ab6}\label{duel_8h_a5fa7c71ee69bf53efd73ff3978602ab6} 
+\index{duel.h@{duel.h}!lvl\_up\_buffer\_size@{lvl\_up\_buffer\_size}}
+\index{lvl\_up\_buffer\_size@{lvl\_up\_buffer\_size}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{lvl\_up\_buffer\_size}{lvl\_up\_buffer\_size}}
+{\footnotesize\ttfamily int lvl\+\_\+up\+\_\+buffer\+\_\+size\hspace{0.3cm}{\ttfamily [extern]}}
 
 \Hypertarget{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa}\label{duel_8h_a549b747fa4f6f9c153b959c84c2d5ffa} 
 \index{duel.h@{duel.h}!rouge@{rouge}}

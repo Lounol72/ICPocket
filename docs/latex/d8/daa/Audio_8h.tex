@@ -1,12 +1,33 @@
 \doxysection{Référence du fichier include/\+Audio.h}
 \hypertarget{Audio_8h}{}\label{Audio_8h}\index{include/Audio.h@{include/Audio.h}}
+
+
+Gestion de l\textquotesingle{}audio pour l\textquotesingle{}application.  
+
+
+<<<<<<< Updated upstream
 {\ttfamily \#include "{}Log.\+h"{}}\newline
+=======
+{\ttfamily \#include \"{}Log.\+h\"{}}\newline
+>>>>>>> Stashed changes
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
 Graphe des dépendances par inclusion de Audio.\+h\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{df/d5d/Audio_8h__incl}
+\end{center}
+\end{figure}
 Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
-% FIG 1
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/de0/Audio_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,12 +37,16 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{Audio_8h_ab74d84d6d4c90b2b18669590af038a07}{init\+Audio}} ()
-\begin{DoxyCompactList}\small\item\em Initialise l\textquotesingle{}audio. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initialise le système audio. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Audio_8h_a442ac79688294b67c76dbe10c87e1383}{load\+Music}} (Mix\+\_\+\+Music \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}music, const char \texorpdfstring{$\ast$}{*}music\+Path)
-\begin{DoxyCompactList}\small\item\em Charge la musique. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Charge un fichier de musique. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
+Gestion de l\textquotesingle{}audio pour l\textquotesingle{}application. 
+
+Ce fichier contient les définitions et les fonctions nécessaires pour initialiser et gérer l\textquotesingle{}audio dans l\textquotesingle{}application, en utilisant SDL\+\_\+mixer.
+
 \begin{DoxyAuthor}{Auteur}
 Louis 
 \end{DoxyAuthor}
@@ -37,7 +62,7 @@ Louis
 \doxysubsubsection{\texorpdfstring{AUDIO\_FREQ}{AUDIO\_FREQ}}
 {\footnotesize\ttfamily \#define AUDIO\+\_\+\+FREQ~44100}
 
-
+Fréquence audio par défaut pour mac\+OS, BSD, etc. 
 
 \doxysubsection{Documentation des fonctions}
 \Hypertarget{Audio_8h_ab74d84d6d4c90b2b18669590af038a07}\label{Audio_8h_ab74d84d6d4c90b2b18669590af038a07} 
@@ -48,9 +73,11 @@ Louis
 
 
 
-Initialise l\textquotesingle{}audio. 
+Initialise le système audio. 
 
-\Hypertarget{Audio_8h_a442ac79688294b67c76dbe10c87e1383}\label{Audio_8h_a442ac79688294b67c76dbe10c87e1383} 
+Cette fonction initialise le système audio en configurant SDL\+\_\+mixer avec les paramètres appropriés.
+
+Initialise le système audio. \Hypertarget{Audio_8h_a442ac79688294b67c76dbe10c87e1383}\label{Audio_8h_a442ac79688294b67c76dbe10c87e1383} 
 \index{Audio.h@{Audio.h}!loadMusic@{loadMusic}}
 \index{loadMusic@{loadMusic}!Audio.h@{Audio.h}}
 \doxysubsubsection{\texorpdfstring{loadMusic()}{loadMusic()}}
@@ -58,7 +85,18 @@ Initialise l\textquotesingle{}audio.
 
 
 
-Charge la musique. 
+Charge un fichier de musique. 
+
+Cette fonction charge un fichier de musique spécifié et l\textquotesingle{}associe à un pointeur Mix\+\_\+\+Music.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em music} & Un pointeur vers un pointeur Mix\+\_\+\+Music où la musique chargée sera stockée. \\
+\hline
+{\em music\+Path} & Le chemin du fichier de musique à charger.\\
+\hline
+\end{DoxyParams}
+Charge un fichier de musique.
 
 
 \begin{DoxyParams}{Paramètres}

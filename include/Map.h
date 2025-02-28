@@ -1,10 +1,10 @@
 #ifndef MAP_HEADER_H
 #define MAP_HEADER_H
 
-#define MAP_WIDTH 64
-#define MAP_HEIGHT 40
-#define TILE_SIZE_W_SCALE 20 
-#define TILE_SIZE_H_SCALE 18
+#define MAP_WIDTH 32
+#define MAP_HEIGHT 20
+#define TILE_SIZE_W_SCALE 40
+#define TILE_SIZE_H_SCALE 36
 
 #define AIR 0
 #define COLLISION 1
@@ -30,7 +30,7 @@ typedef struct Map {
 } Map;
 
 Map *initMap(SDL_Renderer *renderer, const char *path);
-void renderMap(Map *map);
+void renderMapDebug(Map *map);
 void destroyMap(Map *map);
 void updateMap(Map *map);
 void loadMapIMG(Map *map, const char *path);

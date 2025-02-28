@@ -9,6 +9,7 @@ var annotated_dup =
     [ "GameData", "d4/d6e/structGameData.html", "d4/d6e/structGameData" ],
     [ "GameState", "d2/d3d/structGameState.html", "d2/d3d/structGameState" ],
     [ "IMG_ICMons", "dd/d1a/structIMG__ICMons.html", "dd/d1a/structIMG__ICMons" ],
+    [ "Lvl_Up_Buffer", "de/dac/structLvl__Up__Buffer.html", "de/dac/structLvl__Up__Buffer" ],
     [ "Map", "da/ddc/structMap.html", "da/ddc/structMap" ],
     [ "Player", "dc/d7b/structPlayer.html", "dc/d7b/structPlayer" ],
     [ "Slider", "df/dd7/structSlider.html", "df/dd7/structSlider" ],

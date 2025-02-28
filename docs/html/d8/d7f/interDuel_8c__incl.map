@@ -1,0 +1,23 @@
+<map id="src/interDuel.c" name="src/interDuel.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="427,5,543,31"/>
+<area shape="rect" id="Node000002" href="$da/d71/structPoke_8h.html" title=" " alt="" coords="233,79,399,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="459,33,357,76,355,71,457,28"/>
+<area shape="rect" id="Node000010" href="$d6/d8e/duel_8h.html" title="Gestion des duels dans le style de &quot;Pokémon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="423,79,548,104"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="488,31,488,65,483,65,483,31"/>
+<area shape="rect" id="Node000011" href="$da/d1d/interDuel_8h.html" title=" " alt="" coords="572,79,729,104"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="513,28,612,71,610,76,511,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,72,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="272,107,86,154,85,149,271,101"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="97,152,167,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="287,107,176,149,174,144,285,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="192,152,256,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="303,106,251,146,248,141,300,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="281,152,351,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="319,104,319,138,313,138,313,104"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="376,152,472,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="335,102,396,142,393,147,332,106"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="496,152,640,177"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="357,101,515,146,513,151,356,107"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="664,152,781,177"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="382,101,651,148,650,153,381,107"/>
+</map>

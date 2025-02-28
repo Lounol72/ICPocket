@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x_0',['x',['../d7/d7e/structCamera.html#ae270fbd3b09b36f240a2d55b3b5b9cec',1,'Camera']]]
+  ['y_0',['y',['../d7/d7e/structCamera.html#ab0522c72fc25c7fa9ad6d0b91e0a3270',1,'Camera']]]
 ];
