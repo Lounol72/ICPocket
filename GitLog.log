@@ -1,3 +1,151 @@
+commit e5b5b4299f97ff15efdca5444c504ae58ffb1e7a
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 28 18:15:08 2025 +0100
+
+    Update documentation and add Doxygen-related files
+
+commit 7f077a2d075bf0414d31562fcae9eea73cb8935a
+Author: lOkaal11 <littrewilliam@gmail.com>
+Date:   Fri Feb 28 17:42:03 2025 +0100
+
+    fix save conflit
+
+commit e4d2d996323e9a6e25611f83211fe01b739474bb
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 28 15:54:56 2025 +0100
+
+    Update Pokémon stats and improve action validity checks in GameEngine
+
+commit a17167218edc2d6fcad57e5b6f6821420d27cf1a
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 28 15:41:34 2025 +0100
+
+    Refactor GameEngine logic to simplify turn handling and update log entries for Pokémon health
+
+commit 359a4d7447ba6ac3a2d5c3121644dc954aaa76ba
+Merge: 29b844b 3be840e
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 28 15:41:26 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket into main
+
+commit 29b844bd86fd77fbd437e3ee28867dae5645a452
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 28 15:39:12 2025 +0100
+
+    Refactor renderer flags for Linux, adjust camera zoom, and enhance logging output
+
+commit 3be840e98fac35ef132fe35c7a91532292633a4e
+Merge: 7409d0a ec362b6
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Feb 28 13:38:32 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket into main
+
+commit 7409d0a97a2cf408530bf3893dbd95de8991ac3c
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Feb 28 13:37:10 2025 +0100
+
+    Update charge,saves,
+     and More moves
+
+commit ec362b6fae9b387fde8b9b74babc830fb9fefc54
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 28 12:01:35 2025 +0100
+
+    Update renderer settings for Linux and enhance logging output
+
+commit 9f23ba369673d2974306118ada3dde8e20e6f883
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Feb 28 11:49:36 2025 +0100
+
+    added more documentation
+
+commit e70c1a5e270018d3b064c10929f04deb7765d610
+Merge: 373e85b 7b9661e
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Feb 28 11:47:17 2025 +0100
+
+    Merge branch 'main' of https://github.com/Lounol72/ICPocket into main
+
+commit 373e85bec074c542d760842b1d8a26ba14888eca
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Feb 28 11:46:50 2025 +0100
+
+    added more documentation
+
+commit 7b9661e4e3a827a1f529256f8bcd2ab2c6676402
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Fri Feb 28 11:43:32 2025 +0100
+
+    Update hall.png tileset asset
+
+commit 0976ad7802ac43a6604745aa9f70ea2c54256af1
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 28 11:41:00 2025 +0100
+
+    Adjust camera zoom and player spawn, optimize rendering
+
+commit 0442275fd799d894b6771d4f25f49ee41657b4c0
+Author: AstroZr <albanborde018@gmail.com>
+Date:   Fri Feb 28 11:35:38 2025 +0100
+
+    Remove unused MapFloor tileset and update player spawn position; replace map asset with hall.png
+
+commit ac7e2bbea71508a2c9188e40d836f90fab8290e2
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 28 11:25:34 2025 +0100
+
+    Update documentation and regenerate HTML/LaTeX documentation files
+
+commit 9cd8e169e327f2d186003e7ac51c0fe0bd2bbef9
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Feb 28 11:25:24 2025 +0100
+
+    added more documentation + fixed a segmentation fault caused by swapping attackers
+
+commit 500801310bbb8dab48419b73d49e66e4b38c5cd8
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Fri Feb 28 11:05:10 2025 +0100
+
+    Refactor rendering and threading, optimize game state management
+
+commit 04b7f27b8f9f5d1661df66240113a5d4530687e3
+Author: lOkaal1 <littrewilliam@gmail.com>
+Date:   Fri Feb 28 10:24:31 2025 +0100
+
+    Updates Moves
+
+commit 564bf7ce9ab250e306b939610d559c022f1339dd
+Author: Natp24109 <nathanp2402@gmail.com>
+Date:   Fri Feb 28 10:17:19 2025 +0100
+
+    added movepools db and buffer of move learning
+
+commit dcbcabf79cec162cc181141a27e8d74061466240
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 27 22:53:32 2025 +0100
+
+    Update camera viewport handling during window resize
+
+commit 0d51e09eae3684dba64578048ba512b47e36ce8c
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 27 22:41:25 2025 +0100
+
+    Add custom cursor with hover state and implement cursor loading/unloading
+
+commit 264767f1120aa0b3065c37ca94446f10d88b6bb9
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 27 20:53:47 2025 +0100
+
+    Fix memory leak in main game loop and update save file state
+
+commit 94e917b8a97a1b189e72c1dfafcff28852b00167
+Author: Lounol72 <subtil.louis2005@gmail.com>
+Date:   Thu Feb 27 19:20:48 2025 +0100
+
+    Update documentation and source files for various modules
+
 commit 4a325537f26bb6a17fdd3f3cbd8fefd05cc1b4ee
 Author: Lounol72 <subtil.louis2005@gmail.com>
 Date:   Thu Feb 27 18:59:49 2025 +0100

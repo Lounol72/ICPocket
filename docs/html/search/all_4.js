@@ -6,5 +6,6 @@ var searchData=
   ['events_2ec_3',['Events.c',['../d7/d9f/Events_8c.html',1,'']]],
   ['events_2eh_4',['Events.h',['../d0/dbb/Events_8h.html',1,'']]],
   ['exp_5',['exp',['../d7/d09/structt__Poke.html#afc7243b0a23a9ade0b20033d4970e1c8',1,'t_Poke']]],
-  ['expcurve_6',['expCurve',['../d1/d18/duel_8c.html#a3e88ec315719a73455623551f124fb62',1,'expCurve(int lvl):&#160;duel.c'],['../d6/d8e/duel_8h.html#a3e88ec315719a73455623551f124fb62',1,'expCurve(int lvl):&#160;duel.c']]]
+  ['expcurve_6',['expcurve',['../d1/d18/duel_8c.html#a3e88ec315719a73455623551f124fb62',1,'expCurve(int lvl):&#160;duel.c'],['../d6/d8e/duel_8h.html#a3e88ec315719a73455623551f124fb62',1,'expCurve(int lvl):&#160;duel.c']]],
+  ['explications_7',['Explications',['../index.html#autotoc_md4',1,'']]]
 ];

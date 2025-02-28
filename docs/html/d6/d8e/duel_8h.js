@@ -19,7 +19,6 @@ var duel_8h =
     [ "expCurve", "d6/d8e/duel_8h.html#a3e88ec315719a73455623551f124fb62", null ],
     [ "gainExp", "d6/d8e/duel_8h.html#a00cc566806ad551410ecb3ef95be9d0b", null ],
     [ "hasMoveLeft", "d6/d8e/duel_8h.html#a1b5d03e9edfe6df9d2a3df248fc25944", null ],
-    [ "initBlueTeam", "d6/d8e/duel_8h.html#a1c2ca0c1ff43f1025edfb079aff2dc00", null ],
     [ "initTeam", "d6/d8e/duel_8h.html#a4b3832f2db59021e5a2a8f4438ddadc1", null ],
     [ "isAlive", "d6/d8e/duel_8h.html#a58123fcf9acb6bb6b68e7b1213f374ff", null ],
     [ "isAttacking", "d6/d8e/duel_8h.html#af43f8a6685d1709bbcd8603ab0dbdc63", null ],

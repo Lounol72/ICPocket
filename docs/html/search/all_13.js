@@ -1,6 +1,5 @@
 var searchData=
 [
-<<<<<<< Updated upstream
   ['ui_0',['ui',['../de/de9/structGame.html#a1983960f961427e4f38cca321f7e34e3',1,'Game']]],
   ['ui_5felements_1',['UI_Elements',['../d8/de4/structUI__Elements.html',1,'']]],
   ['un_20son_2',['Ajouter un son',['../index.html#autotoc_md2',1,'']]],
@@ -19,11 +18,4 @@ var searchData=
   ['updatetext_15',['updatetext',['../dc/dae/Text_8c.html#aa873f47f05aa894283bed1c93b836b09',1,'updateText(Text *text, const char *newText, SDL_Renderer *renderer):&#160;Text.c'],['../d6/d35/Text_8h.html#aa873f47f05aa894283bed1c93b836b09',1,'updateText(Text *text, const char *newText, SDL_Renderer *renderer):&#160;Text.c']]],
   ['updatetextposition_16',['updatetextposition',['../dc/dae/Text_8c.html#a015ae8ec886baef9970798a86f682b27',1,'updateTextPosition(Text *text, float scaleX, float scaleY):&#160;Text.c'],['../d6/d35/Text_8h.html#a015ae8ec886baef9970798a86f682b27',1,'updateTextPosition(Text *text, float scaleX, float scaleY):&#160;Text.c']]],
   ['utils_2eh_17',['Utils.h',['../d9/ded/Utils_8h.html',1,'']]]
-=======
-  ['value_0',['value',['../df/dd7/structSlider.html#ae7a169abde25f6d0c42837b1b201f11a',1,'Slider']]],
-  ['value_5feffect_1',['value_effect',['../d1/d68/structt__Move.html#af2801d96ca253fc7ef0c7e27211a457b',1,'t_Move']]],
-  ['velocityx_2',['velocityX',['../dc/d7b/structPlayer.html#aa2e65de7f4fc84a45fd54247d69b31b0',1,'Player']]],
-  ['velocityy_3',['velocityY',['../dc/d7b/structPlayer.html#a2d575a35135f4c4c2fd89f01751c4462',1,'Player']]],
-  ['viewport_4',['viewport',['../d7/d7e/structCamera.html#aaf4723593207c0f1cb02edfc2f4731f2',1,'Camera']]]
->>>>>>> Stashed changes
 ];

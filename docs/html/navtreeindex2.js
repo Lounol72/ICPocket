@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"da/d71/structPoke_8h.html#ac0e9e8b25a91810f74372a05cba70777":[7,0,0,14,3],
+"da/d71/structPoke_8h.html#ad5122cd563904de0bfe762d37bdfacdf":[7,0,0,14,11],
 "da/d71/structPoke_8h.html#ad8d8693792c2e018b7e452a36fd161e9":[7,0,0,14,23],
 "da/d71/structPoke_8h.html#adc5adb43430a43f36c770a469f434abb":[7,0,0,14,25],
 "da/d71/structPoke_8h.html#ae4f820b89cf498b99b912c97e95a2414":[7,0,0,14,26],
@@ -171,7 +173,6 @@ var NAVTREEINDEX2 =
 "df/dcf/save_8c.html":[7,0,1,14],
 "df/dcf/save_8c.html#a03edadc67bcf129fad1098e0ae09461c":[7,0,1,14,0],
 "df/dcf/save_8c.html#a99e08d9f5d3c3c967b93a9b9595c110e":[7,0,1,14,1],
-"df/dcf/save_8c.html#af8d46cb16bdb5b101e5794f64e57c9dc":[7,0,1,14,2],
 "df/dd7/structSlider.html":[6,0,12],
 "df/dd7/structSlider.html#a00c7337ffabf5ae63eca715ca5bae397":[6,0,12,0],
 "df/dd7/structSlider.html#a14e0d872ff4a1b010dd71f26bd1ac9f1":[6,0,12,3],

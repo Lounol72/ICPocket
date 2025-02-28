@@ -51,7 +51,7 @@ digraph "src/ThreadManager.c"
   Node15 -> Node7 [id="edge28_Node000015_Node000007",color="steelblue1",style="solid",tooltip=" "];
   Node15 -> Node8 [id="edge29_Node000015_Node000008",color="steelblue1",style="solid",tooltip=" "];
   Node5 -> Node18 [id="edge30_Node000005_Node000018",color="steelblue1",style="solid",tooltip=" "];
-  Node18 [id="Node000018",label="duel.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d6/d8e/duel_8h.html",tooltip=" "];
+  Node18 [id="Node000018",label="duel.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d6/d8e/duel_8h.html",tooltip="Gestion des duels dans le style de \"Pokémon\" : système de tour par tour avec 2 équipes opposées."];
   Node5 -> Node19 [id="edge31_Node000005_Node000019",color="steelblue1",style="solid",tooltip=" "];
   Node19 [id="Node000019",label="trainerAI.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/d27/trainerAI_8h.html",tooltip=" "];
   Node5 -> Node20 [id="edge32_Node000005_Node000020",color="steelblue1",style="solid",tooltip=" "];

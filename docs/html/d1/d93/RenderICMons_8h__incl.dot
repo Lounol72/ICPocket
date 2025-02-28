@@ -52,7 +52,7 @@ digraph "include/RenderICMons.h"
   Node14 -> Node3 [id="edge31_Node000014_Node000003",color="steelblue1",style="solid",tooltip=" "];
   Node14 -> Node4 [id="edge32_Node000014_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node8 -> Node16 [id="edge33_Node000008_Node000016",color="steelblue1",style="solid",tooltip=" "];
-  Node16 [id="Node000016",label="duel.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d6/d8e/duel_8h.html",tooltip=" "];
+  Node16 [id="Node000016",label="duel.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d6/d8e/duel_8h.html",tooltip="Gestion des duels dans le style de \"Pokémon\" : système de tour par tour avec 2 équipes opposées."];
   Node8 -> Node17 [id="edge34_Node000008_Node000017",color="steelblue1",style="solid",tooltip=" "];
   Node17 [id="Node000017",label="trainerAI.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/d27/trainerAI_8h.html",tooltip=" "];
   Node8 -> Node18 [id="edge35_Node000008_Node000018",color="steelblue1",style="solid",tooltip=" "];

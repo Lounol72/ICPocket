@@ -56,7 +56,7 @@ digraph "include/Game.h"
   Node14 -> Node4 [id="edge34_Node000014_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node14 -> Node5 [id="edge35_Node000014_Node000005",color="steelblue1",style="solid",tooltip=" "];
   Node9 -> Node17 [id="edge36_Node000009_Node000017",color="steelblue1",style="solid",tooltip=" "];
-  Node17 [id="Node000017",label="duel.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d6/d8e/duel_8h.html",tooltip=" "];
+  Node17 [id="Node000017",label="duel.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d6/d8e/duel_8h.html",tooltip="Gestion des duels dans le style de \"Pokémon\" : système de tour par tour avec 2 équipes opposées."];
   Node9 -> Node18 [id="edge37_Node000009_Node000018",color="steelblue1",style="solid",tooltip=" "];
   Node18 [id="Node000018",label="trainerAI.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/d27/trainerAI_8h.html",tooltip=" "];
   Node9 -> Node19 [id="edge38_Node000009_Node000019",color="steelblue1",style="solid",tooltip=" "];
