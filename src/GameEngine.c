@@ -172,17 +172,17 @@ void changePokemon(Window *win, void *data) {
     (void)win; 
     int idx = (int)(intptr_t)data; 
     if (testActionValidity(idx, &game.battleState.rouge)) {
-        if (game.battleState.rouge.team[0].current_pv != 0) {
+        if (isAlive(&(game.battleState.rouge.team[idx-10]))) {
             playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&(game.battleState.ia), &game.battleState.rouge));
         } else {
             swapActualAttacker(&game.battleState.rouge, idx);
         }
-        updateICButtons(win, &game.battleState.rouge);
-        updateICMonsButtonText(win, &game.battleState.rouge);
         changeState(win, &game.stateHandlers[4].state);
     } else {
         SDL_Log("Action invalide : %d", idx);
     }
+    updateICButtons(win, &game.battleState.rouge);
+    updateICMonsButtonText(win, &game.battleState.rouge);
 }
 
 void nextDuel(Window *win, void *data) {
