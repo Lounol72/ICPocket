@@ -1,6 +1,7 @@
 #include "../include/GameEngine.h"
 #include "../include/ministdlib.h"
 #include "../include/save.h"
+/*
 void sauvegarder2(t_Team * joueur,t_Team * adverse){
     char nomFichier[1024];
     strcpy(nomFichier , "src/data/save/");
@@ -48,6 +49,7 @@ void sauvegarder2(t_Team * joueur,t_Team * adverse){
         fclose(fichier);
     }
 }
+    */
 void sauvegarder(char * nomSave ,t_Team * joueur,t_Team * adverse){
     char nomFichier[1024];
     strcpy(nomFichier , "src/data/save/");
