@@ -11,10 +11,10 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
         !(win->renderer = SDL_CreateRenderer(win->window, -1, renderer_flags)) || 
         (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || 
         TTF_Init() == -1 || 
-        !(win->LargeFont = TTF_OpenFont(FontPath, 70)) || 
-        !(win->MediumFont = TTF_OpenFont(FontPath, 56)) || 
-        !(win->SmallFont = TTF_OpenFont(FontPath, 24)) || 
-        !(win->font = TTF_OpenFont(FontPath, 18))) {
+        !(win->LargeFont = TTF_OpenFont(FontPath,   24)) || 
+        !(win->MediumFont = TTF_OpenFont(FontPath, 18)) || 
+        !(win->SmallFont = TTF_OpenFont(FontPath, 14)) || 
+        !(win->font = TTF_OpenFont(FontPath, 12))) {
         
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ SDL Error: %s", SDL_GetError());
         if (win->window) SDL_DestroyWindow(win->window);

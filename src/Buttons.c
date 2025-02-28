@@ -3,7 +3,7 @@
 #include <SDL_image.h>
 #include <stdlib.h>
 
-Button *createButton(char *text, Window *win, int x, int y, int w, int h, SDL_Color color, SDL_Color textcolor, void (*onClick)(Window *, void *), void *data, TTF_Font *font) {
+Button *createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SDL_Color textcolor, void (*onClick)(Window *, void *), void *data, TTF_Font *font) {
     Button *button = malloc(sizeof(Button));
     if (!button) {
         SDL_Log("❌ Erreur d'allocation pour le bouton.");
@@ -11,8 +11,8 @@ Button *createButton(char *text, Window *win, int x, int y, int w, int h, SDL_Co
     }
     button->text = text;
     button->textcolor = textcolor;
-    button->rect = (SDL_Rect){x, y, w, h};
-    button->initialRect = button->rect;
+    button->rect = rect;
+    button->initialRect = rect;
     button->color = color;
     button->texture = NULL;
     button->renderer = win->renderer;
@@ -20,18 +20,29 @@ Button *createButton(char *text, Window *win, int x, int y, int w, int h, SDL_Co
     button->data = data;
     button->font = font ? font : win->font;
 
-    SDL_Surface *textSurface = TTF_RenderText_Solid(button->font, text, textcolor);
+    int w, h;
+    TTF_SizeText(button->font, text, &w, &h);
+
+    float scale = (button->rect.w / (float)w < button->rect.h / (float)h) ? button->rect.w / (float)w : button->rect.h / (float)h;
+
+    int buttonhCenter = button->rect.h / 2;
+    int buttonwCenter = button->rect.w / 2;
+    button->textRect = (SDL_Rect){button->rect.x + buttonwCenter - w * scale / 2, button->rect.y + buttonhCenter - h * scale / 2, w * scale, h * scale};
+    button->initialTextRect = button->textRect;
+    
+    SDL_Surface *textSurface = NULL;
+    if (text && text[0] == '\0') textSurface = TTF_RenderText_Solid(button->font, " ", button->textcolor);
+    else textSurface = TTF_RenderText_Solid(button->font, text, button->textcolor);
     if (!textSurface) {
         SDL_Log("❌ Erreur lors de la création de la surface du texte : %s", TTF_GetError());
-        free(button);
         return NULL;
     }
-    button->textTexture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
+
+    button->textTexture = SDL_CreateTextureFromSurface(button->renderer, textSurface);
     SDL_FreeSurface(textSurface);
+
     if (!button->textTexture) {
         SDL_Log("❌ Erreur lors de la création de la texture du texte : %s", SDL_GetError());
-        free(button);
-        return NULL;
     }
     return button;
 }
@@ -126,24 +137,7 @@ void renderButtonList(ButtonList *B)
 void renderButton(Button *button) {
     if (!button) return;
     if (button->texture) SDL_RenderCopy(button->renderer, button->texture, NULL, &button->rect);
-    else {
-        SDL_SetRenderDrawColor(button->renderer, button->color.r, button->color.g, button->color.b, button->color.a);
-        SDL_RenderFillRect(button->renderer, &button->rect);
-    }
-    if (button->textTexture) {
-        int textWidth, textHeight;
-        SDL_QueryTexture(button->textTexture, NULL, NULL, &textWidth, &textHeight);
-        
-        // Calculs corrects pour centrer horizontalement et verticalement
-        SDL_Rect textRect = {
-            button->rect.x + (button->rect.w - textWidth) / 2,  // Centrage horizontal
-            button->rect.y + ((button->rect.h - textHeight) / 2)* 0.8, // Ajustement vertical (ajouter un décalage)
-            textWidth,
-            textHeight
-        };
-        
-        SDL_RenderCopy(button->renderer, button->textTexture, NULL, &textRect);
-    }
+    if (button->textTexture)SDL_RenderCopy(button->renderer, button->textTexture, NULL, &button->textRect);
 }
 
 
@@ -172,6 +166,10 @@ void updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley)
         buttons->buttons[i]->rect.h = buttons->buttons[i]->initialRect.h * Scaley;
         buttons->buttons[i]->rect.x = buttons->buttons[i]->initialRect.x * Scalex;
         buttons->buttons[i]->rect.y = buttons->buttons[i]->initialRect.y * Scaley;
+        buttons->buttons[i]->textRect.w = buttons->buttons[i]->initialTextRect.w * Scalex;
+        buttons->buttons[i]->textRect.h = buttons->buttons[i]->initialTextRect.h * Scaley;
+        buttons->buttons[i]->textRect.x = buttons->buttons[i]->initialTextRect.x * Scalex;
+        buttons->buttons[i]->textRect.y = buttons->buttons[i]->initialTextRect.y * Scaley;
         
     }
 }
@@ -181,14 +179,20 @@ void setButtonText(Button *button, const char *text, SDL_Renderer *renderer) {
         SDL_Log("❌ Erreur : Paramètre NULL dans setButtonText");
         return;
     }
-
+    
     // Détruire l'ancienne texture texte si elle existe
     if (button->textTexture) {
         SDL_DestroyTexture(button->textTexture);
         button->textTexture = NULL;
     }
-
     // Générer une nouvelle texture texte
+
+    int w, h;
+    TTF_SizeText(button->font, text, &w, &h);
+
+    float scale = (button->rect.w / (float)w < button->rect.h / (float)h) ? button->rect.w / (float)w : button->rect.h / (float)h;
+    button->textRect = (SDL_Rect){button->rect.x + (button->rect.w - w * scale) / 2, button->rect.y + (button->rect.h - h * scale) / 2, w * scale, h * scale};
+
     SDL_Surface *textSurface = NULL;
     if (text && text[0] == '\0') textSurface = TTF_RenderText_Solid(button->font, " ", button->textcolor);
     else textSurface = TTF_RenderText_Solid(button->font, text, button->textcolor);

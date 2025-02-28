@@ -177,7 +177,7 @@ int main(int argc, char *argv[]) {
             printf("🔴 ICPocket closed\n");
             return EXIT_FAILURE;
         }
-        initWindow(win, 1280,720, "assets/fonts/Axolotl.ttf");
+        initWindow(win, 1280,720, "assets/fonts/PressStart2P-Regular.ttf");
         mainLoop(win);
         destroyWindow(win); 
         free(win);          

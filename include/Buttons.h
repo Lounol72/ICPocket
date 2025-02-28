@@ -43,6 +43,8 @@ typedef struct Button {
     char nom[50]; /**< Nom du bouton. */
     SDL_Rect rect; /**< Rectangle définissant la position et la taille du bouton. */
     SDL_Rect initialRect; /**< Rectangle initial pour les besoins de mise à l'échelle. */
+    SDL_Rect textRect; /**< Rectangle du texte du bouton. */
+    SDL_Rect initialTextRect; /**< Rectangle initial pour les besoins de mise à l'échelle. */
     SDL_Color color; /**< Couleur de fond du bouton. */
     SDL_Texture *texture; /**< Texture du bouton. */
     SDL_Texture *initialTexture; /**< Texture initiale du bouton. */
@@ -100,10 +102,7 @@ typedef struct SliderList {
  * 
  * @param text Le texte affiché sur le bouton.
  * @param win La fenêtre où le bouton apparaîtra.
- * @param x La coordonnée x (coin supérieur gauche) du bouton.
- * @param y La coordonnée y (coin supérieur gauche) du bouton.
- * @param w La largeur du bouton.
- * @param h La hauteur du bouton.
+ * @param rect La position du bouton. 
  * @param color La couleur de fond du bouton.
  * @param textcolor La couleur du texte du bouton.
  * @param onClick La fonction de rappel appelée lors du clic sur le bouton.
@@ -111,7 +110,7 @@ typedef struct SliderList {
  * @param font La police utilisée pour dessiner le texte du bouton.
  * @return Un pointeur vers le nouvel objet Button créé.
  */
-Button *createButton(char *text, Window *win, int x, int y, int w, int h, SDL_Color color, SDL_Color textcolor, void (*onClick)(Window *, void *), void *data, TTF_Font *font);
+Button *createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SDL_Color textcolor, void (*onClick)(Window *, void *), void *data, TTF_Font *font);
 
 /**
  * @brief Initialise un bouton avec l'image spécifiée et l'associe au renderer donné.

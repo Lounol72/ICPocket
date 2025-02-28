@@ -263,71 +263,71 @@ void initAllButtons(Window *win)
 
     // Initialisation des boutons du menu
     buttonsMenu[0] = createButton(
-        "PLAY", win, 500, 150, 300, 100,
+        "PLAY", win, (SDL_Rect){500, 150, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[4].state, win->MediumFont
+        changeState, &game.stateHandlers[4].state, win->SmallFont
     );
     buttonsMenu[1] = createButton(
-        "LOAD GAME", win, 500, 300, 300, 100,
+        "LOAD GAME", win, (SDL_Rect){500, 300, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[5].state, win->MediumFont
     );
     buttonsMenu[2] = createButton(
-        "SETTINGS", win, 500, 450, 300, 100,
+        "SETTINGS", win, (SDL_Rect){500, 450, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[1].state, win->MediumFont
     );
     buttonsMenu[3] = createButton(
-        "QUIT", win, 500, 600, 300, 100,
+        "QUIT", win, (SDL_Rect){500, 600, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[0].state, win->MediumFont
     );
 
     // Initialisation des boutons de paramètres
     buttonsParam[0] = createButton(
-        "0.5", win, 100, 200, 200, 50,
+        "0.5", win, (SDL_Rect){100, 200, 200, 50},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeTextSpeed, &game.speeds[0], win->LargeFont
     );
     buttonsParam[1] = createButton(
-        "1", win, 400, 200, 200, 50,
+        "1", win, (SDL_Rect){400, 200, 200, 50},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeTextSpeed, &game.speeds[1], win->LargeFont
     );
     buttonsParam[2] = createButton(
-        "1.5", win, 700, 200, 200, 50,
+        "1.5", win, (SDL_Rect){700, 200, 200, 50},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeTextSpeed, &game.speeds[2], win->LargeFont
     );
     buttonsParam[3] = createButton(
-        "Fullscreen", win, 100, 300, 220, 75,
+        "Fullscreen", win, (SDL_Rect){100, 300, 220, 75},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         makeWindowFullScreen, NULL, win->LargeFont
     );
     buttonsParam[4] = createButton(
-        "Windowed", win, 400, 300, 220, 75,
+        "Windowed", win, (SDL_Rect){400, 300, 220, 75},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         makeWindowWindowed, NULL, win->LargeFont
     );
     buttonsParam[5] = createButton(
-        "Back", win, 100, 600, 300, 100,
+        "Back", win, (SDL_Rect){100, 600, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[2].state, win->LargeFont
     );
 
     // Initialisation des boutons de Load Game
     buttonsLoadGame[0] = createButton(
-        "Save 1", win, 500, 104, 300, 100,
+        "Save 1", win, (SDL_Rect){500, 104, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[4].state, win->LargeFont
     );
     buttonsLoadGame[1] = createButton(
-        "Save 2", win, 500, 258, 300, 100,
+        "Save 2", win, (SDL_Rect){500, 258, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[4].state, win->LargeFont
     );
     buttonsLoadGame[2] = createButton(
-        "Back", win, 100, 600, 300, 100,
+        "Back", win, (SDL_Rect){100, 600, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[2].state, win->LargeFont
     );
@@ -340,76 +340,76 @@ void initAllButtons(Window *win)
     int startX = 20;
     int startY = 532;
     buttonsGame[0] = createButton(
-        "Attack 1", win, startX, startY, buttonWidth, buttonHeight,
+        "Attack 1", win, (SDL_Rect){startX, startY, buttonWidth, buttonHeight},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         attqButtonClicked, (void*)(intptr_t)0, win->LargeFont
     );
     buttonsGame[1] = createButton(
-        "Attack 2", win, startX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
+        "Attack 2", win, (SDL_Rect){startX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         attqButtonClicked, (void*)(intptr_t)1, win->LargeFont
     );
     buttonsGame[2] = createButton(
-        "Attack 3", win, startX + buttonWidth + spacingX, startY, buttonWidth, buttonHeight,
+        "Attack 3", win, (SDL_Rect){startX + buttonWidth + spacingX, startY, buttonWidth, buttonHeight},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         attqButtonClicked, (void*)(intptr_t)2, win->LargeFont
     );
     buttonsGame[3] = createButton(
-        "Attack 4", win, startX + buttonWidth + spacingX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight,
+        "Attack 4", win, (SDL_Rect){startX + buttonWidth + spacingX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         attqButtonClicked, (void*)(intptr_t)3, win->LargeFont
     );
     buttonsGame[4] = createButton(
-        "ICMons", win, 950, startY, 300, 180,
+        "ICMons", win, (SDL_Rect){950, startY, 300, 180},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         changeState, &game.stateHandlers[6].state, win->LargeFont
     );
 
     // Initialisation des boutons ICMons
     buttonsICMons[0] = createButton(
-        "ICMon1", win, 20, 20, 160, 100,
+        "ICMon1", win, (SDL_Rect){20, 20, 160, 100},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         NULL, (void*)(intptr_t)0, win->LargeFont
     );
     buttonsICMons[1] = createButton(
-        "ICMon2", win, 240, 20, 160, 100,
+        "ICMon2", win, (SDL_Rect){240, 20, 160, 100},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         changePokemon, (void*)(intptr_t)11, win->LargeFont
     );
     buttonsICMons[2] = createButton(
-        "ICMon3", win, 460, 20, 160, 100,
+        "ICMon3", win, (SDL_Rect){460, 20, 160, 100},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         changePokemon, (void*)(intptr_t)12, win->LargeFont
     );
     buttonsICMons[3] = createButton(
-        "ICMon4", win, 680, 20, 160, 100,
+        "ICMon4", win, (SDL_Rect){680, 20, 160, 100},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         changePokemon, (void*)(intptr_t)13, win->LargeFont
     );
     buttonsICMons[4] = createButton(
-        "ICMon5", win, 900, 20, 160, 100,
+        "ICMon5", win, (SDL_Rect){900, 20, 160, 100},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         changePokemon, (void*)(intptr_t)14, win->LargeFont
     );
     buttonsICMons[5] = createButton(
-        "ICMon6", win, 1120, 20, 160, 100,
+        "ICMon6", win, (SDL_Rect){1120, 20, 160, 100},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         changePokemon, (void*)(intptr_t)15, win->LargeFont
     );
     buttonsICMons[6] = createButton(
-        "Back", win, 100, 600, 300, 100,
+        "Back", win, (SDL_Rect){100, 600, 300, 100},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         changeState, &game.stateHandlers[3].state, win->LargeFont
     );
 
     // Initialisation des boutons d'interaction
     buttonsInter[0] = createButton(
-        "Next Duel", win, 500, 200, 300, 100,
+        "Next Duel", win, (SDL_Rect){500, 200, 300, 100},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         nextDuel, (void*)(intptr_t)0, win->LargeFont
     );
     buttonsInter[1] = createButton(
-        "Back", win, 500, 350, 300, 100,
+        "Back", win, (SDL_Rect){500, 350, 300, 100},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         changeState, &game.stateHandlers[2].state, win->LargeFont
     );
