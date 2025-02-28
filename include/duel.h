@@ -11,12 +11,22 @@
 /**
  * @file duel.h
  * @author Natp24109
+ * @brief Gestion des duels dans le style de "Pokémon" : système de tour par tour avec 2 équipes opposées.
  */
 
 extern float statVariations[13];
 extern t_Move struggle;
 extern t_Move confusedMove;
 
+/**
+ * @brief La structure t_Team contient tout les attributs nécessaire à la génération et à l'utilisation d'une équipe lors d'un combat.
+ * @param id l'identifiant de l'équipe, principalement utilisé pour charger une équipe d'une base de données externe.
+ * @param trainerName Le nom du dresseur de l'équipe.
+ * @param team Une liste de t_Poke, contenant au maximum 6 pokémons.
+ * @param nb_poke le nombre de pokémon actuellement dans l'équipe.
+ * @param statChanges Les coefficients de variations de chaque statistiques du pokémon en tête d'équipe, sous force d'indice vers le coefficient réel stocké dans la variable globale statVariations.
+ * @param effect Un type enuméré représentant l'effet temporaire subit par le pokémon en tête d'équipe. 
+ */
 typedef struct{
 	int id;
 	char trainerName[20];

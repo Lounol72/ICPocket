@@ -1,5 +1,6 @@
 var searchData=
 [
+<<<<<<< Updated upstream
   ['large_0',['LARGE',['../d3/d70/Buttons_8h.html#a88cff078229df1c0803a690e4826b5f1a716db5c72140446e5badac4683610310',1,'Buttons.h']]],
   ['largefont_1',['LargeFont',['../d6/d08/structWindow.html#ac208f33ca6acb2a4d346746a5a0f2303',1,'Window']]],
   ['launchseceffect_2',['launchseceffect',['../d1/d18/duel_8c.html#afb8420f65f7cdf37b44746b5ba2f27e0',1,'launchSecEffect(t_Team *offender, t_Team *defender, t_Move *action):&#160;duel.c'],['../d6/d8e/duel_8h.html#afb8420f65f7cdf37b44746b5ba2f27e0',1,'launchSecEffect(t_Team *offender, t_Team *defender, t_Move *action):&#160;duel.c']]],
@@ -17,4 +18,38 @@ var searchData=
   ['lvl_14',['lvl',['../d7/d09/structt__Poke.html#aeaf2143d32858b7b9c0529da3d886876',1,'t_Poke']]],
   ['lvl_5fup_5fbuffer_15',['lvl_up_buffer',['../de/dac/structLvl__Up__Buffer.html',1,'Lvl_Up_Buffer'],['../d1/d18/duel_8c.html#a14297bdf3858bfcb9f2b5553c4a37ad2',1,'lvl_up_buffer:&#160;duel.c'],['../d6/d8e/duel_8h.html#a14297bdf3858bfcb9f2b5553c4a37ad2',1,'lvl_up_buffer:&#160;duel.c']]],
   ['lvl_5fup_5fbuffer_5fsize_16',['lvl_up_buffer_size',['../d1/d18/duel_8c.html#a5fa7c71ee69bf53efd73ff3978602ab6',1,'lvl_up_buffer_size:&#160;duel.c'],['../d6/d8e/duel_8h.html#a5fa7c71ee69bf53efd73ff3978602ab6',1,'lvl_up_buffer_size:&#160;duel.c']]]
+=======
+  ['main_0',['main',['../db/df7/mainDuel_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'mainDuel.c']]],
+  ['main_5feffect_1',['main_effect',['../d7/d09/structt__Poke.html#a0c6f6137780537388f8c8b2f19fdb4ac',1,'t_Poke']]],
+  ['mainduel_2ec_2',['mainDuel.c',['../db/df7/mainDuel_8c.html',1,'']]],
+  ['mainloop_3',['mainLoop',['../d7/d1f/GameEngine_8h.html#ad119335fdbed767125510c855f2629ce',1,'mainLoop(Window *win):&#160;GameEngine.c'],['../d5/d81/GameEngine_8c.html#ad119335fdbed767125510c855f2629ce',1,'mainLoop(Window *win):&#160;GameEngine.c']]],
+  ['makewindowfullscreen_4',['makeWindowFullScreen',['../d5/d81/GameEngine_8c.html#a5e16d7cc1bf7868bf8f67575b2a0ef1c',1,'GameEngine.c']]],
+  ['makewindowwindowed_5',['makeWindowWindowed',['../d5/d81/GameEngine_8c.html#afebb7c43646aae14210881f147faed62',1,'GameEngine.c']]],
+  ['male_6',['male',['../da/d71/structPoke_8h.html#af85da7ebd9ff08847f7abd0ef9cc0d6fadf25e9c17aa25418942eca3003c33410',1,'structPoke.h']]],
+  ['manageframerate_7',['manageFrameRate',['../d7/d1f/GameEngine_8h.html#a6ed42cf8883eef51f3764c8587d7bc59',1,'manageFrameRate(int frameStart):&#160;GameEngine.c'],['../d5/d81/GameEngine_8c.html#a6ed42cf8883eef51f3764c8587d7bc59',1,'manageFrameRate(int frameStart):&#160;GameEngine.c']]],
+  ['map_8',['Map',['../da/ddc/structMap.html',1,'Map'],['../df/d79/Map_8h.html#a767ff9e0c58d27b070f30636b66d2603',1,'Map:&#160;Map.h']]],
+  ['map_9',['MAP',['../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a4cafa5feda04184537b4d7d346e1e89b',1,'Utils.h']]],
+  ['map_10',['map',['../d4/d6e/structGameData.html#a0b0ac33efff9cff849b67e07e725ceb7',1,'GameData']]],
+  ['map_2ec_11',['Map.c',['../dc/df2/Map_8c.html',1,'']]],
+  ['map_2eh_12',['Map.h',['../df/d79/Map_8h.html',1,'']]],
+  ['map_5fheight_13',['MAP_HEIGHT',['../df/d79/Map_8h.html#a529d5ebb449edf31d9835d13f4fb9f89',1,'Map.h']]],
+  ['map_5fwidth_14',['MAP_WIDTH',['../df/d79/Map_8h.html#aa037a6d6a4f04d51c7ec1c9ee9054e76',1,'Map.h']]],
+  ['marginbottom_15',['marginBottom',['../d5/d81/GameEngine_8c.html#ac95724d68ae903b0939e67bf82c53206',1,'GameEngine.c']]],
+  ['marginright_16',['marginRight',['../d5/d81/GameEngine_8c.html#ab1a5ae8b7bb9953bedd47d22db911a87',1,'GameEngine.c']]],
+  ['mat_17',['mat',['../dc/d7b/structPlayer.html#a8138ba18395194ab3d8888c7b9137a9a',1,'Player::mat'],['../da/ddc/structMap.html#a13973d475de860c9fd9fc3764b299f6a',1,'Map::mat']]],
+  ['matrixx_18',['matrixX',['../dc/d7b/structPlayer.html#aa9dc33873c9e864d0bd4f2416ffcde32',1,'Player']]],
+  ['matrixy_19',['matrixY',['../dc/d7b/structPlayer.html#a253309b22a6a6f4a2bd562affe853cea',1,'Player']]],
+  ['max_5fai_5flvl_20',['MAX_AI_LVL',['../df/d27/trainerAI_8h.html#a2a3e93635dd47b8c73a6ceae4430f2b6',1,'trainerAI.h']]],
+  ['max_5fpp_21',['max_pp',['../d1/d68/structt__Move.html#ae1c24e65900a4ec3f539382aa15ef0a9',1,'t_Move']]],
+  ['medium_22',['MEDIUM',['../d3/d70/Buttons_8h.html#a88cff078229df1c0803a690e4826b5f1a5340ec7ecef6cc3886684a3bd3450d64',1,'Buttons.h']]],
+  ['mediumfont_23',['MediumFont',['../d6/d08/structWindow.html#a5a19cfd746d4467c4e495b696a81b0cc',1,'Window']]],
+  ['menu_24',['MENU',['../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a4c40e60bc71a32b924ce1f08d57f9721',1,'Utils.h']]],
+  ['ministdlib_2ec_25',['ministdlib.c',['../d2/db5/ministdlib_8c.html',1,'']]],
+  ['ministdlib_2eh_26',['ministdlib.h',['../d4/da0/ministdlib_8h.html',1,'']]],
+  ['moveid_27',['moveId',['../de/dac/structLvl__Up__Buffer.html#a91397717040f88f5ad02d703925a31ba',1,'Lvl_Up_Buffer']]],
+  ['movelist_28',['moveList',['../d7/d09/structt__Poke.html#a36ec65f265f2b85686a8b0883f187ba2',1,'t_Poke']]],
+  ['moveplayer_29',['movePlayer',['../da/dbf/Player_8h.html#a4b4cb0bbe11f3ac2217b842eefb84846',1,'Player.h']]],
+  ['movespeed_30',['moveSpeed',['../dc/d7b/structPlayer.html#a45d6174464d2e2cee07029e0b5aa5f82',1,'Player']]],
+  ['music_31',['music',['../d2/d3d/structGameState.html#a52a85cc148348dad5cf3e5c9c106d59f',1,'GameState']]]
+>>>>>>> Stashed changes
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
+<<<<<<< Updated upstream
   ['walk_5fdown_0',['WALK_DOWN',['../da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1ae8fb3d74805bfeab2f46ed223a4c21a5',1,'Player.h']]],
   ['walk_5fleft_1',['WALK_LEFT',['../da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1a06b5239b641a996e789d91a981fbc817',1,'Player.h']]],
   ['walk_5fright_2',['WALK_RIGHT',['../da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1a2fbeac521c5adf9280370533098f6891',1,'Player.h']]],
@@ -13,4 +14,7 @@ var searchData=
   ['window_5fwidth_10',['WINDOW_WIDTH',['../dd/de4/Camera_8h.html#a498d9f026138406895e9a34b504ac6a6',1,'Camera.h']]],
   ['windows_5fh_11',['WINDOWS_H',['../dc/d22/Game_8c.html#a6c727a2b24dca30351b8c19c1a0170ed',1,'Game.c']]],
   ['windows_5fw_12',['WINDOWS_W',['../dc/d22/Game_8c.html#a795306bb944486d929c86c7b8e545114',1,'Game.c']]]
+=======
+  ['x_0',['x',['../d7/d7e/structCamera.html#ae270fbd3b09b36f240a2d55b3b5b9cec',1,'Camera']]]
+>>>>>>> Stashed changes
 ];

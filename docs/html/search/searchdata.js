@@ -1,6 +1,10 @@
 var indexSectionsWithContent =
 {
+<<<<<<< Updated upstream
   0: "abcdefghijlmnopqrstuvwxy",
+=======
+  0: "abcdefghilmnopqrstuvwxy",
+>>>>>>> Stashed changes
   1: "abcgilmpstuw",
   2: "abcdegilmprstuw",
   3: "abcdeghilmnprstu",

@@ -3,3 +3,156 @@
 {\ttfamily \#include $<$pthread.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
 Graphe des dépendances par inclusion de Thread\+Manager.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{d5/d4d/ThreadManager_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d59/ThreadManager_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structThreadManager}{Thread\+Manager}}
+\begin{DoxyCompactList}\small\item\em Structure de gestion des threads. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structThreadManager}{Thread\+Manager}} \mbox{\hyperlink{ThreadManager_8h_a9a6bb720b545cd20bb13c0a0947dc050}{Thread\+Manager}}
+\begin{DoxyCompactList}\small\item\em Structure de gestion des threads. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ThreadManager_8h_afee76d915ed992e08d60d5aeb57fd94b}{init\+Thread\+Manager}} (struct \mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{GameEngine_8c_ac6a5ed6191fcf3a5bf0445921feb4f48}{game}})
+\begin{DoxyCompactList}\small\item\em Initialise le gestionnaire de threads. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ThreadManager_8h_ad734831476cb021f3c4b0e5ba8a20ab0}{cleanup\+Threads}} (struct \mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{GameEngine_8c_ac6a5ed6191fcf3a5bf0445921feb4f48}{game}})
+\begin{DoxyCompactList}\small\item\em Nettoie et termine les threads. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ThreadManager_8h_aca5053a41c03f29919bee861884c0a70}{audio\+Thread\+Function}} (void \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em Fonction du thread audio. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ThreadManager_8h_ab7fd089aeb14f8bcbf5722455366c8fa}{physics\+Thread\+Function}} (void \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em Fonction du thread de physique. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{ThreadManager_8h_a9a6bb720b545cd20bb13c0a0947dc050}\label{ThreadManager_8h_a9a6bb720b545cd20bb13c0a0947dc050} 
+\index{ThreadManager.h@{ThreadManager.h}!ThreadManager@{ThreadManager}}
+\index{ThreadManager@{ThreadManager}!ThreadManager.h@{ThreadManager.h}}
+\doxysubsubsection{\texorpdfstring{ThreadManager}{ThreadManager}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structThreadManager}{Thread\+Manager}} \mbox{\hyperlink{structThreadManager}{Thread\+Manager}}}
+
+
+
+Structure de gestion des threads. 
+
+Cette structure contient les threads et mutex nécessaires pour gérer \+:
+\begin{DoxyItemize}
+\item Le rendu graphique (render\+Thread)
+\item La physique du jeu (physics\+Thread)
+\item L\textquotesingle{}audio (audio\+Thread)
+\end{DoxyItemize}
+
+Les mutex permettent de synchroniser l\textquotesingle{}accès aux ressources partagées entre les différents threads.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em audio\+Thread} & Thread dédié au traitement audio\\
+\hline
+{\em physics\+Thread} & Thread dédié aux calculs physiques \\
+\hline
+{\em audio\+Mutex} & Mutex pour synchroniser l\textquotesingle{}accès aux ressources audio\\
+\hline
+{\em physics\+Mutex} & Mutex pour synchroniser l\textquotesingle{}accès aux données physiques \\
+\hline
+{\em is\+Running} & Flag indiquant si les threads doivent continuer à s\textquotesingle{}exécuter \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{ThreadManager_8h_aca5053a41c03f29919bee861884c0a70}\label{ThreadManager_8h_aca5053a41c03f29919bee861884c0a70} 
+\index{ThreadManager.h@{ThreadManager.h}!audioThreadFunction@{audioThreadFunction}}
+\index{audioThreadFunction@{audioThreadFunction}!ThreadManager.h@{ThreadManager.h}}
+\doxysubsubsection{\texorpdfstring{audioThreadFunction()}{audioThreadFunction()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} audio\+Thread\+Function (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg }\end{DoxyParamCaption})}
+
+
+
+Fonction du thread audio. 
+
+Cette fonction est exécutée par le thread audio. Elle gère le traitement audio en boucle tant que le jeu est en cours d\textquotesingle{}exécution.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em arg} & Pointeur vers la structure \doxylink{structGame}{Game} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+NULL 
+\end{DoxyReturn}
+\Hypertarget{ThreadManager_8h_ad734831476cb021f3c4b0e5ba8a20ab0}\label{ThreadManager_8h_ad734831476cb021f3c4b0e5ba8a20ab0} 
+\index{ThreadManager.h@{ThreadManager.h}!cleanupThreads@{cleanupThreads}}
+\index{cleanupThreads@{cleanupThreads}!ThreadManager.h@{ThreadManager.h}}
+\doxysubsubsection{\texorpdfstring{cleanupThreads()}{cleanupThreads()}}
+{\footnotesize\ttfamily void cleanup\+Threads (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+Nettoie et termine les threads. 
+
+Cette fonction arrête tous les threads en cours d\textquotesingle{}exécution, attend leur terminaison et détruit les mutex associés.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em game} & Pointeur vers la structure \doxylink{structGame}{Game} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ThreadManager_8h_afee76d915ed992e08d60d5aeb57fd94b}\label{ThreadManager_8h_afee76d915ed992e08d60d5aeb57fd94b} 
+\index{ThreadManager.h@{ThreadManager.h}!initThreadManager@{initThreadManager}}
+\index{initThreadManager@{initThreadManager}!ThreadManager.h@{ThreadManager.h}}
+\doxysubsubsection{\texorpdfstring{initThreadManager()}{initThreadManager()}}
+{\footnotesize\ttfamily void init\+Thread\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+Initialise le gestionnaire de threads. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em game} & Pointeur vers la structure \doxylink{structGame}{Game} Initialise les différent verrous mutex pour les ressourcers partagées et crée les threads parallèles\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Paramètres}
+{\em game} & Pointeur vers la structure \doxylink{structGame}{Game} Initialise les différent verrous mutex pour les ressourcers partagées et crée les threads parallèles \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ThreadManager_8h_ab7fd089aeb14f8bcbf5722455366c8fa}\label{ThreadManager_8h_ab7fd089aeb14f8bcbf5722455366c8fa} 
+\index{ThreadManager.h@{ThreadManager.h}!physicsThreadFunction@{physicsThreadFunction}}
+\index{physicsThreadFunction@{physicsThreadFunction}!ThreadManager.h@{ThreadManager.h}}
+\doxysubsubsection{\texorpdfstring{physicsThreadFunction()}{physicsThreadFunction()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} physics\+Thread\+Function (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg }\end{DoxyParamCaption})}
+
+
+
+Fonction du thread de physique. 
+
+Cette fonction est exécutée par le thread de physique. Elle gère les calculs physiques en boucle tant que le jeu est en cours d\textquotesingle{}exécution.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em arg} & Pointeur vers la structure \doxylink{structGame}{Game} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+NULL 
+\end{DoxyReturn}
