@@ -15,7 +15,7 @@ var searchData=
   ['neutral_5fstat_5fchange_12',['NEUTRAL_STAT_CHANGE',['../d6/d8e/duel_8h.html#a73481505b6cdf382ecfc1e3c0faaa593',1,'duel.h']]],
   ['newgame_13',['NEWGAME',['../d9/ded/Utils_8h.html#a83fc559664fc7c7e310c93586457b428a7d66b8866cc7667b15bb0ac8a7e62f4a',1,'Utils.h']]],
   ['newgametext_14',['newgametext',['../d5/d81/GameEngine_8c.html#a4cc75f256324e33385aa00bd67430368',1,'NewGameText:&#160;GameEngine.c'],['../d6/d35/Text_8h.html#a4cc75f256324e33385aa00bd67430368',1,'NewGameText:&#160;GameEngine.c']]],
-  ['nextduel_15',['nextduel',['../d5/d81/GameEngine_8c.html#a275ae329d3830bface72c1c30db48b04',1,'nextDuel(Window *win, void *data):&#160;GameEngine.c'],['../d7/d1f/GameEngine_8h.html#a275ae329d3830bface72c1c30db48b04',1,'nextDuel(Window *win, void *data):&#160;GameEngine.c']]],
+  ['nextduel_15',['nextDuel',['../d5/d81/GameEngine_8c.html#a275ae329d3830bface72c1c30db48b04',1,'GameEngine.c']]],
   ['noeffect_16',['noEffect',['../da/d71/structPoke_8h.html#a76147bdc67aed9a2286c8facfd7b8ce0aebfdd0b3c9deecff63099935f3dc1bfb',1,'structPoke.h']]],
   ['nom_17',['nom',['../d7/d19/structButton.html#a245d00855479e4efa9408976b902292f',1,'Button']]],
   ['none_18',['none',['../df/d27/trainerAI_8h.html#a57d6e306e6a876cacd7cd69e71eb23e0ab7e4e0120a041dbe6528b050c04269e0',1,'trainerAI.h']]],

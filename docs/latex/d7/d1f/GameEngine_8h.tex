@@ -7,37 +7,24 @@ Définition et gestion du moteur de jeu.
 
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
-{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
-{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
-{\ttfamily \#include $<$SDL2/\+SDL\+\_\+gamecontroller.\+h$>$}\newline
-{\ttfamily \#include $<$stdio.\+h$>$}\newline
-{\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include "{}Log.\+h"{}}\newline
-{\ttfamily \#include "{}Audio.\+h"{}}\newline
-{\ttfamily \#include "{}Buttons.\+h"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include "{}struct\+Poke.\+h"{}}\newline
 {\ttfamily \#include "{}duel.\+h"{}}\newline
 {\ttfamily \#include "{}trainer\+AI.\+h"{}}\newline
-{\ttfamily \#include "{}save.\+h"{}}\newline
-{\ttfamily \#include "{}inter\+Duel.\+h"{}}\newline
-{\ttfamily \#include "{}Utils.\+h"{}}\newline
-{\ttfamily \#include "{}Text.\+h"{}}\newline
-{\ttfamily \#include "{}Window.\+h"{}}\newline
-{\ttfamily \#include "{}Map.\+h"{}}\newline
-{\ttfamily \#include "{}Player.\+h"{}}\newline
 {\ttfamily \#include "{}Camera.\+h"{}}\newline
-{\ttfamily \#include "{}Thread\+Manager.\+h"{}}\newline
-{\ttfamily \#include "{}Game.\+h"{}}\newline
-{\ttfamily \#include "{}Events.\+h"{}}\newline
-{\ttfamily \#include "{}Render\+ICMons.\+h"{}}\newline
-Graphe des dépendances par inclusion de Game\+Engine.\+h\+:\nopagebreak
+{\ttfamily \#include "{}Player.\+h"{}}\newline
+{\ttfamily \#include "{}Utils.\+h"{}}\newline
+{\ttfamily \#include "{}Buttons.\+h"{}}\newline
+Graphe des dépendances par inclusion de Game\+Engine.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{d7/d1d/GameEngine_8h__incl}
 \end{center}
 \end{figure}
-Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -64,45 +51,21 @@ struct \mbox{\hyperlink{structGame}{Game}}
 \item 
 typedef struct \mbox{\hyperlink{structStateHandler}{State\+Handler}} \mbox{\hyperlink{GameEngine_8h_a5ab6a5b30161707f158cd5b051db5e7d}{State\+Handler}}
 \item 
+typedef struct \mbox{\hyperlink{structWindow}{Window}} \mbox{\hyperlink{GameEngine_8h_adb2a551453af16dd3214a23b16e67544}{Window}}
+\item 
 typedef struct \mbox{\hyperlink{structGame}{Game}} \mbox{\hyperlink{GameEngine_8h_a69b5df78d315f81ed77df30fdbfb7002}{Game}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{GameEngine_8h_ac7a261e0d935ffeeca4d7a0713913bd2}{init\+All\+Buttons}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
-\begin{DoxyCompactList}\small\item\em Initialise tous les boutons. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{GameEngine_8h_adce05963537a78c4c589298117616864}{render}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
-\begin{DoxyCompactList}\small\item\em Rend le contenu de la fenêtre. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{GameEngine_8h_ad119335fdbed767125510c855f2629ce}{main\+Loop}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
-\begin{DoxyCompactList}\small\item\em Boucle principale du jeu. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{GameEngine_8h_a8f8e57777ac436d2bfa2a87224c0eb8c}{attq\+Button\+Clicked}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
-\begin{DoxyCompactList}\small\item\em Gestionnaire de clic pour le bouton d\textquotesingle{}attaque. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{GameEngine_8h_ae30f21d07d1066ecda7ed1097d584e6b}{change\+State}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
-\begin{DoxyCompactList}\small\item\em Callback générique pour le changement d\textquotesingle{}état. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{GameEngine_8h_aa9e620870df635719d54d19fd83bb423}{update\+ICButtons}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}team)
-\begin{DoxyCompactList}\small\item\em Met à jour les boutons d\textquotesingle{}attaque. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{GameEngine_8h_a275ae329d3830bface72c1c30db48b04}{next\+Duel}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
-\begin{DoxyCompactList}\small\item\em Passe au duel suivant. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1}{update\+Current\+Button}} ()
-\begin{DoxyCompactList}\small\item\em Met à jour le bouton actuel. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{GameEngine_8h_ae728be2d7ae42605618aa49e1a837466}{update\+Music}} ()
-\begin{DoxyCompactList}\small\item\em Met à jour la musique. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{GameEngine_8h_a6ed42cf8883eef51f3764c8587d7bc59}{manage\+Frame\+Rate}} (int frame\+Start)
-\begin{DoxyCompactList}\small\item\em Gère le taux de rafraîchissement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Fonction principale de la boucle de jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
 Définition et gestion du moteur de jeu. 
 
-Ce fichier définit les structures et fonctions principales pour gérer le moteur de jeu, y compris les états du jeu, les éléments de l\textquotesingle{}interface utilisateur, et les mécanismes de rendu.
-
-\begin{DoxyAuthor}{Auteur}
-Louis 
-\end{DoxyAuthor}
-\begin{DoxyDate}{Date}
-24/01/2025 
-\end{DoxyDate}
-
+Ce fichier définit les structures et fonctions principales pour gérer le moteur de jeu, y compris les états du jeu, les éléments de l\textquotesingle{}interface utilisateur, et les mécanismes de rendu. 
 
 \doxysubsection{Documentation des définitions de type}
 \Hypertarget{GameEngine_8h_a69b5df78d315f81ed77df30fdbfb7002}\label{GameEngine_8h_a69b5df78d315f81ed77df30fdbfb7002} 
@@ -117,64 +80,15 @@ Louis
 \doxysubsubsection{\texorpdfstring{StateHandler}{StateHandler}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structStateHandler}{State\+Handler}} \mbox{\hyperlink{structStateHandler}{State\+Handler}}}
 
+\Hypertarget{GameEngine_8h_adb2a551453af16dd3214a23b16e67544}\label{GameEngine_8h_adb2a551453af16dd3214a23b16e67544} 
+\index{GameEngine.h@{GameEngine.h}!Window@{Window}}
+\index{Window@{Window}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{Window}{Window}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structWindow}{Window}} \mbox{\hyperlink{structWindow}{Window}}}
+
 
 
 \doxysubsection{Documentation des fonctions}
-\Hypertarget{GameEngine_8h_a8f8e57777ac436d2bfa2a87224c0eb8c}\label{GameEngine_8h_a8f8e57777ac436d2bfa2a87224c0eb8c} 
-\index{GameEngine.h@{GameEngine.h}!attqButtonClicked@{attqButtonClicked}}
-\index{attqButtonClicked@{attqButtonClicked}!GameEngine.h@{GameEngine.h}}
-\doxysubsubsection{\texorpdfstring{attqButtonClicked()}{attqButtonClicked()}}
-{\footnotesize\ttfamily void attq\+Button\+Clicked (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
-
-
-
-Gestionnaire de clic pour le bouton d\textquotesingle{}attaque. 
-
-Cette fonction est appelée lorsque le bouton d\textquotesingle{}attaque est cliqué.
-
-
-\begin{DoxyParams}{Paramètres}
-{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window}. \\
-\hline
-{\em data} & Données supplémentaires pour le gestionnaire de clic. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{GameEngine_8h_ae30f21d07d1066ecda7ed1097d584e6b}\label{GameEngine_8h_ae30f21d07d1066ecda7ed1097d584e6b} 
-\index{GameEngine.h@{GameEngine.h}!changeState@{changeState}}
-\index{changeState@{changeState}!GameEngine.h@{GameEngine.h}}
-\doxysubsubsection{\texorpdfstring{changeState()}{changeState()}}
-{\footnotesize\ttfamily void change\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
-
-
-
-Callback générique pour le changement d\textquotesingle{}état. 
-
-Cette fonction change l\textquotesingle{}état actuel de l\textquotesingle{}application.
-
-
-\begin{DoxyParams}{Paramètres}
-{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window}. \\
-\hline
-{\em data} & Données supplémentaires pour le changement d\textquotesingle{}état. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{GameEngine_8h_ac7a261e0d935ffeeca4d7a0713913bd2}\label{GameEngine_8h_ac7a261e0d935ffeeca4d7a0713913bd2} 
-\index{GameEngine.h@{GameEngine.h}!initAllButtons@{initAllButtons}}
-\index{initAllButtons@{initAllButtons}!GameEngine.h@{GameEngine.h}}
-\doxysubsubsection{\texorpdfstring{initAllButtons()}{initAllButtons()}}
-{\footnotesize\ttfamily void init\+All\+Buttons (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
-
-
-
-Initialise tous les boutons. 
-
-Cette fonction initialise tous les boutons de l\textquotesingle{}interface utilisateur.
-
-
-\begin{DoxyParams}{Paramètres}
-{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window}. \\
-\hline
-\end{DoxyParams}
 \Hypertarget{GameEngine_8h_ad119335fdbed767125510c855f2629ce}\label{GameEngine_8h_ad119335fdbed767125510c855f2629ce} 
 \index{GameEngine.h@{GameEngine.h}!mainLoop@{mainLoop}}
 \index{mainLoop@{mainLoop}!GameEngine.h@{GameEngine.h}}
@@ -183,105 +97,10 @@ Cette fonction initialise tous les boutons de l\textquotesingle{}interface utili
 
 
 
-Boucle principale du jeu. 
+Fonction principale de la boucle de jeu. 
 
-Cette fonction gère la boucle principale du jeu, y compris la gestion des événements et le rendu.
-
-
+Cette fonction gère la boucle de jeu, y compris les événements, le rendu et la mise à jour. 
 \begin{DoxyParams}{Paramètres}
-{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window}. \\
+{\em win} & Pointeur vers la structure \doxylink{structWindow}{Window}. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{GameEngine_8h_a6ed42cf8883eef51f3764c8587d7bc59}\label{GameEngine_8h_a6ed42cf8883eef51f3764c8587d7bc59} 
-\index{GameEngine.h@{GameEngine.h}!manageFrameRate@{manageFrameRate}}
-\index{manageFrameRate@{manageFrameRate}!GameEngine.h@{GameEngine.h}}
-\doxysubsubsection{\texorpdfstring{manageFrameRate()}{manageFrameRate()}}
-{\footnotesize\ttfamily void manage\+Frame\+Rate (\begin{DoxyParamCaption}\item[{int}]{frame\+Start }\end{DoxyParamCaption})}
-
-
-
-Gère le taux de rafraîchissement. 
-
-Cette fonction gère le taux de rafraîchissement des images pour maintenir une performance stable.
-
-
-\begin{DoxyParams}{Paramètres}
-{\em frame\+Start} & Le temps de début de la trame. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{GameEngine_8h_a275ae329d3830bface72c1c30db48b04}\label{GameEngine_8h_a275ae329d3830bface72c1c30db48b04} 
-\index{GameEngine.h@{GameEngine.h}!nextDuel@{nextDuel}}
-\index{nextDuel@{nextDuel}!GameEngine.h@{GameEngine.h}}
-\doxysubsubsection{\texorpdfstring{nextDuel()}{nextDuel()}}
-{\footnotesize\ttfamily void next\+Duel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
-
-
-
-Passe au duel suivant. 
-
-Cette fonction gère la transition vers le duel suivant.
-
-
-\begin{DoxyParams}{Paramètres}
-{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window}. \\
-\hline
-{\em data} & Données supplémentaires pour la transition. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{GameEngine_8h_adce05963537a78c4c589298117616864}\label{GameEngine_8h_adce05963537a78c4c589298117616864} 
-\index{GameEngine.h@{GameEngine.h}!render@{render}}
-\index{render@{render}!GameEngine.h@{GameEngine.h}}
-\doxysubsubsection{\texorpdfstring{render()}{render()}}
-{\footnotesize\ttfamily void render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
-
-
-
-Rend le contenu de la fenêtre. 
-
-Cette fonction gère le rendu de tous les éléments de la fenêtre.
-
-
-\begin{DoxyParams}{Paramètres}
-{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window}. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1}\label{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1} 
-\index{GameEngine.h@{GameEngine.h}!updateCurrentButton@{updateCurrentButton}}
-\index{updateCurrentButton@{updateCurrentButton}!GameEngine.h@{GameEngine.h}}
-\doxysubsubsection{\texorpdfstring{updateCurrentButton()}{updateCurrentButton()}}
-{\footnotesize\ttfamily void update\+Current\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Met à jour le bouton actuel. 
-
-Cette fonction met à jour le bouton actuellement sélectionné. \Hypertarget{GameEngine_8h_aa9e620870df635719d54d19fd83bb423}\label{GameEngine_8h_aa9e620870df635719d54d19fd83bb423} 
-\index{GameEngine.h@{GameEngine.h}!updateICButtons@{updateICButtons}}
-\index{updateICButtons@{updateICButtons}!GameEngine.h@{GameEngine.h}}
-\doxysubsubsection{\texorpdfstring{updateICButtons()}{updateICButtons()}}
-{\footnotesize\ttfamily void update\+ICButtons (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{team }\end{DoxyParamCaption})}
-
-
-
-Met à jour les boutons d\textquotesingle{}attaque. 
-
-Cette fonction met à jour les boutons d\textquotesingle{}attaque pour l\textquotesingle{}équipe spécifiée.
-
-
-\begin{DoxyParams}{Paramètres}
-{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window}. \\
-\hline
-{\em team} & Un pointeur vers l\textquotesingle{}équipe \doxylink{structt__Team}{t\+\_\+\+Team}. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{GameEngine_8h_ae728be2d7ae42605618aa49e1a837466}\label{GameEngine_8h_ae728be2d7ae42605618aa49e1a837466} 
-\index{GameEngine.h@{GameEngine.h}!updateMusic@{updateMusic}}
-\index{updateMusic@{updateMusic}!GameEngine.h@{GameEngine.h}}
-\doxysubsubsection{\texorpdfstring{updateMusic()}{updateMusic()}}
-{\footnotesize\ttfamily void update\+Music (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Met à jour la musique. 
-
-Cette fonction gère la mise à jour de la musique de fond. 

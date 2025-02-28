@@ -1,49 +1,48 @@
 User name : SAVE1
 nb:3
 id:1
-lvl:86
+lvl:88
 nature:0
-nbmove:1
-iv:0
-iv:10
-iv:19
-iv:18
+nbmove:3
 iv:6
-iv:3
-type:3
-move:36
+iv:7
+iv:10
+iv:2
+iv:5
+iv:18
+type:2
+move:9
+move:33
+move:27
 
 
 id:2
-lvl:30
+lvl:42
 nature:0
-nbmove:4
+nbmove:2
+iv:1
+iv:29
+iv:22
+iv:23
+iv:4
 iv:24
-iv:19
-iv:9
-iv:13
-iv:3
-iv:14
 type:3
-move:21
-move:1
-move:3
-move:22
+move:18
+move:4
 
 
 id:4
-lvl:69
+lvl:84
 nature:0
-nbmove:2
-iv:30
-iv:6
-iv:5
-iv:26
-iv:7
-iv:15
-type:3
-move:18
-move:14
+nbmove:1
+iv:31
+iv:27
+iv:2
+iv:18
+iv:1
+iv:9
+type:2
+move:29
 
 
 Dernier dresseur battu :  id: 0

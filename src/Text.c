@@ -1,17 +1,38 @@
 #include "../include/Text.h"
 #include "../include/Window.h"
 
+static void StayScaled(TTF_Font *font, Text *text, SDL_Rect *rect, SDL_Rect *initialRect) {
+    if (!text || !font || !rect || !initialRect) return;
+
+    int textWidth, textHeight;
+    if (TTF_SizeText(font, text->text, &textWidth, &textHeight) != 0) return;
+
+    float scaleW = (float)(initialRect->w ) / (float)textWidth;
+    float scaleH = (float)(initialRect->h) / (float)textHeight;
+    float scale = (scaleW < scaleH) ? scaleW : scaleH;
+
+    int scaledWidth = (int)(textWidth * scale);
+    int scaledHeight = (int)(textHeight * scale);
+
+    // Centrer le texte dans le rectangle initial
+    rect->x = initialRect->x + (initialRect->w - scaledWidth) / 2;
+    rect->y = initialRect->y + (initialRect->h - scaledHeight) / 2;
+    rect->w = scaledWidth;
+    rect->h = scaledHeight;
+    return;
+}
 void initText(struct Window *win) {
+    
     const char * const texts[] = {"Lancement de la Nouvelle Partie...", "ICPocket"};
     Text *textObjects[] = {&NewGameText, &title};
     SDL_Rect rects[] = {
         {win->width / 2 - 250, win->height / 2 + 250, 500, 100},
-        {win->width / 2 - 250, -25, 500, 170}
+        {win->width / 2 - 250, 0, 500, 170}
     };
 
     for (int i = 0; i < 2; i++) {
-        *textObjects[i] = (Text){texts[i], rects[i], rects[i], {255, 255, 255, 255}, win->LargeFont, NULL, NULL, 0};
-        SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, texts[i], textObjects[i]->color);
+        *textObjects[i] = (Text){texts[i], rects[i], rects[i], {255, 255, 255, 255}, win->MediumFont, NULL, NULL, 0};
+        SDL_Surface *textSurface = TTF_RenderText_Solid(win->MediumFont, texts[i], textObjects[i]->color);
         if (!textSurface) {
             SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur de rendu du texte : %s", TTF_GetError());
             exit(EXIT_FAILURE);
@@ -24,6 +45,11 @@ void initText(struct Window *win) {
         }
         textObjects[i]->surface = textSurface;
     }
+    
+    StayScaled(win->LargeFont, &NewGameText, &NewGameText.rect, &NewGameText.initialRect);
+    StayScaled(win->LargeFont, &title, &title.rect, &title.initialRect);
+
+
 }
 
 Text *createText(const char *text,SDL_Renderer *renderer,SDL_Rect rect, SDL_Color color, TTF_Font *font){

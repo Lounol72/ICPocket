@@ -13,12 +13,13 @@ var searchData=
   ['initialheight_10',['InitialHeight',['../d6/d08/structWindow.html#ac6e5a576bc47bd10a1785af5ef4147d2',1,'Window']]],
   ['initialized_11',['initialized',['../d2/d3d/structGameState.html#a2c4f9e46c2e120ee9e7245ece5a3bf44',1,'GameState']]],
   ['initialrect_12',['initialrect',['../d7/d19/structButton.html#a9dc90f55a2045928b0ae372a1ef50620',1,'Button::initialRect'],['../dd/d1a/structIMG__ICMons.html#a59ff78849260d7a61cbc9bed404134f7',1,'IMG_ICMons::initialRect'],['../d2/dda/structText.html#a91cd916c0252115269b4676134d0fc0a',1,'Text::initialRect']]],
-  ['initialtexture_13',['initialTexture',['../d7/d19/structButton.html#a9501a11ea4bf0ecd333c44408afe715e',1,'Button']]],
-  ['initialwidth_14',['InitialWidth',['../d6/d08/structWindow.html#a3b3cd24de4f91b4688550ab88b9fed39',1,'Window']]],
-  ['interpolationtime_15',['interpolationTime',['../dc/d7b/structPlayer.html#a8d3d1b15e29794460fb737dfebbd0be5',1,'Player']]],
-  ['is_5fdynamic_16',['is_dynamic',['../d2/dda/structText.html#af3b5cd8831bae56013cf3acb84fbf903',1,'Text']]],
-  ['ismoving_17',['isMoving',['../dc/d7b/structPlayer.html#af0b9c632e6cccce66bc4256a8a472703',1,'Player']]],
-  ['ismovingtotarget_18',['isMovingToTarget',['../dc/d7b/structPlayer.html#ab60da680497ca6ce13a4b56159b0ba14',1,'Player']]],
-  ['isrunning_19',['isRunning',['../d5/d64/structThreadManager.html#a4f9008ea31202fda3bc2d5629827eb2b',1,'ThreadManager']]],
-  ['iv_20',['iv',['../d7/d09/structt__Poke.html#a41f39b9149000b74eefdd7841c18f4fd',1,'t_Poke']]]
+  ['initialtextrect_13',['initialTextRect',['../d7/d19/structButton.html#a77671e561daa9db4c9745aa37e8b546a',1,'Button']]],
+  ['initialtexture_14',['initialTexture',['../d7/d19/structButton.html#a9501a11ea4bf0ecd333c44408afe715e',1,'Button']]],
+  ['initialwidth_15',['InitialWidth',['../d6/d08/structWindow.html#a3b3cd24de4f91b4688550ab88b9fed39',1,'Window']]],
+  ['interpolationtime_16',['interpolationTime',['../dc/d7b/structPlayer.html#a8d3d1b15e29794460fb737dfebbd0be5',1,'Player']]],
+  ['is_5fdynamic_17',['is_dynamic',['../d2/dda/structText.html#af3b5cd8831bae56013cf3acb84fbf903',1,'Text']]],
+  ['ismoving_18',['isMoving',['../dc/d7b/structPlayer.html#af0b9c632e6cccce66bc4256a8a472703',1,'Player']]],
+  ['ismovingtotarget_19',['isMovingToTarget',['../dc/d7b/structPlayer.html#ab60da680497ca6ce13a4b56159b0ba14',1,'Player']]],
+  ['isrunning_20',['isRunning',['../d5/d64/structThreadManager.html#a4f9008ea31202fda3bc2d5629827eb2b',1,'ThreadManager']]],
+  ['iv_21',['iv',['../d7/d09/structt__Poke.html#a41f39b9149000b74eefdd7841c18f4fd',1,'t_Poke']]]
 ];

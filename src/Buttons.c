@@ -25,6 +25,7 @@ static void Scaling(const char *text, TTF_Font *font, SDL_Rect *rect, const SDL_
     rect->y = initialRect->y + (initialRect->h - scaledHeight) / 2;
     rect->w = scaledWidth;
     rect->h = scaledHeight;
+    return;
 }
 
 static bool createTextTexture(Button *button) {
@@ -98,6 +99,7 @@ static void destroyButton(Button *button) {
     }
     
     free(button);
+    return;
 }
 
 
@@ -231,7 +233,7 @@ void setButtonText(Button *button, const char *text, SDL_Renderer *renderer) {
     if (text && text[0] == '\0') textSurface = TTF_RenderText_Solid(button->font, " ", button->textcolor);
     else textSurface = TTF_RenderText_Solid(button->font, text, button->textcolor);
     if (!textSurface) {
-        SDL_Log("❌ Erreur lors de la création de la surface du texte : %d", TTF_GetError());
+        SDL_Log("❌ Erreur lors de la création de la surface du texte : %s", TTF_GetError());
         return;
     }
 

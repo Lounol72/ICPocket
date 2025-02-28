@@ -21,7 +21,7 @@ var searchData=
   ['attaque_5f2_18',['ATTAQUE_2',['../d6/d8e/duel_8h.html#a4a381e7575fc4042d463c7b326d72249',1,'duel.h']]],
   ['attaque_5f3_19',['ATTAQUE_3',['../d6/d8e/duel_8h.html#ac419152371c156bf45d75a3cd6657661',1,'duel.h']]],
   ['attaque_5f4_20',['ATTAQUE_4',['../d6/d8e/duel_8h.html#a4387846cbc27ec370d916ce7222c5d12',1,'duel.h']]],
-  ['attqbuttonclicked_21',['attqbuttonclicked',['../d5/d81/GameEngine_8c.html#a8f8e57777ac436d2bfa2a87224c0eb8c',1,'attqButtonClicked(Window *win, void *data):&#160;GameEngine.c'],['../d7/d1f/GameEngine_8h.html#a8f8e57777ac436d2bfa2a87224c0eb8c',1,'attqButtonClicked(Window *win, void *data):&#160;GameEngine.c']]],
+  ['attqbuttonclicked_21',['attqButtonClicked',['../d5/d81/GameEngine_8c.html#a8f8e57777ac436d2bfa2a87224c0eb8c',1,'GameEngine.c']]],
   ['audio_2ec_22',['Audio.c',['../d3/d48/Audio_8c.html',1,'']]],
   ['audio_2eh_23',['Audio.h',['../d8/daa/Audio_8h.html',1,'']]],
   ['audio_5ffreq_24',['AUDIO_FREQ',['../d8/daa/Audio_8h.html#adebb5f0699c0e5707af99a22c23d6fe2',1,'Audio.h']]],

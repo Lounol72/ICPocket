@@ -6,16 +6,21 @@ Gestion des boutons et curseurs pour l\textquotesingle{}application.
 
 
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
-{\ttfamily \#include "{}Game\+Engine.\+h"{}}\newline
-Graphe des dépendances par inclusion de Buttons.\+h\+:\nopagebreak
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}Window.\+h"{}}\newline
+Graphe des dépendances par inclusion de Buttons.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{d4/dda/Buttons_8h__incl}
 \end{center}
 \end{figure}
-Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -35,8 +40,6 @@ struct \mbox{\hyperlink{structSliderList}{Slider\+List}}
 \begin{DoxyCompactList}\small\item\em Liste de curseurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Définitions de type}
 \begin{DoxyCompactItemize}
-\item 
-typedef struct \mbox{\hyperlink{structWindow}{Window}} \mbox{\hyperlink{Buttons_8h_adb2a551453af16dd3214a23b16e67544}{Window}}
 \item 
 typedef struct \mbox{\hyperlink{structButton}{Button}} \mbox{\hyperlink{Buttons_8h_aabbec029df4131b530b45fc227cfddcc}{Button}}
 \item 
@@ -60,20 +63,14 @@ enum \mbox{\hyperlink{Buttons_8h_a88cff078229df1c0803a690e4826b5f1}{Font\+Size}}
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Buttons_8h_a53d64ae5037fd74d0de80f678ab1e518}{create\+Button}} (char \texorpdfstring{$\ast$}{*}text, \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, int x, int y, int w, int h, SDL\+\_\+\+Color color, SDL\+\_\+\+Color textcolor, void(\texorpdfstring{$\ast$}{*}on\+Click)(\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}), void \texorpdfstring{$\ast$}{*}data, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font)
+\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Buttons_8h_a6e42448bfedad8ffa789e09b45782fe7}{create\+Button}} (char \texorpdfstring{$\ast$}{*}text, \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Rect rect, SDL\+\_\+\+Color color, SDL\+\_\+\+Color textcolor, void(\texorpdfstring{$\ast$}{*}on\+Click)(\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data), void \texorpdfstring{$\ast$}{*}data, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font, const char \texorpdfstring{$\ast$}{*}image\+Path)
 \begin{DoxyCompactList}\small\item\em Crée et retourne un nouvel objet \doxylink{structButton}{Button}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{Buttons_8h_a3c5543de3f97098d0098510de08e7dcd}{Init\+Texture\+Button}} (\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}button, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const char \texorpdfstring{$\ast$}{*}image\+Path)
-\begin{DoxyCompactList}\small\item\em Initialise un bouton avec l\textquotesingle{}image spécifiée et l\textquotesingle{}associe au renderer donné. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{Buttons_8h_ad346eafe3f2839d87b9851e36f497040}{render\+Button}} (\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}button)
-\begin{DoxyCompactList}\small\item\em Rend un bouton. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8h_ae76e871e4375b26d06e1e703325002ad}{add\+List\+Button}} (\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}list, \mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buttons, int count)
 \begin{DoxyCompactList}\small\item\em Ajoute une liste de boutons à la liste de boutons. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8h_a6f2d10aaa75aec651d944a49824dfaca}{destroy\+Button\+List}} (\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}list)
 \begin{DoxyCompactList}\small\item\em Détruit la liste de boutons. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8h_a73fede4267ce18db513f7ea5e430cdca}{render\+Button\+List}} (\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}B)
 \begin{DoxyCompactList}\small\item\em Rend la liste de boutons. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{Buttons_8h_a35aed4a2d403e0d35ea6f353e9e318f8}{destroy\+Button}} (\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}button)
-\begin{DoxyCompactList}\small\item\em Détruit un bouton. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8h_ad1f08565a6d9a8c92fc8f2c752b8e915}{Button\+Clicked}} (\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}button, int mouseX, int mouseY, \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
 \begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}interaction avec le bouton en fonction de la position actuelle de la souris et du contexte de la fenêtre. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8h_a604a2e476e66033908fc016c70138aac}{update\+Button\+Position}} (\mbox{\hyperlink{structButtonList}{Button\+List}} \texorpdfstring{$\ast$}{*}buttons, float Scalex, float Scaley)
@@ -144,12 +141,6 @@ Alban Louis
 \doxysubsubsection{\texorpdfstring{SliderList}{SliderList}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSliderList}{Slider\+List}} \mbox{\hyperlink{structSliderList}{Slider\+List}}}
 
-\Hypertarget{Buttons_8h_adb2a551453af16dd3214a23b16e67544}\label{Buttons_8h_adb2a551453af16dd3214a23b16e67544} 
-\index{Buttons.h@{Buttons.h}!Window@{Window}}
-\index{Window@{Window}!Buttons.h@{Buttons.h}}
-\doxysubsubsection{\texorpdfstring{Window}{Window}}
-{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structWindow}{Window}} \mbox{\hyperlink{structWindow}{Window}}}
-
 
 
 \doxysubsection{Documentation du type de l\textquotesingle{}énumération}
@@ -200,7 +191,7 @@ Ajoute une liste de boutons à la liste de boutons.
 \hline
 {\em buttons} & Pointeur vers le tableau d\textquotesingle{}informations des boutons à traiter. \\
 \hline
-{\em count} & Nombre de boutons dans le tableau fourni. \\
+{\em count} & Nombre de boutons dans le tableau fourni.... \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Buttons_8h_ab4f0f8d2f09eef09c6ba3cadb1f66f5c}\label{Buttons_8h_ab4f0f8d2f09eef09c6ba3cadb1f66f5c} 
@@ -246,11 +237,11 @@ Gère l\textquotesingle{}interaction avec le bouton en fonction de la position a
 \begin{DoxyReturn}{Renvoie}
 Un statut ou un booléen indiquant si l\textquotesingle{}interaction a été traitée avec succès. 
 \end{DoxyReturn}
-\Hypertarget{Buttons_8h_a53d64ae5037fd74d0de80f678ab1e518}\label{Buttons_8h_a53d64ae5037fd74d0de80f678ab1e518} 
+\Hypertarget{Buttons_8h_a6e42448bfedad8ffa789e09b45782fe7}\label{Buttons_8h_a6e42448bfedad8ffa789e09b45782fe7} 
 \index{Buttons.h@{Buttons.h}!createButton@{createButton}}
 \index{createButton@{createButton}!Buttons.h@{Buttons.h}}
 \doxysubsubsection{\texorpdfstring{createButton()}{createButton()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*} create\+Button (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{text,  }\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h,  }\item[{SDL\+\_\+\+Color}]{color,  }\item[{SDL\+\_\+\+Color}]{textcolor,  }\item[{void(\texorpdfstring{$\ast$}{*})(\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})}]{on\+Click,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{font }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*} create\+Button (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{text,  }\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Rect}]{rect,  }\item[{SDL\+\_\+\+Color}]{color,  }\item[{SDL\+\_\+\+Color}]{textcolor,  }\item[{void(\texorpdfstring{$\ast$}{*})(\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)}]{on\+Click,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{font,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{image\+Path }\end{DoxyParamCaption})}
 
 
 
@@ -262,13 +253,7 @@ Crée et retourne un nouvel objet \doxylink{structButton}{Button}.
 \hline
 {\em win} & La fenêtre où le bouton apparaîtra. \\
 \hline
-{\em x} & La coordonnée x (coin supérieur gauche) du bouton. \\
-\hline
-{\em y} & La coordonnée y (coin supérieur gauche) du bouton. \\
-\hline
-{\em w} & La largeur du bouton. \\
-\hline
-{\em h} & La hauteur du bouton. \\
+{\em rect} & La position du bouton. \\
 \hline
 {\em color} & La couleur de fond du bouton. \\
 \hline
@@ -279,6 +264,8 @@ Crée et retourne un nouvel objet \doxylink{structButton}{Button}.
 {\em data} & Les données utilisateur passées à la fonction de rappel. \\
 \hline
 {\em font} & La police utilisée pour dessiner le texte du bouton. \\
+\hline
+{\em image\+Path} & Chemin du fichier image pour le bouton. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -316,21 +303,6 @@ Cette fonction initialise un nouvel objet \doxylink{structSlider}{Slider} avec l
 \begin{DoxyReturn}{Renvoie}
 Slider\texorpdfstring{$\ast$}{*} Un pointeur vers le nouvel objet \doxylink{structSlider}{Slider} créé. 
 \end{DoxyReturn}
-\Hypertarget{Buttons_8h_a35aed4a2d403e0d35ea6f353e9e318f8}\label{Buttons_8h_a35aed4a2d403e0d35ea6f353e9e318f8} 
-\index{Buttons.h@{Buttons.h}!destroyButton@{destroyButton}}
-\index{destroyButton@{destroyButton}!Buttons.h@{Buttons.h}}
-\doxysubsubsection{\texorpdfstring{destroyButton()}{destroyButton()}}
-{\footnotesize\ttfamily void destroy\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}}]{button }\end{DoxyParamCaption})}
-
-
-
-Détruit un bouton. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em button} & Pointeur vers le bouton à détruire. \\
-\hline
-\end{DoxyParams}
 \Hypertarget{Buttons_8h_a6f2d10aaa75aec651d944a49824dfaca}\label{Buttons_8h_a6f2d10aaa75aec651d944a49824dfaca} 
 \index{Buttons.h@{Buttons.h}!destroyButtonList@{destroyButtonList}}
 \index{destroyButtonList@{destroyButtonList}!Buttons.h@{Buttons.h}}
@@ -417,40 +389,6 @@ Cette fonction traite l\textquotesingle{}événement de curseur en fonction du c
 \begin{DoxyReturn}{Renvoie}
 int Retourne 0 en cas de succès, ou un code d\textquotesingle{}erreur en cas d\textquotesingle{}échec. 
 \end{DoxyReturn}
-\Hypertarget{Buttons_8h_a3c5543de3f97098d0098510de08e7dcd}\label{Buttons_8h_a3c5543de3f97098d0098510de08e7dcd} 
-\index{Buttons.h@{Buttons.h}!InitTextureButton@{InitTextureButton}}
-\index{InitTextureButton@{InitTextureButton}!Buttons.h@{Buttons.h}}
-\doxysubsubsection{\texorpdfstring{InitTextureButton()}{InitTextureButton()}}
-{\footnotesize\ttfamily void Init\+Texture\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}}]{button,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{image\+Path }\end{DoxyParamCaption})}
-
-
-
-Initialise un bouton avec l\textquotesingle{}image spécifiée et l\textquotesingle{}associe au renderer donné. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em button} & Pointeur vers la structure du bouton à initialiser. \\
-\hline
-{\em renderer} & Pointeur vers le renderer utilisé pour dessiner le bouton. \\
-\hline
-{\em image\+Path} & Chemin du fichier image pour le bouton. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{Buttons_8h_ad346eafe3f2839d87b9851e36f497040}\label{Buttons_8h_ad346eafe3f2839d87b9851e36f497040} 
-\index{Buttons.h@{Buttons.h}!renderButton@{renderButton}}
-\index{renderButton@{renderButton}!Buttons.h@{Buttons.h}}
-\doxysubsubsection{\texorpdfstring{renderButton()}{renderButton()}}
-{\footnotesize\ttfamily void render\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structButton}{Button}} \texorpdfstring{$\ast$}{*}}]{button }\end{DoxyParamCaption})}
-
-
-
-Rend un bouton. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em button} & Pointeur vers le bouton à rendre. \\
-\hline
-\end{DoxyParams}
 \Hypertarget{Buttons_8h_a73fede4267ce18db513f7ea5e430cdca}\label{Buttons_8h_a73fede4267ce18db513f7ea5e430cdca} 
 \index{Buttons.h@{Buttons.h}!renderButtonList@{renderButtonList}}
 \index{renderButtonList@{renderButtonList}!Buttons.h@{Buttons.h}}

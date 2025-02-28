@@ -11,7 +11,8 @@ Représente un bouton dans l\textquotesingle{}application.
 
 
 
-Graphe de collaboration de Button\+:\nopagebreak
+Graphe de collaboration de Button\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -26,6 +27,10 @@ char \mbox{\hyperlink{structButton_a245d00855479e4efa9408976b902292f}{nom}} \mbo
 SDL\+\_\+\+Rect \mbox{\hyperlink{structButton_a6fcfa8e3d62cf1b78f5c4d5c9384b30d}{rect}}
 \item 
 SDL\+\_\+\+Rect \mbox{\hyperlink{structButton_a9dc90f55a2045928b0ae372a1ef50620}{initial\+Rect}}
+\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{structButton_a31b42e45fec1098ac39047981f69c04e}{text\+Rect}}
+\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{structButton_a77671e561daa9db4c9745aa37e8b546a}{initial\+Text\+Rect}}
 \item 
 SDL\+\_\+\+Color \mbox{\hyperlink{structButton_abc7931919faeb301d72cb228432925a6}{color}}
 \item 
@@ -45,7 +50,7 @@ SDL\+\_\+\+Color \mbox{\hyperlink{structButton_a9f2a958c0c8c05c3ef56fd029a1b7b12
 \item 
 TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structButton_aa5571a7ee87f4a2d6038ca8cfae90ea6}{font}}
 \item 
-void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structButton_a393319ffc2e21f7c7e4e34aa5a1d8bad}{on\+Click}} )(\mbox{\hyperlink{Buttons_8h_adb2a551453af16dd3214a23b16e67544}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structButton_a221fd9ab3b9125d019a12be97833172e}{data}})
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structButton_a393319ffc2e21f7c7e4e34aa5a1d8bad}{on\+Click}} )(\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structButton_a221fd9ab3b9125d019a12be97833172e}{data}})
 \item 
 void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structButton_a221fd9ab3b9125d019a12be97833172e}{data}}
 \end{DoxyCompactItemize}
@@ -81,6 +86,12 @@ Police utilisée pour le texte du bouton. \Hypertarget{structButton_a9dc90f55a20
 \doxysubsubsection{\texorpdfstring{initialRect}{initialRect}}
 {\footnotesize\ttfamily SDL\+\_\+\+Rect Button\+::initial\+Rect}
 
+Rectangle initial pour les besoins de mise à l\textquotesingle{}échelle. \Hypertarget{structButton_a77671e561daa9db4c9745aa37e8b546a}\label{structButton_a77671e561daa9db4c9745aa37e8b546a} 
+\index{Button@{Button}!initialTextRect@{initialTextRect}}
+\index{initialTextRect@{initialTextRect}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{initialTextRect}{initialTextRect}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect Button\+::initial\+Text\+Rect}
+
 Rectangle initial pour les besoins de mise à l\textquotesingle{}échelle. \Hypertarget{structButton_a9501a11ea4bf0ecd333c44408afe715e}\label{structButton_a9501a11ea4bf0ecd333c44408afe715e} 
 \index{Button@{Button}!initialTexture@{initialTexture}}
 \index{initialTexture@{initialTexture}!Button@{Button}}
@@ -97,7 +108,7 @@ Nom du bouton. \Hypertarget{structButton_a393319ffc2e21f7c7e4e34aa5a1d8bad}\labe
 \index{Button@{Button}!onClick@{onClick}}
 \index{onClick@{onClick}!Button@{Button}}
 \doxysubsubsection{\texorpdfstring{onClick}{onClick}}
-{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} Button\+::on\+Click) (\mbox{\hyperlink{Buttons_8h_adb2a551453af16dd3214a23b16e67544}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structButton_a221fd9ab3b9125d019a12be97833172e}{data}})}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} Button\+::on\+Click) (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structButton_a221fd9ab3b9125d019a12be97833172e}{data}})}
 
 Fonction de rappel appelée lors du clic sur le bouton. \Hypertarget{structButton_a6fcfa8e3d62cf1b78f5c4d5c9384b30d}\label{structButton_a6fcfa8e3d62cf1b78f5c4d5c9384b30d} 
 \index{Button@{Button}!rect@{rect}}
@@ -129,7 +140,13 @@ Texte affiché sur le bouton. \Hypertarget{structButton_a9f2a958c0c8c05c3ef56fd0
 \doxysubsubsection{\texorpdfstring{textcolor}{textcolor}}
 {\footnotesize\ttfamily SDL\+\_\+\+Color Button\+::textcolor}
 
-Couleur du texte du bouton. \Hypertarget{structButton_a7c393b63851f6641fa4b5eb33d86bc54}\label{structButton_a7c393b63851f6641fa4b5eb33d86bc54} 
+Couleur du texte du bouton. \Hypertarget{structButton_a31b42e45fec1098ac39047981f69c04e}\label{structButton_a31b42e45fec1098ac39047981f69c04e} 
+\index{Button@{Button}!textRect@{textRect}}
+\index{textRect@{textRect}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{textRect}{textRect}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect Button\+::text\+Rect}
+
+Rectangle du texte du bouton. \Hypertarget{structButton_a7c393b63851f6641fa4b5eb33d86bc54}\label{structButton_a7c393b63851f6641fa4b5eb33d86bc54} 
 \index{Button@{Button}!textTexture@{textTexture}}
 \index{textTexture@{textTexture}!Button@{Button}}
 \doxysubsubsection{\texorpdfstring{textTexture}{textTexture}}
