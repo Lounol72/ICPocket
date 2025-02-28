@@ -1,11 +1,12 @@
 [0] [3] 🔧 Initialisation de la fenêtre ...
-[6] [3] Created renderer: software
+[6] [3] OpenGL shaders: ENABLED
+[6] [3] Created renderer: opengl
 [0] [3] Détails des flags pour le renderer :
 [0] [3] ✅ SDL Renderer Software: 1
 [0] [3] ✅ SDL Renderer Accelerated: 2
 [0] [3] ✅ SDL Renderer V-Sync: Not available
 [0] [3] ✅ SDL Renderer Target Texture: 8
-[0] [3] ✅ Utilisation des Flags: 1
+[0] [3] ✅ Utilisation des Flags: 2
 [0] [3] ✅ Initialisation de la fenêtre réussie
 [4] [3] 🔊 Initialisation de l'audio ...
 [4] [3] ✅ Mix_Init réussi.
@@ -15,7 +16,12 @@
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
 [0] [3] Changement d'état : 9
-[7] [3] Quit
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 1
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 9
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 0
 [0] [3] ✅ Musique libérée
 [0] [3] ✅ UI libérée
 [0] [3] ✅ State handlers libérés
