@@ -112,14 +112,10 @@ Graphe de collaboration de ThreadManager:</div>
 Attributs publics</h2></td></tr>
 <tr class="memitem:a45814cb0ecbb18c7204bc8bf1b79fcd3" id="r_a45814cb0ecbb18c7204bc8bf1b79fcd3"><td class="memItemLeft" align="right" valign="top">pthread_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d64/structThreadManager.html#a45814cb0ecbb18c7204bc8bf1b79fcd3">audioThread</a></td></tr>
 <tr class="separator:a45814cb0ecbb18c7204bc8bf1b79fcd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e784c40b635c71b1f5d280a64fb5833" id="r_a9e784c40b635c71b1f5d280a64fb5833"><td class="memItemLeft" align="right" valign="top">pthread_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d64/structThreadManager.html#a9e784c40b635c71b1f5d280a64fb5833">renderThread</a></td></tr>
-<tr class="separator:a9e784c40b635c71b1f5d280a64fb5833"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9424313a055ccf37e2ab6c45366ffcd" id="r_aa9424313a055ccf37e2ab6c45366ffcd"><td class="memItemLeft" align="right" valign="top">pthread_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d64/structThreadManager.html#aa9424313a055ccf37e2ab6c45366ffcd">physicsThread</a></td></tr>
 <tr class="separator:aa9424313a055ccf37e2ab6c45366ffcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad897c405c4f5d79c60e3a1a3e3ad7c2a" id="r_ad897c405c4f5d79c60e3a1a3e3ad7c2a"><td class="memItemLeft" align="right" valign="top">pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d64/structThreadManager.html#ad897c405c4f5d79c60e3a1a3e3ad7c2a">audioMutex</a></td></tr>
 <tr class="separator:ad897c405c4f5d79c60e3a1a3e3ad7c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a153631ed872464ed553ead8bcf7aa58a" id="r_a153631ed872464ed553ead8bcf7aa58a"><td class="memItemLeft" align="right" valign="top">pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d64/structThreadManager.html#a153631ed872464ed553ead8bcf7aa58a">renderMutex</a></td></tr>
-<tr class="separator:a153631ed872464ed553ead8bcf7aa58a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adff666c7c26f150223fd28b9ec24fc3c" id="r_adff666c7c26f150223fd28b9ec24fc3c"><td class="memItemLeft" align="right" valign="top">pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d64/structThreadManager.html#adff666c7c26f150223fd28b9ec24fc3c">physicsMutex</a></td></tr>
 <tr class="separator:adff666c7c26f150223fd28b9ec24fc3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f9008ea31202fda3bc2d5629827eb2b" id="r_a4f9008ea31202fda3bc2d5629827eb2b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d64/structThreadManager.html#a4f9008ea31202fda3bc2d5629827eb2b">isRunning</a></td></tr>
@@ -135,11 +131,9 @@ Attributs publics</h2></td></tr>
 <p>Les mutex permettent de synchroniser l'accès aux ressources partagées entre les différents threads.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">audioThread</td><td>Thread dédié au traitement audio </td></tr>
-    <tr><td class="paramname">renderThread</td><td>Thread dédié au rendu graphique </td></tr>
+    <tr><td class="paramname">audioThread</td><td>Thread dédié au traitement audio</td></tr>
     <tr><td class="paramname">physicsThread</td><td>Thread dédié aux calculs physiques </td></tr>
-    <tr><td class="paramname">audioMutex</td><td>Mutex pour synchroniser l'accès aux ressources audio </td></tr>
-    <tr><td class="paramname">renderMutex</td><td>Mutex pour synchroniser l'accès au rendu </td></tr>
+    <tr><td class="paramname">audioMutex</td><td>Mutex pour synchroniser l'accès aux ressources audio</td></tr>
     <tr><td class="paramname">physicsMutex</td><td>Mutex pour synchroniser l'accès aux données physiques </td></tr>
     <tr><td class="paramname">isRunning</td><td>Flag indiquant si les threads doivent continuer à s'exécuter </td></tr>
   </table>
@@ -210,34 +204,6 @@ Attributs publics</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">pthread_t ThreadManager::physicsThread</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a153631ed872464ed553ead8bcf7aa58a" name="a153631ed872464ed553ead8bcf7aa58a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a153631ed872464ed553ead8bcf7aa58a">&#9670;&#160;</a></span>renderMutex</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">pthread_mutex_t ThreadManager::renderMutex</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9e784c40b635c71b1f5d280a64fb5833" name="a9e784c40b635c71b1f5d280a64fb5833"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e784c40b635c71b1f5d280a64fb5833">&#9670;&#160;</a></span>renderThread</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">pthread_t ThreadManager::renderThread</td>
         </tr>
       </table>
 </div><div class="memdoc">

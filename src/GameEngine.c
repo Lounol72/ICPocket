@@ -103,6 +103,7 @@ void render(Window *win) {
 
 static void renderMap(Window *win) {
     pthread_mutex_lock(&game.threadManager.physicsMutex);
+    SDL_RenderClear(win->renderer);
     renderMapWithCamera(game.gameData.map, win->renderer, game.gameData.camera);
     renderPlayerWithCamera(game.gameData.player, win->renderer, game.gameData.camera);
     pthread_mutex_unlock(&game.threadManager.physicsMutex);

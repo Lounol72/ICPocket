@@ -71,10 +71,10 @@ void initGame(Window *win) {
         return;
     }
     
-    game.gameData.player->position.x = WINDOWS_W / 2;
-    game.gameData.player->position.y = WINDOWS_H / 2;
+    game.gameData.player->position.x = MAP_WIDTH  * TILE_SIZE_W_SCALE / 2;
+    game.gameData.player->position.y = MAP_HEIGHT * TILE_SIZE_H_SCALE / 2;
     
-    game.gameData.map = initMap(win->renderer, "assets/Tileset/Map/MapFloor.png");
+    game.gameData.map = initMap(win->renderer, "assets/Tileset/Map/hall.png");
     game.gameData.camera = createCamera(WINDOWS_W, WINDOWS_H);
     
     initText(win);

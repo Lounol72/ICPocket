@@ -99,6 +99,9 @@ $(document).ready(function(){initNavTree('d3/d70/Buttons_8h.html','../../'); ini
   <div class="headertitle"><div class="title">Référence du fichier Buttons.h</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Gestion des boutons et curseurs pour l'application.  
+<a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
 <code>#include &lt;SDL2/SDL_mixer.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/d1f/GameEngine_8h_source.html">GameEngine.h</a>&quot;</code><br />
@@ -118,12 +121,16 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d19/structButton.html">Button</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente un bouton dans l'application.  <a href="../../d7/d19/structButton.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/structButtonList.html">ButtonList</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liste de boutons.  <a href="../../da/db4/structButtonList.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd7/structSlider.html">Slider</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente un curseur dans l'application.  <a href="../../df/dd7/structSlider.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d53/structSliderList.html">SliderList</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liste de curseurs.  <a href="../../db/d53/structSliderList.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
@@ -148,69 +155,73 @@ Définitions de type</h2></td></tr>
 , <a class="el" href="../../d3/d70/Buttons_8h.html#a88cff078229df1c0803a690e4826b5f1aea5e596a553757a677cb4da4c8a1f935">SMALL</a> = 24
 , <a class="el" href="../../d3/d70/Buttons_8h.html#a88cff078229df1c0803a690e4826b5f1a945d6010d321d9fe75cbba7b6f37f3b5">CUSTOM</a>
  }</td></tr>
+<tr class="memdesc:a88cff078229df1c0803a690e4826b5f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille des polices utilisées pour les boutons.  <a href="../../d3/d70/Buttons_8h.html#a88cff078229df1c0803a690e4826b5f1">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a88cff078229df1c0803a690e4826b5f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a53d64ae5037fd74d0de80f678ab1e518" id="r_a53d64ae5037fd74d0de80f678ab1e518"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d19/structButton.html">Button</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#a53d64ae5037fd74d0de80f678ab1e518">createButton</a> (char *text, <a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, int x, int y, int w, int h, SDL_Color color, SDL_Color textcolor, void(*onClick)(<a class="el" href="../../d6/d08/structWindow.html">Window</a> *, void *), void *data, TTF_Font *font)</td></tr>
-<tr class="memdesc:a53d64ae5037fd74d0de80f678ab1e518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and returns a new <a class="el" href="../../d7/d19/structButton.html">Button</a> object.  <br /></td></tr>
+<tr class="memdesc:a53d64ae5037fd74d0de80f678ab1e518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée et retourne un nouvel objet <a class="el" href="../../d7/d19/structButton.html" title="Représente un bouton dans l&#39;application.">Button</a>.  <br /></td></tr>
 <tr class="separator:a53d64ae5037fd74d0de80f678ab1e518"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c5543de3f97098d0098510de08e7dcd" id="r_a3c5543de3f97098d0098510de08e7dcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#a3c5543de3f97098d0098510de08e7dcd">InitTextureButton</a> (<a class="el" href="../../d7/d19/structButton.html">Button</a> *button, SDL_Renderer *renderer, const char *imagePath)</td></tr>
-<tr class="memdesc:a3c5543de3f97098d0098510de08e7dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a button with the specified image and associates it with the given renderer.  <br /></td></tr>
+<tr class="memdesc:a3c5543de3f97098d0098510de08e7dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise un bouton avec l'image spécifiée et l'associe au renderer donné.  <br /></td></tr>
 <tr class="separator:a3c5543de3f97098d0098510de08e7dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad346eafe3f2839d87b9851e36f497040" id="r_ad346eafe3f2839d87b9851e36f497040"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#ad346eafe3f2839d87b9851e36f497040">renderButton</a> (<a class="el" href="../../d7/d19/structButton.html">Button</a> *button)</td></tr>
-<tr class="memdesc:ad346eafe3f2839d87b9851e36f497040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the specified button action.  <br /></td></tr>
+<tr class="memdesc:ad346eafe3f2839d87b9851e36f497040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rend un bouton.  <br /></td></tr>
 <tr class="separator:ad346eafe3f2839d87b9851e36f497040"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae76e871e4375b26d06e1e703325002ad" id="r_ae76e871e4375b26d06e1e703325002ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#ae76e871e4375b26d06e1e703325002ad">addListButton</a> (<a class="el" href="../../da/db4/structButtonList.html">ButtonList</a> *list, <a class="el" href="../../d7/d19/structButton.html">Button</a> **buttons, int count)</td></tr>
-<tr class="memdesc:ae76e871e4375b26d06e1e703325002ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the provided list of button structures.  <br /></td></tr>
+<tr class="memdesc:ae76e871e4375b26d06e1e703325002ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute une liste de boutons à la liste de boutons.  <br /></td></tr>
 <tr class="separator:ae76e871e4375b26d06e1e703325002ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f2d10aaa75aec651d944a49824dfaca" id="r_a6f2d10aaa75aec651d944a49824dfaca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#a6f2d10aaa75aec651d944a49824dfaca">destroyButtonList</a> (<a class="el" href="../../da/db4/structButtonList.html">ButtonList</a> *list)</td></tr>
-<tr class="memdesc:a6f2d10aaa75aec651d944a49824dfaca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the specified list of items.  <br /></td></tr>
+<tr class="memdesc:a6f2d10aaa75aec651d944a49824dfaca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit la liste de boutons.  <br /></td></tr>
 <tr class="separator:a6f2d10aaa75aec651d944a49824dfaca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73fede4267ce18db513f7ea5e430cdca" id="r_a73fede4267ce18db513f7ea5e430cdca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#a73fede4267ce18db513f7ea5e430cdca">renderButtonList</a> (<a class="el" href="../../da/db4/structButtonList.html">ButtonList</a> *B)</td></tr>
-<tr class="memdesc:a73fede4267ce18db513f7ea5e430cdca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brief description of the function.  <br /></td></tr>
+<tr class="memdesc:a73fede4267ce18db513f7ea5e430cdca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rend la liste de boutons.  <br /></td></tr>
 <tr class="separator:a73fede4267ce18db513f7ea5e430cdca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35aed4a2d403e0d35ea6f353e9e318f8" id="r_a35aed4a2d403e0d35ea6f353e9e318f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#a35aed4a2d403e0d35ea6f353e9e318f8">destroyButton</a> (<a class="el" href="../../d7/d19/structButton.html">Button</a> *button)</td></tr>
-<tr class="memdesc:a35aed4a2d403e0d35ea6f353e9e318f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the specified action for the given button.  <br /></td></tr>
+<tr class="memdesc:a35aed4a2d403e0d35ea6f353e9e318f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un bouton.  <br /></td></tr>
 <tr class="separator:a35aed4a2d403e0d35ea6f353e9e318f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1f08565a6d9a8c92fc8f2c752b8e915" id="r_ad1f08565a6d9a8c92fc8f2c752b8e915"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#ad1f08565a6d9a8c92fc8f2c752b8e915">ButtonClicked</a> (<a class="el" href="../../d7/d19/structButton.html">Button</a> *button, int mouseX, int mouseY, <a class="el" href="../../d6/d08/structWindow.html">Window</a> *win)</td></tr>
-<tr class="memdesc:ad1f08565a6d9a8c92fc8f2c752b8e915"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes button interaction given the current mouse position and window context.  <br /></td></tr>
+<tr class="memdesc:ad1f08565a6d9a8c92fc8f2c752b8e915"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère l'interaction avec le bouton en fonction de la position actuelle de la souris et du contexte de la fenêtre.  <br /></td></tr>
 <tr class="separator:ad1f08565a6d9a8c92fc8f2c752b8e915"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a604a2e476e66033908fc016c70138aac" id="r_a604a2e476e66033908fc016c70138aac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#a604a2e476e66033908fc016c70138aac">updateButtonPosition</a> (<a class="el" href="../../da/db4/structButtonList.html">ButtonList</a> *buttons, float Scalex, float Scaley)</td></tr>
-<tr class="memdesc:a604a2e476e66033908fc016c70138aac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates button states and applies scaling factors to the user interface elements.  <br /></td></tr>
+<tr class="memdesc:a604a2e476e66033908fc016c70138aac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour les états des boutons et applique des facteurs de mise à l'échelle aux éléments de l'interface utilisateur.  <br /></td></tr>
 <tr class="separator:a604a2e476e66033908fc016c70138aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46d3f067fb44669bc3438b8030823799" id="r_a46d3f067fb44669bc3438b8030823799"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#a46d3f067fb44669bc3438b8030823799">setButtonText</a> (<a class="el" href="../../d7/d19/structButton.html">Button</a> *button, const char *text, SDL_Renderer *renderer)</td></tr>
-<tr class="memdesc:a46d3f067fb44669bc3438b8030823799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders a button with the specified text.  <br /></td></tr>
+<tr class="memdesc:a46d3f067fb44669bc3438b8030823799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définit le texte d'un bouton.  <br /></td></tr>
 <tr class="separator:a46d3f067fb44669bc3438b8030823799"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38653592fe2d409f3a7a620a1d6de080" id="r_a38653592fe2d409f3a7a620a1d6de080"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/dd7/structSlider.html">Slider</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#a38653592fe2d409f3a7a620a1d6de080">createSlider</a> (SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Color color, SDL_Color cursorColor)</td></tr>
-<tr class="memdesc:a38653592fe2d409f3a7a620a1d6de080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../df/dd7/structSlider.html">Slider</a> object.  <br /></td></tr>
+<tr class="memdesc:a38653592fe2d409f3a7a620a1d6de080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un objet <a class="el" href="../../df/dd7/structSlider.html" title="Représente un curseur dans l&#39;application.">Slider</a>.  <br /></td></tr>
 <tr class="separator:a38653592fe2d409f3a7a620a1d6de080"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac397d132d59d67574bd320918402f5a2" id="r_ac397d132d59d67574bd320918402f5a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#ac397d132d59d67574bd320918402f5a2">DragCursor</a> (<a class="el" href="../../df/dd7/structSlider.html">Slider</a> *slider, int mouseX)</td></tr>
-<tr class="memdesc:ac397d132d59d67574bd320918402f5a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the position of the slider based on the mouse's X coordinate.  <br /></td></tr>
+<tr class="memdesc:ac397d132d59d67574bd320918402f5a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Déplace le curseur du slider en fonction de la coordonnée X de la souris.  <br /></td></tr>
 <tr class="separator:ac397d132d59d67574bd320918402f5a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36eeecc07a5e96684859833ad0986c4a" id="r_a36eeecc07a5e96684859833ad0986c4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#a36eeecc07a5e96684859833ad0986c4a">renderSlider</a> (<a class="el" href="../../df/dd7/structSlider.html">Slider</a> *slider)</td></tr>
-<tr class="memdesc:a36eeecc07a5e96684859833ad0986c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the button press events.  <br /></td></tr>
+<tr class="memdesc:a36eeecc07a5e96684859833ad0986c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rend un curseur.  <br /></td></tr>
 <tr class="separator:a36eeecc07a5e96684859833ad0986c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa394eaa634219089d84e0d91e3a6345" id="r_afa394eaa634219089d84e0d91e3a6345"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#afa394eaa634219089d84e0d91e3a6345">destroySlider</a> (<a class="el" href="../../df/dd7/structSlider.html">Slider</a> *slider)</td></tr>
+<tr class="memdesc:afa394eaa634219089d84e0d91e3a6345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un curseur.  <br /></td></tr>
 <tr class="separator:afa394eaa634219089d84e0d91e3a6345"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcb6effb395215a5c8d11247edfcaaf2" id="r_abcb6effb395215a5c8d11247edfcaaf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#abcb6effb395215a5c8d11247edfcaaf2">destroySliderList</a> (<a class="el" href="../../db/d53/structSliderList.html">SliderList</a> *list)</td></tr>
-<tr class="memdesc:abcb6effb395215a5c8d11247edfcaaf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a list of button events.  <br /></td></tr>
+<tr class="memdesc:abcb6effb395215a5c8d11247edfcaaf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit la liste de curseurs.  <br /></td></tr>
 <tr class="separator:abcb6effb395215a5c8d11247edfcaaf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4f0f8d2f09eef09c6ba3cadb1f66f5c" id="r_ab4f0f8d2f09eef09c6ba3cadb1f66f5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#ab4f0f8d2f09eef09c6ba3cadb1f66f5c">addListSlider</a> (<a class="el" href="../../db/d53/structSliderList.html">SliderList</a> *S, <a class="el" href="../../df/dd7/structSlider.html">Slider</a> *sliders[], int size)</td></tr>
-<tr class="memdesc:ab4f0f8d2f09eef09c6ba3cadb1f66f5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the button inputs and updates the sliders accordingly.  <br /></td></tr>
+<tr class="memdesc:ab4f0f8d2f09eef09c6ba3cadb1f66f5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute une liste de curseurs à la liste de curseurs.  <br /></td></tr>
 <tr class="separator:ab4f0f8d2f09eef09c6ba3cadb1f66f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a160b73f6e05ac0b81b4fd57a404393f0" id="r_a160b73f6e05ac0b81b4fd57a404393f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#a160b73f6e05ac0b81b4fd57a404393f0">renderSliderList</a> (<a class="el" href="../../db/d53/structSliderList.html">SliderList</a> *S)</td></tr>
-<tr class="memdesc:a160b73f6e05ac0b81b4fd57a404393f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles button press events.  <br /></td></tr>
+<tr class="memdesc:a160b73f6e05ac0b81b4fd57a404393f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rend la liste de curseurs.  <br /></td></tr>
 <tr class="separator:a160b73f6e05ac0b81b4fd57a404393f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2651492b9cdec9f58253f8ba23f25f5" id="r_ab2651492b9cdec9f58253f8ba23f25f5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#ab2651492b9cdec9f58253f8ba23f25f5">handleSliderEvent</a> (<a class="el" href="../../df/dd7/structSlider.html">Slider</a> *slider, int x, int y)</td></tr>
-<tr class="memdesc:ab2651492b9cdec9f58253f8ba23f25f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the button press event.  <br /></td></tr>
+<tr class="memdesc:ab2651492b9cdec9f58253f8ba23f25f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère l'événement de curseur.  <br /></td></tr>
 <tr class="separator:ab2651492b9cdec9f58253f8ba23f25f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a109411bd394d38718374d0b1fde9a020" id="r_a109411bd394d38718374d0b1fde9a020"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d70/Buttons_8h.html#a109411bd394d38718374d0b1fde9a020">updateSliderPosition</a> (<a class="el" href="../../db/d53/structSliderList.html">SliderList</a> *sliders, float Scalex, float Scaley)</td></tr>
-<tr class="memdesc:a109411bd394d38718374d0b1fde9a020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the position of the sliders based on the mouse's X and Y coordinates.  <br /></td></tr>
+<tr class="memdesc:a109411bd394d38718374d0b1fde9a020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour la position des curseurs en fonction des coordonnées X et Y de la souris.  <br /></td></tr>
 <tr class="separator:a109411bd394d38718374d0b1fde9a020"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><dl class="section author"><dt>Auteur</dt><dd>Alban Louis </dd></dl>
+<div class="textblock"><p>Gestion des boutons et curseurs pour l'application. </p>
+<p>Ce fichier contient les définitions et les fonctions nécessaires pour créer, gérer et rendre les boutons et curseurs dans l'application SDL.</p>
+<dl class="section author"><dt>Auteur</dt><dd>Alban Louis </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>27/12/2024 </dd></dl>
 </div><h2 class="groupheader">Documentation des définitions de type</h2>
 <a id="aabbec029df4131b530b45fc227cfddcc" name="aabbec029df4131b530b45fc227cfddcc"></a>
@@ -309,11 +320,17 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Taille des polices utilisées pour les boutons. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a88cff078229df1c0803a690e4826b5f1a716db5c72140446e5badac4683610310" name="a88cff078229df1c0803a690e4826b5f1a716db5c72140446e5badac4683610310"></a>LARGE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a88cff078229df1c0803a690e4826b5f1a5340ec7ecef6cc3886684a3bd3450d64" name="a88cff078229df1c0803a690e4826b5f1a5340ec7ecef6cc3886684a3bd3450d64"></a>MEDIUM&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a88cff078229df1c0803a690e4826b5f1aea5e596a553757a677cb4da4c8a1f935" name="a88cff078229df1c0803a690e4826b5f1aea5e596a553757a677cb4da4c8a1f935"></a>SMALL&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a88cff078229df1c0803a690e4826b5f1a945d6010d321d9fe75cbba7b6f37f3b5" name="a88cff078229df1c0803a690e4826b5f1a945d6010d321d9fe75cbba7b6f37f3b5"></a>CUSTOM&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a88cff078229df1c0803a690e4826b5f1a716db5c72140446e5badac4683610310" name="a88cff078229df1c0803a690e4826b5f1a716db5c72140446e5badac4683610310"></a>LARGE&#160;</td><td class="fielddoc"><p>Grande taille de police. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a88cff078229df1c0803a690e4826b5f1a5340ec7ecef6cc3886684a3bd3450d64" name="a88cff078229df1c0803a690e4826b5f1a5340ec7ecef6cc3886684a3bd3450d64"></a>MEDIUM&#160;</td><td class="fielddoc"><p>Taille moyenne de police. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a88cff078229df1c0803a690e4826b5f1aea5e596a553757a677cb4da4c8a1f935" name="a88cff078229df1c0803a690e4826b5f1aea5e596a553757a677cb4da4c8a1f935"></a>SMALL&#160;</td><td class="fielddoc"><p>Petite taille de police. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a88cff078229df1c0803a690e4826b5f1a945d6010d321d9fe75cbba7b6f37f3b5" name="a88cff078229df1c0803a690e4826b5f1a945d6010d321d9fe75cbba7b6f37f3b5"></a>CUSTOM&#160;</td><td class="fielddoc"><p>Taille de police personnalisée. </p>
+</td></tr>
 </table>
 
 </div>
@@ -351,12 +368,12 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Processes the provided list of button structures. </p>
+<p>Ajoute une liste de boutons à la liste de boutons. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>Pointer to the data structure that accumulates button states. </td></tr>
-    <tr><td class="paramname">buttons</td><td>Pointer to the array of button information to be processed. </td></tr>
-    <tr><td class="paramname">count</td><td>Number of buttons within the provided array. </td></tr>
+    <tr><td class="paramname">list</td><td>Pointeur vers la structure qui accumule les états des boutons. </td></tr>
+    <tr><td class="paramname">buttons</td><td>Pointeur vers le tableau d'informations des boutons à traiter. </td></tr>
+    <tr><td class="paramname">count</td><td>Nombre de boutons dans le tableau fourni. </td></tr>
   </table>
   </dd>
 </dl>
@@ -395,12 +412,12 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Processes the button inputs and updates the sliders accordingly. </p>
+<p>Ajoute une liste de curseurs à la liste de curseurs. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">S</td><td>A pointer to the structure containing the button states. </td></tr>
-    <tr><td class="paramname">sliders</td><td>An array of slider values to be updated based on button inputs. </td></tr>
-    <tr><td class="paramname">size</td><td>The number of sliders in the array. </td></tr>
+    <tr><td class="paramname">S</td><td>Pointeur vers la structure contenant les curseurs à ajouter. </td></tr>
+    <tr><td class="paramname">sliders</td><td>Tableau de curseurs à ajouter. </td></tr>
+    <tr><td class="paramname">size</td><td>Nombre de curseurs dans le tableau. </td></tr>
   </table>
   </dd>
 </dl>
@@ -445,17 +462,17 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Processes button interaction given the current mouse position and window context. </p>
+<p>Gère l'interaction avec le bouton en fonction de la position actuelle de la souris et du contexte de la fenêtre. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">button</td><td>The identifier or reference to the button being interacted with. </td></tr>
-    <tr><td class="paramname">mouseX</td><td>The x-coordinate of the mouse pointer. </td></tr>
-    <tr><td class="paramname">mouseY</td><td>The y-coordinate of the mouse pointer. </td></tr>
-    <tr><td class="paramname">win</td><td>The window or graphical context in which the interaction occurs. </td></tr>
+    <tr><td class="paramname">button</td><td>Pointeur vers le bouton avec lequel interagir. </td></tr>
+    <tr><td class="paramname">mouseX</td><td>La coordonnée x du pointeur de la souris. </td></tr>
+    <tr><td class="paramname">mouseY</td><td>La coordonnée y du pointeur de la souris. </td></tr>
+    <tr><td class="paramname">win</td><td>La fenêtre ou le contexte graphique dans lequel l'interaction se produit. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>A status or boolean indicating whether the interaction was handled successfully. </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un statut ou un booléen indiquant si l'interaction a été traitée avec succès. </dd></dl>
 
 </div>
 </div>
@@ -539,24 +556,24 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates and returns a new <a class="el" href="../../d7/d19/structButton.html">Button</a> object. </p>
+<p>Crée et retourne un nouvel objet <a class="el" href="../../d7/d19/structButton.html" title="Représente un bouton dans l&#39;application.">Button</a>. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">text</td><td>The text displayed on the button </td></tr>
-    <tr><td class="paramname">win</td><td>The window where the button will appear </td></tr>
-    <tr><td class="paramname">x</td><td>The x-coordinate (top-left corner) of the button </td></tr>
-    <tr><td class="paramname">y</td><td>The y-coordinate (top-left corner) of the button </td></tr>
-    <tr><td class="paramname">w</td><td>The width of the button </td></tr>
-    <tr><td class="paramname">h</td><td>The height of the button </td></tr>
-    <tr><td class="paramname">color</td><td>The background color of the button </td></tr>
-    <tr><td class="paramname">textcolor</td><td>The color to use for the button text </td></tr>
-    <tr><td class="paramname">onClick</td><td>The callback function called when the button is clicked </td></tr>
-    <tr><td class="paramname">data</td><td>The user-defined data passed to the callback </td></tr>
-    <tr><td class="paramname">font</td><td>The font used to draw the button text</td></tr>
+    <tr><td class="paramname">text</td><td>Le texte affiché sur le bouton. </td></tr>
+    <tr><td class="paramname">win</td><td>La fenêtre où le bouton apparaîtra. </td></tr>
+    <tr><td class="paramname">x</td><td>La coordonnée x (coin supérieur gauche) du bouton. </td></tr>
+    <tr><td class="paramname">y</td><td>La coordonnée y (coin supérieur gauche) du bouton. </td></tr>
+    <tr><td class="paramname">w</td><td>La largeur du bouton. </td></tr>
+    <tr><td class="paramname">h</td><td>La hauteur du bouton. </td></tr>
+    <tr><td class="paramname">color</td><td>La couleur de fond du bouton. </td></tr>
+    <tr><td class="paramname">textcolor</td><td>La couleur du texte du bouton. </td></tr>
+    <tr><td class="paramname">onClick</td><td>La fonction de rappel appelée lors du clic sur le bouton. </td></tr>
+    <tr><td class="paramname">data</td><td>Les données utilisateur passées à la fonction de rappel. </td></tr>
+    <tr><td class="paramname">font</td><td>La police utilisée pour dessiner le texte du bouton. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>A pointer to the newly created <a class="el" href="../../d7/d19/structButton.html">Button</a> object </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un pointeur vers le nouvel objet <a class="el" href="../../d7/d19/structButton.html" title="Représente un bouton dans l&#39;application.">Button</a> créé. </dd></dl>
 
 </div>
 </div>
@@ -616,21 +633,21 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Create a <a class="el" href="../../df/dd7/structSlider.html">Slider</a> object. </p>
-<p>This function initializes a new <a class="el" href="../../df/dd7/structSlider.html">Slider</a> object with the specified parameters.</p>
+<p>Crée un objet <a class="el" href="../../df/dd7/structSlider.html" title="Représente un curseur dans l&#39;application.">Slider</a>. </p>
+<p>Cette fonction initialise un nouvel objet <a class="el" href="../../df/dd7/structSlider.html" title="Représente un curseur dans l&#39;application.">Slider</a> avec les paramètres spécifiés.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">renderer</td><td>The SDL_Renderer to use for rendering the slider. </td></tr>
-    <tr><td class="paramname">x</td><td>The x-coordinate of the slider's position. </td></tr>
-    <tr><td class="paramname">y</td><td>The y-coordinate of the slider's position. </td></tr>
-    <tr><td class="paramname">w</td><td>The width of the slider. </td></tr>
-    <tr><td class="paramname">h</td><td>The height of the slider. </td></tr>
-    <tr><td class="paramname">color</td><td>The color of the slider. </td></tr>
-    <tr><td class="paramname">cursorColor</td><td>The color of the slider's cursor. </td></tr>
+    <tr><td class="paramname">renderer</td><td>Le SDL_Renderer à utiliser pour le rendu du curseur. </td></tr>
+    <tr><td class="paramname">x</td><td>La coordonnée x de la position du curseur. </td></tr>
+    <tr><td class="paramname">y</td><td>La coordonnée y de la position du curseur. </td></tr>
+    <tr><td class="paramname">w</td><td>La largeur du curseur. </td></tr>
+    <tr><td class="paramname">h</td><td>La hauteur du curseur. </td></tr>
+    <tr><td class="paramname">color</td><td>La couleur du curseur. </td></tr>
+    <tr><td class="paramname">cursorColor</td><td>La couleur du curseur. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Slider* A pointer to the newly created <a class="el" href="../../df/dd7/structSlider.html">Slider</a> object. </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Slider* Un pointeur vers le nouvel objet <a class="el" href="../../df/dd7/structSlider.html" title="Représente un curseur dans l&#39;application.">Slider</a> créé. </dd></dl>
 
 </div>
 </div>
@@ -650,10 +667,10 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Performs the specified action for the given button. </p>
+<p>Détruit un bouton. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">button</td><td>Identifier of the button to act upon. </td></tr>
+    <tr><td class="paramname">button</td><td>Pointeur vers le bouton à détruire. </td></tr>
   </table>
   </dd>
 </dl>
@@ -676,10 +693,10 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Processes the specified list of items. </p>
+<p>Détruit la liste de boutons. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>A pointer or reference to the list of items to be processed. </td></tr>
+    <tr><td class="paramname">list</td><td>Pointeur vers la liste de boutons à détruire. </td></tr>
   </table>
   </dd>
 </dl>
@@ -701,9 +718,11 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Détruit un curseur. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">slider</td><td></td></tr>
+    <tr><td class="paramname">slider</td><td>Pointeur vers le curseur à détruire. </td></tr>
   </table>
   </dd>
 </dl>
@@ -726,10 +745,10 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Processes a list of button events. </p>
+<p>Détruit la liste de curseurs. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>A pointer to the list of button events to be processed. </td></tr>
+    <tr><td class="paramname">list</td><td>Pointeur vers la liste de curseurs à détruire. </td></tr>
   </table>
   </dd>
 </dl>
@@ -762,11 +781,11 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Updates the position of the slider based on the mouse's X coordinate. </p>
+<p>Déplace le curseur du slider en fonction de la coordonnée X de la souris. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">slider</td><td>A pointer to the slider object to be updated. </td></tr>
-    <tr><td class="paramname">mouseX</td><td>The current X coordinate of the mouse. </td></tr>
+    <tr><td class="paramname">slider</td><td>Pointeur vers l'objet slider à mettre à jour. </td></tr>
+    <tr><td class="paramname">mouseX</td><td>La coordonnée X actuelle de la souris. </td></tr>
   </table>
   </dd>
 </dl>
@@ -805,17 +824,17 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles the button press event. </p>
-<p>This function processes the button press event based on the given slider and coordinates.</p>
+<p>Gère l'événement de curseur. </p>
+<p>Cette fonction traite l'événement de curseur en fonction du curseur et des coordonnées donnés.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">slider</td><td>The slider value associated with the button press. </td></tr>
-    <tr><td class="paramname">x</td><td>The x-coordinate of the button press. </td></tr>
-    <tr><td class="paramname">y</td><td>The y-coordinate of the button press. </td></tr>
+    <tr><td class="paramname">slider</td><td>Le curseur associé à l'événement. </td></tr>
+    <tr><td class="paramname">x</td><td>La coordonnée x de l'événement. </td></tr>
+    <tr><td class="paramname">y</td><td>La coordonnée y de l'événement. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>int Returns 0 on success, or an error code on failure. </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int Retourne 0 en cas de succès, ou un code d'erreur en cas d'échec. </dd></dl>
 
 </div>
 </div>
@@ -851,12 +870,12 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes a button with the specified image and associates it with the given renderer. </p>
+<p>Initialise un bouton avec l'image spécifiée et l'associe au renderer donné. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">button</td><td>Pointer to the button structure to be initialized. </td></tr>
-    <tr><td class="paramname">renderer</td><td>Pointer to the renderer used for drawing the button. </td></tr>
-    <tr><td class="paramname">imagePath</td><td>File path to the image resource for the button. </td></tr>
+    <tr><td class="paramname">button</td><td>Pointeur vers la structure du bouton à initialiser. </td></tr>
+    <tr><td class="paramname">renderer</td><td>Pointeur vers le renderer utilisé pour dessiner le bouton. </td></tr>
+    <tr><td class="paramname">imagePath</td><td>Chemin du fichier image pour le bouton. </td></tr>
   </table>
   </dd>
 </dl>
@@ -879,10 +898,10 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Processes the specified button action. </p>
+<p>Rend un bouton. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">button</td><td>The identifier of the button to process. </td></tr>
+    <tr><td class="paramname">button</td><td>Pointeur vers le bouton à rendre. </td></tr>
   </table>
   </dd>
 </dl>
@@ -905,10 +924,10 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Brief description of the function. </p>
+<p>Rend la liste de boutons. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">B</td><td>Description of the input parameter. </td></tr>
+    <tr><td class="paramname">B</td><td>Pointeur vers la liste de boutons à rendre. </td></tr>
   </table>
   </dd>
 </dl>
@@ -931,10 +950,10 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles the button press events. </p>
+<p>Rend un curseur. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">slider</td><td>A pointer to the slider object that the button interacts with. </td></tr>
+    <tr><td class="paramname">slider</td><td>Pointeur vers le curseur à rendre. </td></tr>
   </table>
   </dd>
 </dl>
@@ -957,10 +976,10 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles button press events. </p>
+<p>Rend la liste de curseurs. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">S</td><td>The state of the buttons. </td></tr>
+    <tr><td class="paramname">S</td><td>Pointeur vers la liste de curseurs à rendre. </td></tr>
   </table>
   </dd>
 </dl>
@@ -999,12 +1018,12 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Renders a button with the specified text. </p>
+<p>Définit le texte d'un bouton. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">button</td><td>The button to render. </td></tr>
-    <tr><td class="paramname">text</td><td>The text to display on the button. </td></tr>
-    <tr><td class="paramname">renderer</td><td>The renderer to use for drawing the button. </td></tr>
+    <tr><td class="paramname">button</td><td>Le bouton à modifier. </td></tr>
+    <tr><td class="paramname">text</td><td>Le texte à afficher sur le bouton. </td></tr>
+    <tr><td class="paramname">renderer</td><td>Le renderer à utiliser pour dessiner le bouton. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1043,12 +1062,12 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Updates button states and applies scaling factors to the user interface elements. </p>
+<p>Met à jour les états des boutons et applique des facteurs de mise à l'échelle aux éléments de l'interface utilisateur. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buttons</td><td>A structure or collection representing the buttons to be managed or updated. </td></tr>
-    <tr><td class="paramname">Scalex</td><td>The horizontal scaling factor to apply. </td></tr>
-    <tr><td class="paramname">Scaley</td><td>The vertical scaling factor to apply. </td></tr>
+    <tr><td class="paramname">buttons</td><td>Structure ou collection représentant les boutons à gérer ou à mettre à jour. </td></tr>
+    <tr><td class="paramname">Scalex</td><td>Le facteur de mise à l'échelle horizontal à appliquer. </td></tr>
+    <tr><td class="paramname">Scaley</td><td>Le facteur de mise à l'échelle vertical à appliquer. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1087,12 +1106,12 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Update the position of the sliders based on the mouse's X and Y coordinates. </p>
+<p>Met à jour la position des curseurs en fonction des coordonnées X et Y de la souris. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sliders</td><td>A pointer to the structure containing the sliders to be updated. </td></tr>
-    <tr><td class="paramname">Scalex</td><td>Scale factor for the horizontal axis. </td></tr>
-    <tr><td class="paramname">Scaley</td><td>Scale factor for the vertical axis. </td></tr>
+    <tr><td class="paramname">sliders</td><td>Pointeur vers la structure contenant les curseurs à mettre à jour. </td></tr>
+    <tr><td class="paramname">Scalex</td><td>Facteur de mise à l'échelle pour l'axe horizontal. </td></tr>
+    <tr><td class="paramname">Scaley</td><td>Facteur de mise à l'échelle pour l'axe vertical. </td></tr>
   </table>
   </dd>
 </dl>

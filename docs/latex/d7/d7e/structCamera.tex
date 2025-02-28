@@ -2,6 +2,11 @@
 \hypertarget{structCamera}{}\label{structCamera}\index{Camera@{Camera}}
 
 
+Structure représentant la caméra du jeu.  
+
+
+
+
 {\ttfamily \#include $<$Camera.\+h$>$}
 
 
@@ -25,6 +30,11 @@ int \mbox{\hyperlink{structCamera_ac6ab8ca53be110c6bdbd9dea0099ff73}{targetY}}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Description détaillée}
+Structure représentant la caméra du jeu. 
+
+Cette structure contient toutes les informations nécessaires pour gérer la vue du jeu, incluant la position de la caméra, le niveau de zoom et la zone visible. 
+
 \doxysubsection{Documentation des données membres}
 \Hypertarget{structCamera_a50152f7c8f2ce7601dd6086c90b3a65c}\label{structCamera_a50152f7c8f2ce7601dd6086c90b3a65c} 
 \index{Camera@{Camera}!scale@{scale}}
@@ -32,7 +42,7 @@ int \mbox{\hyperlink{structCamera_ac6ab8ca53be110c6bdbd9dea0099ff73}{targetY}}
 \doxysubsubsection{\texorpdfstring{scale}{scale}}
 {\footnotesize\ttfamily float Camera\+::scale}
 
-\Hypertarget{structCamera_a697db4776f19aba20c6bd1f1cb323bc6}\label{structCamera_a697db4776f19aba20c6bd1f1cb323bc6} 
+Niveau de zoom de la caméra. \Hypertarget{structCamera_a697db4776f19aba20c6bd1f1cb323bc6}\label{structCamera_a697db4776f19aba20c6bd1f1cb323bc6} 
 \index{Camera@{Camera}!targetX@{targetX}}
 \index{targetX@{targetX}!Camera@{Camera}}
 \doxysubsubsection{\texorpdfstring{targetX}{targetX}}
@@ -44,13 +54,13 @@ int \mbox{\hyperlink{structCamera_ac6ab8ca53be110c6bdbd9dea0099ff73}{targetY}}
 \doxysubsubsection{\texorpdfstring{targetY}{targetY}}
 {\footnotesize\ttfamily int Camera\+::targetY}
 
-\Hypertarget{structCamera_aaf4723593207c0f1cb02edfc2f4731f2}\label{structCamera_aaf4723593207c0f1cb02edfc2f4731f2} 
+Position cible (généralement celle du joueur) que la caméra doit suivre. \Hypertarget{structCamera_aaf4723593207c0f1cb02edfc2f4731f2}\label{structCamera_aaf4723593207c0f1cb02edfc2f4731f2} 
 \index{Camera@{Camera}!viewport@{viewport}}
 \index{viewport@{viewport}!Camera@{Camera}}
 \doxysubsubsection{\texorpdfstring{viewport}{viewport}}
 {\footnotesize\ttfamily SDL\+\_\+\+Rect Camera\+::viewport}
 
-\Hypertarget{structCamera_ae270fbd3b09b36f240a2d55b3b5b9cec}\label{structCamera_ae270fbd3b09b36f240a2d55b3b5b9cec} 
+Rectangle définissant la zone visible à l\textquotesingle{}écran. \Hypertarget{structCamera_ae270fbd3b09b36f240a2d55b3b5b9cec}\label{structCamera_ae270fbd3b09b36f240a2d55b3b5b9cec} 
 \index{Camera@{Camera}!x@{x}}
 \index{x@{x}!Camera@{Camera}}
 \doxysubsubsection{\texorpdfstring{x}{x}}
@@ -62,7 +72,7 @@ int \mbox{\hyperlink{structCamera_ac6ab8ca53be110c6bdbd9dea0099ff73}{targetY}}
 \doxysubsubsection{\texorpdfstring{y}{y}}
 {\footnotesize\ttfamily float Camera\+::y}
 
-
+Position actuelle de la caméra dans le monde. 
 
 La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 

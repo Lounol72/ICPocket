@@ -47,6 +47,10 @@ int \mbox{\hyperlink{structGame_ae4bd951ed7cce7f1c9424f816e765b73}{saved}}
 float \mbox{\hyperlink{structGame_ad918e31c1644966465f822d912585f16}{delta\+Time}}
 \item 
 \mbox{\hyperlink{structThreadManager}{Thread\+Manager}} \mbox{\hyperlink{structGame_aa9455d40a57196c6fe96dcf3c20203b3}{thread\+Manager}}
+\item 
+SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structGame_a718b25063a2b739e7fd0c886c2509269}{cursor}}
+\item 
+SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structGame_a8368793aa6f05e1a40a64eab95757bf5}{cursor\+\_\+hover}}
 \end{DoxyCompactItemize}
 
 
@@ -68,7 +72,19 @@ Cette structure regroupe tous les éléments du jeu, y compris l\textquotesingle
 \doxysubsubsection{\texorpdfstring{currentButton}{currentButton}}
 {\footnotesize\ttfamily int Game\+::current\+Button}
 
-Bouton actuellement sélectionné. \Hypertarget{structGame_ad918e31c1644966465f822d912585f16}\label{structGame_ad918e31c1644966465f822d912585f16} 
+Bouton actuellement sélectionné. \Hypertarget{structGame_a718b25063a2b739e7fd0c886c2509269}\label{structGame_a718b25063a2b739e7fd0c886c2509269} 
+\index{Game@{Game}!cursor@{cursor}}
+\index{cursor@{cursor}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{cursor}{cursor}}
+{\footnotesize\ttfamily SDL\+\_\+\+Surface\texorpdfstring{$\ast$}{*} Game\+::cursor}
+
+Surface du curseur. \Hypertarget{structGame_a8368793aa6f05e1a40a64eab95757bf5}\label{structGame_a8368793aa6f05e1a40a64eab95757bf5} 
+\index{Game@{Game}!cursor\_hover@{cursor\_hover}}
+\index{cursor\_hover@{cursor\_hover}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{cursor\_hover}{cursor\_hover}}
+{\footnotesize\ttfamily SDL\+\_\+\+Surface\texorpdfstring{$\ast$}{*} Game\+::cursor\+\_\+hover}
+
+Surface du curseur au survol. \Hypertarget{structGame_ad918e31c1644966465f822d912585f16}\label{structGame_ad918e31c1644966465f822d912585f16} 
 \index{Game@{Game}!deltaTime@{deltaTime}}
 \index{deltaTime@{deltaTime}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{deltaTime}{deltaTime}}

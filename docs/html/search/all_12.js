@@ -12,7 +12,7 @@ var searchData=
   ['t_5ftype_9',['t_Type',['../da/d71/structPoke_8h.html#a7aa89bcce33ca45f04236a0df17656e2',1,'structPoke.h']]],
   ['table_20raci_10',['Table RACI',['../index.html#autotoc_md6',1,'']]],
   ['tabnature_11',['tabnature',['../d3/dfe/structPoke_8c.html#a3e0b3eb9a62d3b43c0f95146281bba83',1,'tabNature:&#160;structPoke.c'],['../da/d71/structPoke_8h.html#a3e0b3eb9a62d3b43c0f95146281bba83',1,'tabNature:&#160;structPoke.c']]],
-  ['target_12',['target',['../d1/d68/structt__Move.html#a1b5306500999e3e3822f085437e4a82e',1,'t_Move']]],
+  ['target_12',['target',['../de/dac/structLvl__Up__Buffer.html#a4234e21b25061a081c461f9faf002cd5',1,'Lvl_Up_Buffer::target'],['../d1/d68/structt__Move.html#a1b5306500999e3e3822f085437e4a82e',1,'t_Move::target']]],
   ['targetmatrixx_13',['targetMatrixX',['../dc/d7b/structPlayer.html#aee0279cf227e8359cbb7dde2e8c8c1dc',1,'Player']]],
   ['targetmatrixy_14',['targetMatrixY',['../dc/d7b/structPlayer.html#abef52c87939c8f88d5ff9ff7de4da0c4',1,'Player']]],
   ['targetx_15',['targetx',['../d7/d7e/structCamera.html#a697db4776f19aba20c6bd1f1cb323bc6',1,'Camera::targetX'],['../dc/d7b/structPlayer.html#a79043ee3fb95df9198760674ca13d9c5',1,'Player::targetX']]],

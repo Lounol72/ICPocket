@@ -54,5 +54,5 @@ digraph "GameData"
 <HR/>
 <TR><TD COLSPAN="2" CELLPADDING="1" CELLSPACING="0">&nbsp;</TD></TR>
 </TABLE>>
-,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d7/d7e/structCamera.html",tooltip=" "];
+,height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d7/d7e/structCamera.html",tooltip="Structure représentant la caméra du jeu."];
 }

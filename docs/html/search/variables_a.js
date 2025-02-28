@@ -9,7 +9,8 @@ var searchData=
   ['matrixy_6',['matrixY',['../dc/d7b/structPlayer.html#a253309b22a6a6f4a2bd562affe853cea',1,'Player']]],
   ['max_5fpp_7',['max_pp',['../d1/d68/structt__Move.html#ae1c24e65900a4ec3f539382aa15ef0a9',1,'t_Move']]],
   ['mediumfont_8',['MediumFont',['../d6/d08/structWindow.html#a5a19cfd746d4467c4e495b696a81b0cc',1,'Window']]],
-  ['movelist_9',['moveList',['../d7/d09/structt__Poke.html#a36ec65f265f2b85686a8b0883f187ba2',1,'t_Poke']]],
-  ['movespeed_10',['moveSpeed',['../dc/d7b/structPlayer.html#a45d6174464d2e2cee07029e0b5aa5f82',1,'Player']]],
-  ['music_11',['music',['../d2/d3d/structGameState.html#a52a85cc148348dad5cf3e5c9c106d59f',1,'GameState']]]
+  ['moveid_9',['moveId',['../de/dac/structLvl__Up__Buffer.html#a91397717040f88f5ad02d703925a31ba',1,'Lvl_Up_Buffer']]],
+  ['movelist_10',['moveList',['../d7/d09/structt__Poke.html#a36ec65f265f2b85686a8b0883f187ba2',1,'t_Poke']]],
+  ['movespeed_11',['moveSpeed',['../dc/d7b/structPlayer.html#a45d6174464d2e2cee07029e0b5aa5f82',1,'Player']]],
+  ['music_12',['music',['../d2/d3d/structGameState.html#a52a85cc148348dad5cf3e5c9c106d59f',1,'GameState']]]
 ];

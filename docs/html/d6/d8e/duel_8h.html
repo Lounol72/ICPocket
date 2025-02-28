@@ -111,6 +111,8 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dac/structLvl__Up__Buffer.html">Lvl_Up_Buffer</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -179,8 +181,9 @@ Fonctions</h2></td></tr>
 <tr class="separator:a692a701927e61a06fd8dce887742c7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cdb2c620c0e4c3077d6ae74c45ceb36" id="r_a2cdb2c620c0e4c3077d6ae74c45ceb36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a2cdb2c620c0e4c3077d6ae74c45ceb36">affectDamage</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *offender, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *defender, int indexMove)</td></tr>
 <tr class="separator:a2cdb2c620c0e4c3077d6ae74c45ceb36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a785cf59b04b080c32b51ca8300b62507" id="r_a785cf59b04b080c32b51ca8300b62507"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a785cf59b04b080c32b51ca8300b62507">swapActualAttacker</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t, int swapIndex)</td></tr>
-<tr class="separator:a785cf59b04b080c32b51ca8300b62507"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad567a4aec068790f989fb9ef909fcebb" id="r_ad567a4aec068790f989fb9ef909fcebb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#ad567a4aec068790f989fb9ef909fcebb">swapActualAttacker</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *target, int swapIndex)</td></tr>
+<tr class="memdesc:ad567a4aec068790f989fb9ef909fcebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">La fonction swapActualAttacker échange le pokémon présent à l'indice 0 avec celui présent à l'indice swapIndex donné en paramètre. La fonction est sans effet si l'indice spécifié est invalide (hors liste, pokémon ko).  <br /></td></tr>
+<tr class="separator:ad567a4aec068790f989fb9ef909fcebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37d0046e530324685213ff50a4c36cdb" id="r_a37d0046e530324685213ff50a4c36cdb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a37d0046e530324685213ff50a4c36cdb">playATurn</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t1, int move1, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t2, int move2)</td></tr>
 <tr class="memdesc:a37d0046e530324685213ff50a4c36cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">La fonction playATurn permet de jouer un tour d'un duel Pokémon classique, pour deux équipes au préalable générées et initialisées. La fonction modifie l'état des équipes en paramètre et gère tout les cas particuliers (actions invalides, gestion des afflictions, cas de lutte).  <br /></td></tr>
 <tr class="separator:a37d0046e530324685213ff50a4c36cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,6 +193,8 @@ Fonctions</h2></td></tr>
 <tr class="separator:a109762b4b492c870f576af03d9c9a805"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00cc566806ad551410ecb3ef95be9d0b" id="r_a00cc566806ad551410ecb3ef95be9d0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a00cc566806ad551410ecb3ef95be9d0b">gainExp</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *target, <a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *source)</td></tr>
 <tr class="separator:a00cc566806ad551410ecb3ef95be9d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab70b8a8232d95fc2bb0e4ead1bbcfd3d" id="r_ab70b8a8232d95fc2bb0e4ead1bbcfd3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#ab70b8a8232d95fc2bb0e4ead1bbcfd3d">checkLearningMove</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *p)</td></tr>
+<tr class="separator:ab70b8a8232d95fc2bb0e4ead1bbcfd3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87e1b1c2e8da8aa3dcbafa486727c992" id="r_a87e1b1c2e8da8aa3dcbafa486727c992"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a87e1b1c2e8da8aa3dcbafa486727c992">testBattle</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a549b747fa4f6f9c153b959c84c2d5ffa">rouge</a>, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a2318bae80db59839bf744d39a02a2931">bleu</a>)</td></tr>
 <tr class="separator:a87e1b1c2e8da8aa3dcbafa486727c992"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae3304431eebf95aac22ed64a644d398" id="r_aae3304431eebf95aac22ed64a644d398"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#aae3304431eebf95aac22ed64a644d398">testSwitch</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a549b747fa4f6f9c153b959c84c2d5ffa">rouge</a>, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a2318bae80db59839bf744d39a02a2931">bleu</a>)</td></tr>
@@ -211,12 +216,18 @@ Variables</h2></td></tr>
 <tr class="separator:acde9cb2f6b18119fde97bf6be55639c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc50e7669e9a8b080c36aff121cf7836" id="r_adc50e7669e9a8b080c36aff121cf7836"><td class="memItemLeft" align="right" valign="top">int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#adc50e7669e9a8b080c36aff121cf7836">SecEffectTab</a> [3])(<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *, int, int, int)</td></tr>
 <tr class="separator:adc50e7669e9a8b080c36aff121cf7836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14297bdf3858bfcb9f2b5553c4a37ad2" id="r_a14297bdf3858bfcb9f2b5553c4a37ad2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/dac/structLvl__Up__Buffer.html">Lvl_Up_Buffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a14297bdf3858bfcb9f2b5553c4a37ad2">lvl_up_buffer</a> [6]</td></tr>
+<tr class="separator:a14297bdf3858bfcb9f2b5553c4a37ad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fa7c71ee69bf53efd73ff3978602ab6" id="r_a5fa7c71ee69bf53efd73ff3978602ab6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a5fa7c71ee69bf53efd73ff3978602ab6">lvl_up_buffer_size</a></td></tr>
+<tr class="separator:a5fa7c71ee69bf53efd73ff3978602ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a549b747fa4f6f9c153b959c84c2d5ffa" id="r_a549b747fa4f6f9c153b959c84c2d5ffa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a549b747fa4f6f9c153b959c84c2d5ffa">rouge</a></td></tr>
 <tr class="separator:a549b747fa4f6f9c153b959c84c2d5ffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2318bae80db59839bf744d39a02a2931" id="r_a2318bae80db59839bf744d39a02a2931"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a2318bae80db59839bf744d39a02a2931">bleu</a></td></tr>
 <tr class="separator:a2318bae80db59839bf744d39a02a2931"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des macros</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><dl class="section author"><dt>Auteur</dt><dd>Natp24109 </dd></dl>
+</div><h2 class="groupheader">Documentation des macros</h2>
 <a id="a6b5a19d44831a7f2be0d9be0276d478c" name="a6b5a19d44831a7f2be0d9be0276d478c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6b5a19d44831a7f2be0d9be0276d478c">&#9670;&#160;</a></span>ATTAQUE_1</h2>
 
@@ -478,6 +489,24 @@ Variables</h2></td></tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab70b8a8232d95fc2bb0e4ead1bbcfd3d" name="ab70b8a8232d95fc2bb0e4ead1bbcfd3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab70b8a8232d95fc2bb0e4ead1bbcfd3d">&#9670;&#160;</a></span>checkLearningMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void checkLearningMove </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1027,8 +1056,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a785cf59b04b080c32b51ca8300b62507" name="a785cf59b04b080c32b51ca8300b62507"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a785cf59b04b080c32b51ca8300b62507">&#9670;&#160;</a></span>swapActualAttacker()</h2>
+<a id="ad567a4aec068790f989fb9ef909fcebb" name="ad567a4aec068790f989fb9ef909fcebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad567a4aec068790f989fb9ef909fcebb">&#9670;&#160;</a></span>swapActualAttacker()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1052,6 +1081,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>La fonction swapActualAttacker échange le pokémon présent à l'indice 0 avec celui présent à l'indice swapIndex donné en paramètre. La fonction est sans effet si l'indice spécifié est invalide (hors liste, pokémon ko). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>Un pointeur sur structure <a class="el" href="../../da/d63/structt__Team.html">t_Team</a>, pointant sur une équipe suposée initialisée (voir initTeam). </td></tr>
+    <tr><td class="paramname">swapIndex</td><td>L'indice entier du Pokémon cible de l'échange, généralement compris entre 1 et 5. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1257,6 +1295,50 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="../../d1/d68/structt__Move.html">t_Move</a> confusedMove</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a14297bdf3858bfcb9f2b5553c4a37ad2" name="a14297bdf3858bfcb9f2b5553c4a37ad2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14297bdf3858bfcb9f2b5553c4a37ad2">&#9670;&#160;</a></span>lvl_up_buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/dac/structLvl__Up__Buffer.html">Lvl_Up_Buffer</a> lvl_up_buffer[6]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5fa7c71ee69bf53efd73ff3978602ab6" name="a5fa7c71ee69bf53efd73ff3978602ab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fa7c71ee69bf53efd73ff3978602ab6">&#9670;&#160;</a></span>lvl_up_buffer_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lvl_up_buffer_size</td>
         </tr>
       </table>
   </td>

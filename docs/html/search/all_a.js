@@ -14,5 +14,7 @@ var searchData=
   ['log_2eh_11',['Log.h',['../d1/d45/Log_8h.html',1,'']]],
   ['logsdlerror_12',['logSDLError',['../d9/ded/Utils_8h.html#ac2465ff3708d53a0354948a945490742',1,'Utils.h']]],
   ['logtofile_13',['logtofile',['../d6/df2/Log_8c.html#ae88f95aa62b4c94a4eaef06593bb5820',1,'LogToFile(void *userdata, int category, SDL_LogPriority priority, const char *message):&#160;Log.c'],['../d1/d45/Log_8h.html#ae88f95aa62b4c94a4eaef06593bb5820',1,'LogToFile(void *userdata, int category, SDL_LogPriority priority, const char *message):&#160;Log.c']]],
-  ['lvl_14',['lvl',['../d7/d09/structt__Poke.html#aeaf2143d32858b7b9c0529da3d886876',1,'t_Poke']]]
+  ['lvl_14',['lvl',['../d7/d09/structt__Poke.html#aeaf2143d32858b7b9c0529da3d886876',1,'t_Poke']]],
+  ['lvl_5fup_5fbuffer_15',['lvl_up_buffer',['../de/dac/structLvl__Up__Buffer.html',1,'Lvl_Up_Buffer'],['../d1/d18/duel_8c.html#a14297bdf3858bfcb9f2b5553c4a37ad2',1,'lvl_up_buffer:&#160;duel.c'],['../d6/d8e/duel_8h.html#a14297bdf3858bfcb9f2b5553c4a37ad2',1,'lvl_up_buffer:&#160;duel.c']]],
+  ['lvl_5fup_5fbuffer_5fsize_16',['lvl_up_buffer_size',['../d1/d18/duel_8c.html#a5fa7c71ee69bf53efd73ff3978602ab6',1,'lvl_up_buffer_size:&#160;duel.c'],['../d6/d8e/duel_8h.html#a5fa7c71ee69bf53efd73ff3978602ab6',1,'lvl_up_buffer_size:&#160;duel.c']]]
 ];

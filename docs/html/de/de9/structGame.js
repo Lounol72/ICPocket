@@ -2,6 +2,8 @@ var structGame =
 [
     [ "battleState", "de/de9/structGame.html#a26bdba7ef4c61fbc52e955bd928547b9", null ],
     [ "currentButton", "de/de9/structGame.html#a1923324b49a0383e183d760ae84280aa", null ],
+    [ "cursor", "de/de9/structGame.html#a718b25063a2b739e7fd0c886c2509269", null ],
+    [ "cursor_hover", "de/de9/structGame.html#a8368793aa6f05e1a40a64eab95757bf5", null ],
     [ "deltaTime", "de/de9/structGame.html#ad918e31c1644966465f822d912585f16", null ],
     [ "FPS", "de/de9/structGame.html#abdcdb055424572d4d18a0758eaea2cf4", null ],
     [ "frameDelay", "de/de9/structGame.html#a57b1ff7ca0dabafbf59df1c64f00558a", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['player_0',['Player',['../dc/d7b/structPlayer.html',1,'']]]
+  ['map_0',['Map',['../da/ddc/structMap.html',1,'']]]
 ];
