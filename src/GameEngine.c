@@ -65,31 +65,33 @@ static void cleanupResources(Window *win, SDL_GameController *controller) {
     destroyCamera(game.gameData.camera);
 }
 
+// Helper function to update the ICMons button text
+static void updateICMonsButtonText(Window *win, t_Team *team) {
+    for (int i  = 0; i < 6; i++) {
+        if (team->team[i].name[0] != '\0') setButtonText(game.ui[6].buttons->buttons[i], team->team[i].name, win->renderer);
+        else setButtonText(game.ui[6].buttons->buttons[i], "  ", win->renderer);
+    }
+}
+
 //---------------------------------------------------------------------------------
 
 // Functions for the menu
 
 void render(Window *win) {
-    if (game.gameState.currentState == MAP) {
-        SDL_SetRenderDrawColor(win->renderer, 0, 0, 0, 255);
-        SDL_RenderClear(win->renderer);
-        renderMapWithCamera(game.gameData.map, win->renderer, game.gameData.camera);
-        renderPlayerWithCamera(game.gameData.player, win->renderer, game.gameData.camera);
-    }
-    else if (game.gameState.currentState == GAME) {
+    if (game.gameState.currentState == GAME) {
         SDL_Rect rect = {0, 0, win->width, win->height};
         SDL_SetRenderDrawColor(win->renderer, 255, 255, 255, 255);
         SDL_RenderFillRect(win->renderer, &rect);
         
         SDL_Rect renderQuad = {0, 0, win->width, (int)(win->height * 0.722)};
         SDL_RenderCopy(win->renderer, game.ui[3].background, NULL, &renderQuad);
-        if (game.battleState.rouge.team[0].name[0] != '\0') renderICMonsSprite(win, &(game.battleState.rouge.team[0]));
-        if (game.battleState.bleu.team[0].name[0] != '\0') renderICMonsSprite(win, &(game.battleState.bleu.team[0]));
+        if (game.battleState.rouge.team[0].name[0] != ' ') renderICMonsSprite(win, &(game.battleState.rouge.team[0]));
+        if (game.battleState.bleu.team[0].name[0] != ' ') renderICMonsSprite(win, &(game.battleState.bleu.team[0]));
     }
     else if (game.ui[game.gameState.currentState].background) {
         SDL_RenderCopy(win->renderer, game.ui[game.gameState.currentState].background, NULL, NULL);
     }
-    
+
     if (game.ui[game.gameState.currentState].buttons) renderButtonList(game.ui[game.gameState.currentState].buttons);
     if (game.ui[game.gameState.currentState].sliders) renderSliderList(game.ui[game.gameState.currentState].sliders);
     if (game.gameState.currentState == MENU) {
@@ -97,6 +99,14 @@ void render(Window *win) {
     } else if (game.gameState.currentState == NEWGAME) {
         renderText(win, &NewGameText);
     }
+}
+
+static void renderMap(Window *win) {
+    pthread_mutex_lock(&game.threadManager.physicsMutex);
+    renderMapWithCamera(game.gameData.map, win->renderer, game.gameData.camera);
+    renderPlayerWithCamera(game.gameData.player, win->renderer, game.gameData.camera);
+    pthread_mutex_unlock(&game.threadManager.physicsMutex);
+    SDL_RenderPresent(game.win->renderer);
 }
 
 //---------------------------------------------------------------------------------
@@ -135,14 +145,17 @@ void attqButtonClicked(Window *win, void *data) {
             return;
         }
         
-        if (isAlive(&(game.battleState.rouge.team[0]))) 
+        if (isAlive(&(game.battleState.rouge.team[0]))) {
             playATurn(&game.battleState.rouge, moveIndex, &game.battleState.bleu, AI_move_choice(&game.battleState.ia, &game.battleState.rouge));
-        if (!isAlive(&(game.battleState.bleu.team[0]))){
-            gainExp(&(game.battleState.rouge),&(game.battleState.bleu.team[0]));
         }
         while (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))){
-            int swap=rand() % 5 + 11;
-            if(testActionValidity(swap,&game.battleState.bleu)) swapActualAttacker(&game.battleState.bleu, swap);
+            int x = rand()%game.battleState.bleu.nb_poke;
+            if (isAlive(&(game.battleState.bleu.team[x]))) {
+                swapActualAttacker(&game.battleState.bleu, x);
+            }
+        }
+        if (!isAlive(&(game.battleState.bleu.team[0]))) {
+            gainExp(&(game.battleState.rouge), &(game.battleState.bleu.team[0]));
         }
         updateICButtons(win, &game.battleState.rouge);
         game.gameState.playerTurn = 0;
@@ -153,12 +166,20 @@ void changePokemon(Window *win, void *data) {
     (void)win; 
     int idx = (int)(intptr_t)data; 
     if (testActionValidity(idx, &game.battleState.rouge)) {
-        if (game.battleState.rouge.team[0].current_pv != 0)
-            playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&(game.battleState.ia),&game.battleState.rouge));
-        else swapActualAttacker(&game.battleState.rouge, idx);
+        if (game.battleState.rouge.team[0].current_pv != 0) {
+            if (idx >= 0 && idx < game.battleState.rouge.team[0].nb_move) {
+                playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&(game.battleState.ia), &game.battleState.rouge));
+            } else {
+                SDL_Log("Indice de mouvement invalide : %d", idx);
+            }
+        } else {
+            swapActualAttacker(&game.battleState.rouge, idx);
+        }
         updateICButtons(win, &game.battleState.rouge);
-        win->state = GAME;
-        game.gameState.currentState = GAME;
+        updateICMonsButtonText(win, &game.battleState.rouge);
+        changeState(win, &game.stateHandlers[4].state);
+    } else {
+        SDL_Log("Action invalide : %d", idx);
     }
 }
 
@@ -195,6 +216,14 @@ void mainLoop(Window *win) {
         // Handle events
         while (SDL_PollEvent(&event)) {
             game.stateHandlers[win->state].handleEvent(win, &event);
+        }
+        if (game.gameState.currentState == MAP) {
+            renderMap(win);
+        }else{
+            SDL_RenderClear(win->renderer);
+            render(win);
+            updateCurrentButton();
+            SDL_RenderPresent(win->renderer);
         }
         
         // Update deltaTime
@@ -413,13 +442,6 @@ void initAllButtons(Window *win)
     addListButton(game.ui[3].buttons, buttonsGame, nbButtonsGame);
     addListButton(game.ui[6].buttons, buttonsICMons, nbButtonsICMons);
     addListButton(game.ui[7].buttons, buttonsInter, nbButtonsInter);
-}
-
-static void updateICMonsButtonText(Window *win, t_Team *team) {
-    for (int i  = 0; i < 6; i++) {
-        if (team->team[i].name[0] != '\0') setButtonText(game.ui[6].buttons->buttons[i], team->team[i].name, win->renderer);
-        else setButtonText(game.ui[6].buttons->buttons[i], "  ", win->renderer);
-    }
 }
 
 void updateICButtons(Window *win, t_Team *team) {

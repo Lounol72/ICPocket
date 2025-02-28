@@ -51,7 +51,7 @@ void DEBUG_printMap(Map *map) {
     }
 }
 
-void renderMap(Map *map) {
+void renderMapDebug(Map *map) {
     if (!map->texture) {
         printf("Erreur: Texture de la map non initialisée\n");
         return;

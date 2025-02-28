@@ -488,6 +488,7 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
             shouldMove = true;
         }
     }
+    
 
     if (shouldMove && game.gameData.map->mat[newMatrixY][newMatrixX] != COLLISION) {
         // Sauvegarder la position de départ
@@ -505,6 +506,5 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
         game.gameData.player->isMovingToTarget = true;
         game.gameData.player->interpolationTime = 0.0f;
     }
-    
     handleEvent(win, event);
 }

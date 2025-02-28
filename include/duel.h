@@ -25,13 +25,10 @@ typedef struct{
 	t_Effect effect;	
 } t_Team;
 
-<<<<<<< Updated upstream
 typedef struct{
-	int moveId
+	int moveId;
 	t_Poke * target;
 } Lvl_Up_Buffer;
-=======
->>>>>>> Stashed changes
 
 extern int (*SecEffectTab[3])(t_Team *,int,int,int);
 

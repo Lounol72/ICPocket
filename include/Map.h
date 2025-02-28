@@ -30,7 +30,7 @@ typedef struct Map {
 } Map;
 
 Map *initMap(SDL_Renderer *renderer, const char *path);
-void renderMap(Map *map);
+void renderMapDebug(Map *map);
 void destroyMap(Map *map);
 void updateMap(Map *map);
 void loadMapIMG(Map *map, const char *path);
