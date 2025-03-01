@@ -1,39 +1,75 @@
 #include "../include/Window.h"
 
+/**
+ * @brief Fonction utilitaire pour nettoyer et quitter en cas d'erreur.
+ *
+ * @param win Pointeur sur la structure Window.
+ * @param errorMsg Message d'erreur à afficher.
+ */
+static void cleanupAndExit(Window *win, const char *errorMsg) {
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ %s: %s", errorMsg, SDL_GetError());
+    if (win && win->window) {
+        SDL_DestroyWindow(win->window);
+    }
+    exit(EXIT_FAILURE);
+}
+
 void initWindow(Window *win, int width, int height, const char *FontPath) {
     InitLogFile();
     SDL_LogSetAllPriority(SDL_LOG_PRIORITY_VERBOSE);
     SDL_LogSetOutputFunction(LogToFile, NULL);
-    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "🔧 Initialisation de la fenêtre ..."); 
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "🔧 Initialisation de la fenêtre ...");
 
-    if (SDL_Init(SDL_INIT_VIDEO) < 0 || 
-        !(win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN)) || 
-        !(win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_SOFTWARE)) || 
-        (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG) || 
-        TTF_Init() == -1 || 
-        !(win->LargeFont = TTF_OpenFont(FontPath,   24)) || 
-        !(win->MediumFont = TTF_OpenFont(FontPath, 18)) || 
-        !(win->SmallFont = TTF_OpenFont(FontPath, 14)) || 
-        !(win->font = TTF_OpenFont(FontPath, 12))) {
-        
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "❌ SDL Error: %s", SDL_GetError());
-        if (win->window) SDL_DestroyWindow(win->window);
-        exit(EXIT_FAILURE);
+    /* Initialisation de SDL */
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+        cleanupAndExit(win, "SDL_Init failed");
     }
 
+    /* Création de la fenêtre */
+    win->window = SDL_CreateWindow("ICPocket", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN);
+    if (!win->window) {
+        cleanupAndExit(win, "SDL_CreateWindow failed");
+    }
+
+    /* Création du renderer en mode logiciel */
+    win->renderer = SDL_CreateRenderer(win->window, -1, SDL_RENDERER_SOFTWARE);
+    if (!win->renderer) {
+        SDL_DestroyWindow(win->window);
+        cleanupAndExit(win, "SDL_CreateRenderer failed");
+    }
+
+    /* Initialisation de la gestion des images PNG */
+    if ((IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) != IMG_INIT_PNG) {
+        cleanupAndExit(win, "IMG_Init failed");
+    }
+
+    /* Initialisation de TTF */
+    if (TTF_Init() == -1) {
+        cleanupAndExit(win, "TTF_Init failed");
+    }
+
+    /* Chargement des polices */
+    win->LargeFont = TTF_OpenFont(FontPath, 24);
+    win->MediumFont = TTF_OpenFont(FontPath, 18);
+    win->SmallFont = TTF_OpenFont(FontPath, 14);
+    win->font = TTF_OpenFont(FontPath, 12);
+    if (!win->LargeFont || !win->MediumFont || !win->SmallFont || !win->font) {
+        cleanupAndExit(win, "TTF_OpenFont failed");
+    }
+
+    /* Affichage des informations sur les flags du renderer */
     SDL_Log("Détails des flags pour le renderer :");
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ SDL Renderer Software: %d", SDL_RENDERER_SOFTWARE);
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ SDL Renderer Accelerated: %d", SDL_RENDERER_ACCELERATED);
-    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ SDL Renderer V-Sync: %s", 
-        #if defined(SDL_RENDERER_PRESENTVSYNC)
-            "Enabled"
-        #else
-            "Not available"
-        #endif
-    );
+#if defined(SDL_RENDERER_PRESENTVSYNC)
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ SDL Renderer V-Sync: Enabled");
+#else
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ SDL Renderer V-Sync: Not available");
+#endif
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ SDL Renderer Target Texture: %d", SDL_RENDERER_TARGETTEXTURE);
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Utilisation des Flags: %d", renderer_flags);
-    
+
+    /* Configuration des dimensions et des états initiaux de la fenêtre */
     win->width = win->InitialWidth = width;
     win->height = win->InitialHeight = height;
     win->quit = 0;
@@ -42,30 +78,27 @@ void initWindow(Window *win, int width, int height, const char *FontPath) {
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Initialisation de la fenêtre réussie");    
 }
 
-void destroyWindow(Window *win)
-{
+void destroyWindow(Window *win) {
+    /* 1) Libération de la musique */
     if (game.gameState.music) {
         Mix_FreeMusic(game.gameState.music);
         game.gameState.music = NULL;
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Musique libérée");
     }
 
-    // 2) Destroy UI elements
+    /* 2) Destruction des éléments de l'interface (UI) */
     if (game.ui) {
         for (int i = 0; i < game.nbMenu; i++) {
-            // Destroy button list
             if (game.ui[i].buttons) {
-                destroyButtonList(game.ui[i].buttons);  
+                destroyButtonList(game.ui[i].buttons);
                 free(game.ui[i].buttons);
                 game.ui[i].buttons = NULL;
             }
-            // Destroy slider list
             if (game.ui[i].sliders) {
-                destroySliderList(game.ui[i].sliders);  
+                destroySliderList(game.ui[i].sliders);
                 free(game.ui[i].sliders);
                 game.ui[i].sliders = NULL;
             }
-            // Destroy background texture
             if (game.ui[i].background) {
                 SDL_DestroyTexture(game.ui[i].background);
                 game.ui[i].background = NULL;
@@ -76,37 +109,37 @@ void destroyWindow(Window *win)
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ UI libérée");
     }
 
-    if(game.battleState.rouge.nb_poke != 0) {
+    /* 3) Destruction des ICMons pour l'équipe rouge */
+    if (game.battleState.rouge.nb_poke != 0) {
         for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
             destroyICMonsSprite(&game.battleState.rouge.team[i]);
-            free(game.battleState.rouge.team[i].img);
         }
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ ICMons rougeslibérés");
-        
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ ICMons rouges libérés");
     }
-    if(game.battleState.bleu.nb_poke != 0) {
+    
+    /* 4) Destruction des ICMons pour l'équipe bleue */
+    if (game.battleState.bleu.nb_poke != 0) {
         for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
             destroyICMonsSprite(&game.battleState.bleu.team[i]);
-            free(game.battleState.bleu.team[i].img);
         }
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ ICMons bleus libérés");
     }
 
-    // 3) Free state handlers
+    /* 5) Libération des state handlers */
     if (game.stateHandlers) {
         free(game.stateHandlers);
         game.stateHandlers = NULL;
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ State handlers libérés");
     }
 
-    // 4) Free speeds array
+    /* 6) Libération du tableau de vitesses */
     if (game.speeds) {
         free(game.speeds);
         game.speeds = NULL;
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Speeds libérés");
     }
 
-    // 5) Close fonts
+    /* 7) Fermeture des polices */
     if (win->LargeFont) {
         TTF_CloseFont(win->LargeFont);
         win->LargeFont = NULL;
@@ -128,34 +161,35 @@ void destroyWindow(Window *win)
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ font libéré");
     }
 
-    // 6) Destroy renderer & window
+    /* 8) Destruction du renderer et de la fenêtre */
     if (win->renderer) {
         SDL_DestroyRenderer(win->renderer);
         win->renderer = NULL;
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ renderer libéré");
-        }
+    }
     if (win->window) {
         SDL_DestroyWindow(win->window);
         win->window = NULL;
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ window libéré");
     }
 
+    /* 9) Libération des surfaces du curseur */
     if (game.cursor) {
         SDL_FreeSurface(game.cursor);
         game.cursor = NULL;
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ cursor libéré");
     }
-
     if (game.cursor_hover) {
         SDL_FreeSurface(game.cursor_hover);
         game.cursor_hover = NULL;
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ cursor_hover libéré");
     }
 
-    // 7) Close audio
+    /* 10) Fermeture de l'audio */
     Mix_CloseAudio();
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ audio libéré");
-    // 8) Quit TTF, IMG, SDL
+
+    /* 11) Quitter les sous-systèmes SDL, IMG et TTF */
     TTF_Quit();
     IMG_Quit();
     SDL_Quit();

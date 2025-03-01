@@ -47,6 +47,7 @@ static bool createTextTexture(Button *button) {
 }
 
 static bool createButtonTexture(Button *button, const char *imagePath) {
+    /*
     SDL_Surface *surface = IMG_Load(imagePath);
     if (!surface) {
         SDL_Log("❌ Erreur lors du chargement de l'image \"%s\" : %s", imagePath, IMG_GetError());
@@ -60,7 +61,14 @@ static bool createButtonTexture(Button *button, const char *imagePath) {
         SDL_Log("❌ Erreur lors de la création de la texture : %s", SDL_GetError());
         return false;
     }
-    
+    */
+    // Exemple avec SDL_RWops
+    SDL_RWops* rw = SDL_RWFromFile(imagePath, "rb");
+    SDL_Surface* surface = IMG_LoadSizedSVG_RW(rw, button->rect.w, button->rect.h);
+    SDL_FreeRW(rw);
+
+    button->texture = SDL_CreateTextureFromSurface(button->renderer, surface);
+    SDL_FreeSurface(surface);
     button->initialTexture = button->texture;
     return true;
 }
@@ -126,7 +134,7 @@ Button *createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SD
     // Création des textures
     if (!createTextTexture(button) || 
         !createButtonTexture(button, imagePath) ||
-        !createSelectedTexture(button, "assets/User Interface/Blue/button_rectangle_depth_flat.png")) {
+        !createSelectedTexture(button, "assets/User Interface/Vectors/Blue/button_rectangle_depth_flat.svg")) {
         destroyButton(button);
         return NULL;
     }

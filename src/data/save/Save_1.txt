@@ -1,47 +1,44 @@
 User name : SAVE1
 nb:3
 id:1
-lvl:99
+lvl:96
 nature:0
-nbmove:4
-iv:10
+nbmove:2
+iv:0
+iv:8
+iv:20
+iv:14
 iv:22
-iv:15
-iv:1
-iv:30
-iv:13
-type:3
-move:33
-move:20
-move:26
-move:31
+iv:9
+type:1
+move:34
+move:19
 
 
 id:2
-lvl:76
+lvl:44
 nature:0
-nbmove:2
+nbmove:1
 iv:11
-iv:13
-iv:6
-iv:1
-iv:20
-iv:8
-type:3
-move:28
-move:11
+iv:17
+iv:17
+iv:22
+iv:27
+iv:7
+type:1
+move:23
 
 
 id:4
-lvl:90
+lvl:66
 nature:0
 nbmove:1
-iv:8
-iv:29
-iv:8
-iv:19
-iv:20
-iv:24
+iv:15
+iv:0
+iv:28
+iv:28
+iv:2
+iv:11
 type:2
 move:11
 
