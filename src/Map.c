@@ -1,7 +1,33 @@
 #include "../include/Map.h"
 #include "../include/Camera.h"
 
-
+static void initCollisionMap(Map *map) {
+    for (int i = 0; i < MAP_HEIGHT; i++) {
+        for (int j = 0; j < MAP_WIDTH; j++) {
+            if (i == 0 || i == MAP_HEIGHT - 1 || j == 0 || j == MAP_WIDTH - 1) {
+                map->mat[i][j] = COLLISION;
+            }
+            else map->mat[i][j] = AIR;
+        }
+    }
+}
+/*
+static void initCollisionMapFromCSV(Map *map, const char *path) {
+    char separator = ',';
+    FILE *file = fopen(path, "r");
+    if (!file) {
+        printf("Erreur ouverture fichier: %s\n", path);
+        initCollisionMap(map);
+        return;
+    }
+    for (int i = 0; i < MAP_HEIGHT; i++) {
+        for (int j = 0; j < MAP_WIDTH; j++) {
+            fscanf(file, "%d%c", &map->mat[i][j], &separator);
+        }
+    }
+    fclose(file);
+}*/
+    
 Map *initMap(SDL_Renderer *renderer, const char *path) {
     Map *map = (Map *)malloc(sizeof(Map));
     if (!map) return NULL;
@@ -12,14 +38,19 @@ Map *initMap(SDL_Renderer *renderer, const char *path) {
         map->mat[i] = (int *)malloc(MAP_WIDTH * sizeof(int));
     }
     map->rect = (SDL_Rect){0, 0, MAP_WIDTH * TILE_SIZE_W_SCALE, MAP_HEIGHT * TILE_SIZE_H_SCALE};
-    for (int i = 0; i < MAP_HEIGHT; i++) {
-        for (int j = 0; j < MAP_WIDTH; j++) {
-            if (i == 0 || i == MAP_HEIGHT - 1 || j == 0 || j == MAP_WIDTH - 1) {
-                map->mat[i][j] = COLLISION;
-            }
-            else map->mat[i][j] = AIR;
-        }
-    }
+    // enlever le .png et mettre .csv
+    // ! Remettre lorsque fichier csv sera prêt
+    /*
+    char *tempPath = (char *)malloc(strlen(path) - 4);
+    strcpy(tempPath, path);
+    tempPath[strlen(path) - 4] = '\0';
+    char *csvPath = (char *)malloc(strlen(tempPath) + 5);
+    strcpy(csvPath, tempPath);
+    strcat(csvPath, ".csv");
+    initCollisionMapFromCSV(map, csvPath);
+    free(tempPath);
+    free(csvPath);*/
+    initCollisionMap(map);
     map->renderer = renderer;
 
     // Charger la texture
@@ -133,3 +164,5 @@ void destroyMap(Map *map) {
     free(map->mat);
     free(map);
 }
+
+
