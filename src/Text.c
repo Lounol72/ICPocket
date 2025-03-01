@@ -31,8 +31,8 @@ void initText(struct Window *win) {
     };
 
     for (int i = 0; i < 2; i++) {
-        *textObjects[i] = (Text){texts[i], rects[i], rects[i], {255, 255, 255, 255}, win->MediumFont, NULL, NULL, 0};
-        SDL_Surface *textSurface = TTF_RenderText_Solid(win->MediumFont, texts[i], textObjects[i]->color);
+        *textObjects[i] = (Text){texts[i], rects[i], rects[i], {255, 255, 255, 255}, win->LargeFont, NULL, NULL, 0};
+        SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, texts[i], textObjects[i]->color);
         if (!textSurface) {
             SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur de rendu du texte : %s", TTF_GetError());
             exit(EXIT_FAILURE);

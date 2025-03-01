@@ -300,12 +300,12 @@ void initAllButtons(Window *win)
         changeTextSpeed, &game.speeds[2], win->LargeFont, "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsParam[3] = createButton(
-        "Fullscreen", win, (SDL_Rect){100, 300, 220, 75},
+        " Fullscreen ", win, (SDL_Rect){100, 300, 220, 75},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         makeWindowFullScreen, NULL, win->LargeFont, "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsParam[4] = createButton(
-        "Windowed", win, (SDL_Rect){400, 300, 220, 75},
+        " Windowed ", win, (SDL_Rect){400, 300, 220, 75},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         makeWindowWindowed, NULL, win->LargeFont, "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
@@ -360,7 +360,7 @@ void initAllButtons(Window *win)
         attqButtonClicked, (void*)(intptr_t)3, win->LargeFont, "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsGame[4] = createButton(
-        "ICMons", win, (SDL_Rect){950, startY, 300, 180},
+        " ICMons ", win, (SDL_Rect){950, startY, 300, 180},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         changeState, &game.stateHandlers[6].state, win->LargeFont, "assets/User Interface/Blue/button_square_depth_gloss.png"
     );

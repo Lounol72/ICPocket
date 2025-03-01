@@ -221,17 +221,29 @@ void setButtonText(Button *button, const char *text, SDL_Renderer *renderer) {
         return;
     }
     
+    // Tentative de vérification de l'état du renderer
+    SDL_Rect viewport;
+    SDL_RenderGetViewport(renderer, &viewport);
+    SDL_Log("✅ Renderer valide, viewport : %d, %d, %d, %d", viewport.x, viewport.y, viewport.w, viewport.h);
+    
+    SDL_Log("✅ Début de setButtonText pour le texte : %s", text);
+
     // Détruire l'ancienne texture texte si elle existe
     if (button->textTexture) {
         SDL_DestroyTexture(button->textTexture);
         button->textTexture = NULL;
     }
-    // Générer une nouvelle texture texte
 
+    // Générer une nouvelle texture texte
     Scaling(text, button->font, &button->textRect, &button->initialTextRect);
+    
     SDL_Surface *textSurface = NULL;
-    if (text && text[0] == '\0') textSurface = TTF_RenderText_Solid(button->font, " ", button->textcolor);
-    else textSurface = TTF_RenderText_Solid(button->font, text, button->textcolor);
+    if (text && text[0] == '\0') {
+        textSurface = TTF_RenderText_Solid(button->font, " ", button->textcolor);
+    } else {
+        textSurface = TTF_RenderText_Solid(button->font, text, button->textcolor);
+    }
+    
     if (!textSurface) {
         SDL_Log("❌ Erreur lors de la création de la surface du texte : %s", TTF_GetError());
         return;
@@ -242,8 +254,11 @@ void setButtonText(Button *button, const char *text, SDL_Renderer *renderer) {
 
     if (!button->textTexture) {
         SDL_Log("❌ Erreur lors de la création de la texture du texte : %s", SDL_GetError());
+    } else {
+        SDL_Log("✅ Texture du texte créée avec succès");
     }
 }
+
 
 //-----------------------------------------------
 
