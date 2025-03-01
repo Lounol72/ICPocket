@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -30,9 +31,11 @@
 typedef struct IMG_ICMons {
     SDL_Renderer *renderer;          /**< Pointeur vers le renderer SDL. */
     SDL_Texture *ICMonTexture;       /**< Texture pour le sprite ICMons. */
+    Mix_Music *ICMonSound;           /**< Son pour le sprite ICMons. */
     SDL_Rect rect;                   /**< Rectangle définissant la position et la taille du sprite. */
     SDL_Rect initialRect;            /**< Rectangle initial pour les besoins de mise à l'échelle. */
     Text *PVText;                    /**< Objet Text pour afficher les PV (points de vie) de l'ICMons. */
+    Text *LvlText;                    /**< Objet Text pour afficher le lvl de l'ICMons. */
     SDL_Texture *PVbarTexture;       /**< Texture pour la barre de PV. */
     SDL_Texture *PVbarTextureBack;   /**< Texture pour l'arrière-plan de la barre de PV. */
     SDL_Rect PVRect;                 /**< Rectangle pour la barre de PV. */

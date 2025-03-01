@@ -104,6 +104,7 @@ static void updateICMonsButtonText(Window *win, t_Team *team) {
             setButtonText(game.ui[6].buttons->buttons[i], team->team[i].name, win->renderer);
         else
             setButtonText(game.ui[6].buttons->buttons[i], "  ", win->renderer);
+        
     }
 }
 
@@ -253,6 +254,8 @@ void attqButtonClicked(Window *win, void *data) {
         }
         updateICButtons(win, &game.battleState.rouge);
         game.gameState.playerTurn = 0;
+        Mix_PlayMusic(game.battleState.rouge.team[0].img->ICMonSound, 1);
+
     }
 }
 

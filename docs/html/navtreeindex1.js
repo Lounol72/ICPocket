@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"d5/d81/GameEngine_8c.html#ae728be2d7ae42605618aa49e1a837466":[7,0,1,6,16],
 "d5/d81/GameEngine_8c.html#afebb7c43646aae14210881f147faed62":[7,0,1,6,8],
 "d6/d08/structWindow.html":[6,0,22],
 "d6/d08/structWindow.html#a18acde62ad63dfc0613b6d17188ad1ea":[6,0,22,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "da/d71/structPoke_8h.html#a7aa89bcce33ca45f04236a0df17656e2abeaed13a6c54935151875013008013a3":[7,0,0,14,16,1],
 "da/d71/structPoke_8h.html#a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c":[7,0,0,14,16,0],
 "da/d71/structPoke_8h.html#aa6e57a0e7270157be9d895337f9dea6c":[7,0,0,14,24],
-"da/d71/structPoke_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d":[7,0,0,14,10],
-"da/d71/structPoke_8h.html#aa93f0eb578d23995850d61f7d61c55c1":[7,0,0,14,5]
+"da/d71/structPoke_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d":[7,0,0,14,10]
 };

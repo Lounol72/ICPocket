@@ -109,6 +109,12 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
     
     img->rect = img->initialRect = spriteRect;
     
+    // Ajout affichage lvl
+    char lvlTextBuffer[32];
+    snprintf(lvlTextBuffer, sizeof(lvlTextBuffer), "N.%d", poke->lvl);
+    img->LvlText = createText(lvlTextBuffer, renderer, (SDL_Rect){spriteRect.x + spriteRect.h - 25, nameRect.y, nameRect.w-5, nameRect.h}, (SDL_Color){255,255,255,255}, font);
+    
+    
     // Création du texte de points de vie (PV)
     char pvTextBuffer[32];
     snprintf(pvTextBuffer, sizeof(pvTextBuffer), "%d/%d", poke->current_pv, poke->initial_pv);
@@ -127,7 +133,17 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
     } else {
         SDL_Log("❌ Failed to render name text for %s", poke->name);
     }
-    
+
+    if (team == 1) {
+        free(img->PVText);
+        img->PVText = NULL;
+    }
+    Mix_Music *ICMonSound = Mix_LoadMUS("assets/audio/soundEffects/Enregistrement.mp3");
+    if (!ICMonSound) {
+        SDL_Log("❌ Failed to load ICMonSound: %s", Mix_GetError());
+    }
+    img->ICMonSound = ICMonSound;
+
     return img;
 }
 
@@ -175,6 +191,11 @@ void renderICMonsSprite(Window *win, t_Poke *poke) {
     if (poke->img->nameTexture) {
         SDL_RenderCopy(poke->img->renderer, poke->img->nameTexture, NULL, &poke->img->nameRect);
     }
+
+    // Rendu du lvl
+    if (poke->img->LvlText) {
+        renderText(win, poke->img->LvlText);
+    }
 }
 
 /**
@@ -196,9 +217,10 @@ void destroyICMonsSprite(t_Poke *poke) {
         SDL_DestroyTexture(poke->img->PVbarTextureBack);
     if (poke->img->nameTexture)
         SDL_DestroyTexture(poke->img->nameTexture);
-    
+    if (poke->img->LvlText)
+        destroyText(poke->img->LvlText);
     destroyText(poke->img->PVText);
-    
+    Mix_FreeMusic(poke->img->ICMonSound);
     free(poke->img);
     poke->img = NULL;
 }
@@ -214,7 +236,7 @@ void destroyICMonsSprite(t_Poke *poke) {
  * @param scaleY L'échelle appliquée sur l'axe vertical.
  */
 void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY) {
-    if (!poke->img || !poke->img->PVText) return;
+    if (!poke->img) return;
     
     // Mise à jour des dimensions et positions du sprite
     poke->img->rect.w = (int)(poke->img->initialRect.w * scaleX);
@@ -234,5 +256,8 @@ void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY) {
     poke->img->PVRect.x = (int)(poke->img->PVInitialRect.x * scaleX);
     poke->img->PVRect.y = (int)(poke->img->PVInitialRect.y * scaleY);
     
-    updateTextPosition(poke->img->PVText, scaleX, scaleY);
+    if (poke->img->PVText)
+        updateTextPosition(poke->img->PVText, scaleX, scaleY);
+    if (poke->img->LvlText)
+        updateTextPosition(poke->img->LvlText, scaleX, scaleY);
 }
