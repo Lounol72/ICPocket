@@ -233,6 +233,7 @@ void attqButtonClicked(Window *win, void *data) {
         
         if (isAlive(&(game.battleState.rouge.team[0]))) {
             playATurn(&game.battleState.rouge, moveIndex, &game.battleState.bleu, AI_move_choice(&game.battleState.ia, &game.battleState.rouge));
+            Mix_PlayChannel(2, game.battleState.rouge.team[0].img->ICMonSound, 0);
         }
         if (!isAlive(&(game.battleState.bleu.team[0]))) {
             gainExp(&game.battleState.rouge, &game.battleState.bleu.team[0]);
@@ -254,7 +255,7 @@ void attqButtonClicked(Window *win, void *data) {
         }
         updateICButtons(win, &game.battleState.rouge);
         game.gameState.playerTurn = 0;
-        Mix_PlayMusic(game.battleState.rouge.team[0].img->ICMonSound, 1);
+        
 
     }
 }

@@ -15,19 +15,13 @@
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
 [0] [3] Changement d'état : 4
-[0] [3] PV : 293/293
-[1] [2] You must call Mix_SetMusicCMD() first
-[0] [3] PV : 71/71
-[1] [2] You must call Mix_SetMusicCMD() first
-[0] [3] PV : 122/122
-[1] [2] You must call Mix_SetMusicCMD() first
-[0] [3] PV : 16/16
-[1] [2] You must call Mix_SetMusicCMD() first
-[0] [3] PV : 89/89
-[1] [2] You must call Mix_SetMusicCMD() first
-[0] [3] PV : 119/119
-[1] [2] You must call Mix_SetMusicCMD() first
-[0] [3] Red team PV: 293, Blue team PV: 16
+[0] [3] PV : 40/40
+[0] [3] PV : 114/114
+[0] [3] PV : 49/49
+[0] [3] PV : 294/294
+[0] [3] PV : 44/44
+[0] [3] PV : 150/150
+[0] [3] Red team PV: 40, Blue team PV: 294
 [0] [3] Changement d'état : 3
 [7] [3] Quit
 [0] [3] ✅ Musique libérée
