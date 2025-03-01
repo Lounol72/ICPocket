@@ -8,8 +8,8 @@ Définition et gestion de la fenêtre principale de l\textquotesingle{}applicati
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+gamecontroller.\+h$>$}\newline
-{\ttfamily \#include "{}Game\+Engine.\+h"{}}\newline
 {\ttfamily \#include "{}Utils.\+h"{}}\newline
+{\ttfamily \#include "{}Log.\+h"{}}\newline
 Graphe des dépendances par inclusion de Window.\+h\+:
 \nopagebreak
 \begin{figure}[H]
@@ -39,17 +39,37 @@ struct \mbox{\hyperlink{structWindow}{Window}}
 \doxysubsubsection*{Définitions de type}
 \begin{DoxyCompactItemize}
 \item 
+typedef enum \mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056e}{App\+State\+\_\+s}} \mbox{\hyperlink{Window_8h_a5971f8f64b1fd772c90649cda6fddd86}{App\+State}}
+\item 
 typedef struct \mbox{\hyperlink{structGame}{Game}} \mbox{\hyperlink{Window_8h_a69b5df78d315f81ed77df30fdbfb7002}{Game}}
 \item 
 typedef struct \mbox{\hyperlink{structWindow}{Window}} \mbox{\hyperlink{Window_8h_adb2a551453af16dd3214a23b16e67544}{Window}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056e}{App\+State\+\_\+s}} \{ \newline
+\mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056ea76bdc8adfd6c6463ab269ff4c06be9b4}{QUIT}} = 0
+, \mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056eac678338caea29d77d56be2ea56325610}{SETTINGS}}
+, \mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056ea4c40e60bc71a32b924ce1f08d57f9721}{MENU}}
+, \mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056ead50cf309d7568040619ed26ee6835a84}{GAME}}
+, \newline
+\mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056ea7d66b8866cc7667b15bb0ac8a7e62f4a}{NEWGAME}}
+, \mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056ea8ea08ca82a0d1952666e6b27cc459795}{LOADGAME}}
+, \mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056ea42325efb02e5d8c573c338df4378367d}{ICMONS}}
+, \mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056ea5efa5610d5a2c5e9123d6894dd72e335}{INTER}}
+, \newline
+\mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056ea56b36d0d0bb01b339cf1041adc08e262}{PAUSE}}
+, \mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056ea4cafa5feda04184537b4d7d346e1e89b}{MAP}}
+ \}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{Window_8h_ab072fc478679f5b8fb5ffae288d1e7f2}{init\+Window}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, int width, int height, const char \texorpdfstring{$\ast$}{*}Font\+Path)
 \begin{DoxyCompactList}\small\item\em Initialise la fenêtre principale de l\textquotesingle{}application. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{Window_8h_a5b2abeb6aa788d11a7bfe251fb1d4a25}{destroy\+Window}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
-\begin{DoxyCompactList}\small\item\em Détruit la fenêtre principale de l\textquotesingle{}application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{Window_8h_ab7c9ee132f977dd2efd33ab66509d650}{destroy\+Game}} ()
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -80,6 +100,12 @@ Louis
 Repli sur le rendu logiciel si VSYNC n\textquotesingle{}est pas disponible. 
 
 \doxysubsection{Documentation des définitions de type}
+\Hypertarget{Window_8h_a5971f8f64b1fd772c90649cda6fddd86}\label{Window_8h_a5971f8f64b1fd772c90649cda6fddd86} 
+\index{Window.h@{Window.h}!AppState@{AppState}}
+\index{AppState@{AppState}!Window.h@{Window.h}}
+\doxysubsubsection{\texorpdfstring{AppState}{AppState}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056e}{App\+State\+\_\+s}} \mbox{\hyperlink{Window_8h_a5971f8f64b1fd772c90649cda6fddd86}{App\+State}}}
+
 \Hypertarget{Window_8h_a69b5df78d315f81ed77df30fdbfb7002}\label{Window_8h_a69b5df78d315f81ed77df30fdbfb7002} 
 \index{Window.h@{Window.h}!Game@{Game}}
 \index{Game@{Game}!Window.h@{Window.h}}
@@ -94,24 +120,64 @@ Déclaration anticipée de la structure \doxylink{structGame}{Game}. \Hypertarge
 
 
 
-\doxysubsection{Documentation des fonctions}
-\Hypertarget{Window_8h_a5b2abeb6aa788d11a7bfe251fb1d4a25}\label{Window_8h_a5b2abeb6aa788d11a7bfe251fb1d4a25} 
-\index{Window.h@{Window.h}!destroyWindow@{destroyWindow}}
-\index{destroyWindow@{destroyWindow}!Window.h@{Window.h}}
-\doxysubsubsection{\texorpdfstring{destroyWindow()}{destroyWindow()}}
-{\footnotesize\ttfamily void destroy\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\Hypertarget{Window_8h_a416822946d800083b7b87337456d056e}\label{Window_8h_a416822946d800083b7b87337456d056e} 
+\index{Window.h@{Window.h}!AppState\_s@{AppState\_s}}
+\index{AppState\_s@{AppState\_s}!Window.h@{Window.h}}
+\doxysubsubsection{\texorpdfstring{AppState\_s}{AppState\_s}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056e}{App\+State\+\_\+s}}}
 
-
-
-Détruit la fenêtre principale de l\textquotesingle{}application. 
-
-Cette fonction libère les ressources associées à la fenêtre principale de l\textquotesingle{}application.
-
-
-\begin{DoxyParams}{Paramètres}
-{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window} à détruire. \\
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QUIT@{QUIT}!Window.h@{Window.h}}\index{Window.h@{Window.h}!QUIT@{QUIT}}}\Hypertarget{Window_8h_a416822946d800083b7b87337456d056ea76bdc8adfd6c6463ab269ff4c06be9b4}\label{Window_8h_a416822946d800083b7b87337456d056ea76bdc8adfd6c6463ab269ff4c06be9b4} 
+QUIT&\\
 \hline
-\end{DoxyParams}
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SETTINGS@{SETTINGS}!Window.h@{Window.h}}\index{Window.h@{Window.h}!SETTINGS@{SETTINGS}}}\Hypertarget{Window_8h_a416822946d800083b7b87337456d056eac678338caea29d77d56be2ea56325610}\label{Window_8h_a416822946d800083b7b87337456d056eac678338caea29d77d56be2ea56325610} 
+SETTINGS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MENU@{MENU}!Window.h@{Window.h}}\index{Window.h@{Window.h}!MENU@{MENU}}}\Hypertarget{Window_8h_a416822946d800083b7b87337456d056ea4c40e60bc71a32b924ce1f08d57f9721}\label{Window_8h_a416822946d800083b7b87337456d056ea4c40e60bc71a32b924ce1f08d57f9721} 
+MENU&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GAME@{GAME}!Window.h@{Window.h}}\index{Window.h@{Window.h}!GAME@{GAME}}}\Hypertarget{Window_8h_a416822946d800083b7b87337456d056ead50cf309d7568040619ed26ee6835a84}\label{Window_8h_a416822946d800083b7b87337456d056ead50cf309d7568040619ed26ee6835a84} 
+GAME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NEWGAME@{NEWGAME}!Window.h@{Window.h}}\index{Window.h@{Window.h}!NEWGAME@{NEWGAME}}}\Hypertarget{Window_8h_a416822946d800083b7b87337456d056ea7d66b8866cc7667b15bb0ac8a7e62f4a}\label{Window_8h_a416822946d800083b7b87337456d056ea7d66b8866cc7667b15bb0ac8a7e62f4a} 
+NEWGAME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOADGAME@{LOADGAME}!Window.h@{Window.h}}\index{Window.h@{Window.h}!LOADGAME@{LOADGAME}}}\Hypertarget{Window_8h_a416822946d800083b7b87337456d056ea8ea08ca82a0d1952666e6b27cc459795}\label{Window_8h_a416822946d800083b7b87337456d056ea8ea08ca82a0d1952666e6b27cc459795} 
+LOADGAME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMONS@{ICMONS}!Window.h@{Window.h}}\index{Window.h@{Window.h}!ICMONS@{ICMONS}}}\Hypertarget{Window_8h_a416822946d800083b7b87337456d056ea42325efb02e5d8c573c338df4378367d}\label{Window_8h_a416822946d800083b7b87337456d056ea42325efb02e5d8c573c338df4378367d} 
+ICMONS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INTER@{INTER}!Window.h@{Window.h}}\index{Window.h@{Window.h}!INTER@{INTER}}}\Hypertarget{Window_8h_a416822946d800083b7b87337456d056ea5efa5610d5a2c5e9123d6894dd72e335}\label{Window_8h_a416822946d800083b7b87337456d056ea5efa5610d5a2c5e9123d6894dd72e335} 
+INTER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAUSE@{PAUSE}!Window.h@{Window.h}}\index{Window.h@{Window.h}!PAUSE@{PAUSE}}}\Hypertarget{Window_8h_a416822946d800083b7b87337456d056ea56b36d0d0bb01b339cf1041adc08e262}\label{Window_8h_a416822946d800083b7b87337456d056ea56b36d0d0bb01b339cf1041adc08e262} 
+PAUSE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAP@{MAP}!Window.h@{Window.h}}\index{Window.h@{Window.h}!MAP@{MAP}}}\Hypertarget{Window_8h_a416822946d800083b7b87337456d056ea4cafa5feda04184537b4d7d346e1e89b}\label{Window_8h_a416822946d800083b7b87337456d056ea4cafa5feda04184537b4d7d346e1e89b} 
+MAP&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{Window_8h_ab7c9ee132f977dd2efd33ab66509d650}\label{Window_8h_ab7c9ee132f977dd2efd33ab66509d650} 
+\index{Window.h@{Window.h}!destroyGame@{destroyGame}}
+\index{destroyGame@{destroyGame}!Window.h@{Window.h}}
+\doxysubsubsection{\texorpdfstring{destroyGame()}{destroyGame()}}
+{\footnotesize\ttfamily void destroy\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \Hypertarget{Window_8h_ab072fc478679f5b8fb5ffae288d1e7f2}\label{Window_8h_ab072fc478679f5b8fb5ffae288d1e7f2} 
 \index{Window.h@{Window.h}!initWindow@{initWindow}}
 \index{initWindow@{initWindow}!Window.h@{Window.h}}

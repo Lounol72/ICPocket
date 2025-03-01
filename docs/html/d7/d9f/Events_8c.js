@@ -21,5 +21,6 @@ var Events_8c =
     [ "handlePlayerEvent", "d7/d9f/Events_8c.html#a244d37073550388354a68561ac959ecb", null ],
     [ "handleQuitEvent", "d7/d9f/Events_8c.html#a25c2257aeb4db95d02ee807d21f2b387", null ],
     [ "handleSettingsEvent", "d7/d9f/Events_8c.html#ab14649f183a1cbf95f28b1cda31acb8e", null ],
-    [ "handleWindowSizeChange", "d7/d9f/Events_8c.html#a9e83431dc3f66988e64a74a4e0a2ed58", null ]
+    [ "handleWindowSizeChange", "d7/d9f/Events_8c.html#a9e83431dc3f66988e64a74a4e0a2ed58", null ],
+    [ "initTeamSprites", "d7/d9f/Events_8c.html#aeada525c0542e6fcbcdfc5c17aaf7dfc", null ]
 ];

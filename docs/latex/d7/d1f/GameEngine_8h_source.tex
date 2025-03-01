@@ -6,77 +6,112 @@
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GAMEENGINE\_H}}
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_mixer.h>}\ }
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{structPoke_8h}{structPoke.h}}"{}}\ }
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{duel_8h}{duel.h}}"{}}\ \ \ \ \ \ \ }
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{trainerAI_8h}{trainerAI.h}}"{}}\ \ }
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Camera_8h}{Camera.h}}"{}}\ \ }
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Player_8h}{Player.h}}"{}}\ \ }
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Utils_8h}{Utils.h}}"{}}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Buttons_8h}{Buttons.h}}"{}}}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \textcolor{comment}{//\ Forward\ Declarations\ to\ avoid\ including\ the\ whole\ header}}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00029\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Structs\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{comment}{/*\ UI\ element\ container,\ referencing\ the\ ButtonList\ \&\ SliderList\ defined\ in\ Buttons.h\ */}}
-\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{structButtonList}{ButtonList}}\ *\mbox{\hyperlink{structUI__Elements_adc0dba6f531b96dd74bf79d66c24fb84}{buttons}};\ \ \ \ \ \ }
-\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{structSliderList}{SliderList}}\ *\mbox{\hyperlink{structUI__Elements_a81dd7be9de23fa9878fe34cdef448ce7}{sliders}};\ \ \ \ \ \ }
-\DoxyCodeLine{00041\ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{structUI__Elements_acb53ca49376987c102feddfe35fb52b4}{background}};\ }
-\DoxyCodeLine{00042\ \}\ \mbox{\hyperlink{structUI__Elements}{UI\_Elements}};}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{comment}{/*\ Battle\ data\ (assuming\ t\_Team\ is\ defined\ in\ structPoke.h\ or\ similar)\ */}}
-\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{structt__Team}{t\_Team}}\ \mbox{\hyperlink{structBattleState_abd7c28f22ad6901f0b4a4128798d48d8}{rouge}};\ }
-\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{structt__Team}{t\_Team}}\ \mbox{\hyperlink{structBattleState_abafeca3c7481e25cccd09cfe2e5fe250}{bleu}};\ \ }
-\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{structAI}{t\_AI}}\ \mbox{\hyperlink{structBattleState_af2211c8d64aae65a70184ebacf5de475}{ia}};\ \ \ \ \ \ }
-\DoxyCodeLine{00055\ \}\ \mbox{\hyperlink{structBattleState}{BattleState}};}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \textcolor{comment}{/*\ General\ game\ state\ info\ */}}
-\DoxyCodeLine{00064\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00065\ \ \ \ \ Mix\_Music\ *\mbox{\hyperlink{structGameState_a52a85cc148348dad5cf3e5c9c106d59f}{music}};\ \ \ \ }
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGameState_ab59b804acb3666c52c22d51d6dd0fa06}{playerTurn}};\ \ \ \ \ }
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGameState_a2c4f9e46c2e120ee9e7245ece5a3bf44}{initialized}};\ \ \ \ }
-\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428}{AppState}}\ \mbox{\hyperlink{structGameState_a7aaeec31cfc3ac5268711c33896fe18f}{currentState}};\ }
-\DoxyCodeLine{00069\ \}\ \mbox{\hyperlink{structGameState}{GameState}};}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \textcolor{comment}{/*\ Each\ state\ has\ a\ render\ function\ and\ an\ event\ handler.\ */}}
-\DoxyCodeLine{00078\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structStateHandler}{StateHandler}}\ \{}
-\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428}{AppState}}\ \mbox{\hyperlink{structStateHandler_a1558caa96281f74de85e437b470b29b7}{state}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00080\ \ \ \ \ void\ (*\mbox{\hyperlink{structStateHandler_a5315c5e930efb62245d1d49338d142c3}{handleEvent}})(\mbox{\hyperlink{structWindow}{Window}}\ *,\ SDL\_Event\ *);\ }
-\DoxyCodeLine{00081\ \}\ \mbox{\hyperlink{structStateHandler}{StateHandler}};}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{structPlayer}{Player}}\ *\mbox{\hyperlink{structGameData_af832d5f2c831d31abdccb94c8385c550}{player}};}
-\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{structMap}{Map}}\ *\mbox{\hyperlink{structGameData_a0b0ac33efff9cff849b67e07e725ceb7}{map}};}
-\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{structCamera}{Camera}}\ *\mbox{\hyperlink{structGameData_a8a7a4a1390ee70b9b7045900eb8f7061}{camera}};}
-\DoxyCodeLine{00087\ \}\ \mbox{\hyperlink{structGameData}{GameData}};}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structWindow}{Window}}\ \mbox{\hyperlink{structWindow}{Window}};}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \textcolor{comment}{/*\ Main\ Game\ struct\ that\ ties\ everything\ together\ */}}
-\DoxyCodeLine{00098\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structGame}{Game}}\ \{}
-\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{structUI__Elements}{UI\_Elements}}\ *\mbox{\hyperlink{structGame_a1983960f961427e4f38cca321f7e34e3}{ui}};\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGame_a911428bfef2d00d5ece40210d3488fdb}{nbMenu}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{structGameData}{GameData}}\ \mbox{\hyperlink{structGame_abd03c2e680627cef2ddda2c5f804049a}{gameData}};\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{structBattleState}{BattleState}}\ \mbox{\hyperlink{structGame_a26bdba7ef4c61fbc52e955bd928547b9}{battleState}};\ \ }
-\DoxyCodeLine{00103\ \ \ \ \ \mbox{\hyperlink{structGameState}{GameState}}\ \mbox{\hyperlink{structGame_a4573dd85e0711a78cc27eb0b51c79f44}{gameState}};\ \ \ \ \ \ }
-\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{structStateHandler}{StateHandler}}\ *\mbox{\hyperlink{structGame_a2de84fee9a0524573b36b51c1cd15039}{stateHandlers}};\ }
-\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGame_ad6d4967c8a2102963029b9db9dbc1b91}{nbStates}};\ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{structWindow}{Window}}\ *\mbox{\hyperlink{structGame_a1ab9219c52f831df72ec2bb42c56aa2b}{win}};\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{float}\ *\mbox{\hyperlink{structGame_ad40f89a1120708699357c341a9f56e4e}{speeds}};\ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGame_abdcdb055424572d4d18a0758eaea2cf4}{FPS}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00109\ \}\ \mbox{\hyperlink{structGame}{Game}};}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ }
-\DoxyCodeLine{00118\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_ad119335fdbed767125510c855f2629ce}{mainLoop}}(\mbox{\hyperlink{structWindow}{Window}}\ *win);}
-\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_mixer.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_image.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_gamecontroller.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Utils_8h}{Utils.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ Added\ explicit\ include\ to\ ensure\ AppState\ is\ defined:}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Window_8h}{Window.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{structPoke_8h}{structPoke.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{interDuel_8h}{interDuel.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{duel_8h}{duel.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{trainerAI_8h}{trainerAI.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{save_8h}{save.h}}"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Text_8h}{Text.h}}"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Map_8h}{Map.h}}"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Player_8h}{Player.h}}"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Camera_8h}{Camera.h}}"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ThreadManager_8h}{ThreadManager.h}}"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Structs\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{/*\ Battle\ data\ (assuming\ t\_Team\ is\ defined\ in\ structPoke.h\ or\ similar)\ */}}
+\DoxyCodeLine{00049\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{structt__Team}{t\_Team}}\ \mbox{\hyperlink{structBattleState_abd7c28f22ad6901f0b4a4128798d48d8}{rouge}};\ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{structt__Team}{t\_Team}}\ \mbox{\hyperlink{structBattleState_abafeca3c7481e25cccd09cfe2e5fe250}{bleu}};\ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{structAI}{t\_AI}}\ \mbox{\hyperlink{structBattleState_af2211c8d64aae65a70184ebacf5de475}{ia}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \}\ \mbox{\hyperlink{structBattleState}{BattleState}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{/*\ General\ game\ state\ info\ */}}
+\DoxyCodeLine{00062\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00063\ \ \ \ \ Mix\_Music\ *\mbox{\hyperlink{structGameState_a52a85cc148348dad5cf3e5c9c106d59f}{music}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGameState_ab59b804acb3666c52c22d51d6dd0fa06}{playerTurn}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGameState_a2c4f9e46c2e120ee9e7245ece5a3bf44}{initialized}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{Window_8h_a5971f8f64b1fd772c90649cda6fddd86}{AppState}}\ \mbox{\hyperlink{structGameState_a7aaeec31cfc3ac5268711c33896fe18f}{currentState}};\ \ \ }
+\DoxyCodeLine{00067\ \}\ \mbox{\hyperlink{structGameState}{GameState}};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{comment}{/*\ Each\ state\ has\ a\ render\ function\ and\ an\ event\ handler.\ */}}
+\DoxyCodeLine{00076\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structStateHandler}{StateHandler}}\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{Window_8h_a5971f8f64b1fd772c90649cda6fddd86}{AppState}}\ \mbox{\hyperlink{structStateHandler_a1558caa96281f74de85e437b470b29b7}{state}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00078\ \ \ \ \ void\ (*\mbox{\hyperlink{structStateHandler_a5315c5e930efb62245d1d49338d142c3}{handleEvent}})(\mbox{\hyperlink{structWindow}{Window}}\ *,\ SDL\_Event\ *);\ }
+\DoxyCodeLine{00079\ \}\ \mbox{\hyperlink{structStateHandler}{StateHandler}};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{structPlayer}{Player}}\ *\mbox{\hyperlink{structGameData_af832d5f2c831d31abdccb94c8385c550}{player}};}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{structMap}{Map}}\ *\mbox{\hyperlink{structGameData_a0b0ac33efff9cff849b67e07e725ceb7}{map}};}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{structCamera}{Camera}}\ *\mbox{\hyperlink{structGameData_a8a7a4a1390ee70b9b7045900eb8f7061}{camera}};}
+\DoxyCodeLine{00085\ \}\ \mbox{\hyperlink{structGameData}{GameData}};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{comment}{/*\ Main\ Game\ struct\ that\ ties\ everything\ together\ */}}
+\DoxyCodeLine{00094\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structGame}{Game}}\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{structUI__Elements}{UI\_Elements}}\ *\mbox{\hyperlink{structGame_a1983960f961427e4f38cca321f7e34e3}{ui}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGame_a911428bfef2d00d5ece40210d3488fdb}{nbMenu}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{structGameData}{GameData}}\ \mbox{\hyperlink{structGame_abd03c2e680627cef2ddda2c5f804049a}{gameData}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{structBattleState}{BattleState}}\ \mbox{\hyperlink{structGame_a26bdba7ef4c61fbc52e955bd928547b9}{battleState}};\ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{structGameState}{GameState}}\ \mbox{\hyperlink{structGame_a4573dd85e0711a78cc27eb0b51c79f44}{gameState}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{structStateHandler}{StateHandler}}\ *\mbox{\hyperlink{structGame_a2de84fee9a0524573b36b51c1cd15039}{stateHandlers}};\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGame_ad6d4967c8a2102963029b9db9dbc1b91}{nbStates}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{structWindow}{Window}}\ *\mbox{\hyperlink{structGame_a1ab9219c52f831df72ec2bb42c56aa2b}{win}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{float}\ *\mbox{\hyperlink{structGame_ad40f89a1120708699357c341a9f56e4e}{speeds}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGame_abdcdb055424572d4d18a0758eaea2cf4}{FPS}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGame_a57b1ff7ca0dabafbf59df1c64f00558a}{frameDelay}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGame_ad806f8bf1f420ca7e83fa1075ba61014}{frameStart}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGame_a1923324b49a0383e183d760ae84280aa}{currentButton}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGame_ae4bd951ed7cce7f1c9424f816e765b73}{saved}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structGame_ad918e31c1644966465f822d912585f16}{deltaTime}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{structThreadManager}{ThreadManager}}\ \mbox{\hyperlink{structGame_aa9455d40a57196c6fe96dcf3c20203b3}{threadManager}};\ }
+\DoxyCodeLine{00111\ \ \ \ \ SDL\_Surface\ *\mbox{\hyperlink{structGame_a718b25063a2b739e7fd0c886c2509269}{cursor}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ SDL\_Surface\ *\mbox{\hyperlink{structGame_a8368793aa6f05e1a40a64eab95757bf5}{cursor\_hover}};\ }
+\DoxyCodeLine{00113\ \}\ \mbox{\hyperlink{structGame}{Game}};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Game_8h}{Game.h}}"{}}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Events_8h}{Events.h}}"{}}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{RenderICMons_8h}{RenderICMons.h}}"{}}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Function\ Prototypes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_ac7a261e0d935ffeeca4d7a0713913bd2}{initAllButtons}}(\mbox{\hyperlink{structWindow}{Window}}\ *win);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{comment}{/*\ Render\ */}}
+\DoxyCodeLine{00138\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_adce05963537a78c4c589298117616864}{render}}(\mbox{\hyperlink{structWindow}{Window}}\ *win);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{comment}{/*\ Main\ loop\ */}}
+\DoxyCodeLine{00148\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_ad119335fdbed767125510c855f2629ce}{mainLoop}}(\mbox{\hyperlink{structWindow}{Window}}\ *win);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{comment}{/*\ Attack\ button\ */}}
+\DoxyCodeLine{00160\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a8f8e57777ac436d2bfa2a87224c0eb8c}{attqButtonClicked}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *data);}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{comment}{/*\ Generic\ state\ change\ button\ callback\ */}}
+\DoxyCodeLine{00171\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_ae30f21d07d1066ecda7ed1097d584e6b}{changeState}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *data);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{comment}{/*\ Text-\/related\ updates\ for\ attacks\ */}}
+\DoxyCodeLine{00182\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_aa9e620870df635719d54d19fd83bb423}{updateICButtons}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *team);}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00192\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a275ae329d3830bface72c1c30db48b04}{nextDuel}}(\mbox{\hyperlink{structWindow}{Window}}*\ win,\ \textcolor{keywordtype}{void}\ *data);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00199\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1}{updateCurrentButton}}();}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00206\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_ae728be2d7ae42605618aa49e1a837466}{updateMusic}}();}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00215\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a6ed42cf8883eef51f3764c8587d7bc59}{manageFrameRate}}(\textcolor{keywordtype}{int}\ frameStart);}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GAMEENGINE\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

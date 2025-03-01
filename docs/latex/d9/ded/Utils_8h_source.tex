@@ -7,18 +7,15 @@
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428}{AppState}}\ \{}
-\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a76bdc8adfd6c6463ab269ff4c06be9b4}{QUIT}}\ =\ 0,\ \textcolor{comment}{//\ 0}}
-\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428ac678338caea29d77d56be2ea56325610}{SETTINGS}},\ \textcolor{comment}{//\ 1}}
-\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a4c40e60bc71a32b924ce1f08d57f9721}{MENU}},\ \textcolor{comment}{//\ 2}}
-\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428ad50cf309d7568040619ed26ee6835a84}{GAME}},\ \ \textcolor{comment}{//\ 3}}
-\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a7d66b8866cc7667b15bb0ac8a7e62f4a}{NEWGAME}},\ \ \textcolor{comment}{//\ 4}}
-\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a8ea08ca82a0d1952666e6b27cc459795}{LOADGAME}},\ \textcolor{comment}{//\ 5}}
-\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a42325efb02e5d8c573c338df4378367d}{ICMONS}},\ \textcolor{comment}{//\ 6}}
-\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a5efa5610d5a2c5e9123d6894dd72e335}{INTER}},\ \textcolor{comment}{//\ 7}}
-\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a56b36d0d0bb01b339cf1041adc08e262}{PAUSE}},\ \textcolor{comment}{//\ 8}}
-\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a4cafa5feda04184537b4d7d346e1e89b}{MAP}},\ \textcolor{comment}{//\ 9}}
-\DoxyCodeLine{00036\ \}\ \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428}{AppState}};}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Window_8h}{Window.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Buttons_8h}{Buttons.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{/*\ UI\ element\ container,\ referencing\ the\ ButtonList\ \&\ SliderList\ defined\ in\ Buttons.h\ */}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{structButtonList}{ButtonList}}\ *\mbox{\hyperlink{structUI__Elements_adc0dba6f531b96dd74bf79d66c24fb84}{buttons}};\ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{structSliderList}{SliderList}}\ *\mbox{\hyperlink{structUI__Elements_a81dd7be9de23fa9878fe34cdef448ce7}{sliders}};\ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{structUI__Elements_acb53ca49376987c102feddfe35fb52b4}{background}};\ }
+\DoxyCodeLine{00036\ \}\ \mbox{\hyperlink{structUI__Elements}{UI\_Elements}};}
 \DoxyCodeLine{00037\ }
 \DoxyCodeLine{00047\ SDL\_Texture*\ \mbox{\hyperlink{Utils_8h_a7ff3780681b488f1d4bf7650f1ceae86}{loadTexture}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filePath,\ SDL\_Renderer\ *renderer);}
 \DoxyCodeLine{00048\ }

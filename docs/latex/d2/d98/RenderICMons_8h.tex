@@ -90,7 +90,16 @@ Cette fonction libère les ressources associées au sprite ICMons spécifié.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em poke} & Un pointeur vers la structure \doxylink{structt__Poke}{t\+\_\+\+Poke} représentant l\textquotesingle{}ICMons. \\
+{\em poke} & Un pointeur vers la structure \doxylink{structt__Poke}{t\+\_\+\+Poke} représentant l\textquotesingle{}ICMons.\\
+\hline
+\end{DoxyParams}
+Détruit un sprite ICMons.
+
+Cette fonction détruit les textures, libère la mémoire allouée pour le sprite et réinitialise le pointeur associé dans la structure du poke.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em poke} & Le poke dont le sprite sera détruit. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{RenderICMons_8h_ac4e6519f6e42e14df90574527af9e3f8}\label{RenderICMons_8h_ac4e6519f6e42e14df90574527af9e3f8} 
@@ -123,7 +132,31 @@ Cette fonction initialise un sprite ICMons avec les paramètres spécifiés.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Un pointeur vers la structure \doxylink{structIMG__ICMons}{IMG\+\_\+\+ICMons} initialisée. 
+Un pointeur vers la structure \doxylink{structIMG__ICMons}{IMG\+\_\+\+ICMons} initialisée.
+\end{DoxyReturn}
+Initialise un sprite ICMons.
+
+Cette fonction crée et initialise le sprite associé à un poke, incluant le chargement de l\textquotesingle{}image, le retournement horizontal si nécessaire, la création des textures, ainsi que la configuration des textes et barres de points de vie.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Le renderer SDL. \\
+\hline
+{\em sprite\+Rect} & Le rectangle du sprite. \\
+\hline
+{\em name\+Rect} & Le rectangle pour le nom. \\
+\hline
+{\em pv\+Rect} & Le rectangle pour la barre de points de vie. \\
+\hline
+{\em poke} & Le pointeur vers la structure \doxylink{structt__Poke}{t\+\_\+\+Poke} contenant les informations du poke. \\
+\hline
+{\em font} & La police TTF utilisée pour le texte. \\
+\hline
+{\em team} & L\textquotesingle{}équipe (si 1, l\textquotesingle{}image est retournée horizontalement). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+IMG\+\_\+\+ICMons\texorpdfstring{$\ast$}{*} Le pointeur vers le sprite initialisé, ou NULL en cas d\textquotesingle{}erreur. 
 \end{DoxyReturn}
 \Hypertarget{RenderICMons_8h_a1f0630ab702e1360f9f72e55ac3a347e}\label{RenderICMons_8h_a1f0630ab702e1360f9f72e55ac3a347e} 
 \index{RenderICMons.h@{RenderICMons.h}!renderICMonsSprite@{renderICMonsSprite}}
@@ -141,7 +174,18 @@ Cette fonction rend le sprite ICMons spécifié à l\textquotesingle{}écran.
 \begin{DoxyParams}{Paramètres}
 {\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window}. \\
 \hline
-{\em poke} & Un pointeur vers la structure \doxylink{structt__Poke}{t\+\_\+\+Poke} représentant l\textquotesingle{}ICMons. \\
+{\em poke} & Un pointeur vers la structure \doxylink{structt__Poke}{t\+\_\+\+Poke} représentant l\textquotesingle{}ICMons.\\
+\hline
+\end{DoxyParams}
+Rend un sprite ICMons.
+
+Cette fonction met à jour et affiche le sprite du poke, incluant le sprite principal, la barre de points de vie (PV) avec son arrière-\/plan et le texte des PV, ainsi que le nom.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & La fenêtre contenant le renderer. \\
+\hline
+{\em poke} & Le poke dont le sprite sera rendu. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{RenderICMons_8h_a00792a5dc944c5d8992198d436c219d7}\label{RenderICMons_8h_a00792a5dc944c5d8992198d436c219d7} 
@@ -162,6 +206,19 @@ Cette fonction met à jour la position et la taille d\textquotesingle{}un sprite
 \hline
 {\em scaleX} & Le facteur de mise à l\textquotesingle{}échelle horizontal. \\
 \hline
-{\em scaleY} & Le facteur de mise à l\textquotesingle{}échelle vertical. \\
+{\em scaleY} & Le facteur de mise à l\textquotesingle{}échelle vertical.\\
+\hline
+\end{DoxyParams}
+Met à jour la position et la taille d\textquotesingle{}un sprite ICMons.
+
+Cette fonction met à jour la taille et la position du sprite, du nom et de la barre de PV en fonction des coefficients d\textquotesingle{}échelle passés en paramètre.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em poke} & Le poke dont le sprite sera mis à jour. \\
+\hline
+{\em scaleX} & L\textquotesingle{}échelle appliquée sur l\textquotesingle{}axe horizontal. \\
+\hline
+{\em scaleY} & L\textquotesingle{}échelle appliquée sur l\textquotesingle{}axe vertical. \\
 \hline
 \end{DoxyParams}

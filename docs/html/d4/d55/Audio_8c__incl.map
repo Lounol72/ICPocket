@@ -1,0 +1,12 @@
+<map id="src/Audio.c" name="src/Audio.c">
+<area shape="rect" id="Node000001" title="Gestion de l&#39;audio." alt="" coords="54,5,147,31"/>
+<area shape="rect" id="Node000002" href="$d8/daa/Audio_8h.html" title="Gestion de l&#39;audio pour l&#39;application." alt="" coords="33,79,168,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,31,103,65,98,65,98,31"/>
+<area shape="rect" id="Node000003" href="$d1/d45/Log_8h.html" title=" " alt="" coords="5,152,63,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="92,106,56,144,52,140,88,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="19,225,115,251"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="101,105,76,213,70,211,95,104"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="138,152,277,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="119,102,180,142,177,147,116,106"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="42,177,59,212,54,214,37,179"/>
+</map>

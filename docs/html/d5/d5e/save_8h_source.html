@@ -17,7 +17,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -102,13 +101,17 @@ $(document).ready(function(){initNavTree('d5/d5e/save_8h_source.html','../../');
 <a href="../../d5/d5e/save_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef SAVE_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define SAVE_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d5e/save_8h.html#a71d424ddb5655e679926a179fb2ac34f">sauvegarder</a>(<span class="keywordtype">char</span> * name,<a class="code hl_struct" href="../../da/d63/structt__Team.html">t_Team</a> * teamJ1,<a class="code hl_struct" href="../../da/d63/structt__Team.html">t_Team</a> * dresseur);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d5e/save_8h.html#a8c48d775f89bda18cec4d6e57ab31162">charger</a>(<span class="keywordtype">char</span> * name,<a class="code hl_struct" href="../../da/d63/structt__Team.html">t_Team</a> * teamJ1,<a class="code hl_struct" href="../../da/d63/structt__Team.html">t_Team</a> * dresseur);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#endif </span><span class="comment">// SAVE_H</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d1f/GameEngine_8h.html">GameEngine.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d8e/duel_8h.html">duel.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d5e/save_8h.html#a71d424ddb5655e679926a179fb2ac34f">sauvegarder</a>(<span class="keywordtype">char</span> * name,<a class="code hl_struct" href="../../da/d63/structt__Team.html">t_Team</a> * teamJ1,<a class="code hl_struct" href="../../da/d63/structt__Team.html">t_Team</a> * dresseur);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d5e/save_8h.html#a8c48d775f89bda18cec4d6e57ab31162">charger</a>(<span class="keywordtype">char</span> * name,<a class="code hl_struct" href="../../da/d63/structt__Team.html">t_Team</a> * teamJ1,<a class="code hl_struct" href="../../da/d63/structt__Team.html">t_Team</a> * dresseur);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif </span><span class="comment">// SAVE_H</span></div>
+<div class="ttc" id="aGameEngine_8h_html"><div class="ttname"><a href="../../d7/d1f/GameEngine_8h.html">GameEngine.h</a></div><div class="ttdoc">Définition et gestion du moteur de jeu.</div></div>
+<div class="ttc" id="aduel_8h_html"><div class="ttname"><a href="../../d6/d8e/duel_8h.html">duel.h</a></div><div class="ttdoc">Gestion des duels dans le style de &quot;Pokémon&quot; : système de tour par tour avec 2 équipes opposées.</div></div>
 <div class="ttc" id="asave_8h_html_a71d424ddb5655e679926a179fb2ac34f"><div class="ttname"><a href="../../d5/d5e/save_8h.html#a71d424ddb5655e679926a179fb2ac34f">sauvegarder</a></div><div class="ttdeci">void sauvegarder(char *name, t_Team *teamJ1, t_Team *dresseur)</div><div class="ttdef"><b>Definition</b> save.c:53</div></div>
 <div class="ttc" id="asave_8h_html_a8c48d775f89bda18cec4d6e57ab31162"><div class="ttname"><a href="../../d5/d5e/save_8h.html#a8c48d775f89bda18cec4d6e57ab31162">charger</a></div><div class="ttdeci">void charger(char *name, t_Team *teamJ1, t_Team *dresseur)</div><div class="ttdoc">Load the player's data from a file.</div><div class="ttdef"><b>Definition</b> save.c:87</div></div>
-<div class="ttc" id="astructt__Team_html"><div class="ttname"><a href="../../da/d63/structt__Team.html">t_Team</a></div><div class="ttdoc">La structure t_Team contient tout les attributs nécessaire à la génération et à l'utilisation d'une é...</div><div class="ttdef"><b>Definition</b> duel.h:30</div></div>
+<div class="ttc" id="astructt__Team_html"><div class="ttname"><a href="../../da/d63/structt__Team.html">t_Team</a></div><div class="ttdoc">La structure t_Team contient tout les attributs nécessaire à la génération et à l'utilisation d'une é...</div><div class="ttdef"><b>Definition</b> duel.h:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -149,3 +149,121 @@ void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char
     *Background = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
 }
+
+void destroyGame() {
+    /* 1) Libération de la musique */
+    if (game.gameState.music) {
+        Mix_FreeMusic(game.gameState.music);
+        game.gameState.music = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Musique libérée");
+    }
+
+    /* 2) Destruction des éléments de l'interface (UI) */
+    if (game.ui) {
+        for (int i = 0; i < game.nbMenu; i++) {
+            if (game.ui[i].buttons) {
+                destroyButtonList(game.ui[i].buttons);
+                free(game.ui[i].buttons);
+                game.ui[i].buttons = NULL;
+            }
+            if (game.ui[i].sliders) {
+                destroySliderList(game.ui[i].sliders);
+                free(game.ui[i].sliders);
+                game.ui[i].sliders = NULL;
+            }
+            if (game.ui[i].background) {
+                SDL_DestroyTexture(game.ui[i].background);
+                game.ui[i].background = NULL;
+            }
+        }
+        free(game.ui);
+        game.ui = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ UI libérée");
+    }
+
+    /* 3) Destruction des ICMons pour l'équipe rouge */
+    if (game.battleState.rouge.nb_poke != 0) {
+        for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
+            destroyICMonsSprite(&game.battleState.rouge.team[i]);
+        }
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ ICMons rouges libérés");
+    }
+    
+    /* 4) Destruction des ICMons pour l'équipe bleue */
+    if (game.battleState.bleu.nb_poke != 0) {
+        for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+            destroyICMonsSprite(&game.battleState.bleu.team[i]);
+        }
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ ICMons bleus libérés");
+    }
+
+    /* 5) Libération des state handlers */
+    if (game.stateHandlers) {
+        free(game.stateHandlers);
+        game.stateHandlers = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ State handlers libérés");
+    }
+
+    /* 6) Libération du tableau de vitesses */
+    if (game.speeds) {
+        free(game.speeds);
+        game.speeds = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Speeds libérés");
+    }
+
+    /* 7) Fermeture des polices */
+    if (game.win->LargeFont) {
+        TTF_CloseFont(game.win->LargeFont);
+        game.win->LargeFont = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ LargeFont libéré");
+    }
+    if (game.win->MediumFont) {
+        TTF_CloseFont(game.win->MediumFont);
+        game.win->MediumFont = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ MediumFont libéré");
+    }
+    if (game.win->SmallFont) {
+        TTF_CloseFont(game.win->SmallFont);
+        game.win->SmallFont = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ SmallFont libéré");
+    }
+    if (game.win->font) {
+        TTF_CloseFont(game.win->font);
+        game.win->font = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ font libéré");
+    }
+
+    /* 8) Destruction du renderer et de la fenêtre */
+    if (game.win->renderer) {
+        SDL_DestroyRenderer(game.win->renderer);
+        game.win->renderer = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ renderer libéré");
+    }
+    if (game.win->window) {
+        SDL_DestroyWindow(game.win->window);
+        game.win->window = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ window libéré");
+    }
+
+    /* 9) Libération des surfaces du curseur */
+    if (game.cursor) {
+        SDL_FreeSurface(game.cursor);
+        game.cursor = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ cursor libéré");
+    }
+    if (game.cursor_hover) {
+        SDL_FreeSurface(game.cursor_hover);
+        game.cursor_hover = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ cursor_hover libéré");
+    }
+
+    /* 10) Fermeture de l'audio */
+    Mix_CloseAudio();
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ audio libéré");
+
+    /* 11) Quitter les sous-systèmes SDL, IMG et TTF */
+    TTF_Quit();
+    IMG_Quit();
+    SDL_Quit();
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ SDL quitté");
+}

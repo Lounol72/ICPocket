@@ -1,3 +1,5 @@
+#include "duel.h"
+
 #ifndef TRAINERAI_H
 #define TRAINERAI_H
 #define MAX_AI_LVL 20

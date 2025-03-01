@@ -17,7 +17,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -108,23 +107,25 @@ $(document).ready(function(){initNavTree('d3/d5f/Game_8h_source.html','../../');
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/ded/Window_8h.html">Window.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/daa/Audio_8h.html">Audio.h</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d1f/GameEngine_8h.html">GameEngine.h</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/daa/ThreadManager_8h.html">ThreadManager.h</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">extern</span> <a class="code hl_struct" href="../../de/de9/structGame.html">Game</a> <a class="code hl_variable" href="../../d3/d5f/Game_8h.html#ac6a5ed6191fcf3a5bf0445921feb4f48">game</a>;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d5f/Game_8h.html#adb4f4933e22ff207b17caf522af7a5e0">initGame</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win);</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d5f/Game_8h.html#a4a3c981367992b6dd0045e0eb5f75aa0">loadBackground</a>(SDL_Texture **Background, SDL_Renderer *renderer, <span class="keyword">const</span> <span class="keywordtype">char</span> *imagePath) ;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#endif </span><span class="comment">/* GAME_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d5f/Game_8h.html#ab7c9ee132f977dd2efd33ab66509d650">destroyGame</a>();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#endif </span><span class="comment">/* GAME_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aAudio_8h_html"><div class="ttname"><a href="../../d8/daa/Audio_8h.html">Audio.h</a></div><div class="ttdoc">Gestion de l'audio pour l'application.</div></div>
 <div class="ttc" id="aGameEngine_8h_html"><div class="ttname"><a href="../../d7/d1f/GameEngine_8h.html">GameEngine.h</a></div><div class="ttdoc">Définition et gestion du moteur de jeu.</div></div>
-<div class="ttc" id="aGame_8h_html_a4a3c981367992b6dd0045e0eb5f75aa0"><div class="ttname"><a href="../../d3/d5f/Game_8h.html#a4a3c981367992b6dd0045e0eb5f75aa0">loadBackground</a></div><div class="ttdeci">void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath)</div><div class="ttdef"><b>Definition</b> Game.c:95</div></div>
-<div class="ttc" id="aGame_8h_html_ac6a5ed6191fcf3a5bf0445921feb4f48"><div class="ttname"><a href="../../d3/d5f/Game_8h.html#ac6a5ed6191fcf3a5bf0445921feb4f48">game</a></div><div class="ttdeci">Game game</div><div class="ttdef"><b>Definition</b> GameEngine.c:3</div></div>
-<div class="ttc" id="aGame_8h_html_adb4f4933e22ff207b17caf522af7a5e0"><div class="ttname"><a href="../../d3/d5f/Game_8h.html#adb4f4933e22ff207b17caf522af7a5e0">initGame</a></div><div class="ttdeci">void initGame(Window *win)</div><div class="ttdef"><b>Definition</b> Game.c:6</div></div>
+<div class="ttc" id="aGame_8h_html_a4a3c981367992b6dd0045e0eb5f75aa0"><div class="ttname"><a href="../../d3/d5f/Game_8h.html#a4a3c981367992b6dd0045e0eb5f75aa0">loadBackground</a></div><div class="ttdeci">void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath)</div><div class="ttdoc">Charge une image de fond et crée une texture associée.</div><div class="ttdef"><b>Definition</b> Game.c:137</div></div>
+<div class="ttc" id="aGame_8h_html_ab7c9ee132f977dd2efd33ab66509d650"><div class="ttname"><a href="../../d3/d5f/Game_8h.html#ab7c9ee132f977dd2efd33ab66509d650">destroyGame</a></div><div class="ttdeci">void destroyGame()</div><div class="ttdef"><b>Definition</b> Game.c:153</div></div>
+<div class="ttc" id="aGame_8h_html_ac6a5ed6191fcf3a5bf0445921feb4f48"><div class="ttname"><a href="../../d3/d5f/Game_8h.html#ac6a5ed6191fcf3a5bf0445921feb4f48">game</a></div><div class="ttdeci">Game game</div><div class="ttdef"><b>Definition</b> GameEngine.c:9</div></div>
+<div class="ttc" id="aGame_8h_html_adb4f4933e22ff207b17caf522af7a5e0"><div class="ttname"><a href="../../d3/d5f/Game_8h.html#adb4f4933e22ff207b17caf522af7a5e0">initGame</a></div><div class="ttdeci">void initGame(Window *win)</div><div class="ttdoc">Initialise le jeu et charge l'ensemble des ressources nécessaires.</div><div class="ttdef"><b>Definition</b> Game.c:25</div></div>
 <div class="ttc" id="aThreadManager_8h_html"><div class="ttname"><a href="../../d0/daa/ThreadManager_8h.html">ThreadManager.h</a></div></div>
-<div class="ttc" id="aWindow_8h_html"><div class="ttname"><a href="../../d3/ded/Window_8h.html">Window.h</a></div><div class="ttdoc">Définition et gestion de la fenêtre principale de l'application.</div></div>
-<div class="ttc" id="astructGame_html"><div class="ttname"><a href="../../de/de9/structGame.html">Game</a></div><div class="ttdoc">Structure principale du jeu.</div><div class="ttdef"><b>Definition</b> GameEngine.h:98</div></div>
-<div class="ttc" id="astructWindow_html"><div class="ttname"><a href="../../d6/d08/structWindow.html">Window</a></div><div class="ttdoc">Représente la fenêtre principale de l'application.</div><div class="ttdef"><b>Definition</b> Window.h:40</div></div>
+<div class="ttc" id="astructGame_html"><div class="ttname"><a href="../../de/de9/structGame.html">Game</a></div><div class="ttdoc">Structure principale du jeu.</div><div class="ttdef"><b>Definition</b> GameEngine.h:94</div></div>
+<div class="ttc" id="astructWindow_html"><div class="ttname"><a href="../../d6/d08/structWindow.html">Window</a></div><div class="ttdoc">Représente la fenêtre principale de l'application.</div><div class="ttdef"><b>Definition</b> Window.h:54</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

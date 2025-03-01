@@ -8,21 +8,21 @@
 #include <SDL2/SDL_gamecontroller.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "Log.h"
-#include "Audio.h"
-#include "Buttons.h"
+
+#include "Utils.h"
+// Added explicit include to ensure AppState is defined:
+#include "Window.h"
 #include "structPoke.h"
+#include "interDuel.h"
 #include "duel.h"
 #include "trainerAI.h"
 #include "save.h"
-#include "interDuel.h"
-#include "Utils.h"
 #include "Text.h"
-#include "Window.h"
 #include "Map.h"
 #include "Player.h"
 #include "Camera.h"
 #include "ThreadManager.h"
+
 /**
  * @file GameEngine.h
  * @brief Définition et gestion du moteur de jeu.
@@ -36,18 +36,8 @@
 
 
 /* ------------- Structs ------------- */
-/* UI element container, referencing the ButtonList & SliderList defined in Buttons.h */
-/**
- * @struct UI_Elements
- * @brief Conteneur pour les éléments de l'interface utilisateur.
- * 
- * Cette structure référence les listes de boutons et de curseurs définies dans Buttons.h, ainsi que la texture de fond.
- */
-typedef struct {
-    ButtonList *buttons;     /**< Liste des boutons de l'interface utilisateur. */
-    SliderList *sliders;     /**< Liste des curseurs de l'interface utilisateur. */
-    SDL_Texture *background; /**< Texture de fond de l'interface utilisateur. */
-} UI_Elements;
+
+
 
 /* Battle data (assuming t_Team is defined in structPoke.h or similar) */
 /**

@@ -7,7 +7,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <stdio.h>
-#include "Window.h"
+#include "Audio.h"
 #include "GameEngine.h"
 #include "ThreadManager.h"
 
@@ -20,5 +20,6 @@
 extern Game game;
 void initGame(Window *win);
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath) ;
+void destroyGame();
 
 #endif /* GAME_H */

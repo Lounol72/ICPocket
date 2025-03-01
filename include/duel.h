@@ -1,3 +1,6 @@
+#ifndef DUEL_H
+#define DUEL_H
+
 #define NEUTRAL_STAT_CHANGE 6
 #define POKE_IS_ABSCENT -1
 #define STRUGGLE -10
@@ -7,6 +10,10 @@
 #define ATTAQUE_2 1
 #define ATTAQUE_3 2
 #define ATTAQUE_4 3
+
+#include "structPoke.h"
+
+
 
 /**
  * @file duel.h
@@ -37,6 +44,10 @@ typedef struct{
 	int lastEnemiID;
 	int nb_enemiBeat;
 } t_Team;
+
+#include "trainerAI.h"
+#include "save.h"
+
 
 typedef struct{
 	int moveId;
@@ -116,3 +127,5 @@ void testSwitch(t_Team * rouge, t_Team * bleu);
 void testPP(t_Team * rouge, t_Team * bleu);
 void testStruggle(t_Team * rouge, t_Team * bleu);
 void teamTest(t_Team * t, int);
+
+#endif

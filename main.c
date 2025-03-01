@@ -2,10 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "include/GameEngine.h"
-#include "include/Window.h"
-#include "include/Map.h"
-#include "include/Player.h"
-#include "include/Camera.h"
 #include <stdbool.h>
 
 #define WINDOWS_W 1280
@@ -179,7 +175,7 @@ int main(int argc, char *argv[]) {
         }
         initWindow(win, 1280,720, "assets/fonts/PressStart2P-Regular.ttf");
         mainLoop(win);
-        destroyWindow(win); 
+        destroyGame();
         free(win);          
         printf("🟢 ICPocket closed\n");
     }

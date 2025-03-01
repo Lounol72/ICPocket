@@ -17,7 +17,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -97,11 +96,137 @@ $(document).ready(function(){initNavTree('d7/d9f/Events_8c.html','../../'); init
   <div class="headertitle"><div class="title">Référence du fichier Events.c</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Gestion des événements et interactions utilisateur pour l'application.  
+<a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d0/dbb/Events_8h_source.html">../include/Events.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de Events.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d3/d96/Events_8c__incl.png" border="0" usemap="#asrc_2Events_8c" alt=""/></div>
+<map name="asrc_2Events_8c" id="asrc_2Events_8c">
+<area shape="rect" title="Gestion des événements et interactions utilisateur pour l&#39;application." alt="" coords="1589,5,1689,31"/>
+<area shape="rect" href="../../d0/dbb/Events_8h.html" title=" " alt="" coords="1568,79,1709,104"/>
+<area shape="poly" title=" " alt="" coords="1641,31,1641,65,1636,65,1636,31"/>
+<area shape="rect" href="../../d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="1628,152,1745,177"/>
+<area shape="poly" title=" " alt="" coords="1642,103,1666,140,1661,143,1637,106"/>
+<area shape="rect" title=" " alt="" coords="800,445,896,471"/>
+<area shape="poly" title=" " alt="" coords="1568,98,1192,114,669,143,417,163,206,185,123,198,60,211,21,224,11,231,8,237,8,312,12,342,25,363,45,379,73,395,114,407,186,417,388,434,786,452,786,457,388,439,185,422,113,412,71,400,42,384,21,366,7,344,3,313,3,236,7,228,18,220,59,206,122,192,205,180,417,157,669,138,1191,108,1568,92"/>
+<area shape="rect" title=" " alt="" coords="1425,372,1626,397"/>
+<area shape="poly" title=" " alt="" coords="1634,105,1610,153,1566,268,1536,359,1530,358,1561,266,1606,151,1630,103"/>
+<area shape="rect" href="../../da/d71/structPoke_8h.html" title=" " alt="" coords="2041,372,2143,397"/>
+<area shape="poly" title=" " alt="" coords="1710,93,1862,103,2048,125,2138,142,2219,164,2283,191,2308,206,2326,224,2339,250,2336,274,2320,296,2294,316,2226,348,2155,371,2153,366,2224,343,2291,311,2316,292,2331,272,2334,251,2322,227,2304,211,2281,195,2217,169,2137,148,2047,131,1862,108,1710,98"/>
+<area shape="rect" href="../../d6/d35/Text_8h.html" title="Définition et gestion des éléments de texte." alt="" coords="1651,372,1712,397"/>
+<area shape="poly" title=" " alt="" coords="1635,105,1626,127,1619,152,1619,177,1629,228,1644,278,1673,358,1668,360,1639,280,1624,230,1613,178,1613,152,1621,125,1630,103"/>
+<area shape="poly" title=" " alt="" coords="1683,153,1660,116,1664,113,1688,150"/>
+<area shape="poly" title=" " alt="" coords="1628,169,1317,170,876,177,655,184,459,195,308,209,255,218,221,228,169,254,134,282,107,320,84,373,80,385,83,396,96,404,119,412,187,425,280,436,387,443,609,452,786,454,786,459,609,457,386,449,279,441,187,431,117,417,94,409,79,399,74,386,79,371,102,317,130,279,167,249,219,223,254,213,307,204,459,190,655,179,876,172,1317,165,1628,163"/>
+<area shape="rect" title=" " alt="" coords="672,372,811,397"/>
+<area shape="poly" title=" " alt="" coords="1628,170,1524,175,1386,185,1232,202,1076,228,957,253,908,271,847,301,801,332,764,364,760,360,798,328,844,296,905,266,956,248,1076,223,1231,197,1386,180,1523,170,1628,165"/>
+<area shape="rect" title=" " alt="" coords="1163,445,1307,471"/>
+<area shape="poly" title=" " alt="" coords="1696,176,1719,217,1742,276,1749,309,1750,341,1743,372,1726,399,1706,410,1669,420,1563,436,1321,455,1320,450,1562,430,1668,415,1704,405,1722,395,1738,370,1744,340,1743,309,1737,278,1714,219,1692,179"/>
+<area shape="rect" title=" " alt="" coords="1623,445,1740,471"/>
+<area shape="poly" title=" " alt="" coords="1715,175,1745,195,1759,208,1770,224,1790,271,1797,312,1790,352,1770,399,1750,423,1725,441,1722,437,1747,419,1766,396,1785,351,1792,312,1785,272,1766,227,1755,212,1742,199,1712,180"/>
+<area shape="poly" title=" " alt="" coords="1680,179,1544,362,1540,359,1676,176"/>
+<area shape="rect" title=" " alt="" coords="2153,445,2220,471"/>
+<area shape="poly" title=" " alt="" coords="1745,164,1887,166,2066,175,2240,193,2310,206,2362,223,2417,250,2457,279,2488,317,2516,371,2543,436,2542,443,2536,446,2515,443,2478,436,2420,431,2341,433,2236,448,2234,448,2233,443,2236,443,2340,427,2421,425,2479,431,2516,438,2536,441,2538,440,2538,437,2511,373,2484,320,2454,283,2415,255,2360,228,2309,211,2239,198,2066,180,1887,172,1745,169"/>
+<area shape="rect" title=" " alt="" coords="2247,445,2318,471"/>
+<area shape="poly" title=" " alt="" coords="1745,164,1895,167,2086,177,2272,194,2348,207,2405,223,2436,237,2459,252,2501,297,2523,322,2542,347,2549,371,2546,385,2538,399,2524,411,2504,421,2450,437,2388,448,2332,455,2331,450,2388,443,2449,431,2502,416,2521,406,2534,396,2542,383,2544,372,2537,349,2519,326,2497,300,2455,256,2434,241,2403,228,2347,212,2271,199,2086,182,1894,173,1745,169"/>
+<area shape="rect" href="../../d9/ded/Utils_8h.html" title=" " alt="" coords="1285,225,1349,251"/>
+<area shape="poly" title=" " alt="" coords="1628,180,1364,231,1363,225,1627,175"/>
+<area shape="rect" href="../../d3/ded/Window_8h.html" title="Définition et gestion de la fenêtre principale de l&#39;application." alt="" coords="1373,299,1459,324"/>
+<area shape="poly" title=" " alt="" coords="1666,180,1451,295,1448,290,1664,175"/>
+<area shape="poly" title=" " alt="" coords="1746,173,1828,192,1916,223,1977,254,2030,297,2058,328,2080,359,2076,362,2054,331,2026,301,1974,258,1914,228,1826,198,1745,179"/>
+<area shape="rect" href="../../da/d1d/interDuel_8h.html" title="Définition et gestion des combats entre équipes." alt="" coords="2217,225,2311,251"/>
+<area shape="poly" title=" " alt="" coords="1746,169,1946,191,2198,223,2203,223,2202,229,2197,228,1946,196,1745,174"/>
+<area shape="rect" href="../../d6/d8e/duel_8h.html" title="Gestion des duels dans le style de &quot;Pokémon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="2330,299,2393,324"/>
+<area shape="poly" title=" " alt="" coords="1746,166,1927,181,2038,198,2147,223,2177,234,2206,248,2318,291,2316,296,2204,253,2175,239,2146,228,2037,203,1926,187,1745,171"/>
+<area shape="rect" href="../../df/d27/trainerAI_8h.html" title=" " alt="" coords="2411,372,2501,397"/>
+<area shape="poly" title=" " alt="" coords="1746,164,1880,168,2048,177,2210,195,2276,207,2325,223,2367,250,2402,287,2429,325,2447,358,2443,361,2424,328,2398,290,2364,254,2323,228,2275,213,2209,200,2048,183,1879,173,1745,169"/>
+<area shape="rect" href="../../d5/d5e/save_8h.html" title="Save the player&#39;s data in a file." alt="" coords="2321,372,2386,397"/>
+<area shape="poly" title=" " alt="" coords="1743,175,1937,219,2056,254,2174,296,2249,331,2315,363,2312,368,2247,335,2172,301,2055,259,1935,224,1742,180"/>
+<area shape="poly" title=" " alt="" coords="1689,178,1685,358,1679,358,1684,178"/>
+<area shape="rect" href="../../df/d79/Map_8h.html" title=" " alt="" coords="206,299,269,324"/>
+<area shape="poly" title=" " alt="" coords="1628,169,1345,174,950,185,578,202,442,214,363,228,334,240,306,257,261,291,258,287,303,252,332,236,362,223,442,209,577,197,950,180,1345,169,1628,164"/>
+<area shape="rect" href="../../dd/de4/Camera_8h.html" title="Gestion de la caméra pour le défilement de la vue du jeu." alt="" coords="93,372,179,397"/>
+<area shape="poly" title=" " alt="" coords="1628,170,924,188,535,205,393,216,310,228,265,239,230,251,200,269,167,300,151,329,142,359,137,357,146,327,163,297,196,265,228,246,263,234,309,223,393,211,535,200,924,183,1628,164"/>
+<area shape="rect" href="../../da/dbf/Player_8h.html" title=" " alt="" coords="375,225,449,251"/>
+<area shape="poly" title=" " alt="" coords="1628,170,1166,188,843,205,512,228,463,233,463,228,512,223,842,200,1166,183,1628,165"/>
+<area shape="rect" href="../../d0/daa/ThreadManager_8h.html" title=" " alt="" coords="381,299,515,324"/>
+<area shape="poly" title=" " alt="" coords="1628,168,1409,168,1106,174,949,182,804,192,679,208,586,228,554,241,523,257,473,292,470,288,521,253,552,236,585,223,678,202,803,187,949,176,1106,169,1409,163,1628,163"/>
+<area shape="rect" href="../../d3/d5f/Game_8h.html" title=" " alt="" coords="1089,225,1162,251"/>
+<area shape="poly" title=" " alt="" coords="1628,175,1176,232,1176,227,1627,170"/>
+<area shape="rect" href="../../d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="1888,299,2016,324"/>
+<area shape="poly" title=" " alt="" coords="1736,175,1796,193,1859,223,1897,254,1928,286,1925,290,1893,258,1856,228,1794,198,1734,180"/>
+<area shape="poly" title=" " alt="" coords="1286,247,1217,261,1124,286,1023,323,973,347,927,374,892,404,866,436,862,432,888,400,924,370,971,342,1021,319,1123,281,1215,256,1284,242"/>
+<area shape="poly" title=" " alt="" coords="1328,249,1383,289,1380,293,1325,253"/>
+<area shape="rect" href="../../d3/d70/Buttons_8h.html" title="Gestion des boutons et curseurs pour l&#39;application." alt="" coords="1214,299,1298,324"/>
+<area shape="poly" title=" " alt="" coords="1303,252,1269,289,1265,285,1299,249"/>
+<area shape="poly" title=" " alt="" coords="1374,326,907,445,905,439,1373,321"/>
+<area shape="poly" title=" " alt="" coords="1414,325,1405,360,1406,379,1414,396,1426,406,1444,415,1494,430,1552,441,1609,448,1609,453,1551,446,1492,435,1442,420,1423,410,1410,399,1401,380,1400,360,1408,324"/>
+<area shape="poly" title=" " alt="" coords="1435,322,1497,362,1494,367,1432,326"/>
+<area shape="poly" title=" " alt="" coords="1405,301,1350,260,1353,256,1408,296"/>
+<area shape="rect" href="../../d1/d45/Log_8h.html" title=" " alt="" coords="987,372,1045,397"/>
+<area shape="poly" title=" " alt="" coords="1374,323,1059,378,1058,373,1373,318"/>
+<area shape="poly" title=" " alt="" coords="990,400,889,442,887,437,988,395"/>
+<area shape="poly" title=" " alt="" coords="1214,323,1076,351,976,374,919,405,874,439,871,434,917,401,974,370,1075,345,1213,318"/>
+<area shape="poly" title=" " alt="" coords="1214,321,825,375,824,369,1214,316"/>
+<area shape="poly" title=" " alt="" coords="1257,325,1241,432,1236,431,1252,324"/>
+<area shape="poly" title=" " alt="" coords="1263,323,1284,360,1299,379,1319,395,1341,405,1371,414,1447,430,1609,449,1608,454,1446,435,1369,420,1339,410,1316,400,1296,383,1279,363,1258,326"/>
+<area shape="poly" title=" " alt="" coords="1271,297,1304,260,1308,264,1275,300"/>
+<area shape="rect" title=" " alt="" coords="565,372,648,397"/>
+<area shape="poly" title=" " alt="" coords="1214,318,983,336,826,353,662,375,662,369,825,347,982,331,1214,313"/>
+<area shape="poly" title=" " alt="" coords="2041,392,910,456,909,451,2040,386"/>
+<area shape="poly" title=" " alt="" coords="2041,393,1320,452,1320,447,2040,388"/>
+<area shape="poly" title=" " alt="" coords="2041,398,1754,447,1753,442,2040,392"/>
+<area shape="poly" title=" " alt="" coords="2109,395,2162,435,2159,439,2106,399"/>
+<area shape="poly" title=" " alt="" coords="2124,395,2240,438,2238,443,2122,400"/>
+<area shape="rect" title=" " alt="" coords="2063,445,2127,471"/>
+<area shape="poly" title=" " alt="" coords="2095,398,2096,432,2091,432,2090,398"/>
+<area shape="rect" title=" " alt="" coords="1967,445,2038,471"/>
+<area shape="poly" title=" " alt="" coords="2079,399,2030,439,2026,434,2076,395"/>
+<area shape="poly" title=" " alt="" coords="2281,249,2336,288,2333,292,2278,253"/>
+<area shape="poly" title=" " alt="" coords="2331,323,2149,371,2148,366,2329,318"/>
+<area shape="poly" title=" " alt="" coords="2371,322,2424,362,2421,366,2368,326"/>
+<area shape="poly" title=" " alt="" coords="2356,325,2350,359,2345,358,2350,324"/>
+<area shape="poly" title=" " alt="" coords="2446,374,2393,334,2396,329,2449,370"/>
+<area shape="poly" title=" " alt="" coords="2339,374,2278,340,2196,301,2079,259,1959,225,1849,198,1759,180,1760,175,1850,193,1961,219,2081,254,2198,296,2281,335,2342,370"/>
+<area shape="poly" title=" " alt="" coords="2359,371,2365,337,2370,338,2364,372"/>
+<area shape="poly" title=" " alt="" coords="1651,398,1639,400,1488,418,1282,434,910,456,909,451,1282,428,1488,412,1638,395,1650,392"/>
+<area shape="poly" title=" " alt="" coords="1684,398,1684,432,1679,432,1679,398"/>
+<area shape="poly" title=" " alt="" coords="237,325,235,360,240,379,250,395,277,408,328,419,477,436,646,446,786,452,786,458,646,452,477,441,327,424,275,413,246,399,235,382,230,361,232,324"/>
+<area shape="poly" title=" " alt="" coords="255,322,314,360,353,379,394,395,438,403,513,411,723,427,1149,450,1148,455,722,432,513,416,438,408,393,400,351,384,311,364,252,327"/>
+<area shape="poly" title=" " alt="" coords="223,326,165,366,162,362,220,322"/>
+<area shape="poly" title=" " alt="" coords="179,392,198,395,364,415,529,431,786,450,786,456,529,436,364,420,197,400,178,397"/>
+<area shape="poly" title=" " alt="" coords="402,252,385,273,371,299,368,325,372,356,385,396,413,413,455,427,506,437,564,445,684,453,786,455,786,460,684,458,563,450,505,442,453,432,411,418,381,399,367,357,363,325,365,298,380,270,398,249"/>
+<area shape="poly" title=" " alt="" coords="450,238,730,255,888,272,953,283,1002,296,1067,326,1126,364,1177,402,1214,434,1211,438,1174,406,1123,368,1064,331,1000,301,952,288,887,277,729,260,449,243"/>
+<area shape="poly" title=" " alt="" coords="442,248,484,269,528,297,563,328,591,359,587,363,559,332,525,301,481,273,439,253"/>
+<area shape="poly" title=" " alt="" coords="385,253,280,296,278,291,383,248"/>
+<area shape="poly" title=" " alt="" coords="375,244,335,250,288,260,239,276,195,301,168,329,149,360,144,358,163,326,192,297,237,271,286,254,334,244,374,239"/>
+<area shape="poly" title=" " alt="" coords="433,326,415,341,398,360,390,379,391,387,395,395,414,405,449,415,555,431,787,450,786,456,555,436,448,420,412,410,391,399,385,389,385,378,394,357,411,337,430,322"/>
+<area shape="rect" title=" " alt="" coords="406,372,490,397"/>
+<area shape="poly" title=" " alt="" coords="451,324,451,358,445,358,445,324"/>
+<area shape="poly" title=" " alt="" coords="1162,230,1614,173,1615,179,1163,235"/>
+<area shape="poly" title=" " alt="" coords="1089,245,966,257,803,281,722,298,650,319,592,345,571,359,556,373,551,385,555,396,570,407,592,418,652,434,721,444,786,451,786,456,721,450,651,439,590,423,567,412,551,399,545,385,551,371,567,354,589,340,648,314,721,293,802,276,965,252,1088,239"/>
+<area shape="poly" title=" " alt="" coords="1089,249,1005,270,908,301,835,334,774,367,771,363,832,329,906,296,1004,265,1088,244"/>
+<area shape="poly" title=" " alt="" coords="1134,250,1225,432,1220,434,1129,252"/>
+<area shape="poly" title=" " alt="" coords="1163,243,1234,261,1274,276,1311,296,1339,322,1356,348,1372,372,1400,395,1451,419,1506,435,1560,445,1609,451,1609,456,1560,451,1505,440,1450,424,1397,400,1368,376,1351,350,1335,325,1308,301,1271,281,1232,266,1162,248"/>
+<area shape="poly" title=" " alt="" coords="1163,240,1273,248,1389,253,1487,254,1654,249,1735,250,1820,256,1916,271,2029,296,2118,316,2153,334,2185,371,2192,385,2195,401,2195,432,2189,432,2190,402,2187,387,2180,373,2149,339,2116,321,2027,301,1915,276,1820,262,1735,255,1654,255,1487,259,1389,259,1273,253,1162,245"/>
+<area shape="poly" title=" " alt="" coords="1089,246,529,304,528,299,1088,241"/>
+<area shape="rect" href="../../d8/daa/Audio_8h.html" title="Gestion de l&#39;audio pour l&#39;application." alt="" coords="919,299,990,324"/>
+<area shape="poly" title=" " alt="" coords="1099,253,996,296,994,291,1097,248"/>
+<area shape="poly" title=" " alt="" coords="937,326,909,346,882,374,866,403,856,433,851,431,861,401,878,370,905,342,933,322"/>
+<area shape="poly" title=" " alt="" coords="921,327,790,370,788,365,920,321"/>
+<area shape="poly" title=" " alt="" coords="967,323,999,360,995,363,963,326"/>
+<area shape="poly" title=" " alt="" coords="1949,300,1923,264,1903,245,1880,228,1820,199,1758,181,1760,176,1822,194,1883,223,1906,241,1927,261,1953,297"/>
+<area shape="poly" title=" " alt="" coords="1929,327,1841,364,1784,384,1724,400,1590,415,1358,431,911,456,910,451,1358,425,1590,409,1724,395,1782,379,1839,359,1927,322"/>
+<area shape="poly" title=" " alt="" coords="1940,326,1890,364,1856,384,1820,400,1778,411,1723,421,1588,437,1321,455,1320,450,1588,431,1722,415,1777,406,1818,395,1853,379,1887,359,1937,322"/>
+<area shape="poly" title=" " alt="" coords="1954,325,1945,361,1936,382,1922,399,1883,425,1840,443,1796,453,1754,458,1754,453,1795,448,1839,438,1881,421,1918,395,1931,379,1940,360,1948,324"/>
+<area shape="poly" title=" " alt="" coords="2016,314,2052,320,2089,331,2126,347,2158,370,2177,399,2186,431,2181,432,2172,402,2154,374,2123,351,2088,336,2051,325,2016,319"/>
+<area shape="poly" title=" " alt="" coords="2017,319,2099,337,2142,351,2184,370,2229,400,2265,433,2261,437,2226,405,2181,374,2140,356,2097,342,2016,324"/>
+<area shape="poly" title=" " alt="" coords="1976,322,2058,363,2056,368,1973,326"/>
+<area shape="poly" title=" " alt="" coords="1959,324,1997,432,1992,433,1954,325"/>
+<area shape="poly" title=" " alt="" coords="1909,327,1726,374,1725,369,1908,321"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -129,44 +254,49 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
+<tr class="memitem:aeada525c0542e6fcbcdfc5c17aaf7dfc" id="r_aeada525c0542e6fcbcdfc5c17aaf7dfc"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/Events_8c.html#aeada525c0542e6fcbcdfc5c17aaf7dfc">initTeamSprites</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *teamSprite, float x_ratio, float y_ratio, int teamFlag)</td></tr>
+<tr class="memdesc:aeada525c0542e6fcbcdfc5c17aaf7dfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les sprites pour tous les pokémons d'une équipe.  <br /></td></tr>
+<tr class="separator:aeada525c0542e6fcbcdfc5c17aaf7dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f17bb9492dd6a4e5ace526c8686679f" id="r_a6f17bb9492dd6a4e5ace526c8686679f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/Events_8c.html#a6f17bb9492dd6a4e5ace526c8686679f">handleEvent</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event)</td></tr>
-<tr class="memdesc:a6f17bb9492dd6a4e5ace526c8686679f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main event handler that processes all SDL events.  <br /></td></tr>
+<tr class="memdesc:a6f17bb9492dd6a4e5ace526c8686679f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère un événement générique.  <br /></td></tr>
 <tr class="separator:a6f17bb9492dd6a4e5ace526c8686679f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e83431dc3f66988e64a74a4e0a2ed58" id="r_a9e83431dc3f66988e64a74a4e0a2ed58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/Events_8c.html#a9e83431dc3f66988e64a74a4e0a2ed58">handleWindowSizeChange</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win)</td></tr>
-<tr class="memdesc:a9e83431dc3f66988e64a74a4e0a2ed58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles window size change events.  <br /></td></tr>
+<tr class="memdesc:a9e83431dc3f66988e64a74a4e0a2ed58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère le redimensionnement de la fenêtre.  <br /></td></tr>
 <tr class="separator:a9e83431dc3f66988e64a74a4e0a2ed58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb1d99ee132734d10ca7f03286da3b18" id="r_abb1d99ee132734d10ca7f03286da3b18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/Events_8c.html#abb1d99ee132734d10ca7f03286da3b18">handleICMonsEvent</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event)</td></tr>
-<tr class="memdesc:abb1d99ee132734d10ca7f03286da3b18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles events in the ICMons interface.  <br /></td></tr>
+<tr class="memdesc:abb1d99ee132734d10ca7f03286da3b18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère les événements spécifiques à la sélection des ICMons.  <br /></td></tr>
 <tr class="separator:abb1d99ee132734d10ca7f03286da3b18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a513da2d00e9995e84d9033ef82316ba9" id="r_a513da2d00e9995e84d9033ef82316ba9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/Events_8c.html#a513da2d00e9995e84d9033ef82316ba9">handleIntermediateEvent</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event)</td></tr>
-<tr class="memdesc:a513da2d00e9995e84d9033ef82316ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles events in the intermediate game state.  <br /></td></tr>
+<tr class="memdesc:a513da2d00e9995e84d9033ef82316ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère les événements dans l'état intermédiaire.  <br /></td></tr>
 <tr class="separator:a513da2d00e9995e84d9033ef82316ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dd192e3954e5e38c991024ad04b4b5a" id="r_a3dd192e3954e5e38c991024ad04b4b5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/Events_8c.html#a3dd192e3954e5e38c991024ad04b4b5a">handleMenuEvent</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event)</td></tr>
-<tr class="memdesc:a3dd192e3954e5e38c991024ad04b4b5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles events in the main menu.  <br /></td></tr>
+<tr class="memdesc:a3dd192e3954e5e38c991024ad04b4b5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère les événements du menu.  <br /></td></tr>
 <tr class="separator:a3dd192e3954e5e38c991024ad04b4b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e807113e014d5725e945ee30180483c" id="r_a7e807113e014d5725e945ee30180483c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/Events_8c.html#a7e807113e014d5725e945ee30180483c">handleGameEvent</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event)</td></tr>
-<tr class="memdesc:a7e807113e014d5725e945ee30180483c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles events during active gameplay.  <br /></td></tr>
+<tr class="memdesc:a7e807113e014d5725e945ee30180483c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère les événements durant le jeu.  <br /></td></tr>
 <tr class="separator:a7e807113e014d5725e945ee30180483c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab14649f183a1cbf95f28b1cda31acb8e" id="r_ab14649f183a1cbf95f28b1cda31acb8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/Events_8c.html#ab14649f183a1cbf95f28b1cda31acb8e">handleSettingsEvent</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event)</td></tr>
-<tr class="memdesc:ab14649f183a1cbf95f28b1cda31acb8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles events in the settings menu.  <br /></td></tr>
+<tr class="memdesc:ab14649f183a1cbf95f28b1cda31acb8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère les événements dans les paramètres.  <br /></td></tr>
 <tr class="separator:ab14649f183a1cbf95f28b1cda31acb8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25c2257aeb4db95d02ee807d21f2b387" id="r_a25c2257aeb4db95d02ee807d21f2b387"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/Events_8c.html#a25c2257aeb4db95d02ee807d21f2b387">handleQuitEvent</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event)</td></tr>
-<tr class="memdesc:a25c2257aeb4db95d02ee807d21f2b387"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles quit events to close the application.  <br /></td></tr>
+<tr class="memdesc:a25c2257aeb4db95d02ee807d21f2b387"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère l'événement de fermeture de l'application.  <br /></td></tr>
 <tr class="separator:a25c2257aeb4db95d02ee807d21f2b387"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2eb85b27aa836abb19135fc494112449" id="r_a2eb85b27aa836abb19135fc494112449"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/Events_8c.html#a2eb85b27aa836abb19135fc494112449">handleNewGameEvent</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event)</td></tr>
-<tr class="memdesc:a2eb85b27aa836abb19135fc494112449"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles events when starting a new game.  <br /></td></tr>
+<tr class="memdesc:a2eb85b27aa836abb19135fc494112449"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère le démarrage d'une nouvelle partie.  <br /></td></tr>
 <tr class="separator:a2eb85b27aa836abb19135fc494112449"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aade80eb59d9a637677b7a309cd8c702c" id="r_aade80eb59d9a637677b7a309cd8c702c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/Events_8c.html#aade80eb59d9a637677b7a309cd8c702c">handleLoadGameEvent</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event)</td></tr>
-<tr class="memdesc:aade80eb59d9a637677b7a309cd8c702c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles events when loading a saved game.  <br /></td></tr>
+<tr class="memdesc:aade80eb59d9a637677b7a309cd8c702c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère le chargement d'une partie sauvegardée.  <br /></td></tr>
 <tr class="separator:aade80eb59d9a637677b7a309cd8c702c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a353673ce0aa1c823efdc9087cbde90cc" id="r_a353673ce0aa1c823efdc9087cbde90cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/Events_8c.html#a353673ce0aa1c823efdc9087cbde90cc">handlePauseEvent</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event)</td></tr>
-<tr class="memdesc:a353673ce0aa1c823efdc9087cbde90cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles events when the game is paused.  <br /></td></tr>
+<tr class="memdesc:a353673ce0aa1c823efdc9087cbde90cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère les événements de pause.  <br /></td></tr>
 <tr class="separator:a353673ce0aa1c823efdc9087cbde90cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a244d37073550388354a68561ac959ecb" id="r_a244d37073550388354a68561ac959ecb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/Events_8c.html#a244d37073550388354a68561ac959ecb">handlePlayerEvent</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event)</td></tr>
-<tr class="memdesc:a244d37073550388354a68561ac959ecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles events when the player is in the map.  <br /></td></tr>
+<tr class="memdesc:a244d37073550388354a68561ac959ecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère les déplacements et actions du joueur.  <br /></td></tr>
 <tr class="separator:a244d37073550388354a68561ac959ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des macros</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Gestion des événements et interactions utilisateur pour l'application. </p>
+</div><h2 class="groupheader">Documentation des macros</h2>
 <a id="ae497e49222225eb5a29a8314de4d53da" name="ae497e49222225eb5a29a8314de4d53da"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae497e49222225eb5a29a8314de4d53da">&#9670;&#160;</a></span>BLUE_SPRITE_X_RATIO</h2>
 
@@ -334,11 +464,13 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Main event handler that processes all SDL events. </p>
+<p>Gère un événement générique. </p>
+<p>Main event handler that processes all SDL events.</p>
+<p>Cette fonction traite les événements SDL généraux (clavier, manette, souris et fenêtre).</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">win</td><td>Pointer to the <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> structure containing game state </td></tr>
-    <tr><td class="paramname">event</td><td>Pointer to the SDL_Event to process </td></tr>
+    <tr><td class="paramname">win</td><td>Pointeur sur la fenêtre. </td></tr>
+    <tr><td class="paramname">event</td><td>Pointeur sur l'événement SDL à traiter. </td></tr>
   </table>
   </dd>
 </dl>
@@ -371,11 +503,13 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles events during active gameplay. </p>
+<p>Gère les événements durant le jeu. </p>
+<p>Handles events during active gameplay.</p>
+<p>Contrôle la transition d'état en fonction de la vie des équipes et gère la navigation (clavier/souris).</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">win</td><td>Pointer to the <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> structure containing game state </td></tr>
-    <tr><td class="paramname">event</td><td>Pointer to the SDL_Event to process </td></tr>
+    <tr><td class="paramname">win</td><td>Pointeur sur la fenêtre. </td></tr>
+    <tr><td class="paramname">event</td><td>Pointeur sur l'événement SDL. </td></tr>
   </table>
   </dd>
 </dl>
@@ -408,11 +542,13 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles events in the ICMons interface. </p>
+<p>Gère les événements spécifiques à la sélection des ICMons. </p>
+<p>Handles events in the ICMons interface.</p>
+<p>Traite les clics souris et la touche Échap lors de la sélection.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">win</td><td>Pointer to the <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> structure containing game state </td></tr>
-    <tr><td class="paramname">event</td><td>Pointer to the SDL_Event to process </td></tr>
+    <tr><td class="paramname">win</td><td>Pointeur sur la fenêtre. </td></tr>
+    <tr><td class="paramname">event</td><td>Pointeur sur l'événement SDL. </td></tr>
   </table>
   </dd>
 </dl>
@@ -445,11 +581,13 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles events in the intermediate game state. </p>
+<p>Gère les événements dans l'état intermédiaire. </p>
+<p>Handles events in the intermediate game state.</p>
+<p>Traite notamment les clics sur les boutons et délègue le reste au gestionnaire générique.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">win</td><td>Pointer to the <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> structure containing game state </td></tr>
-    <tr><td class="paramname">event</td><td>Pointer to the SDL_Event to process </td></tr>
+    <tr><td class="paramname">win</td><td>Pointeur sur la fenêtre. </td></tr>
+    <tr><td class="paramname">event</td><td>Pointeur sur l'événement SDL. </td></tr>
   </table>
   </dd>
 </dl>
@@ -482,11 +620,13 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles events when loading a saved game. </p>
+<p>Gère le chargement d'une partie sauvegardée. </p>
+<p>Handles events when loading a saved game.</p>
+<p>Charge les données sauvegardées, initialise les équipes et leurs sprites, puis met à jour l'interface.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">win</td><td>Pointer to the <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> structure containing game state </td></tr>
-    <tr><td class="paramname">event</td><td>Pointer to the SDL_Event to process </td></tr>
+    <tr><td class="paramname">win</td><td>Pointeur sur la fenêtre. </td></tr>
+    <tr><td class="paramname">event</td><td>Pointeur sur l'événement SDL. </td></tr>
   </table>
   </dd>
 </dl>
@@ -519,11 +659,13 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles events in the main menu. </p>
+<p>Gère les événements du menu. </p>
+<p>Handles events in the main menu.</p>
+<p>Traite les clics sur les boutons et délègue le reste au gestionnaire générique.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">win</td><td>Pointer to the <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> structure containing game state </td></tr>
-    <tr><td class="paramname">event</td><td>Pointer to the SDL_Event to process </td></tr>
+    <tr><td class="paramname">win</td><td>Pointeur sur la fenêtre. </td></tr>
+    <tr><td class="paramname">event</td><td>Pointeur sur l'événement SDL. </td></tr>
   </table>
   </dd>
 </dl>
@@ -556,11 +698,13 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles events when starting a new game. </p>
+<p>Gère le démarrage d'une nouvelle partie. </p>
+<p>Handles events when starting a new game.</p>
+<p>Initialise les données, les équipes et les sprites correspondants si le jeu n'est pas déjà initialisé. Sinon, change l'état vers le menu approprié.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">win</td><td>Pointer to the <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> structure containing game state </td></tr>
-    <tr><td class="paramname">event</td><td>Pointer to the SDL_Event to process </td></tr>
+    <tr><td class="paramname">win</td><td>Pointeur sur la fenêtre. </td></tr>
+    <tr><td class="paramname">event</td><td>Pointeur sur l'événement SDL. </td></tr>
   </table>
   </dd>
 </dl>
@@ -593,11 +737,13 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles events when the game is paused. </p>
+<p>Gère les événements de pause. </p>
+<p>Handles events when the game is paused.</p>
+<p>Permet de quitter le mode pause en appuyant sur la touche Échap.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">win</td><td>Pointer to the <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> structure containing game state </td></tr>
-    <tr><td class="paramname">event</td><td>Pointer to the SDL_Event to process </td></tr>
+    <tr><td class="paramname">win</td><td>Pointeur sur la fenêtre. </td></tr>
+    <tr><td class="paramname">event</td><td>Pointeur sur l'événement SDL. </td></tr>
   </table>
   </dd>
 </dl>
@@ -630,11 +776,13 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles events when the player is in the map. </p>
+<p>Gère les déplacements et actions du joueur. </p>
+<p>Handles events when the player is in the map.</p>
+<p>Cette fonction vérifie les touches fléchées pour déplacer le joueur si le déplacement est autorisé, met à jour la position cible et initialise l'animation du mouvement.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">win</td><td>Pointer to the <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> structure containing game state </td></tr>
-    <tr><td class="paramname">event</td><td>Pointer to the SDL_Event to process </td></tr>
+    <tr><td class="paramname">win</td><td>Pointeur sur la fenêtre. </td></tr>
+    <tr><td class="paramname">event</td><td>Pointeur sur l'événement SDL. </td></tr>
   </table>
   </dd>
 </dl>
@@ -667,11 +815,13 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles quit events to close the application. </p>
+<p>Gère l'événement de fermeture de l'application. </p>
+<p>Handles quit events to close the application.</p>
+<p>Marque la fenêtre pour la fermeture et délègue le traitement générique.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">win</td><td>Pointer to the <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> structure containing game state </td></tr>
-    <tr><td class="paramname">event</td><td>Pointer to the SDL_Event to process </td></tr>
+    <tr><td class="paramname">win</td><td>Pointeur sur la fenêtre. </td></tr>
+    <tr><td class="paramname">event</td><td>Pointeur sur l'événement SDL. </td></tr>
   </table>
   </dd>
 </dl>
@@ -704,11 +854,13 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles events in the settings menu. </p>
+<p>Gère les événements dans les paramètres. </p>
+<p>Handles events in the settings menu.</p>
+<p>Traite les événements liés aux sliders et aux boutons de l'écran de réglages.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">win</td><td>Pointer to the <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> structure containing game state </td></tr>
-    <tr><td class="paramname">event</td><td>Pointer to the SDL_Event to process </td></tr>
+    <tr><td class="paramname">win</td><td>Pointeur sur la fenêtre. </td></tr>
+    <tr><td class="paramname">event</td><td>Pointeur sur l'événement SDL. </td></tr>
   </table>
   </dd>
 </dl>
@@ -731,13 +883,84 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles window size change events. </p>
+<p>Gère le redimensionnement de la fenêtre. </p>
+<p>Handles window size change events.</p>
+<p>Met à jour les dimensions de la fenêtre et réajuste les positions et tailles des éléments de l'interface.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">win</td><td>Pointer to the <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> structure containing game state </td></tr>
+    <tr><td class="paramname">win</td><td>Pointeur sur la fenêtre. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aeada525c0542e6fcbcdfc5c17aaf7dfc" name="aeada525c0542e6fcbcdfc5c17aaf7dfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeada525c0542e6fcbcdfc5c17aaf7dfc">&#9670;&#160;</a></span>initTeamSprites()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int initTeamSprites </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d08/structWindow.html">Window</a> *&#160;</td>
+          <td class="paramname"><em>win</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *&#160;</td>
+          <td class="paramname"><em>teamSprite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x_ratio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y_ratio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>teamFlag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialise les sprites pour tous les pokémons d'une équipe. </p>
+<p>Cette fonction initialise le sprite de chaque pokémon dans une équipe en définissant les rectangles de positionnement pour le sprite, le nom et la barre de points de vie.</p>
+<dl class="section note"><dt>Note</dt><dd>Le type <code>Team</code> doit être défini dans vos en-têtes (ex. via un typedef avec les champs <code>nb_poke</code> et <code>team</code>).</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Pointeur sur la fenêtre. </td></tr>
+    <tr><td class="paramname">teamSprite</td><td>Pointeur sur la structure représentant l'équipe. </td></tr>
+    <tr><td class="paramname">x_ratio</td><td>Ratio de positionnement horizontal du sprite. </td></tr>
+    <tr><td class="paramname">y_ratio</td><td>Ratio de positionnement vertical du sprite. </td></tr>
+    <tr><td class="paramname">teamFlag</td><td>Indicateur d'équipe (0 pour l'équipe rouge, 1 pour l'équipe bleue). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int Retourne 0 en cas de succès, -1 en cas d'erreur. </dd></dl>
 
 </div>
 </div>

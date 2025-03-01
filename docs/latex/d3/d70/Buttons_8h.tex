@@ -10,7 +10,7 @@ Gestion des boutons et curseurs pour l\textquotesingle{}application.
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
-{\ttfamily \#include "{}Window.\+h"{}}\newline
+{\ttfamily \#include "{}Utils.\+h"{}}\newline
 Graphe des dépendances par inclusion de Buttons.\+h\+:
 \nopagebreak
 \begin{figure}[H]
@@ -49,17 +49,8 @@ typedef struct \mbox{\hyperlink{structSlider}{Slider}} \mbox{\hyperlink{Buttons_
 \item 
 typedef struct \mbox{\hyperlink{structSliderList}{Slider\+List}} \mbox{\hyperlink{Buttons_8h_aeac77718a40cda05fb2a853ec1aa3d56}{Slider\+List}}
 \item 
-typedef enum \mbox{\hyperlink{Buttons_8h_a88cff078229df1c0803a690e4826b5f1}{Font\+Size}} \mbox{\hyperlink{Buttons_8h_a0ac32e70499de2750f2573362d7d0d59}{Font\+Size}}
+typedef struct \mbox{\hyperlink{structWindow}{Window}} \mbox{\hyperlink{Buttons_8h_adb2a551453af16dd3214a23b16e67544}{Window}}
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Énumérations}
-\begin{DoxyCompactItemize}
-\item 
-enum \mbox{\hyperlink{Buttons_8h_a88cff078229df1c0803a690e4826b5f1}{Font\+Size}} \{ \mbox{\hyperlink{Buttons_8h_a88cff078229df1c0803a690e4826b5f1a716db5c72140446e5badac4683610310}{LARGE}} = 56
-, \mbox{\hyperlink{Buttons_8h_a88cff078229df1c0803a690e4826b5f1a5340ec7ecef6cc3886684a3bd3450d64}{MEDIUM}} = 36
-, \mbox{\hyperlink{Buttons_8h_a88cff078229df1c0803a690e4826b5f1aea5e596a553757a677cb4da4c8a1f935}{SMALL}} = 24
-, \mbox{\hyperlink{Buttons_8h_a88cff078229df1c0803a690e4826b5f1a945d6010d321d9fe75cbba7b6f37f3b5}{CUSTOM}}
- \}
-\begin{DoxyCompactList}\small\item\em Taille des polices utilisées pour les boutons. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
@@ -123,12 +114,6 @@ Alban Louis
 \doxysubsubsection{\texorpdfstring{ButtonList}{ButtonList}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structButtonList}{Button\+List}} \mbox{\hyperlink{structButtonList}{Button\+List}}}
 
-\Hypertarget{Buttons_8h_a0ac32e70499de2750f2573362d7d0d59}\label{Buttons_8h_a0ac32e70499de2750f2573362d7d0d59} 
-\index{Buttons.h@{Buttons.h}!FontSize@{FontSize}}
-\index{FontSize@{FontSize}!Buttons.h@{Buttons.h}}
-\doxysubsubsection{\texorpdfstring{FontSize}{FontSize}}
-{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{Buttons_8h_a88cff078229df1c0803a690e4826b5f1}{Font\+Size}} \mbox{\hyperlink{Buttons_8h_a88cff078229df1c0803a690e4826b5f1}{Font\+Size}}}
-
 \Hypertarget{Buttons_8h_a09caa5522ea90cabc00b7bbc3747d1b6}\label{Buttons_8h_a09caa5522ea90cabc00b7bbc3747d1b6} 
 \index{Buttons.h@{Buttons.h}!Slider@{Slider}}
 \index{Slider@{Slider}!Buttons.h@{Buttons.h}}
@@ -141,37 +126,12 @@ Alban Louis
 \doxysubsubsection{\texorpdfstring{SliderList}{SliderList}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSliderList}{Slider\+List}} \mbox{\hyperlink{structSliderList}{Slider\+List}}}
 
+\Hypertarget{Buttons_8h_adb2a551453af16dd3214a23b16e67544}\label{Buttons_8h_adb2a551453af16dd3214a23b16e67544} 
+\index{Buttons.h@{Buttons.h}!Window@{Window}}
+\index{Window@{Window}!Buttons.h@{Buttons.h}}
+\doxysubsubsection{\texorpdfstring{Window}{Window}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structWindow}{Window}} \mbox{\hyperlink{structWindow}{Window}}}
 
-
-\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
-\Hypertarget{Buttons_8h_a88cff078229df1c0803a690e4826b5f1}\label{Buttons_8h_a88cff078229df1c0803a690e4826b5f1} 
-\index{Buttons.h@{Buttons.h}!FontSize@{FontSize}}
-\index{FontSize@{FontSize}!Buttons.h@{Buttons.h}}
-\doxysubsubsection{\texorpdfstring{FontSize}{FontSize}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{Buttons_8h_a88cff078229df1c0803a690e4826b5f1}{Font\+Size}}}
-
-
-
-Taille des polices utilisées pour les boutons. 
-
-\begin{DoxyEnumFields}{Valeurs énumérées}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{LARGE@{LARGE}!Buttons.h@{Buttons.h}}\index{Buttons.h@{Buttons.h}!LARGE@{LARGE}}}\Hypertarget{Buttons_8h_a88cff078229df1c0803a690e4826b5f1a716db5c72140446e5badac4683610310}\label{Buttons_8h_a88cff078229df1c0803a690e4826b5f1a716db5c72140446e5badac4683610310} 
-LARGE&Grande taille de police. \\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{MEDIUM@{MEDIUM}!Buttons.h@{Buttons.h}}\index{Buttons.h@{Buttons.h}!MEDIUM@{MEDIUM}}}\Hypertarget{Buttons_8h_a88cff078229df1c0803a690e4826b5f1a5340ec7ecef6cc3886684a3bd3450d64}\label{Buttons_8h_a88cff078229df1c0803a690e4826b5f1a5340ec7ecef6cc3886684a3bd3450d64} 
-MEDIUM&Taille moyenne de police. \\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{SMALL@{SMALL}!Buttons.h@{Buttons.h}}\index{Buttons.h@{Buttons.h}!SMALL@{SMALL}}}\Hypertarget{Buttons_8h_a88cff078229df1c0803a690e4826b5f1aea5e596a553757a677cb4da4c8a1f935}\label{Buttons_8h_a88cff078229df1c0803a690e4826b5f1aea5e596a553757a677cb4da4c8a1f935} 
-SMALL&Petite taille de police. \\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{CUSTOM@{CUSTOM}!Buttons.h@{Buttons.h}}\index{Buttons.h@{Buttons.h}!CUSTOM@{CUSTOM}}}\Hypertarget{Buttons_8h_a88cff078229df1c0803a690e4826b5f1a945d6010d321d9fe75cbba7b6f37f3b5}\label{Buttons_8h_a88cff078229df1c0803a690e4826b5f1a945d6010d321d9fe75cbba7b6f37f3b5} 
-CUSTOM&Taille de police personnalisée. \\
-\hline
-
-\end{DoxyEnumFields}
 
 
 \doxysubsection{Documentation des fonctions}

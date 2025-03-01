@@ -2,8 +2,7 @@
 #define EVENTS_H
 
 #include "GameEngine.h"
-#include "Window.h"
-#include "Buttons.h"
+
 #include "Text.h"
 #include "structPoke.h"
 #include <SDL2/SDL.h>

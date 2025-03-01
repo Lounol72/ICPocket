@@ -4,8 +4,22 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_gamecontroller.h>
-#include "GameEngine.h"
+
 #include "Utils.h"
+#include "Log.h"
+
+typedef enum AppState_s {
+    QUIT = 0, // 0
+    SETTINGS, // 1
+    MENU, // 2
+    GAME,  // 3
+    NEWGAME,  // 4
+    LOADGAME, // 5
+    ICMONS, // 6
+    INTER, // 7
+    PAUSE, // 8
+    MAP, // 9
+} AppState;
 
 /**
  * @file Window.h
@@ -65,13 +79,6 @@ typedef struct Window {
  */
 void initWindow(Window *win, int width, int height, const char *FontPath);
 
-/**
- * @brief Détruit la fenêtre principale de l'application.
- * 
- * Cette fonction libère les ressources associées à la fenêtre principale de l'application.
- * 
- * @param win Un pointeur vers la structure Window à détruire.
- */
-void destroyWindow(Window *win);
+void destroyGame();
 
 #endif /* WINDOW_H */

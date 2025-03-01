@@ -1,5 +1,10 @@
 \doxysection{Référence du fichier src/\+Events.c}
 \hypertarget{Events_8c}{}\label{Events_8c}\index{src/Events.c@{src/Events.c}}
+
+
+Gestion des événements et interactions utilisateur pour l\textquotesingle{}application.  
+
+
 {\ttfamily \#include "{}../include/\+Events.\+h"{}}\newline
 Graphe des dépendances par inclusion de Events.\+c\+:
 \nopagebreak
@@ -35,30 +40,37 @@ Graphe des dépendances par inclusion de Events.\+c\+:
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
+static int \mbox{\hyperlink{Events_8c_aeada525c0542e6fcbcdfc5c17aaf7dfc}{init\+Team\+Sprites}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}team\+Sprite, float x\+\_\+ratio, float y\+\_\+ratio, int team\+Flag)
+\begin{DoxyCompactList}\small\item\em Initialise les sprites pour tous les pokémons d\textquotesingle{}une équipe. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Events_8c_a6f17bb9492dd6a4e5ace526c8686679f}{handle\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
-\begin{DoxyCompactList}\small\item\em Main event handler that processes all SDL events. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gère un événement générique. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Events_8c_a9e83431dc3f66988e64a74a4e0a2ed58}{handle\+Window\+Size\+Change}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
-\begin{DoxyCompactList}\small\item\em Handles window size change events. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gère le redimensionnement de la fenêtre. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Events_8c_abb1d99ee132734d10ca7f03286da3b18}{handle\+ICMons\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
-\begin{DoxyCompactList}\small\item\em Handles events in the ICMons interface. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gère les événements spécifiques à la sélection des ICMons. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Events_8c_a513da2d00e9995e84d9033ef82316ba9}{handle\+Intermediate\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
-\begin{DoxyCompactList}\small\item\em Handles events in the intermediate game state. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gère les événements dans l\textquotesingle{}état intermédiaire. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Events_8c_a3dd192e3954e5e38c991024ad04b4b5a}{handle\+Menu\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
-\begin{DoxyCompactList}\small\item\em Handles events in the main menu. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gère les événements du menu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Events_8c_a7e807113e014d5725e945ee30180483c}{handle\+Game\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
-\begin{DoxyCompactList}\small\item\em Handles events during active gameplay. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gère les événements durant le jeu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Events_8c_ab14649f183a1cbf95f28b1cda31acb8e}{handle\+Settings\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
-\begin{DoxyCompactList}\small\item\em Handles events in the settings menu. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gère les événements dans les paramètres. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Events_8c_a25c2257aeb4db95d02ee807d21f2b387}{handle\+Quit\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
-\begin{DoxyCompactList}\small\item\em Handles quit events to close the application. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}événement de fermeture de l\textquotesingle{}application. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Events_8c_a2eb85b27aa836abb19135fc494112449}{handle\+New\+Game\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
-\begin{DoxyCompactList}\small\item\em Handles events when starting a new game. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gère le démarrage d\textquotesingle{}une nouvelle partie. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Events_8c_aade80eb59d9a637677b7a309cd8c702c}{handle\+Load\+Game\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
-\begin{DoxyCompactList}\small\item\em Handles events when loading a saved game. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gère le chargement d\textquotesingle{}une partie sauvegardée. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Events_8c_a353673ce0aa1c823efdc9087cbde90cc}{handle\+Pause\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
-\begin{DoxyCompactList}\small\item\em Handles events when the game is paused. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gère les événements de pause. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Events_8c_a244d37073550388354a68561ac959ecb}{handle\+Player\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
-\begin{DoxyCompactList}\small\item\em Handles events when the player is in the map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gère les déplacements et actions du joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Gestion des événements et interactions utilisateur pour l\textquotesingle{}application. 
+
 
 
 \doxysubsection{Documentation des macros}
@@ -133,13 +145,17 @@ void \mbox{\hyperlink{Events_8c_a244d37073550388354a68561ac959ecb}{handle\+Playe
 
 
 
-Main event handler that processes all SDL events. 
+Gère un événement générique. 
+
+Main event handler that processes all SDL events.
+
+Cette fonction traite les événements SDL généraux (clavier, manette, souris et fenêtre).
 
 
 \begin{DoxyParams}{Paramètres}
-{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+{\em win} & Pointeur sur la fenêtre. \\
 \hline
-{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+{\em event} & Pointeur sur l\textquotesingle{}événement SDL à traiter. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Events_8c_a7e807113e014d5725e945ee30180483c}\label{Events_8c_a7e807113e014d5725e945ee30180483c} 
@@ -150,13 +166,17 @@ Main event handler that processes all SDL events.
 
 
 
-Handles events during active gameplay. 
+Gère les événements durant le jeu. 
+
+Handles events during active gameplay.
+
+Contrôle la transition d\textquotesingle{}état en fonction de la vie des équipes et gère la navigation (clavier/souris).
 
 
 \begin{DoxyParams}{Paramètres}
-{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+{\em win} & Pointeur sur la fenêtre. \\
 \hline
-{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+{\em event} & Pointeur sur l\textquotesingle{}événement SDL. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Events_8c_abb1d99ee132734d10ca7f03286da3b18}\label{Events_8c_abb1d99ee132734d10ca7f03286da3b18} 
@@ -167,13 +187,17 @@ Handles events during active gameplay.
 
 
 
-Handles events in the ICMons interface. 
+Gère les événements spécifiques à la sélection des ICMons. 
+
+Handles events in the ICMons interface.
+
+Traite les clics souris et la touche Échap lors de la sélection.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+{\em win} & Pointeur sur la fenêtre. \\
 \hline
-{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+{\em event} & Pointeur sur l\textquotesingle{}événement SDL. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Events_8c_a513da2d00e9995e84d9033ef82316ba9}\label{Events_8c_a513da2d00e9995e84d9033ef82316ba9} 
@@ -184,13 +208,17 @@ Handles events in the ICMons interface.
 
 
 
-Handles events in the intermediate game state. 
+Gère les événements dans l\textquotesingle{}état intermédiaire. 
+
+Handles events in the intermediate game state.
+
+Traite notamment les clics sur les boutons et délègue le reste au gestionnaire générique.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+{\em win} & Pointeur sur la fenêtre. \\
 \hline
-{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+{\em event} & Pointeur sur l\textquotesingle{}événement SDL. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Events_8c_aade80eb59d9a637677b7a309cd8c702c}\label{Events_8c_aade80eb59d9a637677b7a309cd8c702c} 
@@ -201,13 +229,17 @@ Handles events in the intermediate game state.
 
 
 
-Handles events when loading a saved game. 
+Gère le chargement d\textquotesingle{}une partie sauvegardée. 
+
+Handles events when loading a saved game.
+
+Charge les données sauvegardées, initialise les équipes et leurs sprites, puis met à jour l\textquotesingle{}interface.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+{\em win} & Pointeur sur la fenêtre. \\
 \hline
-{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+{\em event} & Pointeur sur l\textquotesingle{}événement SDL. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Events_8c_a3dd192e3954e5e38c991024ad04b4b5a}\label{Events_8c_a3dd192e3954e5e38c991024ad04b4b5a} 
@@ -218,13 +250,17 @@ Handles events when loading a saved game.
 
 
 
-Handles events in the main menu. 
+Gère les événements du menu. 
+
+Handles events in the main menu.
+
+Traite les clics sur les boutons et délègue le reste au gestionnaire générique.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+{\em win} & Pointeur sur la fenêtre. \\
 \hline
-{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+{\em event} & Pointeur sur l\textquotesingle{}événement SDL. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Events_8c_a2eb85b27aa836abb19135fc494112449}\label{Events_8c_a2eb85b27aa836abb19135fc494112449} 
@@ -235,13 +271,17 @@ Handles events in the main menu.
 
 
 
-Handles events when starting a new game. 
+Gère le démarrage d\textquotesingle{}une nouvelle partie. 
+
+Handles events when starting a new game.
+
+Initialise les données, les équipes et les sprites correspondants si le jeu n\textquotesingle{}est pas déjà initialisé. Sinon, change l\textquotesingle{}état vers le menu approprié.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+{\em win} & Pointeur sur la fenêtre. \\
 \hline
-{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+{\em event} & Pointeur sur l\textquotesingle{}événement SDL. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Events_8c_a353673ce0aa1c823efdc9087cbde90cc}\label{Events_8c_a353673ce0aa1c823efdc9087cbde90cc} 
@@ -252,13 +292,17 @@ Handles events when starting a new game.
 
 
 
-Handles events when the game is paused. 
+Gère les événements de pause. 
+
+Handles events when the game is paused.
+
+Permet de quitter le mode pause en appuyant sur la touche Échap.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+{\em win} & Pointeur sur la fenêtre. \\
 \hline
-{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+{\em event} & Pointeur sur l\textquotesingle{}événement SDL. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Events_8c_a244d37073550388354a68561ac959ecb}\label{Events_8c_a244d37073550388354a68561ac959ecb} 
@@ -269,13 +313,17 @@ Handles events when the game is paused.
 
 
 
-Handles events when the player is in the map. 
+Gère les déplacements et actions du joueur. 
+
+Handles events when the player is in the map.
+
+Cette fonction vérifie les touches fléchées pour déplacer le joueur si le déplacement est autorisé, met à jour la position cible et initialise l\textquotesingle{}animation du mouvement.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+{\em win} & Pointeur sur la fenêtre. \\
 \hline
-{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+{\em event} & Pointeur sur l\textquotesingle{}événement SDL. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Events_8c_a25c2257aeb4db95d02ee807d21f2b387}\label{Events_8c_a25c2257aeb4db95d02ee807d21f2b387} 
@@ -286,13 +334,17 @@ Handles events when the player is in the map.
 
 
 
-Handles quit events to close the application. 
+Gère l\textquotesingle{}événement de fermeture de l\textquotesingle{}application. 
+
+Handles quit events to close the application.
+
+Marque la fenêtre pour la fermeture et délègue le traitement générique.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+{\em win} & Pointeur sur la fenêtre. \\
 \hline
-{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+{\em event} & Pointeur sur l\textquotesingle{}événement SDL. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Events_8c_ab14649f183a1cbf95f28b1cda31acb8e}\label{Events_8c_ab14649f183a1cbf95f28b1cda31acb8e} 
@@ -303,13 +355,17 @@ Handles quit events to close the application.
 
 
 
-Handles events in the settings menu. 
+Gère les événements dans les paramètres. 
+
+Handles events in the settings menu.
+
+Traite les événements liés aux sliders et aux boutons de l\textquotesingle{}écran de réglages.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+{\em win} & Pointeur sur la fenêtre. \\
 \hline
-{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+{\em event} & Pointeur sur l\textquotesingle{}événement SDL. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Events_8c_a9e83431dc3f66988e64a74a4e0a2ed58}\label{Events_8c_a9e83431dc3f66988e64a74a4e0a2ed58} 
@@ -320,10 +376,45 @@ Handles events in the settings menu.
 
 
 
-Handles window size change events. 
+Gère le redimensionnement de la fenêtre. 
+
+Handles window size change events.
+
+Met à jour les dimensions de la fenêtre et réajuste les positions et tailles des éléments de l\textquotesingle{}interface.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+{\em win} & Pointeur sur la fenêtre. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{Events_8c_aeada525c0542e6fcbcdfc5c17aaf7dfc}\label{Events_8c_aeada525c0542e6fcbcdfc5c17aaf7dfc} 
+\index{Events.c@{Events.c}!initTeamSprites@{initTeamSprites}}
+\index{initTeamSprites@{initTeamSprites}!Events.c@{Events.c}}
+\doxysubsubsection{\texorpdfstring{initTeamSprites()}{initTeamSprites()}}
+{\footnotesize\ttfamily static int init\+Team\+Sprites (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{team\+Sprite,  }\item[{float}]{x\+\_\+ratio,  }\item[{float}]{y\+\_\+ratio,  }\item[{int}]{team\+Flag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialise les sprites pour tous les pokémons d\textquotesingle{}une équipe. 
+
+Cette fonction initialise le sprite de chaque pokémon dans une équipe en définissant les rectangles de positionnement pour le sprite, le nom et la barre de points de vie.
+
+\begin{DoxyNote}{Note}
+Le type {\ttfamily Team} doit être défini dans vos en-\/têtes (ex. via un typedef avec les champs {\ttfamily nb\+\_\+poke} et {\ttfamily team}).
+\end{DoxyNote}
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointeur sur la fenêtre. \\
+\hline
+{\em team\+Sprite} & Pointeur sur la structure représentant l\textquotesingle{}équipe. \\
+\hline
+{\em x\+\_\+ratio} & Ratio de positionnement horizontal du sprite. \\
+\hline
+{\em y\+\_\+ratio} & Ratio de positionnement vertical du sprite. \\
+\hline
+{\em team\+Flag} & Indicateur d\textquotesingle{}équipe (0 pour l\textquotesingle{}équipe rouge, 1 pour l\textquotesingle{}équipe bleue). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int Retourne 0 en cas de succès, -\/1 en cas d\textquotesingle{}erreur. 
+\end{DoxyReturn}

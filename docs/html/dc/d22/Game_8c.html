@@ -17,7 +17,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -97,11 +96,137 @@ $(document).ready(function(){initNavTree('dc/d22/Game_8c.html','../../'); initRe
   <div class="headertitle"><div class="title">Référence du fichier Game.c</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Initialisation du jeu, de ses interfaces et ressources.  
+<a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d3/d5f/Game_8h_source.html">../include/Game.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de Game.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dd/d1d/Game_8c__incl.png" border="0" usemap="#asrc_2Game_8c" alt=""/></div>
+<map name="asrc_2Game_8c" id="asrc_2Game_8c">
+<area shape="rect" title="Initialisation du jeu, de ses interfaces et ressources." alt="" coords="1135,5,1230,31"/>
+<area shape="rect" href="../../d3/d5f/Game_8h.html" title=" " alt="" coords="1115,79,1251,104"/>
+<area shape="poly" title=" " alt="" coords="1185,31,1185,65,1180,65,1180,31"/>
+<area shape="rect" title=" " alt="" coords="789,445,885,471"/>
+<area shape="poly" title=" " alt="" coords="1115,99,893,114,611,141,479,160,370,183,328,195,296,209,276,223,269,237,269,312,273,330,284,347,302,362,327,375,390,399,466,417,550,431,634,441,776,451,775,457,633,446,549,436,465,422,388,404,324,380,299,366,281,350,268,332,264,313,264,236,272,219,293,204,326,190,369,178,479,155,611,136,892,108,1114,94"/>
+<area shape="rect" title=" " alt="" coords="1109,372,1248,397"/>
+<area shape="poly" title=" " alt="" coords="1185,104,1182,358,1176,358,1180,104"/>
+<area shape="rect" title=" " alt="" coords="296,445,440,471"/>
+<area shape="poly" title=" " alt="" coords="1115,97,917,102,654,112,396,129,289,141,208,155,136,163,71,169,45,175,25,187,13,207,8,237,8,313,10,333,17,347,28,358,42,366,79,379,121,395,203,424,283,442,281,447,201,429,119,400,77,384,40,371,25,362,13,350,5,334,3,313,3,236,8,205,22,183,43,170,71,163,136,158,208,149,288,135,395,124,654,107,916,96,1115,91"/>
+<area shape="rect" title=" " alt="" coords="1792,445,1909,471"/>
+<area shape="poly" title=" " alt="" coords="1251,89,1342,91,1456,99,1579,118,1641,132,1701,149,1778,174,1840,197,1867,213,1891,234,1915,261,1937,298,1944,317,1944,337,1939,357,1930,376,1905,410,1878,438,1874,434,1901,407,1925,373,1934,355,1939,336,1939,318,1932,300,1910,265,1888,238,1864,217,1838,202,1777,179,1699,155,1640,137,1578,123,1455,105,1342,96,1251,94"/>
+<area shape="rect" title=" " alt="" coords="2376,445,2443,471"/>
+<area shape="poly" title=" " alt="" coords="1251,90,1579,93,1798,99,2026,111,2240,128,2420,154,2491,170,2545,189,2579,211,2589,223,2592,236,2592,313,2588,338,2578,360,2563,380,2544,398,2500,426,2456,445,2454,440,2498,421,2541,394,2559,377,2574,358,2583,336,2587,312,2587,237,2584,225,2576,215,2542,194,2489,175,2419,159,2240,134,2026,116,1798,105,1579,98,1251,95"/>
+<area shape="rect" href="../../d8/daa/Audio_8h.html" title="Gestion de l&#39;audio pour l&#39;application." alt="" coords="966,299,1037,324"/>
+<area shape="poly" title=" " alt="" coords="1174,106,1066,227,1020,289,1015,285,1062,224,1170,102"/>
+<area shape="rect" href="../../d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="1571,152,1688,177"/>
+<area shape="poly" title=" " alt="" coords="1248,101,1558,150,1557,156,1247,107"/>
+<area shape="rect" href="../../d0/daa/ThreadManager_8h.html" title=" " alt="" coords="94,225,229,251"/>
+<area shape="poly" title=" " alt="" coords="1115,97,905,103,635,115,388,132,300,142,249,154,228,167,209,182,179,216,175,212,205,178,225,162,247,150,299,137,388,126,635,109,905,98,1114,92"/>
+<area shape="poly" title=" " alt="" coords="966,317,900,322,821,332,751,349,724,361,707,374,702,384,701,394,706,403,715,411,743,427,777,439,775,444,741,432,712,416,702,406,696,395,696,383,703,370,722,356,749,344,820,327,899,317,965,312"/>
+<area shape="poly" title=" " alt="" coords="1031,322,1138,364,1136,369,1029,326"/>
+<area shape="rect" href="../../d1/d45/Log_8h.html" title=" " alt="" coords="977,372,1034,397"/>
+<area shape="poly" title=" " alt="" coords="1005,324,1007,358,1001,359,999,324"/>
+<area shape="poly" title=" " alt="" coords="979,400,878,442,876,437,977,395"/>
+<area shape="poly" title=" " alt="" coords="1570,156,1264,107,1264,102,1571,150"/>
+<area shape="poly" title=" " alt="" coords="1570,169,1332,174,1009,184,708,201,599,213,537,228,512,242,490,260,474,281,462,304,457,328,458,351,466,374,483,395,503,409,533,420,611,436,698,447,776,452,776,457,697,452,610,442,531,425,501,413,480,399,462,377,452,352,451,327,457,302,469,278,487,257,509,238,535,223,598,208,707,196,1008,178,1332,168,1570,164"/>
+<area shape="poly" title=" " alt="" coords="1612,180,1499,245,1422,287,1341,326,1228,370,1226,365,1339,322,1419,282,1497,241,1610,175"/>
+<area shape="poly" title=" " alt="" coords="1570,169,1228,170,742,178,503,185,297,196,149,210,104,218,83,227,68,250,64,272,70,296,84,323,101,347,123,368,174,401,229,425,283,440,281,446,227,430,171,406,120,372,97,350,79,325,65,298,59,273,63,248,80,223,103,213,149,204,297,190,503,180,742,173,1228,165,1570,163"/>
+<area shape="poly" title=" " alt="" coords="1643,176,1686,224,1774,340,1838,432,1833,435,1769,343,1682,227,1639,179"/>
+<area shape="poly" title=" " alt="" coords="1688,164,1841,169,2037,179,2228,196,2307,208,2366,223,2404,235,2434,248,2459,266,2482,297,2496,323,2503,347,2501,371,2490,399,2472,423,2448,441,2445,436,2468,419,2486,396,2496,370,2497,348,2491,325,2478,300,2455,270,2431,252,2402,240,2365,228,2306,213,2228,202,2037,184,1840,174,1688,170"/>
+<area shape="rect" title=" " alt="" coords="1374,372,1575,397"/>
+<area shape="poly" title=" " alt="" coords="1623,179,1493,362,1489,359,1619,176"/>
+<area shape="rect" title=" " alt="" coords="2150,445,2221,471"/>
+<area shape="poly" title=" " alt="" coords="1688,164,1833,166,2017,175,2196,193,2268,206,2322,223,2392,256,2424,275,2451,295,2471,318,2482,343,2481,370,2465,399,2449,412,2426,422,2366,439,2297,450,2235,456,2234,451,2296,444,2364,434,2424,417,2446,407,2461,396,2476,369,2477,344,2467,321,2447,299,2421,279,2389,261,2320,228,2267,211,2195,198,2017,180,1833,172,1688,169"/>
+<area shape="rect" href="../../d9/ded/Utils_8h.html" title=" " alt="" coords="1076,225,1140,251"/>
+<area shape="poly" title=" " alt="" coords="1571,177,1154,233,1153,228,1570,171"/>
+<area shape="rect" href="../../d3/ded/Window_8h.html" title="Définition et gestion de la fenêtre principale de l&#39;application." alt="" coords="1243,299,1328,324"/>
+<area shape="poly" title=" " alt="" coords="1571,178,1489,196,1445,210,1403,228,1351,259,1310,291,1307,287,1348,254,1400,223,1443,205,1488,191,1570,172"/>
+<area shape="rect" href="../../da/d71/structPoke_8h.html" title=" " alt="" coords="2041,372,2143,397"/>
+<area shape="poly" title=" " alt="" coords="1677,175,1747,195,1822,223,2062,363,2060,367,1820,228,1745,200,1676,180"/>
+<area shape="rect" href="../../da/d1d/interDuel_8h.html" title="Définition et gestion des combats entre équipes." alt="" coords="2127,225,2222,251"/>
+<area shape="poly" title=" " alt="" coords="1689,171,2114,226,2113,231,1688,176"/>
+<area shape="rect" href="../../d6/d8e/duel_8h.html" title="Gestion des duels dans le style de &quot;Pokémon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="2283,299,2346,324"/>
+<area shape="poly" title=" " alt="" coords="1689,164,1817,167,1976,177,2128,194,2190,207,2236,223,2256,236,2274,252,2302,285,2298,289,2271,256,2253,240,2234,228,2189,212,2127,199,1975,182,1816,173,1688,169"/>
+<area shape="rect" href="../../df/d27/trainerAI_8h.html" title=" " alt="" coords="2269,372,2360,397"/>
+<area shape="poly" title=" " alt="" coords="1679,175,1861,223,2094,300,2273,365,2271,370,2092,305,1859,228,1678,180"/>
+<area shape="rect" href="../../d5/d5e/save_8h.html" title="Save the player&#39;s data in a file." alt="" coords="2385,372,2450,397"/>
+<area shape="poly" title=" " alt="" coords="1688,165,1820,169,1985,179,2145,196,2210,208,2258,223,2305,250,2344,287,2376,326,2400,359,2396,362,2372,329,2340,291,2301,255,2256,228,2208,213,2144,202,1985,184,1820,174,1688,170"/>
+<area shape="rect" href="../../d6/d35/Text_8h.html" title="Définition et gestion des éléments de texte." alt="" coords="1701,372,1763,397"/>
+<area shape="poly" title=" " alt="" coords="1638,177,1662,224,1724,358,1719,360,1658,226,1633,179"/>
+<area shape="rect" href="../../df/d79/Map_8h.html" title=" " alt="" coords="478,299,541,324"/>
+<area shape="poly" title=" " alt="" coords="1571,169,1338,172,1023,181,868,188,732,198,628,211,592,219,569,228,554,239,540,255,521,287,517,284,536,251,550,236,567,223,591,214,627,206,732,193,868,183,1023,175,1337,167,1570,164"/>
+<area shape="rect" href="../../dd/de4/Camera_8h.html" title="Gestion de la caméra pour le défilement de la vue du jeu." alt="" coords="507,372,592,397"/>
+<area shape="poly" title=" " alt="" coords="1571,171,1347,187,1206,204,1065,228,928,261,795,300,593,369,592,364,793,295,927,256,1063,223,1205,199,1347,182,1570,166"/>
+<area shape="rect" href="../../da/dbf/Player_8h.html" title=" " alt="" coords="580,225,655,251"/>
+<area shape="poly" title=" " alt="" coords="1571,172,755,228,669,235,668,230,754,223,1570,167"/>
+<area shape="poly" title=" " alt="" coords="1570,171,371,228,242,235,242,229,371,223,1570,166"/>
+<area shape="rect" href="../../d0/dbb/Events_8h.html" title=" " alt="" coords="1590,299,1669,324"/>
+<area shape="poly" title=" " alt="" coords="1627,178,1623,228,1625,285,1620,285,1618,228,1621,178"/>
+<area shape="rect" href="../../d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="1795,299,1923,324"/>
+<area shape="poly" title=" " alt="" coords="1661,175,1712,194,1765,223,1803,254,1834,286,1830,290,1799,258,1763,228,1709,199,1659,180"/>
+<area shape="poly" title=" " alt="" coords="1077,249,1017,267,985,282,955,301,921,332,892,369,851,434,847,432,887,365,917,329,952,297,982,277,1015,262,1075,243"/>
+<area shape="poly" title=" " alt="" coords="1131,248,1238,291,1236,296,1129,253"/>
+<area shape="rect" href="../../d3/d70/Buttons_8h.html" title="Gestion des boutons et curseurs pour l&#39;application." alt="" coords="1061,299,1145,324"/>
+<area shape="poly" title=" " alt="" coords="1103,251,1099,285,1093,285,1098,251"/>
+<area shape="poly" title=" " alt="" coords="1288,324,1283,361,1275,382,1262,399,1235,415,1196,428,1099,445,992,455,899,459,899,453,992,450,1098,440,1195,423,1232,410,1258,395,1271,379,1278,360,1283,324"/>
+<area shape="poly" title=" " alt="" coords="1294,323,1321,360,1340,379,1363,395,1396,408,1440,418,1552,435,1674,446,1779,451,1778,457,1673,451,1552,440,1439,424,1394,413,1360,400,1337,383,1317,363,1290,326"/>
+<area shape="poly" title=" " alt="" coords="1243,326,1048,375,1047,370,1242,321"/>
+<area shape="poly" title=" " alt="" coords="1317,322,1432,364,1430,369,1315,327"/>
+<area shape="poly" title=" " alt="" coords="1262,301,1152,257,1154,252,1264,296"/>
+<area shape="poly" title=" " alt="" coords="1073,327,1022,347,965,374,911,407,865,439,862,435,908,403,963,370,1019,342,1071,322"/>
+<area shape="poly" title=" " alt="" coords="1117,322,1158,361,1154,364,1113,326"/>
+<area shape="poly" title=" " alt="" coords="1070,327,957,363,813,400,621,432,454,452,453,446,620,427,811,395,956,357,1069,322"/>
+<area shape="poly" title=" " alt="" coords="1100,325,1090,360,1091,379,1099,396,1112,404,1133,411,1198,425,1286,435,1388,442,1602,451,1778,454,1778,459,1602,456,1387,448,1285,440,1197,430,1132,417,1109,408,1095,399,1086,381,1085,360,1095,324"/>
+<area shape="poly" title=" " alt="" coords="1108,298,1112,264,1117,265,1113,299"/>
+<area shape="rect" title=" " alt="" coords="717,372,800,397"/>
+<area shape="poly" title=" " alt="" coords="1061,324,1049,327,814,375,813,369,1047,321,1060,319"/>
+<area shape="poly" title=" " alt="" coords="2041,392,899,456,899,451,2040,386"/>
+<area shape="poly" title=" " alt="" coords="2041,391,454,456,454,450,2040,385"/>
+<area shape="poly" title=" " alt="" coords="2054,400,1904,444,1902,439,2052,395"/>
+<area shape="poly" title=" " alt="" coords="2144,395,2363,444,2362,449,2142,400"/>
+<area shape="poly" title=" " alt="" coords="2109,395,2161,435,2158,439,2105,399"/>
+<area shape="rect" title=" " alt="" coords="2061,445,2125,471"/>
+<area shape="poly" title=" " alt="" coords="2095,398,2096,432,2090,432,2090,398"/>
+<area shape="rect" title=" " alt="" coords="1966,445,2037,471"/>
+<area shape="poly" title=" " alt="" coords="2079,399,2029,439,2025,434,2076,395"/>
+<area shape="poly" title=" " alt="" coords="2198,248,2281,290,2279,295,2196,253"/>
+<area shape="poly" title=" " alt="" coords="2284,325,2142,370,2140,365,2282,320"/>
+<area shape="poly" title=" " alt="" coords="2310,324,2309,359,2303,358,2305,324"/>
+<area shape="poly" title=" " alt="" coords="2326,322,2384,363,2381,367,2323,326"/>
+<area shape="poly" title=" " alt="" coords="2319,372,2321,338,2326,338,2324,372"/>
+<area shape="poly" title=" " alt="" coords="2414,373,2399,341,2370,300,2330,258,2306,241,2280,228,2232,213,2168,202,2008,184,1840,175,1702,170,1702,165,1840,169,2009,179,2169,196,2234,208,2282,223,2309,237,2333,254,2374,296,2404,339,2419,371"/>
+<area shape="poly" title=" " alt="" coords="2406,374,2348,333,2351,329,2409,370"/>
+<area shape="poly" title=" " alt="" coords="1701,397,1683,400,1458,427,1235,444,1040,454,900,458,899,453,1040,449,1234,439,1457,422,1682,395,1700,391"/>
+<area shape="poly" title=" " alt="" coords="1752,395,1821,436,1818,440,1750,400"/>
+<area shape="poly" title=" " alt="" coords="505,325,491,360,490,379,497,396,515,409,542,421,615,438,699,448,776,452,775,458,699,453,615,443,540,426,512,414,493,399,484,380,486,359,500,323"/>
+<area shape="poly" title=" " alt="" coords="500,326,453,374,390,437,387,434,449,370,496,322"/>
+<area shape="poly" title=" " alt="" coords="518,323,538,359,534,361,514,326"/>
+<area shape="poly" title=" " alt="" coords="593,394,779,440,777,445,592,399"/>
+<area shape="poly" title=" " alt="" coords="622,250,645,318,666,359,695,395,734,422,777,440,775,445,732,427,692,399,662,362,640,320,617,252"/>
+<area shape="poly" title=" " alt="" coords="580,249,523,268,494,282,467,301,437,332,412,368,380,433,375,431,408,365,433,329,464,297,491,278,521,263,579,244"/>
+<area shape="poly" title=" " alt="" coords="631,249,740,360,736,364,627,253"/>
+<area shape="poly" title=" " alt="" coords="601,253,540,293,537,289,599,248"/>
+<area shape="poly" title=" " alt="" coords="614,252,563,361,558,358,609,250"/>
+<area shape="poly" title=" " alt="" coords="169,250,211,333,234,374,250,395,291,414,348,428,418,439,494,446,649,454,776,455,776,460,649,459,494,452,417,444,347,433,289,419,246,399,230,377,206,335,165,252"/>
+<area shape="rect" title=" " alt="" coords="94,299,178,324"/>
+<area shape="poly" title=" " alt="" coords="160,252,147,287,142,285,155,250"/>
+<area shape="poly" title=" " alt="" coords="1630,325,1618,363,1606,383,1589,400,1550,413,1481,425,1286,442,1070,452,899,458,899,453,1070,447,1286,436,1480,419,1549,408,1587,395,1602,380,1613,360,1625,324"/>
+<area shape="poly" title=" " alt="" coords="1632,298,1636,248,1634,191,1639,191,1641,248,1637,299"/>
+<area shape="poly" title=" " alt="" coords="1606,326,1513,369,1511,364,1603,322"/>
+<area shape="poly" title=" " alt="" coords="1669,316,2027,371,2026,376,1668,321"/>
+<area shape="poly" title=" " alt="" coords="1647,322,1705,362,1702,366,1644,326"/>
+<area shape="poly" title=" " alt="" coords="1854,326,1824,364,1801,384,1776,400,1723,413,1632,424,1381,441,1108,452,899,458,899,453,1108,447,1381,435,1632,418,1722,407,1774,395,1798,380,1820,360,1849,322"/>
+<area shape="poly" title=" " alt="" coords="1827,327,1702,368,1588,400,1401,416,1077,432,454,456,454,451,1076,427,1400,411,1588,395,1701,363,1825,321"/>
+<area shape="poly" title=" " alt="" coords="1865,324,1872,357,1872,398,1863,433,1858,432,1867,397,1866,357,1860,325"/>
+<area shape="poly" title=" " alt="" coords="1923,318,2045,338,2183,369,2269,399,2369,438,2367,443,2267,404,2182,375,2044,343,1922,324"/>
+<area shape="poly" title=" " alt="" coords="1855,300,1829,265,1786,228,1740,202,1691,184,1693,179,1742,197,1790,223,1833,261,1860,296"/>
+<area shape="poly" title=" " alt="" coords="1923,315,2056,334,2117,350,2141,359,2158,370,2169,383,2177,399,2186,430,2181,432,2172,401,2165,386,2154,374,2138,364,2115,355,2055,339,1922,321"/>
+<area shape="poly" title=" " alt="" coords="1897,321,2042,365,2041,371,1895,327"/>
+<area shape="poly" title=" " alt="" coords="1872,323,1982,434,1978,437,1868,326"/>
+<area shape="poly" title=" " alt="" coords="1840,326,1766,367,1763,363,1837,322"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -114,11 +239,17 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:adb4f4933e22ff207b17caf522af7a5e0" id="r_adb4f4933e22ff207b17caf522af7a5e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d22/Game_8c.html#adb4f4933e22ff207b17caf522af7a5e0">initGame</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win)</td></tr>
+<tr class="memdesc:adb4f4933e22ff207b17caf522af7a5e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le jeu et charge l'ensemble des ressources nécessaires.  <br /></td></tr>
 <tr class="separator:adb4f4933e22ff207b17caf522af7a5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a3c981367992b6dd0045e0eb5f75aa0" id="r_a4a3c981367992b6dd0045e0eb5f75aa0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d22/Game_8c.html#a4a3c981367992b6dd0045e0eb5f75aa0">loadBackground</a> (SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath)</td></tr>
+<tr class="memdesc:a4a3c981367992b6dd0045e0eb5f75aa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge une image de fond et crée une texture associée.  <br /></td></tr>
 <tr class="separator:a4a3c981367992b6dd0045e0eb5f75aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7c9ee132f977dd2efd33ab66509d650" id="r_ab7c9ee132f977dd2efd33ab66509d650"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d22/Game_8c.html#ab7c9ee132f977dd2efd33ab66509d650">destroyGame</a> ()</td></tr>
+<tr class="separator:ab7c9ee132f977dd2efd33ab66509d650"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des macros</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Initialisation du jeu, de ses interfaces et ressources. </p>
+</div><h2 class="groupheader">Documentation des macros</h2>
 <a id="a6c727a2b24dca30351b8c19c1a0170ed" name="a6c727a2b24dca30351b8c19c1a0170ed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c727a2b24dca30351b8c19c1a0170ed">&#9670;&#160;</a></span>WINDOWS_H</h2>
 
@@ -148,6 +279,23 @@ Fonctions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ab7c9ee132f977dd2efd33ab66509d650" name="ab7c9ee132f977dd2efd33ab66509d650"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7c9ee132f977dd2efd33ab66509d650">&#9670;&#160;</a></span>destroyGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void destroyGame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="adb4f4933e22ff207b17caf522af7a5e0" name="adb4f4933e22ff207b17caf522af7a5e0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adb4f4933e22ff207b17caf522af7a5e0">&#9670;&#160;</a></span>initGame()</h2>
 
@@ -163,6 +311,23 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialise le jeu et charge l'ensemble des ressources nécessaires. </p>
+<p>Cette fonction initialise la structure globale du jeu en définissant :</p><ul>
+<li>Les éléments de l'interface utilisateur (UI) pour les différentes pages.</li>
+<li>L'état du jeu (<a class="el" href="../../d2/d3d/structGameState.html" title="Informations générales sur l&#39;état du jeu.">GameState</a>) et les gestionnaires d'états (<a class="el" href="../../d3/daf/structStateHandler.html" title="Gestionnaire d&#39;état.">StateHandler</a>).</li>
+<li>Les paramètres de fréquence d'images (FPS) et la gestion des vitesses.</li>
+<li>Le chargement des fonds d'écran pour les différentes pages.</li>
+<li>L'initialisation de l'audio et le chargement de la musique.</li>
+<li>La création du joueur, la carte, la caméra et le texte.</li>
+<li>Le chargement et la définition des curseurs.</li>
+</ul>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Pointeur sur la fenêtre principale. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -197,6 +362,17 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Charge une image de fond et crée une texture associée. </p>
+<p>Cette fonction charge une image depuis le chemin spécifié, crée une texture à partir de cette image et la stocke dans le pointeur passé en paramètre.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Background</td><td>Pointeur vers la texture qui recevra le fond. </td></tr>
+    <tr><td class="paramname">renderer</td><td>Renderer SDL utilisé pour créer la texture. </td></tr>
+    <tr><td class="paramname">imagePath</td><td>Chemin vers l'image de fond. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

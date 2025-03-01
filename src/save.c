@@ -1,6 +1,6 @@
-#include "../include/GameEngine.h"
-#include "../include/ministdlib.h"
 #include "../include/save.h"
+
+
 /*
 void sauvegarder2(t_Team * joueur,t_Team * adverse){
     char nomFichier[1024];

@@ -59,8 +59,7 @@ static SDL_Surface *flipSurfaceHorizontal(SDL_Surface *surface) {
  * @param team L'équipe (si 1, l'image est retournée horizontalement).
  * @return IMG_ICMons* Le pointeur vers le sprite initialisé, ou NULL en cas d'erreur.
  */
-IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rect nameRect, 
-                              SDL_Rect pvRect, t_Poke *poke, TTF_Font *font, int team) {
+IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rect nameRect, SDL_Rect pvRect, t_Poke *poke, TTF_Font *font, int team) {
     if (!renderer || !poke || !font) {
         SDL_Log("❌ Invalid parameters for initICMonSprite");
         return NULL;

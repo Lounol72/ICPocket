@@ -13,8 +13,9 @@ var searchData=
   ['textspeed_10',['textSpeed',['../d6/d08/structWindow.html#a8cb0c3cce4f3426270c20aad800b7ebd',1,'Window']]],
   ['texttexture_11',['textTexture',['../d7/d19/structButton.html#a7c393b63851f6641fa4b5eb33d86bc54',1,'Button']]],
   ['texture_12',['texture',['../d2/dda/structText.html#aea2a82ef1d8b4d448b6b3e524bce2cc2',1,'Text::texture'],['../da/ddc/structMap.html#a6cc56acfe807be88e919bd949528c05f',1,'Map::texture'],['../d7/d19/structButton.html#a0b4be5300889197f3e57e7b6530a8acc',1,'Button::texture']]],
-  ['title_13',['title',['../d5/d81/GameEngine_8c.html#aa7b28bc428ccbbcf4f77ed6ec1deccf9',1,'title:&#160;GameEngine.c'],['../d6/d35/Text_8h.html#aa7b28bc428ccbbcf4f77ed6ec1deccf9',1,'title:&#160;GameEngine.c']]],
-  ['trainername_14',['trainerName',['../da/d63/structt__Team.html#ae46d2b1b8b8bdb039f1eff5a040c9f5e',1,'t_Team']]],
-  ['type_15',['type',['../d1/d68/structt__Move.html#ab4011a4ea5b57bda20a69e870bc4f2ce',1,'t_Move::type'],['../d7/d09/structt__Poke.html#a272bc0ad4c2b6eed8164794ce9240a1a',1,'t_Poke::type'],['../d5/d48/structAI.html#acd4417e44f623192c1afbef19ed4a9c0',1,'AI::type']]],
-  ['typechart_16',['typechart',['../d3/dfe/structPoke_8c.html#ab3f16f2365e129e0337bae5d412816e3',1,'typeChart:&#160;structPoke.c'],['../da/d71/structPoke_8h.html#ab3f16f2365e129e0337bae5d412816e3',1,'typeChart:&#160;structPoke.c']]]
+  ['threadmanager_13',['threadManager',['../de/de9/structGame.html#aa9455d40a57196c6fe96dcf3c20203b3',1,'Game']]],
+  ['title_14',['title',['../d5/d81/GameEngine_8c.html#aa7b28bc428ccbbcf4f77ed6ec1deccf9',1,'title:&#160;GameEngine.c'],['../d6/d35/Text_8h.html#aa7b28bc428ccbbcf4f77ed6ec1deccf9',1,'title:&#160;GameEngine.c']]],
+  ['trainername_15',['trainerName',['../da/d63/structt__Team.html#ae46d2b1b8b8bdb039f1eff5a040c9f5e',1,'t_Team']]],
+  ['type_16',['type',['../d1/d68/structt__Move.html#ab4011a4ea5b57bda20a69e870bc4f2ce',1,'t_Move::type'],['../d7/d09/structt__Poke.html#a272bc0ad4c2b6eed8164794ce9240a1a',1,'t_Poke::type'],['../d5/d48/structAI.html#acd4417e44f623192c1afbef19ed4a9c0',1,'AI::type']]],
+  ['typechart_17',['typechart',['../d3/dfe/structPoke_8c.html#ab3f16f2365e129e0337bae5d412816e3',1,'typeChart:&#160;structPoke.c'],['../da/d71/structPoke_8h.html#ab3f16f2365e129e0337bae5d412816e3',1,'typeChart:&#160;structPoke.c']]]
 ];

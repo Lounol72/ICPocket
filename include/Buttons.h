@@ -17,27 +17,15 @@
 #include <SDL2/SDL_mixer.h>
 #include <stdbool.h>
 
-
 typedef struct Button Button;
 typedef struct ButtonList ButtonList;
 typedef struct Slider Slider;
 typedef struct SliderList SliderList;
 
+#include "Utils.h"
+
+
 typedef struct Window Window;
-
-// #include "GameEngine.h" // Removed.  Causes circular dependency and isn't directly needed here.
-
-/**
- * @enum FontSize
- * @brief Taille des polices utilisées pour les boutons.
- */
-typedef enum FontSize {
-    LARGE = 56,  /**< Grande taille de police. */
-    MEDIUM = 36, /**< Taille moyenne de police. */
-    SMALL = 24,  /**< Petite taille de police. */
-    CUSTOM       /**< Taille de police personnalisée. */
-} FontSize;
-
 /**
  * @struct Button
  * @brief Représente un bouton dans l'application.
@@ -255,6 +243,5 @@ int handleSliderEvent(Slider *slider, int x, int y);
  */
 void updateSliderPosition(SliderList *sliders, float Scalex, float Scaley);
 
-#include "Window.h"
 
 #endif

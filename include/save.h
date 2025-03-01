@@ -1,6 +1,8 @@
 #ifndef SAVE_H
 #define SAVE_H
 
+#include "GameEngine.h"
+#include "duel.h"
 /**
 *@file save.h
 *@author William

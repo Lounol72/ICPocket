@@ -3,12 +3,8 @@
 
 #include <SDL2/SDL.h>
 
-/**
- * @file Utils.h
- * @brief Fonctions utilitaires pour l'application.
- * 
- * Ce fichier contient des fonctions utilitaires qui sont utilisées dans différentes parties de l'application SDL.
- */
+#include "Window.h"
+#include "Buttons.h"
 
 /**
  * @file Utils.h
@@ -22,18 +18,22 @@
  * 
  */
 
-typedef enum AppState {
-    QUIT = 0, // 0
-    SETTINGS, // 1
-    MENU, // 2
-    GAME,  // 3
-    NEWGAME,  // 4
-    LOADGAME, // 5
-    ICMONS, // 6
-    INTER, // 7
-    PAUSE, // 8
-    MAP, // 9
-} AppState;
+
+
+
+
+/* UI element container, referencing the ButtonList & SliderList defined in Buttons.h */
+/**
+ * @struct UI_Elements
+ * @brief Conteneur pour les éléments de l'interface utilisateur.
+ * 
+ * Cette structure référence les listes de boutons et de curseurs définies dans Buttons.h, ainsi que la texture de fond.
+ */
+typedef struct {
+    ButtonList *buttons;     /**< Liste des boutons de l'interface utilisateur. */
+    SliderList *sliders;     /**< Liste des curseurs de l'interface utilisateur. */
+    SDL_Texture *background; /**< Texture de fond de l'interface utilisateur. */
+} UI_Elements;
 
 /**
  * @brief Charge une texture à partir d'un fichier image.

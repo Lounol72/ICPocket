@@ -1,16 +1,14 @@
 \doxysection{Référence du fichier include/\+Utils.h}
 \hypertarget{Utils_8h}{}\label{Utils_8h}\index{include/Utils.h@{include/Utils.h}}
-
-
-Fonctions utilitaires pour l\textquotesingle{}application.  
-
-
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
-Graphe des dépendances par inclusion de Utils.\+h\+:\nopagebreak
+{\ttfamily \#include "{}Window.\+h"{}}\newline
+{\ttfamily \#include "{}Buttons.\+h"{}}\newline
+Graphe des dépendances par inclusion de Utils.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=166pt]{db/d5d/Utils_8h__incl}
+\includegraphics[width=350pt]{db/d5d/Utils_8h__incl}
 \end{center}
 \end{figure}
 Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
@@ -21,29 +19,11 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 \includegraphics[width=350pt]{d2/dc8/Utils_8h__dep__incl}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Définitions de type}
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-typedef enum \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428}{App\+State}} \mbox{\hyperlink{Utils_8h_af18642bfb6229ca25b25c60e12cffa6c}{App\+State}}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Énumérations}
-\begin{DoxyCompactItemize}
-\item 
-enum \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428}{App\+State}} \{ \newline
-\mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a76bdc8adfd6c6463ab269ff4c06be9b4}{QUIT}} = 0
-, \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428ac678338caea29d77d56be2ea56325610}{SETTINGS}}
-, \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a4c40e60bc71a32b924ce1f08d57f9721}{MENU}}
-, \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428ad50cf309d7568040619ed26ee6835a84}{GAME}}
-, \newline
-\mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a7d66b8866cc7667b15bb0ac8a7e62f4a}{NEWGAME}}
-, \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a8ea08ca82a0d1952666e6b27cc459795}{LOADGAME}}
-, \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a42325efb02e5d8c573c338df4378367d}{ICMONS}}
-, \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a5efa5610d5a2c5e9123d6894dd72e335}{INTER}}
-, \newline
-\mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a56b36d0d0bb01b339cf1041adc08e262}{PAUSE}}
-, \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428a4cafa5feda04184537b4d7d346e1e89b}{MAP}}
- \}
-\begin{DoxyCompactList}\small\item\em Represents the various states of the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+struct \mbox{\hyperlink{structUI__Elements}{UI\+\_\+\+Elements}}
+\begin{DoxyCompactList}\small\item\em Conteneur pour les éléments de l\textquotesingle{}interface utilisateur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
@@ -54,77 +34,9 @@ void \mbox{\hyperlink{Utils_8h_ac2465ff3708d53a0354948a945490742}{log\+SDLError}
 
 
 \doxysubsection{Description détaillée}
-Fonctions utilitaires pour l\textquotesingle{}application. 
-
-Ce fichier contient des fonctions utilitaires qui sont utilisées dans différentes parties de l\textquotesingle{}application SDL.
-
 \begin{DoxyAuthor}{Auteur}
 Louis 
 \end{DoxyAuthor}
-
-
-\doxysubsection{Documentation des définitions de type}
-\Hypertarget{Utils_8h_af18642bfb6229ca25b25c60e12cffa6c}\label{Utils_8h_af18642bfb6229ca25b25c60e12cffa6c} 
-\index{Utils.h@{Utils.h}!AppState@{AppState}}
-\index{AppState@{AppState}!Utils.h@{Utils.h}}
-\doxysubsubsection{\texorpdfstring{AppState}{AppState}}
-{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428}{App\+State}} \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428}{App\+State}}}
-
-
-
-\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
-\Hypertarget{Utils_8h_a83fc559664fc7c7e310c93586457b428}\label{Utils_8h_a83fc559664fc7c7e310c93586457b428} 
-\index{Utils.h@{Utils.h}!AppState@{AppState}}
-\index{AppState@{AppState}!Utils.h@{Utils.h}}
-\doxysubsubsection{\texorpdfstring{AppState}{AppState}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{Utils_8h_a83fc559664fc7c7e310c93586457b428}{App\+State}}}
-
-
-
-Represents the various states of the application. 
-
-Cette énumération définit les différents états dans lesquels l\textquotesingle{}application peut se trouver. Chaque état correspond à une partie spécifique de l\textquotesingle{}application, comme le menu principal, les paramètres du jeu, ou le jeu lui-\/même. \begin{DoxyEnumFields}{Valeurs énumérées}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{QUIT@{QUIT}!Utils.h@{Utils.h}}\index{Utils.h@{Utils.h}!QUIT@{QUIT}}}\Hypertarget{Utils_8h_a83fc559664fc7c7e310c93586457b428a76bdc8adfd6c6463ab269ff4c06be9b4}\label{Utils_8h_a83fc559664fc7c7e310c93586457b428a76bdc8adfd6c6463ab269ff4c06be9b4} 
-QUIT&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{SETTINGS@{SETTINGS}!Utils.h@{Utils.h}}\index{Utils.h@{Utils.h}!SETTINGS@{SETTINGS}}}\Hypertarget{Utils_8h_a83fc559664fc7c7e310c93586457b428ac678338caea29d77d56be2ea56325610}\label{Utils_8h_a83fc559664fc7c7e310c93586457b428ac678338caea29d77d56be2ea56325610} 
-SETTINGS&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{MENU@{MENU}!Utils.h@{Utils.h}}\index{Utils.h@{Utils.h}!MENU@{MENU}}}\Hypertarget{Utils_8h_a83fc559664fc7c7e310c93586457b428a4c40e60bc71a32b924ce1f08d57f9721}\label{Utils_8h_a83fc559664fc7c7e310c93586457b428a4c40e60bc71a32b924ce1f08d57f9721} 
-MENU&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{GAME@{GAME}!Utils.h@{Utils.h}}\index{Utils.h@{Utils.h}!GAME@{GAME}}}\Hypertarget{Utils_8h_a83fc559664fc7c7e310c93586457b428ad50cf309d7568040619ed26ee6835a84}\label{Utils_8h_a83fc559664fc7c7e310c93586457b428ad50cf309d7568040619ed26ee6835a84} 
-GAME&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{NEWGAME@{NEWGAME}!Utils.h@{Utils.h}}\index{Utils.h@{Utils.h}!NEWGAME@{NEWGAME}}}\Hypertarget{Utils_8h_a83fc559664fc7c7e310c93586457b428a7d66b8866cc7667b15bb0ac8a7e62f4a}\label{Utils_8h_a83fc559664fc7c7e310c93586457b428a7d66b8866cc7667b15bb0ac8a7e62f4a} 
-NEWGAME&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{LOADGAME@{LOADGAME}!Utils.h@{Utils.h}}\index{Utils.h@{Utils.h}!LOADGAME@{LOADGAME}}}\Hypertarget{Utils_8h_a83fc559664fc7c7e310c93586457b428a8ea08ca82a0d1952666e6b27cc459795}\label{Utils_8h_a83fc559664fc7c7e310c93586457b428a8ea08ca82a0d1952666e6b27cc459795} 
-LOADGAME&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMONS@{ICMONS}!Utils.h@{Utils.h}}\index{Utils.h@{Utils.h}!ICMONS@{ICMONS}}}\Hypertarget{Utils_8h_a83fc559664fc7c7e310c93586457b428a42325efb02e5d8c573c338df4378367d}\label{Utils_8h_a83fc559664fc7c7e310c93586457b428a42325efb02e5d8c573c338df4378367d} 
-ICMONS&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{INTER@{INTER}!Utils.h@{Utils.h}}\index{Utils.h@{Utils.h}!INTER@{INTER}}}\Hypertarget{Utils_8h_a83fc559664fc7c7e310c93586457b428a5efa5610d5a2c5e9123d6894dd72e335}\label{Utils_8h_a83fc559664fc7c7e310c93586457b428a5efa5610d5a2c5e9123d6894dd72e335} 
-INTER&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{PAUSE@{PAUSE}!Utils.h@{Utils.h}}\index{Utils.h@{Utils.h}!PAUSE@{PAUSE}}}\Hypertarget{Utils_8h_a83fc559664fc7c7e310c93586457b428a56b36d0d0bb01b339cf1041adc08e262}\label{Utils_8h_a83fc559664fc7c7e310c93586457b428a56b36d0d0bb01b339cf1041adc08e262} 
-PAUSE&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{MAP@{MAP}!Utils.h@{Utils.h}}\index{Utils.h@{Utils.h}!MAP@{MAP}}}\Hypertarget{Utils_8h_a83fc559664fc7c7e310c93586457b428a4cafa5feda04184537b4d7d346e1e89b}\label{Utils_8h_a83fc559664fc7c7e310c93586457b428a4cafa5feda04184537b4d7d346e1e89b} 
-MAP&\\
-\hline
-
-\end{DoxyEnumFields}
 
 
 \doxysubsection{Documentation des fonctions}

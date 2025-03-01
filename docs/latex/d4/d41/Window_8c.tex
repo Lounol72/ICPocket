@@ -12,28 +12,28 @@ Graphe des dépendances par inclusion de Window.\+c\+:
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
+static void \mbox{\hyperlink{Window_8c_ac20fb0253f94eb0a7a8b9061414f9c47}{cleanup\+And\+Exit}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, const char \texorpdfstring{$\ast$}{*}error\+Msg)
+\begin{DoxyCompactList}\small\item\em Fonction utilitaire pour nettoyer et quitter en cas d\textquotesingle{}erreur. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Window_8c_ab072fc478679f5b8fb5ffae288d1e7f2}{init\+Window}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, int width, int height, const char \texorpdfstring{$\ast$}{*}Font\+Path)
-\begin{DoxyCompactList}\small\item\em Initialise la fenêtre principale de l\textquotesingle{}application. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{Window_8c_a5b2abeb6aa788d11a7bfe251fb1d4a25}{destroy\+Window}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
-\begin{DoxyCompactList}\small\item\em Détruit la fenêtre principale de l\textquotesingle{}application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initialise la fenêtre principale de l\textquotesingle{}application. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Documentation des fonctions}
-\Hypertarget{Window_8c_a5b2abeb6aa788d11a7bfe251fb1d4a25}\label{Window_8c_a5b2abeb6aa788d11a7bfe251fb1d4a25} 
-\index{Window.c@{Window.c}!destroyWindow@{destroyWindow}}
-\index{destroyWindow@{destroyWindow}!Window.c@{Window.c}}
-\doxysubsubsection{\texorpdfstring{destroyWindow()}{destroyWindow()}}
-{\footnotesize\ttfamily void destroy\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+\Hypertarget{Window_8c_ac20fb0253f94eb0a7a8b9061414f9c47}\label{Window_8c_ac20fb0253f94eb0a7a8b9061414f9c47} 
+\index{Window.c@{Window.c}!cleanupAndExit@{cleanupAndExit}}
+\index{cleanupAndExit@{cleanupAndExit}!Window.c@{Window.c}}
+\doxysubsubsection{\texorpdfstring{cleanupAndExit()}{cleanupAndExit()}}
+{\footnotesize\ttfamily static void cleanup\+And\+Exit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{error\+Msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
-Détruit la fenêtre principale de l\textquotesingle{}application. 
-
-Cette fonction libère les ressources associées à la fenêtre principale de l\textquotesingle{}application.
+Fonction utilitaire pour nettoyer et quitter en cas d\textquotesingle{}erreur. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window} à détruire. \\
+{\em win} & Pointeur sur la structure \doxylink{structWindow}{Window}. \\
+\hline
+{\em error\+Msg} & Message d\textquotesingle{}erreur à afficher. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Window_8c_ab072fc478679f5b8fb5ffae288d1e7f2}\label{Window_8c_ab072fc478679f5b8fb5ffae288d1e7f2} 
