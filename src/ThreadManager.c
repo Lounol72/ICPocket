@@ -19,7 +19,7 @@ void initThreadManager(Game* game) {
     // - physicsMutex pour les calculs de physique/mouvement
     pthread_mutex_init(&game->threadManager.audioMutex, NULL);
     pthread_mutex_init(&game->threadManager.physicsMutex, NULL);
-    
+    pthread_mutex_init(&game->threadManager.renderMutex, NULL);
     // Configure le drapeau d'exécution à vrai pour que les threads démarrent leurs boucles
     game->threadManager.isRunning = 1;
     
@@ -31,6 +31,7 @@ void initThreadManager(Game* game) {
     pthread_create(&game->threadManager.audioThread, NULL, audioThreadFunction, game);
 
     pthread_create(&game->threadManager.physicsThread, NULL, physicsThreadFunction, game);
+    pthread_create(&game->threadManager.renderThread, NULL, renderThreadFunction, game);
 }
 
 void* audioThreadFunction(void* arg) {
@@ -40,6 +41,23 @@ void* audioThreadFunction(void* arg) {
         updateMusic();
         pthread_mutex_unlock(&game->threadManager.audioMutex);
         SDL_Delay(16); // ~60fps
+    }
+    return NULL;
+}
+
+void* renderThreadFunction(void* arg) {
+    Game* game = (Game*)arg;
+    while (game->threadManager.isRunning) {
+        int frameStart = SDL_GetTicks();
+        pthread_mutex_lock(&game->threadManager.renderMutex);
+        if (game->gameState.currentState != MAP) {
+            SDL_RenderClear(game->win->renderer);
+            render(game->win);
+            updateCurrentButton();
+            SDL_RenderPresent(game->win->renderer);
+        }
+        pthread_mutex_unlock(&game->threadManager.renderMutex);
+        manageFrameRate(frameStart);
     }
     return NULL;
 }
@@ -80,6 +98,8 @@ void cleanupThreads(Game* game) {
     game->threadManager.isRunning = 0;
     pthread_join(game->threadManager.audioThread, NULL);
     pthread_join(game->threadManager.physicsThread, NULL);
+    pthread_join(game->threadManager.renderThread, NULL);
     pthread_mutex_destroy(&game->threadManager.audioMutex);
     pthread_mutex_destroy(&game->threadManager.physicsMutex);
+    pthread_mutex_destroy(&game->threadManager.renderMutex);
 }

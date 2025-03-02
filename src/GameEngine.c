@@ -271,6 +271,7 @@ void changePokemon(Window *win, void *data) {
     int idx = (int)(intptr_t)data;
     if (testActionValidity(idx, &game.battleState.rouge)) {
         changeState(win, &game.stateHandlers[3].state);
+        SDL_RenderPresent(win->renderer);
         isAlive(&game.battleState.rouge.team[0]) ? playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&game.battleState.ia, &game.battleState.rouge)) :     swapActualAttacker(&game.battleState.rouge, idx);
     }
     updateICButtons(win, &game.battleState.rouge);
@@ -324,13 +325,7 @@ void mainLoop(Window *win) {
         }
         if (game.gameState.currentState == MAP) {
             renderMap(win);
-        } else {
-            SDL_RenderClear(win->renderer);
-            render(win);
-            updateCurrentButton();
-            SDL_RenderPresent(win->renderer);
         }
-        
         game.deltaTime = (SDL_GetTicks() - frameStart) / 1000.0f;
         
         manageFrameRate(frameStart);

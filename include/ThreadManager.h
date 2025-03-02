@@ -28,10 +28,10 @@ struct Game;
  * entre les différents threads.
  * 
  * @param audioThread Thread dédié au traitement audio
- 
+ * @param renderThread Thread dédié au traitement du render lorsque l'on est pas sur la map
  * @param physicsThread Thread dédié aux calculs physiques
  * @param audioMutex Mutex pour synchroniser l'accès aux ressources audio
- 
+ * @param renderMutex Mutex pour synchroniser l'accès au render
  * @param physicsMutex Mutex pour synchroniser l'accès aux données physiques
  * @param isRunning Flag indiquant si les threads doivent continuer à s'exécuter
  */
@@ -39,8 +39,10 @@ struct Game;
 typedef struct ThreadManager {
     pthread_t audioThread;
     pthread_t physicsThread;
+    pthread_t renderThread;
     pthread_mutex_t audioMutex;
     pthread_mutex_t physicsMutex;
+    pthread_mutex_t renderMutex;
     int isRunning;
 } ThreadManager;
 
@@ -85,4 +87,12 @@ void* audioThreadFunction(void* arg);
  */
 void* physicsThreadFunction(void* arg);
 
+/**
+ * @brief Fonction du thread de rendu
+ * 
+ * Cette fonction est exécutée par le thread de rendu. Elle gère le rendu graphique
+ * en boucle tant que le jeu est en cours d'exécution.
+ * 
+ */
+void* renderThreadFunction(void* arg);
 #endif /* THREAD_MANAGER_H */ 
