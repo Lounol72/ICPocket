@@ -17,6 +17,8 @@
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
 [0] [3] Changement d'état : 4
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [0] [3] PV : 309/309
 [0] [3] PV : 61/61
 [0] [3] PV : 43/43
@@ -31,6 +33,24 @@
 [0] [3] Changement d'état : 3
 [0] [3] Changement d'état : 2
 [7] [3] Quit
+=======
+=======
+>>>>>>> Stashed changes
+[0] [3] PV : 188/188
+[0] [3] PV : 32/32
+[0] [3] PV : 82/82
+[0] [3] PV : 61/61
+[0] [3] PV : 33/33
+[0] [3] PV : 27/27
+[0] [3] Red team PV: 188, Blue team PV: 61
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 9
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 0
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 [0] [3] ✅ Musique libérée
 [0] [3] ✅ Musique inter libérée
 [0] [3] ✅ UI libérée
