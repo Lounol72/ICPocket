@@ -228,7 +228,6 @@ void attqButtonClicked(Window *win, void *data) {
     if (game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
         int moveIndex = (int)(intptr_t)data;
         if (moveIndex < 0 || moveIndex >= game.battleState.rouge.team[0].nb_move) {
-            SDL_Log("Indice de mouvement invalide : %d", moveIndex);
             return;
         }
         
@@ -247,11 +246,7 @@ void attqButtonClicked(Window *win, void *data) {
                 if (isAlive(&game.battleState.bleu.team[i]))
                     liste_valide[nb_valide++] = i + 10;
             }
-            for (int i = 0; i < nb_valide; i++)
-                printf("%d ", liste_valide[i]);
-            printf("\n");
             int x = rand() % nb_valide;
-            printf("x=%d\n", x);
             swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
             printPoke(&game.battleState.bleu.team[0]);
         }
@@ -275,8 +270,8 @@ void changePokemon(Window *win, void *data) {
     (void)win;
     int idx = (int)(intptr_t)data;
     if (testActionValidity(idx, &game.battleState.rouge)) {
-        isAlive(&game.battleState.rouge.team[idx - 10]) ? playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&game.battleState.ia, &game.battleState.rouge)) : swapActualAttacker(&game.battleState.rouge, idx);
-        changeState(win, &game.stateHandlers[4].state);
+        changeState(win, &game.stateHandlers[3].state);
+        isAlive(&game.battleState.rouge.team[0]) ? playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&game.battleState.ia, &game.battleState.rouge)) :     swapActualAttacker(&game.battleState.rouge, idx);
     }
     updateICButtons(win, &game.battleState.rouge);
     updateICMonsButtonText(win, &game.battleState.rouge);
