@@ -621,11 +621,40 @@ void updateCurrentButton() {
  * Si l'état du jeu est GAME ou ICMONS et qu'aucune musique n'est en lecture, démarre la musique.
  * Dans le cas contraire, arrête la lecture.
  */
+
+
+Mix_Music *currentMusic = NULL;
+
 void updateMusic() {
-    if (game.gameState.currentState == GAME || game.gameState.currentState == ICMONS) {
-        if (!Mix_PlayingMusic())
-            Mix_PlayMusic(game.gameState.music, -1);
-    } else {
+    Mix_Music *desiredMusic = NULL;
+
+    // Déterminer la musique souhaitée selon l'état du jeu.
+    switch (game.gameState.currentState) {
+        case GAME:
+        case ICMONS:
+            desiredMusic = game.gameState.music;
+            break;
+        case MAP:
+        case INTER:
+            desiredMusic = game.gameState.music_inter;
+            break;
+        default:
+            desiredMusic = NULL;
+            break;
+    }
+
+    // Si aucune musique n'est souhaitée, arrêter la lecture.
+    if (!desiredMusic) {
         Mix_HaltMusic();
+        currentMusic = NULL;
+        return;
+    }
+
+    // Si aucune musique n'est en cours ou si la musique en cours diffère de celle souhaitée, mettre à jour.
+    if (!Mix_PlayingMusic() || currentMusic != desiredMusic) {
+        Mix_HaltMusic();
+        currentMusic = desiredMusic;
+        Mix_PlayMusic(desiredMusic, -1);
     }
 }
+

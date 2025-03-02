@@ -60,10 +60,11 @@ typedef struct {
  * Cette structure contient des informations sur la musique, le tour du joueur, et l'état actuel du jeu.
  */
 typedef struct {
-    Mix_Music *music;       /**< Musique de fond. */
-    int playerTurn;         /**< Indicateur du tour du joueur. */
-    int initialized;        /**< Indicateur d'initialisation du jeu. */
-    AppState currentState;   /**< État actuel de l'application. */
+    Mix_Music *music;              /**< Musique de fond. */
+    Mix_Music *music_inter;        /**< Musique de fond. */
+    int playerTurn;                /**< Indicateur du tour du joueur. */
+    int initialized;               /**< Indicateur d'initialisation du jeu. */
+    AppState currentState;         /**< État actuel de l'application. */
 } GameState;
 
 /* Each state has a render function and an event handler. */

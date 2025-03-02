@@ -13,5 +13,123 @@
 [4] [3] ✅ Mix_OpenAudio réussi.
 [1] [2] You must call Mix_SetMusicCMD() first
 [4] [3] ✅ Chargement de la musique réussi.
+[1] [2] You must call Mix_SetMusicCMD() first
+[4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
+<<<<<<< Updated upstream
 [0] [3] Changement d'état : 9
+=======
+[0] [3] Changement d'état : 4
+[0] [3] PV : 283/283
+[0] [3] PV : 141/141
+[0] [3] PV : 142/142
+[0] [3] PV : 287/287
+[0] [3] PV : 81/81
+[0] [3] PV : 200/200
+[0] [3] Red team PV: 283, Blue team PV: 287
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 9
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 4
+[0] [3] PV : 16/16
+[0] [3] PV : 74/74
+[0] [3] PV : 218/218
+[0] [3] PV : 209/209
+[0] [3] PV : 140/140
+[0] [3] PV : 105/105
+[0] [3] Red team PV: 16, Blue team PV: 209
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] PV : 196/196
+[0] [3] PV : 131/131
+[0] [3] PV : 278/278
+[0] [3] PV : 247/247
+[0] [3] PV : 91/91
+[0] [3] PV : 91/91
+[0] [3] Red team PV: 196, Blue team PV: 247
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] PV : 325/325
+[0] [3] PV : 129/129
+[0] [3] PV : 298/298
+[0] [3] PV : 190/190
+[0] [3] PV : 55/55
+[0] [3] PV : 177/177
+[0] [3] Red team PV: 325, Blue team PV: 190
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] PV : 211/211
+[0] [3] PV : 49/49
+[0] [3] PV : 36/36
+[0] [3] PV : 131/131
+[0] [3] PV : 130/130
+[0] [3] PV : 184/184
+[0] [3] Red team PV: 211, Blue team PV: 131
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] PV : 128/128
+[0] [3] PV : 118/118
+[0] [3] PV : 28/28
+[0] [3] PV : 101/101
+[0] [3] PV : 94/94
+[0] [3] PV : 173/173
+[0] [3] Red team PV: 128, Blue team PV: 101
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] PV : 289/289
+[0] [3] PV : 168/168
+[0] [3] PV : 292/292
+[0] [3] PV : 79/79
+[0] [3] PV : 62/62
+[0] [3] PV : 313/313
+[0] [3] Red team PV: 289, Blue team PV: 79
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 9
+[7] [3] Quit
+[0] [3] ✅ Musique libérée
+[0] [3] ✅ Musique inter libérée
+[0] [3] ✅ UI libérée
+[0] [3] ✅ ICMons rouges libérés
+[0] [3] ✅ ICMons bleus libérés
+[0] [3] ✅ State handlers libérés
+[0] [3] ✅ Speeds libérés
+[0] [3] ✅ LargeFont libéré
+[0] [3] ✅ MediumFont libéré
+[0] [3] ✅ SmallFont libéré
+[0] [3] ✅ font libéré
+[0] [3] ✅ renderer libéré
+[0] [3] ✅ window libéré
+[0] [3] ✅ cursor libéré
+[0] [3] ✅ cursor_hover libéré
+[0] [3] ✅ audio libéré
+[0] [3] ✅ SDL quitté
+>>>>>>> Stashed changes

@@ -90,7 +90,7 @@ void initGame(Window *win) {
     /* Initialisation de l'audio et chargement de la musique */
     initAudio();
     loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");
-
+    loadMusic(&game.gameState.music_inter, "assets/audio/Ciel.mp3");
     /* Création et configuration du joueur */
     game.gameData.player = createPlayer(win->renderer, "assets/Characters/Character 10.png");
     if (!game.gameData.player) {
@@ -156,6 +156,11 @@ void destroyGame() {
         Mix_FreeMusic(game.gameState.music);
         game.gameState.music = NULL;
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Musique libérée");
+    }
+    if (game.gameState.music_inter) {
+        Mix_FreeMusic(game.gameState.music_inter);
+        game.gameState.music_inter = NULL;
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Musique inter libérée");
     }
 
     /* 2) Destruction des éléments de l'interface (UI) */
