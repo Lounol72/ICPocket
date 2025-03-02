@@ -657,4 +657,3 @@ void updateMusic() {
         Mix_PlayMusic(desiredMusic, -1);
     }
 }
-
