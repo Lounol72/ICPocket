@@ -94,17 +94,16 @@ void generate_poke_enemi(t_Poke *p, int line,t_Team * joueur)
 			}
 		}
 
-		/*Load Base stats*/
 		fscanf(dataPoke, "%d,%[^,],%d,%d,%d,%d,%d,%d\n", &(p->id), p->name, &(p->baseStats[PV]), &(p->baseStats[ATT]), &(p->baseStats[DEF]), &(p->baseStats[SPA]), &(p->baseStats[SPD]), &(p->baseStats[SPE]));
 		
-		/*Load Types*/
+		//Load Types
 		p->type[0] = rand() % (typeNumber-1) + 1;
 		p->type[1] = rand() % typeNumber;
 		
-		p->lvl = rand() % joueur->nb_enemiBeat*5 + 1;
-		p->exp = expCurve(p->lvl); /*This is to match the start of a random generated level*/
+		p->lvl = (7+5*joueur->nb_enemiBeat) + rand() % ((15+5*joueur->nb_enemiBeat+(joueur->nb_enemiBeat>=3)*5)-(7*5*joueur->nb_enemiBeat)+1) ;
+		p->exp = expCurve(p->lvl); 
 
-		/*IV et Moves*/
+		//IV et Moves
 		for (int i = 0; i < 6; i++)
 			p->iv[i] = rand() % 32;
 		p->nb_move = rand() % 4 + 1;
@@ -116,6 +115,8 @@ void generate_poke_enemi(t_Poke *p, int line,t_Team * joueur)
 		fclose(dataPoke);
 	}
 }
+
+
 t_Move generateRandomMove()
 {
 	t_Move move;
