@@ -11,7 +11,7 @@ static void initCollisionMap(Map *map) {
         }
     }
 }
-/*
+
 static void initCollisionMapFromCSV(Map *map, const char *path) {
     char separator = ',';
     FILE *file = fopen(path, "r");
@@ -26,7 +26,7 @@ static void initCollisionMapFromCSV(Map *map, const char *path) {
         }
     }
     fclose(file);
-}*/
+}
     
 Map *initMap(SDL_Renderer *renderer, const char *path) {
     Map *map = (Map *)malloc(sizeof(Map));
@@ -40,17 +40,29 @@ Map *initMap(SDL_Renderer *renderer, const char *path) {
     map->rect = (SDL_Rect){0, 0, MAP_WIDTH * TILE_SIZE_W_SCALE, MAP_HEIGHT * TILE_SIZE_H_SCALE};
     // enlever le .png et mettre .csv
     // ! Remettre lorsque fichier csv sera prêt
-    /*
-    char *tempPath = (char *)malloc(strlen(path) - 4);
-    strcpy(tempPath, path);
-    tempPath[strlen(path) - 4] = '\0';
-    char *csvPath = (char *)malloc(strlen(tempPath) + 5);
+    
+    char *tempPath = (char *)malloc(strlen(path) - 3); // Allocate enough space for the string without the last 4 characters
+    if (!tempPath) {
+        printf("Erreur allocation mémoire pour tempPath\n");
+        return NULL;
+    }
+    strncpy(tempPath, path, strlen(path) - 4); // Copy the string without the last 4 characters
+    tempPath[strlen(path) - 4] = '\0'; // Null-terminate the string
+
+    char *csvPath = (char *)malloc(strlen(tempPath) + 5); // Allocate enough space for the new string with ".csv"
+    if (!csvPath) {
+        printf("Erreur allocation mémoire pour csvPath\n");
+        free(tempPath);
+        return NULL;
+    }
     strcpy(csvPath, tempPath);
     strcat(csvPath, ".csv");
+
     initCollisionMapFromCSV(map, csvPath);
+
     free(tempPath);
-    free(csvPath);*/
-    initCollisionMap(map);
+    free(csvPath);
+
     map->renderer = renderer;
 
     // Charger la texture
