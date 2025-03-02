@@ -104,6 +104,7 @@ int calcStatFrom(t_Poke * p, int stat) {
 	return value;
 }
 
+
 void initTeam(t_Team * t, int nb_poke){
 	t->nb_poke=nb_poke;
 	t->effect=noEffect;
