@@ -44,6 +44,49 @@ static SDL_Surface *flipSurfaceHorizontal(SDL_Surface *surface) {
 }
 
 /**
+ * @brief Charge un fichier audio à partir d'une ligne spécifique.
+ *
+ * Cette fonction charge un fichier audio WAV à partir d'une ligne spécifique d'un fichier CSV.
+ *
+ * @param line La ligne du fichier CSV contenant le chemin du fichier audio.
+ * @return Mix_Chunk* Le pointeur vers le fichier audio chargé, ou NULL en cas d'erreur.
+ */
+/*
+static Mix_Chunk *loadFromLine(int line) {
+    char path[128];
+    FILE *file = fopen("assets/audio/soundEffects/Enregistrement.csv", "r");
+    if (!file) {
+        SDL_Log("❌ Échec de l'ouverture du fichier : %s", SDL_GetError());
+        return NULL;
+    }
+    
+    int currentLine = 0;
+    while (fgets(path, sizeof(path), file)) {
+        if (currentLine == line) {
+            // Suppression du caractère de fin de ligne si présent
+            char *newline = strchr(path, '\n');
+            if (newline)
+                *newline = '\0';
+            break;
+        }
+        currentLine++;
+    }
+    fclose(file);
+    
+    if (currentLine != line) {
+        SDL_Log("❌ La ligne %d n'a pas été trouvée dans le fichier.", line);
+        return NULL;
+    }
+    
+    Mix_Chunk *chunk = Mix_LoadWAV(path);
+    if (!chunk) {
+        SDL_Log("❌ Échec du chargement du fichier WAV %s : %s", path, Mix_GetError());
+    }
+    
+    return chunk;
+}*/
+
+/**
  * @brief Initialise le sprite d'un ICMon.
  *
  * Cette fonction crée et initialise le sprite associé à un poke, incluant le chargement
@@ -146,6 +189,35 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
 
     return img;
 }
+static void updatePVBar(t_Poke *poke) {
+    if (!poke || !poke->img) return;
+    
+    // Calcul du pourcentage de vie, en s'assurant qu'il est entre 0 et 1
+    float healthPercentage = (float)poke->current_pv / poke->initial_pv;
+    healthPercentage = (healthPercentage > 1.0f) ? 1.0f : ((healthPercentage < 0.0f) ? 0.0f : healthPercentage);
+    
+    // Calcul de la largeur cible de la barre de HP
+    int targetWidth = (int)(poke->img->PVInitialRect.w * healthPercentage);
+    
+    // Animation progressive : on rapproche currentHPWidth de targetWidth
+    // Le facteur 0.1f détermine la vitesse d'interpolation (à ajuster selon vos préférences)
+    if (fabs(targetWidth - poke->img->currentHPWidth) < 1.0f) {
+        poke->img->currentHPWidth = targetWidth;
+    } else {
+        poke->img->currentHPWidth += (targetWidth - poke->img->currentHPWidth) * 0.1f;
+    }
+    
+    // Dessiner le fond rouge de la barre de HP
+    SDL_SetRenderDrawColor(poke->img->renderer, 255, 0, 0, 255);
+    SDL_RenderFillRect(poke->img->renderer, &poke->img->PVRect);
+    
+    // Dessiner la barre de HP en vert avec la largeur interpolée
+    SDL_Rect pvForeground = poke->img->PVRect;
+    pvForeground.w = (int)poke->img->currentHPWidth;
+    SDL_SetRenderDrawColor(poke->img->renderer, 0, 255, 0, 255);
+    SDL_RenderFillRect(poke->img->renderer, &pvForeground);
+}
+
 
 /**
  * @brief Rendu du sprite ICMon sur la fenêtre.
@@ -160,7 +232,7 @@ void renderICMonsSprite(Window *win, t_Poke *poke) {
     if (!poke || !poke->img) return;
     
     // Mise à jour du texte de PV avec les valeurs actuelles
-    char pvBuffer[32];
+    static char pvBuffer[32];
     snprintf(pvBuffer, sizeof(pvBuffer), "%d/%d", poke->current_pv, poke->initial_pv);
     updateText(poke->img->PVText, pvBuffer, win->renderer);
     
@@ -174,13 +246,7 @@ void renderICMonsSprite(Window *win, t_Poke *poke) {
     SDL_SetRenderDrawColor(poke->img->renderer, 255, 0, 0, 255);
     SDL_RenderFillRect(poke->img->renderer, &poke->img->PVRect);
     
-    // Calcul et rendu de la barre de PV en vert en fonction du pourcentage de vie
-    SDL_SetRenderDrawColor(poke->img->renderer, 0, 255, 0, 255);
-    SDL_Rect pvForeground = poke->img->PVRect;
-    float healthPercentage = (float)poke->current_pv / poke->initial_pv;
-    healthPercentage = (healthPercentage > 1.0f) ? 1.0f : ((healthPercentage < 0.0f) ? 0.0f : healthPercentage);
-    pvForeground.w = (int)(pvForeground.w * healthPercentage);
-    SDL_RenderFillRect(poke->img->renderer, &pvForeground);
+    updatePVBar(poke);
     
     // Rendu du texte de PV si disponible
     if (poke->img->PVText) {

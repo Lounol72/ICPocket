@@ -35,9 +35,10 @@ typedef struct IMG_ICMons {
     SDL_Rect rect;                   /**< Rectangle définissant la position et la taille du sprite. */
     SDL_Rect initialRect;            /**< Rectangle initial pour les besoins de mise à l'échelle. */
     Text *PVText;                    /**< Objet Text pour afficher les PV (points de vie) de l'ICMons. */
-    Text *LvlText;                    /**< Objet Text pour afficher le lvl de l'ICMons. */
+    Text *LvlText;                   /**< Objet Text pour afficher le lvl de l'ICMons. */
     SDL_Texture *PVbarTexture;       /**< Texture pour la barre de PV. */
     SDL_Texture *PVbarTextureBack;   /**< Texture pour l'arrière-plan de la barre de PV. */
+    float currentHPWidth;            /**< Pourcentage de vie de l'ICMons. */
     SDL_Rect PVRect;                 /**< Rectangle pour la barre de PV. */
     SDL_Rect PVInitialRect;          /**< Rectangle initial pour la barre de PV pour les besoins de mise à l'échelle. */
     SDL_Texture *nameTexture;        /**< Texture pour le nom de l'ICMons. */

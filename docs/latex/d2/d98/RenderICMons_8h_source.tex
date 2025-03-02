@@ -8,36 +8,40 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_image.h>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string.h>}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{GameEngine_8h}{GameEngine.h}}"{}}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Text_8h}{Text.h}}"{}}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{structPoke_8h}{structPoke.h}}"{}}}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structIMG__ICMons}{IMG\_ICMons}}\ \{}
-\DoxyCodeLine{00031\ \ \ \ \ SDL\_Renderer\ *\mbox{\hyperlink{structIMG__ICMons_aa08e4de210817826ea3a6ea843d05f77}{renderer}};\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00032\ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{structIMG__ICMons_aca5f72f238f579cbf502c1f323a4d3ba}{ICMonTexture}};\ \ \ \ \ \ \ }
-\DoxyCodeLine{00033\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structIMG__ICMons_a992f76fe06dfeb67fd0baf7f257177b5}{rect}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00034\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structIMG__ICMons_a59ff78849260d7a61cbc9bed404134f7}{initialRect}};\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{structText}{Text}}\ *\mbox{\hyperlink{structIMG__ICMons_aebb4857364a22bdf15be0b7d0c3cfba3}{PVText}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00036\ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{structIMG__ICMons_acb7140b981aa01e0ad9837ab9e56c463}{PVbarTexture}};\ \ \ \ \ \ \ }
-\DoxyCodeLine{00037\ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{structIMG__ICMons_aedc2c4d60f1716f6294db1f02c0a6608}{PVbarTextureBack}};\ \ \ }
-\DoxyCodeLine{00038\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structIMG__ICMons_a920729e4a0e89e6a983e2822d57c922a}{PVRect}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00039\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structIMG__ICMons_a57fb3a66d7ea350c7260bf105859f63f}{PVInitialRect}};\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00040\ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{structIMG__ICMons_a3513d719b2068011a34e8e15ad980dc7}{nameTexture}};\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00041\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structIMG__ICMons_a6ae164e8baad59442d65fd29d087e1e5}{nameRect}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00042\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structIMG__ICMons_a2686bcf03f4286886383b8cd5f33415b}{nameInitialRect}};\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00043\ \}\ \mbox{\hyperlink{structIMG__ICMons}{IMG\_ICMons}};}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00059\ \mbox{\hyperlink{structIMG__ICMons}{IMG\_ICMons}}\ *\mbox{\hyperlink{RenderICMons_8h_ac4e6519f6e42e14df90574527af9e3f8}{initICMonSprite}}(SDL\_Renderer\ *renderer,\ SDL\_Rect\ spriteRect,\ SDL\_Rect\ nameRect,\ SDL\_Rect\ pvRect,\ \mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *poke,\ TTF\_Font\ *font,\ \textcolor{keywordtype}{int}\ team);}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{RenderICMons_8h_a00792a5dc944c5d8992198d436c219d7}{updateICMonsSprite}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *poke,\ \textcolor{keywordtype}{float}\ scaleX,\ \textcolor{keywordtype}{float}\ scaleY);}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{RenderICMons_8h_a1f0630ab702e1360f9f72e55ac3a347e}{renderICMonsSprite}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *poke);}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{RenderICMons_8h_ad5893493e984d32da31956aa3cb09ca8}{destroyICMonsSprite}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *poke);}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_mixer.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{GameEngine_8h}{GameEngine.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Text_8h}{Text.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{structPoke_8h}{structPoke.h}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structIMG__ICMons}{IMG\_ICMons}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ SDL\_Renderer\ *\mbox{\hyperlink{structIMG__ICMons_aa08e4de210817826ea3a6ea843d05f77}{renderer}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{structIMG__ICMons_aca5f72f238f579cbf502c1f323a4d3ba}{ICMonTexture}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ Mix\_Chunk\ *\mbox{\hyperlink{structIMG__ICMons_a82f16e87712b6dcce9f7d243dccfde1a}{ICMonSound}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structIMG__ICMons_a992f76fe06dfeb67fd0baf7f257177b5}{rect}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structIMG__ICMons_a59ff78849260d7a61cbc9bed404134f7}{initialRect}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{structText}{Text}}\ *\mbox{\hyperlink{structIMG__ICMons_aebb4857364a22bdf15be0b7d0c3cfba3}{PVText}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{structText}{Text}}\ *\mbox{\hyperlink{structIMG__ICMons_ac2130247567c14b271c24a17f26db2e5}{LvlText}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{structIMG__ICMons_acb7140b981aa01e0ad9837ab9e56c463}{PVbarTexture}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{structIMG__ICMons_aedc2c4d60f1716f6294db1f02c0a6608}{PVbarTextureBack}};\ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structIMG__ICMons_ab0a6b034b9d690faf5f190d50d929df4}{currentHPWidth}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structIMG__ICMons_a920729e4a0e89e6a983e2822d57c922a}{PVRect}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structIMG__ICMons_a57fb3a66d7ea350c7260bf105859f63f}{PVInitialRect}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{structIMG__ICMons_a3513d719b2068011a34e8e15ad980dc7}{nameTexture}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structIMG__ICMons_a6ae164e8baad59442d65fd29d087e1e5}{nameRect}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structIMG__ICMons_a2686bcf03f4286886383b8cd5f33415b}{nameInitialRect}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \}\ \mbox{\hyperlink{structIMG__ICMons}{IMG\_ICMons}};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00063\ \mbox{\hyperlink{structIMG__ICMons}{IMG\_ICMons}}\ *\mbox{\hyperlink{RenderICMons_8h_ac4e6519f6e42e14df90574527af9e3f8}{initICMonSprite}}(SDL\_Renderer\ *renderer,\ SDL\_Rect\ spriteRect,\ SDL\_Rect\ nameRect,\ SDL\_Rect\ pvRect,\ \mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *poke,\ TTF\_Font\ *font,\ \textcolor{keywordtype}{int}\ team);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{RenderICMons_8h_a00792a5dc944c5d8992198d436c219d7}{updateICMonsSprite}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *poke,\ \textcolor{keywordtype}{float}\ scaleX,\ \textcolor{keywordtype}{float}\ scaleY);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{RenderICMons_8h_a1f0630ab702e1360f9f72e55ac3a347e}{renderICMonsSprite}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *poke);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00093\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{RenderICMons_8h_ad5893493e984d32da31956aa3cb09ca8}{destroyICMonsSprite}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *poke);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

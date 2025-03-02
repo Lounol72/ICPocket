@@ -17,11 +17,11 @@ var searchData=
   ['cleanupthreads_14',['cleanupthreads',['../d0/daa/ThreadManager_8h.html#ad734831476cb021f3c4b0e5ba8a20ab0',1,'cleanupThreads(struct Game *game):&#160;ThreadManager.c'],['../d1/dd5/ThreadManager_8c.html#a0205a3e56521f5147391f72cac4a75c6',1,'cleanupThreads(Game *game):&#160;ThreadManager.c']]],
   ['coeff_15',['coeff',['../d1/d50/structt__Nature.html#a60c9088ff559293110ea0c512f95f269',1,'t_Nature']]],
   ['collision_16',['COLLISION',['../df/d79/Map_8h.html#aafd826a123a41fd03a9c88842387a821',1,'Map.h']]],
-  ['color_17',['color',['../d2/dda/structText.html#ab0f771bd18d8e968f7aaee4a4e26e385',1,'Text::color'],['../d7/d19/structButton.html#abc7931919faeb301d72cb228432925a6',1,'Button::color'],['../df/dd7/structSlider.html#a00c7337ffabf5ae63eca715ca5bae397',1,'Slider::color']]],
+  ['color_17',['color',['../d2/dda/structText.html#ab0f771bd18d8e968f7aaee4a4e26e385',1,'Text::color'],['../df/dd7/structSlider.html#a00c7337ffabf5ae63eca715ca5bae397',1,'Slider::color'],['../d7/d19/structButton.html#abc7931919faeb301d72cb228432925a6',1,'Button::color']]],
   ['confused_5fmove_18',['CONFUSED_MOVE',['../d6/d8e/duel_8h.html#a80705627450b48083f1a1a04e38cd488',1,'duel.h']]],
   ['confusedmove_19',['confusedmove',['../d1/d18/duel_8c.html#acde9cb2f6b18119fde97bf6be55639c9',1,'confusedMove:&#160;duel.c'],['../d6/d8e/duel_8h.html#acde9cb2f6b18119fde97bf6be55639c9',1,'confusedMove:&#160;duel.c']]],
   ['confusion_20',['confusion',['../da/d71/structPoke_8h.html#a76147bdc67aed9a2286c8facfd7b8ce0a1a1bc99ed53028c3175d51260cb3f233',1,'structPoke.h']]],
-  ['createbutton_21',['createbutton',['../d9/d0e/Buttons_8c.html#aed6b61a5d385adc79994554a0d51bee2',1,'createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SDL_Color textcolor, void(*onClick)(Window *, void *), void *data, TTF_Font *font, const char *imagePath):&#160;Buttons.c'],['../d3/d70/Buttons_8h.html#a6e42448bfedad8ffa789e09b45782fe7',1,'createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SDL_Color textcolor, void(*onClick)(Window *win, void *data), void *data, TTF_Font *font, const char *imagePath):&#160;Buttons.h']]],
+  ['createbutton_21',['createbutton',['../d3/d70/Buttons_8h.html#a6e42448bfedad8ffa789e09b45782fe7',1,'createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SDL_Color textcolor, void(*onClick)(Window *win, void *data), void *data, TTF_Font *font, const char *imagePath):&#160;Buttons.h'],['../d9/d0e/Buttons_8c.html#aed6b61a5d385adc79994554a0d51bee2',1,'createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SDL_Color textcolor, void(*onClick)(Window *, void *), void *data, TTF_Font *font, const char *imagePath):&#160;Buttons.c']]],
   ['createbuttontexture_22',['createButtonTexture',['../d9/d0e/Buttons_8c.html#aec3db954cd4ac7217ea3d508faaf7191',1,'Buttons.c']]],
   ['createcamera_23',['createcamera',['../d5/d18/Camera_8c.html#a2066b5ada76e803c9b0e2ae818c73b85',1,'createCamera(int windowWidth, int windowHeight):&#160;Camera.c'],['../dd/de4/Camera_8h.html#a2066b5ada76e803c9b0e2ae818c73b85',1,'createCamera(int windowWidth, int windowHeight):&#160;Camera.c']]],
   ['createplayer_24',['createplayer',['../d1/d12/Player_8c.html#a4f43f3c6bdc319322499494c7216fa8f',1,'createPlayer(SDL_Renderer *renderer, const char *spritesheetPath):&#160;Player.c'],['../da/dbf/Player_8h.html#a4f43f3c6bdc319322499494c7216fa8f',1,'createPlayer(SDL_Renderer *renderer, const char *spritesheetPath):&#160;Player.c']]],
@@ -34,8 +34,9 @@ var searchData=
   ['currentbutton_31',['currentButton',['../de/de9/structGame.html#a1923324b49a0383e183d760ae84280aa',1,'Game']]],
   ['currentframe_32',['currentFrame',['../dc/d7b/structPlayer.html#a785bf38ddf16c3574927763cedc9d787',1,'Player']]],
   ['currentframeindex_33',['currentFrameIndex',['../dc/d7b/structPlayer.html#ac91315616f4ad403c6face4f8790c68d',1,'Player']]],
-  ['currentstate_34',['currentState',['../d2/d3d/structGameState.html#a7aaeec31cfc3ac5268711c33896fe18f',1,'GameState']]],
-  ['cursor_35',['cursor',['../de/de9/structGame.html#a718b25063a2b739e7fd0c886c2509269',1,'Game::cursor'],['../df/dd7/structSlider.html#a275f3826dcc7aeb875be76feed365c78',1,'Slider::cursor']]],
-  ['cursor_5fhover_36',['cursor_hover',['../de/de9/structGame.html#a8368793aa6f05e1a40a64eab95757bf5',1,'Game']]],
-  ['cursorcolor_37',['cursorColor',['../df/dd7/structSlider.html#afac1472537743bb654e1ebd4b9ac6a55',1,'Slider']]]
+  ['currenthpwidth_34',['currentHPWidth',['../dd/d1a/structIMG__ICMons.html#ab0a6b034b9d690faf5f190d50d929df4',1,'IMG_ICMons']]],
+  ['currentstate_35',['currentState',['../d2/d3d/structGameState.html#a7aaeec31cfc3ac5268711c33896fe18f',1,'GameState']]],
+  ['cursor_36',['cursor',['../de/de9/structGame.html#a718b25063a2b739e7fd0c886c2509269',1,'Game::cursor'],['../df/dd7/structSlider.html#a275f3826dcc7aeb875be76feed365c78',1,'Slider::cursor']]],
+  ['cursor_5fhover_37',['cursor_hover',['../de/de9/structGame.html#a8368793aa6f05e1a40a64eab95757bf5',1,'Game']]],
+  ['cursorcolor_38',['cursorColor',['../df/dd7/structSlider.html#afac1472537743bb654e1ebd4b9ac6a55',1,'Slider']]]
 ];

@@ -224,6 +224,7 @@ void makeWindowWindowed(Window *win, void *data) {
  */
 void attqButtonClicked(Window *win, void *data) {
     (void)win; // Pour éviter le warning
+    
     if (game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
         int moveIndex = (int)(intptr_t)data;
         if (moveIndex < 0 || moveIndex >= game.battleState.rouge.team[0].nb_move) {
@@ -232,8 +233,9 @@ void attqButtonClicked(Window *win, void *data) {
         }
         
         if (isAlive(&(game.battleState.rouge.team[0]))) {
-            playATurn(&game.battleState.rouge, moveIndex, &game.battleState.bleu, AI_move_choice(&game.battleState.ia, &game.battleState.rouge));
             Mix_PlayChannel(2, game.battleState.rouge.team[0].img->ICMonSound, 0);
+            playATurn(&game.battleState.rouge, moveIndex, &game.battleState.bleu, AI_move_choice(&game.battleState.ia, &game.battleState.rouge));
+            
         }
         if (!isAlive(&(game.battleState.bleu.team[0]))) {
             gainExp(&game.battleState.rouge, &game.battleState.bleu.team[0]);
@@ -273,14 +275,8 @@ void changePokemon(Window *win, void *data) {
     (void)win;
     int idx = (int)(intptr_t)data;
     if (testActionValidity(idx, &game.battleState.rouge)) {
-        if (isAlive(&game.battleState.rouge.team[idx - 10])) {
-            playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&game.battleState.ia, &game.battleState.rouge));
-        } else {
-            swapActualAttacker(&game.battleState.rouge, idx);
-        }
+        isAlive(&game.battleState.rouge.team[idx - 10]) ? playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&game.battleState.ia, &game.battleState.rouge)) : swapActualAttacker(&game.battleState.rouge, idx);
         changeState(win, &game.stateHandlers[4].state);
-    } else {
-        SDL_Log("Action invalide : %d", idx);
     }
     updateICButtons(win, &game.battleState.rouge);
     updateICMonsButtonText(win, &game.battleState.rouge);
@@ -381,19 +377,19 @@ void initAllButtons(Window *win)
 
     /* Boutons du menu */
     buttonsMenu[0] = createButton(
-        "PLAY", win, (SDL_Rect){500, 150, 300, 100},
+        " PLAY ", win, (SDL_Rect){500, 150, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[4].state, win->MediumFont,
         "assets/User Interface/Vectors/Grey/button_rectangle_depth_gloss.svg"
     );
     buttonsMenu[1] = createButton(
-        "LOAD GAME", win, (SDL_Rect){500, 300, 300, 100},
+        " LOAD GAME ", win, (SDL_Rect){500, 300, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[5].state, win->MediumFont,
         "assets/User Interface/Vectors/Grey/button_rectangle_depth_gloss.svg"
     );
     buttonsMenu[2] = createButton(
-        "SETTINGS", win, (SDL_Rect){500, 450, 300, 100},
+        " SETTINGS ", win, (SDL_Rect){500, 450, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[1].state, win->MediumFont,
         "assets/User Interface/Vectors/Grey/button_rectangle_depth_gloss.svg"
@@ -407,19 +403,19 @@ void initAllButtons(Window *win)
 
     /* Boutons des paramètres */
     buttonsParam[0] = createButton(
-        "0.5", win, (SDL_Rect){100, 200, 200, 50},
+        "  0.5  ", win, (SDL_Rect){100, 200, 200, 50},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeTextSpeed, &game.speeds[0], win->LargeFont,
         "assets/User Interface/Vectors/Grey/button_rectangle_depth_gloss.svg"
     );
     buttonsParam[1] = createButton(
-        "1", win, (SDL_Rect){400, 200, 200, 50},
+        "  1  ", win, (SDL_Rect){400, 200, 200, 50},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeTextSpeed, &game.speeds[1], win->LargeFont,
         "assets/User Interface/Vectors/Grey/button_rectangle_depth_gloss.svg"
     );
     buttonsParam[2] = createButton(
-        "1.5", win, (SDL_Rect){700, 200, 200, 50},
+        "  1.5  ", win, (SDL_Rect){700, 200, 200, 50},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeTextSpeed, &game.speeds[2], win->LargeFont,
         "assets/User Interface/Vectors/Grey/button_rectangle_depth_gloss.svg"
@@ -437,7 +433,7 @@ void initAllButtons(Window *win)
         "assets/User Interface/Vectors/Grey/button_rectangle_depth_gloss.svg"
     );
     buttonsParam[5] = createButton(
-        "Back", win, (SDL_Rect){100, 600, 300, 100},
+        " Back ", win, (SDL_Rect){100, 600, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[2].state, win->LargeFont,
         "assets/User Interface/Vectors/Grey/button_rectangle_depth_gloss.svg"
@@ -445,19 +441,19 @@ void initAllButtons(Window *win)
 
     /* Boutons de Load Game */
     buttonsLoadGame[0] = createButton(
-        "Save 1", win, (SDL_Rect){500, 104, 300, 100},
+        " Save 1 ", win, (SDL_Rect){500, 104, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[4].state, win->LargeFont,
         "assets/User Interface/Vectors/Grey/button_rectangle_depth_gloss.svg"
     );
     buttonsLoadGame[1] = createButton(
-        "Save 2", win, (SDL_Rect){500, 258, 300, 100},
+        " Save 2 ", win, (SDL_Rect){500, 258, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[4].state, win->LargeFont,
         "assets/User Interface/Vectors/Grey/button_rectangle_depth_gloss.svg"
     );
     buttonsLoadGame[2] = createButton(
-        "Back", win, (SDL_Rect){100, 600, 300, 100},
+        "  Back  ", win, (SDL_Rect){100, 600, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[2].state, win->LargeFont,
         "assets/User Interface/Vectors/Grey/button_rectangle_depth_gloss.svg"

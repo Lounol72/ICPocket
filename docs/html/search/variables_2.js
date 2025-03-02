@@ -10,8 +10,9 @@ var searchData=
   ['currentbutton_7',['currentButton',['../de/de9/structGame.html#a1923324b49a0383e183d760ae84280aa',1,'Game']]],
   ['currentframe_8',['currentFrame',['../dc/d7b/structPlayer.html#a785bf38ddf16c3574927763cedc9d787',1,'Player']]],
   ['currentframeindex_9',['currentFrameIndex',['../dc/d7b/structPlayer.html#ac91315616f4ad403c6face4f8790c68d',1,'Player']]],
-  ['currentstate_10',['currentState',['../d2/d3d/structGameState.html#a7aaeec31cfc3ac5268711c33896fe18f',1,'GameState']]],
-  ['cursor_11',['cursor',['../df/dd7/structSlider.html#a275f3826dcc7aeb875be76feed365c78',1,'Slider::cursor'],['../de/de9/structGame.html#a718b25063a2b739e7fd0c886c2509269',1,'Game::cursor']]],
-  ['cursor_5fhover_12',['cursor_hover',['../de/de9/structGame.html#a8368793aa6f05e1a40a64eab95757bf5',1,'Game']]],
-  ['cursorcolor_13',['cursorColor',['../df/dd7/structSlider.html#afac1472537743bb654e1ebd4b9ac6a55',1,'Slider']]]
+  ['currenthpwidth_10',['currentHPWidth',['../dd/d1a/structIMG__ICMons.html#ab0a6b034b9d690faf5f190d50d929df4',1,'IMG_ICMons']]],
+  ['currentstate_11',['currentState',['../d2/d3d/structGameState.html#a7aaeec31cfc3ac5268711c33896fe18f',1,'GameState']]],
+  ['cursor_12',['cursor',['../df/dd7/structSlider.html#a275f3826dcc7aeb875be76feed365c78',1,'Slider::cursor'],['../de/de9/structGame.html#a718b25063a2b739e7fd0c886c2509269',1,'Game::cursor']]],
+  ['cursor_5fhover_13',['cursor_hover',['../de/de9/structGame.html#a8368793aa6f05e1a40a64eab95757bf5',1,'Game']]],
+  ['cursorcolor_14',['cursorColor',['../df/dd7/structSlider.html#afac1472537743bb654e1ebd4b9ac6a55',1,'Slider']]]
 ];

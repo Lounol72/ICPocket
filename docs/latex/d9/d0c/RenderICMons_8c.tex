@@ -6,7 +6,8 @@ Fonctions de gestion des sprites ICMon.
 
 
 {\ttfamily \#include "{}../include/\+Render\+ICMons.\+h"{}}\newline
-Graphe des dépendances par inclusion de Render\+ICMons.\+c\+:\nopagebreak
+Graphe des dépendances par inclusion de Render\+ICMons.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -19,7 +20,9 @@ Graphe des dépendances par inclusion de Render\+ICMons.\+c\+:\nopagebreak
 static SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{RenderICMons_8c_afdfe4b7c189ed92c98f653bcfedcb335}{flip\+Surface\+Horizontal}} (SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*}surface)
 \begin{DoxyCompactList}\small\item\em Retourne horizontalement une surface. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structIMG__ICMons}{IMG\+\_\+\+ICMons}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{RenderICMons_8c_ac4e6519f6e42e14df90574527af9e3f8}{init\+ICMon\+Sprite}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Rect sprite\+Rect, SDL\+\_\+\+Rect name\+Rect, SDL\+\_\+\+Rect pv\+Rect, \mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}poke, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font, int team)
-\begin{DoxyCompactList}\small\item\em Initialise le sprite d\textquotesingle{}un ICMon. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Charge un fichier audio à partir d\textquotesingle{}une ligne spécifique. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{RenderICMons_8c_a59416d9326ffdcab2c4bc4b71c422783}{update\+PVBar}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}poke)
+\item 
 void \mbox{\hyperlink{RenderICMons_8c_a1f0630ab702e1360f9f72e55ac3a347e}{render\+ICMons\+Sprite}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}poke)
 \begin{DoxyCompactList}\small\item\em Rendu du sprite ICMon sur la fenêtre. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{RenderICMons_8c_ad5893493e984d32da31956aa3cb09ca8}{destroy\+ICMons\+Sprite}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}poke)
@@ -81,9 +84,21 @@ SDL\+\_\+\+Surface\texorpdfstring{$\ast$}{*} La surface retournée, ou NULL en c
 
 
 
-Initialise le sprite d\textquotesingle{}un ICMon. 
+Charge un fichier audio à partir d\textquotesingle{}une ligne spécifique. 
 
 Initialise un sprite ICMons.
+
+Cette fonction charge un fichier audio WAV à partir d\textquotesingle{}une ligne spécifique d\textquotesingle{}un fichier CSV.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em line} & La ligne du fichier CSV contenant le chemin du fichier audio. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Mix\+\_\+\+Chunk\texorpdfstring{$\ast$}{*} Le pointeur vers le fichier audio chargé, ou NULL en cas d\textquotesingle{}erreur.
+\end{DoxyReturn}
+Initialise le sprite d\textquotesingle{}un ICMon.
 
 Cette fonction crée et initialise le sprite associé à un poke, incluant le chargement de l\textquotesingle{}image, le retournement horizontal si nécessaire, la création des textures, ainsi que la configuration des textes et barres de points de vie.
 
@@ -151,3 +166,9 @@ Cette fonction met à jour la taille et la position du sprite, du nom et de la b
 {\em scaleY} & L\textquotesingle{}échelle appliquée sur l\textquotesingle{}axe vertical. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{RenderICMons_8c_a59416d9326ffdcab2c4bc4b71c422783}\label{RenderICMons_8c_a59416d9326ffdcab2c4bc4b71c422783} 
+\index{RenderICMons.c@{RenderICMons.c}!updatePVBar@{updatePVBar}}
+\index{updatePVBar@{updatePVBar}!RenderICMons.c@{RenderICMons.c}}
+\doxysubsubsection{\texorpdfstring{updatePVBar()}{updatePVBar()}}
+{\footnotesize\ttfamily static void update\+PVBar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{poke }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+

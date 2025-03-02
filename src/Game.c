@@ -109,17 +109,17 @@ void initGame(Window *win) {
     initText(win);
 
     /* Chargement et configuration des curseurs */
-    game.cursor = IMG_Load("assets/Characters/Lou.png");
+    game.cursor = IMG_Load("assets/pointer_a.png");
     if (!game.cursor) {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
-                         "❌ Erreur : Impossible de charger le curseur 'Lou.png'.");
+                         "❌ Erreur : Impossible de charger le curseur 'pointer_a.png'.");
         return;
     }
     SDL_SetCursor(SDL_CreateColorCursor(game.cursor, 0, 0));
-    game.cursor_hover = IMG_Load("assets/pointer_d.png");
+    game.cursor_hover = IMG_Load("assets/hand_point.png");
     if (!game.cursor_hover) {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
-                         "❌ Erreur : Impossible de charger le curseur 'Lou_hover.png'.");
+                         "❌ Erreur : Impossible de charger le curseur 'hand_point.png'.");
         return;
     }
 }

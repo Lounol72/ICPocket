@@ -11,7 +11,8 @@ Représente un sprite ICMons dans l\textquotesingle{}application.
 
 
 
-Graphe de collaboration de IMG\+\_\+\+ICMons\+:\nopagebreak
+Graphe de collaboration de IMG\+\_\+\+ICMons\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,15 +26,21 @@ SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structIMG__ICMon
 \item 
 SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structIMG__ICMons_aca5f72f238f579cbf502c1f323a4d3ba}{ICMon\+Texture}}
 \item 
+Mix\+\_\+\+Chunk \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structIMG__ICMons_a82f16e87712b6dcce9f7d243dccfde1a}{ICMon\+Sound}}
+\item 
 SDL\+\_\+\+Rect \mbox{\hyperlink{structIMG__ICMons_a992f76fe06dfeb67fd0baf7f257177b5}{rect}}
 \item 
 SDL\+\_\+\+Rect \mbox{\hyperlink{structIMG__ICMons_a59ff78849260d7a61cbc9bed404134f7}{initial\+Rect}}
 \item 
 \mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structIMG__ICMons_aebb4857364a22bdf15be0b7d0c3cfba3}{PVText}}
 \item 
+\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structIMG__ICMons_ac2130247567c14b271c24a17f26db2e5}{Lvl\+Text}}
+\item 
 SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structIMG__ICMons_acb7140b981aa01e0ad9837ab9e56c463}{PVbar\+Texture}}
 \item 
 SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structIMG__ICMons_aedc2c4d60f1716f6294db1f02c0a6608}{PVbar\+Texture\+Back}}
+\item 
+float \mbox{\hyperlink{structIMG__ICMons_ab0a6b034b9d690faf5f190d50d929df4}{current\+HPWidth}}
 \item 
 SDL\+\_\+\+Rect \mbox{\hyperlink{structIMG__ICMons_a920729e4a0e89e6a983e2822d57c922a}{PVRect}}
 \item 
@@ -53,7 +60,19 @@ Représente un sprite ICMons dans l\textquotesingle{}application.
 Cette structure contient des informations sur un sprite ICMons, y compris ses textures, sa position et les éléments de texte associés. 
 
 \doxysubsection{Documentation des données membres}
-\Hypertarget{structIMG__ICMons_aca5f72f238f579cbf502c1f323a4d3ba}\label{structIMG__ICMons_aca5f72f238f579cbf502c1f323a4d3ba} 
+\Hypertarget{structIMG__ICMons_ab0a6b034b9d690faf5f190d50d929df4}\label{structIMG__ICMons_ab0a6b034b9d690faf5f190d50d929df4} 
+\index{IMG\_ICMons@{IMG\_ICMons}!currentHPWidth@{currentHPWidth}}
+\index{currentHPWidth@{currentHPWidth}!IMG\_ICMons@{IMG\_ICMons}}
+\doxysubsubsection{\texorpdfstring{currentHPWidth}{currentHPWidth}}
+{\footnotesize\ttfamily float IMG\+\_\+\+ICMons\+::current\+HPWidth}
+
+Pourcentage de vie de l\textquotesingle{}ICMons. \Hypertarget{structIMG__ICMons_a82f16e87712b6dcce9f7d243dccfde1a}\label{structIMG__ICMons_a82f16e87712b6dcce9f7d243dccfde1a} 
+\index{IMG\_ICMons@{IMG\_ICMons}!ICMonSound@{ICMonSound}}
+\index{ICMonSound@{ICMonSound}!IMG\_ICMons@{IMG\_ICMons}}
+\doxysubsubsection{\texorpdfstring{ICMonSound}{ICMonSound}}
+{\footnotesize\ttfamily Mix\+\_\+\+Chunk\texorpdfstring{$\ast$}{*} IMG\+\_\+\+ICMons\+::\+ICMon\+Sound}
+
+Son pour le sprite ICMons. \Hypertarget{structIMG__ICMons_aca5f72f238f579cbf502c1f323a4d3ba}\label{structIMG__ICMons_aca5f72f238f579cbf502c1f323a4d3ba} 
 \index{IMG\_ICMons@{IMG\_ICMons}!ICMonTexture@{ICMonTexture}}
 \index{ICMonTexture@{ICMonTexture}!IMG\_ICMons@{IMG\_ICMons}}
 \doxysubsubsection{\texorpdfstring{ICMonTexture}{ICMonTexture}}
@@ -65,7 +84,13 @@ Texture pour le sprite ICMons. \Hypertarget{structIMG__ICMons_a59ff78849260d7a61
 \doxysubsubsection{\texorpdfstring{initialRect}{initialRect}}
 {\footnotesize\ttfamily SDL\+\_\+\+Rect IMG\+\_\+\+ICMons\+::initial\+Rect}
 
-Rectangle initial pour les besoins de mise à l\textquotesingle{}échelle. \Hypertarget{structIMG__ICMons_a2686bcf03f4286886383b8cd5f33415b}\label{structIMG__ICMons_a2686bcf03f4286886383b8cd5f33415b} 
+Rectangle initial pour les besoins de mise à l\textquotesingle{}échelle. \Hypertarget{structIMG__ICMons_ac2130247567c14b271c24a17f26db2e5}\label{structIMG__ICMons_ac2130247567c14b271c24a17f26db2e5} 
+\index{IMG\_ICMons@{IMG\_ICMons}!LvlText@{LvlText}}
+\index{LvlText@{LvlText}!IMG\_ICMons@{IMG\_ICMons}}
+\doxysubsubsection{\texorpdfstring{LvlText}{LvlText}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structText}{Text}}\texorpdfstring{$\ast$}{*} IMG\+\_\+\+ICMons\+::\+Lvl\+Text}
+
+Objet \doxylink{structText}{Text} pour afficher le lvl de l\textquotesingle{}ICMons. \Hypertarget{structIMG__ICMons_a2686bcf03f4286886383b8cd5f33415b}\label{structIMG__ICMons_a2686bcf03f4286886383b8cd5f33415b} 
 \index{IMG\_ICMons@{IMG\_ICMons}!nameInitialRect@{nameInitialRect}}
 \index{nameInitialRect@{nameInitialRect}!IMG\_ICMons@{IMG\_ICMons}}
 \doxysubsubsection{\texorpdfstring{nameInitialRect}{nameInitialRect}}
