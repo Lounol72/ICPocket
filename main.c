@@ -9,60 +9,47 @@
 
 int main(int argc, char *argv[]) {
     if(argc > 1 && strcmp(argv[1], "-debug") == 0) {
-        printf("🟢 Starting ICPocket in debug mode...\n");
-        
-        // Initialisation SDL avec vérification
-        if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-            printf("❌ SDL Init failed: %s\n", SDL_GetError());
-            return 1;
-        }
-
-        SDL_Window *window = SDL_CreateWindow("ICPocket Debug Mode", 
-                                            SDL_WINDOWPOS_CENTERED, 
-                                            SDL_WINDOWPOS_CENTERED, 
-                                            WINDOWS_W, WINDOWS_H, 
-                                            SDL_WINDOW_SHOWN);
-        if (!window) {
-            printf("❌ Window creation failed: %s\n", SDL_GetError());
-            return 1;
-        }
-
-        SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
-        if (!renderer) {
-            printf("❌ Renderer creation failed: %s\n", SDL_GetError());
-            SDL_DestroyWindow(window);
-            return 1;
-        }
-
-        // Initialisation des composants avec vérification
-        Map *map = initMap(renderer, "assets/Tileset/Map/MapFloor.png");
-        if (!map) {
-            printf("❌ Map initialization failed\n");
-            return 1;
-        }
-
-        Player *player = createPlayer(renderer, "assets/Characters/Character 2.png");
-        if (!player) {
-            printf("❌ Player initialization failed\n");
-            return 1;
-        }
-
-        // Debug info initiale
-        printf("\n📊 Debug Information:\n");
+        printf("🟢 Starting ICPocket in debug mode...\n\n");
+        printf("📊 Debug Information:\n");
         printf("Window size: %dx%d\n", WINDOWS_W, WINDOWS_H);
         printf("Tile size: %dx%d\n", TILE_SIZE_W_SCALE, TILE_SIZE_H_SCALE);
         printf("Matrix size: %dx%d\n", MAP_WIDTH, MAP_HEIGHT);
 
+        SDL_Init(SDL_INIT_VIDEO);
+        TTF_Init();  // Initialiser SDL_ttf
+
+        SDL_Window *window = SDL_CreateWindow("ICPocket Debug",
+            SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+            WINDOWS_W, WINDOWS_H, SDL_WINDOW_SHOWN);
+        SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+        
+        // Charger la police
+        TTF_Font* font = TTF_OpenFont("assets/fonts/PressStart2P-Regular.ttf", 16);
+        if (!font) {
+            printf("Erreur chargement police: %s\n", TTF_GetError());
+            return 1;
+        }
+
         SDL_Event event;
+        SDL_Color textColor = {255, 255, 255, 255}; // Blanc
+        ScrollingText* dialogueText = createScrollingText(
+            "Bonjour ! Je suis le Professeur Chen. Bienvenue dans le monde des ICMons !"
+            ,
+            font,
+            textColor,
+            50,  // Position X
+            WINDOWS_H - 200,  // Position Y (un peu plus haut pour avoir de la place pour plusieurs lignes)
+            50,   // Délai entre caractères (ms)
+            300   // Largeur du texte
+        );
+
         int running = 1;
         Uint32 lastTime = SDL_GetTicks();
         float deltaTime = 0.0f;
         int frameCount = 0;
         Uint32 fpsLastTime = SDL_GetTicks();
         float fps = 0.0f;
-        
-        Camera* camera = createCamera(WINDOWS_W, WINDOWS_H);
-        
+
         while(running) {
             Uint32 currentTime = SDL_GetTicks();
             deltaTime = (currentTime - lastTime) / 1000.0f;
@@ -74,10 +61,7 @@ int main(int argc, char *argv[]) {
                 fps = frameCount * 1000.0f / (currentTime - fpsLastTime);
                 frameCount = 0;
                 fpsLastTime = currentTime;
-                
-                // Afficher les infos de performance une fois par seconde
-                printf("\r⚡ FPS: %.1f | Player Pos: [%d,%d] | State: %d  | DeltaTime: %.3f", 
-                       fps, player->matrixX, player->matrixY, player->state, deltaTime);
+                printf("\r⚡ FPS: %.1f | DeltaTime: %.3f", fps, deltaTime);
                 fflush(stdout);
             }
 
@@ -85,86 +69,32 @@ int main(int argc, char *argv[]) {
                 if(event.type == SDL_QUIT) {
                     running = 0;
                 }
-            }
-
-            // Ne traiter les inputs que si le joueur n'est PAS en mouvement
-            if (!player->isMovingToTarget) {
-                const Uint8 *keyState = SDL_GetKeyboardState(NULL);
-                int newMatrixX = player->matrixX;
-                int newMatrixY = player->matrixY;
-                PlayerState newState = player->state;
-                bool shouldMove = false;
-
-                if (keyState[SDL_SCANCODE_RIGHT]) {
-                    if(newMatrixX < MAP_WIDTH - 1 && !player->isMovingToTarget) {
-                        newMatrixX++;
-                        newState = WALK_RIGHT;
-                        shouldMove = true;
+                if(event.type == SDL_KEYDOWN) {
+                    if(event.key.keysym.scancode == SDL_SCANCODE_SPACE) {
+                        skipScrollingText(dialogueText);
                     }
-                }
-                else if (keyState[SDL_SCANCODE_LEFT]) {
-                    if(newMatrixX > 0 && !player->isMovingToTarget) {
-                        newMatrixX--;
-                        newState = WALK_LEFT;
-                        shouldMove = true;
-                    }
-                }
-                else if (keyState[SDL_SCANCODE_DOWN]) {
-                    if(newMatrixY < MAP_HEIGHT - 1 && !player->isMovingToTarget) {
-                        newMatrixY++;
-                        newState = WALK_DOWN;
-                        shouldMove = true;
-                    }
-                }
-                else if (keyState[SDL_SCANCODE_UP]) {
-                    if(newMatrixY > 0 && !player->isMovingToTarget) {
-                        newMatrixY--;
-                        newState = WALK_UP;
-                        shouldMove = true;
-                    }
-                }
-
-                if (shouldMove && map->mat[newMatrixY][newMatrixX] != COLLISION) {
-                    // Sauvegarder la position de départ
-                    player->startX = player->position.x;
-                    player->startY = player->position.y;
-                    
-                    // Définir la cible
-                    player->targetMatrixX = newMatrixX;
-                    player->targetMatrixY = newMatrixY;
-                    player->targetX = newMatrixX * TILE_SIZE_W_SCALE;
-                    player->targetY = newMatrixY * TILE_SIZE_H_SCALE;
-                    
-                    // Initialiser le mouvement
-                    player->state = newState;
-                    player->isMovingToTarget = true;
-                    player->interpolationTime = 0.0f;
                 }
             }
-
-            // Mettre à jour la position avec interpolation
-            updatePlayerPosition(player, deltaTime);
-            updatePlayerAnimation(player, deltaTime);
-
-            // Mettre à jour la caméra pour suivre le joueur
-            updateCamera(camera, player->position.x, player->position.y, deltaTime);
 
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
             SDL_RenderClear(renderer);
-
-            // Modifier les fonctions de rendu pour utiliser la caméra
-            renderMapWithCamera(map, renderer, camera);
-            renderPlayerWithCamera(player, renderer, camera);
+            
+            updateScrollingText(dialogueText, renderer);
+            renderScrollingText(dialogueText, renderer);
             
             SDL_RenderPresent(renderer);
         }
 
         printf("\n👋 Exiting debug mode...\n");
-        destroyMap(map);
-        destroyPlayer(player);
-        destroyCamera(camera);
+        
+        // Nettoyage
+        if (dialogueText) {
+            destroyScrollingText(dialogueText);
+        }
+        TTF_CloseFont(font);
         SDL_DestroyRenderer(renderer);
         SDL_DestroyWindow(window);
+        TTF_Quit();
         SDL_Quit();
     }
     else {

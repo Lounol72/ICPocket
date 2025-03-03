@@ -369,11 +369,6 @@ void handleNewGameEvent(Window *win, SDL_Event *event) {
 
         updateICButtons(win, &game.battleState.rouge);
         
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, 
-            "Red team PV: %d, Blue team PV: %d", 
-            game.battleState.rouge.team[0].current_pv,
-            game.battleState.bleu.team[0].current_pv);
-            
         game.gameState.initialized = 1;
     } else {
         changeState(win, &game.stateHandlers[3].state);

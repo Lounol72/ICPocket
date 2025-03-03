@@ -325,6 +325,11 @@ void mainLoop(Window *win) {
         }
         if (game.gameState.currentState == MAP) {
             renderMap(win);
+        } else {
+            SDL_RenderClear(win->renderer);
+            render(win);
+            updateCurrentButton();
+            SDL_RenderPresent(win->renderer);
         }
         game.deltaTime = (SDL_GetTicks() - frameStart) / 1000.0f;
         

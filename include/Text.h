@@ -29,6 +29,21 @@ typedef struct Text {
     int is_dynamic;          /**< Indique si le texte est dynamique (temporaire). */
 } Text;
 
+typedef struct {
+    char* fullText;           // Texte complet à afficher
+    char* currentText;        // Texte actuellement affiché
+    int currentLength;        // Longueur actuelle du texte affiché
+    int fullLength;          // Longueur totale du texte
+    int isComplete;         // Si le texte est entièrement affiché
+    Uint32 lastCharTime;     // Temps du dernier caractère affiché
+    Uint32 charDelay;        // Délai entre chaque caractère (en ms)
+    SDL_Texture* texture;    // Texture du texte
+    SDL_Rect position;       // Position du texte
+    TTF_Font* font;          // Police utilisée
+    SDL_Color color;         // Couleur du texte
+    int width;               // Largeur du texte
+} ScrollingText;
+
 /** Éléments de texte globaux utilisés dans l'application. */
 extern Text title;           /**< L'élément de texte pour le titre. */
 extern Text NewGameText;     /**< L'élément de texte pour le nouveau jeu. */
@@ -106,5 +121,59 @@ void updateText(Text *text, const char *newText, SDL_Renderer *renderer);
  * @param data Données supplémentaires pour changer la vitesse du texte.
  */
 void changeTextSpeed(Window *win, void *data);
+
+/**
+ * @brief Crée un nouvel objet de texte défilant.
+ * 
+ * Cette fonction crée un nouvel objet de texte défilant avec les paramètres spécifiés.
+ * 
+ * @param text Le contenu textuel.
+ * @param font La police utilisée pour rendre le texte.
+ * @param color La couleur du texte.
+ * @param x La position horizontale du texte.
+ * @param y La position verticale du texte.
+ * @param charDelay Le délai entre chaque caractère (en ms).
+ * @return Un pointeur vers l'objet ScrollingText créé.
+ */
+
+ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int x, int y, int charDelay, int width);
+
+/**
+ * @brief Met à jour un objet de texte défilant.
+ * 
+ * Cette fonction met à jour un objet de texte défilant avec les paramètres spécifiés.
+ * 
+ * @param text Un pointeur vers l'objet ScrollingText.
+ * @param renderer Le renderer SDL.
+ */
+void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer);
+
+/**
+ * @brief Rend un objet de texte défilant.
+ * 
+ * Cette fonction rend un objet de texte défilant avec les paramètres spécifiés.
+ * 
+ * @param text Un pointeur vers l'objet ScrollingText.
+ * @param renderer Le renderer SDL.
+ */
+void renderScrollingText(ScrollingText* text, SDL_Renderer* renderer);
+
+/**
+ * @brief Détruit un objet de texte défilant.
+ * 
+ * Cette fonction détruit un objet de texte défilant avec les paramètres spécifiés.
+ * 
+ * @param text Un pointeur vers l'objet ScrollingText.
+ */
+void destroyScrollingText(ScrollingText* text);
+
+/**
+ * @brief Passe à la suite un objet de texte défilant.
+ * 
+ * Cette fonction passe à la suite un objet de texte défilant avec les paramètres spécifiés.
+ * 
+ * @param text Un pointeur vers l'objet ScrollingText.
+ */
+void skipScrollingText(ScrollingText* text);
 
 #endif /* TEXT_H */

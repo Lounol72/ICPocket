@@ -1,5 +1,7 @@
 #include "../include/Text.h"
 #include "../include/Window.h"
+#include <string.h>
+#include <stdlib.h>
 
 static void StayScaled(TTF_Font *font, Text *text, SDL_Rect *rect, SDL_Rect *initialRect) {
     if (!text || !font || !rect || !initialRect) return;
@@ -135,4 +137,111 @@ void changeTextSpeed(struct Window *win, void *data) {
     float *speed = (float *)data;
     win->textSpeed = *speed;
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "🚀 Vitesse du texte changée à %.2f", *speed);
+}
+
+ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int x, int y, int charDelay, int width) {
+    ScrollingText* scrollText = malloc(sizeof(ScrollingText));
+    if (!scrollText) return NULL;
+
+    scrollText->fullText = text;
+    if (!scrollText->fullText) {
+        free(scrollText);
+        return NULL;
+    }
+
+    scrollText->currentText = malloc(strlen(text) + 1);
+    if (!scrollText->currentText) {
+        free(scrollText->fullText);
+        free(scrollText);
+        return NULL;
+    }
+
+    scrollText->fullLength = strlen(text);
+    scrollText->currentLength = 0;
+    scrollText->isComplete = false;
+    scrollText->lastCharTime = SDL_GetTicks();
+    scrollText->charDelay = (Uint32)charDelay;
+    scrollText->font = font;
+    scrollText->color = color;
+    scrollText->texture = NULL;
+    scrollText->position.x = x;
+    scrollText->position.y = y;
+    scrollText->position.w = 0;
+    scrollText->position.h = 0;
+    scrollText->currentText[0] = '\0';
+    scrollText->width = width;
+    return scrollText;
+}
+
+void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
+    if (!text || !renderer || text->isComplete) return;
+
+    Uint32 currentTime = SDL_GetTicks();
+    
+    if (currentTime - text->lastCharTime >= text->charDelay) {
+        if (text->currentLength < text->fullLength) {
+            text->currentText[text->currentLength] = text->fullText[text->currentLength];
+            text->currentText[text->currentLength + 1] = '\0';
+            text->currentLength++;
+            text->lastCharTime = currentTime;
+
+            if (text->texture) {
+                SDL_DestroyTexture(text->texture);
+                text->texture = NULL;
+            }
+            
+            // Augmentons la largeur maximale pour éviter les retours à la ligne non désirés
+            // Utilisons presque toute la largeur de la fenêtre
+            SDL_Surface* surface = TTF_RenderUTF8_Blended_Wrapped(
+                text->font,
+                text->currentText,
+                text->color,
+                text->width  // Laissons une marge de 50 pixels de chaque côté
+            );
+            
+            if (surface) {
+                text->texture = SDL_CreateTextureFromSurface(renderer, surface);
+                text->position.w = surface->w;
+                text->position.h = surface->h;
+                SDL_FreeSurface(surface);
+            }
+        } else {
+            text->isComplete = true;
+        }
+    }
+}
+
+void renderScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
+    if (!text || !renderer || !text->texture) return;
+    SDL_RenderCopy(renderer, text->texture, NULL, &text->position);
+}
+
+void skipScrollingText(ScrollingText* text) {
+    if (!text || text->isComplete) return;
+    
+    strncpy(text->currentText, text->fullText, text->fullLength);
+    text->currentText[text->fullLength] = '\0';
+    text->currentLength = text->fullLength;
+    text->isComplete = true;
+}
+
+void destroyScrollingText(ScrollingText* text) {
+    if (!text) return;
+    
+    if (text->texture) {
+        SDL_DestroyTexture(text->texture);
+        text->texture = NULL;
+    }
+    
+    if (text->fullText) {
+        free(text->fullText);
+        text->fullText = NULL;
+    }
+    
+    if (text->currentText) {
+        free(text->currentText);
+        text->currentText = NULL;
+    }
+    
+    free(text);
 }
