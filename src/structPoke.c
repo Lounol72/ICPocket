@@ -36,7 +36,7 @@ void generatePoke(t_Poke *p)
 void generate_poke(t_Poke *p, int line)
 {
 	FILE *dataPoke;
-	dataPoke = fopen("src/data/dataPoke.csv", "r");
+	dataPoke = fopen("data/dataPoke.csv", "r");
 	if (dataPoke == NULL){
 		printf("Erreur : impossible d'ouvrir le poke.\n");
 		exit(1);
@@ -136,7 +136,7 @@ t_Move generateRandomMove()
 /*For now, the generation is random*/
 t_Move generateRandomMoveBetter(t_Poke *p){
 	FILE *dataMove;
-	dataMove = fopen("src/data/dataMoves.csv", "r");
+	dataMove = fopen("data/dataMoves.csv", "r");
 	if (dataMove == NULL){
 		printf("Erreur : impossible d'ouvrir le fichier des moves.\n");
 		exit(1);

@@ -1,5 +1,7 @@
 #include "../include/Map.h"
 #include "../include/Camera.h"
+#include <stdio.h>
+#include <string.h>
 
 static void initCollisionMap(Map *map) {
     for (int i = 0; i < MAP_HEIGHT; i++) {

@@ -32,7 +32,7 @@ typedef enum AppState_s {
  */
 
 #if defined(SDL_RENDERER_PRESENTVSYNC)
-    #define renderer_flags DEFAULT_RENDERER_FLAGS /**< Drapeaux par défaut du renderer si VSYNC est disponible. */
+    #define renderer_flags DEFAULT_RENDERER_VSYNC /**< Drapeaux par défaut du renderer si VSYNC est disponible. */
 //#elif defined(__linux__)
 //    #define renderer_flags SDL_RENDERER_ACCELERATED /**< Drapeaux du renderer pour Linux. */
 #else

@@ -4,6 +4,7 @@
  */
 
 #include "../include/RenderICMons.h"
+#include <math.h>
 
 /**
  * @brief Retourne horizontalement une surface.

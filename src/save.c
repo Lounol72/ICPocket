@@ -52,7 +52,7 @@ void sauvegarder2(t_Team * joueur,t_Team * adverse){
     */
 void sauvegarder(char * nomSave ,t_Team * joueur,t_Team * adverse){
     char nomFichier[1024];
-    strcpy(nomFichier , "src/data/save/");
+    strcpy(nomFichier , "data/save/");
     strcat(nomFichier,nomSave);
     strcat(nomFichier,".txt");
     FILE *fichier = fopen(nomFichier, "w");
@@ -86,7 +86,7 @@ void sauvegarder(char * nomSave ,t_Team * joueur,t_Team * adverse){
 //Charger une sauvegarde
 void charger(char *nomSave, t_Team *joueur, t_Team *dresseur) {
     char filePath[256];
-    snprintf(filePath, sizeof(filePath), "src/data/save/%s.txt", nomSave);
+    snprintf(filePath, sizeof(filePath), "data/save/%s.txt", nomSave);
     FILE *fichier = fopen(filePath, "r");
     if (fichier == NULL) {
         printf("Erreur : impossible d'ouvrir le fichier de sauvegarde.\n");

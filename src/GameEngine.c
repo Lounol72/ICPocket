@@ -127,9 +127,9 @@ void render(Window *win) {
         
         SDL_Rect renderQuad = {0, 0, win->width, (int)(win->height * 0.722)};
         SDL_RenderCopy(win->renderer, game.ui[3].background, NULL, &renderQuad);
-        if (game.battleState.rouge.team[0].name[0] != ' ')
+        if (strlen(game.battleState.rouge.team[0].name) > 0)
             renderICMonsSprite(win, &(game.battleState.rouge.team[0]));
-        if (game.battleState.bleu.team[0].name[0] != ' ')
+        if (strlen(game.battleState.bleu.team[0].name) > 0)
             renderICMonsSprite(win, &(game.battleState.bleu.team[0]));
     }
     else if (game.ui[game.gameState.currentState].background) {

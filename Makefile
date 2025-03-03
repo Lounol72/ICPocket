@@ -34,6 +34,14 @@ CFLAGS    = -Wall -Wextra -Werror -std=c11 -g `sdl2-config --cflags` -I/usr/incl
 # Bibliothèques à lier
 LIBS      = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lpthread
 
+# Ajout du compilateur Windows
+WINCC     = x86_64-w64-mingw32-gcc
+WINCFLAGS = -Wall -Wextra -std=c11 -g -pthread -DSDL_MAIN_HANDLED -I$(INCLUDE_DIR) -I/usr/x86_64-w64-mingw32/include/SDL2
+WINLIBS   = -L$(shell pwd)/windowsDLL -lmingw32 -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lm -static-libgcc -static-libstdc++ -lpthread
+
+# Fichiers objets Windows
+WIN_OBJS  = $(patsubst %.c,$(OBJ_DIR)/%_win.o,$(notdir $(SRCS)))
+
 # Cibles principales
 all: 
 	@clear
@@ -94,18 +102,40 @@ package-linux:
 	@echo "📦 Création du package linux..."
 	@mkdir -p $(BIN_DIR)/libs >/dev/null 2>&1
 	@ldd $(BIN_DIR)/$(MAIN_EXE) | awk '{print $$3}' | grep -v "ld-linux" | grep -v "linux-vdso.so" | xargs -I{} cp -v {} $(BIN_DIR)/libs/ >/dev/null 2>&1 || true
-	@echo '#!/bin/bash' > $(BIN_DIR)/run.sh
-	@echo 'cd "$(dirname "$$0")"' >> $(BIN_DIR)/run.sh
-	@echo 'export LD_LIBRARY_PATH=$$(pwd)/libs' >> $(BIN_DIR)/run.sh
-	@echo './bin/main "$$@"' >> $(BIN_DIR)/run.sh
-	@chmod +x $(BIN_DIR)/run.sh >/dev/null 2>&1
-	@tar -czf ICPocket.tar.gz $(BIN_DIR) assets README.md data >/dev/null 2>&1 || true
+	@echo '#!/bin/bash' > run.sh
+	@echo 'cd "$(dirname "$$0")"' >> run.sh
+	@echo 'export LD_LIBRARY_PATH=$$(pwd)/$(BIN_DIR)/libs' >> run.sh
+	@echo "./$(BIN_DIR)/$(MAIN_EXE) \"$$@\"" >> run.sh
+	@chmod -R 775 $(BIN_DIR) >/dev/null 2>&1
+	@chmod -R 775 assets >/dev/null 2>&1
+	@chmod -R 777 data >/dev/null 2>&1
+	@chmod +x run.sh
+	@chmod +x $(BIN_DIR)/$(MAIN_EXE)
+	@tar -czf ICPocket.tar.gz run.sh $(BIN_DIR) assets data README.md >/dev/null 2>&1 || true
 	@echo "✅ Package linux créé : ICPocket.tar.gz"
 
 package-windows:
 	@echo "📦 Création du package windows..."
-	@mkdir -p $(BIN_DIR)/libs >/dev/null 2>&1
-	
+	@mkdir -p $(BIN_DIR) >/dev/null 2>&1
+	@mkdir -p $(OBJ_DIR) >/dev/null 2>&1
+	@echo "@echo off" > run.bat
+	@echo "cd %%~dp0" >> run.bat
+	@echo "set PATH=%%~dp0$(BIN_DIR);%%PATH%%" >> run.bat
+	@echo "$(BIN_DIR)\$(MAIN_EXE).exe %%*" >> run.bat
+	@echo "🔨 Compilation pour Windows en cours..."
+	@$(WINCC) $(WINCFLAGS) -c main.c -o $(OBJ_DIR)/main_win.o
+	@for src in $(SRCS); do \
+		$(WINCC) $(WINCFLAGS) -c $$src -o $(OBJ_DIR)/$$(basename $$src .c)_win.o; \
+	done
+	@$(WINCC) -pthread $(OBJ_DIR)/*_win.o $(WINLIBS) -o $(BIN_DIR)/$(MAIN_EXE).exe || (echo "❌ Erreur de compilation Windows" && exit 1)
+	@cp windowsDLL/*.dll $(BIN_DIR)/ 2>/dev/null || true
+	@cp /usr/x86_64-w64-mingw32/lib/libwinpthread-1.dll $(BIN_DIR)/ 2>/dev/null || true
+	@chmod -R 775 $(BIN_DIR) >/dev/null 2>&1
+	@chmod -R 775 assets >/dev/null 2>&1
+	@chmod -R 777 data >/dev/null 2>&1
+	@zip -r ICPocket-windows.zip run.bat $(BIN_DIR) assets data README.md >/dev/null 2>&1 || true
+	@echo "✅ Package windows créé : ICPocket-windows.zip"
+
 doxygen:
 	@echo "🧹 Nettoyage en cours..."
 	@rm -rf docs/html
