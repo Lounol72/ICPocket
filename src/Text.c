@@ -139,7 +139,7 @@ void changeTextSpeed(struct Window *win, void *data) {
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "🚀 Vitesse du texte changée à %.2f", *speed);
 }
 
-ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int x, int y, int charDelay, int width) {
+ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int x, int y, int charDelay, int width, SDL_Rect backgroundPosition, SDL_Renderer* renderer) {
     ScrollingText* scrollText = malloc(sizeof(ScrollingText));
     if (!scrollText) return NULL;
 
@@ -168,9 +168,47 @@ ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, 
     scrollText->position.y = y;
     scrollText->position.w = 0;
     scrollText->position.h = 0;
+    scrollText->backgroundPosition = backgroundPosition;
+    scrollText->initialBackgroundPosition = backgroundPosition;
+    SDL_Surface* backgroundSurface = SDL_CreateRGBSurface(
+        0,
+        backgroundPosition.w,
+        backgroundPosition.h,
+        32,
+        0, 0, 0, 0
+    );
+    if (!backgroundSurface) {
+        fprintf(stderr, "SDL_CreateRGBSurface error: %s\n", SDL_GetError());
+        free(scrollText->currentText);
+        free(scrollText->fullText);
+        free(scrollText);
+        return NULL;
+    }
+
+    SDL_FillRect(
+        backgroundSurface,
+        NULL,
+        SDL_MapRGBA(backgroundSurface->format, 128, 128, 128, 255)
+    );
+    scrollText->background = SDL_CreateTextureFromSurface(renderer, backgroundSurface);
+    SDL_FreeSurface(backgroundSurface);
+
+    scrollText->initialPosition = scrollText->position;
+    scrollText->initialBackgroundPosition = scrollText->backgroundPosition;
     scrollText->currentText[0] = '\0';
     scrollText->width = width;
     return scrollText;
+}
+
+void updateScrollingTextPosition(ScrollingText* text, float scaleX, float scaleY) {
+    text->position.x = text->initialPosition.x * scaleX;
+    text->position.y = text->initialPosition.y * scaleY;
+    text->position.w = text->initialPosition.w * scaleX;
+    text->position.h = text->initialPosition.h * scaleY;
+    text->backgroundPosition.x = text->initialBackgroundPosition.x * scaleX;
+    text->backgroundPosition.y = text->initialBackgroundPosition.y * scaleY;
+    text->backgroundPosition.w = text->initialBackgroundPosition.w * scaleX;
+    text->backgroundPosition.h = text->initialBackgroundPosition.h * scaleY;
 }
 
 void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
@@ -213,7 +251,9 @@ void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
 
 void renderScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
     if (!text || !renderer || !text->texture) return;
+    SDL_RenderCopy(renderer, text->background, NULL, &text->backgroundPosition);
     SDL_RenderCopy(renderer, text->texture, NULL, &text->position);
+
 }
 
 void skipScrollingText(ScrollingText* text) {

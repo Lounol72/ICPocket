@@ -38,7 +38,11 @@ typedef struct {
     Uint32 lastCharTime;     // Temps du dernier caractère affiché
     Uint32 charDelay;        // Délai entre chaque caractère (en ms)
     SDL_Texture* texture;    // Texture du texte
+    SDL_Texture* background; // Texture du fond
     SDL_Rect position;       // Position du texte
+    SDL_Rect initialPosition; // Position initiale du texte
+    SDL_Rect backgroundPosition; // Position du fond
+    SDL_Rect initialBackgroundPosition; // Position initiale du fond
     TTF_Font* font;          // Police utilisée
     SDL_Color color;         // Couleur du texte
     int width;               // Largeur du texte
@@ -136,7 +140,7 @@ void changeTextSpeed(Window *win, void *data);
  * @return Un pointeur vers l'objet ScrollingText créé.
  */
 
-ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int x, int y, int charDelay, int width);
+ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int x, int y, int charDelay, int width, SDL_Rect backgroundPosition, SDL_Renderer* renderer);
 
 /**
  * @brief Met à jour un objet de texte défilant.

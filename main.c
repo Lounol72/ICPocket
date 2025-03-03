@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
         SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
         
         // Charger la police
-        TTF_Font* font = TTF_OpenFont("assets/fonts/PressStart2P-Regular.ttf", 16);
+        TTF_Font* font = TTF_OpenFont("assets/fonts/PressStart2P-Regular.ttf", 14);
         if (!font) {
             printf("Erreur chargement police: %s\n", TTF_GetError());
             return 1;
@@ -33,14 +33,15 @@ int main(int argc, char *argv[]) {
         SDL_Event event;
         SDL_Color textColor = {255, 255, 255, 255}; // Blanc
         ScrollingText* dialogueText = createScrollingText(
-            "Bonjour ! Je suis le Professeur Chen. Bienvenue dans le monde des ICMons !"
-            ,
+            "Bonjour ! Je suis le Professeur PI. Bienvenue dans le monde des ICMons ! Je suis le goat de cette promo !",
             font,
             textColor,
             50,  // Position X
             WINDOWS_H - 200,  // Position Y (un peu plus haut pour avoir de la place pour plusieurs lignes)
             50,   // Délai entre caractères (ms)
-            300   // Largeur du texte
+            550,  // Largeur du texte
+            (SDL_Rect){50, WINDOWS_H - 200, 550, 100}, // Position du fond
+            renderer
         );
 
         int running = 1;
