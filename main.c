@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
         SDL_Window *window = SDL_CreateWindow("ICPocket Debug",
             SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
             WINDOWS_W, WINDOWS_H, SDL_WINDOW_SHOWN);
-        SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+        SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
         
         // Charger la police
         TTF_Font* font = TTF_OpenFont("assets/fonts/PressStart2P-Regular.ttf", 16);
@@ -44,26 +44,9 @@ int main(int argc, char *argv[]) {
         );
 
         int running = 1;
-        Uint32 lastTime = SDL_GetTicks();
-        float deltaTime = 0.0f;
-        int frameCount = 0;
-        Uint32 fpsLastTime = SDL_GetTicks();
-        float fps = 0.0f;
-
+        
         while(running) {
-            Uint32 currentTime = SDL_GetTicks();
-            deltaTime = (currentTime - lastTime) / 1000.0f;
-            lastTime = currentTime;
-
-            // Calcul FPS
-            frameCount++;
-            if (currentTime - fpsLastTime >= 1000) {
-                fps = frameCount * 1000.0f / (currentTime - fpsLastTime);
-                frameCount = 0;
-                fpsLastTime = currentTime;
-                printf("\r⚡ FPS: %.1f | DeltaTime: %.3f", fps, deltaTime);
-                fflush(stdout);
-            }
+            Uint32 frameStart = SDL_GetTicks();
 
             while(SDL_PollEvent(&event)) {
                 if(event.type == SDL_QUIT) {
@@ -83,6 +66,7 @@ int main(int argc, char *argv[]) {
             renderScrollingText(dialogueText, renderer);
             
             SDL_RenderPresent(renderer);
+            manageFrameRate(frameStart);
         }
 
         printf("\n👋 Exiting debug mode...\n");
