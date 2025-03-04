@@ -279,6 +279,7 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
     slider->color = color;
     slider->cursorColor = cursorColor;
     slider->renderer = renderer;
+    slider->dragging = 0; // Initialiser le champ 'dragging'
 
     return slider;
 }
@@ -334,16 +335,36 @@ void renderSlider(Slider *slider) {
     SDL_RenderFillRect(slider->renderer, &slider->cursor);
 }
 
-int handleSliderEvent(Slider *slider, int x, int y) {
+// Supposez que la structure Slider contient un champ 'int dragging;' (0 ou 1).
+
+int handleSliderEvent(Slider *slider, SDL_Event *event) {
     if (!slider) return 0;
-    if (SDL_PointInRect(&(SDL_Point){x, y}, &(slider->rect))) {
-        slider->value = (float)(x - slider->rect.x) / slider->rect.w;
-        slider->cursor.x = slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2);
-        int volume = (int)(slider->value * SDL_MIX_MAXVOLUME);
-        Mix_VolumeMusic(volume);
-        return 1; // Interaction détectée
+    
+    switch(event->type) {
+        case SDL_MOUSEBUTTONDOWN:
+            if(SDL_PointInRect(&(SDL_Point){event->button.x, event->button.y}, &(slider->rect))) {
+                slider->dragging = 1;
+            }
+            break;
+        case SDL_MOUSEMOTION:
+            if(slider->dragging) {
+                // Mise à jour pendant que le bouton est enfoncé et que la souris bouge
+                slider->value = (float)(event->motion.x - slider->rect.x) / slider->rect.w;
+                // Contrainte pour rester dans les limites du slider
+                if (slider->value < 0) slider->value = 0;
+                if (slider->value > 1) slider->value = 1;
+                slider->cursor.x = slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2);
+                int volume = (int)(slider->value * SDL_MIX_MAXVOLUME);
+                Mix_VolumeMusic(volume);
+            }
+            break;
+        case SDL_MOUSEBUTTONUP:
+            slider->dragging = 0;
+            break;
+        default:
+            break;
     }
-    return 0;
+    return slider->dragging;
 }
 
 void updateSliderPosition(SliderList *sliders, float Scalex, float Scaley) {
