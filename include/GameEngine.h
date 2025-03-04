@@ -37,7 +37,14 @@
 
 /* ------------- Structs ------------- */
 
-
+typedef enum {
+    TURN_NONE,
+    TURN_INIT,
+    TURN_WAIT_TEXT,
+    TURN_ACTION1,
+    TURN_ACTION2,
+    TURN_FINISHED
+}BattleTurnState;
 
 /* Battle data (assuming t_Team is defined in structPoke.h or similar) */
 /**
@@ -47,9 +54,14 @@
  * Cette structure contient les équipes de combat et l'intelligence artificielle du dresseur.
  */
 typedef struct {
-    t_Team rouge;     /**< Équipe rouge. */
-    t_Team bleu;      /**< Équipe bleue. */
-    t_AI ia;          /**< Intelligence artificielle du dresseur. */
+    t_Team rouge;               /**< Équipe rouge. */
+    t_Team bleu;                /**< Équipe bleue. */
+    t_AI ia;                    /**< Intelligence artificielle du dresseur. */
+    BattleTurnState turnState;  /**< État du tour de combat. */
+    int moveRouge;              /**< Mouvement rouge. */;
+    int moveBleu;               /**< Mouvement bleu. */;
+    ScrollingText *text;        /**< Texte en cours de lecture. */
+    
 } BattleState;
 
 /* General game state info */

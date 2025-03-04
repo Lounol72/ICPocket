@@ -139,7 +139,7 @@ void changeTextSpeed(struct Window *win, void *data) {
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "🚀 Vitesse du texte changée à %.2f", *speed);
 }
 
-ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int x, int y, int charDelay, int width, SDL_Rect backgroundPosition, SDL_Renderer* renderer) {
+ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int x, int y, int charDelay, int width, SDL_Rect backgroundPosition, const char* backgroundPath, SDL_Renderer* renderer) {
     ScrollingText* scrollText = malloc(sizeof(ScrollingText));
     if (!scrollText) return NULL;
 
@@ -170,28 +170,12 @@ ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, 
     scrollText->position.h = 0;
     scrollText->backgroundPosition = backgroundPosition;
     scrollText->initialBackgroundPosition = backgroundPosition;
-    SDL_Surface* backgroundSurface = SDL_CreateRGBSurface(
-        0,
-        backgroundPosition.w,
-        backgroundPosition.h,
-        32,
-        0, 0, 0, 0
-    );
-    if (!backgroundSurface) {
-        fprintf(stderr, "SDL_CreateRGBSurface error: %s\n", SDL_GetError());
-        free(scrollText->currentText);
-        free(scrollText->fullText);
-        free(scrollText);
-        return NULL;
-    }
+    SDL_RWops* rw = SDL_RWFromFile(backgroundPath, "rb");
+    SDL_Surface* surface = IMG_LoadSizedSVG_RW(rw, backgroundPosition.w, backgroundPosition.h);
+    SDL_FreeRW(rw);
 
-    SDL_FillRect(
-        backgroundSurface,
-        NULL,
-        SDL_MapRGBA(backgroundSurface->format, 128, 128, 128, 255)
-    );
-    scrollText->background = SDL_CreateTextureFromSurface(renderer, backgroundSurface);
-    SDL_FreeSurface(backgroundSurface);
+    scrollText->background = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
 
     scrollText->initialPosition = scrollText->position;
     scrollText->initialBackgroundPosition = scrollText->backgroundPosition;

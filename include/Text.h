@@ -140,7 +140,7 @@ void changeTextSpeed(Window *win, void *data);
  * @return Un pointeur vers l'objet ScrollingText créé.
  */
 
-ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int x, int y, int charDelay, int width, SDL_Rect backgroundPosition, SDL_Renderer* renderer);
+ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int x, int y, int charDelay, int width, SDL_Rect backgroundPosition, const char* backgroundPath, SDL_Renderer* renderer);
 
 /**
  * @brief Met à jour un objet de texte défilant.
