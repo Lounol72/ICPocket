@@ -21,7 +21,7 @@ SAVE_OBJS = $(OBJ_DIR)/save.o $(OBJ_DIR)/structPoke.o $(OBJ_DIR)/duel.o $(OBJ_DI
 
 # Compilateur et options
 CC        = gcc
-CFLAGS    = -Wall -Wextra -Werror -std=c11 -g `sdl2-config --cflags` -I/usr/include/SDL2
+CFLAGS    = -Wall -Wextra -Werror -std=c11 -g `sdl2-config --cflags` -I/usr/include/SDL2 -D_POSIX_C_SOURCE=200809L
 
 # -Wall : affiche tous les warnings
 # -Wextra : affiche des warnings supplémentaires

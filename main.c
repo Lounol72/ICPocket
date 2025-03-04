@@ -60,8 +60,12 @@ int main(int argc, char *argv[]) {
 
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
             SDL_RenderClear(renderer);
+            if (dialogueText->isComplete && !strcmp(dialogueText->fullText, "Bonjour ! Je suis le Professeur PI. Bienvenue dans le monde des ICMons ! Je suis le goat de cette promo ! Ici, tu vas pouvoir apprendre à capturer des ICMons !")) {
+                resetScrollingText(dialogueText, "Bonjour !");
+                
+            }else updateScrollingText(dialogueText, renderer);
             
-            updateScrollingText(dialogueText, renderer);
+
             renderScrollingText(dialogueText, renderer);
             
             SDL_RenderPresent(renderer);

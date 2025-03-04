@@ -60,6 +60,8 @@ typedef struct {
     int moveRouge;              /**< Mouvement rouge. */;
     int moveBleu;               /**< Mouvement bleu. */;
     ScrollingText *text;        /**< Texte en cours de lecture. */
+    int first;                  /**< Indicateur de priorité. */
+    int hasAttacked;            /**< Indicateur d'attaque. */
     
 } BattleState;
 
@@ -232,5 +234,20 @@ void manageFrameRate(int frameStart);
  * Cette fonction démarre le tour de combat.
  */
 void startBattleTurn(int moveRouge, int moveBleu);
+
+/**
+ * @brief Exécute une action de combat.
+ * 
+ * Cette fonction exécute une action de combat pour l'équipe spécifiée.
+ */
+void executeAction(t_Team *attacker, t_Team *defender, int move);
+
+/**
+ * @brief Met à jour le tour de combat.
+ * 
+ * Cette fonction met à jour le tour de combat.
+ */
+void updateBattleTurn();
+
 
 #endif /* GAMEENGINE_H */

@@ -233,7 +233,7 @@ void attqButtonClicked(Window *win, void *data) {
         
         if (isAlive(&(game.battleState.rouge.team[0]))) {
             Mix_PlayChannel(2, game.battleState.rouge.team[0].img->ICMonSound, 0);
-            playATurn(&game.battleState.rouge, moveIndex, &game.battleState.bleu, AI_move_choice(&game.battleState.ia, &game.battleState.rouge));
+            startBattleTurn(moveIndex, AI_move_choice(&game.battleState.ia, &game.battleState.rouge));
             
         }
         if (!isAlive(&(game.battleState.bleu.team[0]))) {
@@ -248,7 +248,6 @@ void attqButtonClicked(Window *win, void *data) {
             }
             int x = rand() % nb_valide;
             swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
-            printPoke(&game.battleState.bleu.team[0]);
         }
         updateICButtons(win, &game.battleState.rouge);
         game.gameState.playerTurn = 0;
@@ -272,7 +271,7 @@ void changePokemon(Window *win, void *data) {
     if (testActionValidity(idx, &game.battleState.rouge)) {
         changeState(win, &game.stateHandlers[3].state);
         SDL_RenderPresent(win->renderer);
-        isAlive(&game.battleState.rouge.team[0]) ? playATurn(&game.battleState.rouge, idx, &game.battleState.bleu, AI_move_choice(&game.battleState.ia, &game.battleState.rouge)) :     swapActualAttacker(&game.battleState.rouge, idx);
+        isAlive(&game.battleState.rouge.team[0]) ? startBattleTurn(idx, AI_move_choice(&game.battleState.ia, &game.battleState.rouge)) : swapActualAttacker(&game.battleState.rouge, idx);
     }
     updateICButtons(win, &game.battleState.rouge);
     updateICMonsButtonText(win, &game.battleState.rouge);
@@ -323,6 +322,7 @@ void mainLoop(Window *win) {
         while (SDL_PollEvent(&event)) {
             game.stateHandlers[win->state].handleEvent(win, &event);
         }
+        if (game.battleState.turnState != TURN_NONE) updateBattleTurn();
         if (game.gameState.currentState == MAP) {
             renderMap(win);
         } else {
@@ -656,13 +656,17 @@ void updateMusic() {
 void startBattleTurn(int moveRouge, int moveBleu) {
     game.battleState.moveRouge = moveRouge;
     game.battleState.moveBleu  = moveBleu;
-    game.battleState.turnState = TURN_INIT;
     
+    if(!hasMoveLeft(&(game.battleState.rouge.team[0])) && isAttacking(moveRouge)) moveRouge=STRUGGLE;
+    if(!hasMoveLeft(&(game.battleState.bleu.team[0])) && isAttacking(moveBleu)) moveBleu=STRUGGLE;
+
+    game.battleState.first = PriorityForFirstPoke(&game.battleState.rouge, &game.battleState.bleu, moveRouge==STRUGGLE?&struggle:&(game.battleState.rouge.team[0].moveList[moveRouge]), moveBleu==STRUGGLE?&struggle:&(game.battleState.bleu.team[0].moveList[moveBleu]), moveRouge, moveBleu);
     // Si un texte défilant existait déjà, on le détruit pour repartir de zéro.
     if (game.battleState.text) {
         destroyScrollingText(game.battleState.text);
         game.battleState.text = NULL;
     }
+    game.battleState.turnState = TURN_INIT;
 }
 
 void updateBattleTurn() {
@@ -677,41 +681,56 @@ void updateBattleTurn() {
                     game.win->LargeFont,
                     (SDL_Color){255, 255, 255, 255},
                     50,     // Délai entre les caractères en ms
-
-                    (SDL_Rect){game.win->width -5, game.win->height - marginBottom - 10, 640, 100}, // Fond du texte
-                    "assets/text_background.png", // Chemin de l'image de fond
+                    (SDL_Rect){game.win->width  - 700, game.win->height - marginBottom - 10, 640, 100}, // Fond du texte
+                    "assets/User Interface/Grey/button_rectangle_depth_flat.png", // Chemin de l'image de fond
                     game.win->renderer
                 );
             }
-            updateScrollingText(game.battleState.text, game.win->renderer);
-            renderScrollingText(game.battleState.text, game.win->renderer);
             if (game.battleState.text->isComplete) {
                 // Une fois le texte affiché, passez à l'action du premier pokémon
-                destroyScrollingText(game.battleState.text);
-                game.battleState.text = NULL;
+                game.battleState.text->isComplete = false;
                 game.battleState.turnState = TURN_ACTION1;
             }
+            game.battleState.hasAttacked = false;
             break;
         }
         case TURN_ACTION1: {
             // Exécuter l'action du pokémon rouge
-            if (isAlive(&(game.battleState.rouge.team[0]))) {
+            if (!game.battleState.text->isComplete && !game.battleState.hasAttacked){
                 // La fonction executeAction reprend la logique de playATurn pour une action
-                //executeAction(&game.battleState.rouge, &game.battleState.bleu, game.battleState.moveRouge);
+                if(game.battleState.first) {
+                    executeAction(&game.battleState.rouge, &game.battleState.bleu, game.battleState.moveRouge);
+                }
+                else {
+                    executeAction(&game.battleState.bleu, &game.battleState.rouge, game.battleState.moveBleu);
+                }
+                game.battleState.hasAttacked = true;
             }
-            game.battleState.turnState = TURN_ACTION2;
+            if (game.battleState.text->isComplete) {
+                game.battleState.text->isComplete = false;
+                game.battleState.turnState = TURN_ACTION2;
+            }
             break;
         }
         case TURN_ACTION2: {
             // Si le pokémon bleu est toujours vivant, exécute son action
-            if (isAlive(&(game.battleState.bleu.team[0]))) {
-                //executeAction(&game.battleState.bleu, &game.battleState.rouge, game.battleState.moveBleu);
+            if (!game.battleState.text->isComplete && !game.battleState.hasAttacked) {
+                if(game.battleState.first) {
+                    executeAction(&game.battleState.bleu, &game.battleState.rouge, game.battleState.moveBleu);
+                }
+                else {
+                    executeAction(&game.battleState.rouge, &game.battleState.bleu, game.battleState.moveRouge);
+                }
             }
-            game.battleState.turnState = TURN_FINISHED;
+            if (game.battleState.text->isComplete) {
+                game.battleState.turnState = TURN_FINISHED;
+            }
             break;
         }
         case TURN_FINISHED: {
             // Le tour est terminé, vous pouvez ici déclencher des mises à jour d'interface ou des vérifications de fin de combat.
+            destroyScrollingText(game.battleState.text);
+            game.battleState.text = NULL;
             game.battleState.turnState = TURN_NONE;
             break;
         }
@@ -719,5 +738,70 @@ void updateBattleTurn() {
         default:
             // Aucun tour en cours
             break;
+    }
+    updateScrollingText(game.battleState.text, game.win->renderer);
+    renderScrollingText(game.battleState.text, game.win->renderer);
+}
+
+void executeAction(t_Team *attacker, t_Team *defender, int move) {
+    char msg[50] = "";
+    // Si le Pokémon n'a plus de PP et qu'il attaque, forcer l'utilisation de Lutte.
+    if (!hasMoveLeft(&(attacker->team[0])) && isAttacking(move)) {
+        move = STRUGGLE;
+        sprintf(msg, "%s utilise Lutte !", attacker->team[0].name);
+        resetScrollingText(game.battleState.text, msg);
+        // Vous pouvez appliquer les dégâts de Lutte ici ou dans une étape ultérieure
+        return;
+    }
+
+    // Vérification de la validité de l'action
+    if (!testActionValidity(move, attacker)) {
+        sprintf(msg, "Action invalide !");
+        resetScrollingText(game.battleState.text, msg);
+        game.battleState.turnState = TURN_NONE;
+        return;
+    }
+
+    // Si l'action est une attaque
+    if (isAttacking(move)) {
+        // Gestion de la confusion
+        if (attacker->effect == confusion) {
+            // Si le Pokémon est confus et utilise Lutte, ne pas afficher "Lutte" mais "se blesse dans sa confusion"
+            if (move == STRUGGLE) {
+                sprintf(msg, "Il se blesse dans sa confusion !");
+                resetScrollingText(game.battleState.text, msg);
+                affectDamage(attacker, attacker, CONFUSED_MOVE);
+                return;
+            }
+            // Sinon, possibilité de sortir de la confusion ou de se blesser
+            if (rand() % 100 < 20) {
+                sprintf(msg, "%s se remet de sa confusion !", attacker->team[0].name);
+                resetScrollingText(game.battleState.text, msg);
+                attacker->effect = noEffect;
+            }
+            else if (rand() % 100 < 33) {
+                sprintf(msg, "Il se blesse dans sa confusion !");
+                resetScrollingText(game.battleState.text, msg);
+                affectDamage(attacker, attacker, CONFUSED_MOVE);
+                return;
+            }
+        }
+
+        // Afficher le message d'attaque utilisé
+        if (move == STRUGGLE) {
+            sprintf(msg, "%s utilise Lutte !", attacker->team[0].name);
+        } else {
+            sprintf(msg, "%s utilise %s !", attacker->team[0].name, attacker->team[0].moveList[move].name);
+        }
+        resetScrollingText(game.battleState.text, msg);
+
+        // Appliquer l'action (dégâts ou autre effet)
+        affectDamage(attacker, defender, move);
+    }
+    // Si l'action est un échange
+    else if (isSwitching(move)) {
+        swapActualAttacker(attacker, move);
+        sprintf(msg, "%s change de pokémon !", attacker->team[0].name);
+        resetScrollingText(game.battleState.text, msg);
     }
 }

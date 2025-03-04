@@ -27,3 +27,4 @@ src/data/save/Save_*.txt
 bin/
 
 *.Identifier
+*.log

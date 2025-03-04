@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include <string.h>
 
 /**
  * @file Text.h
@@ -162,6 +163,15 @@ void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer);
  */
 void renderScrollingText(ScrollingText* text, SDL_Renderer* renderer);
 
+/**
+ * @brief Réinitialise un objet de texte défilant.
+ * 
+ * Cette fonction réinitialise un objet de texte défilant avec les paramètres spécifiés.
+ * 
+ * @param text Un pointeur vers l'objet ScrollingText.
+ * @param fullText Le texte complet à afficher.
+ */
+void resetScrollingText(ScrollingText* text, char* fullText);
 /**
  * @brief Détruit un objet de texte défilant.
  * 

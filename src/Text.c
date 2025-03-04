@@ -143,7 +143,7 @@ ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, 
     ScrollingText* scrollText = malloc(sizeof(ScrollingText));
     if (!scrollText) return NULL;
 
-    scrollText->fullText = text;
+    scrollText->fullText = strdup(text);
     if (!scrollText->fullText) {
         free(scrollText);
         return NULL;
@@ -246,6 +246,31 @@ void skipScrollingText(ScrollingText* text) {
     text->currentLength = text->fullLength;
     text->isComplete = true;
 }
+void resetScrollingText(ScrollingText* text, char* fullText) {
+    if (!text) return;
+    text->currentLength = 0;
+    text->isComplete = false;
+    // Libérer l'ancienne copie de fullText s'il y en a une
+    if (text->fullText) {
+        free(text->fullText);
+    }
+    text->fullText = strdup(fullText);
+    if (!text->fullText) {
+        // Gérer l'erreur de manière appropriée (logger, etc.)
+        return;
+    }
+    if (text->currentText) {
+        free(text->currentText);
+    }
+    text->currentText = malloc(strlen(fullText) + 1);
+    if (!text->currentText) {
+        free(text->fullText);
+        text->fullText = NULL;
+        return;
+    }
+    text->currentText[0] = '\0';
+}
+
 
 void destroyScrollingText(ScrollingText* text) {
     if (!text) return;
