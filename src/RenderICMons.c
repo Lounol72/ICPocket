@@ -121,8 +121,10 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
     // Construction du chemin de l'image
     char path[128];
     snprintf(path, sizeof(path), "assets/Monsters/New Versions/%s.png", poke->name);
-    
-    SDL_Surface *surface = IMG_Load(path);
+    FILE * test_file=fopen(path,"r");
+    SDL_Surface *surface;
+    if(test_file) surface = IMG_Load(path);
+    else surface = IMG_Load("assets/Monsters/New Versions/722.png");
     if (!surface) {
         SDL_Log("❌ Failed to load image: %s", path);
         // Creer une image blanche à la pllace
