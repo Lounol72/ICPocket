@@ -125,8 +125,10 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
     SDL_Surface *surface = IMG_Load(path);
     if (!surface) {
         SDL_Log("❌ Failed to load image: %s", path);
-        free(img);
-        return NULL;
+        // Creer une image blanche à la pllace
+        surface = SDL_CreateRGBSurface(0, 100, 100, 32, 0, 0, 0, 0);
+        SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 255, 255, 255));
+        
     }
     
     // Si l'équipe est 1, retourne l'image horizontalement
