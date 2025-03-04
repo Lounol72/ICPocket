@@ -173,7 +173,7 @@ t_Move generateRandomMoveBetter(t_Poke *p){
 
 t_Move generateMove(int line){
 	FILE *dataMove;
-	dataMove = fopen("src/data/dataMoves.csv", "r");
+	dataMove = fopen("data/dataMoves.csv", "r");
 	if (dataMove == NULL){
 		printf("Erreur : impossible d'ouvrir le fichier des moves.\n");
 		exit(1);

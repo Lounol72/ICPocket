@@ -11,7 +11,7 @@ int main(){
 	scanf("%c",&choix);
 	initTeam(&bleu,3);
 	if(choix=='y'){
-		charger("Save_2",&rouge,&bleu);
+		charger("Save_1",&rouge,&bleu);
 	} else {
 		initTeam(&rouge,3);
 	}
