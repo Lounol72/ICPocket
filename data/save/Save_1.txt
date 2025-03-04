@@ -1,6 +1,6 @@
 User name : SAVE1
-nb:9
-id:1
+nb:3
+id:11
 lvl:56
 nature:0
 nbmove:4
