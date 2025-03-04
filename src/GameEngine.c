@@ -652,3 +652,72 @@ void updateMusic() {
         Mix_PlayMusic(desiredMusic, -1);
     }
 }
+
+void startBattleTurn(int moveRouge, int moveBleu) {
+    game.battleState.moveRouge = moveRouge;
+    game.battleState.moveBleu  = moveBleu;
+    game.battleState.turnState = TURN_INIT;
+    
+    // Si un texte défilant existait déjà, on le détruit pour repartir de zéro.
+    if (game.battleState.text) {
+        destroyScrollingText(game.battleState.text);
+        game.battleState.text = NULL;
+    }
+}
+
+void updateBattleTurn() {
+    switch (game.battleState.turnState) {
+        case TURN_INIT: {
+            // Création et affichage d'un texte annonçant le début du tour
+            if (!game.battleState.text) {
+                char *msg ="Début du tour de combat";
+                if (!msg) return;
+                game.battleState.text = createScrollingText(
+                    msg,
+                    game.win->LargeFont,
+                    (SDL_Color){255, 255, 255, 255},
+                    50,     // Délai entre les caractères en ms
+
+                    (SDL_Rect){game.win->width -5, game.win->height - marginBottom - 10, 640, 100}, // Fond du texte
+                    "assets/text_background.png", // Chemin de l'image de fond
+                    game.win->renderer
+                );
+            }
+            updateScrollingText(game.battleState.text, game.win->renderer);
+            renderScrollingText(game.battleState.text, game.win->renderer);
+            if (game.battleState.text->isComplete) {
+                // Une fois le texte affiché, passez à l'action du premier pokémon
+                destroyScrollingText(game.battleState.text);
+                game.battleState.text = NULL;
+                game.battleState.turnState = TURN_ACTION1;
+            }
+            break;
+        }
+        case TURN_ACTION1: {
+            // Exécuter l'action du pokémon rouge
+            if (isAlive(&(game.battleState.rouge.team[0]))) {
+                // La fonction executeAction reprend la logique de playATurn pour une action
+                //executeAction(&game.battleState.rouge, &game.battleState.bleu, game.battleState.moveRouge);
+            }
+            game.battleState.turnState = TURN_ACTION2;
+            break;
+        }
+        case TURN_ACTION2: {
+            // Si le pokémon bleu est toujours vivant, exécute son action
+            if (isAlive(&(game.battleState.bleu.team[0]))) {
+                //executeAction(&game.battleState.bleu, &game.battleState.rouge, game.battleState.moveBleu);
+            }
+            game.battleState.turnState = TURN_FINISHED;
+            break;
+        }
+        case TURN_FINISHED: {
+            // Le tour est terminé, vous pouvez ici déclencher des mises à jour d'interface ou des vérifications de fin de combat.
+            game.battleState.turnState = TURN_NONE;
+            break;
+        }
+        case TURN_NONE:
+        default:
+            // Aucun tour en cours
+            break;
+    }
+}

@@ -16,30 +16,41 @@
 [1] [2] You must call Mix_SetMusicCMD() first
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
+[0] [3] Changement d'état : 9
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 4
+[0] [3] PV : 193/193
+[0] [3] PV : 61/61
+[0] [3] PV : 92/92
+[0] [3] PV : 99/99
+[0] [3] PV : 158/158
+[0] [3] PV : 163/163
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 3
 [0] [3] Changement d'état : 5
-[0] [3] PV : 189/189
-[0] [3] PV : 106/106
-[0] [3] PV : 129/129
-[0] [3] PV : 84/84
-[0] [3] PV : 275/275
-[0] [3] PV : 165/165
-[1] [2] Couldn't open assets/Monsters/New Versions/.png
-[0] [3] ❌ Failed to load image: assets/Monsters/New Versions/.png
-[0] [3] PV : 202/202
-[0] [3] PV : 51/51
-[0] [3] PV : 160/160
-[1] [2] Couldn't open assets/Monsters/New Versions/d.png
-[0] [3] ❌ Failed to load image: assets/Monsters/New Versions/d.png
-[0] [3] PV : 1277196658/10
-[1] [2] Couldn't open assets/Monsters/New Versions/Z.png
-[0] [3] ❌ Failed to load image: assets/Monsters/New Versions/Z.png
-[0] [3] PV : 1950425195/30
-[1] [2] Couldn't open assets/Monsters/New Versions/Z.png
-[0] [3] ❌ Failed to load image: assets/Monsters/New Versions/Z.png
-[0] [3] PV : 1768702496/10
-[0] [3] Red team PV: 189, Blue team PV: 1277196658
+[0] [3] PV : 71/71
+[0] [3] PV : 196/196
+[0] [3] PV : 114/114
+[0] [3] PV : 76/76
+[0] [3] PV : 63/63
+[0] [3] PV : 262/262
+[0] [3] Red team PV: 71, Blue team PV: 76
 [0] [3] Changement d'état : 4
 [0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 6
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 5
+[0] [3] Changement d'état : 4
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 6
+[0] [3] Changement d'état : 2
 [7] [3] Quit
 [0] [3] ✅ Musique libérée
 [0] [3] ✅ Musique inter libérée

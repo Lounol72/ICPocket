@@ -139,7 +139,7 @@ void changeTextSpeed(struct Window *win, void *data) {
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "🚀 Vitesse du texte changée à %.2f", *speed);
 }
 
-ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int x, int y, int charDelay, int width, SDL_Rect backgroundPosition, const char* backgroundPath, SDL_Renderer* renderer) {
+ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int charDelay, SDL_Rect backgroundPosition, const char* backgroundPath, SDL_Renderer* renderer) {
     ScrollingText* scrollText = malloc(sizeof(ScrollingText));
     if (!scrollText) return NULL;
 
@@ -164,15 +164,13 @@ ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, 
     scrollText->font = font;
     scrollText->color = color;
     scrollText->texture = NULL;
-    scrollText->position.x = x;
-    scrollText->position.y = y;
-    scrollText->position.w = 0;
-    scrollText->position.h = 0;
+
+    // Stockage de la position du background
     scrollText->backgroundPosition = backgroundPosition;
-    scrollText->initialBackgroundPosition = backgroundPosition;
-    SDL_RWops* rw = SDL_RWFromFile(backgroundPath, "rb");
-    SDL_Surface* surface = IMG_LoadSizedSVG_RW(rw, backgroundPosition.w, backgroundPosition.h);
-    SDL_FreeRW(rw);
+    // Calcul de la zone de texte : on retire 5 pixels sur chaque côté du background
+    scrollText->position = (SDL_Rect){ backgroundPosition.x + 20, backgroundPosition.y + 10, backgroundPosition.w - 20, backgroundPosition.h - 20 };
+    scrollText->width = backgroundPosition.w - 20;
+    SDL_Surface* surface = IMG_Load(backgroundPath);
 
     scrollText->background = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
@@ -180,11 +178,11 @@ ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, 
     scrollText->initialPosition = scrollText->position;
     scrollText->initialBackgroundPosition = scrollText->backgroundPosition;
     scrollText->currentText[0] = '\0';
-    scrollText->width = width;
     return scrollText;
 }
 
 void updateScrollingTextPosition(ScrollingText* text, float scaleX, float scaleY) {
+    if (!text) return;
     text->position.x = text->initialPosition.x * scaleX;
     text->position.y = text->initialPosition.y * scaleY;
     text->position.w = text->initialPosition.w * scaleX;
@@ -235,9 +233,9 @@ void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
 
 void renderScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
     if (!text || !renderer || !text->texture) return;
+    // On rend d'abord le background, puis le texte par-dessus
     SDL_RenderCopy(renderer, text->background, NULL, &text->backgroundPosition);
     SDL_RenderCopy(renderer, text->texture, NULL, &text->position);
-
 }
 
 void skipScrollingText(ScrollingText* text) {
@@ -255,6 +253,11 @@ void destroyScrollingText(ScrollingText* text) {
     if (text->texture) {
         SDL_DestroyTexture(text->texture);
         text->texture = NULL;
+    }
+    
+    if (text->background) {
+        SDL_DestroyTexture(text->background);
+        text->background = NULL;
     }
     
     if (text->fullText) {

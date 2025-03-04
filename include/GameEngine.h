@@ -55,6 +55,7 @@ typedef struct {
     t_Team rouge;               /**< Équipe rouge. */
     t_Team bleu;                /**< Équipe bleue. */
     t_AI ia;                    /**< Intelligence artificielle du dresseur. */
+    
     BattleTurnState turnState;  /**< État du tour de combat. */
     int moveRouge;              /**< Mouvement rouge. */;
     int moveBleu;               /**< Mouvement bleu. */;
@@ -224,5 +225,12 @@ void updateMusic();
  * @param frameStart Le temps de début de la trame.
  */
 void manageFrameRate(int frameStart);
+
+/**
+ * @brief Démarre le tour de combat.
+ * 
+ * Cette fonction démarre le tour de combat.
+ */
+void startBattleTurn(int moveRouge, int moveBleu);
 
 #endif /* GAMEENGINE_H */

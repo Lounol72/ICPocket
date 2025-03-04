@@ -33,15 +33,12 @@ int main(int argc, char *argv[]) {
         SDL_Event event;
         SDL_Color textColor = {255, 255, 255, 255}; // Blanc
         ScrollingText* dialogueText = createScrollingText(
-            "Bonjour ! Je suis le Professeur PI. Bienvenue dans le monde des ICMons ! Je suis le goat de cette promo ! Ici, tu vas pouvoir apprendre à capturer des ICMons, les élever et les faire combattre !",
+            "Bonjour ! Je suis le Professeur PI. Bienvenue dans le monde des ICMons ! Je suis le goat de cette promo ! Ici, tu vas pouvoir apprendre à capturer des ICMons !",
             font,
             textColor,
-            70,  // Position X
-            WINDOWS_H - 190,  // Position Y (un peu plus haut pour avoir de la place pour plusieurs lignes)
             50,   // Délai entre caractères (ms)
-            530,  // Largeur du texte
             (SDL_Rect){50, WINDOWS_H - 200, 550, 100}, // Position du fond
-            "assets/User Interface/Vectors/Blue/button_rectangle_gradient.svg",  // Image de fond
+            "assets/User Interface/Blue/button_rectangle_gradient.png",  // Image de fond
             renderer
         );
 
