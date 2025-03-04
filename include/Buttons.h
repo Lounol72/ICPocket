@@ -77,6 +77,7 @@ typedef struct Slider {
     SDL_Color cursorColor;   /**< Couleur du curseur. */
     SDL_Renderer *renderer;   /**< Renderer SDL utilisé pour dessiner le curseur. */
     float value;            /**< Valeur actuelle du curseur. */
+    int dragging;           /**< Indicateur de glissement du curseur. */
 } Slider;
 
 /**
@@ -228,11 +229,10 @@ void renderSliderList(SliderList *S);
  * Cette fonction traite l'événement de curseur en fonction du curseur et des coordonnées donnés.
  *
  * @param slider Le curseur associé à l'événement.
- * @param x La coordonnée x de l'événement.
- * @param y La coordonnée y de l'événement.
+ * @param event L'événement SDL.
  * @return int Retourne 0 en cas de succès, ou un code d'erreur en cas d'échec.
  */
-int handleSliderEvent(Slider *slider, int x, int y);
+int handleSliderEvent(Slider *slider, SDL_Event *event);
 
 /**
  * @brief Met à jour la position des curseurs en fonction des coordonnées X et Y de la souris.
