@@ -1,4 +1,3 @@
-#include "../include/structPoke.h"
 #include "../include/duel.h"
 
 

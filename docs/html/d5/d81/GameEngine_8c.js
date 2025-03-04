@@ -17,6 +17,7 @@ var GameEngine_8c =
     [ "updateICButtons", "d5/d81/GameEngine_8c.html#aa9e620870df635719d54d19fd83bb423", null ],
     [ "updateICMonsButtonText", "d5/d81/GameEngine_8c.html#a4f753c6bc89433428e693ca6b0a94204", null ],
     [ "updateMusic", "d5/d81/GameEngine_8c.html#ae728be2d7ae42605618aa49e1a837466", null ],
+    [ "currentMusic", "d5/d81/GameEngine_8c.html#abb56d0b50d5766b387d2593b51be1fa2", null ],
     [ "game", "d5/d81/GameEngine_8c.html#ac6a5ed6191fcf3a5bf0445921feb4f48", null ],
     [ "marginBottom", "d5/d81/GameEngine_8c.html#ac95724d68ae903b0939e67bf82c53206", null ],
     [ "marginRight", "d5/d81/GameEngine_8c.html#ab1a5ae8b7bb9953bedd47d22db911a87", null ],

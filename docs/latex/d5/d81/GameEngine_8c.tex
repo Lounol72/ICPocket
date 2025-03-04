@@ -5,7 +5,7 @@
 Moteur principal du jeu \+: gestion de la boucle de jeu, des ressources et des interactions.  
 
 
-{\ttfamily \#include "{}../include/\+Game\+Engine.\+h"{}}\newline
+{\ttfamily \#include \"{}../include/\+Game\+Engine.\+h\"{}}\newline
 Graphe des dépendances par inclusion de Game\+Engine.\+c\+:
 \nopagebreak
 \begin{figure}[H]
@@ -50,7 +50,7 @@ void \mbox{\hyperlink{GameEngine_8c_aa9e620870df635719d54d19fd83bb423}{update\+I
 void \mbox{\hyperlink{GameEngine_8c_aa35dc6fb12b09280f097e5781e5892e1}{update\+Current\+Button}} ()
 \begin{DoxyCompactList}\small\item\em Met à jour l\textquotesingle{}apparence du bouton actuellement sélectionné. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{GameEngine_8c_ae728be2d7ae42605618aa49e1a837466}{update\+Music}} ()
-\begin{DoxyCompactList}\small\item\em Met à jour la musique en fonction de l\textquotesingle{}état du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Met à jour la musique. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -63,7 +63,9 @@ void \mbox{\hyperlink{GameEngine_8c_ae728be2d7ae42605618aa49e1a837466}{update\+M
 int \mbox{\hyperlink{GameEngine_8c_ac95724d68ae903b0939e67bf82c53206}{margin\+Bottom}} = 200
 \item 
 int \mbox{\hyperlink{GameEngine_8c_ab1a5ae8b7bb9953bedd47d22db911a87}{margin\+Right}} = 0
-\end{DoxyCompactItemize}
+\item 
+Mix\+\_\+\+Music \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{GameEngine_8c_abb56d0b50d5766b387d2593b51be1fa2}{current\+Music}} = NULL
+\begin{DoxyCompactList}\small\item\em Met à jour la musique en fonction de l\textquotesingle{}état du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -375,14 +377,22 @@ Pour chaque pokémon de l\textquotesingle{}équipe passée en paramètre, met à
 
 
 
-Met à jour la musique en fonction de l\textquotesingle{}état du jeu. 
+Met à jour la musique. 
 
-Met à jour la musique.
-
-Si l\textquotesingle{}état du jeu est GAME ou ICMONS et qu\textquotesingle{}aucune musique n\textquotesingle{}est en lecture, démarre la musique. Dans le cas contraire, arrête la lecture. 
+Cette fonction gère la mise à jour de la musique de fond. 
 
 \doxysubsection{Documentation des variables}
-\Hypertarget{GameEngine_8c_ac6a5ed6191fcf3a5bf0445921feb4f48}\label{GameEngine_8c_ac6a5ed6191fcf3a5bf0445921feb4f48} 
+\Hypertarget{GameEngine_8c_abb56d0b50d5766b387d2593b51be1fa2}\label{GameEngine_8c_abb56d0b50d5766b387d2593b51be1fa2} 
+\index{GameEngine.c@{GameEngine.c}!currentMusic@{currentMusic}}
+\index{currentMusic@{currentMusic}!GameEngine.c@{GameEngine.c}}
+\doxysubsubsection{\texorpdfstring{currentMusic}{currentMusic}}
+{\footnotesize\ttfamily Mix\+\_\+\+Music\texorpdfstring{$\ast$}{*} current\+Music = NULL}
+
+
+
+Met à jour la musique en fonction de l\textquotesingle{}état du jeu. 
+
+Si l\textquotesingle{}état du jeu est GAME ou ICMONS et qu\textquotesingle{}aucune musique n\textquotesingle{}est en lecture, démarre la musique. Dans le cas contraire, arrête la lecture. \Hypertarget{GameEngine_8c_ac6a5ed6191fcf3a5bf0445921feb4f48}\label{GameEngine_8c_ac6a5ed6191fcf3a5bf0445921feb4f48} 
 \index{GameEngine.c@{GameEngine.c}!game@{game}}
 \index{game@{game}!GameEngine.c@{GameEngine.c}}
 \doxysubsubsection{\texorpdfstring{game}{game}}

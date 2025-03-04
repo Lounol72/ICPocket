@@ -51,11 +51,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function() { init_codefold(1); });
-/* @license-end */
-</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -108,7 +103,6 @@ $(document).ready(function(){initNavTree('d3/ded/Window_8h_source.html','../../'
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/ded/Utils_8h.html">Utils.h</a>&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/d45/Log_8h.html">Log.h</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056e">   11</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code hl_enumeration" href="../../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056e">AppState_s</a> {</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea76bdc8adfd6c6463ab269ff4c06be9b4">   12</a></span>    <a class="code hl_enumvalue" href="../../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea76bdc8adfd6c6463ab269ff4c06be9b4">QUIT</a> = 0, <span class="comment">// 0</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056eac678338caea29d77d56be2ea56325610">   13</a></span>    <a class="code hl_enumvalue" href="../../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056eac678338caea29d77d56be2ea56325610">SETTINGS</a>, <span class="comment">// 1</span></div>
@@ -121,10 +115,9 @@ $(document).ready(function(){initNavTree('d3/ded/Window_8h_source.html','../../'
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea56b36d0d0bb01b339cf1041adc08e262">   20</a></span>    <a class="code hl_enumvalue" href="../../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea56b36d0d0bb01b339cf1041adc08e262">PAUSE</a>, <span class="comment">// 8</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea4cafa5feda04184537b4d7d346e1e89b">   21</a></span>    <a class="code hl_enumvalue" href="../../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea4cafa5feda04184537b4d7d346e1e89b">MAP</a>, <span class="comment">// 9</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d3/ded/Window_8h.html#a5971f8f64b1fd772c90649cda6fddd86">   22</a></span>} <a class="code hl_typedef" href="../../d3/ded/Window_8h.html#a5971f8f64b1fd772c90649cda6fddd86">AppState</a>;</div>
-</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#if defined(SDL_RENDERER_PRESENTVSYNC)</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">    #define renderer_flags DEFAULT_RENDERER_FLAGS </span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">    #define renderer_flags DEFAULT_RENDERER_VSYNC </span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">//#elif defined(__linux__)</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">//    #define renderer_flags SDL_RENDERER_ACCELERATED /**&lt; Drapeaux du renderer pour Linux. */</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#else</span></div>
@@ -135,7 +128,6 @@ $(document).ready(function(){initNavTree('d3/ded/Window_8h_source.html','../../'
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">extern</span> <a class="code hl_struct" href="../../de/de9/structGame.html">Game</a> <a class="code hl_variable" href="../../d3/ded/Window_8h.html#ac6a5ed6191fcf3a5bf0445921feb4f48">game</a>;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="foldopen" id="foldopen00054" data-start="{" data-end="};">
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d6/d08/structWindow.html">   54</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> {</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d6/d08/structWindow.html#ae39a7755a5a6ab74bcbdbe3e2e206820">   55</a></span>    SDL_Window *<a class="code hl_variable" href="../../d6/d08/structWindow.html#ae39a7755a5a6ab74bcbdbe3e2e206820">window</a>;      </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../d6/d08/structWindow.html#a2b52309ef359b6392454a3bb57398b5d">   56</a></span>    SDL_Renderer *<a class="code hl_variable" href="../../d6/d08/structWindow.html#a2b52309ef359b6392454a3bb57398b5d">renderer</a>;  </div>
@@ -151,7 +143,6 @@ $(document).ready(function(){initNavTree('d3/ded/Window_8h_source.html','../../'
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d6/d08/structWindow.html#a3a0f4a5dd608a0bf99bccda616fd6630">   66</a></span>    <a class="code hl_typedef" href="../../d3/ded/Window_8h.html#a5971f8f64b1fd772c90649cda6fddd86">AppState</a> <a class="code hl_variable" href="../../d6/d08/structWindow.html#a3a0f4a5dd608a0bf99bccda616fd6630">state</a>;          </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../d6/d08/structWindow.html#a8cb0c3cce4f3426270c20aad800b7ebd">   67</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="../../d6/d08/structWindow.html#a8cb0c3cce4f3426270c20aad800b7ebd">textSpeed</a>;        </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../d3/ded/Window_8h.html#adb2a551453af16dd3214a23b16e67544">   68</a></span>} <a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a>;</div>
-</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/ded/Window_8h.html#ab072fc478679f5b8fb5ffae288d1e7f2">initWindow</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <span class="keyword">const</span> <span class="keywordtype">char</span> *FontPath);</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
@@ -175,7 +166,7 @@ $(document).ready(function(){initNavTree('d3/ded/Window_8h_source.html','../../'
 <div class="ttc" id="aWindow_8h_html_ab072fc478679f5b8fb5ffae288d1e7f2"><div class="ttname"><a href="../../d3/ded/Window_8h.html#ab072fc478679f5b8fb5ffae288d1e7f2">initWindow</a></div><div class="ttdeci">void initWindow(Window *win, int width, int height, const char *FontPath)</div><div class="ttdoc">Initialise la fenêtre principale de l'application.</div><div class="ttdef"><b>Definition</b> Window.c:17</div></div>
 <div class="ttc" id="aWindow_8h_html_ab7c9ee132f977dd2efd33ab66509d650"><div class="ttname"><a href="../../d3/ded/Window_8h.html#ab7c9ee132f977dd2efd33ab66509d650">destroyGame</a></div><div class="ttdeci">void destroyGame()</div><div class="ttdef"><b>Definition</b> Game.c:153</div></div>
 <div class="ttc" id="aWindow_8h_html_ac6a5ed6191fcf3a5bf0445921feb4f48"><div class="ttname"><a href="../../d3/ded/Window_8h.html#ac6a5ed6191fcf3a5bf0445921feb4f48">game</a></div><div class="ttdeci">Game game</div><div class="ttdef"><b>Definition</b> GameEngine.c:9</div></div>
-<div class="ttc" id="astructGame_html"><div class="ttname"><a href="../../de/de9/structGame.html">Game</a></div><div class="ttdoc">Structure principale du jeu.</div><div class="ttdef"><b>Definition</b> GameEngine.h:94</div></div>
+<div class="ttc" id="astructGame_html"><div class="ttname"><a href="../../de/de9/structGame.html">Game</a></div><div class="ttdoc">Structure principale du jeu.</div><div class="ttdef"><b>Definition</b> GameEngine.h:93</div></div>
 <div class="ttc" id="astructWindow_html"><div class="ttname"><a href="../../d6/d08/structWindow.html">Window</a></div><div class="ttdoc">Représente la fenêtre principale de l'application.</div><div class="ttdef"><b>Definition</b> Window.h:54</div></div>
 <div class="ttc" id="astructWindow_html_a18acde62ad63dfc0613b6d17188ad1ea"><div class="ttname"><a href="../../d6/d08/structWindow.html#a18acde62ad63dfc0613b6d17188ad1ea">Window::quit</a></div><div class="ttdeci">int quit</div><div class="ttdef"><b>Definition</b> Window.h:61</div></div>
 <div class="ttc" id="astructWindow_html_a2b52309ef359b6392454a3bb57398b5d"><div class="ttname"><a href="../../d6/d08/structWindow.html#a2b52309ef359b6392454a3bb57398b5d">Window::renderer</a></div><div class="ttdeci">SDL_Renderer * renderer</div><div class="ttdef"><b>Definition</b> Window.h:56</div></div>

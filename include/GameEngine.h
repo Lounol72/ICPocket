@@ -12,9 +12,7 @@
 #include "Utils.h"
 // Added explicit include to ensure AppState is defined:
 #include "Window.h"
-#include "structPoke.h"
 #include "interDuel.h"
-#include "duel.h"
 #include "trainerAI.h"
 #include "save.h"
 #include "Text.h"

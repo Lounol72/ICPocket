@@ -12,5 +12,6 @@ var searchData=
   ['moveid_9',['moveId',['../de/dac/structLvl__Up__Buffer.html#a91397717040f88f5ad02d703925a31ba',1,'Lvl_Up_Buffer']]],
   ['movelist_10',['moveList',['../d7/d09/structt__Poke.html#a36ec65f265f2b85686a8b0883f187ba2',1,'t_Poke']]],
   ['movespeed_11',['moveSpeed',['../dc/d7b/structPlayer.html#a45d6174464d2e2cee07029e0b5aa5f82',1,'Player']]],
-  ['music_12',['music',['../d2/d3d/structGameState.html#a52a85cc148348dad5cf3e5c9c106d59f',1,'GameState']]]
+  ['music_12',['music',['../d2/d3d/structGameState.html#a52a85cc148348dad5cf3e5c9c106d59f',1,'GameState']]],
+  ['music_5finter_13',['music_inter',['../d2/d3d/structGameState.html#a70ae8e79ae6352db0a36b1a365bf736a',1,'GameState']]]
 ];

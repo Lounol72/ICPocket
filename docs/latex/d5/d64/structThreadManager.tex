@@ -25,9 +25,13 @@ pthread\+\_\+t \mbox{\hyperlink{structThreadManager_a45814cb0ecbb18c7204bc8bf1b7
 \item 
 pthread\+\_\+t \mbox{\hyperlink{structThreadManager_aa9424313a055ccf37e2ab6c45366ffcd}{physics\+Thread}}
 \item 
+pthread\+\_\+t \mbox{\hyperlink{structThreadManager_a9e784c40b635c71b1f5d280a64fb5833}{render\+Thread}}
+\item 
 pthread\+\_\+mutex\+\_\+t \mbox{\hyperlink{structThreadManager_ad897c405c4f5d79c60e3a1a3e3ad7c2a}{audio\+Mutex}}
 \item 
 pthread\+\_\+mutex\+\_\+t \mbox{\hyperlink{structThreadManager_adff666c7c26f150223fd28b9ec24fc3c}{physics\+Mutex}}
+\item 
+pthread\+\_\+mutex\+\_\+t \mbox{\hyperlink{structThreadManager_a153631ed872464ed553ead8bcf7aa58a}{render\+Mutex}}
 \item 
 int \mbox{\hyperlink{structThreadManager_a4f9008ea31202fda3bc2d5629827eb2b}{is\+Running}}
 \end{DoxyCompactItemize}
@@ -47,11 +51,15 @@ Les mutex permettent de synchroniser l\textquotesingle{}accès aux ressources pa
 
 
 \begin{DoxyParams}{Paramètres}
-{\em audio\+Thread} & Thread dédié au traitement audio\\
+{\em audio\+Thread} & Thread dédié au traitement audio \\
+\hline
+{\em render\+Thread} & Thread dédié au traitement du render lorsque l\textquotesingle{}on est pas sur la map \\
 \hline
 {\em physics\+Thread} & Thread dédié aux calculs physiques \\
 \hline
-{\em audio\+Mutex} & Mutex pour synchroniser l\textquotesingle{}accès aux ressources audio\\
+{\em audio\+Mutex} & Mutex pour synchroniser l\textquotesingle{}accès aux ressources audio \\
+\hline
+{\em render\+Mutex} & Mutex pour synchroniser l\textquotesingle{}accès au render \\
 \hline
 {\em physics\+Mutex} & Mutex pour synchroniser l\textquotesingle{}accès aux données physiques \\
 \hline
@@ -90,6 +98,18 @@ Les mutex permettent de synchroniser l\textquotesingle{}accès aux ressources pa
 \index{physicsThread@{physicsThread}!ThreadManager@{ThreadManager}}
 \doxysubsubsection{\texorpdfstring{physicsThread}{physicsThread}}
 {\footnotesize\ttfamily pthread\+\_\+t Thread\+Manager\+::physics\+Thread}
+
+\Hypertarget{structThreadManager_a153631ed872464ed553ead8bcf7aa58a}\label{structThreadManager_a153631ed872464ed553ead8bcf7aa58a} 
+\index{ThreadManager@{ThreadManager}!renderMutex@{renderMutex}}
+\index{renderMutex@{renderMutex}!ThreadManager@{ThreadManager}}
+\doxysubsubsection{\texorpdfstring{renderMutex}{renderMutex}}
+{\footnotesize\ttfamily pthread\+\_\+mutex\+\_\+t Thread\+Manager\+::render\+Mutex}
+
+\Hypertarget{structThreadManager_a9e784c40b635c71b1f5d280a64fb5833}\label{structThreadManager_a9e784c40b635c71b1f5d280a64fb5833} 
+\index{ThreadManager@{ThreadManager}!renderThread@{renderThread}}
+\index{renderThread@{renderThread}!ThreadManager@{ThreadManager}}
+\doxysubsubsection{\texorpdfstring{renderThread}{renderThread}}
+{\footnotesize\ttfamily pthread\+\_\+t Thread\+Manager\+::render\+Thread}
 
 
 

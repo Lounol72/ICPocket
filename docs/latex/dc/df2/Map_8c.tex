@@ -1,18 +1,22 @@
 \doxysection{Référence du fichier src/\+Map.c}
 \hypertarget{Map_8c}{}\label{Map_8c}\index{src/Map.c@{src/Map.c}}
-{\ttfamily \#include "{}../include/\+Map.\+h"{}}\newline
-{\ttfamily \#include "{}../include/\+Camera.\+h"{}}\newline
+{\ttfamily \#include \"{}../include/\+Map.\+h\"{}}\newline
+{\ttfamily \#include \"{}../include/\+Camera.\+h\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
 Graphe des dépendances par inclusion de Map.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=282pt]{db/d8e/Map_8c__incl}
+\includegraphics[width=350pt]{db/d8e/Map_8c__incl}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{Map_8c_af343dab826c94212a244fd86760ebd0b}{init\+Collision\+Map}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map)
+\item 
+static void \mbox{\hyperlink{Map_8c_a55235be5591748a7d94545201c4c38e9}{init\+Collision\+Map\+From\+CSV}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map, const char \texorpdfstring{$\ast$}{*}path)
 \item 
 \mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Map_8c_a2d3b5b6a74e6800de411e1edf7dfea2e}{init\+Map}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const char \texorpdfstring{$\ast$}{*}path)
 \item 
@@ -44,6 +48,12 @@ void \mbox{\hyperlink{Map_8c_a64df896c814cef549bef88fcd20d9a67}{destroy\+Map}} (
 \index{initCollisionMap@{initCollisionMap}!Map.c@{Map.c}}
 \doxysubsubsection{\texorpdfstring{initCollisionMap()}{initCollisionMap()}}
 {\footnotesize\ttfamily static void init\+Collision\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{Map_8c_a55235be5591748a7d94545201c4c38e9}\label{Map_8c_a55235be5591748a7d94545201c4c38e9} 
+\index{Map.c@{Map.c}!initCollisionMapFromCSV@{initCollisionMapFromCSV}}
+\index{initCollisionMapFromCSV@{initCollisionMapFromCSV}!Map.c@{Map.c}}
+\doxysubsubsection{\texorpdfstring{initCollisionMapFromCSV()}{initCollisionMapFromCSV()}}
+{\footnotesize\ttfamily static void init\+Collision\+Map\+From\+CSV (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 \Hypertarget{Map_8c_a2d3b5b6a74e6800de411e1edf7dfea2e}\label{Map_8c_a2d3b5b6a74e6800de411e1edf7dfea2e} 
 \index{Map.c@{Map.c}!initMap@{initMap}}

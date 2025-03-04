@@ -12,6 +12,7 @@ var annotated_dup =
     [ "Lvl_Up_Buffer", "de/dac/structLvl__Up__Buffer.html", "de/dac/structLvl__Up__Buffer" ],
     [ "Map", "da/ddc/structMap.html", "da/ddc/structMap" ],
     [ "Player", "dc/d7b/structPlayer.html", "dc/d7b/structPlayer" ],
+    [ "ScrollingText", "d2/db3/structScrollingText.html", "d2/db3/structScrollingText" ],
     [ "Slider", "df/dd7/structSlider.html", "df/dd7/structSlider" ],
     [ "SliderList", "db/d53/structSliderList.html", "db/d53/structSliderList" ],
     [ "StateHandler", "d3/daf/structStateHandler.html", "d3/daf/structStateHandler" ],
