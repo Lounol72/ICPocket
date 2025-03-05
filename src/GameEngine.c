@@ -322,13 +322,15 @@ void mainLoop(Window *win) {
         while (SDL_PollEvent(&event)) {
             game.stateHandlers[win->state].handleEvent(win, &event);
         }
-        if (game.battleState.turnState != TURN_NONE) updateBattleTurn();
+        
         if (game.gameState.currentState == MAP) {
             renderMap(win);
         } else {
             SDL_RenderClear(win->renderer);
             render(win);
+            if (game.battleState.turnState != TURN_NONE) updateBattleTurn();
             updateCurrentButton();
+            
             SDL_RenderPresent(win->renderer);
         }
         game.deltaTime = (SDL_GetTicks() - frameStart) / 1000.0f;
@@ -690,8 +692,9 @@ void updateBattleTurn() {
                 // Une fois le texte affiché, passez à l'action du premier pokémon
                 game.battleState.text->isComplete = false;
                 game.battleState.turnState = TURN_ACTION1;
+                game.battleState.hasAttacked = false;
             }
-            game.battleState.hasAttacked = false;
+            
             break;
         }
         case TURN_ACTION1: {
@@ -721,8 +724,10 @@ void updateBattleTurn() {
                 else {
                     executeAction(&game.battleState.rouge, &game.battleState.bleu, game.battleState.moveRouge);
                 }
+                game.battleState.hasAttacked = true;
             }
             if (game.battleState.text->isComplete) {
+                game.battleState.text->isComplete = false;
                 game.battleState.turnState = TURN_FINISHED;
             }
             break;
