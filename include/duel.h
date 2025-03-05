@@ -97,8 +97,9 @@ int PriorityForFirstPoke(t_Team * p1, t_Team * p2, t_Move * move1, t_Move * move
  		-si l'indice est entre 0 et 3, l'attaque est celle connu par le pokémon offender->team[0]
 		-si il est négatif, l'attaque représente LUTTE si il vaut -1 ou CONFUSION si il vaut -2.
 		PlayATurn appelle automatiquement cette fonction avec l'indice adapté.
+ * @param return if the damage is affected of not
 */
-void affectDamage(t_Team * offender, t_Team * defender, int indexMove);
+int  affectDamage(t_Team * offender, t_Team * defender, int indexMove);
 /**
  * @fn void swapActualAttacker(t_Team * target, int swapIndex);
  * @brief La fonction swapActualAttacker échange le pokémon présent à l'indice 0 avec celui présent à l'indice swapIndex donné en paramètre. La fonction est sans effet si l'indice spécifié est invalide (hors liste, pokémon ko).

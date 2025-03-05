@@ -261,7 +261,7 @@ int ppCheck(t_Move * move){
 	return move->current_pp>0;
 }
 
-void affectDamage(t_Team * offender, t_Team * defender, int indexMove){
+int affectDamage(t_Team * offender, t_Team * defender, int indexMove){
 	t_Move * moveToDo;
 	if(indexMove<0){
 		moveToDo=isStruggling(indexMove)?&struggle:&confusedMove;
@@ -277,7 +277,7 @@ void affectDamage(t_Team * offender, t_Team * defender, int indexMove){
 	if(!accuracyCheck(moveToDo->accuracy)){
 		printf("%s rate son attaque (%d precision)\n",offender->team[0].name,moveToDo->accuracy);
 		if (!(indexMove<0)) (moveToDo->current_pp)--;
-		return;
+		return FALSE;
 	}
 	printf("Attaque subis d'une puissance de %d\n avec une attaque de %d\ncontre une defence de %d\n",moveToDo->power,(int)(calcStatFrom(&(offender->team[0]),targetedStatOff) * statVariations[offender->statChanges[targetedStatOff]])
 	,(int)(calcStatFrom(&(defender->team[0]),targetedStatDef) * statVariations[defender->statChanges[targetedStatDef]]));
@@ -287,6 +287,7 @@ void affectDamage(t_Team * offender, t_Team * defender, int indexMove){
 	defender->team[0].current_pv=defender->team[0].current_pv>damage?defender->team[0].current_pv - damage:0;
 	if (!(indexMove<0)) (moveToDo->current_pp)--;
 	launchSecEffect(offender,defender,moveToDo);
+	return TRUE;
 }
 
 void swapActualAttacker(t_Team * t, int swapIndex){
