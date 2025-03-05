@@ -108,7 +108,6 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
         SDL_Log("❌ Invalid parameters for initICMonSprite");
         return NULL;
     }
-    
     // Allocation et initialisation de la structure
     IMG_ICMons *img = calloc(1, sizeof(IMG_ICMons));
     if (!img) {
@@ -117,20 +116,14 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
     }
     
     img->renderer = renderer;
-    
     // Construction du chemin de l'image
     char path[128];
     snprintf(path, sizeof(path), "assets/Monsters/New Versions/%s.png", poke->name);
-    FILE * test_file=fopen(path,"r");
     SDL_Surface *surface;
-    if(test_file) surface = IMG_Load(path);
-    else surface = IMG_Load("assets/Monsters/New Versions/722.png");
+    surface = IMG_Load(path);
     if (!surface) {
         SDL_Log("❌ Failed to load image: %s", path);
-        // Creer une image blanche à la pllace
-        surface = SDL_CreateRGBSurface(0, 100, 100, 32, 0, 0, 0, 0);
-        SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 255, 255, 255));
-        
+        surface = IMG_Load("assets/Monsters/New Versions/722.png");
     }
     
     // Si l'équipe est 1, retourne l'image horizontalement
