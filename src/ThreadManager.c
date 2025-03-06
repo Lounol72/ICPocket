@@ -37,10 +37,11 @@ void initThreadManager(Game* game) {
 void* audioThreadFunction(void* arg) {
     Game* game = (Game*)arg;
     while (game->threadManager.isRunning) {
+        int frameStart = SDL_GetTicks();
         pthread_mutex_lock(&game->threadManager.audioMutex);
         updateMusic();
         pthread_mutex_unlock(&game->threadManager.audioMutex);
-        SDL_Delay(16); // ~60fps
+        manageFrameRate(frameStart);
     }
     return NULL;
 }
@@ -87,7 +88,7 @@ void* physicsThreadFunction(void* arg) {
             pthread_mutex_unlock(&game->threadManager.physicsMutex);
         }
         
-        //SDL_Delay(8); // Légère pause pour éviter la surcharge CPU
+        manageFrameRate(currentTime);
     }
     return NULL;
 }

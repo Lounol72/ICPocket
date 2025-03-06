@@ -230,7 +230,7 @@ void attqButtonClicked(Window *win, void *data) {
         if (moveIndex < 0 || moveIndex >= game.battleState.rouge.team[0].nb_move) {
             return;
         }
-        if (isAlive(&(game.battleState.rouge.team[0]))) {
+        if (isAlive(&(game.battleState.rouge.team[0])) && game.battleState.turnState == TURN_NONE) {
             Mix_PlayChannel(2, game.battleState.rouge.team[0].img->ICMonSound, 0);
             startBattleTurn(moveIndex, AI_move_choice(&game.battleState.ia, &game.battleState.rouge));
         }
@@ -414,7 +414,7 @@ void initAllButtons(Window *win)
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsParam[5] = createButton(
-        " Back ", win, (SDL_Rect){100, 600, 300, 100},
+        "  Back  ", win, (SDL_Rect){100, 600, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[2].state, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
@@ -424,7 +424,7 @@ void initAllButtons(Window *win)
     buttonsLoadGame[0] = createButton(
         " Save 1 ", win, (SDL_Rect){500, 104, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[4].state, win->LargeFont,
+        changeState, &game.stateHandlers[2].state, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsLoadGame[1] = createButton(

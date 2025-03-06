@@ -53,7 +53,9 @@ static bool createButtonTexture(Button *button, const char *imagePath) {
         SDL_Log("❌ Erreur lors du chargement de l'image \"%s\" : %s", imagePath, IMG_GetError());
         return false;
     }
-
+    if (button->texture != NULL) {
+        SDL_DestroyTexture(button->texture);
+    }
     button->texture = SDL_CreateTextureFromSurface(button->renderer, surface);
     button->initialTexture = button->texture;
     SDL_FreeSurface(surface);
