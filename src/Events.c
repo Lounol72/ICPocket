@@ -322,11 +322,13 @@ void handleSettingsEvent(Window *win, SDL_Event *event) {
         int x, y;
         SDL_GetMouseState(&x, &y);
         
+        handleSliderEvent(game.ui[game.gameState.currentState].sliders->sliders[0], event);
         for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
             ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
         }
+        
     }
-    handleSliderEvent(game.ui[game.gameState.currentState].sliders->sliders[0], event);
+
     handleEvent(win, event);
 }
 

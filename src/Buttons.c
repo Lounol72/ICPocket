@@ -339,34 +339,32 @@ void renderSlider(Slider *slider) {
 
 // Supposez que la structure Slider contient un champ 'int dragging;' (0 ou 1).
 
+// Optionnel : fonction inline pour clamp une valeur float
+static inline float clampf(float v, float min, float max) {
+    return (v < min) ? min : (v > max ? max : v);
+}
+
 int handleSliderEvent(Slider *slider, SDL_Event *event) {
-    if (!slider) return 0;
-    
-    switch(event->type) {
+    if (!slider)
+        return 0;
+    switch (event->type) {
         case SDL_MOUSEBUTTONDOWN:
-            if(SDL_PointInRect(&(SDL_Point){event->button.x, event->button.y}, &(slider->rect))) {
+            if (SDL_PointInRect(&(SDL_Point){ event->button.x, event->button.y }, &(slider->rect))) {
                 slider->dragging = 1;
             }
             break;
         case SDL_MOUSEMOTION:
-            if(slider->dragging) {
-                // Mise à jour pendant que le bouton est enfoncé et que la souris bouge
+            if (slider->dragging) {
                 slider->value = (float)(event->motion.x - slider->rect.x) / slider->rect.w;
-                // Contrainte pour rester dans les limites du slider
-                if (slider->value < 0) slider->value = 0;
-                if (slider->value > 1) slider->value = 1;
-                slider->cursor.x = slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2);
-                int volume = (int)(slider->value * SDL_MIX_MAXVOLUME);
-                Mix_VolumeMusic(volume);
+                slider->value = clampf(slider->value, 0.0f, 1.0f);
+                slider->cursor.x = slider->rect.x + (int)(slider->value * slider->rect.w) - (slider->cursor.w / 2);
             }
             break;
         case SDL_MOUSEBUTTONUP:
             slider->dragging = 0;
             break;
-        default:
-            break;
     }
-    return slider->dragging;
+    return 1;
 }
 
 void updateSliderPosition(SliderList *sliders, float Scalex, float Scaley) {
