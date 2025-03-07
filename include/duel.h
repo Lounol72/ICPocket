@@ -62,7 +62,7 @@ void launchSecEffect(t_Team * offender, t_Team * defender, t_Move * action);
 void printTeam(t_Team * t);
 int calcStatFrom(t_Poke * p,int stat);
 void initTeam(t_Team * t,int);
-//void initBlueTeam(t_Team *t,t_Team *joueur);
+void initBlueTeam(t_Team *t,t_Team *joueur);
 int calcDamage(t_Team * offender,t_Team * defender, t_Move *);
 void setDefaultStatChanges(t_Team * p);
 int resolveSpeedDuel(int speed1, int speed2);

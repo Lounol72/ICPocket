@@ -309,7 +309,7 @@ void nextDuel(Window *win, void *data) {
     (void)data;
     sauvegarder("Save_1", &game.battleState.rouge, &game.battleState.bleu);
     healTeam(&game.battleState.rouge);
-    initTeam(&game.battleState.bleu, 3);
+    initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
     updateICButtons(win, &game.battleState.rouge);
     changeState(win, &game.stateHandlers[3].state);
 }

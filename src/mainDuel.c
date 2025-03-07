@@ -9,13 +9,12 @@ int main(){
 	char choix;
 	printf("Charger ou nouveau jeu ?\n");
 	scanf("%c",&choix);
-	initTeam(&bleu,3);
+	initBlueTeam(&bleu,&rouge);
 	if(choix=='y'){
 		charger("Save_1",&rouge,&bleu);
 	} else {
 		initTeam(&rouge,3);
 	}
-
 	//use testSwitch or testBattle to try the program's features
 	testBattle(&rouge,&bleu);
 	getchar();

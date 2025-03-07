@@ -76,7 +76,7 @@ void generate_poke(t_Poke *p, int line)
 void generate_poke_enemi(t_Poke *p, int line,t_Team * joueur)
 {
 	FILE *dataPoke;
-	dataPoke = fopen("src/data/dataPoke.csv", "r");
+	dataPoke = fopen("data/dataPoke.csv", "r");
 	if (dataPoke == NULL){
 		printf("Erreur : impossible d'ouvrir le poke.\n");
 		exit(1);
@@ -84,6 +84,7 @@ void generate_poke_enemi(t_Poke *p, int line,t_Team * joueur)
 	else
 	{
 		char buffer[256];
+		//place the cursor at the right line
 		for (int i = 1; i < line; i++){
 			if (fgets(buffer, sizeof(buffer), dataPoke) == NULL){
 				printf("Erreur : ligne %d introuvable dans le fichier.\n", line);
@@ -91,7 +92,7 @@ void generate_poke_enemi(t_Poke *p, int line,t_Team * joueur)
 				exit(1);
 			}
 		}
-
+		
 		fscanf(dataPoke, "%d,%[^,],%d,%d,%d,%d,%d,%d\n", &(p->id), p->name, &(p->baseStats[PV]), &(p->baseStats[ATT]), &(p->baseStats[DEF]), &(p->baseStats[SPA]), &(p->baseStats[SPD]), &(p->baseStats[SPE]));
 		
 		//Load Types
