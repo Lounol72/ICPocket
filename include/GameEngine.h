@@ -124,6 +124,7 @@ typedef struct Game {
     ThreadManager threadManager; /**< Gestionnaire de threads. */
     SDL_Surface *cursor;       /**< Surface du curseur. */
     SDL_Surface *cursor_hover; /**< Surface du curseur au survol. */
+    int swappingIndex[2];
 } Game;
 
 #include "Game.h"
@@ -183,6 +184,21 @@ void attqButtonClicked(Window *win, void *data);
  * @param data Données supplémentaires pour le changement d'état.
  */
 void changeState(Window *win, void *data);
+
+/* Initialize basics for a Team Swap*/
+/**
+ * @brief Callback pour le gameState SWAP.
+ * 
+ * Cette fonction prépare le changement de state pour l'échange de ICmons.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour le changement d'état.
+ */
+ void initSwapTeam(Window *win, void *data);
+
+ void changeIndexSwap(Window *win, void *data);
+
+ void validateSwap(Window *win, void *data);
 
 /* Text-related updates for attacks */
 /**

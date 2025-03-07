@@ -19,6 +19,7 @@ typedef enum AppState_s {
     INTER, // 7
     PAUSE, // 8
     MAP, // 9
+    SWAP, //10
 } AppState;
 
 /**

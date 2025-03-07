@@ -5,17 +5,6 @@
 
 #include "../include/Events.h"
 
-/* Constantes pour le positionnement et la taille des sprites */
-#define RED_SPRITE_X_RATIO 0.23f
-#define RED_SPRITE_Y_RATIO 0.35f
-#define BLUE_SPRITE_X_RATIO 0.60f 
-#define BLUE_SPRITE_Y_RATIO 0.15f
-#define SPRITE_WIDTH_RATIO 0.2f
-#define SPRITE_HEIGHT_RATIO 0.25f
-#define NAME_Y_OFFSET 25
-#define PV_Y_OFFSET 25
-#define NAME_HEIGHT 20
-#define PV_BAR_HEIGHT 15
 
 /**
  * @brief Initialise les sprites pour tous les pokémons d'une équipe.
@@ -32,7 +21,7 @@
  * @param teamFlag Indicateur d'équipe (0 pour l'équipe rouge, 1 pour l'équipe bleue).
  * @return int Retourne 0 en cas de succès, -1 en cas d'erreur.
  */
-static int initTeamSprites(Window *win, t_Team *teamSprite, float x_ratio, float y_ratio, int teamFlag) {
+int initTeamSprites(Window *win, t_Team *teamSprite, float x_ratio, float y_ratio, int teamFlag) {
     for (int i = 0; i < teamSprite->nb_poke; i++) {
         t_Poke *poke = &(teamSprite->team[i]);
         SDL_Rect spriteRect = {
@@ -53,6 +42,7 @@ static int initTeamSprites(Window *win, t_Team *teamSprite, float x_ratio, float
             .w = spriteRect.w / 3,
             .h = PV_BAR_HEIGHT
         };
+        if(poke->img) destroyICMonsSprite(poke);
         poke->img = initICMonSprite(win->renderer, spriteRect, nameRect, pvRect, poke, win->LargeFont, teamFlag);
         if (!poke->img || !poke->img->ICMonTexture) {
             SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
@@ -234,6 +224,18 @@ void handleICMonsEvent(Window *win, SDL_Event *event) {
  * @param event Pointeur sur l'événement SDL.
  */
 void handleIntermediateEvent(Window *win, SDL_Event *event) {
+    if (!win || !event) return;
+    if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
+        int x, y;
+        SDL_GetMouseState(&x, &y);
+        for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
+            ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
+        }
+    }
+    handleEvent(win, event);
+}
+
+void handleSwapEvent(Window *win, SDL_Event *event) {
     if (!win || !event) return;
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;

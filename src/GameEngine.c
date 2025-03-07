@@ -98,12 +98,12 @@ static void cleanupResources(Window *win, SDL_GameController *controller) {
  * @param win Pointeur sur la fenêtre.
  * @param team Pointeur sur l'équipe (t_Team) dont on met à jour l'affichage.
  */
-static void updateICMonsButtonText(Window *win, t_Team *team) {
-    for (int i = 0; i < 6; i++) {
-        if (team->team[i].name[0] != '\0')
-            setButtonText(game.ui[6].buttons->buttons[i], team->team[i].name, win->renderer);
+static void updateICMonsButtonText(Window *win, t_Team *team, int endOfArray, AppState state) {
+    for (int i = endOfArray - 6; i < endOfArray; i++) {
+        if (team->team[i%6].name[0] != '\0')
+            setButtonText(game.ui[state].buttons->buttons[i], team->team[i%6].name, win->renderer);
         else
-            setButtonText(game.ui[6].buttons->buttons[i], "  ", win->renderer);
+            setButtonText(game.ui[state].buttons->buttons[i], "  ", win->renderer);
         
     }
 }
@@ -144,6 +144,10 @@ void render(Window *win) {
         renderText(win, &title);
     else if (game.gameState.currentState == NEWGAME)
         renderText(win, &NewGameText);
+    else if (game.gameState.currentState == SWAP){
+        renderICMonsSprite(win, &(game.battleState.bleu.team[game.swappingIndex[0]]));
+        renderICMonsSprite(win, &(game.battleState.rouge.team[game.swappingIndex[1]]));
+    }
 }
 
 /**
@@ -258,7 +262,37 @@ void changePokemon(Window *win, void *data) {
         isAlive(&game.battleState.rouge.team[0]) ? startBattleTurn(idx, AI_move_choice(&game.battleState.ia, &game.battleState.rouge)) : swapActualAttacker(&game.battleState.rouge, idx);
     }
     updateICButtons(win, &game.battleState.rouge);
-    updateICMonsButtonText(win, &game.battleState.rouge);
+    updateICMonsButtonText(win, &game.battleState.rouge, 6 , 6);
+}
+
+void initSwapTeam(Window *win, void *data) {
+    game.swappingIndex[0]=-1;
+    game.swappingIndex[1]=game.battleState.rouge.nb_poke;
+    updateICMonsButtonText(win, &game.battleState.bleu, 6 ,10);
+    updateICMonsButtonText(win, &game.battleState.rouge, 12 ,10);
+    changeState(win,data);
+}
+
+void changeIndexSwap(Window *win, void *data) {
+    (void)win;
+    int value=(int)(intptr_t)data;
+    int teamIndex=value>=6?1:0;
+    if(value-6>game.battleState.rouge.nb_poke) value=game.battleState.rouge.nb_poke;
+    game.swappingIndex[teamIndex]=value%6;
+}
+
+void validateSwap(Window *win, void *data) {
+    if(isExisting(&game.battleState.bleu.team[game.swappingIndex[0]])){
+        if(isExisting(&game.battleState.rouge.team[game.swappingIndex[1]])){
+            destroyICMonsSprite(&game.battleState.rouge.team[game.swappingIndex[1]]);
+        }
+        getPokeFromTeam(&game.battleState.rouge,game.swappingIndex[1],&game.battleState.bleu,game.swappingIndex[0]);
+        destroyICMonsSprite(&game.battleState.rouge.team[game.swappingIndex[1]]);
+        initTeamSprites(win, &game.battleState.rouge,RED_SPRITE_X_RATIO, RED_SPRITE_Y_RATIO, 0);
+        updateICButtons(win, &game.battleState.rouge);
+        updateICMonsButtonText(win, &game.battleState.rouge, 6, 6);
+        changeState(win,data);
+    }
 }
 
 /**
@@ -346,14 +380,16 @@ void initAllButtons(Window *win)
     int nbButtonsParam = 6;
     int nbButtonsGame = 5;
     int nbButtonsICMons = 7;
-    int nbButtonsInter = 2;
+    int nbButtonsInter = 3;
+    int nbButtonsSwap = 14;
 
     Button *buttonsMenu[4];
     Button *buttonsParam[6];
     Button *buttonsLoadGame[3];
     Button *buttonsGame[5];
     Button *buttonsICMons[7];
-    Button *buttonsInter[2];
+    Button *buttonsInter[3];
+    Button *buttonsSwap[14];
     Slider *sliders[1];
 
     /* Boutons du menu */
@@ -535,6 +571,101 @@ void initAllButtons(Window *win)
         changeState, &game.stateHandlers[2].state, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
+    buttonsInter[2] = createButton(
+        "Swap an ICmon", win, (SDL_Rect){500, 500, 300, 100},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        initSwapTeam, &game.stateHandlers[10].state, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+
+
+    /* Boutons de l'écran d'échange*/
+    buttonsSwap[0] = createButton(
+        "AdvICMon1", win, (SDL_Rect){20, 20, 160, 100},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        changeIndexSwap, (void*)(intptr_t)0, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsSwap[1] = createButton(
+        "AdvICMon2", win, (SDL_Rect){240, 20, 160, 100},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        changeIndexSwap, (void*)(intptr_t)1, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsSwap[2] = createButton(
+        "AdvICMon3", win, (SDL_Rect){460, 20, 160, 100},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        changeIndexSwap, (void*)(intptr_t)2, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsSwap[3] = createButton(
+        "AdvICMon4", win, (SDL_Rect){680, 20, 160, 100},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        changeIndexSwap, (void*)(intptr_t)3, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsSwap[4] = createButton(
+        "AdvICMon5", win, (SDL_Rect){900, 20, 160, 100},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        changeIndexSwap, (void*)(intptr_t)4, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsSwap[5] = createButton(
+        "AdvICMon6", win, (SDL_Rect){1120, 20, 160, 100},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        changeIndexSwap, (void*)(intptr_t)5, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsSwap[6] = createButton(
+        "PlayerICMon1", win, (SDL_Rect){20, 300, 160, 100},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        changeIndexSwap, (void*)(intptr_t)6, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsSwap[7] = createButton(
+        "PlayerICMon2", win, (SDL_Rect){240, 300, 160, 100},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        changeIndexSwap, (void*)(intptr_t)7, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsSwap[8] = createButton(
+        "PlayerICMon3", win, (SDL_Rect){460, 300, 160, 100},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        changeIndexSwap, (void*)(intptr_t)8, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsSwap[9] = createButton(
+        "PlayerICMon4", win, (SDL_Rect){680, 300, 160, 100},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        changeIndexSwap, (void*)(intptr_t)9, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsSwap[10] = createButton(
+        "PlayerICMon5", win, (SDL_Rect){900, 300, 160, 100},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        changeIndexSwap, (void*)(intptr_t)10, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsSwap[11] = createButton(
+        "PlayerICMon6", win, (SDL_Rect){1120, 300, 160, 100},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        changeIndexSwap, (void*)(intptr_t)11, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsSwap[12] = createButton(
+        "  Back  ", win, (SDL_Rect){100, 600, 300, 100},
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        changeState, &game.stateHandlers[7].state, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsSwap[13] = createButton(
+        "  Validate  ", win, (SDL_Rect){1000, 600, 300, 100},
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        validateSwap, &game.stateHandlers[7].state, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    
+    
 
     /* Création du slider */
     sliders[0] = createSlider(win->renderer, 100, 100, 200, 25,
@@ -548,6 +679,7 @@ void initAllButtons(Window *win)
     addListButton(game.ui[3].buttons, buttonsGame, nbButtonsGame);
     addListButton(game.ui[6].buttons, buttonsICMons, nbButtonsICMons);
     addListButton(game.ui[7].buttons, buttonsInter, nbButtonsInter);
+    addListButton(game.ui[10].buttons, buttonsSwap, nbButtonsSwap);
 }
 
 /**
@@ -574,7 +706,7 @@ void updateICButtons(Window *win, t_Team *team) {
         }
     }
     if (game.gameState.currentState == NEWGAME || game.gameState.currentState == LOADGAME)
-        updateICMonsButtonText(win, &game.battleState.rouge);
+        updateICMonsButtonText(win, &game.battleState.rouge, 6, 6);
 }
 
 /**

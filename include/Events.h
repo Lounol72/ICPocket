@@ -14,6 +14,18 @@
  * @date 17/02/2025
  */
 
+/* Constantes pour le positionnement et la taille des sprites */
+#define RED_SPRITE_X_RATIO 0.23f
+#define RED_SPRITE_Y_RATIO 0.35f
+#define BLUE_SPRITE_X_RATIO 0.60f 
+#define BLUE_SPRITE_Y_RATIO 0.15f
+#define SPRITE_WIDTH_RATIO 0.2f
+#define SPRITE_HEIGHT_RATIO 0.25f
+#define NAME_Y_OFFSET 25
+#define PV_Y_OFFSET 25
+#define NAME_HEIGHT 20
+#define PV_BAR_HEIGHT 15
+
 /** @brief Main event handler that processes all SDL events
  *  @param win Pointer to the Window structure containing game state
  *  @param event Pointer to the SDL_Event to process
@@ -84,5 +96,13 @@ void handlePauseEvent(Window *win, SDL_Event *event);
  *  @param event Pointer to the SDL_Event to process
  */
 void handlePlayerEvent(Window *win, SDL_Event *event);
+
+/** @brief Handles events when the player swap an ICmon with the AI
+ *  @param win Pointer to the Window structure containing game state
+ *  @param event Pointer to the SDL_Event to process
+ */
+ void handleSwapEvent(Window *win, SDL_Event *event);
+
+ int initTeamSprites(Window *win, t_Team *teamSprite, float x_ratio, float y_ratio, int teamFlag);
 
 #endif /* HANDLEEVENTS_H */
