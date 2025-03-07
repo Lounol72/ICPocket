@@ -14,6 +14,15 @@ static void initCollisionMap(Map *map) {
     }
 }
 
+static void loadNewMap(Map **map, const char *newMapPath) {
+    destroyMap(*map);
+    *map = initMap((*map)->renderer, newMapPath);
+    if (!*map) {
+        printf("Erreur chargement nouvelle map\n");
+        return;
+    }
+}
+
 static void initCollisionMapFromCSV(Map *map, const char *path) {
     char separator = ',';
     FILE *file = fopen(path, "r");
@@ -29,7 +38,7 @@ static void initCollisionMapFromCSV(Map *map, const char *path) {
     }
     fclose(file);
 }
-    
+
 Map *initMap(SDL_Renderer *renderer, const char *path) {
     Map *map = (Map *)malloc(sizeof(Map));
     if (!map) return NULL;
@@ -178,5 +187,7 @@ void destroyMap(Map *map) {
     free(map->mat);
     free(map);
 }
+
+
 
 
