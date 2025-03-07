@@ -126,10 +126,12 @@ void updateText(Text *text, const char *newText, SDL_Renderer *renderer) {
 
 void updateTextPosition(Text *text, float scaleX, float scaleY) {
     if (text && text->texture) {
-        text->rect.x = text->initialRect.x * scaleX;
-        text->rect.y = text->initialRect.y * scaleY;
-        text->rect.w = text->initialRect.w * scaleX;
-        text->rect.h = text->initialRect.h * scaleY;
+        SDL_Rect rect = text->rect;
+        rect.x = text->initialRect.x * scaleX;
+        rect.y = text->initialRect.y * scaleY;
+        rect.w = text->initialRect.w * scaleX;
+        rect.h = text->initialRect.h * scaleY;
+        StayScaled(text->font, text, &text->rect, &rect);
     }
 }
 
