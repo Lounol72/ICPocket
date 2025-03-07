@@ -230,7 +230,7 @@ void attqButtonClicked(Window *win, void *data) {
         if (moveIndex < 0 || moveIndex >= game.battleState.rouge.team[0].nb_move) {
             return;
         }
-        if (isAlive(&(game.battleState.rouge.team[0])) && game.battleState.turnState == TURN_NONE) {
+        if (isAlive(&(game.battleState.rouge.team[0]))) {
             Mix_PlayChannel(2, game.battleState.rouge.team[0].img->ICMonSound, 0);
             startBattleTurn(moveIndex, AI_move_choice(&game.battleState.ia, &game.battleState.rouge));
         }
