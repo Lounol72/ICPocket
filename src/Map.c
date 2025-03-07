@@ -39,6 +39,7 @@ static void initCollisionMapFromCSV(Map *map, const char *path) {
     fclose(file);
 }
 
+
 Map *initMap(SDL_Renderer *renderer, const char *path) {
     Map *map = (Map *)malloc(sizeof(Map));
     if (!map) return NULL;
@@ -94,6 +95,22 @@ Map *initMap(SDL_Renderer *renderer, const char *path) {
     }
 
     return map;
+}
+
+void checkAndLoadNewMap(Map **map, int playerX, int playerY) {
+    if ((*map)->mat[playerY][playerX] == 2) {
+        const char *newMapPath = "assets/Tileset/Map/2.png";
+        loadNewMap(map, newMapPath);
+    }
+    if ((*map)->mat[playerY][playerX] == 3) {
+        const char *newMapPath = "assets/Tileset/Map/3.png";
+        loadNewMap(map, newMapPath);
+    }
+    if ((*map)->mat[playerY][playerX] == 9) {
+        const char *newMapPath = "assets/Tileset/Map/hall.png";
+        loadNewMap(map, newMapPath);
+    }
+    
 }
 
 void DEBUG_printMap(Map *map) {

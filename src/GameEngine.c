@@ -343,6 +343,9 @@ void mainLoop(Window *win) {
         
         if (game.gameState.currentState == MAP) {
             renderMap(win);
+            if (game.gameData.map && game.gameData.player) {
+                checkAndLoadNewMap(&game.gameData.map, game.gameData.player->matrixX, game.gameData.player->matrixY);
+            }
         } else {
             SDL_RenderClear(win->renderer);
             render(win);

@@ -9,8 +9,6 @@
 #define AIR 0
 #define COLLISION 1
 
-
-
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "Camera.h"
@@ -28,6 +26,8 @@ typedef struct Map {
     SDL_Renderer *renderer;
     int **mat;
     SDL_Texture *texture;
+    int width;  // Ajouter le membre width
+    int height; // Ajouter le membre height
 } Map;
 
 Map *initMap(SDL_Renderer *renderer, const char *path);
@@ -36,7 +36,7 @@ void destroyMap(Map *map);
 void updateMap(Map *map);
 void loadMapIMG(Map *map, const char *path);
 void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera);
-
+void checkAndLoadNewMap(Map **map, int playerX, int playerY);
 
 // ! DEBUG
 void DEBUG_printMap(Map *map);
