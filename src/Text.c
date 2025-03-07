@@ -94,6 +94,7 @@ void destroyText(Text * text){
         }
         if (text->is_dynamic) {
             free(text);
+            text = NULL;
         }
     }
 }
@@ -253,9 +254,6 @@ void resetScrollingText(ScrollingText* text, char* fullText) {
     text->currentLength = 0;
     text->isComplete = false;
     // Libérer l'ancienne copie de fullText s'il y en a une
-    if (text->fullText) {
-        free(text->fullText);
-    }
     text->fullText = strdup(fullText);
     if (!text->fullText) {
         // Gérer l'erreur de manière appropriée (logger, etc.)
@@ -285,11 +283,6 @@ void destroyScrollingText(ScrollingText* text) {
     if (text->background) {
         SDL_DestroyTexture(text->background);
         text->background = NULL;
-    }
-    
-    if (text->fullText) {
-        free(text->fullText);
-        text->fullText = NULL;
     }
     
     if (text->currentText) {
