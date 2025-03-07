@@ -75,6 +75,8 @@
   "files.associations": {
     "utils.h": "c",
     "structpoke.h": "c",
-    "log.h": "c"
+    "log.h": "c",
+    "duel.h": "c",
+    "sdl_image.h": "c"
   }
 }
