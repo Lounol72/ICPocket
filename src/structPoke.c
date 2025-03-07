@@ -1,5 +1,4 @@
-#include "../include/duel.h"
-
+#include "../include/structPoke.h"
 
 t_Nature tabNature[25];
 float typeChart[typeNumber][typeNumber]={
