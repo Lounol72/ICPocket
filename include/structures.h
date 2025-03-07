@@ -1,3 +1,6 @@
+#ifndef STRUCTURES_H
+#define STRUCTURES_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -6,7 +9,10 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 
+
 #define typeNumber 4
+
+extern float typeChart[typeNumber][typeNumber];
 
 typedef enum{status=-1,physical=1,special=3} t_Categ;
 typedef enum{noType=0,feu,plante,eau} t_Type;
@@ -14,6 +20,7 @@ typedef enum{male = 0,female} t_Gender;
 typedef enum{noEffect = 0,burn,poison,paralyze,flinch,confusion} t_Effect;
 
 typedef struct{char nature[15];float coeff[6];} t_Nature;
+extern t_Nature tabNature[25];
 
 typedef struct IMG_ICMons IMG_ICMons;
 
@@ -36,7 +43,7 @@ typedef struct
 	int probability;
 	int value_effect; //Puissance de l'effet
 	int effect_modifier;//Modificateur de l'effet
-} t_Move;
+}t_Move;
 
 
 /**
@@ -60,7 +67,7 @@ typedef struct
 	t_Effect main_effect;
 	// Affichage
 	IMG_ICMons *img;
-} t_Poke;
+}t_Poke;
 
 /**
  * @brief La structure t_Team contient tout les attributs nécessaire à la génération et à l'utilisation d'une équipe lors d'un combat.
@@ -80,7 +87,6 @@ typedef struct{
 	t_Effect effect;
 	int lastEnemiID;
 	int nb_enemiBeat;
-} t_Team;
+}t_Team;
 
-extern t_Nature tabNature[25];
-extern float typeChart[typeNumber][typeNumber];
+#endif // STRUCTURES_H

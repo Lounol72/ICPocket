@@ -38,15 +38,6 @@
 
 #define typeNumber 4
 
-
-
-
-
-
-
-
-extern t_Nature tabNature[25];
-extern float typeChart[typeNumber][typeNumber];
 /**
 *@brief Generate a Icmon from a given id in the dataPoke.csv file
 *@param p : the structure Icmon to generate

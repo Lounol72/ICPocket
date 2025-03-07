@@ -10,9 +10,8 @@
 #define ATTAQUE_2 1
 #define ATTAQUE_3 2
 #define ATTAQUE_4 3
-
+#include "structPoke.h"
 #include "structures.h"
-
 
 /**
  * @file duel.h
