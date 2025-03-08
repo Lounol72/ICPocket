@@ -1,8 +1,25 @@
 var searchData=
 [
-  ['value_0',['value',['../df/dd7/structSlider.html#ae7a169abde25f6d0c42837b1b201f11a',1,'Slider']]],
-  ['value_5feffect_1',['value_effect',['../d1/d68/structt__Move.html#af2801d96ca253fc7ef0c7e27211a457b',1,'t_Move']]],
-  ['velocityx_2',['velocityX',['../dc/d7b/structPlayer.html#aa2e65de7f4fc84a45fd54247d69b31b0',1,'Player']]],
-  ['velocityy_3',['velocityY',['../dc/d7b/structPlayer.html#a2d575a35135f4c4c2fd89f01751c4462',1,'Player']]],
-  ['viewport_4',['viewport',['../d7/d7e/structCamera.html#aaf4723593207c0f1cb02edfc2f4731f2',1,'Camera']]]
+  ['ui_0',['ui',['../de/de9/structGame.html#a1983960f961427e4f38cca321f7e34e3',1,'Game']]],
+  ['ui_5felements_1',['UI_Elements',['../d8/de4/structUI__Elements.html',1,'']]],
+  ['un_20son_2',['Ajouter un son',['../index.html#autotoc_md2',1,'']]],
+  ['updatebattleturn_3',['updatebattleturn',['../d5/d81/GameEngine_8c.html#aeffafb56f1266491593b4e3e0fd3fb28',1,'updateBattleTurn():&#160;GameEngine.c'],['../d7/d1f/GameEngine_8h.html#aeffafb56f1266491593b4e3e0fd3fb28',1,'updateBattleTurn():&#160;GameEngine.c']]],
+  ['updatebuttonposition_4',['updatebuttonposition',['../d9/d0e/Buttons_8c.html#a604a2e476e66033908fc016c70138aac',1,'updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley):&#160;Buttons.c'],['../d3/d70/Buttons_8h.html#a604a2e476e66033908fc016c70138aac',1,'updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley):&#160;Buttons.c']]],
+  ['updatecamera_5',['updatecamera',['../d5/d18/Camera_8c.html#a1f82183277c2e3bb2c0ed552111a932f',1,'updateCamera(Camera *camera, int playerX, int playerY, float deltaTime):&#160;Camera.c'],['../dd/de4/Camera_8h.html#a1f82183277c2e3bb2c0ed552111a932f',1,'updateCamera(Camera *camera, int playerX, int playerY, float deltaTime):&#160;Camera.c']]],
+  ['updatecameraviewport_6',['updatecameraviewport',['../d5/d18/Camera_8c.html#a3705df95afd7ab87f9c1e6e48ad7a6f5',1,'updateCameraViewport(Camera *camera, int windowWidth, int windowHeight):&#160;Camera.c'],['../dd/de4/Camera_8h.html#a3705df95afd7ab87f9c1e6e48ad7a6f5',1,'updateCameraViewport(Camera *camera, int windowWidth, int windowHeight):&#160;Camera.c']]],
+  ['updatecurrentbutton_7',['updatecurrentbutton',['../d5/d81/GameEngine_8c.html#aa35dc6fb12b09280f097e5781e5892e1',1,'updateCurrentButton():&#160;GameEngine.c'],['../d7/d1f/GameEngine_8h.html#aa35dc6fb12b09280f097e5781e5892e1',1,'updateCurrentButton():&#160;GameEngine.c']]],
+  ['updateicbuttons_8',['updateicbuttons',['../d5/d81/GameEngine_8c.html#aa9e620870df635719d54d19fd83bb423',1,'updateICButtons(Window *win, t_Team *team):&#160;GameEngine.c'],['../d7/d1f/GameEngine_8h.html#aa9e620870df635719d54d19fd83bb423',1,'updateICButtons(Window *win, t_Team *team):&#160;GameEngine.c']]],
+  ['updateicmonsbuttontext_9',['updateICMonsButtonText',['../d5/d81/GameEngine_8c.html#af61649d1814c53b7d667052ea9e20cfe',1,'GameEngine.c']]],
+  ['updateicmonssprite_10',['updateicmonssprite',['../d9/d0c/RenderICMons_8c.html#a00792a5dc944c5d8992198d436c219d7',1,'updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY):&#160;RenderICMons.c'],['../d2/d98/RenderICMons_8h.html#a00792a5dc944c5d8992198d436c219d7',1,'updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY):&#160;RenderICMons.c']]],
+  ['updatemap_11',['updateMap',['../df/d79/Map_8h.html#a68ba8a390de3a556e314c6b60d45232e',1,'Map.h']]],
+  ['updatemusic_12',['updatemusic',['../d7/d1f/GameEngine_8h.html#ae728be2d7ae42605618aa49e1a837466',1,'updateMusic():&#160;GameEngine.c'],['../d5/d81/GameEngine_8c.html#ae728be2d7ae42605618aa49e1a837466',1,'updateMusic():&#160;GameEngine.c']]],
+  ['updateplayeranimation_13',['updateplayeranimation',['../d1/d12/Player_8c.html#afd90f424179051138eeeb7cb8cc0667e',1,'updatePlayerAnimation(Player *player, float deltaTime):&#160;Player.c'],['../da/dbf/Player_8h.html#afd90f424179051138eeeb7cb8cc0667e',1,'updatePlayerAnimation(Player *player, float deltaTime):&#160;Player.c']]],
+  ['updateplayerposition_14',['updateplayerposition',['../d1/d12/Player_8c.html#a40da9b0e713099872485ca1866f1ee6c',1,'updatePlayerPosition(Player *player, float deltaTime):&#160;Player.c'],['../da/dbf/Player_8h.html#a40da9b0e713099872485ca1866f1ee6c',1,'updatePlayerPosition(Player *player, float deltaTime):&#160;Player.c']]],
+  ['updatepvbar_15',['updatePVBar',['../d9/d0c/RenderICMons_8c.html#a59416d9326ffdcab2c4bc4b71c422783',1,'RenderICMons.c']]],
+  ['updatescrollingtext_16',['updatescrollingtext',['../d6/d35/Text_8h.html#a70b0c8ad2591d026ed13498d2f5b51e5',1,'updateScrollingText(ScrollingText *text, SDL_Renderer *renderer):&#160;Text.c'],['../dc/dae/Text_8c.html#a70b0c8ad2591d026ed13498d2f5b51e5',1,'updateScrollingText(ScrollingText *text, SDL_Renderer *renderer):&#160;Text.c']]],
+  ['updatescrollingtextposition_17',['updateScrollingTextPosition',['../dc/dae/Text_8c.html#a768cf1c99dfc678b1aebc603e2f2c9eb',1,'Text.c']]],
+  ['updatesliderposition_18',['updatesliderposition',['../d9/d0e/Buttons_8c.html#a109411bd394d38718374d0b1fde9a020',1,'updateSliderPosition(SliderList *sliders, float Scalex, float Scaley):&#160;Buttons.c'],['../d3/d70/Buttons_8h.html#a109411bd394d38718374d0b1fde9a020',1,'updateSliderPosition(SliderList *sliders, float Scalex, float Scaley):&#160;Buttons.c']]],
+  ['updatetext_19',['updatetext',['../dc/dae/Text_8c.html#aa873f47f05aa894283bed1c93b836b09',1,'updateText(Text *text, const char *newText, SDL_Renderer *renderer):&#160;Text.c'],['../d6/d35/Text_8h.html#aa873f47f05aa894283bed1c93b836b09',1,'updateText(Text *text, const char *newText, SDL_Renderer *renderer):&#160;Text.c']]],
+  ['updatetextposition_20',['updatetextposition',['../dc/dae/Text_8c.html#a015ae8ec886baef9970798a86f682b27',1,'updateTextPosition(Text *text, float scaleX, float scaleY):&#160;Text.c'],['../d6/d35/Text_8h.html#a015ae8ec886baef9970798a86f682b27',1,'updateTextPosition(Text *text, float scaleX, float scaleY):&#160;Text.c']]],
+  ['utils_2eh_21',['Utils.h',['../d9/ded/Utils_8h.html',1,'']]]
 ];

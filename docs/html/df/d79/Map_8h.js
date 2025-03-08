@@ -8,6 +8,7 @@ var Map_8h =
     [ "TILE_SIZE_H_SCALE", "df/d79/Map_8h.html#a753f2756c680e7ad1cf607b8d7a8ebe4", null ],
     [ "TILE_SIZE_W_SCALE", "df/d79/Map_8h.html#a62fd79d09fbf7702d076db82bc7220dc", null ],
     [ "Map", "df/d79/Map_8h.html#a767ff9e0c58d27b070f30636b66d2603", null ],
+    [ "checkAndLoadNewMap", "df/d79/Map_8h.html#ae0656f1ed1c85e750b8bc65bd7269f62", null ],
     [ "DEBUG_printMap", "df/d79/Map_8h.html#a6a8408146457cc93ec3694e180bb5574", null ],
     [ "destroyMap", "df/d79/Map_8h.html#a64df896c814cef549bef88fcd20d9a67", null ],
     [ "initMap", "df/d79/Map_8h.html#a2d3b5b6a74e6800de411e1edf7dfea2e", null ],

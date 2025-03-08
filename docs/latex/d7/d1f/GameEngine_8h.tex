@@ -12,19 +12,19 @@ Définition et gestion du moteur de jeu.
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+gamecontroller.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include \"{}Utils.\+h\"{}}\newline
-{\ttfamily \#include \"{}Window.\+h\"{}}\newline
-{\ttfamily \#include \"{}inter\+Duel.\+h\"{}}\newline
-{\ttfamily \#include \"{}trainer\+AI.\+h\"{}}\newline
-{\ttfamily \#include \"{}save.\+h\"{}}\newline
-{\ttfamily \#include \"{}Text.\+h\"{}}\newline
-{\ttfamily \#include \"{}Map.\+h\"{}}\newline
-{\ttfamily \#include \"{}Player.\+h\"{}}\newline
-{\ttfamily \#include \"{}Camera.\+h\"{}}\newline
-{\ttfamily \#include \"{}Thread\+Manager.\+h\"{}}\newline
-{\ttfamily \#include \"{}Game.\+h\"{}}\newline
-{\ttfamily \#include \"{}Events.\+h\"{}}\newline
-{\ttfamily \#include \"{}Render\+ICMons.\+h\"{}}\newline
+{\ttfamily \#include "{}Utils.\+h"{}}\newline
+{\ttfamily \#include "{}Window.\+h"{}}\newline
+{\ttfamily \#include "{}inter\+Duel.\+h"{}}\newline
+{\ttfamily \#include "{}trainer\+AI.\+h"{}}\newline
+{\ttfamily \#include "{}save.\+h"{}}\newline
+{\ttfamily \#include "{}Text.\+h"{}}\newline
+{\ttfamily \#include "{}Map.\+h"{}}\newline
+{\ttfamily \#include "{}Player.\+h"{}}\newline
+{\ttfamily \#include "{}Camera.\+h"{}}\newline
+{\ttfamily \#include "{}Thread\+Manager.\+h"{}}\newline
+{\ttfamily \#include "{}Game.\+h"{}}\newline
+{\ttfamily \#include "{}Events.\+h"{}}\newline
+{\ttfamily \#include "{}Render\+ICMons.\+h"{}}\newline
 Graphe des dépendances par inclusion de Game\+Engine.\+h\+:
 \nopagebreak
 \begin{figure}[H]
@@ -61,6 +61,19 @@ typedef struct \mbox{\hyperlink{structStateHandler}{State\+Handler}} \mbox{\hype
 \item 
 typedef struct \mbox{\hyperlink{structGame}{Game}} \mbox{\hyperlink{GameEngine_8h_a69b5df78d315f81ed77df30fdbfb7002}{Game}}
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1f}{Battle\+Turn\+State}} \{ \newline
+\mbox{\hyperlink{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1fa859308501a74dc19c751649b179900e1}{TURN\+\_\+\+NONE}}
+, \mbox{\hyperlink{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1fa3f0cca320edbedb96b0f0d32d557f6b7}{TURN\+\_\+\+INIT}}
+, \mbox{\hyperlink{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1fa16397de1b4941276d147c7c2af932a5f}{TURN\+\_\+\+WAIT\+\_\+\+TEXT}}
+, \mbox{\hyperlink{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1fa3a510006e4f83d6ae9e98cb1adf7fc5c}{TURN\+\_\+\+ACTION1}}
+, \newline
+\mbox{\hyperlink{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1faee8a2ba610ac3d266cf1d1494b975d07}{TURN\+\_\+\+ACTION2}}
+, \mbox{\hyperlink{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1fac97da841d971d299dcaa204671babdcc}{TURN\+\_\+\+FINISHED}}
+ \}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
@@ -74,6 +87,12 @@ void \mbox{\hyperlink{GameEngine_8h_a8f8e57777ac436d2bfa2a87224c0eb8c}{attq\+But
 \begin{DoxyCompactList}\small\item\em Gestionnaire de clic pour le bouton d\textquotesingle{}attaque. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{GameEngine_8h_ae30f21d07d1066ecda7ed1097d584e6b}{change\+State}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
 \begin{DoxyCompactList}\small\item\em Callback générique pour le changement d\textquotesingle{}état. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{GameEngine_8h_a28332eed894602447a49a8cdb433d25d}{init\+Swap\+Team}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Callback pour le game\+State SWAP. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{GameEngine_8h_aa9e408a2d39655e3d5db43606825801b}{change\+Index\+Swap}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+\item 
+void \mbox{\hyperlink{GameEngine_8h_a4f4fd64e6dbdcdcd83fd46f43c35d9bf}{validate\+Swap}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+\item 
 void \mbox{\hyperlink{GameEngine_8h_aa9e620870df635719d54d19fd83bb423}{update\+ICButtons}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}team)
 \begin{DoxyCompactList}\small\item\em Met à jour les boutons d\textquotesingle{}attaque. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{GameEngine_8h_a275ae329d3830bface72c1c30db48b04}{next\+Duel}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
@@ -83,7 +102,13 @@ void \mbox{\hyperlink{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1}{update\+C
 void \mbox{\hyperlink{GameEngine_8h_ae728be2d7ae42605618aa49e1a837466}{update\+Music}} ()
 \begin{DoxyCompactList}\small\item\em Met à jour la musique. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{GameEngine_8h_a6ed42cf8883eef51f3764c8587d7bc59}{manage\+Frame\+Rate}} (int frame\+Start)
-\begin{DoxyCompactList}\small\item\em Gère le taux de rafraîchissement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gère le taux de rafraîchissement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{GameEngine_8h_adabbbc541f65101aca7e21be011712ae}{start\+Battle\+Turn}} (int move\+Rouge, int move\+Bleu)
+\begin{DoxyCompactList}\small\item\em Démarre le tour de combat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{GameEngine_8h_a0f30ad9309996b75a4472a6235a17bd1}{execute\+Action}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}attacker, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}defender, int move)
+\begin{DoxyCompactList}\small\item\em Exécute une action de combat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{GameEngine_8h_aeffafb56f1266491593b4e3e0fd3fb28}{update\+Battle\+Turn}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour le tour de combat. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -112,6 +137,41 @@ Louis
 \doxysubsubsection{\texorpdfstring{StateHandler}{StateHandler}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structStateHandler}{State\+Handler}} \mbox{\hyperlink{structStateHandler}{State\+Handler}}}
 
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\Hypertarget{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1f}\label{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1f} 
+\index{GameEngine.h@{GameEngine.h}!BattleTurnState@{BattleTurnState}}
+\index{BattleTurnState@{BattleTurnState}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{BattleTurnState}{BattleTurnState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1f}{Battle\+Turn\+State}}}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TURN\_NONE@{TURN\_NONE}!GameEngine.h@{GameEngine.h}}\index{GameEngine.h@{GameEngine.h}!TURN\_NONE@{TURN\_NONE}}}\Hypertarget{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1fa859308501a74dc19c751649b179900e1}\label{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1fa859308501a74dc19c751649b179900e1} 
+TURN\+\_\+\+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TURN\_INIT@{TURN\_INIT}!GameEngine.h@{GameEngine.h}}\index{GameEngine.h@{GameEngine.h}!TURN\_INIT@{TURN\_INIT}}}\Hypertarget{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1fa3f0cca320edbedb96b0f0d32d557f6b7}\label{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1fa3f0cca320edbedb96b0f0d32d557f6b7} 
+TURN\+\_\+\+INIT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TURN\_WAIT\_TEXT@{TURN\_WAIT\_TEXT}!GameEngine.h@{GameEngine.h}}\index{GameEngine.h@{GameEngine.h}!TURN\_WAIT\_TEXT@{TURN\_WAIT\_TEXT}}}\Hypertarget{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1fa16397de1b4941276d147c7c2af932a5f}\label{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1fa16397de1b4941276d147c7c2af932a5f} 
+TURN\+\_\+\+WAIT\+\_\+\+TEXT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TURN\_ACTION1@{TURN\_ACTION1}!GameEngine.h@{GameEngine.h}}\index{GameEngine.h@{GameEngine.h}!TURN\_ACTION1@{TURN\_ACTION1}}}\Hypertarget{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1fa3a510006e4f83d6ae9e98cb1adf7fc5c}\label{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1fa3a510006e4f83d6ae9e98cb1adf7fc5c} 
+TURN\+\_\+\+ACTION1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TURN\_ACTION2@{TURN\_ACTION2}!GameEngine.h@{GameEngine.h}}\index{GameEngine.h@{GameEngine.h}!TURN\_ACTION2@{TURN\_ACTION2}}}\Hypertarget{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1faee8a2ba610ac3d266cf1d1494b975d07}\label{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1faee8a2ba610ac3d266cf1d1494b975d07} 
+TURN\+\_\+\+ACTION2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TURN\_FINISHED@{TURN\_FINISHED}!GameEngine.h@{GameEngine.h}}\index{GameEngine.h@{GameEngine.h}!TURN\_FINISHED@{TURN\_FINISHED}}}\Hypertarget{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1fac97da841d971d299dcaa204671babdcc}\label{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1fac97da841d971d299dcaa204671babdcc} 
+TURN\+\_\+\+FINISHED&\\
+\hline
+
+\end{DoxyEnumFields}
 
 
 \doxysubsection{Documentation des fonctions}
@@ -145,6 +205,12 @@ Valide l\textquotesingle{}indice du mouvement et, si possible, exécute le tour 
 {\em data} & Pointeur vers l\textquotesingle{}indice du mouvement (int casté en void\texorpdfstring{$\ast$}{*}). \\
 \hline
 \end{DoxyParams}
+\Hypertarget{GameEngine_8h_aa9e408a2d39655e3d5db43606825801b}\label{GameEngine_8h_aa9e408a2d39655e3d5db43606825801b} 
+\index{GameEngine.h@{GameEngine.h}!changeIndexSwap@{changeIndexSwap}}
+\index{changeIndexSwap@{changeIndexSwap}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{changeIndexSwap()}{changeIndexSwap()}}
+{\footnotesize\ttfamily void change\+Index\+Swap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
 \Hypertarget{GameEngine_8h_ae30f21d07d1066ecda7ed1097d584e6b}\label{GameEngine_8h_ae30f21d07d1066ecda7ed1097d584e6b} 
 \index{GameEngine.h@{GameEngine.h}!changeState@{changeState}}
 \index{changeState@{changeState}!GameEngine.h@{GameEngine.h}}
@@ -175,7 +241,17 @@ Met à jour l\textquotesingle{}état de la fenêtre et de la structure globale d
 {\em data} & Pointeur vers la nouvelle valeur d\textquotesingle{}état (App\+State). \\
 \hline
 \end{DoxyParams}
-\Hypertarget{GameEngine_8h_ac7a261e0d935ffeeca4d7a0713913bd2}\label{GameEngine_8h_ac7a261e0d935ffeeca4d7a0713913bd2} 
+\Hypertarget{GameEngine_8h_a0f30ad9309996b75a4472a6235a17bd1}\label{GameEngine_8h_a0f30ad9309996b75a4472a6235a17bd1} 
+\index{GameEngine.h@{GameEngine.h}!executeAction@{executeAction}}
+\index{executeAction@{executeAction}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{executeAction()}{executeAction()}}
+{\footnotesize\ttfamily void execute\+Action (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{attacker,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{defender,  }\item[{int}]{move }\end{DoxyParamCaption})}
+
+
+
+Exécute une action de combat. 
+
+Cette fonction exécute une action de combat pour l\textquotesingle{}équipe spécifiée. \Hypertarget{GameEngine_8h_ac7a261e0d935ffeeca4d7a0713913bd2}\label{GameEngine_8h_ac7a261e0d935ffeeca4d7a0713913bd2} 
 \index{GameEngine.h@{GameEngine.h}!initAllButtons@{initAllButtons}}
 \index{initAllButtons@{initAllButtons}!GameEngine.h@{GameEngine.h}}
 \doxysubsubsection{\texorpdfstring{initAllButtons()}{initAllButtons()}}
@@ -201,6 +277,25 @@ Crée et configure les boutons pour les différents états (menu, paramètres, l
 {\em win} & Pointeur sur la fenêtre. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{GameEngine_8h_a28332eed894602447a49a8cdb433d25d}\label{GameEngine_8h_a28332eed894602447a49a8cdb433d25d} 
+\index{GameEngine.h@{GameEngine.h}!initSwapTeam@{initSwapTeam}}
+\index{initSwapTeam@{initSwapTeam}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{initSwapTeam()}{initSwapTeam()}}
+{\footnotesize\ttfamily void init\+Swap\+Team (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Callback pour le game\+State SWAP. 
+
+Cette fonction prépare le changement de state pour l\textquotesingle{}échange de ICmons.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window}. \\
+\hline
+{\em data} & Données supplémentaires pour le changement d\textquotesingle{}état. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{GameEngine_8h_ad119335fdbed767125510c855f2629ce}\label{GameEngine_8h_ad119335fdbed767125510c855f2629ce} 
 \index{GameEngine.h@{GameEngine.h}!mainLoop@{mainLoop}}
 \index{mainLoop@{mainLoop}!GameEngine.h@{GameEngine.h}}
@@ -218,8 +313,6 @@ Cette fonction gère la boucle principale du jeu, y compris la gestion des évé
 {\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window}.\\
 \hline
 \end{DoxyParams}
-
-
 Initialise le jeu, les boutons, le contrôleur, le gestionnaire de threads, puis exécute la boucle principale gérant les événements, le rendu et le frame rate. En fin de boucle, libère les ressources.
 
 
@@ -272,8 +365,6 @@ Cette fonction gère la transition vers le duel suivant.
 {\em data} & Données supplémentaires pour la transition.\\
 \hline
 \end{DoxyParams}
-
-
 Sauvegarde l\textquotesingle{}état de la partie, soigne l\textquotesingle{}équipe du joueur, réinitialise l\textquotesingle{}équipe adverse, met à jour l\textquotesingle{}affichage et change l\textquotesingle{}état du jeu.
 
 
@@ -309,7 +400,27 @@ Affiche le fond, les boutons, les sliders et les textes associés en fonction de
 {\em win} & Pointeur sur la fenêtre. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1}\label{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1} 
+\Hypertarget{GameEngine_8h_adabbbc541f65101aca7e21be011712ae}\label{GameEngine_8h_adabbbc541f65101aca7e21be011712ae} 
+\index{GameEngine.h@{GameEngine.h}!startBattleTurn@{startBattleTurn}}
+\index{startBattleTurn@{startBattleTurn}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{startBattleTurn()}{startBattleTurn()}}
+{\footnotesize\ttfamily void start\+Battle\+Turn (\begin{DoxyParamCaption}\item[{int}]{move\+Rouge,  }\item[{int}]{move\+Bleu }\end{DoxyParamCaption})}
+
+
+
+Démarre le tour de combat. 
+
+Cette fonction démarre le tour de combat. \Hypertarget{GameEngine_8h_aeffafb56f1266491593b4e3e0fd3fb28}\label{GameEngine_8h_aeffafb56f1266491593b4e3e0fd3fb28} 
+\index{GameEngine.h@{GameEngine.h}!updateBattleTurn@{updateBattleTurn}}
+\index{updateBattleTurn@{updateBattleTurn}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{updateBattleTurn()}{updateBattleTurn()}}
+{\footnotesize\ttfamily void update\+Battle\+Turn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Met à jour le tour de combat. 
+
+Cette fonction met à jour le tour de combat. \Hypertarget{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1}\label{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1} 
 \index{GameEngine.h@{GameEngine.h}!updateCurrentButton@{updateCurrentButton}}
 \index{updateCurrentButton@{updateCurrentButton}!GameEngine.h@{GameEngine.h}}
 \doxysubsubsection{\texorpdfstring{updateCurrentButton()}{updateCurrentButton()}}
@@ -363,4 +474,9 @@ Pour les quatre premiers boutons du jeu, met à jour le texte affiché en foncti
 
 Met à jour la musique. 
 
-Cette fonction gère la mise à jour de la musique de fond. 
+Cette fonction gère la mise à jour de la musique de fond. \Hypertarget{GameEngine_8h_a4f4fd64e6dbdcdcd83fd46f43c35d9bf}\label{GameEngine_8h_a4f4fd64e6dbdcdcd83fd46f43c35d9bf} 
+\index{GameEngine.h@{GameEngine.h}!validateSwap@{validateSwap}}
+\index{validateSwap@{validateSwap}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{validateSwap()}{validateSwap()}}
+{\footnotesize\ttfamily void validate\+Swap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+

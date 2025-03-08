@@ -1,8 +1,8 @@
 \doxysection{Référence du fichier include/\+Events.h}
 \hypertarget{Events_8h}{}\label{Events_8h}\index{include/Events.h@{include/Events.h}}
-{\ttfamily \#include \"{}Game\+Engine.\+h\"{}}\newline
-{\ttfamily \#include \"{}Text.\+h\"{}}\newline
-{\ttfamily \#include \"{}struct\+Poke.\+h\"{}}\newline
+{\ttfamily \#include "{}Game\+Engine.\+h"{}}\newline
+{\ttfamily \#include "{}Text.\+h"{}}\newline
+{\ttfamily \#include "{}struct\+Poke.\+h"{}}\newline
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+gamecontroller.\+h$>$}\newline
 Graphe des dépendances par inclusion de Events.\+h\+:
@@ -21,6 +21,29 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 \includegraphics[width=350pt]{d4/d92/Events_8h__dep__incl}
 \end{center}
 \end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Events_8h_a24e30c48e4a12af2d8978ab881ff8cd6}{RED\+\_\+\+SPRITE\+\_\+\+X\+\_\+\+RATIO}}~0.\+23f
+\item 
+\#define \mbox{\hyperlink{Events_8h_adbf4214d1a8baa4ba1c48f370d8e5a46}{RED\+\_\+\+SPRITE\+\_\+\+Y\+\_\+\+RATIO}}~0.\+35f
+\item 
+\#define \mbox{\hyperlink{Events_8h_ae497e49222225eb5a29a8314de4d53da}{BLUE\+\_\+\+SPRITE\+\_\+\+X\+\_\+\+RATIO}}~0.\+60f
+\item 
+\#define \mbox{\hyperlink{Events_8h_abbaa24093da04659ced5ed2f23e5cb4a}{BLUE\+\_\+\+SPRITE\+\_\+\+Y\+\_\+\+RATIO}}~0.\+15f
+\item 
+\#define \mbox{\hyperlink{Events_8h_a8ed83b574e4321ec38983b72540690eb}{SPRITE\+\_\+\+WIDTH\+\_\+\+RATIO}}~0.\+2f
+\item 
+\#define \mbox{\hyperlink{Events_8h_ad9ce5dd1a4b281c4d2e6f5de0523e961}{SPRITE\+\_\+\+HEIGHT\+\_\+\+RATIO}}~0.\+25f
+\item 
+\#define \mbox{\hyperlink{Events_8h_a640dbca6eec1fc69a3984b99b9185e0e}{NAME\+\_\+\+Y\+\_\+\+OFFSET}}~25
+\item 
+\#define \mbox{\hyperlink{Events_8h_aa48c386af32107492a2fc79171566223}{PV\+\_\+\+Y\+\_\+\+OFFSET}}~25
+\item 
+\#define \mbox{\hyperlink{Events_8h_a86367cafa3412ebbaa3516737170c4d1}{NAME\+\_\+\+HEIGHT}}~20
+\item 
+\#define \mbox{\hyperlink{Events_8h_a504d86d46c5bcbb27c506747484a34ba}{PV\+\_\+\+BAR\+\_\+\+HEIGHT}}~15
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
@@ -47,7 +70,11 @@ void \mbox{\hyperlink{Events_8h_abb1d99ee132734d10ca7f03286da3b18}{handle\+ICMon
 void \mbox{\hyperlink{Events_8h_a353673ce0aa1c823efdc9087cbde90cc}{handle\+Pause\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
 \begin{DoxyCompactList}\small\item\em Handles events when the game is paused. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Events_8h_a244d37073550388354a68561ac959ecb}{handle\+Player\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
-\begin{DoxyCompactList}\small\item\em Handles events when the player is in the map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Handles events when the player is in the map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Events_8h_a088e629868d61238138f13c5c467699b}{handle\+Swap\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
+\begin{DoxyCompactList}\small\item\em Handles events when the player swap an ICmon with the \doxylink{structAI}{AI}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Events_8h_ac44c928e776e8e08d0c8a3aa20152c8a}{init\+Team\+Sprites}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}team\+Sprite, float x\+\_\+ratio, float y\+\_\+ratio, int team\+Flag)
+\begin{DoxyCompactList}\small\item\em Initialise les sprites pour tous les pokémons d\textquotesingle{}une équipe. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -57,6 +84,69 @@ Louis Alban
 \begin{DoxyDate}{Date}
 17/02/2025 
 \end{DoxyDate}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{Events_8h_ae497e49222225eb5a29a8314de4d53da}\label{Events_8h_ae497e49222225eb5a29a8314de4d53da} 
+\index{Events.h@{Events.h}!BLUE\_SPRITE\_X\_RATIO@{BLUE\_SPRITE\_X\_RATIO}}
+\index{BLUE\_SPRITE\_X\_RATIO@{BLUE\_SPRITE\_X\_RATIO}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{BLUE\_SPRITE\_X\_RATIO}{BLUE\_SPRITE\_X\_RATIO}}
+{\footnotesize\ttfamily \#define BLUE\+\_\+\+SPRITE\+\_\+\+X\+\_\+\+RATIO~0.\+60f}
+
+\Hypertarget{Events_8h_abbaa24093da04659ced5ed2f23e5cb4a}\label{Events_8h_abbaa24093da04659ced5ed2f23e5cb4a} 
+\index{Events.h@{Events.h}!BLUE\_SPRITE\_Y\_RATIO@{BLUE\_SPRITE\_Y\_RATIO}}
+\index{BLUE\_SPRITE\_Y\_RATIO@{BLUE\_SPRITE\_Y\_RATIO}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{BLUE\_SPRITE\_Y\_RATIO}{BLUE\_SPRITE\_Y\_RATIO}}
+{\footnotesize\ttfamily \#define BLUE\+\_\+\+SPRITE\+\_\+\+Y\+\_\+\+RATIO~0.\+15f}
+
+\Hypertarget{Events_8h_a86367cafa3412ebbaa3516737170c4d1}\label{Events_8h_a86367cafa3412ebbaa3516737170c4d1} 
+\index{Events.h@{Events.h}!NAME\_HEIGHT@{NAME\_HEIGHT}}
+\index{NAME\_HEIGHT@{NAME\_HEIGHT}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{NAME\_HEIGHT}{NAME\_HEIGHT}}
+{\footnotesize\ttfamily \#define NAME\+\_\+\+HEIGHT~20}
+
+\Hypertarget{Events_8h_a640dbca6eec1fc69a3984b99b9185e0e}\label{Events_8h_a640dbca6eec1fc69a3984b99b9185e0e} 
+\index{Events.h@{Events.h}!NAME\_Y\_OFFSET@{NAME\_Y\_OFFSET}}
+\index{NAME\_Y\_OFFSET@{NAME\_Y\_OFFSET}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{NAME\_Y\_OFFSET}{NAME\_Y\_OFFSET}}
+{\footnotesize\ttfamily \#define NAME\+\_\+\+Y\+\_\+\+OFFSET~25}
+
+\Hypertarget{Events_8h_a504d86d46c5bcbb27c506747484a34ba}\label{Events_8h_a504d86d46c5bcbb27c506747484a34ba} 
+\index{Events.h@{Events.h}!PV\_BAR\_HEIGHT@{PV\_BAR\_HEIGHT}}
+\index{PV\_BAR\_HEIGHT@{PV\_BAR\_HEIGHT}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{PV\_BAR\_HEIGHT}{PV\_BAR\_HEIGHT}}
+{\footnotesize\ttfamily \#define PV\+\_\+\+BAR\+\_\+\+HEIGHT~15}
+
+\Hypertarget{Events_8h_aa48c386af32107492a2fc79171566223}\label{Events_8h_aa48c386af32107492a2fc79171566223} 
+\index{Events.h@{Events.h}!PV\_Y\_OFFSET@{PV\_Y\_OFFSET}}
+\index{PV\_Y\_OFFSET@{PV\_Y\_OFFSET}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{PV\_Y\_OFFSET}{PV\_Y\_OFFSET}}
+{\footnotesize\ttfamily \#define PV\+\_\+\+Y\+\_\+\+OFFSET~25}
+
+\Hypertarget{Events_8h_a24e30c48e4a12af2d8978ab881ff8cd6}\label{Events_8h_a24e30c48e4a12af2d8978ab881ff8cd6} 
+\index{Events.h@{Events.h}!RED\_SPRITE\_X\_RATIO@{RED\_SPRITE\_X\_RATIO}}
+\index{RED\_SPRITE\_X\_RATIO@{RED\_SPRITE\_X\_RATIO}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{RED\_SPRITE\_X\_RATIO}{RED\_SPRITE\_X\_RATIO}}
+{\footnotesize\ttfamily \#define RED\+\_\+\+SPRITE\+\_\+\+X\+\_\+\+RATIO~0.\+23f}
+
+\Hypertarget{Events_8h_adbf4214d1a8baa4ba1c48f370d8e5a46}\label{Events_8h_adbf4214d1a8baa4ba1c48f370d8e5a46} 
+\index{Events.h@{Events.h}!RED\_SPRITE\_Y\_RATIO@{RED\_SPRITE\_Y\_RATIO}}
+\index{RED\_SPRITE\_Y\_RATIO@{RED\_SPRITE\_Y\_RATIO}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{RED\_SPRITE\_Y\_RATIO}{RED\_SPRITE\_Y\_RATIO}}
+{\footnotesize\ttfamily \#define RED\+\_\+\+SPRITE\+\_\+\+Y\+\_\+\+RATIO~0.\+35f}
+
+\Hypertarget{Events_8h_ad9ce5dd1a4b281c4d2e6f5de0523e961}\label{Events_8h_ad9ce5dd1a4b281c4d2e6f5de0523e961} 
+\index{Events.h@{Events.h}!SPRITE\_HEIGHT\_RATIO@{SPRITE\_HEIGHT\_RATIO}}
+\index{SPRITE\_HEIGHT\_RATIO@{SPRITE\_HEIGHT\_RATIO}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{SPRITE\_HEIGHT\_RATIO}{SPRITE\_HEIGHT\_RATIO}}
+{\footnotesize\ttfamily \#define SPRITE\+\_\+\+HEIGHT\+\_\+\+RATIO~0.\+25f}
+
+\Hypertarget{Events_8h_a8ed83b574e4321ec38983b72540690eb}\label{Events_8h_a8ed83b574e4321ec38983b72540690eb} 
+\index{Events.h@{Events.h}!SPRITE\_WIDTH\_RATIO@{SPRITE\_WIDTH\_RATIO}}
+\index{SPRITE\_WIDTH\_RATIO@{SPRITE\_WIDTH\_RATIO}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{SPRITE\_WIDTH\_RATIO}{SPRITE\_WIDTH\_RATIO}}
+{\footnotesize\ttfamily \#define SPRITE\+\_\+\+WIDTH\+\_\+\+RATIO~0.\+2f}
+
 
 
 \doxysubsection{Documentation des fonctions}
@@ -368,6 +458,23 @@ Traite les événements liés aux sliders et aux boutons de l\textquotesingle{}�
 {\em event} & Pointeur sur l\textquotesingle{}événement SDL. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{Events_8h_a088e629868d61238138f13c5c467699b}\label{Events_8h_a088e629868d61238138f13c5c467699b} 
+\index{Events.h@{Events.h}!handleSwapEvent@{handleSwapEvent}}
+\index{handleSwapEvent@{handleSwapEvent}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{handleSwapEvent()}{handleSwapEvent()}}
+{\footnotesize\ttfamily void handle\+Swap\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
+
+
+
+Handles events when the player swap an ICmon with the \doxylink{structAI}{AI}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointer to the \doxylink{structWindow}{Window} structure containing game state \\
+\hline
+{\em event} & Pointer to the SDL\+\_\+\+Event to process \\
+\hline
+\end{DoxyParams}
 \Hypertarget{Events_8h_a9e83431dc3f66988e64a74a4e0a2ed58}\label{Events_8h_a9e83431dc3f66988e64a74a4e0a2ed58} 
 \index{Events.h@{Events.h}!handleWindowSizeChange@{handleWindowSizeChange}}
 \index{handleWindowSizeChange@{handleWindowSizeChange}!Events.h@{Events.h}}
@@ -392,3 +499,34 @@ Met à jour les dimensions de la fenêtre et réajuste les positions et tailles 
 {\em win} & Pointeur sur la fenêtre. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{Events_8h_ac44c928e776e8e08d0c8a3aa20152c8a}\label{Events_8h_ac44c928e776e8e08d0c8a3aa20152c8a} 
+\index{Events.h@{Events.h}!initTeamSprites@{initTeamSprites}}
+\index{initTeamSprites@{initTeamSprites}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{initTeamSprites()}{initTeamSprites()}}
+{\footnotesize\ttfamily int init\+Team\+Sprites (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{team\+Sprite,  }\item[{float}]{x\+\_\+ratio,  }\item[{float}]{y\+\_\+ratio,  }\item[{int}]{team\+Flag }\end{DoxyParamCaption})}
+
+
+
+Initialise les sprites pour tous les pokémons d\textquotesingle{}une équipe. 
+
+Cette fonction initialise le sprite de chaque pokémon dans une équipe en définissant les rectangles de positionnement pour le sprite, le nom et la barre de points de vie.
+
+\begin{DoxyNote}{Note}
+Le type {\ttfamily Team} doit être défini dans vos en-\/têtes (ex. via un typedef avec les champs {\ttfamily nb\+\_\+poke} et {\ttfamily team}).
+\end{DoxyNote}
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointeur sur la fenêtre. \\
+\hline
+{\em team\+Sprite} & Pointeur sur la structure représentant l\textquotesingle{}équipe. \\
+\hline
+{\em x\+\_\+ratio} & Ratio de positionnement horizontal du sprite. \\
+\hline
+{\em y\+\_\+ratio} & Ratio de positionnement vertical du sprite. \\
+\hline
+{\em team\+Flag} & Indicateur d\textquotesingle{}équipe (0 pour l\textquotesingle{}équipe rouge, 1 pour l\textquotesingle{}équipe bleue). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int Retourne 0 en cas de succès, -\/1 en cas d\textquotesingle{}erreur. 
+\end{DoxyReturn}

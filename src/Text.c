@@ -226,12 +226,18 @@ ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, 
     scrollText->texture = NULL;
 
     // Calculate text position relative to background
+    
     scrollText->backgroundPosition = backgroundPosition;
+    
+    // Calculer les marges en pourcentage de la taille du background
+    int marginX = (int)(backgroundPosition.w * 0.05);  // 5% de la largeur
+    int marginY = (int)(backgroundPosition.h * 0.15);  // 15% de la hauteur
+    
     scrollText->position = (SDL_Rect){
-        backgroundPosition.x + 20,  // 20 pixels margin from left
-        backgroundPosition.y + 10,  // 10 pixels margin from top
-        backgroundPosition.w - 40,  // 20 pixels margin on each side
-        backgroundPosition.h - 20   // 10 pixels margin on top and bottom
+        backgroundPosition.x + marginX,                    // marge gauche
+        backgroundPosition.y + marginY,                    // marge haute
+        backgroundPosition.w - (marginX * 2),             // largeur moins les marges
+        backgroundPosition.h - (marginY * 2)              // hauteur moins les marges
     };
     scrollText->width = scrollText->position.w;
     scrollText->initialPosition = scrollText->position;
@@ -329,12 +335,37 @@ void renderScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
     }
 }
 
-void skipScrollingText(ScrollingText* text) {
-    if (!text || text->isComplete) return;
-    
+void skipScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
+    if (!text || !text->isValid || text->isComplete) return;
+
+    // Copier tout le texte d'un coup
     strncpy(text->currentText, text->fullText, text->fullLength);
     text->currentText[text->fullLength] = '\0';
     text->currentLength = text->fullLength;
+
+    // Libérer l'ancienne texture si elle existe
+    if (text->texture) {
+        SDL_DestroyTexture(text->texture);
+        text->texture = NULL;
+    }
+
+    // Créer la nouvelle texture pour le texte complet
+    SDL_Surface* surface = TTF_RenderUTF8_Blended_Wrapped(
+        text->font,
+        text->currentText,
+        text->color,
+        text->width
+    );
+    
+    if (surface) {
+        text->texture = SDL_CreateTextureFromSurface(renderer, surface);
+        if (text->texture) {
+            text->position.w = surface->w;
+            text->position.h = surface->h;
+        }
+        SDL_FreeSurface(surface);
+    }
+
     text->isComplete = true;
 }
 

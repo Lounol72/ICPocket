@@ -1,7 +1,7 @@
 var duel_8c =
 [
     [ "accuracyCheck", "d1/d18/duel_8c.html#a82732f92530a8627b7d1c8a55e55444c", null ],
-    [ "affectDamage", "d1/d18/duel_8c.html#a2cdb2c620c0e4c3077d6ae74c45ceb36", null ],
+    [ "affectDamage", "d1/d18/duel_8c.html#af83a9c8d2c8428b1c682e5fd3348ad07", null ],
     [ "applyEffect", "d1/d18/duel_8c.html#aa6f1d50587260f5a4957edc4dae26e35", null ],
     [ "calcDamage", "d1/d18/duel_8c.html#ac70ebbfe144e52d4a596dd2c424cd3f9", null ],
     [ "calcStatFrom", "d1/d18/duel_8c.html#a0e27a0c4136f1f57a6f4f3e052ab2e54", null ],
@@ -9,6 +9,7 @@ var duel_8c =
     [ "expCurve", "d1/d18/duel_8c.html#a3e88ec315719a73455623551f124fb62", null ],
     [ "gainExp", "d1/d18/duel_8c.html#a00cc566806ad551410ecb3ef95be9d0b", null ],
     [ "hasMoveLeft", "d1/d18/duel_8c.html#a8b4616f8652628efd8ca8b328ba72d47", null ],
+    [ "initBlueTeam", "d1/d18/duel_8c.html#a5c425221de6c8fc3581cb8ad38a77579", null ],
     [ "initTeam", "d1/d18/duel_8c.html#a008ac39eea8c44c8b962e362897c5634", null ],
     [ "isAlive", "d1/d18/duel_8c.html#a58123fcf9acb6bb6b68e7b1213f374ff", null ],
     [ "isAttacking", "d1/d18/duel_8c.html#acde635fc6898d930aeb381d1be3487fe", null ],

@@ -11,7 +11,8 @@ Données de combat.
 
 
 
-Graphe de collaboration de Battle\+State\+:\nopagebreak
+Graphe de collaboration de Battle\+State\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -26,6 +27,18 @@ Graphe de collaboration de Battle\+State\+:\nopagebreak
 \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \mbox{\hyperlink{structBattleState_abafeca3c7481e25cccd09cfe2e5fe250}{bleu}}
 \item 
 \mbox{\hyperlink{trainerAI_8h_a225b41f1ec2d7bee2a3a7b0ed0699bdb}{t\+\_\+\+AI}} \mbox{\hyperlink{structBattleState_af2211c8d64aae65a70184ebacf5de475}{ia}}
+\item 
+\mbox{\hyperlink{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1f}{Battle\+Turn\+State}} \mbox{\hyperlink{structBattleState_ace7be6782eb200b55d70b9c7b8058fd7}{turn\+State}}
+\item 
+int \mbox{\hyperlink{structBattleState_a1beff4fb0bb997891f05bc3508ba277a}{move\+Rouge}}
+\item 
+int \mbox{\hyperlink{structBattleState_a18a9e8369cfbc15af7015bf420900220}{move\+Bleu}}
+\item 
+\mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structBattleState_a785d72fcb150b67816b9b814fa475d0e}{text}}
+\item 
+int \mbox{\hyperlink{structBattleState_a5e1d275b9431940a9581e4a4a405cf1c}{first}}
+\item 
+int \mbox{\hyperlink{structBattleState_acdcb96d0563e0603b4e37fccddee16b3}{has\+Attacked}}
 \end{DoxyCompactItemize}
 
 
@@ -41,19 +54,55 @@ Cette structure contient les équipes de combat et l\textquotesingle{}intelligen
 \doxysubsubsection{\texorpdfstring{bleu}{bleu}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} Battle\+State\+::bleu}
 
-Équipe bleue. \Hypertarget{structBattleState_af2211c8d64aae65a70184ebacf5de475}\label{structBattleState_af2211c8d64aae65a70184ebacf5de475} 
+Équipe bleue. \Hypertarget{structBattleState_a5e1d275b9431940a9581e4a4a405cf1c}\label{structBattleState_a5e1d275b9431940a9581e4a4a405cf1c} 
+\index{BattleState@{BattleState}!first@{first}}
+\index{first@{first}!BattleState@{BattleState}}
+\doxysubsubsection{\texorpdfstring{first}{first}}
+{\footnotesize\ttfamily int Battle\+State\+::first}
+
+Indicateur de priorité. \Hypertarget{structBattleState_acdcb96d0563e0603b4e37fccddee16b3}\label{structBattleState_acdcb96d0563e0603b4e37fccddee16b3} 
+\index{BattleState@{BattleState}!hasAttacked@{hasAttacked}}
+\index{hasAttacked@{hasAttacked}!BattleState@{BattleState}}
+\doxysubsubsection{\texorpdfstring{hasAttacked}{hasAttacked}}
+{\footnotesize\ttfamily int Battle\+State\+::has\+Attacked}
+
+Indicateur d\textquotesingle{}attaque. \Hypertarget{structBattleState_af2211c8d64aae65a70184ebacf5de475}\label{structBattleState_af2211c8d64aae65a70184ebacf5de475} 
 \index{BattleState@{BattleState}!ia@{ia}}
 \index{ia@{ia}!BattleState@{BattleState}}
 \doxysubsubsection{\texorpdfstring{ia}{ia}}
 {\footnotesize\ttfamily \mbox{\hyperlink{trainerAI_8h_a225b41f1ec2d7bee2a3a7b0ed0699bdb}{t\+\_\+\+AI}} Battle\+State\+::ia}
 
-Intelligence artificielle du dresseur. \Hypertarget{structBattleState_abd7c28f22ad6901f0b4a4128798d48d8}\label{structBattleState_abd7c28f22ad6901f0b4a4128798d48d8} 
+Intelligence artificielle du dresseur. \Hypertarget{structBattleState_a18a9e8369cfbc15af7015bf420900220}\label{structBattleState_a18a9e8369cfbc15af7015bf420900220} 
+\index{BattleState@{BattleState}!moveBleu@{moveBleu}}
+\index{moveBleu@{moveBleu}!BattleState@{BattleState}}
+\doxysubsubsection{\texorpdfstring{moveBleu}{moveBleu}}
+{\footnotesize\ttfamily int Battle\+State\+::move\+Bleu}
+
+Mouvement bleu. \Hypertarget{structBattleState_a1beff4fb0bb997891f05bc3508ba277a}\label{structBattleState_a1beff4fb0bb997891f05bc3508ba277a} 
+\index{BattleState@{BattleState}!moveRouge@{moveRouge}}
+\index{moveRouge@{moveRouge}!BattleState@{BattleState}}
+\doxysubsubsection{\texorpdfstring{moveRouge}{moveRouge}}
+{\footnotesize\ttfamily int Battle\+State\+::move\+Rouge}
+
+Mouvement rouge. \Hypertarget{structBattleState_abd7c28f22ad6901f0b4a4128798d48d8}\label{structBattleState_abd7c28f22ad6901f0b4a4128798d48d8} 
 \index{BattleState@{BattleState}!rouge@{rouge}}
 \index{rouge@{rouge}!BattleState@{BattleState}}
 \doxysubsubsection{\texorpdfstring{rouge}{rouge}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} Battle\+State\+::rouge}
 
-Équipe rouge. 
+Équipe rouge. \Hypertarget{structBattleState_a785d72fcb150b67816b9b814fa475d0e}\label{structBattleState_a785d72fcb150b67816b9b814fa475d0e} 
+\index{BattleState@{BattleState}!text@{text}}
+\index{text@{text}!BattleState@{BattleState}}
+\doxysubsubsection{\texorpdfstring{text}{text}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structScrollingText}{Scrolling\+Text}}\texorpdfstring{$\ast$}{*} Battle\+State\+::text}
+
+Texte en cours de lecture. \Hypertarget{structBattleState_ace7be6782eb200b55d70b9c7b8058fd7}\label{structBattleState_ace7be6782eb200b55d70b9c7b8058fd7} 
+\index{BattleState@{BattleState}!turnState@{turnState}}
+\index{turnState@{turnState}!BattleState@{BattleState}}
+\doxysubsubsection{\texorpdfstring{turnState}{turnState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{GameEngine_8h_a3a1f855c7a6cf6e4ce10b47e2609bc1f}{Battle\+Turn\+State}} Battle\+State\+::turn\+State}
+
+État du tour de combat. 
 
 La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 

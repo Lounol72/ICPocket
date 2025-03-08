@@ -51,6 +51,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(1); });
+/* @license-end */
+</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -106,6 +111,7 @@ $(document).ready(function(){initNavTree('da/dbf/Player_8h_source.html','../../'
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../da/dbf/Player_8h.html#a915e7581e140dd2d625fa1cfca365100">   11</a></span><span class="preprocessor">#define FRAME_HEIGHT 20  </span><span class="comment">// Hauteur d&#39;une frame dans la spritesheet</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../da/dbf/Player_8h.html#a7a6c3aace699ca6cbaf8ac2072ce5485">   12</a></span><span class="preprocessor">#define FRAME_COUNT 4    </span><span class="comment">// Nombre de frames par animation</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../da/dbf/Player_8h.html#aaa69f89df4c8e47abeb574bfdd11d9f4">   13</a></span><span class="preprocessor">#define ANIMATION_SPEED 0.10f</span></div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1">   20</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1aa517e21c3082ed080e62cf8f2c876463">   21</a></span>    <a class="code hl_enumvalue" href="../../da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1aa517e21c3082ed080e62cf8f2c876463">IDLE_DOWN</a>,</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1ac8ba49574d43fb3ea3218d80e567dcac">   22</a></span>    <a class="code hl_enumvalue" href="../../da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1ac8ba49574d43fb3ea3218d80e567dcac">IDLE_UP</a>,</div>
@@ -116,7 +122,9 @@ $(document).ready(function(){initNavTree('da/dbf/Player_8h_source.html','../../'
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1a06b5239b641a996e789d91a981fbc817">   27</a></span>    <a class="code hl_enumvalue" href="../../da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1a06b5239b641a996e789d91a981fbc817">WALK_LEFT</a>,</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_enumvalue" href="../../da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1a2fbeac521c5adf9280370533098f6891">WALK_RIGHT</a></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1a2fbeac521c5adf9280370533098f6891">   29</a></span>} <a class="code hl_enumeration" href="../../da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1">PlayerState</a>;</div>
+</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../dc/d7b/structPlayer.html">   31</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../dc/d7b/structPlayer.html#af38c8900e62c2e65e2038114b67644ae">   32</a></span>    SDL_Texture *<a class="code hl_variable" href="../../dc/d7b/structPlayer.html#af38c8900e62c2e65e2038114b67644ae">spriteSheet</a>;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../dc/d7b/structPlayer.html#a326f16b65e24150ec60c27c22b4ec00d">   33</a></span>    SDL_Rect <a class="code hl_variable" href="../../dc/d7b/structPlayer.html#a326f16b65e24150ec60c27c22b4ec00d">position</a>;</div>
@@ -142,6 +150,7 @@ $(document).ready(function(){initNavTree('da/dbf/Player_8h_source.html','../../'
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../dc/d7b/structPlayer.html#a3e9a556009cb04b4d180da4afc9c1741">   53</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="../../dc/d7b/structPlayer.html#a3e9a556009cb04b4d180da4afc9c1741">targetY</a>;            <span class="comment">// Position cible Y en pixels</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../dc/d7b/structPlayer.html#ab60da680497ca6ce13a4b56159b0ba14">   54</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../dc/d7b/structPlayer.html#ab60da680497ca6ce13a4b56159b0ba14">isMovingToTarget</a>;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>} <a class="code hl_struct" href="../../dc/d7b/structPlayer.html">Player</a>;</div>
+</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><a class="code hl_struct" href="../../dc/d7b/structPlayer.html">Player</a>* <a class="code hl_function" href="../../da/dbf/Player_8h.html#a4f43f3c6bdc319322499494c7216fa8f">createPlayer</a>(SDL_Renderer *renderer, <span class="keyword">const</span> <span class="keywordtype">char</span> *spritesheetPath);</div>

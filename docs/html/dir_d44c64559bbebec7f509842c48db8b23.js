@@ -15,6 +15,7 @@ var dir_d44c64559bbebec7f509842c48db8b23 =
     [ "RenderICMons.h", "d2/d98/RenderICMons_8h.html", "d2/d98/RenderICMons_8h" ],
     [ "save.h", "d5/d5e/save_8h.html", "d5/d5e/save_8h" ],
     [ "structPoke.h", "da/d71/structPoke_8h.html", "da/d71/structPoke_8h" ],
+    [ "structures.h", "dd/da3/structures_8h.html", "dd/da3/structures_8h" ],
     [ "Text.h", "d6/d35/Text_8h.html", "d6/d35/Text_8h" ],
     [ "ThreadManager.h", "d0/daa/ThreadManager_8h.html", "d0/daa/ThreadManager_8h" ],
     [ "trainerAI.h", "df/d27/trainerAI_8h.html", "df/d27/trainerAI_8h" ],

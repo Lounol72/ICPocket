@@ -1,5 +1,6 @@
 var Map_8c =
 [
+    [ "checkAndLoadNewMap", "dc/df2/Map_8c.html#ae0656f1ed1c85e750b8bc65bd7269f62", null ],
     [ "DEBUG_printMap", "dc/df2/Map_8c.html#a6a8408146457cc93ec3694e180bb5574", null ],
     [ "destroyMap", "dc/df2/Map_8c.html#a64df896c814cef549bef88fcd20d9a67", null ],
     [ "initCollisionMap", "dc/df2/Map_8c.html#af343dab826c94212a244fd86760ebd0b", null ],

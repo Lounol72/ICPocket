@@ -234,7 +234,7 @@ void attqButtonClicked(Window *win, void *data) {
         if (moveIndex < 0 || moveIndex >= game.battleState.rouge.team[0].nb_move) {
             return;
         }
-        if (isAlive(&(game.battleState.rouge.team[0]))) {
+        if (isAlive(&(game.battleState.rouge.team[0])) && game.battleState.turnState == TURN_NONE) {
             Mix_PlayChannel(2, game.battleState.rouge.team[0].img->ICMonSound, 0);
             startBattleTurn(moveIndex, AI_move_choice(&game.battleState.ia, &game.battleState.rouge));
         }
@@ -809,7 +809,7 @@ void updateBattleTurn() {
                     game.win->LargeFont,
                     (SDL_Color){255, 255, 255, 255},
                     game.speed,     // Délai entre les caractères en ms
-                    (SDL_Rect){game.win->width  - 700, game.win->height - marginBottom - 110, 640, 100}, // Fond du texte
+                    (SDL_Rect){game.win->width * 0.4531, game.win->height *0.5, game.win->width * 0.5, game.win->height * 0.2}, // Fond du texte
                     "assets/User Interface/Grey/button_rectangle_depth_flat.png", // Chemin de l'image de fond
                     game.win->renderer
                 );
@@ -899,7 +899,9 @@ void updateBattleTurn() {
             break;
     }
     updateScrollingText(game.battleState.text, game.win->renderer);
-    renderScrollingText(game.battleState.text, game.win->renderer);
+    if (game.gameState.currentState == GAME) {
+        renderScrollingText(game.battleState.text, game.win->renderer);
+    }
 }
 
 void executeAction(t_Team *attacker, t_Team *defender, int move) {

@@ -7,7 +7,10 @@
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
-Graphe des dépendances par inclusion de struct\+Poke.\+h\+:\nopagebreak
+{\ttfamily \#include "{}duel.\+h"{}}\newline
+{\ttfamily \#include "{}structures.\+h"{}}\newline
+Graphe des dépendances par inclusion de struct\+Poke.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,17 +25,24 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 \includegraphics[width=350pt]{df/d90/structPoke_8h__dep__incl}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Classes}
-\begin{DoxyCompactItemize}
-\item 
-struct \mbox{\hyperlink{structt__Nature}{t\+\_\+\+Nature}}
-\item 
-struct \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}}
-\item 
-struct \mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}}
-\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{structPoke_8h_a73481505b6cdf382ecfc1e3c0faaa593}{NEUTRAL\+\_\+\+STAT\+\_\+\+CHANGE}}~6
+\item 
+\#define \mbox{\hyperlink{structPoke_8h_a925c3d26c7e99b966e2656f91943f27c}{POKE\+\_\+\+IS\+\_\+\+ABSCENT}}~-\/1
+\item 
+\#define \mbox{\hyperlink{structPoke_8h_ad17fa6eb61b38334f7b136e02a78ff37}{STRUGGLE}}~-\/10
+\item 
+\#define \mbox{\hyperlink{structPoke_8h_a80705627450b48083f1a1a04e38cd488}{CONFUSED\+\_\+\+MOVE}}~-\/20
+\item 
+\#define \mbox{\hyperlink{structPoke_8h_a6b5a19d44831a7f2be0d9be0276d478c}{ATTAQUE\+\_\+1}}~0
+\item 
+\#define \mbox{\hyperlink{structPoke_8h_a4a381e7575fc4042d463c7b326d72249}{ATTAQUE\+\_\+2}}~1
+\item 
+\#define \mbox{\hyperlink{structPoke_8h_ac419152371c156bf45d75a3cd6657661}{ATTAQUE\+\_\+3}}~2
+\item 
+\#define \mbox{\hyperlink{structPoke_8h_a4387846cbc27ec370d916ce7222c5d12}{ATTAQUE\+\_\+4}}~3
 \item 
 \#define \mbox{\hyperlink{structPoke_8h_a46b90e99485a21a2150e424cc2a4afba}{PV}}~0
 \item 
@@ -52,44 +62,13 @@ struct \mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}}
 \item 
 \#define \mbox{\hyperlink{structPoke_8h_ad5122cd563904de0bfe762d37bdfacdf}{type\+Number}}~4
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Définitions de type}
-\begin{DoxyCompactItemize}
-\item 
-typedef struct \mbox{\hyperlink{structIMG__ICMons}{IMG\+\_\+\+ICMons}} \mbox{\hyperlink{structPoke_8h_a362189cf9bfedb5a5046138a7c7d4413}{IMG\+\_\+\+ICMons}}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Énumérations}
-\begin{DoxyCompactItemize}
-\item 
-enum \mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165}{t\+\_\+\+Categ}} \{ \mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165a9a6940c3bba41cdd6dacae1a00176a30}{status}} =-\/1
-, \mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}} =1
-, \mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165acc08a28789c5d7212478c59f2246a627}{special}} =3
- \}
-\item 
-enum \mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2}{t\+\_\+\+Type}} \{ \mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}} =0
-, \mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2abeaed13a6c54935151875013008013a3}{feu}}
-, \mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2a80963026e42f86adaf9240e84768d9f9}{plante}}
-, \mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2a0729b1e157ef30cedeef889f7a263594}{eau}}
- \}
-\item 
-enum \mbox{\hyperlink{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6f}{t\+\_\+\+Gender}} \{ \mbox{\hyperlink{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6fadf25e9c17aa25418942eca3003c33410}{male}} = 0
-, \mbox{\hyperlink{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6fafc8285f7507b26f68c8b72f4dc38e34f}{female}}
- \}
-\item 
-enum \mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0}{t\+\_\+\+Effect}} \{ \newline
-\mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0aebfdd0b3c9deecff63099935f3dc1bfb}{no\+Effect}} = 0
-, \mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a8d1646261b24f1db3163721c6377e386}{burn}}
-, \mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a8b190bd2899a6dfc2e663da9fbe6bd0e}{poison}}
-, \mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a713e5cd4219d601e6e2e0877e4279c73}{paralyze}}
-, \newline
-\mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0aa04bf1e6db05af091f02b833e3c89cc4}{flinch}}
-, \mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a1a1bc99ed53028c3175d51260cb3f233}{confusion}}
- \}
-\end{DoxyCompactItemize}
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{structPoke_8h_afe2be4dcf1abaf503e3ce46c3af588e9}{generate\+\_\+poke}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p, int id)
 \begin{DoxyCompactList}\small\item\em Generate a Icmon from a given id in the data\+Poke.\+csv file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structPoke_8h_a51de8e3a42ddb12141a26f4b987e5d7e}{generate\+\_\+poke\+\_\+enemi}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p, int line, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}joueur)
+\item 
 void \mbox{\hyperlink{structPoke_8h_a2654983666510a2dc455ff7e1a4e281a}{generate\+Poke}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*})
 \item 
 \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{structPoke_8h_aff185784e3522330be3818416ad1cb93}{generate\+Move}} (int id)
@@ -107,13 +86,6 @@ void \mbox{\hyperlink{structPoke_8h_ad8d8693792c2e018b7e452a36fd161e9}{init\+Nat
 void \mbox{\hyperlink{structPoke_8h_a057e50bb0d116718182997db0f1e7b53}{init\+Data}} ()
 \item 
 void \mbox{\hyperlink{structPoke_8h_adc5adb43430a43f36c770a469f434abb}{print\+Chart}} ()
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{structt__Nature}{t\+\_\+\+Nature}} \mbox{\hyperlink{structPoke_8h_a3e0b3eb9a62d3b43c0f95146281bba83}{tab\+Nature}} \mbox{[}25\mbox{]}
-\item 
-float \mbox{\hyperlink{structPoke_8h_ab3f16f2365e129e0337bae5d412816e3}{type\+Chart}} \mbox{[}\mbox{\hyperlink{structPoke_8h_ad5122cd563904de0bfe762d37bdfacdf}{type\+Number}}\mbox{]}\mbox{[}\mbox{\hyperlink{structPoke_8h_ad5122cd563904de0bfe762d37bdfacdf}{type\+Number}}\mbox{]}
 \end{DoxyCompactItemize}
 
 
@@ -133,6 +105,36 @@ Nathan William
 \doxysubsubsection{\texorpdfstring{ATT}{ATT}}
 {\footnotesize\ttfamily \#define ATT~1}
 
+\Hypertarget{structPoke_8h_a6b5a19d44831a7f2be0d9be0276d478c}\label{structPoke_8h_a6b5a19d44831a7f2be0d9be0276d478c} 
+\index{structPoke.h@{structPoke.h}!ATTAQUE\_1@{ATTAQUE\_1}}
+\index{ATTAQUE\_1@{ATTAQUE\_1}!structPoke.h@{structPoke.h}}
+\doxysubsubsection{\texorpdfstring{ATTAQUE\_1}{ATTAQUE\_1}}
+{\footnotesize\ttfamily \#define ATTAQUE\+\_\+1~0}
+
+\Hypertarget{structPoke_8h_a4a381e7575fc4042d463c7b326d72249}\label{structPoke_8h_a4a381e7575fc4042d463c7b326d72249} 
+\index{structPoke.h@{structPoke.h}!ATTAQUE\_2@{ATTAQUE\_2}}
+\index{ATTAQUE\_2@{ATTAQUE\_2}!structPoke.h@{structPoke.h}}
+\doxysubsubsection{\texorpdfstring{ATTAQUE\_2}{ATTAQUE\_2}}
+{\footnotesize\ttfamily \#define ATTAQUE\+\_\+2~1}
+
+\Hypertarget{structPoke_8h_ac419152371c156bf45d75a3cd6657661}\label{structPoke_8h_ac419152371c156bf45d75a3cd6657661} 
+\index{structPoke.h@{structPoke.h}!ATTAQUE\_3@{ATTAQUE\_3}}
+\index{ATTAQUE\_3@{ATTAQUE\_3}!structPoke.h@{structPoke.h}}
+\doxysubsubsection{\texorpdfstring{ATTAQUE\_3}{ATTAQUE\_3}}
+{\footnotesize\ttfamily \#define ATTAQUE\+\_\+3~2}
+
+\Hypertarget{structPoke_8h_a4387846cbc27ec370d916ce7222c5d12}\label{structPoke_8h_a4387846cbc27ec370d916ce7222c5d12} 
+\index{structPoke.h@{structPoke.h}!ATTAQUE\_4@{ATTAQUE\_4}}
+\index{ATTAQUE\_4@{ATTAQUE\_4}!structPoke.h@{structPoke.h}}
+\doxysubsubsection{\texorpdfstring{ATTAQUE\_4}{ATTAQUE\_4}}
+{\footnotesize\ttfamily \#define ATTAQUE\+\_\+4~3}
+
+\Hypertarget{structPoke_8h_a80705627450b48083f1a1a04e38cd488}\label{structPoke_8h_a80705627450b48083f1a1a04e38cd488} 
+\index{structPoke.h@{structPoke.h}!CONFUSED\_MOVE@{CONFUSED\_MOVE}}
+\index{CONFUSED\_MOVE@{CONFUSED\_MOVE}!structPoke.h@{structPoke.h}}
+\doxysubsubsection{\texorpdfstring{CONFUSED\_MOVE}{CONFUSED\_MOVE}}
+{\footnotesize\ttfamily \#define CONFUSED\+\_\+\+MOVE~-\/20}
+
 \Hypertarget{structPoke_8h_a397419fc12b37ed479c8abb9d444d843}\label{structPoke_8h_a397419fc12b37ed479c8abb9d444d843} 
 \index{structPoke.h@{structPoke.h}!DEF@{DEF}}
 \index{DEF@{DEF}!structPoke.h@{structPoke.h}}
@@ -144,6 +146,18 @@ Nathan William
 \index{FALSE@{FALSE}!structPoke.h@{structPoke.h}}
 \doxysubsubsection{\texorpdfstring{FALSE}{FALSE}}
 {\footnotesize\ttfamily \#define FALSE~0}
+
+\Hypertarget{structPoke_8h_a73481505b6cdf382ecfc1e3c0faaa593}\label{structPoke_8h_a73481505b6cdf382ecfc1e3c0faaa593} 
+\index{structPoke.h@{structPoke.h}!NEUTRAL\_STAT\_CHANGE@{NEUTRAL\_STAT\_CHANGE}}
+\index{NEUTRAL\_STAT\_CHANGE@{NEUTRAL\_STAT\_CHANGE}!structPoke.h@{structPoke.h}}
+\doxysubsubsection{\texorpdfstring{NEUTRAL\_STAT\_CHANGE}{NEUTRAL\_STAT\_CHANGE}}
+{\footnotesize\ttfamily \#define NEUTRAL\+\_\+\+STAT\+\_\+\+CHANGE~6}
+
+\Hypertarget{structPoke_8h_a925c3d26c7e99b966e2656f91943f27c}\label{structPoke_8h_a925c3d26c7e99b966e2656f91943f27c} 
+\index{structPoke.h@{structPoke.h}!POKE\_IS\_ABSCENT@{POKE\_IS\_ABSCENT}}
+\index{POKE\_IS\_ABSCENT@{POKE\_IS\_ABSCENT}!structPoke.h@{structPoke.h}}
+\doxysubsubsection{\texorpdfstring{POKE\_IS\_ABSCENT}{POKE\_IS\_ABSCENT}}
+{\footnotesize\ttfamily \#define POKE\+\_\+\+IS\+\_\+\+ABSCENT~-\/1}
 
 \Hypertarget{structPoke_8h_a46b90e99485a21a2150e424cc2a4afba}\label{structPoke_8h_a46b90e99485a21a2150e424cc2a4afba} 
 \index{structPoke.h@{structPoke.h}!PV@{PV}}
@@ -169,6 +183,12 @@ Nathan William
 \doxysubsubsection{\texorpdfstring{SPE}{SPE}}
 {\footnotesize\ttfamily \#define SPE~5}
 
+\Hypertarget{structPoke_8h_ad17fa6eb61b38334f7b136e02a78ff37}\label{structPoke_8h_ad17fa6eb61b38334f7b136e02a78ff37} 
+\index{structPoke.h@{structPoke.h}!STRUGGLE@{STRUGGLE}}
+\index{STRUGGLE@{STRUGGLE}!structPoke.h@{structPoke.h}}
+\doxysubsubsection{\texorpdfstring{STRUGGLE}{STRUGGLE}}
+{\footnotesize\ttfamily \#define STRUGGLE~-\/10}
+
 \Hypertarget{structPoke_8h_aa8cecfc5c5c054d2875c03e77b7be15d}\label{structPoke_8h_aa8cecfc5c5c054d2875c03e77b7be15d} 
 \index{structPoke.h@{structPoke.h}!TRUE@{TRUE}}
 \index{TRUE@{TRUE}!structPoke.h@{structPoke.h}}
@@ -181,110 +201,6 @@ Nathan William
 \doxysubsubsection{\texorpdfstring{typeNumber}{typeNumber}}
 {\footnotesize\ttfamily \#define type\+Number~4}
 
-
-
-\doxysubsection{Documentation des définitions de type}
-\Hypertarget{structPoke_8h_a362189cf9bfedb5a5046138a7c7d4413}\label{structPoke_8h_a362189cf9bfedb5a5046138a7c7d4413} 
-\index{structPoke.h@{structPoke.h}!IMG\_ICMons@{IMG\_ICMons}}
-\index{IMG\_ICMons@{IMG\_ICMons}!structPoke.h@{structPoke.h}}
-\doxysubsubsection{\texorpdfstring{IMG\_ICMons}{IMG\_ICMons}}
-{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structIMG__ICMons}{IMG\+\_\+\+ICMons}} \mbox{\hyperlink{structIMG__ICMons}{IMG\+\_\+\+ICMons}}}
-
-
-
-\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
-\Hypertarget{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165}\label{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165} 
-\index{structPoke.h@{structPoke.h}!t\_Categ@{t\_Categ}}
-\index{t\_Categ@{t\_Categ}!structPoke.h@{structPoke.h}}
-\doxysubsubsection{\texorpdfstring{t\_Categ}{t\_Categ}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165}{t\+\_\+\+Categ}}}
-
-\begin{DoxyEnumFields}{Valeurs énumérées}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{status@{status}!structPoke.h@{structPoke.h}}\index{structPoke.h@{structPoke.h}!status@{status}}}\Hypertarget{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165a9a6940c3bba41cdd6dacae1a00176a30}\label{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165a9a6940c3bba41cdd6dacae1a00176a30} 
-status&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{physical@{physical}!structPoke.h@{structPoke.h}}\index{structPoke.h@{structPoke.h}!physical@{physical}}}\Hypertarget{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}\label{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e} 
-physical&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{special@{special}!structPoke.h@{structPoke.h}}\index{structPoke.h@{structPoke.h}!special@{special}}}\Hypertarget{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165acc08a28789c5d7212478c59f2246a627}\label{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165acc08a28789c5d7212478c59f2246a627} 
-special&\\
-\hline
-
-\end{DoxyEnumFields}
-\Hypertarget{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0}\label{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0} 
-\index{structPoke.h@{structPoke.h}!t\_Effect@{t\_Effect}}
-\index{t\_Effect@{t\_Effect}!structPoke.h@{structPoke.h}}
-\doxysubsubsection{\texorpdfstring{t\_Effect}{t\_Effect}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0}{t\+\_\+\+Effect}}}
-
-\begin{DoxyEnumFields}{Valeurs énumérées}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{noEffect@{noEffect}!structPoke.h@{structPoke.h}}\index{structPoke.h@{structPoke.h}!noEffect@{noEffect}}}\Hypertarget{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0aebfdd0b3c9deecff63099935f3dc1bfb}\label{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0aebfdd0b3c9deecff63099935f3dc1bfb} 
-no\+Effect&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{burn@{burn}!structPoke.h@{structPoke.h}}\index{structPoke.h@{structPoke.h}!burn@{burn}}}\Hypertarget{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a8d1646261b24f1db3163721c6377e386}\label{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a8d1646261b24f1db3163721c6377e386} 
-burn&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{poison@{poison}!structPoke.h@{structPoke.h}}\index{structPoke.h@{structPoke.h}!poison@{poison}}}\Hypertarget{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a8b190bd2899a6dfc2e663da9fbe6bd0e}\label{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a8b190bd2899a6dfc2e663da9fbe6bd0e} 
-poison&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{paralyze@{paralyze}!structPoke.h@{structPoke.h}}\index{structPoke.h@{structPoke.h}!paralyze@{paralyze}}}\Hypertarget{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a713e5cd4219d601e6e2e0877e4279c73}\label{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a713e5cd4219d601e6e2e0877e4279c73} 
-paralyze&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{flinch@{flinch}!structPoke.h@{structPoke.h}}\index{structPoke.h@{structPoke.h}!flinch@{flinch}}}\Hypertarget{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0aa04bf1e6db05af091f02b833e3c89cc4}\label{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0aa04bf1e6db05af091f02b833e3c89cc4} 
-flinch&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{confusion@{confusion}!structPoke.h@{structPoke.h}}\index{structPoke.h@{structPoke.h}!confusion@{confusion}}}\Hypertarget{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a1a1bc99ed53028c3175d51260cb3f233}\label{structPoke_8h_a76147bdc67aed9a2286c8facfd7b8ce0a1a1bc99ed53028c3175d51260cb3f233} 
-confusion&\\
-\hline
-
-\end{DoxyEnumFields}
-\Hypertarget{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6f}\label{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6f} 
-\index{structPoke.h@{structPoke.h}!t\_Gender@{t\_Gender}}
-\index{t\_Gender@{t\_Gender}!structPoke.h@{structPoke.h}}
-\doxysubsubsection{\texorpdfstring{t\_Gender}{t\_Gender}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6f}{t\+\_\+\+Gender}}}
-
-\begin{DoxyEnumFields}{Valeurs énumérées}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{male@{male}!structPoke.h@{structPoke.h}}\index{structPoke.h@{structPoke.h}!male@{male}}}\Hypertarget{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6fadf25e9c17aa25418942eca3003c33410}\label{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6fadf25e9c17aa25418942eca3003c33410} 
-male&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{female@{female}!structPoke.h@{structPoke.h}}\index{structPoke.h@{structPoke.h}!female@{female}}}\Hypertarget{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6fafc8285f7507b26f68c8b72f4dc38e34f}\label{structPoke_8h_af85da7ebd9ff08847f7abd0ef9cc0d6fafc8285f7507b26f68c8b72f4dc38e34f} 
-female&\\
-\hline
-
-\end{DoxyEnumFields}
-\Hypertarget{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2}\label{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2} 
-\index{structPoke.h@{structPoke.h}!t\_Type@{t\_Type}}
-\index{t\_Type@{t\_Type}!structPoke.h@{structPoke.h}}
-\doxysubsubsection{\texorpdfstring{t\_Type}{t\_Type}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2}{t\+\_\+\+Type}}}
-
-\begin{DoxyEnumFields}{Valeurs énumérées}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{noType@{noType}!structPoke.h@{structPoke.h}}\index{structPoke.h@{structPoke.h}!noType@{noType}}}\Hypertarget{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}\label{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c} 
-no\+Type&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{feu@{feu}!structPoke.h@{structPoke.h}}\index{structPoke.h@{structPoke.h}!feu@{feu}}}\Hypertarget{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2abeaed13a6c54935151875013008013a3}\label{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2abeaed13a6c54935151875013008013a3} 
-feu&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{plante@{plante}!structPoke.h@{structPoke.h}}\index{structPoke.h@{structPoke.h}!plante@{plante}}}\Hypertarget{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2a80963026e42f86adaf9240e84768d9f9}\label{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2a80963026e42f86adaf9240e84768d9f9} 
-plante&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{eau@{eau}!structPoke.h@{structPoke.h}}\index{structPoke.h@{structPoke.h}!eau@{eau}}}\Hypertarget{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2a0729b1e157ef30cedeef889f7a263594}\label{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2a0729b1e157ef30cedeef889f7a263594} 
-eau&\\
-\hline
-
-\end{DoxyEnumFields}
 
 
 \doxysubsection{Documentation des fonctions}
@@ -305,6 +221,12 @@ Generate a Icmon from a given id in the data\+Poke.\+csv file.
 {\em id} & \+: the id of the Icmon to generate \\
 \hline
 \end{DoxyParams}
+\Hypertarget{structPoke_8h_a51de8e3a42ddb12141a26f4b987e5d7e}\label{structPoke_8h_a51de8e3a42ddb12141a26f4b987e5d7e} 
+\index{structPoke.h@{structPoke.h}!generate\_poke\_enemi@{generate\_poke\_enemi}}
+\index{generate\_poke\_enemi@{generate\_poke\_enemi}!structPoke.h@{structPoke.h}}
+\doxysubsubsection{\texorpdfstring{generate\_poke\_enemi()}{generate\_poke\_enemi()}}
+{\footnotesize\ttfamily void generate\+\_\+poke\+\_\+enemi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{int}]{line,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{joueur }\end{DoxyParamCaption})}
+
 \Hypertarget{structPoke_8h_aff185784e3522330be3818416ad1cb93}\label{structPoke_8h_aff185784e3522330be3818416ad1cb93} 
 \index{structPoke.h@{structPoke.h}!generateMove@{generateMove}}
 \index{generateMove@{generateMove}!structPoke.h@{structPoke.h}}
@@ -374,19 +296,4 @@ generer aleatoirement
 \index{printPoke@{printPoke}!structPoke.h@{structPoke.h}}
 \doxysubsubsection{\texorpdfstring{printPoke()}{printPoke()}}
 {\footnotesize\ttfamily void print\+Poke (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
-
-
-
-\doxysubsection{Documentation des variables}
-\Hypertarget{structPoke_8h_a3e0b3eb9a62d3b43c0f95146281bba83}\label{structPoke_8h_a3e0b3eb9a62d3b43c0f95146281bba83} 
-\index{structPoke.h@{structPoke.h}!tabNature@{tabNature}}
-\index{tabNature@{tabNature}!structPoke.h@{structPoke.h}}
-\doxysubsubsection{\texorpdfstring{tabNature}{tabNature}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structt__Nature}{t\+\_\+\+Nature}} tab\+Nature\mbox{[}25\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
-
-\Hypertarget{structPoke_8h_ab3f16f2365e129e0337bae5d412816e3}\label{structPoke_8h_ab3f16f2365e129e0337bae5d412816e3} 
-\index{structPoke.h@{structPoke.h}!typeChart@{typeChart}}
-\index{typeChart@{typeChart}!structPoke.h@{structPoke.h}}
-\doxysubsubsection{\texorpdfstring{typeChart}{typeChart}}
-{\footnotesize\ttfamily float type\+Chart\mbox{[}\mbox{\hyperlink{structPoke_8h_ad5122cd563904de0bfe762d37bdfacdf}{type\+Number}}\mbox{]}\mbox{[}\mbox{\hyperlink{structPoke_8h_ad5122cd563904de0bfe762d37bdfacdf}{type\+Number}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
 

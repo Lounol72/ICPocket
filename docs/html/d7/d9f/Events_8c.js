@@ -1,15 +1,5 @@
 var Events_8c =
 [
-    [ "BLUE_SPRITE_X_RATIO", "d7/d9f/Events_8c.html#ae497e49222225eb5a29a8314de4d53da", null ],
-    [ "BLUE_SPRITE_Y_RATIO", "d7/d9f/Events_8c.html#abbaa24093da04659ced5ed2f23e5cb4a", null ],
-    [ "NAME_HEIGHT", "d7/d9f/Events_8c.html#a86367cafa3412ebbaa3516737170c4d1", null ],
-    [ "NAME_Y_OFFSET", "d7/d9f/Events_8c.html#a640dbca6eec1fc69a3984b99b9185e0e", null ],
-    [ "PV_BAR_HEIGHT", "d7/d9f/Events_8c.html#a504d86d46c5bcbb27c506747484a34ba", null ],
-    [ "PV_Y_OFFSET", "d7/d9f/Events_8c.html#aa48c386af32107492a2fc79171566223", null ],
-    [ "RED_SPRITE_X_RATIO", "d7/d9f/Events_8c.html#a24e30c48e4a12af2d8978ab881ff8cd6", null ],
-    [ "RED_SPRITE_Y_RATIO", "d7/d9f/Events_8c.html#adbf4214d1a8baa4ba1c48f370d8e5a46", null ],
-    [ "SPRITE_HEIGHT_RATIO", "d7/d9f/Events_8c.html#ad9ce5dd1a4b281c4d2e6f5de0523e961", null ],
-    [ "SPRITE_WIDTH_RATIO", "d7/d9f/Events_8c.html#a8ed83b574e4321ec38983b72540690eb", null ],
     [ "handleEvent", "d7/d9f/Events_8c.html#a6f17bb9492dd6a4e5ace526c8686679f", null ],
     [ "handleGameEvent", "d7/d9f/Events_8c.html#a7e807113e014d5725e945ee30180483c", null ],
     [ "handleICMonsEvent", "d7/d9f/Events_8c.html#abb1d99ee132734d10ca7f03286da3b18", null ],
@@ -21,6 +11,7 @@ var Events_8c =
     [ "handlePlayerEvent", "d7/d9f/Events_8c.html#a244d37073550388354a68561ac959ecb", null ],
     [ "handleQuitEvent", "d7/d9f/Events_8c.html#a25c2257aeb4db95d02ee807d21f2b387", null ],
     [ "handleSettingsEvent", "d7/d9f/Events_8c.html#ab14649f183a1cbf95f28b1cda31acb8e", null ],
+    [ "handleSwapEvent", "d7/d9f/Events_8c.html#a088e629868d61238138f13c5c467699b", null ],
     [ "handleWindowSizeChange", "d7/d9f/Events_8c.html#a9e83431dc3f66988e64a74a4e0a2ed58", null ],
-    [ "initTeamSprites", "d7/d9f/Events_8c.html#aeada525c0542e6fcbcdfc5c17aaf7dfc", null ]
+    [ "initTeamSprites", "d7/d9f/Events_8c.html#ac44c928e776e8e08d0c8a3aa20152c8a", null ]
 ];

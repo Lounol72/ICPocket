@@ -1,7 +1,7 @@
 \doxysection{Référence du fichier src/\+Map.c}
 \hypertarget{Map_8c}{}\label{Map_8c}\index{src/Map.c@{src/Map.c}}
-{\ttfamily \#include \"{}../include/\+Map.\+h\"{}}\newline
-{\ttfamily \#include \"{}../include/\+Camera.\+h\"{}}\newline
+{\ttfamily \#include "{}../include/\+Map.\+h"{}}\newline
+{\ttfamily \#include "{}../include/\+Camera.\+h"{}}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 Graphe des dépendances par inclusion de Map.\+c\+:\nopagebreak
@@ -20,6 +20,8 @@ static void \mbox{\hyperlink{Map_8c_a55235be5591748a7d94545201c4c38e9}{init\+Col
 \item 
 \mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Map_8c_a2d3b5b6a74e6800de411e1edf7dfea2e}{init\+Map}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const char \texorpdfstring{$\ast$}{*}path)
 \item 
+void \mbox{\hyperlink{Map_8c_ae0656f1ed1c85e750b8bc65bd7269f62}{check\+And\+Load\+New\+Map}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}map, int playerX, int playerY)
+\item 
 void \mbox{\hyperlink{Map_8c_a6a8408146457cc93ec3694e180bb5574}{DEBUG\+\_\+print\+Map}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map)
 \item 
 void \mbox{\hyperlink{Map_8c_a9903966da30d78752ca378caa3cb5dc5}{render\+Map\+Debug}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map)
@@ -31,6 +33,12 @@ void \mbox{\hyperlink{Map_8c_a64df896c814cef549bef88fcd20d9a67}{destroy\+Map}} (
 
 
 \doxysubsection{Documentation des fonctions}
+\Hypertarget{Map_8c_ae0656f1ed1c85e750b8bc65bd7269f62}\label{Map_8c_ae0656f1ed1c85e750b8bc65bd7269f62} 
+\index{Map.c@{Map.c}!checkAndLoadNewMap@{checkAndLoadNewMap}}
+\index{checkAndLoadNewMap@{checkAndLoadNewMap}!Map.c@{Map.c}}
+\doxysubsubsection{\texorpdfstring{checkAndLoadNewMap()}{checkAndLoadNewMap()}}
+{\footnotesize\ttfamily void check\+And\+Load\+New\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{map,  }\item[{int}]{playerX,  }\item[{int}]{playerY }\end{DoxyParamCaption})}
+
 \Hypertarget{Map_8c_a6a8408146457cc93ec3694e180bb5574}\label{Map_8c_a6a8408146457cc93ec3694e180bb5574} 
 \index{Map.c@{Map.c}!DEBUG\_printMap@{DEBUG\_printMap}}
 \index{DEBUG\_printMap@{DEBUG\_printMap}!Map.c@{Map.c}}

@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
                 }
                 if(event.type == SDL_KEYDOWN) {
                     if(event.key.keysym.scancode == SDL_SCANCODE_SPACE) {
-                        skipScrollingText(dialogueText);
+                        skipScrollingText(dialogueText, renderer);
                     }
                 }
             }

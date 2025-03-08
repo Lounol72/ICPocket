@@ -1,6 +1,6 @@
 \doxysection{Référence du fichier src/duel.c}
 \hypertarget{duel_8c}{}\label{duel_8c}\index{src/duel.c@{src/duel.c}}
-{\ttfamily \#include \"{}../include/duel.\+h\"{}}\newline
+{\ttfamily \#include "{}../include/duel.\+h"{}}\newline
 Graphe des dépendances par inclusion de duel.\+c\+:
 \nopagebreak
 \begin{figure}[H]
@@ -30,6 +30,8 @@ int \mbox{\hyperlink{duel_8c_a0e27a0c4136f1f57a6f4f3e052ab2e54}{calc\+Stat\+From
 \item 
 void \mbox{\hyperlink{duel_8c_a008ac39eea8c44c8b962e362897c5634}{init\+Team}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t, int nb\+\_\+poke)
 \item 
+void \mbox{\hyperlink{duel_8c_a5c425221de6c8fc3581cb8ad38a77579}{init\+Blue\+Team}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}joueur)
+\item 
 int \mbox{\hyperlink{duel_8c_ac70ebbfe144e52d4a596dd2c424cd3f9}{calc\+Damage}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}offender, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}defender, \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}move)
 \item 
 void \mbox{\hyperlink{duel_8c_a8fc0892b3753845a32113b61ce8b1b6c}{set\+Default\+Stat\+Changes}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}p)
@@ -56,7 +58,7 @@ int \mbox{\hyperlink{duel_8c_a82732f92530a8627b7d1c8a55e55444c}{accuracy\+Check}
 \item 
 int \mbox{\hyperlink{duel_8c_a9b7c88dfcaf3b3fb7cc7093fdb99e341}{pp\+Check}} (\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}move)
 \item 
-void \mbox{\hyperlink{duel_8c_a2cdb2c620c0e4c3077d6ae74c45ceb36}{affect\+Damage}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}offender, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}defender, int index\+Move)
+int \mbox{\hyperlink{duel_8c_af83a9c8d2c8428b1c682e5fd3348ad07}{affect\+Damage}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}offender, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}defender, int index\+Move)
 \item 
 void \mbox{\hyperlink{duel_8c_a785cf59b04b080c32b51ca8300b62507}{swap\+Actual\+Attacker}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t, int swap\+Index)
 \begin{DoxyCompactList}\small\item\em La fonction swap\+Actual\+Attacker échange le pokémon présent à l\textquotesingle{}indice 0 avec celui présent à l\textquotesingle{}indice swap\+Index donné en paramètre. La fonction est sans effet si l\textquotesingle{}indice spécifié est invalide (hors liste, pokémon ko). \end{DoxyCompactList}\item 
@@ -89,9 +91,9 @@ int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{duel_8c_adc50e7669e9a8b080c36aff
 \item 
 float \mbox{\hyperlink{duel_8c_affbbdc8741a394a968366d77c640f1ff}{stat\+Variations}} \mbox{[}13\mbox{]} =\{0.\+25,2./7,1./3,2./5,0.\+5,2./3,1,1.\+5,2,2.\+5,3,3.\+5,4\}
 \item 
-\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{duel_8c_a69f8229a1c94eb0a11e091d8b54570f3}{struggle}} =\{-\/1,\"{}lutte\"{},50,\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,2,100,25,0\}
+\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{duel_8c_a69f8229a1c94eb0a11e091d8b54570f3}{struggle}} =\{-\/1,"{}lutte"{},50,\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structures_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,2,100,25,0\}
 \item 
-\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{duel_8c_acde9cb2f6b18119fde97bf6be55639c9}{confused\+Move}} =\{-\/2,\"{}Confus\"{},40,\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,-\/1,0,0,0\}
+\mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{duel_8c_acde9cb2f6b18119fde97bf6be55639c9}{confused\+Move}} =\{-\/2,"{}Confus"{},40,\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structures_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,-\/1,0,0,0\}
 \item 
 \mbox{\hyperlink{structLvl__Up__Buffer}{Lvl\+\_\+\+Up\+\_\+\+Buffer}} \mbox{\hyperlink{duel_8c_a14297bdf3858bfcb9f2b5553c4a37ad2}{lvl\+\_\+up\+\_\+buffer}} \mbox{[}6\mbox{]}
 \item 
@@ -106,11 +108,11 @@ int \mbox{\hyperlink{duel_8c_a5fa7c71ee69bf53efd73ff3978602ab6}{lvl\+\_\+up\+\_\
 \doxysubsubsection{\texorpdfstring{accuracyCheck()}{accuracyCheck()}}
 {\footnotesize\ttfamily int accuracy\+Check (\begin{DoxyParamCaption}\item[{int}]{accuracy }\end{DoxyParamCaption})}
 
-\Hypertarget{duel_8c_a2cdb2c620c0e4c3077d6ae74c45ceb36}\label{duel_8c_a2cdb2c620c0e4c3077d6ae74c45ceb36} 
+\Hypertarget{duel_8c_af83a9c8d2c8428b1c682e5fd3348ad07}\label{duel_8c_af83a9c8d2c8428b1c682e5fd3348ad07} 
 \index{duel.c@{duel.c}!affectDamage@{affectDamage}}
 \index{affectDamage@{affectDamage}!duel.c@{duel.c}}
 \doxysubsubsection{\texorpdfstring{affectDamage()}{affectDamage()}}
-{\footnotesize\ttfamily void affect\+Damage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{offender,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{defender,  }\item[{int}]{index\+Move }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int affect\+Damage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{offender,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{defender,  }\item[{int}]{index\+Move }\end{DoxyParamCaption})}
 
 \Hypertarget{duel_8c_aa6f1d50587260f5a4957edc4dae26e35}\label{duel_8c_aa6f1d50587260f5a4957edc4dae26e35} 
 \index{duel.c@{duel.c}!applyEffect@{applyEffect}}
@@ -153,6 +155,12 @@ int \mbox{\hyperlink{duel_8c_a5fa7c71ee69bf53efd73ff3978602ab6}{lvl\+\_\+up\+\_\
 \index{hasMoveLeft@{hasMoveLeft}!duel.c@{duel.c}}
 \doxysubsubsection{\texorpdfstring{hasMoveLeft()}{hasMoveLeft()}}
 {\footnotesize\ttfamily int has\+Move\+Left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8c_a5c425221de6c8fc3581cb8ad38a77579}\label{duel_8c_a5c425221de6c8fc3581cb8ad38a77579} 
+\index{duel.c@{duel.c}!initBlueTeam@{initBlueTeam}}
+\index{initBlueTeam@{initBlueTeam}!duel.c@{duel.c}}
+\doxysubsubsection{\texorpdfstring{initBlueTeam()}{initBlueTeam()}}
+{\footnotesize\ttfamily void init\+Blue\+Team (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{joueur }\end{DoxyParamCaption})}
 
 \Hypertarget{duel_8c_a008ac39eea8c44c8b962e362897c5634}\label{duel_8c_a008ac39eea8c44c8b962e362897c5634} 
 \index{duel.c@{duel.c}!initTeam@{initTeam}}
@@ -338,7 +346,7 @@ La fonction swap\+Actual\+Attacker échange le pokémon présent à l\textquotes
 \index{duel.c@{duel.c}!confusedMove@{confusedMove}}
 \index{confusedMove@{confusedMove}!duel.c@{duel.c}}
 \doxysubsubsection{\texorpdfstring{confusedMove}{confusedMove}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} confused\+Move =\{-\/2,\"{}Confus\"{},40,\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,-\/1,0,0,0\}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} confused\+Move =\{-\/2,"{}Confus"{},40,\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structures_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,-\/1,0,0,0\}}
 
 \Hypertarget{duel_8c_a14297bdf3858bfcb9f2b5553c4a37ad2}\label{duel_8c_a14297bdf3858bfcb9f2b5553c4a37ad2} 
 \index{duel.c@{duel.c}!lvl\_up\_buffer@{lvl\_up\_buffer}}
@@ -374,5 +382,5 @@ La fonction swap\+Actual\+Attacker échange le pokémon présent à l\textquotes
 \index{duel.c@{duel.c}!struggle@{struggle}}
 \index{struggle@{struggle}!duel.c@{duel.c}}
 \doxysubsubsection{\texorpdfstring{struggle}{struggle}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} struggle =\{-\/1,\"{}lutte\"{},50,\mbox{\hyperlink{structPoke_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structPoke_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,2,100,25,0\}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} struggle =\{-\/1,"{}lutte"{},50,\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c}{no\+Type}},\mbox{\hyperlink{structures_8h_a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e}{physical}},200,1,1,0,1,2,100,25,0\}}
 

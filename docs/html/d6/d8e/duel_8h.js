@@ -1,6 +1,5 @@
 var duel_8h =
 [
-    [ "t_Team", "da/d63/structt__Team.html", "da/d63/structt__Team" ],
     [ "Lvl_Up_Buffer", "de/dac/structLvl__Up__Buffer.html", "de/dac/structLvl__Up__Buffer" ],
     [ "ATTAQUE_1", "d6/d8e/duel_8h.html#a6b5a19d44831a7f2be0d9be0276d478c", null ],
     [ "ATTAQUE_2", "d6/d8e/duel_8h.html#a4a381e7575fc4042d463c7b326d72249", null ],
@@ -11,7 +10,7 @@ var duel_8h =
     [ "POKE_IS_ABSCENT", "d6/d8e/duel_8h.html#a925c3d26c7e99b966e2656f91943f27c", null ],
     [ "STRUGGLE", "d6/d8e/duel_8h.html#ad17fa6eb61b38334f7b136e02a78ff37", null ],
     [ "accuracyCheck", "d6/d8e/duel_8h.html#a82732f92530a8627b7d1c8a55e55444c", null ],
-    [ "affectDamage", "d6/d8e/duel_8h.html#a2cdb2c620c0e4c3077d6ae74c45ceb36", null ],
+    [ "affectDamage", "d6/d8e/duel_8h.html#af83a9c8d2c8428b1c682e5fd3348ad07", null ],
     [ "applyEffect", "d6/d8e/duel_8h.html#aa6f1d50587260f5a4957edc4dae26e35", null ],
     [ "calcDamage", "d6/d8e/duel_8h.html#a74d793946dc5e0e5f1dc6ed14d3d96dc", null ],
     [ "calcStatFrom", "d6/d8e/duel_8h.html#a0e27a0c4136f1f57a6f4f3e052ab2e54", null ],
@@ -19,6 +18,7 @@ var duel_8h =
     [ "expCurve", "d6/d8e/duel_8h.html#a3e88ec315719a73455623551f124fb62", null ],
     [ "gainExp", "d6/d8e/duel_8h.html#a00cc566806ad551410ecb3ef95be9d0b", null ],
     [ "hasMoveLeft", "d6/d8e/duel_8h.html#a1b5d03e9edfe6df9d2a3df248fc25944", null ],
+    [ "initBlueTeam", "d6/d8e/duel_8h.html#a5c425221de6c8fc3581cb8ad38a77579", null ],
     [ "initTeam", "d6/d8e/duel_8h.html#a4b3832f2db59021e5a2a8f4438ddadc1", null ],
     [ "isAlive", "d6/d8e/duel_8h.html#a58123fcf9acb6bb6b68e7b1213f374ff", null ],
     [ "isAttacking", "d6/d8e/duel_8h.html#af43f8a6685d1709bbcd8603ab0dbdc63", null ],

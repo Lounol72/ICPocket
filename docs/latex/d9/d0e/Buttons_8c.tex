@@ -1,6 +1,6 @@
 \doxysection{Référence du fichier src/\+Buttons.c}
 \hypertarget{Buttons_8c}{}\label{Buttons_8c}\index{src/Buttons.c@{src/Buttons.c}}
-{\ttfamily \#include \"{}../include/\+Buttons.\+h\"{}}\newline
+{\ttfamily \#include "{}../include/\+Buttons.\+h"{}}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 Graphe des dépendances par inclusion de Buttons.\+c\+:\nopagebreak
 \begin{figure}[H]
@@ -57,7 +57,9 @@ void \mbox{\hyperlink{Buttons_8c_a160b73f6e05ac0b81b4fd57a404393f0}{render\+Slid
 \begin{DoxyCompactList}\small\item\em Rend la liste de curseurs. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_a36eeecc07a5e96684859833ad0986c4a}{render\+Slider}} (\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}slider)
 \begin{DoxyCompactList}\small\item\em Rend un curseur. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{Buttons_8c_ab2651492b9cdec9f58253f8ba23f25f5}{handle\+Slider\+Event}} (\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}slider, int x, int y)
+static float \mbox{\hyperlink{Buttons_8c_a6046ff3dc9499de4646b6d73165a37a0}{clampf}} (float v, float min, float max)
+\item 
+int \mbox{\hyperlink{Buttons_8c_a45f0315f0ea8b5ef2e7beec0f31b52da}{handle\+Slider\+Event}} (\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}slider, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
 \begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}événement de curseur. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8c_a109411bd394d38718374d0b1fde9a020}{update\+Slider\+Position}} (\mbox{\hyperlink{structSliderList}{Slider\+List}} \texorpdfstring{$\ast$}{*}sliders, float Scalex, float Scaley)
 \begin{DoxyCompactList}\small\item\em Met à jour la position des curseurs en fonction des coordonnées X et Y de la souris. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -141,6 +143,12 @@ Gère l\textquotesingle{}interaction avec le bouton en fonction de la position a
 \begin{DoxyReturn}{Renvoie}
 Un statut ou un booléen indiquant si l\textquotesingle{}interaction a été traitée avec succès. 
 \end{DoxyReturn}
+\Hypertarget{Buttons_8c_a6046ff3dc9499de4646b6d73165a37a0}\label{Buttons_8c_a6046ff3dc9499de4646b6d73165a37a0} 
+\index{Buttons.c@{Buttons.c}!clampf@{clampf}}
+\index{clampf@{clampf}!Buttons.c@{Buttons.c}}
+\doxysubsubsection{\texorpdfstring{clampf()}{clampf()}}
+{\footnotesize\ttfamily static float clampf (\begin{DoxyParamCaption}\item[{float}]{v,  }\item[{float}]{min,  }\item[{float}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
 \Hypertarget{Buttons_8c_aed6b61a5d385adc79994554a0d51bee2}\label{Buttons_8c_aed6b61a5d385adc79994554a0d51bee2} 
 \index{Buttons.c@{Buttons.c}!createButton@{createButton}}
 \index{createButton@{createButton}!Buttons.c@{Buttons.c}}
@@ -248,11 +256,11 @@ Détruit la liste de curseurs.
 {\em list} & Pointeur vers la liste de curseurs à détruire. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{Buttons_8c_ab2651492b9cdec9f58253f8ba23f25f5}\label{Buttons_8c_ab2651492b9cdec9f58253f8ba23f25f5} 
+\Hypertarget{Buttons_8c_a45f0315f0ea8b5ef2e7beec0f31b52da}\label{Buttons_8c_a45f0315f0ea8b5ef2e7beec0f31b52da} 
 \index{Buttons.c@{Buttons.c}!handleSliderEvent@{handleSliderEvent}}
 \index{handleSliderEvent@{handleSliderEvent}!Buttons.c@{Buttons.c}}
 \doxysubsubsection{\texorpdfstring{handleSliderEvent()}{handleSliderEvent()}}
-{\footnotesize\ttfamily int handle\+Slider\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}}]{slider,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int handle\+Slider\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}}]{slider,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
 
 
 
@@ -264,9 +272,7 @@ Cette fonction traite l\textquotesingle{}événement de curseur en fonction du c
 \begin{DoxyParams}{Paramètres}
 {\em slider} & Le curseur associé à l\textquotesingle{}événement. \\
 \hline
-{\em x} & La coordonnée x de l\textquotesingle{}événement. \\
-\hline
-{\em y} & La coordonnée y de l\textquotesingle{}événement. \\
+{\em event} & L\textquotesingle{}événement SDL. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}

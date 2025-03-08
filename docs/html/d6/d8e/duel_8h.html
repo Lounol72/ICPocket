@@ -102,6 +102,7 @@ $(document).ready(function(){initNavTree('d6/d8e/duel_8h.html','../../'); initRe
 <p>Gestion des duels dans le style de "Pokémon" : système de tour par tour avec 2 équipes opposées.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../da/d71/structPoke_8h_source.html">structPoke.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/da3/structures_8h_source.html">structures.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../df/d27/trainerAI_8h_source.html">trainerAI.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d5/d5e/save_8h_source.html">save.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -109,124 +110,136 @@ Graphe des dépendances par inclusion de duel.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../da/db2/duel_8h__incl.png" border="0" usemap="#ainclude_2duel_8h" alt=""/></div>
 <map name="ainclude_2duel_8h" id="ainclude_2duel_8h">
-<area shape="rect" title="Gestion des duels dans le style de &quot;Pokémon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="1877,5,1990,31"/>
-<area shape="rect" href="../../da/d71/structPoke_8h.html" title=" " alt="" coords="1745,299,1847,324"/>
-<area shape="poly" title=" " alt="" coords="1933,32,1902,125,1876,189,1845,252,1818,290,1813,287,1840,249,1872,187,1897,123,1928,30"/>
-<area shape="rect" href="../../df/d27/trainerAI_8h.html" title=" " alt="" coords="2075,225,2165,251"/>
-<area shape="poly" title=" " alt="" coords="1941,29,2012,118,2098,213,2094,217,2008,121,1937,33"/>
-<area shape="rect" href="../../d5/d5e/save_8h.html" title="Save the player&#39;s data in a file." alt="" coords="1526,79,1591,104"/>
-<area shape="poly" title=" " alt="" coords="1877,31,1606,83,1605,77,1876,26"/>
-<area shape="rect" title=" " alt="" coords="1524,372,1591,397"/>
-<area shape="poly" title=" " alt="" coords="1758,327,1605,372,1603,367,1757,321"/>
-<area shape="rect" title=" " alt="" coords="1850,372,1921,397"/>
-<area shape="poly" title=" " alt="" coords="1812,322,1862,361,1858,365,1809,326"/>
-<area shape="rect" title=" " alt="" coords="1761,372,1825,397"/>
-<area shape="poly" title=" " alt="" coords="1798,324,1797,359,1792,358,1793,324"/>
-<area shape="rect" title=" " alt="" coords="1615,372,1686,397"/>
-<area shape="poly" title=" " alt="" coords="1774,326,1688,368,1685,364,1771,322"/>
-<area shape="rect" title=" " alt="" coords="713,445,809,471"/>
-<area shape="poly" title=" " alt="" coords="1789,326,1754,364,1728,384,1700,400,1646,412,1556,422,1304,439,823,458,823,452,1304,434,1555,417,1646,406,1698,395,1725,380,1750,360,1785,322"/>
-<area shape="rect" title=" " alt="" coords="412,372,556,397"/>
-<area shape="poly" title=" " alt="" coords="1745,318,570,381,569,376,1744,313"/>
-<area shape="rect" title=" " alt="" coords="1259,372,1376,397"/>
-<area shape="poly" title=" " alt="" coords="1745,323,1390,375,1389,370,1744,318"/>
-<area shape="poly" title=" " alt="" coords="2112,227,2041,138,1955,42,1959,39,2045,135,2116,223"/>
-<area shape="poly" title=" " alt="" coords="1591,82,1866,31,1867,36,1592,87"/>
-<area shape="rect" href="../../d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="1292,152,1409,177"/>
-<area shape="poly" title=" " alt="" coords="1526,104,1391,150,1390,145,1525,99"/>
-<area shape="poly" title=" " alt="" coords="1410,166,1448,172,1488,182,1529,199,1564,223,1586,246,1598,269,1601,294,1596,325,1577,362,1573,360,1591,323,1596,294,1593,270,1582,249,1561,227,1526,204,1487,187,1447,177,1409,171"/>
-<area shape="poly" title=" " alt="" coords="1410,164,1516,168,1643,177,1762,195,1809,207,1844,223,1864,239,1875,255,1889,298,1891,311,1889,324,1889,359,1883,358,1884,324,1885,311,1884,299,1870,257,1860,242,1841,228,1808,212,1761,200,1642,183,1516,173,1410,169"/>
-<area shape="poly" title=" " alt="" coords="1292,170,1141,178,952,199,860,216,779,238,715,266,692,282,676,300,668,318,667,336,672,354,681,373,708,407,737,435,734,439,704,411,677,375,667,356,662,336,663,316,671,297,688,278,712,261,777,233,859,211,951,194,1140,173,1292,165"/>
-<area shape="poly" title=" " alt="" coords="1292,170,1098,176,844,188,611,205,527,216,480,228,446,246,421,267,413,279,409,292,409,307,414,323,431,345,452,363,448,367,427,349,410,325,404,307,404,291,408,277,417,264,443,242,478,223,526,210,610,199,844,182,1097,171,1292,165"/>
-<area shape="poly" title=" " alt="" coords="1352,178,1324,359,1319,358,1346,177"/>
-<area shape="poly" title=" " alt="" coords="1410,166,1689,185,1872,202,2056,223,2062,223,2061,229,2056,228,1871,207,1688,191,1409,172"/>
-<area shape="poly" title=" " alt="" coords="1390,149,1519,106,1520,111,1392,154"/>
-<area shape="rect" title=" " alt="" coords="865,372,1004,397"/>
-<area shape="poly" title=" " alt="" coords="1292,173,1183,190,1122,206,1062,228,1006,256,985,273,964,300,949,330,941,359,936,358,944,328,959,297,982,270,1003,251,1060,223,1120,201,1182,185,1291,168"/>
-<area shape="rect" title=" " alt="" coords="1997,372,2198,397"/>
-<area shape="poly" title=" " alt="" coords="1410,167,1655,187,1783,203,1876,223,1938,252,1995,289,2043,328,2078,360,2075,364,2040,332,1992,293,1935,256,1874,228,1782,208,1654,192,1409,172"/>
-<area shape="rect" href="../../d9/ded/Utils_8h.html" title=" " alt="" coords="491,225,555,251"/>
-<area shape="poly" title=" " alt="" coords="1292,173,1007,195,630,228,569,234,568,229,629,223,1006,190,1292,168"/>
-<area shape="rect" href="../../d3/ded/Window_8h.html" title="Définition et gestion de la fenêtre principale de l&#39;application." alt="" coords="781,299,867,324"/>
-<area shape="poly" title=" " alt="" coords="1292,170,1192,176,1073,186,962,203,919,214,887,228,871,240,857,255,837,287,832,285,853,252,867,236,884,223,917,209,961,197,1073,180,1192,170,1292,165"/>
-<area shape="rect" href="../../da/d1d/interDuel_8h.html" title="Définition et gestion des combats entre équipes." alt="" coords="2190,225,2285,251"/>
-<area shape="poly" title=" " alt="" coords="1410,165,1732,182,1951,199,2176,223,2176,228,1950,204,1732,187,1409,171"/>
-<area shape="rect" href="../../d6/d35/Text_8h.html" title="Définition et gestion des éléments de texte." alt="" coords="1456,299,1517,324"/>
-<area shape="poly" title=" " alt="" coords="1360,176,1382,210,1413,249,1460,289,1456,293,1409,253,1377,213,1355,179"/>
-<area shape="rect" href="../../df/d79/Map_8h.html" title=" " alt="" coords="83,299,146,324"/>
-<area shape="poly" title=" " alt="" coords="1292,169,1036,170,686,178,512,186,359,196,242,210,202,218,176,228,160,239,146,254,127,287,122,284,142,251,156,235,173,223,200,213,241,205,359,191,512,180,686,173,1036,165,1292,163"/>
-<area shape="rect" href="../../dd/de4/Camera_8h.html" title="Gestion de la caméra pour le défilement de la vue du jeu." alt="" coords="5,372,91,397"/>
-<area shape="poly" title=" " alt="" coords="1292,169,1031,174,672,184,336,202,214,214,143,228,113,240,90,254,71,272,54,300,47,329,47,358,41,358,41,328,50,298,67,269,86,249,110,236,142,223,213,208,336,197,672,179,1031,169,1292,164"/>
-<area shape="rect" href="../../da/dbf/Player_8h.html" title=" " alt="" coords="187,225,261,251"/>
-<area shape="poly" title=" " alt="" coords="1292,172,904,194,368,228,275,235,275,230,368,223,904,189,1292,167"/>
-<area shape="rect" href="../../d0/daa/ThreadManager_8h.html" title=" " alt="" coords="1043,299,1178,324"/>
-<area shape="poly" title=" " alt="" coords="1333,180,1143,294,1140,289,1330,175"/>
-<area shape="rect" href="../../d3/d5f/Game_8h.html" title=" " alt="" coords="1074,225,1147,251"/>
-<area shape="poly" title=" " alt="" coords="1306,180,1157,224,1155,219,1305,175"/>
-<area shape="rect" href="../../d0/dbb/Events_8h.html" title=" " alt="" coords="1751,225,1830,251"/>
-<area shape="poly" title=" " alt="" coords="1410,174,1714,223,1738,227,1737,232,1713,228,1409,179"/>
-<area shape="rect" href="../../d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="1423,225,1551,251"/>
-<area shape="poly" title=" " alt="" coords="1367,175,1447,217,1444,222,1364,180"/>
-<area shape="poly" title=" " alt="" coords="491,249,419,271,340,304,308,324,288,347,283,358,283,370,286,382,295,395,314,406,352,415,461,431,700,451,699,456,461,437,350,420,312,411,292,399,282,385,277,371,278,357,283,344,305,320,337,299,417,266,490,244"/>
-<area shape="poly" title=" " alt="" coords="556,246,769,296,767,301,555,251"/>
-<area shape="rect" href="../../d3/d70/Buttons_8h.html" title="Gestion des boutons et curseurs pour l&#39;application." alt="" coords="425,299,509,324"/>
-<area shape="poly" title=" " alt="" coords="509,253,478,289,474,285,504,249"/>
-<area shape="poly" title=" " alt="" coords="825,325,817,358,804,398,781,436,777,433,799,396,812,357,820,323"/>
-<area shape="poly" title=" " alt="" coords="867,316,1245,370,1244,376,867,321"/>
-<area shape="poly" title=" " alt="" coords="867,312,1031,321,1482,344,1933,369,1983,373,1982,378,1933,375,1482,350,1031,327,867,318"/>
-<area shape="poly" title=" " alt="" coords="781,301,567,251,569,246,783,296"/>
-<area shape="rect" href="../../d1/d45/Log_8h.html" title=" " alt="" coords="733,372,790,397"/>
-<area shape="poly" title=" " alt="" coords="816,326,783,363,779,360,812,323"/>
-<area shape="poly" title=" " alt="" coords="764,398,764,432,759,432,759,398"/>
-<area shape="poly" title=" " alt="" coords="488,322,627,395,722,438,720,442,624,400,486,327"/>
-<area shape="poly" title=" " alt="" coords="472,324,481,358,475,360,467,325"/>
-<area shape="poly" title=" " alt="" coords="509,314,1245,375,1245,380,509,319"/>
-<area shape="poly" title=" " alt="" coords="509,316,852,368,851,373,509,322"/>
-<area shape="poly" title=" " alt="" coords="481,297,511,261,515,264,485,300"/>
-<area shape="rect" title=" " alt="" coords="305,372,388,397"/>
-<area shape="poly" title=" " alt="" coords="449,326,380,367,377,362,446,322"/>
-<area shape="poly" title=" " alt="" coords="2221,227,2138,164,2024,81,1962,40,1965,36,2027,76,2141,160,2224,223"/>
-<area shape="poly" title=" " alt="" coords="1479,326,1443,364,1417,384,1389,400,1341,415,1277,427,1119,444,955,454,823,458,823,453,955,448,1119,439,1276,421,1340,409,1387,395,1415,380,1439,360,1475,323"/>
-<area shape="poly" title=" " alt="" coords="1460,326,1359,369,1357,364,1458,322"/>
-<area shape="poly" title=" " alt="" coords="120,323,136,360,149,380,167,395,209,413,267,428,338,438,415,446,572,453,700,455,700,460,572,459,415,451,337,444,266,433,207,418,164,400,145,383,131,363,115,325"/>
-<area shape="poly" title=" " alt="" coords="147,316,412,367,411,372,146,321"/>
-<area shape="poly" title=" " alt="" coords="106,326,70,364,66,360,102,323"/>
-<area shape="poly" title=" " alt="" coords="91,391,114,395,280,414,444,430,700,450,700,455,444,435,279,420,113,400,90,397"/>
-<area shape="poly" title=" " alt="" coords="226,251,228,281,235,321,250,362,262,380,278,395,309,412,354,425,469,442,594,451,700,454,700,459,594,456,469,448,353,430,307,417,274,399,258,384,245,365,230,323,223,282,221,251"/>
-<area shape="poly" title=" " alt="" coords="244,249,369,322,450,364,447,368,367,326,242,253"/>
-<area shape="poly" title=" " alt="" coords="230,250,245,284,269,322,291,344,316,362,313,367,288,348,265,326,240,286,225,252"/>
-<area shape="poly" title=" " alt="" coords="208,253,146,293,143,289,205,248"/>
-<area shape="poly" title=" " alt="" coords="187,247,128,264,98,279,73,300,57,328,51,359,46,358,52,327,69,297,95,275,126,259,186,242"/>
-<area shape="poly" title=" " alt="" coords="1132,322,1153,337,1173,356,1183,377,1183,388,1177,399,1152,417,1116,431,1072,441,1021,449,916,458,823,460,823,455,915,452,1021,444,1071,436,1115,426,1150,412,1173,396,1177,387,1178,378,1168,359,1150,341,1129,326"/>
-<area shape="rect" title=" " alt="" coords="1079,372,1163,397"/>
-<area shape="poly" title=" " alt="" coords="1115,324,1120,358,1115,359,1110,325"/>
-<area shape="poly" title=" " alt="" coords="1147,248,1512,366,1510,371,1145,253"/>
-<area shape="poly" title=" " alt="" coords="1088,253,1058,272,1033,300,1027,313,1026,326,1029,350,1030,374,1027,386,1018,399,1004,410,985,419,936,434,823,453,823,448,934,429,983,414,1002,405,1014,395,1022,384,1025,373,1023,350,1020,326,1022,312,1028,297,1055,268,1085,249"/>
-<area shape="poly" title=" " alt="" coords="1074,243,965,248,820,259,679,276,622,287,580,301,557,314,537,330,504,363,500,359,533,326,554,309,578,296,621,282,678,271,820,253,965,243,1074,238"/>
-<area shape="poly" title=" " alt="" coords="1129,249,1291,362,1288,366,1126,253"/>
-<area shape="poly" title=" " alt="" coords="1147,225,1305,179,1307,184,1148,230"/>
-<area shape="poly" title=" " alt="" coords="1075,253,1031,272,988,301,964,330,947,360,943,358,960,327,985,297,1028,267,1073,248"/>
-<area shape="poly" title=" " alt="" coords="1113,251,1113,285,1108,285,1108,251"/>
-<area shape="rect" href="../../d8/daa/Audio_8h.html" title="Gestion de l&#39;audio pour l&#39;application." alt="" coords="686,299,757,324"/>
-<area shape="poly" title=" " alt="" coords="1074,248,944,269,771,301,770,296,943,264,1073,242"/>
-<area shape="poly" title=" " alt="" coords="722,325,718,358,723,397,731,416,744,433,739,436,727,419,717,398,713,358,716,324"/>
-<area shape="poly" title=" " alt="" coords="756,321,888,365,886,370,755,327"/>
-<area shape="poly" title=" " alt="" coords="730,323,750,359,746,361,726,326"/>
-<area shape="poly" title=" " alt="" coords="1794,251,1797,285,1791,285,1789,251"/>
-<area shape="poly" title=" " alt="" coords="1816,248,1864,275,1915,312,1934,333,1946,355,1948,377,1935,399,1918,407,1885,414,1777,426,1452,443,1091,454,823,459,823,453,1090,448,1452,438,1777,420,1884,409,1916,402,1932,395,1942,376,1941,356,1930,336,1911,316,1862,280,1814,253"/>
-<area shape="poly" title=" " alt="" coords="1751,230,1737,228,1423,178,1423,173,1738,223,1752,225"/>
-<area shape="poly" title=" " alt="" coords="1829,248,1890,269,1956,296,2018,330,2070,362,2068,367,2015,334,1954,301,1888,274,1828,253"/>
-<area shape="poly" title=" " alt="" coords="1752,251,1532,302,1530,297,1750,246"/>
-<area shape="poly" title=" " alt="" coords="1537,248,1733,293,1732,298,1536,253"/>
-<area shape="poly" title=" " alt="" coords="1518,248,1549,268,1564,281,1576,297,1581,313,1581,330,1572,360,1567,358,1575,329,1575,314,1571,300,1560,285,1546,272,1515,253"/>
-<area shape="poly" title=" " alt="" coords="1551,239,1633,244,1724,254,1807,271,1839,283,1862,297,1873,310,1880,326,1887,357,1882,358,1875,327,1868,313,1858,301,1837,288,1805,276,1724,260,1632,249,1551,244"/>
-<area shape="poly" title=" " alt="" coords="1516,248,1556,268,1595,297,1622,327,1641,358,1636,361,1617,330,1592,301,1553,273,1514,253"/>
-<area shape="poly" title=" " alt="" coords="1502,249,1528,283,1535,304,1532,325,1512,356,1490,374,1462,387,1427,400,1376,414,1306,426,1137,443,962,453,823,458,823,453,962,448,1137,437,1306,420,1374,409,1426,395,1460,382,1487,370,1508,352,1527,323,1530,304,1524,285,1498,253"/>
-<area shape="poly" title=" " alt="" coords="1423,244,1039,261,827,278,740,289,674,301,630,315,587,332,517,368,514,363,585,327,628,310,673,296,739,284,826,273,1039,256,1422,238"/>
-<area shape="poly" title=" " alt="" coords="1475,253,1343,365,1340,361,1471,249"/>
-<area shape="poly" title=" " alt="" coords="1470,227,1390,186,1393,181,1473,223"/>
-<area shape="poly" title=" " alt="" coords="1450,253,1190,327,1001,372,1000,366,1189,321,1448,248"/>
-<area shape="poly" title=" " alt="" coords="1489,251,1489,285,1484,285,1484,251"/>
+<area shape="rect" title="Gestion des duels dans le style de &quot;Pokémon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="1496,5,1609,31"/>
+<area shape="rect" href="../../da/d71/structPoke_8h.html" title=" " alt="" coords="319,299,421,324"/>
+<area shape="poly" title=" " alt="" coords="1496,32,1131,108,882,164,631,228,509,264,409,297,408,292,508,258,629,223,881,159,1130,103,1495,27"/>
+<area shape="rect" href="../../dd/da3/structures_8h.html" title=" " alt="" coords="202,372,301,397"/>
+<area shape="poly" title=" " alt="" coords="1496,29,1337,50,1142,81,974,115,844,146,549,228,479,243,422,251,369,266,340,280,309,301,282,329,264,361,259,358,278,326,306,297,338,275,367,261,421,246,478,238,548,223,843,141,973,110,1142,76,1336,44,1496,23"/>
+<area shape="rect" href="../../df/d27/trainerAI_8h.html" title=" " alt="" coords="2721,225,2811,251"/>
+<area shape="poly" title=" " alt="" coords="1610,28,2708,224,2707,229,1609,33"/>
+<area shape="rect" href="../../d5/d5e/save_8h.html" title="Save the player&#39;s data in a file." alt="" coords="1520,79,1585,104"/>
+<area shape="poly" title=" " alt="" coords="1548,31,1547,65,1541,65,1543,31"/>
+<area shape="poly" title=" " alt="" coords="411,296,520,262,653,223,893,162,1130,107,1487,31,1488,36,1132,113,895,167,655,228,522,267,412,301"/>
+<area shape="rect" title=" " alt="" coords="218,445,285,471"/>
+<area shape="poly" title=" " alt="" coords="319,317,285,322,250,332,218,349,192,373,188,389,193,405,206,421,223,435,219,439,202,425,189,408,182,389,188,371,215,344,248,327,284,317,318,312"/>
+<area shape="rect" title=" " alt="" coords="5,445,76,471"/>
+<area shape="poly" title=" " alt="" coords="319,324,240,343,197,357,155,374,105,405,65,438,61,434,102,401,153,370,195,352,238,338,318,319"/>
+<area shape="rect" title=" " alt="" coords="105,445,169,471"/>
+<area shape="poly" title=" " alt="" coords="319,320,249,337,213,353,181,374,159,402,146,433,141,431,154,399,178,370,211,348,247,332,318,315"/>
+<area shape="rect" title=" " alt="" coords="379,445,449,471"/>
+<area shape="poly" title=" " alt="" coords="376,324,409,431,404,433,371,325"/>
+<area shape="rect" title=" " alt="" coords="1609,445,1705,471"/>
+<area shape="poly" title=" " alt="" coords="422,320,826,395,1048,418,1266,435,1595,452,1595,457,1266,440,1047,424,826,400,421,325"/>
+<area shape="rect" title=" " alt="" coords="570,445,714,471"/>
+<area shape="poly" title=" " alt="" coords="391,322,523,395,607,437,604,442,521,400,389,327"/>
+<area shape="rect" title=" " alt="" coords="969,445,1086,471"/>
+<area shape="poly" title=" " alt="" coords="416,321,725,395,956,441,955,446,724,400,415,327"/>
+<area shape="poly" title=" " alt="" coords="352,326,284,367,281,362,350,322"/>
+<area shape="poly" title=" " alt="" coords="254,398,254,432,249,432,249,398"/>
+<area shape="poly" title=" " alt="" coords="218,400,88,443,87,438,217,395"/>
+<area shape="poly" title=" " alt="" coords="234,400,168,440,166,436,232,395"/>
+<area shape="poly" title=" " alt="" coords="279,395,376,437,374,442,276,400"/>
+<area shape="poly" title=" " alt="" coords="301,386,1595,451,1595,456,301,391"/>
+<area shape="poly" title=" " alt="" coords="301,392,566,440,565,446,300,398"/>
+<area shape="poly" title=" " alt="" coords="301,388,955,447,954,453,301,393"/>
+<area shape="poly" title=" " alt="" coords="2720,230,1622,34,1623,29,2721,225"/>
+<area shape="poly" title=" " alt="" coords="1557,78,1559,44,1564,45,1562,79"/>
+<area shape="rect" href="../../d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="1494,152,1611,177"/>
+<area shape="poly" title=" " alt="" coords="1548,104,1547,139,1541,138,1543,104"/>
+<area shape="poly" title=" " alt="" coords="1494,169,1344,173,1133,183,890,200,642,228,565,235,495,237,430,238,372,243,318,254,269,277,246,294,224,315,182,373,178,390,186,407,200,422,219,436,216,440,197,426,181,410,173,391,177,371,219,312,242,290,266,272,316,249,371,237,430,233,495,232,565,230,642,223,889,195,1133,177,1344,168,1494,164"/>
+<area shape="poly" title=" " alt="" coords="1494,170,1228,175,861,186,516,204,390,215,317,228,274,246,233,270,194,297,159,328,100,388,59,436,55,432,96,384,155,324,191,293,230,265,272,241,316,223,390,210,515,198,861,181,1228,170,1494,164"/>
+<area shape="poly" title=" " alt="" coords="1612,165,1827,171,2114,182,2379,199,2475,210,2531,223,2586,249,2626,278,2656,316,2682,371,2686,386,2681,399,2666,406,2638,412,2546,423,2268,440,1955,452,1718,458,1718,453,1955,447,2267,435,2545,418,2637,407,2665,401,2677,396,2681,385,2677,373,2652,319,2622,281,2584,253,2529,228,2474,216,2378,205,2113,188,1827,176,1612,170"/>
+<area shape="poly" title=" " alt="" coords="1494,168,1294,169,1032,177,906,184,795,195,713,209,685,218,669,227,652,249,640,274,632,302,629,331,631,386,638,431,633,432,626,387,624,331,627,301,635,273,647,246,666,223,683,213,712,204,795,189,905,179,1032,171,1294,164,1494,163"/>
+<area shape="poly" title=" " alt="" coords="1494,172,1285,192,1178,208,1135,217,1103,228,1041,255,994,281,974,297,957,317,923,373,920,384,921,393,932,411,953,426,978,438,976,443,950,430,928,414,916,395,915,383,918,371,952,314,971,293,991,277,1039,250,1101,223,1134,212,1177,203,1284,187,1493,167"/>
+<area shape="poly" title=" " alt="" coords="1612,165,2153,188,2470,204,2702,223,2707,223,2707,229,2702,228,2470,210,2153,193,1612,171"/>
+<area shape="poly" title=" " alt="" coords="1557,152,1559,118,1564,118,1562,152"/>
+<area shape="rect" title=" " alt="" coords="933,372,1071,397"/>
+<area shape="poly" title=" " alt="" coords="1494,170,1425,174,1341,184,1251,201,1163,228,1129,242,1103,256,1081,274,1055,300,1032,331,1015,361,1010,358,1027,328,1051,297,1077,270,1101,252,1126,237,1161,223,1249,196,1340,178,1424,169,1494,164"/>
+<area shape="rect" title=" " alt="" coords="1743,372,1944,397"/>
+<area shape="poly" title=" " alt="" coords="1573,175,1645,223,1744,298,1821,361,1818,365,1740,303,1642,228,1570,180"/>
+<area shape="rect" href="../../d9/ded/Utils_8h.html" title=" " alt="" coords="1955,225,2019,251"/>
+<area shape="poly" title=" " alt="" coords="1612,173,1942,227,1941,232,1611,178"/>
+<area shape="rect" href="../../d3/ded/Window_8h.html" title="Définition et gestion de la fenêtre principale de l&#39;application." alt="" coords="2045,299,2130,324"/>
+<area shape="poly" title=" " alt="" coords="1612,165,1715,169,1838,179,1953,196,1999,208,2033,223,2049,236,2062,252,2080,284,2076,287,2058,255,2045,240,2030,228,1997,213,1952,201,1837,184,1715,174,1611,170"/>
+<area shape="rect" href="../../da/d1d/interDuel_8h.html" title="Définition et gestion des combats entre équipes." alt="" coords="2836,225,2931,251"/>
+<area shape="poly" title=" " alt="" coords="1612,163,1810,165,2107,173,2459,190,2642,205,2823,223,2822,228,2641,210,2458,196,2107,178,1810,170,1612,168"/>
+<area shape="rect" href="../../d6/d35/Text_8h.html" title="Définition et gestion des éléments de texte." alt="" coords="1502,299,1563,324"/>
+<area shape="poly" title=" " alt="" coords="1553,178,1543,226,1537,285,1532,285,1538,225,1547,177"/>
+<area shape="rect" href="../../df/d79/Map_8h.html" title=" " alt="" coords="2481,299,2544,324"/>
+<area shape="poly" title=" " alt="" coords="1611,166,2091,190,2333,206,2414,215,2454,223,2471,236,2485,251,2505,284,2500,287,2481,255,2467,240,2452,228,2414,220,2333,212,2091,195,1611,171"/>
+<area shape="rect" href="../../dd/de4/Camera_8h.html" title="Gestion de la caméra pour le défilement de la vue du jeu." alt="" coords="2582,372,2667,397"/>
+<area shape="poly" title=" " alt="" coords="1612,165,2089,185,2341,202,2432,212,2485,223,2519,236,2544,251,2566,270,2589,297,2608,328,2620,358,2615,360,2603,330,2585,300,2562,273,2541,255,2517,241,2484,228,2431,217,2340,208,2089,191,1611,171"/>
+<area shape="rect" href="../../da/dbf/Player_8h.html" title=" " alt="" coords="2366,225,2441,251"/>
+<area shape="poly" title=" " alt="" coords="1612,168,2352,230,2352,235,1611,174"/>
+<area shape="rect" href="../../d0/daa/ThreadManager_8h.html" title=" " alt="" coords="1343,299,1477,324"/>
+<area shape="poly" title=" " alt="" coords="1543,180,1433,291,1429,287,1539,176"/>
+<area shape="rect" href="../../d3/d5f/Game_8h.html" title=" " alt="" coords="1173,225,1247,251"/>
+<area shape="poly" title=" " alt="" coords="1494,179,1261,227,1260,222,1493,174"/>
+<area shape="rect" href="../../d0/dbb/Events_8h.html" title=" " alt="" coords="1552,225,1631,251"/>
+<area shape="poly" title=" " alt="" coords="1555,176,1573,213,1568,215,1550,179"/>
+<area shape="rect" href="../../d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="679,225,807,251"/>
+<area shape="poly" title=" " alt="" coords="1494,173,822,232,821,227,1493,168"/>
+<area shape="poly" title=" " alt="" coords="2020,239,2051,244,2085,254,2118,271,2144,297,2151,312,2151,328,2139,358,2118,383,2099,400,2069,414,2028,425,1926,442,1814,452,1719,458,1718,452,1814,447,1925,437,2027,420,2068,409,2097,395,2115,380,2134,355,2146,327,2145,313,2140,300,2115,276,2083,259,2050,249,2019,244"/>
+<area shape="poly" title=" " alt="" coords="1998,249,2054,289,2051,293,1995,253"/>
+<area shape="rect" href="../../d3/d70/Buttons_8h.html" title="Gestion des boutons et curseurs pour l&#39;application." alt="" coords="1936,299,2020,324"/>
+<area shape="poly" title=" " alt="" coords="1982,251,1975,286,1970,285,1976,251"/>
+<area shape="poly" title=" " alt="" coords="2092,324,2092,361,2086,382,2075,399,2049,416,2012,429,1916,447,1811,456,1719,459,1719,454,1811,451,1916,441,2010,424,2046,411,2071,395,2081,379,2086,360,2087,324"/>
+<area shape="poly" title=" " alt="" coords="2084,326,2062,364,2045,384,2023,400,1969,415,1874,427,1611,444,1323,454,1100,458,1100,453,1323,449,1611,439,1874,421,1967,409,2021,395,2041,380,2058,361,2080,323"/>
+<area shape="poly" title=" " alt="" coords="2049,327,1897,371,1895,366,2047,321"/>
+<area shape="poly" title=" " alt="" coords="2076,301,2020,260,2024,256,2079,296"/>
+<area shape="rect" href="../../d1/d45/Log_8h.html" title=" " alt="" coords="1661,372,1719,397"/>
+<area shape="poly" title=" " alt="" coords="2045,324,2033,327,1885,349,1818,359,1733,375,1732,370,1817,353,1884,344,2032,321,2044,319"/>
+<area shape="poly" title=" " alt="" coords="1687,399,1670,434,1665,432,1682,397"/>
+<area shape="poly" title=" " alt="" coords="2002,322,2026,337,2047,355,2060,376,2059,388,2053,399,2030,416,1996,430,1907,448,1807,456,1719,459,1718,454,1807,451,1906,442,1995,425,2028,412,2049,396,2054,387,2054,378,2043,359,2022,341,1999,326"/>
+<area shape="poly" title=" " alt="" coords="1982,324,1979,362,1972,382,1958,400,1801,411,1447,428,728,456,728,451,1447,422,1800,406,1955,395,1967,380,1974,361,1976,324"/>
+<area shape="poly" title=" " alt="" coords="1989,323,2008,359,2011,380,2003,399,1989,406,1963,412,1878,422,1622,439,1329,451,1100,458,1100,452,1329,446,1621,434,1878,417,1962,406,1987,401,1999,395,2006,379,2003,361,1985,325"/>
+<area shape="poly" title=" " alt="" coords="1936,318,1085,380,1085,375,1935,313"/>
+<area shape="poly" title=" " alt="" coords="1984,298,1990,264,1995,265,1989,299"/>
+<area shape="rect" title=" " alt="" coords="2273,372,2355,397"/>
+<area shape="poly" title=" " alt="" coords="2021,319,2260,369,2259,374,2020,324"/>
+<area shape="poly" title=" " alt="" coords="2835,230,2483,165,1986,81,1623,31,1624,26,1986,76,2483,160,2836,225"/>
+<area shape="poly" title=" " alt="" coords="1521,326,1469,364,1434,384,1396,400,1316,418,1216,429,1101,436,980,440,742,443,558,448,463,455,463,450,558,443,742,438,980,435,1101,431,1215,424,1315,412,1395,395,1431,380,1466,360,1518,322"/>
+<area shape="poly" title=" " alt="" coords="1544,322,1607,396,1639,433,1635,437,1603,399,1540,326"/>
+<area shape="poly" title=" " alt="" coords="1533,325,1520,362,1508,383,1492,399,1461,415,1420,427,1315,444,1200,454,1100,458,1099,453,1200,449,1314,439,1419,422,1459,410,1488,395,1504,379,1516,360,1528,323"/>
+<area shape="poly" title=" " alt="" coords="2520,324,2527,360,2525,381,2515,399,2498,410,2471,419,2393,434,2287,444,2166,452,1914,459,1719,460,1719,454,1914,454,2166,447,2287,439,2392,429,2470,414,2496,405,2511,396,2519,379,2521,360,2514,325"/>
+<area shape="poly" title=" " alt="" coords="2505,326,2468,364,2442,384,2412,400,2372,410,2312,418,2143,431,1927,439,1688,444,957,448,728,456,728,451,957,443,1688,438,1927,434,2143,426,2312,413,2371,405,2410,395,2439,380,2465,360,2502,322"/>
+<area shape="poly" title=" " alt="" coords="2532,322,2596,362,2593,367,2529,326"/>
+<area shape="poly" title=" " alt="" coords="2582,397,2564,400,2319,425,2078,442,1719,458,1718,452,2077,437,2318,420,2563,395,2581,392"/>
+<area shape="poly" title=" " alt="" coords="2411,250,2422,279,2432,319,2431,361,2425,382,2413,399,2399,409,2376,417,2308,430,2217,441,2112,448,1893,457,1719,459,1719,454,1893,451,2112,443,2217,435,2307,425,2375,412,2397,404,2409,395,2420,379,2426,361,2426,320,2417,281,2406,252"/>
+<area shape="poly" title=" " alt="" coords="2408,251,2409,281,2407,322,2395,364,2384,383,2369,400,2343,409,2293,416,2133,428,1915,436,1669,442,957,448,728,456,728,451,957,443,1669,436,1915,431,2132,423,2292,411,2342,403,2366,395,2380,380,2390,362,2401,321,2404,281,2402,251"/>
+<area shape="poly" title=" " alt="" coords="2398,253,2330,362,2326,359,2394,250"/>
+<area shape="poly" title=" " alt="" coords="2422,248,2485,289,2482,293,2419,253"/>
+<area shape="poly" title=" " alt="" coords="2442,245,2499,264,2530,279,2558,297,2590,327,2613,359,2609,362,2586,330,2555,301,2527,283,2497,269,2440,250"/>
+<area shape="poly" title=" " alt="" coords="1431,322,1626,436,1624,441,1428,327"/>
+<area shape="rect" title=" " alt="" coords="1299,372,1383,397"/>
+<area shape="poly" title=" " alt="" coords="1400,326,1363,364,1359,360,1397,322"/>
+<area shape="poly" title=" " alt="" coords="1205,252,1149,332,1115,374,1085,400,1055,412,1019,423,934,437,837,444,732,447,526,445,367,448,299,454,298,449,367,443,526,440,732,441,836,439,934,431,1018,417,1053,407,1082,395,1111,370,1145,328,1200,249"/>
+<area shape="poly" title=" " alt="" coords="1213,251,1216,281,1225,321,1243,362,1256,380,1272,395,1295,408,1329,419,1416,435,1511,446,1595,452,1595,457,1511,451,1415,441,1328,424,1293,413,1268,399,1252,384,1238,365,1220,322,1211,282,1208,251"/>
+<area shape="poly" title=" " alt="" coords="1180,253,1054,301,685,443,683,438,1052,296,1178,248"/>
+<area shape="poly" title=" " alt="" coords="1209,252,1182,319,1159,361,1129,399,1100,423,1069,442,1066,437,1097,419,1125,395,1154,358,1177,316,1204,250"/>
+<area shape="poly" title=" " alt="" coords="1246,228,1491,178,1492,183,1247,233"/>
+<area shape="poly" title=" " alt="" coords="1182,253,1138,273,1092,301,1054,332,1023,363,1019,360,1050,328,1088,296,1136,269,1180,248"/>
+<area shape="poly" title=" " alt="" coords="1243,248,1365,291,1363,296,1241,253"/>
+<area shape="rect" href="../../d8/daa/Audio_8h.html" title="Gestion de l&#39;audio pour l&#39;application." alt="" coords="1248,299,1319,324"/>
+<area shape="poly" title=" " alt="" coords="1224,249,1263,287,1260,291,1220,253"/>
+<area shape="poly" title=" " alt="" coords="1282,325,1278,360,1280,379,1289,396,1309,410,1340,422,1421,440,1513,449,1595,453,1594,458,1512,454,1420,445,1338,427,1307,415,1285,399,1275,381,1272,360,1277,324"/>
+<area shape="poly" title=" " alt="" coords="1248,324,1061,371,1060,366,1247,319"/>
+<area shape="poly" title=" " alt="" coords="1319,319,1332,321,1507,353,1648,375,1647,380,1507,358,1331,327,1318,324"/>
+<area shape="poly" title=" " alt="" coords="1552,244,435,309,435,304,1552,239"/>
+<area shape="poly" title=" " alt="" coords="1597,250,1652,431,1647,432,1592,252"/>
+<area shape="poly" title=" " alt="" coords="1590,226,1571,190,1576,188,1594,224"/>
+<area shape="poly" title=" " alt="" coords="1613,249,1813,363,1810,368,1610,253"/>
+<area shape="poly" title=" " alt="" coords="1584,253,1553,290,1549,287,1580,249"/>
+<area shape="poly" title=" " alt="" coords="684,253,435,300,434,295,683,248"/>
+<area shape="poly" title=" " alt="" coords="719,253,291,442,289,437,716,248"/>
+<area shape="poly" title=" " alt="" coords="680,246,510,264,409,280,308,301,203,326,160,343,110,374,79,404,56,435,52,432,75,400,107,370,158,338,202,321,307,296,408,275,510,259,679,241"/>
+<area shape="poly" title=" " alt="" coords="728,253,444,440,441,435,725,248"/>
+<area shape="poly" title=" " alt="" coords="754,249,779,280,817,321,866,362,922,395,979,412,1056,426,1245,443,1441,452,1595,454,1595,459,1441,457,1245,449,1055,431,977,417,920,400,863,367,814,325,775,284,750,252"/>
+<area shape="poly" title=" " alt="" coords="739,252,711,304,676,373,653,433,648,431,672,371,706,301,734,250"/>
+<area shape="poly" title=" " alt="" coords="748,250,756,280,771,320,795,361,810,380,828,395,858,413,890,427,956,445,954,450,888,432,855,418,824,399,806,383,790,364,767,322,751,282,743,251"/>
+<area shape="poly" title=" " alt="" coords="807,229,1480,170,1480,175,808,234"/>
+<area shape="poly" title=" " alt="" coords="765,249,971,363,968,368,763,253"/>
+<area shape="poly" title=" " alt="" coords="808,238,932,242,1099,252,1291,269,1489,296,1488,301,1290,275,1099,257,931,248,808,243"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -234,54 +247,61 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <div class="dyncontent">
 <div class="center"><img src="../../d5/db1/duel_8h__dep__incl.png" border="0" usemap="#ainclude_2duel_8hdep" alt=""/></div>
 <map name="ainclude_2duel_8hdep" id="ainclude_2duel_8hdep">
-<area shape="rect" title="Gestion des duels dans le style de &quot;Pokémon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="273,5,386,31"/>
-<area shape="rect" href="../../da/d1d/interDuel_8h.html" title="Définition et gestion des combats entre équipes." alt="" coords="74,79,219,104"/>
-<area shape="poly" title=" " alt="" coords="288,38,177,81,175,76,286,33"/>
-<area shape="rect" href="../../d5/d5e/save_8h.html" title="Save the player&#39;s data in a file." alt="" coords="265,225,381,251"/>
-<area shape="poly" title=" " alt="" coords="310,43,297,79,294,121,298,162,306,198,315,224,310,226,301,200,292,163,289,121,292,78,305,41"/>
-<area shape="rect" href="../../db/df7/mainDuel_8c.html" title=" " alt="" coords="127,299,246,324"/>
-<area shape="poly" title=" " alt="" coords="259,24,213,29,161,39,110,56,63,81,43,96,30,111,12,153,9,179,16,202,31,224,52,243,103,275,153,296,151,301,101,280,48,247,27,227,11,204,3,179,7,151,25,108,39,92,60,76,108,51,160,34,212,24,259,19"/>
-<area shape="rect" href="../../df/d27/trainerAI_8h.html" title=" " alt="" coords="319,79,460,104"/>
-<area shape="poly" title=" " alt="" coords="342,40,375,77,371,80,338,44"/>
-<area shape="rect" href="../../d1/d18/duel_8c.html" title=" " alt="" coords="485,79,569,104"/>
-<area shape="poly" title=" " alt="" coords="375,33,495,76,493,81,373,38"/>
-<area shape="rect" href="../../d3/dfe/structPoke_8c.html" title=" " alt="" coords="593,79,717,104"/>
-<area shape="poly" title=" " alt="" coords="395,31,602,76,601,81,394,36"/>
-<area shape="rect" href="../../d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="592,152,760,177"/>
-<area shape="poly" title=" " alt="" coords="233,102,592,149,591,155,233,107"/>
-<area shape="poly" title=" " alt="" coords="154,117,187,298,182,299,148,118"/>
-<area shape="rect" href="../../d6/da6/interDuel_8c.html" title=" " alt="" coords="22,152,138,177"/>
-<area shape="poly" title=" " alt="" coords="128,116,93,154,89,150,124,113"/>
-<area shape="rect" href="../../d0/dbb/Events_8h.html" title=" " alt="" coords="953,225,1082,251"/>
-<area shape="poly" title=" " alt="" coords="738,178,956,223,955,228,737,183"/>
-<area shape="rect" href="../../d3/d5f/Game_8h.html" title=" " alt="" coords="1106,225,1230,251"/>
-<area shape="poly" title=" " alt="" coords="763,177,1083,223,1106,226,1105,231,1082,228,762,182"/>
-<area shape="rect" href="../../d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="587,225,765,251"/>
-<area shape="poly" title=" " alt="" coords="670,191,672,225,666,225,665,191"/>
-<area shape="poly" title=" " alt="" coords="599,183,373,228,372,223,598,177"/>
-<area shape="rect" href="../../d5/d81/GameEngine_8c.html" title="Moteur principal du jeu : gestion de la boucle de jeu, des ressources et des interactions." alt="" coords="789,225,928,251"/>
-<area shape="poly" title=" " alt="" coords="719,180,830,223,828,228,717,185"/>
-<area shape="rect" href="../../d1/dd5/ThreadManager_8c.html" title=" " alt="" coords="405,225,563,251"/>
-<area shape="poly" title=" " alt="" coords="633,185,516,228,514,223,631,180"/>
-<area shape="poly" title=" " alt="" coords="955,225,737,180,738,175,956,220"/>
-<area shape="rect" href="../../d7/d9f/Events_8c.html" title="Gestion des événements et interactions utilisateur pour l&#39;application." alt="" coords="967,299,1067,324"/>
-<area shape="poly" title=" " alt="" coords="1020,264,1020,299,1015,299,1015,264"/>
-<area shape="poly" title=" " alt="" coords="1092,226,760,179,760,174,1093,221"/>
-<area shape="rect" href="../../dc/d22/Game_8c.html" title="Initialisation du jeu, de ses interfaces et ressources." alt="" coords="1121,299,1215,324"/>
-<area shape="poly" title=" " alt="" coords="1171,264,1171,299,1165,299,1165,264"/>
-<area shape="poly" title=" " alt="" coords="682,212,680,178,685,178,687,212"/>
-<area shape="rect" href="../../d9/d0c/RenderICMons_8c.html" title="Fonctions de gestion des sprites ICMon." alt="" coords="601,299,751,324"/>
-<area shape="poly" title=" " alt="" coords="679,264,679,299,673,299,673,264"/>
-<area shape="poly" title=" " alt="" coords="321,212,314,151,313,115,316,78,330,30,335,32,321,79,318,115,319,151,327,211"/>
-<area shape="poly" title=" " alt="" coords="393,221,625,175,626,180,394,226"/>
-<area shape="poly" title=" " alt="" coords="290,259,210,301,208,296,288,254"/>
-<area shape="rect" href="../../df/dcf/save_8c.html" title=" " alt="" coords="279,299,366,324"/>
-<area shape="poly" title=" " alt="" coords="325,264,325,299,320,299,320,264"/>
-<area shape="poly" title=" " alt="" coords="376,69,344,32,348,29,380,65"/>
-<area shape="poly" title=" " alt="" coords="449,105,630,149,629,154,448,110"/>
-<area shape="poly" title=" " alt="" coords="368,115,315,165,255,227,197,300,193,297,251,224,312,161,365,111"/>
-<area shape="rect" href="../../de/d53/trainerAI_8c.html" title=" " alt="" coords="784,152,896,177"/>
-<area shape="poly" title=" " alt="" coords="474,103,772,149,784,151,783,157,771,155,473,108"/>
+<area shape="rect" title="Gestion des duels dans le style de &quot;Pokémon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="526,5,639,31"/>
+<area shape="rect" href="../../da/d1d/interDuel_8h.html" title="Définition et gestion des combats entre équipes." alt="" coords="78,79,223,104"/>
+<area shape="poly" title=" " alt="" coords="513,33,221,81,220,76,512,28"/>
+<area shape="rect" href="../../d5/d5e/save_8h.html" title="Save the player&#39;s data in a file." alt="" coords="1123,225,1239,251"/>
+<area shape="poly" title=" " alt="" coords="623,33,1147,223,1145,228,622,38"/>
+<area shape="rect" href="../../db/df7/mainDuel_8c.html" title=" " alt="" coords="126,299,245,324"/>
+<area shape="poly" title=" " alt="" coords="512,23,401,28,271,37,150,55,102,67,67,81,45,95,32,110,13,153,8,182,14,205,29,226,51,249,72,265,95,278,141,296,139,301,92,283,69,269,48,253,25,230,9,207,3,182,8,151,27,107,42,91,64,76,100,61,149,49,270,32,400,22,512,18"/>
+<area shape="rect" href="../../da/d71/structPoke_8h.html" title=" " alt="" coords="309,79,462,104"/>
+<area shape="poly" title=" " alt="" coords="532,38,412,81,410,76,530,33"/>
+<area shape="rect" href="../../df/d27/trainerAI_8h.html" title=" " alt="" coords="512,79,653,104"/>
+<area shape="poly" title=" " alt="" coords="577,44,578,78,573,79,571,45"/>
+<area shape="rect" href="../../d1/d18/duel_8c.html" title=" " alt="" coords="927,79,1011,104"/>
+<area shape="poly" title=" " alt="" coords="654,30,908,76,928,80,927,85,907,81,653,35"/>
+<area shape="rect" href="../../d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="524,152,692,177"/>
+<area shape="poly" title=" " alt="" coords="237,103,535,149,534,155,237,109"/>
+<area shape="poly" title=" " alt="" coords="85,110,55,122,32,137,19,155,18,165,21,176,50,218,87,252,127,278,161,296,158,301,124,283,84,256,46,221,16,178,12,165,14,153,28,133,53,117,83,105"/>
+<area shape="rect" href="../../d6/da6/interDuel_8c.html" title=" " alt="" coords="31,152,147,177"/>
+<area shape="poly" title=" " alt="" coords="134,116,101,154,97,150,129,113"/>
+<area shape="rect" href="../../d0/dbb/Events_8h.html" title=" " alt="" coords="274,225,403,251"/>
+<area shape="poly" title=" " alt="" coords="545,183,376,228,375,223,544,178"/>
+<area shape="rect" href="../../d3/d5f/Game_8h.html" title=" " alt="" coords="975,225,1099,251"/>
+<area shape="poly" title=" " alt="" coords="684,177,976,225,975,230,683,182"/>
+<area shape="rect" href="../../d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="428,225,607,251"/>
+<area shape="poly" title=" " alt="" coords="577,187,527,227,524,223,574,183"/>
+<area shape="poly" title=" " alt="" coords="706,176,900,198,1099,223,1124,226,1123,232,1098,228,900,203,706,182"/>
+<area shape="rect" href="../../d5/d81/GameEngine_8c.html" title="Moteur principal du jeu : gestion de la boucle de jeu, des ressources et des interactions." alt="" coords="812,225,951,251"/>
+<area shape="poly" title=" " alt="" coords="666,178,838,223,836,228,664,183"/>
+<area shape="rect" href="../../d1/dd5/ThreadManager_8c.html" title=" " alt="" coords="631,225,788,251"/>
+<area shape="poly" title=" " alt="" coords="637,183,694,223,691,227,634,187"/>
+<area shape="poly" title=" " alt="" coords="401,219,571,175,572,180,403,225"/>
+<area shape="rect" href="../../d7/d9f/Events_8c.html" title="Gestion des événements et interactions utilisateur pour l&#39;application." alt="" coords="289,299,389,324"/>
+<area shape="poly" title=" " alt="" coords="341,264,341,299,336,299,336,264"/>
+<area shape="poly" title=" " alt="" coords="961,226,683,180,684,175,962,220"/>
+<area shape="rect" href="../../dc/d22/Game_8c.html" title="Initialisation du jeu, de ses interfaces et ressources." alt="" coords="990,299,1085,324"/>
+<area shape="poly" title=" " alt="" coords="1040,264,1040,299,1035,299,1035,264"/>
+<area shape="poly" title=" " alt="" coords="549,215,599,175,602,179,552,219"/>
+<area shape="rect" href="../../d9/d0c/RenderICMons_8c.html" title="Fonctions de gestion des sprites ICMon." alt="" coords="442,299,593,324"/>
+<area shape="poly" title=" " alt="" coords="520,264,520,299,515,299,515,264"/>
+<area shape="poly" title=" " alt="" coords="1141,223,617,33,619,28,1142,218"/>
+<area shape="poly" title=" " alt="" coords="1109,226,915,202,716,180,692,177,693,172,716,175,916,197,1110,221"/>
+<area shape="poly" title=" " alt="" coords="1110,253,875,273,691,280,509,285,276,301,245,305,244,299,276,296,508,280,691,274,874,267,1110,248"/>
+<area shape="rect" href="../../df/dcf/save_8c.html" title=" " alt="" coords="1138,299,1225,324"/>
+<area shape="poly" title=" " alt="" coords="1184,264,1184,299,1179,299,1179,264"/>
+<area shape="poly" title=" " alt="" coords="436,72,557,28,559,33,438,77"/>
+<area shape="poly" title=" " alt="" coords="380,118,361,178,345,226,340,224,356,177,375,116"/>
+<area shape="poly" title=" " alt="" coords="407,113,509,223,505,227,404,116"/>
+<area shape="poly" title=" " alt="" coords="296,106,250,124,230,137,213,154,201,171,193,190,185,231,184,270,186,298,181,299,178,270,179,230,188,188,196,168,209,150,227,133,248,119,294,101"/>
+<area shape="poly" title=" " alt="" coords="325,110,138,154,137,149,324,105"/>
+<area shape="rect" href="../../d3/dfe/structPoke_8c.html" title=" " alt="" coords="223,152,347,177"/>
+<area shape="poly" title=" " alt="" coords="360,114,303,154,300,150,357,110"/>
+<area shape="poly" title=" " alt="" coords="589,65,587,31,592,31,594,65"/>
+<area shape="poly" title=" " alt="" coords="594,116,606,151,601,153,589,118"/>
+<area shape="poly" title=" " alt="" coords="541,111,380,175,305,207,263,228,223,265,195,300,191,297,219,261,260,223,302,202,378,170,539,106"/>
+<area shape="rect" href="../../de/d53/trainerAI_8c.html" title=" " alt="" coords="716,152,828,177"/>
+<area shape="poly" title=" " alt="" coords="627,106,742,149,740,154,625,111"/>
 </map>
 </div>
 </div>
@@ -289,119 +309,118 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">La structure <a class="el" href="../../da/d63/structt__Team.html" title="La structure t_Team contient tout les attributs nécessaire à la génération et à l&#39;utilisation d&#39;une é...">t_Team</a> contient tout les attributs nécessaire à la génération et à l'utilisation d'une équipe lors d'un combat.  <a href="../../da/d63/structt__Team.html#details">Plus de détails...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dac/structLvl__Up__Buffer.html">Lvl_Up_Buffer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a73481505b6cdf382ecfc1e3c0faaa593"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a73481505b6cdf382ecfc1e3c0faaa593">NEUTRAL_STAT_CHANGE</a>&#160;&#160;&#160;6</td></tr>
+<tr class="memitem:a73481505b6cdf382ecfc1e3c0faaa593" id="r_a73481505b6cdf382ecfc1e3c0faaa593"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a73481505b6cdf382ecfc1e3c0faaa593">NEUTRAL_STAT_CHANGE</a>&#160;&#160;&#160;6</td></tr>
 <tr class="separator:a73481505b6cdf382ecfc1e3c0faaa593"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a925c3d26c7e99b966e2656f91943f27c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a925c3d26c7e99b966e2656f91943f27c">POKE_IS_ABSCENT</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memitem:a925c3d26c7e99b966e2656f91943f27c" id="r_a925c3d26c7e99b966e2656f91943f27c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a925c3d26c7e99b966e2656f91943f27c">POKE_IS_ABSCENT</a>&#160;&#160;&#160;-1</td></tr>
 <tr class="separator:a925c3d26c7e99b966e2656f91943f27c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad17fa6eb61b38334f7b136e02a78ff37"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#ad17fa6eb61b38334f7b136e02a78ff37">STRUGGLE</a>&#160;&#160;&#160;-10</td></tr>
+<tr class="memitem:ad17fa6eb61b38334f7b136e02a78ff37" id="r_ad17fa6eb61b38334f7b136e02a78ff37"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#ad17fa6eb61b38334f7b136e02a78ff37">STRUGGLE</a>&#160;&#160;&#160;-10</td></tr>
 <tr class="separator:ad17fa6eb61b38334f7b136e02a78ff37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80705627450b48083f1a1a04e38cd488"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a80705627450b48083f1a1a04e38cd488">CONFUSED_MOVE</a>&#160;&#160;&#160;-20</td></tr>
+<tr class="memitem:a80705627450b48083f1a1a04e38cd488" id="r_a80705627450b48083f1a1a04e38cd488"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a80705627450b48083f1a1a04e38cd488">CONFUSED_MOVE</a>&#160;&#160;&#160;-20</td></tr>
 <tr class="separator:a80705627450b48083f1a1a04e38cd488"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b5a19d44831a7f2be0d9be0276d478c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a6b5a19d44831a7f2be0d9be0276d478c">ATTAQUE_1</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a6b5a19d44831a7f2be0d9be0276d478c" id="r_a6b5a19d44831a7f2be0d9be0276d478c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a6b5a19d44831a7f2be0d9be0276d478c">ATTAQUE_1</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:a6b5a19d44831a7f2be0d9be0276d478c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a381e7575fc4042d463c7b326d72249"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a4a381e7575fc4042d463c7b326d72249">ATTAQUE_2</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:a4a381e7575fc4042d463c7b326d72249" id="r_a4a381e7575fc4042d463c7b326d72249"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a4a381e7575fc4042d463c7b326d72249">ATTAQUE_2</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:a4a381e7575fc4042d463c7b326d72249"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac419152371c156bf45d75a3cd6657661"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#ac419152371c156bf45d75a3cd6657661">ATTAQUE_3</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memitem:ac419152371c156bf45d75a3cd6657661" id="r_ac419152371c156bf45d75a3cd6657661"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#ac419152371c156bf45d75a3cd6657661">ATTAQUE_3</a>&#160;&#160;&#160;2</td></tr>
 <tr class="separator:ac419152371c156bf45d75a3cd6657661"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4387846cbc27ec370d916ce7222c5d12"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a4387846cbc27ec370d916ce7222c5d12">ATTAQUE_4</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memitem:a4387846cbc27ec370d916ce7222c5d12" id="r_a4387846cbc27ec370d916ce7222c5d12"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a4387846cbc27ec370d916ce7222c5d12">ATTAQUE_4</a>&#160;&#160;&#160;3</td></tr>
 <tr class="separator:a4387846cbc27ec370d916ce7222c5d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:af43f8a6685d1709bbcd8603ab0dbdc63"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#af43f8a6685d1709bbcd8603ab0dbdc63">isAttacking</a> (int)</td></tr>
+<tr class="memitem:af43f8a6685d1709bbcd8603ab0dbdc63" id="r_af43f8a6685d1709bbcd8603ab0dbdc63"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#af43f8a6685d1709bbcd8603ab0dbdc63">isAttacking</a> (int)</td></tr>
 <tr class="separator:af43f8a6685d1709bbcd8603ab0dbdc63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35136d8ab44fb65a4df9ab46633e533c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a35136d8ab44fb65a4df9ab46633e533c">isSwitching</a> (int)</td></tr>
+<tr class="memitem:a35136d8ab44fb65a4df9ab46633e533c" id="r_a35136d8ab44fb65a4df9ab46633e533c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a35136d8ab44fb65a4df9ab46633e533c">isSwitching</a> (int)</td></tr>
 <tr class="separator:a35136d8ab44fb65a4df9ab46633e533c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa112c976011418f424765e88722d77d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#aa112c976011418f424765e88722d77d4">ppCheck</a> (<a class="el" href="../../d1/d68/structt__Move.html">t_Move</a> *)</td></tr>
+<tr class="memitem:aa112c976011418f424765e88722d77d4" id="r_aa112c976011418f424765e88722d77d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#aa112c976011418f424765e88722d77d4">ppCheck</a> (<a class="el" href="../../d1/d68/structt__Move.html">t_Move</a> *)</td></tr>
 <tr class="separator:aa112c976011418f424765e88722d77d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ce143cdd82c5149e2b103f7e64b0d41"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a6ce143cdd82c5149e2b103f7e64b0d41">isExisting</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *)</td></tr>
+<tr class="memitem:a6ce143cdd82c5149e2b103f7e64b0d41" id="r_a6ce143cdd82c5149e2b103f7e64b0d41"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a6ce143cdd82c5149e2b103f7e64b0d41">isExisting</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *)</td></tr>
 <tr class="separator:a6ce143cdd82c5149e2b103f7e64b0d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58123fcf9acb6bb6b68e7b1213f374ff"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a58123fcf9acb6bb6b68e7b1213f374ff">isAlive</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *p)</td></tr>
+<tr class="memitem:a58123fcf9acb6bb6b68e7b1213f374ff" id="r_a58123fcf9acb6bb6b68e7b1213f374ff"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a58123fcf9acb6bb6b68e7b1213f374ff">isAlive</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *p)</td></tr>
 <tr class="separator:a58123fcf9acb6bb6b68e7b1213f374ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99cbc73f28e07ad276d0979276e5ba80"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a99cbc73f28e07ad276d0979276e5ba80">isTeamAlive</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *)</td></tr>
+<tr class="memitem:a99cbc73f28e07ad276d0979276e5ba80" id="r_a99cbc73f28e07ad276d0979276e5ba80"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a99cbc73f28e07ad276d0979276e5ba80">isTeamAlive</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *)</td></tr>
 <tr class="separator:a99cbc73f28e07ad276d0979276e5ba80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a856d1b8c22a68e78412f1d4a4ca3c0b0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a856d1b8c22a68e78412f1d4a4ca3c0b0">testActionValidity</a> (int action, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t)</td></tr>
+<tr class="memitem:a856d1b8c22a68e78412f1d4a4ca3c0b0" id="r_a856d1b8c22a68e78412f1d4a4ca3c0b0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a856d1b8c22a68e78412f1d4a4ca3c0b0">testActionValidity</a> (int action, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t)</td></tr>
 <tr class="separator:a856d1b8c22a68e78412f1d4a4ca3c0b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82732f92530a8627b7d1c8a55e55444c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a82732f92530a8627b7d1c8a55e55444c">accuracyCheck</a> (int accuracy)</td></tr>
+<tr class="memitem:a82732f92530a8627b7d1c8a55e55444c" id="r_a82732f92530a8627b7d1c8a55e55444c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a82732f92530a8627b7d1c8a55e55444c">accuracyCheck</a> (int accuracy)</td></tr>
 <tr class="separator:a82732f92530a8627b7d1c8a55e55444c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b5d03e9edfe6df9d2a3df248fc25944"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a1b5d03e9edfe6df9d2a3df248fc25944">hasMoveLeft</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *)</td></tr>
+<tr class="memitem:a1b5d03e9edfe6df9d2a3df248fc25944" id="r_a1b5d03e9edfe6df9d2a3df248fc25944"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a1b5d03e9edfe6df9d2a3df248fc25944">hasMoveLeft</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *)</td></tr>
 <tr class="separator:a1b5d03e9edfe6df9d2a3df248fc25944"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a93d0239783d82c323ee9581d82a3b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a9a93d0239783d82c323ee9581d82a3b7">isStruggling</a> (int)</td></tr>
+<tr class="memitem:a9a93d0239783d82c323ee9581d82a3b7" id="r_a9a93d0239783d82c323ee9581d82a3b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a9a93d0239783d82c323ee9581d82a3b7">isStruggling</a> (int)</td></tr>
 <tr class="separator:a9a93d0239783d82c323ee9581d82a3b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a135734ce30fed1100fd7e060f672f018"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a135734ce30fed1100fd7e060f672f018">statVarChange</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *target, int probability, int modifier, int targetedStat)</td></tr>
+<tr class="memitem:a135734ce30fed1100fd7e060f672f018" id="r_a135734ce30fed1100fd7e060f672f018"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a135734ce30fed1100fd7e060f672f018">statVarChange</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *target, int probability, int modifier, int targetedStat)</td></tr>
 <tr class="separator:a135734ce30fed1100fd7e060f672f018"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6f1d50587260f5a4957edc4dae26e35"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#aa6f1d50587260f5a4957edc4dae26e35">applyEffect</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *target, int probability, int effect, int bool_main_effect)</td></tr>
+<tr class="memitem:aa6f1d50587260f5a4957edc4dae26e35" id="r_aa6f1d50587260f5a4957edc4dae26e35"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#aa6f1d50587260f5a4957edc4dae26e35">applyEffect</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *target, int probability, int effect, int bool_main_effect)</td></tr>
 <tr class="separator:aa6f1d50587260f5a4957edc4dae26e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a4770999605ebb93a222787153477c8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a8a4770999605ebb93a222787153477c8">recoilDamage</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *target, int probability, int percentage_of_val, int indexPoke)</td></tr>
+<tr class="memitem:a8a4770999605ebb93a222787153477c8" id="r_a8a4770999605ebb93a222787153477c8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a8a4770999605ebb93a222787153477c8">recoilDamage</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *target, int probability, int percentage_of_val, int indexPoke)</td></tr>
 <tr class="separator:a8a4770999605ebb93a222787153477c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb8420f65f7cdf37b44746b5ba2f27e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#afb8420f65f7cdf37b44746b5ba2f27e0">launchSecEffect</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *offender, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *defender, <a class="el" href="../../d1/d68/structt__Move.html">t_Move</a> *action)</td></tr>
+<tr class="memitem:afb8420f65f7cdf37b44746b5ba2f27e0" id="r_afb8420f65f7cdf37b44746b5ba2f27e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#afb8420f65f7cdf37b44746b5ba2f27e0">launchSecEffect</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *offender, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *defender, <a class="el" href="../../d1/d68/structt__Move.html">t_Move</a> *action)</td></tr>
 <tr class="separator:afb8420f65f7cdf37b44746b5ba2f27e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1589871f2fb9f4bf5da22519ef13c6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#ae1589871f2fb9f4bf5da22519ef13c6a">printTeam</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t)</td></tr>
+<tr class="memitem:ae1589871f2fb9f4bf5da22519ef13c6a" id="r_ae1589871f2fb9f4bf5da22519ef13c6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#ae1589871f2fb9f4bf5da22519ef13c6a">printTeam</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t)</td></tr>
 <tr class="separator:ae1589871f2fb9f4bf5da22519ef13c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e27a0c4136f1f57a6f4f3e052ab2e54"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a0e27a0c4136f1f57a6f4f3e052ab2e54">calcStatFrom</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *p, int stat)</td></tr>
+<tr class="memitem:a0e27a0c4136f1f57a6f4f3e052ab2e54" id="r_a0e27a0c4136f1f57a6f4f3e052ab2e54"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a0e27a0c4136f1f57a6f4f3e052ab2e54">calcStatFrom</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *p, int stat)</td></tr>
 <tr class="separator:a0e27a0c4136f1f57a6f4f3e052ab2e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b3832f2db59021e5a2a8f4438ddadc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a4b3832f2db59021e5a2a8f4438ddadc1">initTeam</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t, int)</td></tr>
+<tr class="memitem:a4b3832f2db59021e5a2a8f4438ddadc1" id="r_a4b3832f2db59021e5a2a8f4438ddadc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a4b3832f2db59021e5a2a8f4438ddadc1">initTeam</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t, int)</td></tr>
 <tr class="separator:a4b3832f2db59021e5a2a8f4438ddadc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74d793946dc5e0e5f1dc6ed14d3d96dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a74d793946dc5e0e5f1dc6ed14d3d96dc">calcDamage</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *offender, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *defender, <a class="el" href="../../d1/d68/structt__Move.html">t_Move</a> *)</td></tr>
+<tr class="memitem:a5c425221de6c8fc3581cb8ad38a77579" id="r_a5c425221de6c8fc3581cb8ad38a77579"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a5c425221de6c8fc3581cb8ad38a77579">initBlueTeam</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *joueur)</td></tr>
+<tr class="separator:a5c425221de6c8fc3581cb8ad38a77579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74d793946dc5e0e5f1dc6ed14d3d96dc" id="r_a74d793946dc5e0e5f1dc6ed14d3d96dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a74d793946dc5e0e5f1dc6ed14d3d96dc">calcDamage</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *offender, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *defender, <a class="el" href="../../d1/d68/structt__Move.html">t_Move</a> *)</td></tr>
 <tr class="separator:a74d793946dc5e0e5f1dc6ed14d3d96dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fc0892b3753845a32113b61ce8b1b6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a8fc0892b3753845a32113b61ce8b1b6c">setDefaultStatChanges</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *p)</td></tr>
+<tr class="memitem:a8fc0892b3753845a32113b61ce8b1b6c" id="r_a8fc0892b3753845a32113b61ce8b1b6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a8fc0892b3753845a32113b61ce8b1b6c">setDefaultStatChanges</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *p)</td></tr>
 <tr class="separator:a8fc0892b3753845a32113b61ce8b1b6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3283b0d510afb01446c27bf1600ba88"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#af3283b0d510afb01446c27bf1600ba88">resolveSpeedDuel</a> (int speed1, int speed2)</td></tr>
+<tr class="memitem:af3283b0d510afb01446c27bf1600ba88" id="r_af3283b0d510afb01446c27bf1600ba88"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#af3283b0d510afb01446c27bf1600ba88">resolveSpeedDuel</a> (int speed1, int speed2)</td></tr>
 <tr class="separator:af3283b0d510afb01446c27bf1600ba88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a692a701927e61a06fd8dce887742c7d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a692a701927e61a06fd8dce887742c7d9">PriorityForFirstPoke</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *p1, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *p2, <a class="el" href="../../d1/d68/structt__Move.html">t_Move</a> *move1, <a class="el" href="../../d1/d68/structt__Move.html">t_Move</a> *move2, int index1, int index2)</td></tr>
+<tr class="memitem:a692a701927e61a06fd8dce887742c7d9" id="r_a692a701927e61a06fd8dce887742c7d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a692a701927e61a06fd8dce887742c7d9">PriorityForFirstPoke</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *p1, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *p2, <a class="el" href="../../d1/d68/structt__Move.html">t_Move</a> *move1, <a class="el" href="../../d1/d68/structt__Move.html">t_Move</a> *move2, int index1, int index2)</td></tr>
 <tr class="separator:a692a701927e61a06fd8dce887742c7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cdb2c620c0e4c3077d6ae74c45ceb36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a2cdb2c620c0e4c3077d6ae74c45ceb36">affectDamage</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *offender, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *defender, int indexMove)</td></tr>
-<tr class="separator:a2cdb2c620c0e4c3077d6ae74c45ceb36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad567a4aec068790f989fb9ef909fcebb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#ad567a4aec068790f989fb9ef909fcebb">swapActualAttacker</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *target, int swapIndex)</td></tr>
+<tr class="memitem:af83a9c8d2c8428b1c682e5fd3348ad07" id="r_af83a9c8d2c8428b1c682e5fd3348ad07"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#af83a9c8d2c8428b1c682e5fd3348ad07">affectDamage</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *offender, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *defender, int indexMove)</td></tr>
+<tr class="separator:af83a9c8d2c8428b1c682e5fd3348ad07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad567a4aec068790f989fb9ef909fcebb" id="r_ad567a4aec068790f989fb9ef909fcebb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#ad567a4aec068790f989fb9ef909fcebb">swapActualAttacker</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *target, int swapIndex)</td></tr>
 <tr class="memdesc:ad567a4aec068790f989fb9ef909fcebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">La fonction swapActualAttacker échange le pokémon présent à l'indice 0 avec celui présent à l'indice swapIndex donné en paramètre. La fonction est sans effet si l'indice spécifié est invalide (hors liste, pokémon ko).  <br /></td></tr>
 <tr class="separator:ad567a4aec068790f989fb9ef909fcebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37d0046e530324685213ff50a4c36cdb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a37d0046e530324685213ff50a4c36cdb">playATurn</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t1, int move1, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t2, int move2)</td></tr>
+<tr class="memitem:a37d0046e530324685213ff50a4c36cdb" id="r_a37d0046e530324685213ff50a4c36cdb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a37d0046e530324685213ff50a4c36cdb">playATurn</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t1, int move1, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t2, int move2)</td></tr>
 <tr class="memdesc:a37d0046e530324685213ff50a4c36cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">La fonction playATurn permet de jouer un tour d'un duel Pokémon classique, pour deux équipes au préalable générées et initialisées. La fonction modifie l'état des équipes en paramètre et gère tout les cas particuliers (actions invalides, gestion des afflictions, cas de lutte).  <br /></td></tr>
 <tr class="separator:a37d0046e530324685213ff50a4c36cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e88ec315719a73455623551f124fb62"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a3e88ec315719a73455623551f124fb62">expCurve</a> (int lvl)</td></tr>
+<tr class="memitem:a3e88ec315719a73455623551f124fb62" id="r_a3e88ec315719a73455623551f124fb62"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a3e88ec315719a73455623551f124fb62">expCurve</a> (int lvl)</td></tr>
 <tr class="separator:a3e88ec315719a73455623551f124fb62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a109762b4b492c870f576af03d9c9a805"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a109762b4b492c870f576af03d9c9a805">reachedNextLvl</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *p)</td></tr>
+<tr class="memitem:a109762b4b492c870f576af03d9c9a805" id="r_a109762b4b492c870f576af03d9c9a805"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a109762b4b492c870f576af03d9c9a805">reachedNextLvl</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *p)</td></tr>
 <tr class="separator:a109762b4b492c870f576af03d9c9a805"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00cc566806ad551410ecb3ef95be9d0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a00cc566806ad551410ecb3ef95be9d0b">gainExp</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *target, <a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *source)</td></tr>
+<tr class="memitem:a00cc566806ad551410ecb3ef95be9d0b" id="r_a00cc566806ad551410ecb3ef95be9d0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a00cc566806ad551410ecb3ef95be9d0b">gainExp</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *target, <a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *source)</td></tr>
 <tr class="separator:a00cc566806ad551410ecb3ef95be9d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab70b8a8232d95fc2bb0e4ead1bbcfd3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#ab70b8a8232d95fc2bb0e4ead1bbcfd3d">checkLearningMove</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *p)</td></tr>
+<tr class="memitem:ab70b8a8232d95fc2bb0e4ead1bbcfd3d" id="r_ab70b8a8232d95fc2bb0e4ead1bbcfd3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#ab70b8a8232d95fc2bb0e4ead1bbcfd3d">checkLearningMove</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *p)</td></tr>
 <tr class="separator:ab70b8a8232d95fc2bb0e4ead1bbcfd3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87e1b1c2e8da8aa3dcbafa486727c992"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a87e1b1c2e8da8aa3dcbafa486727c992">testBattle</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a549b747fa4f6f9c153b959c84c2d5ffa">rouge</a>, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a2318bae80db59839bf744d39a02a2931">bleu</a>)</td></tr>
+<tr class="memitem:a87e1b1c2e8da8aa3dcbafa486727c992" id="r_a87e1b1c2e8da8aa3dcbafa486727c992"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a87e1b1c2e8da8aa3dcbafa486727c992">testBattle</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a549b747fa4f6f9c153b959c84c2d5ffa">rouge</a>, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a2318bae80db59839bf744d39a02a2931">bleu</a>)</td></tr>
 <tr class="separator:a87e1b1c2e8da8aa3dcbafa486727c992"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae3304431eebf95aac22ed64a644d398"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#aae3304431eebf95aac22ed64a644d398">testSwitch</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a549b747fa4f6f9c153b959c84c2d5ffa">rouge</a>, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a2318bae80db59839bf744d39a02a2931">bleu</a>)</td></tr>
+<tr class="memitem:aae3304431eebf95aac22ed64a644d398" id="r_aae3304431eebf95aac22ed64a644d398"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#aae3304431eebf95aac22ed64a644d398">testSwitch</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a549b747fa4f6f9c153b959c84c2d5ffa">rouge</a>, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a2318bae80db59839bf744d39a02a2931">bleu</a>)</td></tr>
 <tr class="separator:aae3304431eebf95aac22ed64a644d398"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a858a472c0ca54271f0d933926e73b293"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a858a472c0ca54271f0d933926e73b293">testPP</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a549b747fa4f6f9c153b959c84c2d5ffa">rouge</a>, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a2318bae80db59839bf744d39a02a2931">bleu</a>)</td></tr>
+<tr class="memitem:a858a472c0ca54271f0d933926e73b293" id="r_a858a472c0ca54271f0d933926e73b293"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a858a472c0ca54271f0d933926e73b293">testPP</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a549b747fa4f6f9c153b959c84c2d5ffa">rouge</a>, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a2318bae80db59839bf744d39a02a2931">bleu</a>)</td></tr>
 <tr class="separator:a858a472c0ca54271f0d933926e73b293"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08067d722870f62b736a1c2f55d2f74f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a08067d722870f62b736a1c2f55d2f74f">testStruggle</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a549b747fa4f6f9c153b959c84c2d5ffa">rouge</a>, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a2318bae80db59839bf744d39a02a2931">bleu</a>)</td></tr>
+<tr class="memitem:a08067d722870f62b736a1c2f55d2f74f" id="r_a08067d722870f62b736a1c2f55d2f74f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a08067d722870f62b736a1c2f55d2f74f">testStruggle</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a549b747fa4f6f9c153b959c84c2d5ffa">rouge</a>, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *<a class="el" href="../../d1/d18/duel_8c.html#a2318bae80db59839bf744d39a02a2931">bleu</a>)</td></tr>
 <tr class="separator:a08067d722870f62b736a1c2f55d2f74f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6cffd77abaf025f5e27d4c1320dc4c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#ac6cffd77abaf025f5e27d4c1320dc4c0">teamTest</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t, int)</td></tr>
+<tr class="memitem:ac6cffd77abaf025f5e27d4c1320dc4c0" id="r_ac6cffd77abaf025f5e27d4c1320dc4c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#ac6cffd77abaf025f5e27d4c1320dc4c0">teamTest</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t, int)</td></tr>
 <tr class="separator:ac6cffd77abaf025f5e27d4c1320dc4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:affbbdc8741a394a968366d77c640f1ff"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#affbbdc8741a394a968366d77c640f1ff">statVariations</a> [13]</td></tr>
+<tr class="memitem:affbbdc8741a394a968366d77c640f1ff" id="r_affbbdc8741a394a968366d77c640f1ff"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#affbbdc8741a394a968366d77c640f1ff">statVariations</a> [13]</td></tr>
 <tr class="separator:affbbdc8741a394a968366d77c640f1ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69f8229a1c94eb0a11e091d8b54570f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d68/structt__Move.html">t_Move</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a69f8229a1c94eb0a11e091d8b54570f3">struggle</a></td></tr>
+<tr class="memitem:a69f8229a1c94eb0a11e091d8b54570f3" id="r_a69f8229a1c94eb0a11e091d8b54570f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d68/structt__Move.html">t_Move</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a69f8229a1c94eb0a11e091d8b54570f3">struggle</a></td></tr>
 <tr class="separator:a69f8229a1c94eb0a11e091d8b54570f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acde9cb2f6b18119fde97bf6be55639c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d68/structt__Move.html">t_Move</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#acde9cb2f6b18119fde97bf6be55639c9">confusedMove</a></td></tr>
+<tr class="memitem:acde9cb2f6b18119fde97bf6be55639c9" id="r_acde9cb2f6b18119fde97bf6be55639c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d68/structt__Move.html">t_Move</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#acde9cb2f6b18119fde97bf6be55639c9">confusedMove</a></td></tr>
 <tr class="separator:acde9cb2f6b18119fde97bf6be55639c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc50e7669e9a8b080c36aff121cf7836"><td class="memItemLeft" align="right" valign="top">int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#adc50e7669e9a8b080c36aff121cf7836">SecEffectTab</a> [3])(<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *, int, int, int)</td></tr>
+<tr class="memitem:adc50e7669e9a8b080c36aff121cf7836" id="r_adc50e7669e9a8b080c36aff121cf7836"><td class="memItemLeft" align="right" valign="top">int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#adc50e7669e9a8b080c36aff121cf7836">SecEffectTab</a> [3])(<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *, int, int, int)</td></tr>
 <tr class="separator:adc50e7669e9a8b080c36aff121cf7836"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14297bdf3858bfcb9f2b5553c4a37ad2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/dac/structLvl__Up__Buffer.html">Lvl_Up_Buffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a14297bdf3858bfcb9f2b5553c4a37ad2">lvl_up_buffer</a> [6]</td></tr>
+<tr class="memitem:a14297bdf3858bfcb9f2b5553c4a37ad2" id="r_a14297bdf3858bfcb9f2b5553c4a37ad2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/dac/structLvl__Up__Buffer.html">Lvl_Up_Buffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a14297bdf3858bfcb9f2b5553c4a37ad2">lvl_up_buffer</a> [6]</td></tr>
 <tr class="separator:a14297bdf3858bfcb9f2b5553c4a37ad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fa7c71ee69bf53efd73ff3978602ab6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a5fa7c71ee69bf53efd73ff3978602ab6">lvl_up_buffer_size</a></td></tr>
+<tr class="memitem:a5fa7c71ee69bf53efd73ff3978602ab6" id="r_a5fa7c71ee69bf53efd73ff3978602ab6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a5fa7c71ee69bf53efd73ff3978602ab6">lvl_up_buffer_size</a></td></tr>
 <tr class="separator:a5fa7c71ee69bf53efd73ff3978602ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a549b747fa4f6f9c153b959c84c2d5ffa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a549b747fa4f6f9c153b959c84c2d5ffa">rouge</a></td></tr>
+<tr class="memitem:a549b747fa4f6f9c153b959c84c2d5ffa" id="r_a549b747fa4f6f9c153b959c84c2d5ffa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a549b747fa4f6f9c153b959c84c2d5ffa">rouge</a></td></tr>
 <tr class="separator:a549b747fa4f6f9c153b959c84c2d5ffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2318bae80db59839bf744d39a02a2931"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a2318bae80db59839bf744d39a02a2931">bleu</a></td></tr>
+<tr class="memitem:a2318bae80db59839bf744d39a02a2931" id="r_a2318bae80db59839bf744d39a02a2931"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a2318bae80db59839bf744d39a02a2931">bleu</a></td></tr>
 <tr class="separator:a2318bae80db59839bf744d39a02a2931"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -539,14 +558,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a2cdb2c620c0e4c3077d6ae74c45ceb36" name="a2cdb2c620c0e4c3077d6ae74c45ceb36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cdb2c620c0e4c3077d6ae74c45ceb36">&#9670;&#160;</a></span>affectDamage()</h2>
+<a id="af83a9c8d2c8428b1c682e5fd3348ad07" name="af83a9c8d2c8428b1c682e5fd3348ad07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af83a9c8d2c8428b1c682e5fd3348ad07">&#9670;&#160;</a></span>affectDamage()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void affectDamage </td>
+          <td class="memname">int affectDamage </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *&#160;</td>
           <td class="paramname"><em>offender</em>, </td>
@@ -698,6 +717,9 @@ Variables</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">unsigned expCurve </td>
@@ -707,6 +729,11 @@ Variables</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -751,6 +778,34 @@ Variables</h2></td></tr>
           <td class="paramtype"><a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5c425221de6c8fc3581cb8ad38a77579" name="a5c425221de6c8fc3581cb8ad38a77579"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c425221de6c8fc3581cb8ad38a77579">&#9670;&#160;</a></span>initBlueTeam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initBlueTeam </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *&#160;</td>
+          <td class="paramname"><em>joueur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -12,30 +12,46 @@
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_gamecontroller.h>}}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a6f17bb9492dd6a4e5ace526c8686679f}{handleEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a9e83431dc3f66988e64a74a4e0a2ed58}{handleWindowSizeChange}}(\mbox{\hyperlink{structWindow}{Window}}\ *win);}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a513da2d00e9995e84d9033ef82316ba9}{handleIntermediateEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a25c2257aeb4db95d02ee807d21f2b387}{handleQuitEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
+\DoxyCodeLine{00017\ \textcolor{comment}{/*\ Constantes\ pour\ le\ positionnement\ et\ la\ taille\ des\ sprites\ */}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ RED\_SPRITE\_X\_RATIO\ 0.23f}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ RED\_SPRITE\_Y\_RATIO\ 0.35f}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ BLUE\_SPRITE\_X\_RATIO\ 0.60f\ }}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ BLUE\_SPRITE\_Y\_RATIO\ 0.15f}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ SPRITE\_WIDTH\_RATIO\ 0.2f}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ SPRITE\_HEIGHT\_RATIO\ 0.25f}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ NAME\_Y\_OFFSET\ 25}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ PV\_Y\_OFFSET\ 25}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ NAME\_HEIGHT\ 20}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ PV\_BAR\_HEIGHT\ 15}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a6f17bb9492dd6a4e5ace526c8686679f}{handleEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a9e83431dc3f66988e64a74a4e0a2ed58}{handleWindowSizeChange}}(\mbox{\hyperlink{structWindow}{Window}}\ *win);}
 \DoxyCodeLine{00039\ }
-\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_ab14649f183a1cbf95f28b1cda31acb8e}{handleSettingsEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a513da2d00e9995e84d9033ef82316ba9}{handleIntermediateEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a3dd192e3954e5e38c991024ad04b4b5a}{handleMenuEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a25c2257aeb4db95d02ee807d21f2b387}{handleQuitEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a7e807113e014d5725e945ee30180483c}{handleGameEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_ab14649f183a1cbf95f28b1cda31acb8e}{handleSettingsEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
 \DoxyCodeLine{00057\ }
-\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a2eb85b27aa836abb19135fc494112449}{handleNewGameEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a3dd192e3954e5e38c991024ad04b4b5a}{handleMenuEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
 \DoxyCodeLine{00063\ }
-\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_aade80eb59d9a637677b7a309cd8c702c}{handleLoadGameEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a7e807113e014d5725e945ee30180483c}{handleGameEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
 \DoxyCodeLine{00069\ }
-\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_abb1d99ee132734d10ca7f03286da3b18}{handleICMonsEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a2eb85b27aa836abb19135fc494112449}{handleNewGameEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
 \DoxyCodeLine{00075\ }
-\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a353673ce0aa1c823efdc9087cbde90cc}{handlePauseEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_aade80eb59d9a637677b7a309cd8c702c}{handleLoadGameEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
 \DoxyCodeLine{00081\ }
-\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a244d37073550388354a68561ac959ecb}{handlePlayerEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_abb1d99ee132734d10ca7f03286da3b18}{handleICMonsEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
 \DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HANDLEEVENTS\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a353673ce0aa1c823efdc9087cbde90cc}{handlePauseEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a244d37073550388354a68561ac959ecb}{handlePlayerEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00104\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Events_8h_a088e629868d61238138f13c5c467699b}{handleSwapEvent}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Event\ *event);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{Events_8h_ac44c928e776e8e08d0c8a3aa20152c8a}{initTeamSprites}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *teamSprite,\ \textcolor{keywordtype}{float}\ x\_ratio,\ \textcolor{keywordtype}{float}\ y\_ratio,\ \textcolor{keywordtype}{int}\ teamFlag);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HANDLEEVENTS\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

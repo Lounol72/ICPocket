@@ -53,45 +53,46 @@
 \DoxyCodeLine{00077\ \ \ \ \ SDL\_Color\ \mbox{\hyperlink{structSlider_afac1472537743bb654e1ebd4b9ac6a55}{cursorColor}};\ \ \ }
 \DoxyCodeLine{00078\ \ \ \ \ SDL\_Renderer\ *\mbox{\hyperlink{structSlider_a1de0eae97b505e36baf7b8069d4562f0}{renderer}};\ \ \ }
 \DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structSlider_ae7a169abde25f6d0c42837b1b201f11a}{value}};\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00080\ \}\ \mbox{\hyperlink{structSlider}{Slider}};}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00088\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structSliderList}{SliderList}}\ \{}
-\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{structSlider}{Slider}}\ **\mbox{\hyperlink{structSliderList_a10738247d3a9859446f1bc50f12bad05}{sliders}};\ }
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structSliderList_acbbb8cbaf76e0f24dbac3d658d8d1c05}{size}};\ \ \ \ \ \ \ }
-\DoxyCodeLine{00091\ \}\ \mbox{\hyperlink{structSliderList}{SliderList}};}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00107\ \mbox{\hyperlink{structButton}{Button}}\ *\mbox{\hyperlink{Buttons_8h_a6e42448bfedad8ffa789e09b45782fe7}{createButton}}(\textcolor{keywordtype}{char}\ *text,\ \mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Rect\ rect,\ SDL\_Color\ color,\ SDL\_Color\ textcolor,}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ (*onClick)(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *data),\ \textcolor{keywordtype}{void}\ *data,\ TTF\_Font\ *font,}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *imagePath);}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00118\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_ae76e871e4375b26d06e1e703325002ad}{addListButton}}(\mbox{\hyperlink{structButtonList}{ButtonList}}\ *list,\ \mbox{\hyperlink{structButton}{Button}}\ **buttons,\ \textcolor{keywordtype}{int}\ count);}
-\DoxyCodeLine{00119\ }
-\DoxyCodeLine{00125\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_a6f2d10aaa75aec651d944a49824dfaca}{destroyButtonList}}(\mbox{\hyperlink{structButtonList}{ButtonList}}\ *list);}
-\DoxyCodeLine{00126\ }
-\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_a73fede4267ce18db513f7ea5e430cdca}{renderButtonList}}(\mbox{\hyperlink{structButtonList}{ButtonList}}\ *B);}
-\DoxyCodeLine{00133\ }
-\DoxyCodeLine{00143\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_ad1f08565a6d9a8c92fc8f2c752b8e915}{ButtonClicked}}(\mbox{\hyperlink{structButton}{Button}}\ *button,\ \textcolor{keywordtype}{int}\ mouseX,\ \textcolor{keywordtype}{int}\ mouseY,\ \mbox{\hyperlink{structWindow}{Window}}\ *win);}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00152\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_a604a2e476e66033908fc016c70138aac}{updateButtonPosition}}(\mbox{\hyperlink{structButtonList}{ButtonList}}\ *buttons,\ \textcolor{keywordtype}{float}\ Scalex,\ \textcolor{keywordtype}{float}\ Scaley);}
-\DoxyCodeLine{00153\ }
-\DoxyCodeLine{00161\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_a46d3f067fb44669bc3438b8030823799}{setButtonText}}(\mbox{\hyperlink{structButton}{Button}}\ *button,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *text,\ SDL\_Renderer\ *renderer);}
-\DoxyCodeLine{00162\ }
-\DoxyCodeLine{00177\ \mbox{\hyperlink{structSlider}{Slider}}\ *\mbox{\hyperlink{Buttons_8h_a38653592fe2d409f3a7a620a1d6de080}{createSlider}}(SDL\_Renderer\ *renderer,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ SDL\_Color\ color,}
-\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Color\ cursorColor);}
-\DoxyCodeLine{00179\ }
-\DoxyCodeLine{00186\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_ac397d132d59d67574bd320918402f5a2}{DragCursor}}(\mbox{\hyperlink{structSlider}{Slider}}\ *slider,\ \textcolor{keywordtype}{int}\ mouseX);}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00193\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_a36eeecc07a5e96684859833ad0986c4a}{renderSlider}}(\mbox{\hyperlink{structSlider}{Slider}}\ *slider);}
-\DoxyCodeLine{00194\ }
-\DoxyCodeLine{00200\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_afa394eaa634219089d84e0d91e3a6345}{destroySlider}}(\mbox{\hyperlink{structSlider}{Slider}}\ *slider);}
-\DoxyCodeLine{00201\ }
-\DoxyCodeLine{00207\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_abcb6effb395215a5c8d11247edfcaaf2}{destroySliderList}}(\mbox{\hyperlink{structSliderList}{SliderList}}\ *list);}
-\DoxyCodeLine{00208\ }
-\DoxyCodeLine{00216\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_ab4f0f8d2f09eef09c6ba3cadb1f66f5c}{addListSlider}}(\mbox{\hyperlink{structSliderList}{SliderList}}\ *S,\ \mbox{\hyperlink{structSlider}{Slider}}\ *sliders[],\ \textcolor{keywordtype}{int}\ size);}
-\DoxyCodeLine{00217\ }
-\DoxyCodeLine{00223\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_a160b73f6e05ac0b81b4fd57a404393f0}{renderSliderList}}(\mbox{\hyperlink{structSliderList}{SliderList}}\ *S);}
-\DoxyCodeLine{00224\ }
-\DoxyCodeLine{00235\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{Buttons_8h_ab2651492b9cdec9f58253f8ba23f25f5}{handleSliderEvent}}(\mbox{\hyperlink{structSlider}{Slider}}\ *slider,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structSlider_aea0d11495677602ea0c0b35d25088c5f}{dragging}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00081\ \}\ \mbox{\hyperlink{structSlider}{Slider}};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structSliderList}{SliderList}}\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{structSlider}{Slider}}\ **\mbox{\hyperlink{structSliderList_a10738247d3a9859446f1bc50f12bad05}{sliders}};\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structSliderList_acbbb8cbaf76e0f24dbac3d658d8d1c05}{size}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00092\ \}\ \mbox{\hyperlink{structSliderList}{SliderList}};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00108\ \mbox{\hyperlink{structButton}{Button}}\ *\mbox{\hyperlink{Buttons_8h_a6e42448bfedad8ffa789e09b45782fe7}{createButton}}(\textcolor{keywordtype}{char}\ *text,\ \mbox{\hyperlink{structWindow}{Window}}\ *win,\ SDL\_Rect\ rect,\ SDL\_Color\ color,\ SDL\_Color\ textcolor,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ (*onClick)(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *data),\ \textcolor{keywordtype}{void}\ *data,\ TTF\_Font\ *font,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *imagePath);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_ae76e871e4375b26d06e1e703325002ad}{addListButton}}(\mbox{\hyperlink{structButtonList}{ButtonList}}\ *list,\ \mbox{\hyperlink{structButton}{Button}}\ **buttons,\ \textcolor{keywordtype}{int}\ count);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_a6f2d10aaa75aec651d944a49824dfaca}{destroyButtonList}}(\mbox{\hyperlink{structButtonList}{ButtonList}}\ *list);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00133\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_a73fede4267ce18db513f7ea5e430cdca}{renderButtonList}}(\mbox{\hyperlink{structButtonList}{ButtonList}}\ *B);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00144\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_ad1f08565a6d9a8c92fc8f2c752b8e915}{ButtonClicked}}(\mbox{\hyperlink{structButton}{Button}}\ *button,\ \textcolor{keywordtype}{int}\ mouseX,\ \textcolor{keywordtype}{int}\ mouseY,\ \mbox{\hyperlink{structWindow}{Window}}\ *win);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00153\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_a604a2e476e66033908fc016c70138aac}{updateButtonPosition}}(\mbox{\hyperlink{structButtonList}{ButtonList}}\ *buttons,\ \textcolor{keywordtype}{float}\ Scalex,\ \textcolor{keywordtype}{float}\ Scaley);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00162\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_a46d3f067fb44669bc3438b8030823799}{setButtonText}}(\mbox{\hyperlink{structButton}{Button}}\ *button,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *text,\ SDL\_Renderer\ *renderer);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00178\ \mbox{\hyperlink{structSlider}{Slider}}\ *\mbox{\hyperlink{Buttons_8h_a38653592fe2d409f3a7a620a1d6de080}{createSlider}}(SDL\_Renderer\ *renderer,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ SDL\_Color\ color,}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Color\ cursorColor);}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00187\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_ac397d132d59d67574bd320918402f5a2}{DragCursor}}(\mbox{\hyperlink{structSlider}{Slider}}\ *slider,\ \textcolor{keywordtype}{int}\ mouseX);}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00194\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_a36eeecc07a5e96684859833ad0986c4a}{renderSlider}}(\mbox{\hyperlink{structSlider}{Slider}}\ *slider);}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00201\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_afa394eaa634219089d84e0d91e3a6345}{destroySlider}}(\mbox{\hyperlink{structSlider}{Slider}}\ *slider);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00208\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_abcb6effb395215a5c8d11247edfcaaf2}{destroySliderList}}(\mbox{\hyperlink{structSliderList}{SliderList}}\ *list);}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00217\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_ab4f0f8d2f09eef09c6ba3cadb1f66f5c}{addListSlider}}(\mbox{\hyperlink{structSliderList}{SliderList}}\ *S,\ \mbox{\hyperlink{structSlider}{Slider}}\ *sliders[],\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00224\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_a160b73f6e05ac0b81b4fd57a404393f0}{renderSliderList}}(\mbox{\hyperlink{structSliderList}{SliderList}}\ *S);}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00235\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{Buttons_8h_a45f0315f0ea8b5ef2e7beec0f31b52da}{handleSliderEvent}}(\mbox{\hyperlink{structSlider}{Slider}}\ *slider,\ SDL\_Event\ *event);}
 \DoxyCodeLine{00236\ }
 \DoxyCodeLine{00244\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Buttons_8h_a109411bd394d38718374d0b1fde9a020}{updateSliderPosition}}(\mbox{\hyperlink{structSliderList}{SliderList}}\ *sliders,\ \textcolor{keywordtype}{float}\ Scalex,\ \textcolor{keywordtype}{float}\ Scaley);}
 \DoxyCodeLine{00245\ }

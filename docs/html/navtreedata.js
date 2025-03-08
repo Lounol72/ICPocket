@@ -37,8 +37,8 @@ var NAVTREE =
       [ "Liste des classes", "annotated.html", "annotated_dup" ],
       [ "Index des classes", "classes.html", null ],
       [ "Membres de classe", "functions.html", [
-        [ "Tout", "functions.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+        [ "Tout", "functions.html", "functions_dup" ],
+        [ "Variables", "functions_vars.html", "functions_vars" ]
       ] ]
     ] ],
     [ "Fichiers", "files.html", [
@@ -59,9 +59,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d5/d81/GameEngine_8c.html#a1d524967f0f5e8abb47a3e5e9db3d81b",
-"da/d71/structPoke_8h.html#a03d14305d10c4f28d0b126dfc6c5f165ab2311ef11fe596462c69cd66562d230e",
-"globals_func_m.html"
+"d5/d18/Camera_8c.html#a2066b5ada76e803c9b0e2ae818c73b85",
+"d9/d0e/Buttons_8c.html#a46d3f067fb44669bc3438b8030823799",
+"df/d27/trainerAI_8h_source.html"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';

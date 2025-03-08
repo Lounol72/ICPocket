@@ -10,7 +10,7 @@ Gestion des boutons et curseurs pour l\textquotesingle{}application.
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
-{\ttfamily \#include \"{}Utils.\+h\"{}}\newline
+{\ttfamily \#include "{}Utils.\+h"{}}\newline
 Graphe des dépendances par inclusion de Buttons.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -81,7 +81,7 @@ void \mbox{\hyperlink{Buttons_8h_ab4f0f8d2f09eef09c6ba3cadb1f66f5c}{add\+List\+S
 \begin{DoxyCompactList}\small\item\em Ajoute une liste de curseurs à la liste de curseurs. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8h_a160b73f6e05ac0b81b4fd57a404393f0}{render\+Slider\+List}} (\mbox{\hyperlink{structSliderList}{Slider\+List}} \texorpdfstring{$\ast$}{*}S)
 \begin{DoxyCompactList}\small\item\em Rend la liste de curseurs. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{Buttons_8h_ab2651492b9cdec9f58253f8ba23f25f5}{handle\+Slider\+Event}} (\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}slider, int x, int y)
+int \mbox{\hyperlink{Buttons_8h_a45f0315f0ea8b5ef2e7beec0f31b52da}{handle\+Slider\+Event}} (\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}slider, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
 \begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}événement de curseur. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Buttons_8h_a109411bd394d38718374d0b1fde9a020}{update\+Slider\+Position}} (\mbox{\hyperlink{structSliderList}{Slider\+List}} \texorpdfstring{$\ast$}{*}sliders, float Scalex, float Scaley)
 \begin{DoxyCompactList}\small\item\em Met à jour la position des curseurs en fonction des coordonnées X et Y de la souris. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -324,11 +324,11 @@ Déplace le curseur du slider en fonction de la coordonnée X de la souris.
 {\em mouseX} & La coordonnée X actuelle de la souris. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{Buttons_8h_ab2651492b9cdec9f58253f8ba23f25f5}\label{Buttons_8h_ab2651492b9cdec9f58253f8ba23f25f5} 
+\Hypertarget{Buttons_8h_a45f0315f0ea8b5ef2e7beec0f31b52da}\label{Buttons_8h_a45f0315f0ea8b5ef2e7beec0f31b52da} 
 \index{Buttons.h@{Buttons.h}!handleSliderEvent@{handleSliderEvent}}
 \index{handleSliderEvent@{handleSliderEvent}!Buttons.h@{Buttons.h}}
 \doxysubsubsection{\texorpdfstring{handleSliderEvent()}{handleSliderEvent()}}
-{\footnotesize\ttfamily int handle\+Slider\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}}]{slider,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int handle\+Slider\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSlider}{Slider}} \texorpdfstring{$\ast$}{*}}]{slider,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
 
 
 
@@ -340,9 +340,7 @@ Cette fonction traite l\textquotesingle{}événement de curseur en fonction du c
 \begin{DoxyParams}{Paramètres}
 {\em slider} & Le curseur associé à l\textquotesingle{}événement. \\
 \hline
-{\em x} & La coordonnée x de l\textquotesingle{}événement. \\
-\hline
-{\em y} & La coordonnée y de l\textquotesingle{}événement. \\
+{\em event} & L\textquotesingle{}événement SDL. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}

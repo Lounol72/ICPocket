@@ -1,10 +1,11 @@
 \doxysection{Référence du fichier src/\+Text.c}
 \hypertarget{Text_8c}{}\label{Text_8c}\index{src/Text.c@{src/Text.c}}
-{\ttfamily \#include \"{}../include/\+Text.\+h\"{}}\newline
-{\ttfamily \#include \"{}../include/\+Window.\+h\"{}}\newline
+{\ttfamily \#include "{}../include/\+Text.\+h"{}}\newline
+{\ttfamily \#include "{}../include/\+Window.\+h"{}}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
-Graphe des dépendances par inclusion de Text.\+c\+:\nopagebreak
+Graphe des dépendances par inclusion de Text.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,15 +23,15 @@ void \mbox{\hyperlink{Text_8c_af5e6443549548b45c6ea809665001cd0}{init\+Text}} (s
 \begin{DoxyCompactList}\small\item\em Crée un nouvel objet texte. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Text_8c_a452ccfba136e1b799b2f51cc82e66638}{destroy\+Text}} (\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}text)
 \begin{DoxyCompactList}\small\item\em Détruit un objet texte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Text_8c_a77ea26949d0d6e6d9fb47a543c47db08}{cleanup\+Text}} ()
+\begin{DoxyCompactList}\small\item\em Nettoie les objets texte. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Text_8c_a279a58d3ade7f4395fb329895f439ba0}{render\+Text}} (struct \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}text)
 \begin{DoxyCompactList}\small\item\em Rend un objet texte. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Text_8c_aa873f47f05aa894283bed1c93b836b09}{update\+Text}} (\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}text, const char \texorpdfstring{$\ast$}{*}new\+Text, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
 \begin{DoxyCompactList}\small\item\em Met à jour le contenu d\textquotesingle{}un objet texte. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Text_8c_a015ae8ec886baef9970798a86f682b27}{update\+Text\+Position}} (\mbox{\hyperlink{structText}{Text}} \texorpdfstring{$\ast$}{*}text, float scaleX, float scaleY)
 \begin{DoxyCompactList}\small\item\em Met à jour la position d\textquotesingle{}un objet texte. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{Text_8c_ad2c3f488e42d303d4d334936535dcf62}{change\+Text\+Speed}} (struct \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
-\begin{DoxyCompactList}\small\item\em Change la vitesse du texte. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Text_8c_a4b2e37064119ed78436b5358f88594e9}{create\+Scrolling\+Text}} (char \texorpdfstring{$\ast$}{*}text, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font, SDL\+\_\+\+Color color, int x, int y, int char\+Delay, int width, SDL\+\_\+\+Rect background\+Position, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Text_8c_ad496f949929781a8b018234536b6978a}{create\+Scrolling\+Text}} (char \texorpdfstring{$\ast$}{*}text, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font, SDL\+\_\+\+Color color, int char\+Delay, SDL\+\_\+\+Rect background\+Position, const char \texorpdfstring{$\ast$}{*}background\+Path, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
 \begin{DoxyCompactList}\small\item\em Crée un nouvel objet de texte défilant. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Text_8c_a768cf1c99dfc678b1aebc603e2f2c9eb}{update\+Scrolling\+Text\+Position}} (\mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*}text, float scaleX, float scaleY)
 \item 
@@ -38,37 +39,49 @@ void \mbox{\hyperlink{Text_8c_a70b0c8ad2591d026ed13498d2f5b51e5}{update\+Scrolli
 \begin{DoxyCompactList}\small\item\em Met à jour un objet de texte défilant. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Text_8c_a79aac055a15042af251ed87cf51d3e4b}{render\+Scrolling\+Text}} (\mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*}text, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
 \begin{DoxyCompactList}\small\item\em Rend un objet de texte défilant. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{Text_8c_ae35585c971762797193916c9d0c8fd09}{skip\+Scrolling\+Text}} (\mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*}text)
+void \mbox{\hyperlink{Text_8c_a0bc289fcd1d02a1ab742f93c882b5370}{skip\+Scrolling\+Text}} (\mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*}text, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
 \begin{DoxyCompactList}\small\item\em Passe à la suite un objet de texte défilant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Text_8c_a0a8e528a34a830bd97a8f89252c02d91}{reset\+Scrolling\+Text}} (\mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*}text, const char \texorpdfstring{$\ast$}{*}new\+Text)
+\begin{DoxyCompactList}\small\item\em Réinitialise un objet de texte défilant. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Text_8c_afa6a319144e236a3c666e758d35c7d9c}{destroy\+Scrolling\+Text}} (\mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*}text)
-\begin{DoxyCompactList}\small\item\em Détruit un objet de texte défilant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Détruit un objet de texte défilant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Text_8c_a86fb5ff45e3d26ccd1ed237a8aafbbcb}{cleanup\+Scrolling\+Text}} (\mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}text)
+\begin{DoxyCompactList}\small\item\em Nettoie un objet de texte défilant. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Documentation des fonctions}
-\Hypertarget{Text_8c_ad2c3f488e42d303d4d334936535dcf62}\label{Text_8c_ad2c3f488e42d303d4d334936535dcf62} 
-\index{Text.c@{Text.c}!changeTextSpeed@{changeTextSpeed}}
-\index{changeTextSpeed@{changeTextSpeed}!Text.c@{Text.c}}
-\doxysubsubsection{\texorpdfstring{changeTextSpeed()}{changeTextSpeed()}}
-{\footnotesize\ttfamily void change\+Text\+Speed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+\Hypertarget{Text_8c_a86fb5ff45e3d26ccd1ed237a8aafbbcb}\label{Text_8c_a86fb5ff45e3d26ccd1ed237a8aafbbcb} 
+\index{Text.c@{Text.c}!cleanupScrollingText@{cleanupScrollingText}}
+\index{cleanupScrollingText@{cleanupScrollingText}!Text.c@{Text.c}}
+\doxysubsubsection{\texorpdfstring{cleanupScrollingText()}{cleanupScrollingText()}}
+{\footnotesize\ttfamily void cleanup\+Scrolling\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{text }\end{DoxyParamCaption})}
 
 
 
-Change la vitesse du texte. 
+Nettoie un objet de texte défilant. 
 
-Cette fonction change la vitesse à laquelle le texte est affiché. C\textquotesingle{}est une fonction temporaire.
+Cette fonction nettoie un objet de texte défilant avec les paramètres spécifiés.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em win} & Un pointeur vers la structure \doxylink{structWindow}{Window}. \\
-\hline
-{\em data} & Données supplémentaires pour changer la vitesse du texte. \\
+{\em text} & Un pointeur vers l\textquotesingle{}objet \doxylink{structScrollingText}{Scrolling\+Text}. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{Text_8c_a4b2e37064119ed78436b5358f88594e9}\label{Text_8c_a4b2e37064119ed78436b5358f88594e9} 
+\Hypertarget{Text_8c_a77ea26949d0d6e6d9fb47a543c47db08}\label{Text_8c_a77ea26949d0d6e6d9fb47a543c47db08} 
+\index{Text.c@{Text.c}!cleanupText@{cleanupText}}
+\index{cleanupText@{cleanupText}!Text.c@{Text.c}}
+\doxysubsubsection{\texorpdfstring{cleanupText()}{cleanupText()}}
+{\footnotesize\ttfamily void cleanup\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Nettoie les objets texte. 
+
+Cette fonction nettoie les objets texte utilisés dans l\textquotesingle{}application. \Hypertarget{Text_8c_ad496f949929781a8b018234536b6978a}\label{Text_8c_ad496f949929781a8b018234536b6978a} 
 \index{Text.c@{Text.c}!createScrollingText@{createScrollingText}}
 \index{createScrollingText@{createScrollingText}!Text.c@{Text.c}}
 \doxysubsubsection{\texorpdfstring{createScrollingText()}{createScrollingText()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*} create\+Scrolling\+Text (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{text,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{font,  }\item[{SDL\+\_\+\+Color}]{color,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{char\+Delay,  }\item[{int}]{width,  }\item[{SDL\+\_\+\+Rect}]{background\+Position,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*} create\+Scrolling\+Text (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{text,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{font,  }\item[{SDL\+\_\+\+Color}]{color,  }\item[{int}]{char\+Delay,  }\item[{SDL\+\_\+\+Rect}]{background\+Position,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{background\+Path,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
 
 
 
@@ -211,11 +224,30 @@ Cette fonction rend l\textquotesingle{}objet texte spécifié à l\textquotesing
 {\em text} & Un pointeur vers l\textquotesingle{}objet \doxylink{structText}{Text} à rendre. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{Text_8c_ae35585c971762797193916c9d0c8fd09}\label{Text_8c_ae35585c971762797193916c9d0c8fd09} 
+\Hypertarget{Text_8c_a0a8e528a34a830bd97a8f89252c02d91}\label{Text_8c_a0a8e528a34a830bd97a8f89252c02d91} 
+\index{Text.c@{Text.c}!resetScrollingText@{resetScrollingText}}
+\index{resetScrollingText@{resetScrollingText}!Text.c@{Text.c}}
+\doxysubsubsection{\texorpdfstring{resetScrollingText()}{resetScrollingText()}}
+{\footnotesize\ttfamily void reset\+Scrolling\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*}}]{text,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{new\+Text }\end{DoxyParamCaption})}
+
+
+
+Réinitialise un objet de texte défilant. 
+
+Cette fonction réinitialise un objet de texte défilant avec les paramètres spécifiés.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em text} & Un pointeur vers l\textquotesingle{}objet \doxylink{structScrollingText}{Scrolling\+Text}. \\
+\hline
+{\em new\+Text} & Le nouveau texte à afficher. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Text_8c_a0bc289fcd1d02a1ab742f93c882b5370}\label{Text_8c_a0bc289fcd1d02a1ab742f93c882b5370} 
 \index{Text.c@{Text.c}!skipScrollingText@{skipScrollingText}}
 \index{skipScrollingText@{skipScrollingText}!Text.c@{Text.c}}
 \doxysubsubsection{\texorpdfstring{skipScrollingText()}{skipScrollingText()}}
-{\footnotesize\ttfamily void skip\+Scrolling\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*}}]{text }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void skip\+Scrolling\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structScrollingText}{Scrolling\+Text}} \texorpdfstring{$\ast$}{*}}]{text,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
 
 
 
@@ -226,6 +258,8 @@ Cette fonction passe à la suite un objet de texte défilant avec les paramètre
 
 \begin{DoxyParams}{Paramètres}
 {\em text} & Un pointeur vers l\textquotesingle{}objet \doxylink{structScrollingText}{Scrolling\+Text}. \\
+\hline
+{\em renderer} & Le renderer SDL. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{Text_8c_a9f75714d36cb1868d83e9c7b7914ad07}\label{Text_8c_a9f75714d36cb1868d83e9c7b7914ad07} 

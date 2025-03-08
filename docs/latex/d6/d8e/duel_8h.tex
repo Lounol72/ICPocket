@@ -2,12 +2,13 @@
 \hypertarget{duel_8h}{}\label{duel_8h}\index{include/duel.h@{include/duel.h}}
 
 
-Gestion des duels dans le style de \"{}\+Pokémon\"{} \+: système de tour par tour avec 2 équipes opposées.  
+Gestion des duels dans le style de "{}\+Pokémon"{} \+: système de tour par tour avec 2 équipes opposées.  
 
 
-{\ttfamily \#include \"{}struct\+Poke.\+h\"{}}\newline
-{\ttfamily \#include \"{}trainer\+AI.\+h\"{}}\newline
-{\ttfamily \#include \"{}save.\+h\"{}}\newline
+{\ttfamily \#include "{}struct\+Poke.\+h"{}}\newline
+{\ttfamily \#include "{}structures.\+h"{}}\newline
+{\ttfamily \#include "{}trainer\+AI.\+h"{}}\newline
+{\ttfamily \#include "{}save.\+h"{}}\newline
 Graphe des dépendances par inclusion de duel.\+h\+:
 \nopagebreak
 \begin{figure}[H]
@@ -27,8 +28,6 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}}
-\begin{DoxyCompactList}\small\item\em La structure \doxylink{structt__Team}{t\+\_\+\+Team} contient tout les attributs nécessaire à la génération et à l\textquotesingle{}utilisation d\textquotesingle{}une équipe lors d\textquotesingle{}un combat. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structLvl__Up__Buffer}{Lvl\+\_\+\+Up\+\_\+\+Buffer}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
@@ -87,6 +86,8 @@ int \mbox{\hyperlink{duel_8h_a0e27a0c4136f1f57a6f4f3e052ab2e54}{calc\+Stat\+From
 \item 
 void \mbox{\hyperlink{duel_8h_a4b3832f2db59021e5a2a8f4438ddadc1}{init\+Team}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t, int)
 \item 
+void \mbox{\hyperlink{duel_8h_a5c425221de6c8fc3581cb8ad38a77579}{init\+Blue\+Team}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}joueur)
+\item 
 int \mbox{\hyperlink{duel_8h_a74d793946dc5e0e5f1dc6ed14d3d96dc}{calc\+Damage}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}offender, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}defender, \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*})
 \item 
 void \mbox{\hyperlink{duel_8h_a8fc0892b3753845a32113b61ce8b1b6c}{set\+Default\+Stat\+Changes}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}p)
@@ -95,7 +96,7 @@ int \mbox{\hyperlink{duel_8h_af3283b0d510afb01446c27bf1600ba88}{resolve\+Speed\+
 \item 
 int \mbox{\hyperlink{duel_8h_a692a701927e61a06fd8dce887742c7d9}{Priority\+For\+First\+Poke}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}p1, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}p2, \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}move1, \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}move2, int index1, int index2)
 \item 
-void \mbox{\hyperlink{duel_8h_a2cdb2c620c0e4c3077d6ae74c45ceb36}{affect\+Damage}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}offender, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}defender, int index\+Move)
+int \mbox{\hyperlink{duel_8h_af83a9c8d2c8428b1c682e5fd3348ad07}{affect\+Damage}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}offender, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}defender, int index\+Move)
 \item 
 void \mbox{\hyperlink{duel_8h_ad567a4aec068790f989fb9ef909fcebb}{swap\+Actual\+Attacker}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}target, int swap\+Index)
 \begin{DoxyCompactList}\small\item\em La fonction swap\+Actual\+Attacker échange le pokémon présent à l\textquotesingle{}indice 0 avec celui présent à l\textquotesingle{}indice swap\+Index donné en paramètre. La fonction est sans effet si l\textquotesingle{}indice spécifié est invalide (hors liste, pokémon ko). \end{DoxyCompactList}\item 
@@ -141,7 +142,7 @@ int \mbox{\hyperlink{duel_8h_a5fa7c71ee69bf53efd73ff3978602ab6}{lvl\+\_\+up\+\_\
 
 
 \doxysubsection{Description détaillée}
-Gestion des duels dans le style de \"{}\+Pokémon\"{} \+: système de tour par tour avec 2 équipes opposées. 
+Gestion des duels dans le style de "{}\+Pokémon"{} \+: système de tour par tour avec 2 équipes opposées. 
 
 \begin{DoxyAuthor}{Auteur}
 Natp24109 
@@ -206,11 +207,11 @@ Natp24109
 \doxysubsubsection{\texorpdfstring{accuracyCheck()}{accuracyCheck()}}
 {\footnotesize\ttfamily int accuracy\+Check (\begin{DoxyParamCaption}\item[{int}]{accuracy }\end{DoxyParamCaption})}
 
-\Hypertarget{duel_8h_a2cdb2c620c0e4c3077d6ae74c45ceb36}\label{duel_8h_a2cdb2c620c0e4c3077d6ae74c45ceb36} 
+\Hypertarget{duel_8h_af83a9c8d2c8428b1c682e5fd3348ad07}\label{duel_8h_af83a9c8d2c8428b1c682e5fd3348ad07} 
 \index{duel.h@{duel.h}!affectDamage@{affectDamage}}
 \index{affectDamage@{affectDamage}!duel.h@{duel.h}}
 \doxysubsubsection{\texorpdfstring{affectDamage()}{affectDamage()}}
-{\footnotesize\ttfamily void affect\+Damage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{offender,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{defender,  }\item[{int}]{index\+Move }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int affect\+Damage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{offender,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{defender,  }\item[{int}]{index\+Move }\end{DoxyParamCaption})}
 
 \Hypertarget{duel_8h_aa6f1d50587260f5a4957edc4dae26e35}\label{duel_8h_aa6f1d50587260f5a4957edc4dae26e35} 
 \index{duel.h@{duel.h}!applyEffect@{applyEffect}}
@@ -240,7 +241,7 @@ Natp24109
 \index{duel.h@{duel.h}!expCurve@{expCurve}}
 \index{expCurve@{expCurve}!duel.h@{duel.h}}
 \doxysubsubsection{\texorpdfstring{expCurve()}{expCurve()}}
-{\footnotesize\ttfamily unsigned exp\+Curve (\begin{DoxyParamCaption}\item[{int}]{lvl }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily unsigned exp\+Curve (\begin{DoxyParamCaption}\item[{int}]{lvl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
 
 \Hypertarget{duel_8h_a00cc566806ad551410ecb3ef95be9d0b}\label{duel_8h_a00cc566806ad551410ecb3ef95be9d0b} 
 \index{duel.h@{duel.h}!gainExp@{gainExp}}
@@ -253,6 +254,12 @@ Natp24109
 \index{hasMoveLeft@{hasMoveLeft}!duel.h@{duel.h}}
 \doxysubsubsection{\texorpdfstring{hasMoveLeft()}{hasMoveLeft()}}
 {\footnotesize\ttfamily int has\+Move\+Left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
+
+\Hypertarget{duel_8h_a5c425221de6c8fc3581cb8ad38a77579}\label{duel_8h_a5c425221de6c8fc3581cb8ad38a77579} 
+\index{duel.h@{duel.h}!initBlueTeam@{initBlueTeam}}
+\index{initBlueTeam@{initBlueTeam}!duel.h@{duel.h}}
+\doxysubsubsection{\texorpdfstring{initBlueTeam()}{initBlueTeam()}}
+{\footnotesize\ttfamily void init\+Blue\+Team (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{joueur }\end{DoxyParamCaption})}
 
 \Hypertarget{duel_8h_a4b3832f2db59021e5a2a8f4438ddadc1}\label{duel_8h_a4b3832f2db59021e5a2a8f4438ddadc1} 
 \index{duel.h@{duel.h}!initTeam@{initTeam}}

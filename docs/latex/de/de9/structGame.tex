@@ -11,7 +11,8 @@ Structure principale du jeu.
 
 
 
-Graphe de collaboration de Game\+:\nopagebreak
+Graphe de collaboration de Game\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -37,7 +38,7 @@ int \mbox{\hyperlink{structGame_ad6d4967c8a2102963029b9db9dbc1b91}{nb\+States}}
 \item 
 \mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structGame_a1ab9219c52f831df72ec2bb42c56aa2b}{win}}
 \item 
-float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structGame_ad40f89a1120708699357c341a9f56e4e}{speeds}}
+int \mbox{\hyperlink{structGame_a02a58acc040d6d014e02832453695ef5}{speed}}
 \item 
 int \mbox{\hyperlink{structGame_abdcdb055424572d4d18a0758eaea2cf4}{FPS}}
 \item 
@@ -56,6 +57,8 @@ float \mbox{\hyperlink{structGame_ad918e31c1644966465f822d912585f16}{delta\+Time
 SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structGame_a718b25063a2b739e7fd0c886c2509269}{cursor}}
 \item 
 SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structGame_a8368793aa6f05e1a40a64eab95757bf5}{cursor\+\_\+hover}}
+\item 
+int \mbox{\hyperlink{structGame_adc1a066a885d3620870682192a65afe0}{swapping\+Index}} \mbox{[}2\mbox{]}
 \end{DoxyCompactItemize}
 
 
@@ -143,19 +146,25 @@ Nombre d\textquotesingle{}états. \Hypertarget{structGame_ae4bd951ed7cce7f1c9424
 \doxysubsubsection{\texorpdfstring{saved}{saved}}
 {\footnotesize\ttfamily int Game\+::saved}
 
-Indicateur de sauvegarde. \Hypertarget{structGame_ad40f89a1120708699357c341a9f56e4e}\label{structGame_ad40f89a1120708699357c341a9f56e4e} 
-\index{Game@{Game}!speeds@{speeds}}
-\index{speeds@{speeds}!Game@{Game}}
-\doxysubsubsection{\texorpdfstring{speeds}{speeds}}
-{\footnotesize\ttfamily float\texorpdfstring{$\ast$}{*} Game\+::speeds}
+Indicateur de sauvegarde. \Hypertarget{structGame_a02a58acc040d6d014e02832453695ef5}\label{structGame_a02a58acc040d6d014e02832453695ef5} 
+\index{Game@{Game}!speed@{speed}}
+\index{speed@{speed}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{speed}{speed}}
+{\footnotesize\ttfamily int Game\+::speed}
 
-Tableau des vitesses. \Hypertarget{structGame_a2de84fee9a0524573b36b51c1cd15039}\label{structGame_a2de84fee9a0524573b36b51c1cd15039} 
+\Hypertarget{structGame_a2de84fee9a0524573b36b51c1cd15039}\label{structGame_a2de84fee9a0524573b36b51c1cd15039} 
 \index{Game@{Game}!stateHandlers@{stateHandlers}}
 \index{stateHandlers@{stateHandlers}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{stateHandlers}{stateHandlers}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structStateHandler}{State\+Handler}}\texorpdfstring{$\ast$}{*} Game\+::state\+Handlers}
 
-Gestionnaires d\textquotesingle{}état. \Hypertarget{structGame_aa9455d40a57196c6fe96dcf3c20203b3}\label{structGame_aa9455d40a57196c6fe96dcf3c20203b3} 
+Gestionnaires d\textquotesingle{}état. \Hypertarget{structGame_adc1a066a885d3620870682192a65afe0}\label{structGame_adc1a066a885d3620870682192a65afe0} 
+\index{Game@{Game}!swappingIndex@{swappingIndex}}
+\index{swappingIndex@{swappingIndex}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{swappingIndex}{swappingIndex}}
+{\footnotesize\ttfamily int Game\+::swapping\+Index\mbox{[}2\mbox{]}}
+
+\Hypertarget{structGame_aa9455d40a57196c6fe96dcf3c20203b3}\label{structGame_aa9455d40a57196c6fe96dcf3c20203b3} 
 \index{Game@{Game}!threadManager@{threadManager}}
 \index{threadManager@{threadManager}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{threadManager}{threadManager}}

@@ -195,8 +195,9 @@ void destroyScrollingText(ScrollingText* text);
  * Cette fonction passe à la suite un objet de texte défilant avec les paramètres spécifiés.
  * 
  * @param text Un pointeur vers l'objet ScrollingText.
+ * @param renderer Le renderer SDL.
  */
-void skipScrollingText(ScrollingText* text);
+void skipScrollingText(ScrollingText* text, SDL_Renderer* renderer);
 
 /**
  * @brief Nettoie un objet de texte défilant.

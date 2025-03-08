@@ -17,229 +17,2649 @@
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
 [0] [3] Changement d'état : 4
-[0] [3] PV : 32/32
-[0] [3] PV : 140/140
-[0] [3] PV : 229/229
-[0] [3] PV : 64/64
-[0] [3] PV : 70/70
-[0] [3] PV : 48/48
-[0] [3] PV : 66/66
+[0] [3] PV : 244/244
+[0] [3] PV : 129/129
+[0] [3] PV : 89/89
+[0] [3] PV : 61/61
+[0] [3] PV : 40/40
+[0] [3] PV : 56/56
+[0] [3] PV : 49/49
 [0] [3] Changement d'état : 3
 [0] [2] ScrollingText created successfully
-[0] [2] Rendering text: pos(600,420,600,80), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,600,80), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,600,80), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,860,147), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,860,147), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,860,147), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,860,147), bg(864,523,954,209)
 [0] [2] Updating text: 'D'
-[0] [2] Rendering text: pos(600,420,24,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,24,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,24,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,24,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,24,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,24,24), bg(864,523,954,209)
 [0] [2] Updating text: 'D�'
-[0] [2] Rendering text: pos(600,420,48,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,48,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,48,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Dé'
-[0] [2] Rendering text: pos(600,420,48,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,48,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,48,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Déb'
-[0] [2] Rendering text: pos(600,420,72,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,72,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,72,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,72,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,72,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,72,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Débu'
-[0] [2] Rendering text: pos(600,420,96,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,96,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,96,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,96,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,96,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,96,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début'
-[0] [2] Rendering text: pos(600,420,120,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,120,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,120,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,120,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,120,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,120,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,120,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début '
-[0] [2] Rendering text: pos(600,420,144,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,144,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,144,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,144,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,144,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,144,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,144,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début d'
-[0] [2] Rendering text: pos(600,420,168,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,168,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,168,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,168,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,168,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,168,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,168,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du'
-[0] [2] Rendering text: pos(600,420,192,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,192,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,192,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,192,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,192,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,192,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du '
-[0] [2] Rendering text: pos(600,420,216,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,216,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,216,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,216,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,216,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,216,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,216,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du t'
-[0] [2] Rendering text: pos(600,420,240,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,240,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,240,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,240,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,240,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,240,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,240,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du to'
-[0] [2] Rendering text: pos(600,420,264,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,264,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,264,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,264,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,264,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,264,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du tou'
-[0] [2] Rendering text: pos(600,420,288,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,288,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,288,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,288,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,288,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,288,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,288,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du tour'
-[0] [2] Rendering text: pos(600,420,312,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,312,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,312,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,312,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,312,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,312,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,312,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du tour '
-[0] [2] Rendering text: pos(600,420,336,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,336,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,336,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,336,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,336,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,336,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,336,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du tour d'
-[0] [2] Rendering text: pos(600,420,360,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,360,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,360,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,360,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,360,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,360,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,360,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du tour de'
-[0] [2] Rendering text: pos(600,420,384,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,384,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,384,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,384,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,384,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,384,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du tour de '
-[0] [2] Rendering text: pos(600,420,408,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,408,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,408,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,408,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,408,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,408,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,408,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du tour de c'
-[0] [2] Rendering text: pos(600,420,432,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,432,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,432,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,432,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,432,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,432,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du tour de co'
-[0] [2] Rendering text: pos(600,420,456,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,456,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,456,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,456,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,456,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,456,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du tour de com'
-[0] [2] Rendering text: pos(600,420,480,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,480,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,480,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,480,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,480,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,480,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,480,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du tour de comb'
-[0] [2] Rendering text: pos(600,420,504,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,504,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,504,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,504,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,504,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,504,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,504,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du tour de comba'
-[0] [2] Rendering text: pos(600,420,528,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,528,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,528,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,528,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,528,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,528,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,528,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Début du tour de combat'
-[0] [2] Rendering text: pos(600,420,552,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,552,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,552,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,552,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,552,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,552,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,552,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,552,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,552,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,552,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,552,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,552,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,552,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,552,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,552,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,552,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,552,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,552,24), bg(864,523,954,209)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(911,554,24,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,24,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,24,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,24,24), bg(864,523,954,209)
+[0] [2] Updating text: 'De'
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Den'
+[0] [2] Rendering text: pos(911,554,72,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,72,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,72,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,72,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denn'
+[0] [2] Rendering text: pos(911,554,96,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,96,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,96,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,96,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny'
+[0] [2] Rendering text: pos(911,554,120,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,120,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,120,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,120,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny '
+[0] [2] Rendering text: pos(911,554,144,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,144,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,144,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny u'
+[0] [2] Rendering text: pos(911,554,168,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,168,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,168,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,168,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny ut'
+[0] [2] Rendering text: pos(911,554,192,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,192,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,192,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,192,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny uti'
+[0] [2] Rendering text: pos(911,554,216,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,216,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,216,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,216,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny util'
+[0] [2] Rendering text: pos(911,554,240,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,240,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,240,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,240,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utili'
+[0] [2] Rendering text: pos(911,554,264,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,264,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,264,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,264,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilis'
+[0] [2] Rendering text: pos(911,554,288,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,288,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,288,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,288,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise'
+[0] [2] Rendering text: pos(911,554,312,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,312,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,312,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,312,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise '
+[0] [2] Rendering text: pos(911,554,336,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,336,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,336,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,336,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise I'
+[0] [2] Rendering text: pos(911,554,360,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,360,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,360,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,360,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise IC'
+[0] [2] Rendering text: pos(911,554,384,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,384,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,384,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,384,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise IC '
+[0] [2] Rendering text: pos(911,554,408,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,408,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,408,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,408,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise IC C'
+[0] [2] Rendering text: pos(911,554,432,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,432,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,432,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,432,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise IC C '
+[0] [2] Rendering text: pos(911,554,456,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,456,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,456,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,456,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise IC C L'
+[0] [2] Rendering text: pos(911,554,480,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,480,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,480,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,480,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise IC C La'
+[0] [2] Rendering text: pos(911,554,504,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,504,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,504,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,504,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise IC C La '
+[0] [2] Rendering text: pos(911,554,528,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,528,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,528,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,528,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise IC C La D'
+[0] [2] Rendering text: pos(911,554,552,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,552,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,552,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,552,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise IC C La Dr'
+[0] [2] Rendering text: pos(911,554,576,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,576,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,576,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,576,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise IC C La Dri'
+[0] [2] Rendering text: pos(911,554,600,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,600,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,600,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,600,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise IC C La Dril'
+[0] [2] Rendering text: pos(911,554,624,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,624,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,624,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise IC C La Drill'
+[0] [2] Rendering text: pos(911,554,648,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,648,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,648,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,648,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise IC C La Drill '
+[0] [2] Rendering text: pos(911,554,672,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,672,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,672,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,672,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Denny utilise IC C La Drill !'
+[0] [2] Rendering text: pos(911,554,696,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,696,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,696,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,696,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,696,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,696,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,696,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,696,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,696,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,696,24), bg(864,523,954,209)
 [0] [2] Updating text: 'C'
-[0] [2] Rendering text: pos(600,420,24,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,24,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,24,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,24,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,24,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,24,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,24,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Ca'
-[0] [2] Rendering text: pos(600,420,48,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,48,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,48,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,48,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Cal'
-[0] [2] Rendering text: pos(600,420,72,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,72,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,72,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,72,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,72,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,72,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,72,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Cala'
-[0] [2] Rendering text: pos(600,420,96,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,96,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,96,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,96,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,96,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,96,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,96,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Cala''
-[0] [2] Rendering text: pos(600,420,120,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,120,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,120,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,120,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,120,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,120,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,120,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Cala'm'
-[0] [2] Rendering text: pos(600,420,144,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,144,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,144,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,144,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,144,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,144,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Cala'md'
-[0] [2] Rendering text: pos(600,420,168,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,168,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,168,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,168,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,168,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,168,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,168,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Cala'md '
-[0] [2] Rendering text: pos(600,420,192,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,192,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,192,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,192,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,192,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,192,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,192,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Cala'md u'
-[0] [2] Rendering text: pos(600,420,216,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,216,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,216,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,216,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,216,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,216,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,216,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Cala'md ut'
-[0] [2] Rendering text: pos(600,420,240,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,240,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,240,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,240,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,240,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,240,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,240,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Cala'md uti'
-[0] [2] Rendering text: pos(600,420,264,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,264,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,264,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,264,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,264,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,264,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,264,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Cala'md util'
-[0] [2] Rendering text: pos(600,420,288,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,288,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,288,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,288,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,288,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,288,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,288,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Cala'md utili'
-[0] [2] Rendering text: pos(600,420,312,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,312,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,312,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,312,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,312,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,312,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Cala'md utilis'
-[0] [2] Rendering text: pos(600,420,336,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,336,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,336,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,336,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,336,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,336,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Cala'md utilise'
-[0] [2] Rendering text: pos(600,420,360,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,360,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,360,24), bg(580,410,640,100)
+[0] [2] Rendering text: pos(911,554,360,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,360,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,360,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,360,24), bg(864,523,954,209)
 [0] [2] Updating text: 'Cala'md utilise '
-[0] [2] Rendering text: pos(600,420,384,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,384,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,384,24), bg(580,410,640,100)
-[0] [2] Updating text: 'Cala'md utilise Q'
-[0] [2] Rendering text: pos(600,420,408,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,408,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,408,24), bg(580,410,640,100)
-[0] [2] Updating text: 'Cala'md utilise Qu'
-[0] [2] Rendering text: pos(600,420,432,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,432,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,432,24), bg(580,410,640,100)
-[0] [2] Updating text: 'Cala'md utilise Qui'
-[0] [2] Rendering text: pos(600,420,456,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,456,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,456,24), bg(580,410,640,100)
-[0] [2] Updating text: 'Cala'md utilise Quic'
-[0] [2] Rendering text: pos(600,420,480,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,480,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,480,24), bg(580,410,640,100)
-[0] [2] Updating text: 'Cala'md utilise Quick'
-[0] [2] Rendering text: pos(600,420,504,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,504,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,504,24), bg(580,410,640,100)
-[0] [2] Updating text: 'Cala'md utilise Quick '
-[0] [2] Rendering text: pos(600,420,528,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,528,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,528,24), bg(580,410,640,100)
-[0] [2] Updating text: 'Cala'md utilise Quick R'
-[0] [2] Rendering text: pos(600,420,552,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,552,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,552,24), bg(580,410,640,100)
-[0] [2] Updating text: 'Cala'md utilise Quick Ra'
-[0] [2] Rendering text: pos(600,420,576,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,576,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,576,24), bg(580,410,640,100)
-[0] [2] Updating text: 'Cala'md utilise Quick Rag'
-[0] [2] Rendering text: pos(600,420,600,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,600,24), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,600,24), bg(580,410,640,100)
-[0] [2] Updating text: 'Cala'md utilise Quick Rage'
-[0] [2] Rendering text: pos(600,420,600,48), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,600,48), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,600,48), bg(580,410,640,100)
-[0] [2] Updating text: 'Cala'md utilise Quick Rage '
-[0] [2] Rendering text: pos(600,420,600,48), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,600,48), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,600,48), bg(580,410,640,100)
-[0] [2] Updating text: 'Cala'md utilise Quick Rage !'
-[0] [2] Rendering text: pos(600,420,600,48), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,600,48), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,600,48), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,600,48), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,600,48), bg(580,410,640,100)
-[0] [2] Rendering text: pos(600,420,600,48), bg(580,410,640,100)
-[0] [3] Changement d'état : 6
+[0] [2] Rendering text: pos(911,554,384,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,384,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,384,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,384,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Cala'md utilise B'
+[0] [2] Rendering text: pos(911,554,408,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,408,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,408,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,408,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Cala'md utilise Bu'
+[0] [2] Rendering text: pos(911,554,432,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,432,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,432,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,432,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Cala'md utilise Bug'
+[0] [2] Rendering text: pos(911,554,456,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,456,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,456,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Cala'md utilise Bugs'
+[0] [2] Rendering text: pos(911,554,480,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,480,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,480,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,480,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Cala'md utilise Bugs '
+[0] [2] Rendering text: pos(911,554,504,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,504,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,504,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,504,24), bg(864,523,954,209)
+[0] [2] Updating text: 'Cala'md utilise Bugs !'
+[0] [2] Rendering text: pos(911,554,528,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,528,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,528,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,528,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,528,24), bg(864,523,954,209)
+[0] [2] Rendering text: pos(911,554,528,24), bg(864,523,954,209)
+[0] [2] ScrollingText created successfully
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'D�'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Dé'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Déb'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Débu'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début'
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début '
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début d'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du'
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du '
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du t'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du to'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tou'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour '
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour d'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de'
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de '
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de c'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de co'
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de com'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de comb'
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de comba'
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de combat'
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'De'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Den'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denn'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny'
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny '
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny u'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny ut'
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny uti'
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny util'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utili'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilis'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise '
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise I'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC'
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC '
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C '
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C L'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La'
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La '
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La D'
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dr'
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dri'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dril'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill '
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill !'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'C'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Ca'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cal'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala''
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'm'
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md '
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md u'
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md ut'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md uti'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md util'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utili'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilis'
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise '
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise B'
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise Bu'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise Bug'
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise Bugs'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise Bugs '
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise Bugs !'
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] ScrollingText created successfully
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'D�'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Dé'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Déb'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Débu'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début'
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début '
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début d'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du'
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du '
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du t'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du to'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tou'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour '
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour d'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de'
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de '
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de c'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de co'
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de com'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de comb'
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de comba'
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de combat'
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'De'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Den'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denn'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny'
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny '
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny u'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny ut'
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny uti'
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny util'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utili'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilis'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise '
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise I'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC'
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC '
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C '
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C L'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La'
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La '
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La D'
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dr'
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dri'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dril'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill '
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill !'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'C'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Ca'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cal'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala''
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'm'
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md '
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md u'
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md ut'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md uti'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md util'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utili'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilis'
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise '
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise B'
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise Bu'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise Bug'
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise Bugs'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise Bugs '
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Cala'md utilise Bugs !'
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] ScrollingText created successfully
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'D�'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Dé'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Déb'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Débu'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début'
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début '
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début d'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du'
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du '
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du t'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du to'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tou'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour '
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour d'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de'
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de '
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de c'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de co'
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de com'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de comb'
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de comba'
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de combat'
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'De'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Den'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denn'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny'
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny '
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny u'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny ut'
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny uti'
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny util'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utili'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilis'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise '
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise I'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC'
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC '
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C '
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C L'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La'
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La '
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La D'
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dr'
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dri'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dril'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill '
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill !'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] ScrollingText created successfully
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'D�'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Dé'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Déb'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Débu'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début'
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début '
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début d'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du'
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du '
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du t'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du to'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tou'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour '
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour d'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de'
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de '
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de c'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de co'
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de com'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de comb'
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de comba'
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de combat'
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'De'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Den'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denn'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny'
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny '
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny u'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny ut'
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny uti'
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny util'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utili'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilis'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise '
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise I'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC'
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC '
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C '
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C L'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La'
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La '
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La D'
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dr'
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dri'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dril'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill '
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill !'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] ScrollingText created successfully
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'D�'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Dé'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Déb'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Débu'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début'
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début '
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début d'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du'
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du '
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du t'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du to'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tou'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour '
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour d'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de'
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de '
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de c'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de co'
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de com'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de comb'
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de comba'
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de combat'
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'De'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Deb'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debu'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debug'
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debugg'
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy '
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy u'
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy ut'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy uti'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy util'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utili'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilis'
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilise'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilise '
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilise C'
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilise CC'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilise CC '
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilise CC l'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilise CC la'
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilise CC lau'
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilise CC laun'
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilise CC launc'
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilise CC launch'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilise CC launche'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilise CC launcher'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilise CC launcher '
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Debuggy utilise CC launcher !'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'De'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Den'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denn'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny'
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny '
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny u'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny ut'
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny uti'
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny util'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utili'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilis'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise '
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise I'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC'
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC '
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C '
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C L'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La'
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La '
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La D'
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dr'
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dri'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dril'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill '
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill !'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] ScrollingText created successfully
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'D�'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Dé'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Déb'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Débu'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début'
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début '
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début d'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du'
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du '
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du t'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du to'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tou'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour '
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour d'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de'
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de '
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de c'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de co'
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de com'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de comb'
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de comba'
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de combat'
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'De'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Den'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denn'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny'
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny '
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny u'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny ut'
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny uti'
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny util'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utili'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilis'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise '
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise I'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC'
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC '
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C '
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C L'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La'
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La '
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La D'
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dr'
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dri'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Dril'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill '
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny utilise IC C La Drill !'
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,48), bg(579,360,640,144)
+[0] [2] ScrollingText created successfully
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,576,102), bg(579,360,640,144)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'D�'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Dé'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Déb'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Débu'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début'
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début '
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début d'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du'
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du '
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,216,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du t'
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,240,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du to'
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,264,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tou'
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,288,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour'
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,312,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour '
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,336,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour d'
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,360,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de'
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,384,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de '
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,408,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de c'
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,432,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de co'
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,456,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de com'
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,480,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de comb'
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,504,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de comba'
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,528,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Début du tour de combat'
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,552,24), bg(579,360,640,144)
+[0] [2] Updating text: 'D'
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,24,24), bg(579,360,640,144)
+[0] [2] Updating text: 'De'
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,48,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Den'
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,72,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denn'
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,96,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny'
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,120,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny '
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,144,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny u'
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,168,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny ut'
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Rendering text: pos(611,381,192,24), bg(579,360,640,144)
+[0] [2] Updating text: 'Denny uti'
+[0] [2] Updating text: 'Denny util'
+[0] [2] Updating text: 'Denny utili'
+[0] [2] Updating text: 'Denny utilis'
+[0] [2] Updating text: 'Denny utilise'
+[0] [2] Updating text: 'Denny utilise '
+[0] [2] Updating text: 'Denny utilise I'
+[0] [2] Updating text: 'Denny utilise IC'
+[0] [2] Updating text: 'Denny utilise IC '
+[0] [2] Updating text: 'Denny utilise IC C'
+[0] [2] Updating text: 'Denny utilise IC C '
+[0] [2] Updating text: 'Denny utilise IC C L'
+[0] [2] Updating text: 'Denny utilise IC C La'
+[0] [2] Updating text: 'Denny utilise IC C La '
+[0] [2] Updating text: 'Denny utilise IC C La D'
+[0] [2] Updating text: 'Denny utilise IC C La Dr'
+[0] [2] Updating text: 'Denny utilise IC C La Dri'
+[0] [2] Updating text: 'Denny utilise IC C La Dril'
+[0] [2] Updating text: 'Denny utilise IC C La Drill'
+[0] [2] Updating text: 'Denny utilise IC C La Drill '
+[0] [2] Updating text: 'Denny utilise IC C La Drill !'
+[0] [2] Updating text: 'C'
+[0] [2] Updating text: 'Ch'
+[0] [2] Updating text: 'Chr'
+[0] [2] Updating text: 'Chro'
+[0] [2] Updating text: 'Chrom'
+[0] [2] Updating text: 'Chroma'
+[0] [2] Updating text: 'ChromaS'
+[0] [2] Updating text: 'ChromaSo'
+[0] [2] Updating text: 'ChromaSof'
+[0] [2] Updating text: 'ChromaSoft'
+[0] [2] Updating text: 'ChromaSoft '
+[0] [2] Updating text: 'ChromaSoft u'
+[0] [2] Updating text: 'ChromaSoft ut'
+[0] [2] Updating text: 'ChromaSoft uti'
+[0] [2] Updating text: 'ChromaSoft util'
+[0] [2] Updating text: 'ChromaSoft utili'
+[0] [2] Updating text: 'ChromaSoft utilis'
+[0] [2] Updating text: 'ChromaSoft utilise'
+[0] [2] Updating text: 'ChromaSoft utilise '
+[0] [2] Updating text: 'ChromaSoft utilise F'
+[0] [3] Changement d'état : 2
+[0] [2] Updating text: 'ChromaSoft utilise Fr'
+[0] [2] Updating text: 'ChromaSoft utilise Fro'
+[0] [2] Updating text: 'ChromaSoft utilise Fros'
+[0] [2] Updating text: 'ChromaSoft utilise Frost'
+[0] [2] Updating text: 'ChromaSoft utilise FrostB'
+[0] [2] Updating text: 'ChromaSoft utilise FrostBy'
+[0] [2] Updating text: 'ChromaSoft utilise FrostByt'
+[0] [2] Updating text: 'ChromaSoft utilise FrostByte'
+[0] [2] Updating text: 'ChromaSoft utilise FrostByteK'
+[0] [2] Updating text: 'ChromaSoft utilise FrostByteKe'
+[0] [2] Updating text: 'ChromaSoft utilise FrostByteKer'
+[0] [2] Updating text: 'ChromaSoft utilise FrostByteKer '
+[0] [2] Updating text: 'ChromaSoft utilise FrostByteKer !'
+[0] [3] Changement d'état : 7
 [0] [3] Changement d'état : 2
 [0] [3] Changement d'état : 0
 [0] [3] ✅ Musique libérée

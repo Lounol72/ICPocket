@@ -1,9 +1,9 @@
 <map id="BattleState" name="BattleState">
-<area shape="rect" id="Node000001" title="Données de combat." alt="" coords="79,1440,165,1505"/>
+<area shape="rect" id="Node000001" title="Données de combat." alt="" coords="153,1620,262,1765"/>
 <area shape="rect" id="Node000002" href="$da/d63/structt__Team.html" title="La structure t_Team contient tout les attributs nécessaire à la génération et à l&#39;utilisation d&#39;une é..." alt="" coords="61,1044,183,1229"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,1230,117,1377,120,1423,114,1423,111,1377,113,1229"/>
-<area shape="rect" id="Node000007" href="$d5/d48/structAI.html" title=" " alt="" coords="175,1292,240,1377"/>
-<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="164,1228,185,1276,180,1278,159,1230"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,1230,97,1302,92,1385,97,1472,104,1515,115,1556,128,1587,146,1616,141,1619,123,1590,110,1558,99,1516,92,1473,87,1385,91,1302,101,1229"/>
+<area shape="rect" id="Node000007" href="$d5/d48/structAI.html" title=" " alt="" coords="175,1382,240,1467"/>
+<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="152,1229,193,1366,188,1367,147,1230"/>
 <area shape="rect" id="Node000003" href="$d7/d09/structt__Poke.html" title=" " alt="" coords="69,676,175,981"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="125,982,125,1028,119,1028,119,982"/>
 <area shape="rect" id="Node000004" href="$d1/d68/structt__Move.html" title=" " alt="" coords="5,288,132,613"/>
@@ -12,5 +12,7 @@
 <area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="189,605,175,653,173,661,168,659,170,651,184,603"/>
 <area shape="rect" id="Node000006" href="$d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application." alt="" coords="179,5,281,211"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="233,211,233,281,227,281,227,211"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="184,1379,153,1427,148,1424,179,1376"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="210,1467,210,1603,205,1603,205,1467"/>
+<area shape="rect" id="Node000008" href="$d2/db3/structScrollingText.html" title=" " alt="" coords="264,1292,383,1557"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="268,1559,248,1606,243,1604,263,1556"/>
 </map>

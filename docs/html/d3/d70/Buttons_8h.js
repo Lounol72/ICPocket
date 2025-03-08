@@ -18,7 +18,7 @@ var Buttons_8h =
     [ "destroySlider", "d3/d70/Buttons_8h.html#afa394eaa634219089d84e0d91e3a6345", null ],
     [ "destroySliderList", "d3/d70/Buttons_8h.html#abcb6effb395215a5c8d11247edfcaaf2", null ],
     [ "DragCursor", "d3/d70/Buttons_8h.html#ac397d132d59d67574bd320918402f5a2", null ],
-    [ "handleSliderEvent", "d3/d70/Buttons_8h.html#ab2651492b9cdec9f58253f8ba23f25f5", null ],
+    [ "handleSliderEvent", "d3/d70/Buttons_8h.html#a45f0315f0ea8b5ef2e7beec0f31b52da", null ],
     [ "renderButtonList", "d3/d70/Buttons_8h.html#a73fede4267ce18db513f7ea5e430cdca", null ],
     [ "renderSlider", "d3/d70/Buttons_8h.html#a36eeecc07a5e96684859833ad0986c4a", null ],
     [ "renderSliderList", "d3/d70/Buttons_8h.html#a160b73f6e05ac0b81b4fd57a404393f0", null ],
