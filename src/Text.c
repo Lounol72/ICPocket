@@ -24,7 +24,6 @@ static void StayScaled(TTF_Font *font, Text *text, SDL_Rect *rect, SDL_Rect *ini
     return;
 }
 void initText(struct Window *win) {
-    
     const char * const texts[] = {"Lancement de la Nouvelle Partie...", "ICPocket"};
     Text *textObjects[] = {&NewGameText, &title};
     SDL_Rect rects[] = {
@@ -33,69 +32,111 @@ void initText(struct Window *win) {
     };
 
     for (int i = 0; i < 2; i++) {
-        *textObjects[i] = (Text){texts[i], rects[i], rects[i], {255, 255, 255, 255}, win->LargeFont, NULL, NULL, 0};
-        SDL_Surface *textSurface = TTF_RenderText_Solid(win->LargeFont, texts[i], textObjects[i]->color);
-        if (!textSurface) {
-            SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur de rendu du texte : %s", TTF_GetError());
-            exit(EXIT_FAILURE);
+        // Initialiser la structure
+        *textObjects[i] = (Text){
+            .text = texts[i],
+            .rect = rects[i],
+            .initialRect = rects[i],
+            .color = {255, 255, 255, 255},
+            .font = win->LargeFont,
+            .texture = NULL,
+            .is_dynamic = 0
+        };
+
+        // Créer la texture
+        SDL_Surface *tempSurface = TTF_RenderText_Solid(win->LargeFont, texts[i], textObjects[i]->color);
+        if (!tempSurface) {
+            SDL_LogError(SDL_LOG_CATEGORY_RENDER, "❌ Erreur de rendu du texte : %s", TTF_GetError());
+            continue;
         }
-        textObjects[i]->texture = SDL_CreateTextureFromSurface(win->renderer, textSurface);
+
+        textObjects[i]->texture = SDL_CreateTextureFromSurface(win->renderer, tempSurface);
+        SDL_FreeSurface(tempSurface);  // Libérer la surface immédiatement
+
         if (!textObjects[i]->texture) {
-            SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur de création de la texture : %s", SDL_GetError());
-            SDL_FreeSurface(textSurface);
-            exit(EXIT_FAILURE);
+            SDL_LogError(SDL_LOG_CATEGORY_RENDER, "❌ Erreur de création de la texture : %s", SDL_GetError());
+            continue;
         }
-        textObjects[i]->surface = textSurface;
+
+        StayScaled(win->LargeFont, textObjects[i], &textObjects[i]->rect, &textObjects[i]->initialRect);
     }
-    
-    StayScaled(win->LargeFont, &NewGameText, &NewGameText.rect, &NewGameText.initialRect);
-    StayScaled(win->LargeFont, &title, &title.rect, &title.initialRect);
-
-
 }
 
-Text *createText(const char *text,SDL_Renderer *renderer,SDL_Rect rect, SDL_Color color, TTF_Font *font){
-    Text *newText = malloc(sizeof(Text));
-    if (!newText) {
-        SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur d'allocation de mémoire pour le texte.");
+Text *createText(const char *text, SDL_Renderer *renderer, SDL_Rect rect, SDL_Color color, TTF_Font *font) {
+    if (!text || !renderer || !font) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "❌ Paramètres invalides pour createText");
         return NULL;
     }
+
+    Text *newText = calloc(1, sizeof(Text));
+    if (!newText) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "❌ Erreur d'allocation de mémoire pour le texte");
+        return NULL;
+    }
+
+    // Initialiser tous les champs à NULL/0 d'abord
     newText->text = text;
     newText->rect = rect;
     newText->initialRect = rect;
     newText->color = color;
     newText->font = font;
-    newText->surface = TTF_RenderText_Solid(font, text, color);
-    if (!newText->surface) {
-        SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur de rendu du texte : %s", TTF_GetError());
-        free(newText);
-        return NULL;
-    }
-    newText->texture = SDL_CreateTextureFromSurface(renderer, newText->surface);
-    if (!newText->texture) {
-        SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur de création de la texture : %s", SDL_GetError());
-        SDL_FreeSurface(newText->surface);
-        free(newText);
-        return NULL;
-    }
     newText->is_dynamic = 1;
+    newText->surface = NULL;
+    newText->texture = NULL;
+
+    // Créer la surface
+    SDL_Surface *tempSurface = TTF_RenderText_Solid(font, text, color);
+    if (!tempSurface) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "❌ Erreur de rendu du texte : %s", TTF_GetError());
+        free(newText);
+        return NULL;
+    }
+
+    // Créer la texture à partir de la surface temporaire
+    SDL_Texture *tempTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
+    SDL_FreeSurface(tempSurface);  // Libérer la surface immédiatement après création de la texture
+
+    if (!tempTexture) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "❌ Erreur de création de la texture : %s", SDL_GetError());
+        free(newText);
+        return NULL;
+    }
+
+    newText->texture = tempTexture;
     return newText;
 }
 
-void destroyText(Text * text){
-    if (text) {
+void destroyText(Text *text) {
+    if (!text) return;
+
+    // Libérer la texture SDL
         if (text->texture) {
             SDL_DestroyTexture(text->texture);
             text->texture = NULL;
         }
-        if (text->surface) {
-            SDL_FreeSurface(text->surface);
-            text->surface = NULL;
-        }
+
+    // Ne pas libérer le font car il est géré ailleurs
+    text->font = NULL;
+    text->text = NULL;  // Ne pas libérer text->text car c'est une chaîne constante
+
+    // Libérer la structure si elle est dynamique
         if (text->is_dynamic) {
             free(text);
             text = NULL;
-        }
+    }
+}
+// Assurez-vous que cette fonction est appelée dans votre cleanup
+void cleanupText() {
+    // Nettoyer NewGameText
+    if (NewGameText.texture) {
+        SDL_DestroyTexture(NewGameText.texture);
+        NewGameText.texture = NULL;
+    }
+
+    // Nettoyer title
+    if (title.texture) {
+        SDL_DestroyTexture(title.texture);
+        title.texture = NULL;
     }
 }
 
@@ -105,25 +146,31 @@ void renderText(struct Window * win, Text * text){
 }
 
 void updateText(Text *text, const char *newText, SDL_Renderer *renderer) {
-    if (text && newText) {
+    if (!text || !newText || !renderer) return;
+
         text->text = newText;
-        SDL_Surface *newSurface = TTF_RenderText_Solid(text->font, newText, text->color);
-        if (!newSurface) {
-            SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur de rendu du texte : %s", TTF_GetError());
-            return;
-        }
+
+    // Libérer l'ancienne texture d'abord
+    if (text->texture) {
         SDL_DestroyTexture(text->texture);
-        text->texture = SDL_CreateTextureFromSurface(renderer, newSurface);
-        if (!text->texture) {
-            SDL_LogMessage(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_ERROR, "❌ Erreur de création de la texture : %s", SDL_GetError());
-            SDL_FreeSurface(newSurface);
+        text->texture = NULL;
+    }
+
+    // Créer une nouvelle surface temporaire
+    SDL_Surface *tempSurface = TTF_RenderText_Solid(text->font, newText, text->color);
+    if (!tempSurface) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "❌ Erreur de rendu du texte : %s", TTF_GetError());
             return;
         }
-        SDL_FreeSurface(text->surface);
-        text->surface = newSurface;
+
+    // Créer la nouvelle texture
+    text->texture = SDL_CreateTextureFromSurface(renderer, tempSurface);
+    SDL_FreeSurface(tempSurface);  // Libérer la surface immédiatement
+
+    if (!text->texture) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "❌ Erreur de création de la texture : %s", SDL_GetError());
     }
 }
-
 
 void updateTextPosition(Text *text, float scaleX, float scaleY) {
     if (text && text->texture) {
@@ -136,30 +183,40 @@ void updateTextPosition(Text *text, float scaleX, float scaleY) {
     }
 }
 
-void changeTextSpeed(struct Window *win, void *data) {
-    float *speed = (float *)data;
-    win->textSpeed = *speed;
-    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "🚀 Vitesse du texte changée à %.2f", *speed);
-}
-
 ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int charDelay, SDL_Rect backgroundPosition, const char* backgroundPath, SDL_Renderer* renderer) {
-    ScrollingText* scrollText = malloc(sizeof(ScrollingText));
-    if (!scrollText) return NULL;
-
-    scrollText->fullText = strdup(text);
-    if (!scrollText->fullText) {
-        free(scrollText);
+    if (!text || !font || !renderer) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Invalid parameters for createScrollingText");
         return NULL;
     }
 
-    scrollText->currentText = malloc(strlen(text) + 1);
+    ScrollingText* scrollText = calloc(1, sizeof(ScrollingText));
+    if (!scrollText) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to allocate ScrollingText");
+        return NULL;
+    }
+
+    // Copier le texte
+    size_t textLen = strlen(text) + 1;
+    scrollText->fullText = malloc(textLen);
+    if (!scrollText->fullText) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to allocate fullText");
+        free(scrollText);
+        return NULL;
+    }
+    strncpy(scrollText->fullText, text, textLen);
+
+    // Allouer le texte courant
+    scrollText->currentText = malloc(textLen);
     if (!scrollText->currentText) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to allocate currentText");
         free(scrollText->fullText);
         free(scrollText);
         return NULL;
     }
+    scrollText->currentText[0] = '\0';
 
-    scrollText->fullLength = strlen(text);
+    // Initialiser les autres champs
+    scrollText->fullLength = textLen - 1;
     scrollText->currentLength = 0;
     scrollText->isComplete = false;
     scrollText->lastCharTime = SDL_GetTicks();
@@ -168,19 +225,31 @@ ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, 
     scrollText->color = color;
     scrollText->texture = NULL;
 
-    // Stockage de la position du background
+    // Calculate text position relative to background
     scrollText->backgroundPosition = backgroundPosition;
-    // Calcul de la zone de texte : on retire 5 pixels sur chaque côté du background
-    scrollText->position = (SDL_Rect){ backgroundPosition.x + 20, backgroundPosition.y + 10, backgroundPosition.w - 20, backgroundPosition.h - 20 };
-    scrollText->width = backgroundPosition.w - 20;
-    SDL_Surface* surface = IMG_Load(backgroundPath);
-
-    scrollText->background = SDL_CreateTextureFromSurface(renderer, surface);
-    SDL_FreeSurface(surface);
-
+    scrollText->position = (SDL_Rect){
+        backgroundPosition.x + 20,  // 20 pixels margin from left
+        backgroundPosition.y + 10,  // 10 pixels margin from top
+        backgroundPosition.w - 40,  // 20 pixels margin on each side
+        backgroundPosition.h - 20   // 10 pixels margin on top and bottom
+    };
+    scrollText->width = scrollText->position.w;
     scrollText->initialPosition = scrollText->position;
-    scrollText->initialBackgroundPosition = scrollText->backgroundPosition;
-    scrollText->currentText[0] = '\0';
+    scrollText->initialBackgroundPosition = backgroundPosition;
+
+    // Load background
+    SDL_Surface* surface = IMG_Load(backgroundPath);
+    if (!surface) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load background: %s", IMG_GetError());
+    } else {
+        scrollText->background = SDL_CreateTextureFromSurface(renderer, surface);
+        if (!scrollText->background) {
+            SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to create background texture: %s", SDL_GetError());
+        }
+        SDL_FreeSurface(surface);
+    }
+
+    SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "ScrollingText created successfully");
     return scrollText;
 }
 
@@ -208,25 +277,31 @@ void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
             text->currentLength++;
             text->lastCharTime = currentTime;
 
+            // Debug print
+            SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "Updating text: '%s'", text->currentText);
+
             if (text->texture) {
                 SDL_DestroyTexture(text->texture);
                 text->texture = NULL;
             }
             
-            // Augmentons la largeur maximale pour éviter les retours à la ligne non désirés
-            // Utilisons presque toute la largeur de la fenêtre
             SDL_Surface* surface = TTF_RenderUTF8_Blended_Wrapped(
                 text->font,
                 text->currentText,
                 text->color,
-                text->width  // Laissons une marge de 50 pixels de chaque côté
+                text->width
             );
             
             if (surface) {
                 text->texture = SDL_CreateTextureFromSurface(renderer, surface);
+                if (!text->texture) {
+                    SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to create texture: %s", SDL_GetError());
+                }
                 text->position.w = surface->w;
                 text->position.h = surface->h;
                 SDL_FreeSurface(surface);
+            } else {
+                SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to render text: %s", TTF_GetError());
             }
         } else {
             text->isComplete = true;
@@ -235,10 +310,23 @@ void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
 }
 
 void renderScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
-    if (!text || !renderer || !text->texture) return;
-    // On rend d'abord le background, puis le texte par-dessus
-    SDL_RenderCopy(renderer, text->background, NULL, &text->backgroundPosition);
-    SDL_RenderCopy(renderer, text->texture, NULL, &text->position);
+    if (!text || !renderer) return;
+
+    // Debug print to check values
+    SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "Rendering text: pos(%d,%d,%d,%d), bg(%d,%d,%d,%d)", 
+        text->position.x, text->position.y, text->position.w, text->position.h,
+        text->backgroundPosition.x, text->backgroundPosition.y, 
+        text->backgroundPosition.w, text->backgroundPosition.h);
+
+    // Render background first
+    if (text->background) {
+        SDL_RenderCopy(renderer, text->background, NULL, &text->backgroundPosition);
+    }
+
+    // Render text if we have content
+    if (text->texture && text->currentLength > 0) {
+        SDL_RenderCopy(renderer, text->texture, NULL, &text->position);
+    }
 }
 
 void skipScrollingText(ScrollingText* text) {
@@ -249,32 +337,57 @@ void skipScrollingText(ScrollingText* text) {
     text->currentLength = text->fullLength;
     text->isComplete = true;
 }
-void resetScrollingText(ScrollingText* text, char* fullText) {
-    if (!text) return;
-    text->currentLength = 0;
-    text->isComplete = false;
-    // Libérer l'ancienne copie de fullText s'il y en a une
-    text->fullText = strdup(fullText);
+
+
+void resetScrollingText(ScrollingText* text, const char* newText) {
+    if (!text || !newText) return;
+
+    // Sauvegarder les anciens pointeurs
+    char* oldFullText = text->fullText;
+    char* oldCurrentText = text->currentText;
+    SDL_Texture* oldTexture = text->texture;
+
+    // Allouer les nouveaux buffers
+    text->fullText = strdup(newText);
     if (!text->fullText) {
-        // Gérer l'erreur de manière appropriée (logger, etc.)
+        text->fullText = oldFullText;  // Restaurer l'ancien en cas d'échec
         return;
     }
-    if (text->currentText) {
-        free(text->currentText);
-    }
-    text->currentText = malloc(strlen(fullText) + 1);
+
+    text->currentText = malloc(strlen(newText) + 1);
     if (!text->currentText) {
         free(text->fullText);
-        text->fullText = NULL;
+        text->fullText = oldFullText;
+        text->currentText = oldCurrentText;
         return;
     }
-    text->currentText[0] = '\0';
-}
 
+    // Si tout s'est bien passé, libérer les anciens
+    if (oldFullText) {
+        free(oldFullText);
+        oldFullText = NULL;
+    }
+    if (oldCurrentText) {
+        free(oldCurrentText);
+        oldCurrentText = NULL;
+    }
+    if (oldTexture) {
+        SDL_DestroyTexture(oldTexture);
+        oldTexture = NULL;
+    }
+
+    text->texture = NULL;
+    text->currentText[0] = '\0';
+    text->fullLength = strlen(newText);
+    text->currentLength = 0;
+    text->isComplete = false;
+    text->lastCharTime = SDL_GetTicks();
+}
 
 void destroyScrollingText(ScrollingText* text) {
     if (!text) return;
-    
+
+    // Libérer les textures SDL
     if (text->texture) {
         SDL_DestroyTexture(text->texture);
         text->texture = NULL;
@@ -284,11 +397,27 @@ void destroyScrollingText(ScrollingText* text) {
         SDL_DestroyTexture(text->background);
         text->background = NULL;
     }
-    
+
+    // Libérer les chaînes de caractères
+    if (text->fullText) {
+        free(text->fullText);
+        text->fullText = NULL;
+    }
+
     if (text->currentText) {
         free(text->currentText);
         text->currentText = NULL;
     }
-    
+    text->font = NULL;
+    // Libérer la structure elle-même
     free(text);
+    text = NULL;
+}
+
+void cleanupScrollingText(ScrollingText** text) {
+    if (!text || !*text) return;
+    
+    destroyScrollingText(*text);
+    free(*text);
+    *text = NULL;
 }

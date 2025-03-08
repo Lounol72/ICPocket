@@ -73,12 +73,6 @@ void initGame(Window *win) {
     game.currentButton = 0;
     game.saved = 0;
 
-    /* Initialisation des vitesses (par exemple, pour l'animation ou la progression) */
-    game.speeds = malloc(sizeof(float) * 3);
-    game.speeds[0] = 0.5f;
-    game.speeds[1] = 1.0f;
-    game.speeds[2] = 1.5f;
-
     /* Chargement des fonds d'écran pour les différentes pages */
     loadBackground(&game.ui[2].background, win->renderer, "assets/Title Screen/BG.jpg");
     loadBackground(&game.ui[5].background, win->renderer, "assets/Title Screen/LoadGame.png");
@@ -110,6 +104,7 @@ void initGame(Window *win) {
     
     /* Initialisation du système de texte */
     initText(win);
+    game.speed = 50;
 
     /* Chargement et configuration des curseurs */
     game.cursor = IMG_Load("assets/pointer_a.png");
@@ -167,6 +162,23 @@ void destroyGame() {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Musique inter libérée");
     }
 
+    if (game.battleState.text) {
+        cleanupScrollingText(&game.battleState.text);
+        game.battleState.text = NULL;
+    }
+
+    if (game.battleState.bleu.team[0].img) {
+        for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+            destroyICMonsSprite(&game.battleState.bleu.team[i]);
+        }
+    }
+    if (game.battleState.rouge.team[0].img) {
+        for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
+            destroyICMonsSprite(&game.battleState.rouge.team[i]);
+        }
+        
+    }
+
     /* 2) Destruction des éléments de l'interface (UI) */
     if (game.ui) {
         for (int i = 0; i < game.nbMenu; i++) {
@@ -213,14 +225,7 @@ void destroyGame() {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ State handlers libérés");
     }
 
-    /* 6) Libération du tableau de vitesses */
-    if (game.speeds) {
-        free(game.speeds);
-        game.speeds = NULL;
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Speeds libérés");
-    }
-
-    /* 7) Fermeture des polices */
+    /* 6) Fermeture des polices */
     if (game.win->LargeFont) {
         TTF_CloseFont(game.win->LargeFont);
         game.win->LargeFont = NULL;
@@ -242,7 +247,7 @@ void destroyGame() {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ font libéré");
     }
 
-    /* 8) Destruction du renderer et de la fenêtre */
+    /* 7) Destruction du renderer et de la fenêtre */
     if (game.win->renderer) {
         SDL_DestroyRenderer(game.win->renderer);
         game.win->renderer = NULL;
@@ -254,7 +259,7 @@ void destroyGame() {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ window libéré");
     }
 
-    /* 9) Libération des surfaces du curseur */
+    /* 8) Libération des surfaces du curseur */
     if (game.cursor) {
         SDL_FreeSurface(game.cursor);
         game.cursor = NULL;
@@ -266,11 +271,17 @@ void destroyGame() {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ cursor_hover libéré");
     }
 
-    /* 10) Fermeture de l'audio */
+    /* 9) Fermeture de l'audio */
     Mix_CloseAudio();
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ audio libéré");
 
-    /* 11) Quitter les sous-systèmes SDL, IMG et TTF */
+    /* 10) Quitter les sous-systèmes SDL, IMG et TTF */
+    if (game.battleState.text) {
+        destroyScrollingText(game.battleState.text);
+        game.battleState.text = NULL;
+    }
+
+    cleanupText();
     TTF_Quit();
     IMG_Quit();
     SDL_Quit();

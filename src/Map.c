@@ -13,7 +13,7 @@ static void initCollisionMap(Map *map) {
         }
     }
 }
-
+/*
 static void loadNewMap(Map **map, const char *newMapPath) {
     destroyMap(*map);
     *map = initMap((*map)->renderer, newMapPath);
@@ -21,7 +21,7 @@ static void loadNewMap(Map **map, const char *newMapPath) {
         printf("Erreur chargement nouvelle map\n");
         return;
     }
-}
+}*/
 
 static void initCollisionMapFromCSV(Map *map, const char *path) {
     char separator = ',';

@@ -114,7 +114,7 @@ typedef struct Game {
     StateHandler *stateHandlers; /**< Gestionnaires d'état. */
     int nbStates;             /**< Nombre d'états. */
     Window *win;               /**< Pointeur vers la fenêtre du jeu. */
-    float *speeds;             /**< Tableau des vitesses. */
+    int speed;
     int FPS;                   /**< Images par seconde. */
     int frameDelay;            /**< Délai entre les images. */
     int frameStart;            /**< Début de la trame. */

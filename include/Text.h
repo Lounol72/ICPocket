@@ -47,6 +47,7 @@ typedef struct {
     TTF_Font* font;          // Police utilisée
     SDL_Color color;         // Couleur du texte
     int width;               // Largeur du texte
+    int isValid;
 } ScrollingText;
 
 /** Éléments de texte globaux utilisés dans l'application. */
@@ -128,6 +129,13 @@ void updateText(Text *text, const char *newText, SDL_Renderer *renderer);
 void changeTextSpeed(Window *win, void *data);
 
 /**
+ * @brief Nettoie les objets texte.
+ * 
+ * Cette fonction nettoie les objets texte utilisés dans l'application.
+ */
+void cleanupText();
+
+/**
  * @brief Crée un nouvel objet de texte défilant.
  * 
  * Cette fonction crée un nouvel objet de texte défilant avec les paramètres spécifiés.
@@ -169,9 +177,9 @@ void renderScrollingText(ScrollingText* text, SDL_Renderer* renderer);
  * Cette fonction réinitialise un objet de texte défilant avec les paramètres spécifiés.
  * 
  * @param text Un pointeur vers l'objet ScrollingText.
- * @param fullText Le texte complet à afficher.
+ * @param newText Le nouveau texte à afficher.
  */
-void resetScrollingText(ScrollingText* text, char* fullText);
+void resetScrollingText(ScrollingText* text, const char* newText);
 /**
  * @brief Détruit un objet de texte défilant.
  * 
@@ -189,5 +197,14 @@ void destroyScrollingText(ScrollingText* text);
  * @param text Un pointeur vers l'objet ScrollingText.
  */
 void skipScrollingText(ScrollingText* text);
+
+/**
+ * @brief Nettoie un objet de texte défilant.
+ * 
+ * Cette fonction nettoie un objet de texte défilant avec les paramètres spécifiés.
+ * 
+ * @param text Un pointeur vers l'objet ScrollingText.
+ */
+void cleanupScrollingText(ScrollingText** text);
 
 #endif /* TEXT_H */

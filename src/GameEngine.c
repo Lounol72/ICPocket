@@ -244,6 +244,11 @@ void attqButtonClicked(Window *win, void *data) {
     }
 }
 
+void changeTextSpeed(Window *win, void *data) {
+    (void)win;
+    game.speed = (int)(intptr_t)data;
+}
+
 /**
  * @brief Change le pokémon actif lors d'un échange.
  *
@@ -310,6 +315,9 @@ void nextDuel(Window *win, void *data) {
     sauvegarder("Save_1", &game.battleState.rouge, &game.battleState.bleu);
     healTeam(&game.battleState.rouge);
     initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
+    game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
+    if (initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1) != 0)
+            return;
     updateICButtons(win, &game.battleState.rouge);
     changeState(win, &game.stateHandlers[3].state);
 }
@@ -425,19 +433,19 @@ void initAllButtons(Window *win)
     buttonsParam[0] = createButton(
         "  0.5  ", win, (SDL_Rect){100, 200, 200, 50},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, &game.speeds[0], win->LargeFont,
+        changeTextSpeed, (void*)(intptr_t)25, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsParam[1] = createButton(
         "  1  ", win, (SDL_Rect){400, 200, 200, 50},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, &game.speeds[1], win->LargeFont,
+        changeTextSpeed, (void*)(intptr_t)50, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsParam[2] = createButton(
         "  1.5  ", win, (SDL_Rect){700, 200, 200, 50},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, &game.speeds[2], win->LargeFont,
+        changeTextSpeed, (void*)(intptr_t)100, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsParam[3] = createButton(
@@ -784,8 +792,7 @@ void startBattleTurn(int moveRouge, int moveBleu) {
     game.battleState.first = PriorityForFirstPoke(&game.battleState.rouge, &game.battleState.bleu, moveRouge==STRUGGLE?&struggle:&(game.battleState.rouge.team[0].moveList[moveRouge]), moveBleu==STRUGGLE?&struggle:&(game.battleState.bleu.team[0].moveList[moveBleu]), moveRouge, moveBleu);
     // Si un texte défilant existait déjà, on le détruit pour repartir de zéro.
     if (game.battleState.text) {
-        destroyScrollingText(game.battleState.text);
-        game.battleState.text = NULL;
+        cleanupScrollingText(&game.battleState.text);
     }
     game.battleState.turnState = TURN_INIT;
 }
@@ -801,7 +808,7 @@ void updateBattleTurn() {
                     msg,
                     game.win->LargeFont,
                     (SDL_Color){255, 255, 255, 255},
-                    50,     // Délai entre les caractères en ms
+                    game.speed,     // Délai entre les caractères en ms
                     (SDL_Rect){game.win->width  - 700, game.win->height - marginBottom - 110, 640, 100}, // Fond du texte
                     "assets/User Interface/Grey/button_rectangle_depth_flat.png", // Chemin de l'image de fond
                     game.win->renderer

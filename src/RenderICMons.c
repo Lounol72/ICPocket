@@ -187,6 +187,7 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
 
     return img;
 }
+
 static void updatePVBar(t_Poke *poke) {
     if (!poke || !poke->img) return;
     
@@ -283,7 +284,10 @@ void destroyICMonsSprite(t_Poke *poke) {
         SDL_DestroyTexture(poke->img->nameTexture);
     if (poke->img->LvlText)
         destroyText(poke->img->LvlText);
-    destroyText(poke->img->PVText);
+    if (poke->img->PVText)
+        destroyText(poke->img->PVText);
+    
+        
     Mix_FreeChunk(poke->img->ICMonSound);
     free(poke->img);
     poke->img = NULL;
