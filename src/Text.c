@@ -285,9 +285,6 @@ void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
             text->currentLength++;
             text->lastCharTime = currentTime;
 
-            // Debug print
-            SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "Updating text: '%s'", text->currentText);
-
             if (text->texture) {
                 SDL_DestroyTexture(text->texture);
                 text->texture = NULL;
@@ -319,13 +316,6 @@ void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
 
 void renderScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
     if (!text || !renderer) return;
-
-    // Debug print to check values
-    SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "Rendering text: pos(%d,%d,%d,%d), bg(%d,%d,%d,%d)", 
-        text->position.x, text->position.y, text->position.w, text->position.h,
-        text->backgroundPosition.x, text->backgroundPosition.y, 
-        text->backgroundPosition.w, text->backgroundPosition.h);
-
     // Render background first
     if (text->background) {
         SDL_RenderCopy(renderer, text->background, NULL, &text->backgroundPosition);
