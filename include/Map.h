@@ -6,6 +6,8 @@
 #define TILE_SIZE_W_SCALE 40
 #define TILE_SIZE_H_SCALE 36
 
+
+
 #define AIR 0
 #define COLLISION 1
 

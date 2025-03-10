@@ -247,13 +247,15 @@ ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, 
     SDL_Surface* surface = IMG_Load(backgroundPath);
     if (!surface) {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to load background: %s", IMG_GetError());
-    } else {
-        scrollText->background = SDL_CreateTextureFromSurface(renderer, surface);
-        if (!scrollText->background) {
-            SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to create background texture: %s", SDL_GetError());
-        }
-        SDL_FreeSurface(surface);
+        return NULL;
     }
+    scrollText->background = SDL_CreateTextureFromSurface(renderer, surface);
+    if (!scrollText->background) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to create background texture: %s", SDL_GetError());
+        SDL_FreeSurface(surface);
+        return NULL;
+    }
+    SDL_FreeSurface(surface);
 
     SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, "ScrollingText created successfully");
     return scrollText;

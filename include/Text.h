@@ -13,6 +13,7 @@
  */
 
 typedef struct Window Window;
+
 /**
  * @struct Text
  * @brief Représente un élément de texte dans l'application.
