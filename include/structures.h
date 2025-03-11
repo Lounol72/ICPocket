@@ -12,7 +12,7 @@
 extern float typeChart[typeNumber][typeNumber];
 
 typedef enum{status=-1,physical=1,special=3} t_Categ;
-typedef enum{noType=0,feu,plante,eau} t_Type;
+typedef enum{noType=0,feu,plante,eau,electrique,malware,data,net} t_Type;
 typedef enum{male = 0,female} t_Gender;
 typedef enum{noEffect = 0,burn,poison,paralyze,flinch,confusion} t_Effect;
 
