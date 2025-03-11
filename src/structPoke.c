@@ -73,6 +73,15 @@ void generate_poke(t_Poke *p, int line)
 	}
 }
 
+int generatelvl(t_Team * joueur){
+	int min,max;
+	if(joueur->nb_enemiBeat<3){min = 3 ; max = 5;}
+	else if(joueur->nb_enemiBeat<6){min = 5 ; max = 20;}
+	else if(joueur->nb_enemiBeat<10){min = 10 ; max = 50;}
+	else if(joueur->nb_enemiBeat<15){min = 50 ; max = 60;}
+	else{min = 60; max = 99;}
+	return min + rand()%(max-min+1);
+}
 
 void generate_poke_enemi(t_Poke *p, int line,t_Team * joueur)
 {
@@ -100,9 +109,7 @@ void generate_poke_enemi(t_Poke *p, int line,t_Team * joueur)
 		p->type[0] = rand() % (typeNumber-1) + 1;
 		p->type[1] = rand() % typeNumber;
 		
-		p->lvl = (7+5*joueur->nb_enemiBeat) + rand() % ((15+5*joueur->nb_enemiBeat+(joueur->nb_enemiBeat>=3)*5)-(7*5*joueur->nb_enemiBeat)+1) ;
-		p->exp = expCurve(p->lvl); 
-
+		p->lvl = generatelvl(joueur);
 		//IV et Moves
 		for (int i = 0; i < 6; i++)
 			p->iv[i] = rand() % 32;

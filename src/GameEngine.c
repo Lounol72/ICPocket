@@ -323,6 +323,7 @@ void nextDuel(Window *win, void *data) {
     
     // Soigner et réinitialiser
     healTeam(&game.battleState.rouge);
+    game.battleState.rouge.nb_enemiBeat++;
     initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
     
     // Réinitialiser l'IA

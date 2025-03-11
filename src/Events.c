@@ -404,7 +404,7 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
     if (!game.gameState.initialized) {
         initData();
         initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
-        charger("Save_1", &game.battleState.rouge, &game.battleState.bleu);
+        charger("Save_2", &game.battleState.rouge, &game.battleState.bleu);
         game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
         
         if (initTeamSprites(win, &game.battleState.rouge, RED_SPRITE_X_RATIO, RED_SPRITE_Y_RATIO, 0) != 0)
