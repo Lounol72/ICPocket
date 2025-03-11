@@ -907,6 +907,16 @@ void updateBattleTurn() {
             updateICButtons(game.win, &game.battleState.rouge);
             if(!isAlive(&game.battleState.rouge.team[0]) && isTeamAlive(&game.battleState.rouge)) changeState(game.win, &game.stateHandlers[6].state);
             if (!isAlive(&(game.battleState.bleu.team[0]))) gainExp(&game.battleState.rouge, &game.battleState.bleu.team[0]);
+            if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {
+                int nb_valide = 0;
+                int liste_valide[game.battleState.bleu.nb_poke];
+                for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+                    if (isAlive(&game.battleState.bleu.team[i]))
+                        liste_valide[nb_valide++] = i + 10;
+                }
+                int x = rand() % nb_valide;
+                swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
+            }
             if(!isAlive(&game.battleState.bleu.team[0]) &&  !isTeamAlive(&game.battleState.bleu)) changeState(game.win, &game.stateHandlers[7].state);
             destroyScrollingText(game.battleState.text);
             game.battleState.text = NULL;
@@ -929,10 +939,12 @@ void executeAction(t_Team *attacker, t_Team *defender, int move) {
     char msg[50] = "";
     // Si le Pokémon n'a plus de PP et qu'il attaque, forcer l'utilisation de Lutte.
     if (!hasMoveLeft(&(attacker->team[0])) && isAttacking(move)) {
+        printf("Lutte\n");
         move = STRUGGLE;
         sprintf(msg, "%s utilise Lutte !", attacker->team[0].name);
         resetScrollingText(game.battleState.text, msg);
         // Vous pouvez appliquer les dégâts de Lutte ici ou dans une étape ultérieure
+        affectDamage(attacker, defender, move);
         return;
     }
 

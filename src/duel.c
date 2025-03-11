@@ -270,19 +270,19 @@ int affectDamage(t_Team * offender, t_Team * defender, int indexMove){
 	}
 	
 
-	int targetedStatOff=moveToDo->categ; //différenciation attaque/attaque spéciale
-	int targetedStatDef=targetedStatOff==ATT?DEF:SPD;
+	//int targetedStatOff=moveToDo->categ; //différenciation attaque/attaque spéciale
+	//int targetedStatDef=targetedStatOff==ATT?DEF:SPD;
 
 	if(!accuracyCheck(moveToDo->accuracy)){
 		printf("%s rate son attaque (%d precision)\n",offender->team[0].name,moveToDo->accuracy);
 		if (!(indexMove<0)) (moveToDo->current_pp)--;
 		return FALSE;
 	}
-	printf("Attaque subis d'une puissance de %d\n avec une attaque de %d\ncontre une defence de %d\n",moveToDo->power,(int)(calcStatFrom(&(offender->team[0]),targetedStatOff) * statVariations[offender->statChanges[targetedStatOff]])
-	,(int)(calcStatFrom(&(defender->team[0]),targetedStatDef) * statVariations[defender->statChanges[targetedStatDef]]));
+	//printf("Attaque subis d'une puissance de %d\n avec une attaque de %d\ncontre une defence de %d\n",moveToDo->power,(int)(calcStatFrom(&(offender->team[0]),targetedStatOff) * statVariations[offender->statChanges[targetedStatOff]])
+	//,(int)(calcStatFrom(&(defender->team[0]),targetedStatDef) * statVariations[defender->statChanges[targetedStatDef]]));
 	int damage=calcDamage(offender,defender,moveToDo);
 	if(isStruggling(indexMove)) printf("LUTTE\n");
-	printf("Dégats = %d\n",damage);
+	//printf("Dégats = %d\n",damage);
 	defender->team[0].current_pv=defender->team[0].current_pv>damage?(int)(defender->team[0].current_pv - damage):0;
 	if (!(indexMove<0)) (moveToDo->current_pp)--;
 	launchSecEffect(offender,defender,moveToDo);

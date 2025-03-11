@@ -372,7 +372,7 @@ void handleNewGameEvent(Window *win, SDL_Event *event) {
             return;
         if (initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1) != 0)
             return;
-
+        
         updateICButtons(win, &game.battleState.rouge);
         
         game.gameState.initialized = 1;

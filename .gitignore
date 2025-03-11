@@ -24,7 +24,8 @@
 *.tar.gz
 
 src/data/save/Save_*.txt
-bin/
+bin/*
+
 
 *.Identifier
 *.log
