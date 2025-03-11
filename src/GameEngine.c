@@ -312,13 +312,31 @@ void validateSwap(Window *win, void *data) {
 void nextDuel(Window *win, void *data) {
     (void)win;
     (void)data;
+
+    // Arrêter tous les sons avant de sauvegarder
+    Mix_HaltChannel(-1);
+    Mix_HaltMusic();
+
+    // Sauvegarder l'état
     sauvegarder("Save_1", &game.battleState.rouge, &game.battleState.bleu);
+    
+    // Soigner et réinitialiser
     healTeam(&game.battleState.rouge);
     initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
+    
+    // Réinitialiser l'IA
     game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
-    if (initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1) != 0)
-            return;
+    
+    // Initialiser les sprites avec vérification d'erreur
+    if (initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1) != 0) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur lors de l'initialisation des sprites");
+        return;
+    }
+    
+    // Mettre à jour l'interface
     updateICButtons(win, &game.battleState.rouge);
+    
+    // Changer d'état
     changeState(win, &game.stateHandlers[3].state);
 }
 
@@ -471,7 +489,7 @@ void initAllButtons(Window *win)
     buttonsLoadGame[0] = createButton(
         " Save 1 ", win, (SDL_Rect){500, 104, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[2].state, win->LargeFont,
+        changeState, &game.stateHandlers[4].state, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsLoadGame[1] = createButton(
@@ -809,7 +827,8 @@ void updateBattleTurn() {
                     game.win->LargeFont,
                     (SDL_Color){255, 255, 255, 255},
                     game.speed,     // Délai entre les caractères en ms
-                    (SDL_Rect){game.win->width * 0.4531, game.win->height *0.5, game.win->width * 0.5, game.win->height * 0.2}, // Fond du texte
+                    (SDL_Rect){game.win->width * 0.4531, game.win->height *0.5
+                    , game.win->width * 0.5, game.win->height * 0.2}, // Fond du texte
                     "assets/User Interface/Grey/button_rectangle_depth_flat.png", // Chemin de l'image de fond
                     game.win->renderer
                 );
@@ -847,6 +866,7 @@ void updateBattleTurn() {
                 game.battleState.hasAttacked = true;
             }
             if (game.battleState.text->isComplete) {
+                game.battleState.text->isComplete = false;
                 game.battleState.turnState = TURN_ACTION2;
                 game.battleState.hasAttacked = false;
             }
