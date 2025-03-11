@@ -283,7 +283,7 @@ int affectDamage(t_Team * offender, t_Team * defender, int indexMove){
 	int damage=calcDamage(offender,defender,moveToDo);
 	if(isStruggling(indexMove)) printf("LUTTE\n");
 	printf("Dégats = %d\n",damage);
-	defender->team[0].current_pv=defender->team[0].current_pv>damage?defender->team[0].current_pv - damage:0;
+	defender->team[0].current_pv=defender->team[0].current_pv>damage?(int)(defender->team[0].current_pv - damage):0;
 	if (!(indexMove<0)) (moveToDo->current_pp)--;
 	launchSecEffect(offender,defender,moveToDo);
 	return TRUE;

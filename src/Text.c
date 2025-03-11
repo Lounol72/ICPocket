@@ -342,7 +342,7 @@ void skipScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
     }
 
     // Créer la nouvelle texture pour le texte complet
-    SDL_Surface* surface = TTF_RenderUTF8_Blended_Wrapped(
+    SDL_Surface* surface = TTF_RenderText_Blended_Wrapped(
         text->font,
         text->currentText,
         text->color,

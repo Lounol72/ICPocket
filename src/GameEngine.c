@@ -734,7 +734,7 @@ void updateICButtons(Window *win, t_Team *team) {
             setButtonText(game.ui[3].buttons->buttons[i], "  ", win->renderer);
         }
     }
-    if (game.gameState.currentState == NEWGAME || game.gameState.currentState == LOADGAME)
+    if (game.gameState.currentState == NEWGAME || game.gameState.currentState == LOADGAME || game.gameState.currentState == GAME)
         updateICMonsButtonText(win, &game.battleState.rouge, 6, 6);
 }
 
