@@ -1,13 +1,17 @@
 #include "../include/structPoke.h"
 
 t_Nature tabNature[25];
-float typeChart[typeNumber][typeNumber]={
-				/*defender*/
-	/*offender*//*noType	feu		plante	eau*/
-	/*notype*/		{1.,		1.,		1.,		1.},
-	/*feu*/			{1.,		0.5,	2.,		0.5},
-	/*plante*/		{1.,		0.5,	0.5,	2.},
-	/*eau*/			{1.,		2.,		0.5,	0.5}
+float typeChart[typeNumber][typeNumber] = {
+    /*defender*/
+    /*offender*//*noType  feu     plante   eau     electrique  malware  data    net*/
+    /*notype*/  {1.,     1.,     1.,     1.,     1.,         1.,      1.,     1.},
+    /*feu*/     {1.,     0.5,    2.,     0.5,    1.,         2,       0.5,    2.},
+    /*plante*/  {1.,     0.5,    0.5,    2.,     1.,         0.5,     2.,     1.},
+    /*eau*/     {1.,     2.,     0.5,    0.5,    1.,         1.,      2.,     1.},
+    /*electrique*/ {1.,  1.,     1.,     1.,     0.5,        2.,      2.,     2.},
+    /*malware*/ {1.,     0.5,    2.,     1.,     0.5,        2.,      2.,     2.},
+    /*data*/    {1.,     2.,     0.5,    0.5,    0.5,        0.5,     0.,     2.},
+    /*net*/     {1.5,    1.5,    1.5,    1.5,    1.5,        1.5,     1.5,    0.}
 };
 
 

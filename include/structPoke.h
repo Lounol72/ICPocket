@@ -30,7 +30,6 @@
 #define TRUE 1
 #define FALSE 0
 
-#define typeNumber 4
 
 /**
 *@brief Generate a Icmon from a given id in the dataPoke.csv file

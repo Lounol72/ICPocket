@@ -7,7 +7,7 @@
 #include <string.h>
 
 
-#define typeNumber 4
+#define typeNumber 8
 
 extern float typeChart[typeNumber][typeNumber];
 
