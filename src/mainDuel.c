@@ -1,8 +1,6 @@
-#include "../include/structPoke.h"
+
 #include "../include/duel.h"
-#include "../include/trainerAI.h"
-#include "../include/interDuel.h"
-#include "../include/save.h"
+
 
 int main(){
 	initData();

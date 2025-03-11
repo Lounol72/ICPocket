@@ -1,16 +1,15 @@
 <map id="src/Map.c" name="src/Map.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="209,5,293,31"/>
-<area shape="rect" id="Node000002" href="$df/d79/Map_8h.html" title=" " alt="" coords="53,79,179,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,33,151,74,149,70,228,28"/>
-<area shape="rect" id="Node000004" href="$dd/de4/Camera_8h.html" title="Gestion de la caméra pour le défilement de la vue du jeu." alt="" coords="173,152,259,177"/>
-<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="250,32,225,139,219,138,245,30"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="253,79,320,104"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="259,30,277,65,272,68,254,32"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="345,79,415,104"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="273,28,348,69,345,74,270,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="225,5,309,31"/>
+<area shape="rect" id="Node000002" href="$df/d79/Map_8h.html" title=" " alt="" coords="84,79,209,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,33,180,74,177,69,246,28"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="233,79,300,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="269,31,269,65,264,65,264,31"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="325,79,395,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="283,29,336,68,332,72,280,33"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="5,152,149,177"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="112,106,92,141,88,139,107,103"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="134,102,190,142,187,146,131,106"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="137,106,100,144,96,140,133,102"/>
+<area shape="rect" id="Node000004" href="$dd/de4/Camera_8h.html" title="Gestion de la caméra pour le défilement de la vue du jeu." alt="" coords="173,152,259,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="160,102,197,140,193,144,156,106"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="168,225,264,251"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="219,178,219,212,213,212,213,178"/>
 </map>

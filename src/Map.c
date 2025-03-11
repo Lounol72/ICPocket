@@ -1,5 +1,4 @@
 #include "../include/Map.h"
-#include "../include/Camera.h"
 #include <stdio.h>
 #include <string.h>
 

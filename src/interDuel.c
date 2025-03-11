@@ -1,4 +1,4 @@
-#include "../include/structPoke.h"
+
 #include "../include/interDuel.h"
 
 void healTeam(t_Team * t){
