@@ -8,7 +8,7 @@ var searchData=
   ['makewindowwindowed_5',['makeWindowWindowed',['../d5/d81/GameEngine_8c.html#afebb7c43646aae14210881f147faed62',1,'GameEngine.c']]],
   ['male_6',['male',['../dd/da3/structures_8h.html#af85da7ebd9ff08847f7abd0ef9cc0d6fadf25e9c17aa25418942eca3003c33410',1,'structures.h']]],
   ['manageframerate_7',['manageframerate',['../d7/d1f/GameEngine_8h.html#a6ed42cf8883eef51f3764c8587d7bc59',1,'manageFrameRate(int frameStart):&#160;GameEngine.c'],['../d5/d81/GameEngine_8c.html#a6ed42cf8883eef51f3764c8587d7bc59',1,'manageFrameRate(int frameStart):&#160;GameEngine.c']]],
-  ['map_8',['map',['../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea4cafa5feda04184537b4d7d346e1e89b',1,'MAP:&#160;Window.h'],['../df/d79/Map_8h.html#a767ff9e0c58d27b070f30636b66d2603',1,'Map:&#160;Map.h'],['../d4/d6e/structGameData.html#a0b0ac33efff9cff849b67e07e725ceb7',1,'GameData::map'],['../da/ddc/structMap.html',1,'Map']]],
+  ['map_8',['map',['../df/d79/Map_8h.html#a767ff9e0c58d27b070f30636b66d2603',1,'Map:&#160;Map.h'],['../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea4cafa5feda04184537b4d7d346e1e89b',1,'MAP:&#160;Window.h'],['../d4/d6e/structGameData.html#a0b0ac33efff9cff849b67e07e725ceb7',1,'GameData::map'],['../da/ddc/structMap.html',1,'Map']]],
   ['map_2ec_9',['Map.c',['../dc/df2/Map_8c.html',1,'']]],
   ['map_2eh_10',['Map.h',['../df/d79/Map_8h.html',1,'']]],
   ['map_5fheight_11',['MAP_HEIGHT',['../df/d79/Map_8h.html#a529d5ebb449edf31d9835d13f4fb9f89',1,'Map.h']]],

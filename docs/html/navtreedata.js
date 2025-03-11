@@ -61,7 +61,7 @@ var NAVTREEINDEX =
 "annotated.html",
 "d4/d6e/structGameData.html",
 "d8/de4/structUI__Elements.html#a81dd7be9de23fa9878fe34cdef448ce7",
-"de/de9/structGame.html#aa9455d40a57196c6fe96dcf3c20203b3"
+"de/de9/structGame.html#a911428bfef2d00d5ece40210d3488fdb"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';

@@ -1,12 +1,12 @@
 <map id="src/Game.c" name="src/Game.c">
 <area shape="rect" id="Node000001" title="Initialisation du jeu, de ses interfaces et ressources." alt="" coords="889,5,984,31"/>
-<area shape="rect" id="Node000002" href="$d3/d5f/Game_8h.html" title=" " alt="" coords="869,79,1005,104"/>
+<area shape="rect" id="Node000002" href="$d3/d5f/Game_8h.html" title="Gestion des backgrounds, Initialisation de la structure globale." alt="" coords="869,79,1005,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="939,31,939,65,934,65,934,31"/>
 <area shape="rect" id="Node000003" href="$d8/daa/Audio_8h.html" title="Gestion de l&#39;audio pour l&#39;application." alt="" coords="121,299,192,324"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="893,107,439,228,206,297,204,292,437,223,891,101"/>
 <area shape="rect" id="Node000007" href="$d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="878,152,995,177"/>
 <area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="932,104,931,139,925,138,927,104"/>
-<area shape="rect" id="Node000004" href="$d1/d45/Log_8h.html" title=" " alt="" coords="5,372,63,397"/>
+<area shape="rect" id="Node000004" href="$d1/d45/Log_8h.html" title="Initialisation des fonctions de logs." alt="" coords="5,372,63,397"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="138,326,67,367,64,363,136,322"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="87,372,226,397"/>
 <area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="159,324,159,358,154,358,154,324"/>
@@ -25,7 +25,7 @@
 <area shape="poly" id="edge38_Node000007_Node000026" title=" " alt="" coords="887,180,677,228,676,223,886,175"/>
 <area shape="rect" id="Node000029" href="$d0/daa/ThreadManager_8h.html" title=" " alt="" coords="739,225,873,251"/>
 <area shape="poly" id="edge44_Node000007_Node000029" title=" " alt="" coords="917,180,840,221,838,216,914,175"/>
-<area shape="rect" id="Node000031" href="$d0/dbb/Events_8h.html" title=" " alt="" coords="897,225,976,251"/>
+<area shape="rect" id="Node000031" href="$d0/dbb/Events_8h.html" title="Gestion des Events SDL." alt="" coords="897,225,976,251"/>
 <area shape="poly" id="edge47_Node000007_Node000031" title=" " alt="" coords="932,178,931,212,925,212,927,178"/>
 <area shape="rect" id="Node000032" href="$d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="1001,225,1129,251"/>
 <area shape="poly" id="edge49_Node000007_Node000032" title=" " alt="" coords="952,175,1026,217,1024,221,949,180"/>

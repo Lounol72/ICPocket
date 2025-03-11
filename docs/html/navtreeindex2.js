@@ -174,10 +174,11 @@ var NAVTREEINDEX2 =
 "dc/df2/Map_8c.html":[7,0,1,10],
 "dc/df2/Map_8c.html#a2d3b5b6a74e6800de411e1edf7dfea2e":[7,0,1,10,5],
 "dc/df2/Map_8c.html#a55235be5591748a7d94545201c4c38e9":[7,0,1,10,4],
+"dc/df2/Map_8c.html#a56144043f25293da2babe07a60bfc9e7":[7,0,1,10,6],
 "dc/df2/Map_8c.html#a64df896c814cef549bef88fcd20d9a67":[7,0,1,10,2],
 "dc/df2/Map_8c.html#a6a8408146457cc93ec3694e180bb5574":[7,0,1,10,1],
-"dc/df2/Map_8c.html#a9903966da30d78752ca378caa3cb5dc5":[7,0,1,10,6],
-"dc/df2/Map_8c.html#addb7cea9964f63947c5e882c547d3d7d":[7,0,1,10,7],
+"dc/df2/Map_8c.html#a9903966da30d78752ca378caa3cb5dc5":[7,0,1,10,7],
+"dc/df2/Map_8c.html#addb7cea9964f63947c5e882c547d3d7d":[7,0,1,10,8],
 "dc/df2/Map_8c.html#ae0656f1ed1c85e750b8bc65bd7269f62":[7,0,1,10,0],
 "dc/df2/Map_8c.html#af343dab826c94212a244fd86760ebd0b":[7,0,1,10,3],
 "dd/d1a/structIMG__ICMons.html":[6,0,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "de/de9/structGame.html#a4573dd85e0711a78cc27eb0b51c79f44":[6,0,5,9],
 "de/de9/structGame.html#a57b1ff7ca0dabafbf59df1c64f00558a":[6,0,5,6],
 "de/de9/structGame.html#a718b25063a2b739e7fd0c886c2509269":[6,0,5,2],
-"de/de9/structGame.html#a8368793aa6f05e1a40a64eab95757bf5":[6,0,5,3],
-"de/de9/structGame.html#a911428bfef2d00d5ece40210d3488fdb":[6,0,5,10]
+"de/de9/structGame.html#a8368793aa6f05e1a40a64eab95757bf5":[6,0,5,3]
 };

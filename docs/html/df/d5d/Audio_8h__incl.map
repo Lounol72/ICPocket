@@ -1,6 +1,6 @@
 <map id="include/Audio.h" name="include/Audio.h">
 <area shape="rect" id="Node000001" title="Gestion de l&#39;audio pour l&#39;application." alt="" coords="53,5,176,31"/>
-<area shape="rect" id="Node000002" href="$d1/d45/Log_8h.html" title=" " alt="" coords="25,79,82,104"/>
+<area shape="rect" id="Node000002" href="$d1/d45/Log_8h.html" title="Initialisation des fonctions de logs." alt="" coords="25,79,82,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,33,74,70,70,66,103,29"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="107,79,245,104"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="127,29,159,66,155,70,123,33"/>

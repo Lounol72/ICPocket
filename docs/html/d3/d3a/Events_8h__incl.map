@@ -1,5 +1,5 @@
 <map id="include/Events.h" name="include/Events.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="613,5,743,31"/>
+<area shape="rect" id="Node000001" title="Gestion des Events SDL." alt="" coords="613,5,743,31"/>
 <area shape="rect" id="Node000002" href="$d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="619,79,737,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="674,31,672,65,667,65,668,31"/>
 <area shape="poly" id="edge47_Node000002_Node000001" title=" " alt="" coords="682,78,684,44,689,45,688,79"/>
@@ -15,7 +15,7 @@
 <area shape="poly" id="edge34_Node000002_Node000024" title=" " alt="" coords="688,103,712,139,707,142,684,106"/>
 <area shape="rect" id="Node000027" href="$d0/daa/ThreadManager_8h.html" title=" " alt="" coords="905,152,1040,177"/>
 <area shape="poly" id="edge40_Node000002_Node000027" title=" " alt="" coords="726,101,912,146,911,151,725,107"/>
-<area shape="rect" id="Node000029" href="$d3/d5f/Game_8h.html" title=" " alt="" coords="501,152,575,177"/>
+<area shape="rect" id="Node000029" href="$d3/d5f/Game_8h.html" title="Gestion des backgrounds, Initialisation de la structure globale." alt="" coords="501,152,575,177"/>
 <area shape="poly" id="edge42_Node000002_Node000029" title=" " alt="" coords="650,106,567,147,565,143,648,102"/>
 <area shape="rect" id="Node000031" href="$d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="1065,152,1193,177"/>
 <area shape="poly" id="edge48_Node000002_Node000031" title=" " alt="" coords="737,100,1052,150,1051,155,737,106"/>
@@ -26,7 +26,7 @@
 <area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="470,223,593,180,594,185,471,228"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="177,299,379,324"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="408,253,317,295,314,290,406,248"/>
-<area shape="rect" id="Node000007" href="$d1/d45/Log_8h.html" title=" " alt="" coords="403,299,460,324"/>
+<area shape="rect" id="Node000007" href="$d1/d45/Log_8h.html" title="Initialisation des fonctions de logs." alt="" coords="403,299,460,324"/>
 <area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="434,251,434,285,429,285,429,251"/>
 <area shape="rect" id="Node000008" title=" " alt="" coords="383,372,479,397"/>
 <area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="434,324,434,358,429,358,429,324"/>

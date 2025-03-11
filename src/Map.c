@@ -12,7 +12,7 @@ static void initCollisionMap(Map *map) {
         }
     }
 }
-/*
+
 static void loadNewMap(Map **map, const char *newMapPath) {
     destroyMap(*map);
     *map = initMap((*map)->renderer, newMapPath);
@@ -20,7 +20,7 @@ static void loadNewMap(Map **map, const char *newMapPath) {
         printf("Erreur chargement nouvelle map\n");
         return;
     }
-}*/
+}
 
 static void initCollisionMapFromCSV(Map *map, const char *path) {
     char separator = ',';
@@ -98,16 +98,16 @@ Map *initMap(SDL_Renderer *renderer, const char *path) {
 
 void checkAndLoadNewMap(Map **map, int playerX, int playerY) {
     if ((*map)->mat[playerY][playerX] == 2) {
-        //const char *newMapPath = "assets/Tileset/Map/2.png";
-        //loadNewMap(map, newMapPath);
+        const char *newMapPath = "assets/Tileset/Map/2.png";
+        loadNewMap(map, newMapPath);
     }
     if ((*map)->mat[playerY][playerX] == 3) {
-        //const char *newMapPath = "assets/Tileset/Map/3.png";
-        //loadNewMap(map, newMapPath);
+        const char *newMapPath = "assets/Tileset/Map/3.png";
+        loadNewMap(map, newMapPath);
     }
     if ((*map)->mat[playerY][playerX] == 9) {
-        //const char *newMapPath = "assets/Tileset/Map/hall.png";
-        //loadNewMap(map, newMapPath);
+        const char *newMapPath = "assets/Tileset/Map/hall.png";
+        loadNewMap(map, newMapPath);
     }
     
 }

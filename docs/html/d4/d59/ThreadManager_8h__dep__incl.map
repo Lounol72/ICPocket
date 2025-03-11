@@ -2,9 +2,9 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="270,5,457,31"/>
 <area shape="rect" id="Node000002" href="$d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="279,79,447,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="366,44,366,79,361,79,361,44"/>
-<area shape="rect" id="Node000003" href="$d0/dbb/Events_8h.html" title=" " alt="" coords="5,152,135,177"/>
+<area shape="rect" id="Node000003" href="$d0/dbb/Events_8h.html" title="Gestion des Events SDL." alt="" coords="5,152,135,177"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="297,110,111,154,110,149,295,104"/>
-<area shape="rect" id="Node000005" href="$d3/d5f/Game_8h.html" title=" " alt="" coords="159,152,283,177"/>
+<area shape="rect" id="Node000005" href="$d3/d5f/Game_8h.html" title="Gestion des backgrounds, Initialisation de la structure globale." alt="" coords="159,152,283,177"/>
 <area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="322,112,238,154,236,149,320,107"/>
 <area shape="rect" id="Node000007" href="$d4/d62/NPC_8h.html" title=" " alt="" coords="307,152,419,177"/>
 <area shape="poly" id="edge8_Node000002_Node000007" title=" " alt="" coords="366,118,366,152,361,152,361,118"/>

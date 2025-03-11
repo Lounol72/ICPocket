@@ -1,10 +1,10 @@
 <map id="include/Game.h" name="include/Game.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="875,5,999,31"/>
+<area shape="rect" id="Node000001" title="Gestion des backgrounds, Initialisation de la structure globale." alt="" coords="875,5,999,31"/>
 <area shape="rect" id="Node000002" href="$d8/daa/Audio_8h.html" title="Gestion de l&#39;audio pour l&#39;application." alt="" coords="121,225,192,251"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="893,33,439,155,206,224,204,219,437,149,891,28"/>
 <area shape="rect" id="Node000006" href="$d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="878,79,995,104"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="932,31,931,65,925,65,927,31"/>
-<area shape="rect" id="Node000003" href="$d1/d45/Log_8h.html" title=" " alt="" coords="5,299,63,324"/>
+<area shape="rect" id="Node000003" href="$d1/d45/Log_8h.html" title="Initialisation des fonctions de logs." alt="" coords="5,299,63,324"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="138,253,67,294,64,289,136,248"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="87,299,226,324"/>
 <area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="159,251,159,285,154,285,154,251"/>
@@ -23,7 +23,7 @@
 <area shape="poly" id="edge37_Node000006_Node000025" title=" " alt="" coords="887,107,677,154,676,149,886,101"/>
 <area shape="rect" id="Node000028" href="$d0/daa/ThreadManager_8h.html" title=" " alt="" coords="739,152,873,177"/>
 <area shape="poly" id="edge43_Node000006_Node000028" title=" " alt="" coords="917,106,840,148,838,143,914,102"/>
-<area shape="rect" id="Node000030" href="$d0/dbb/Events_8h.html" title=" " alt="" coords="897,152,976,177"/>
+<area shape="rect" id="Node000030" href="$d0/dbb/Events_8h.html" title="Gestion des Events SDL." alt="" coords="897,152,976,177"/>
 <area shape="poly" id="edge46_Node000006_Node000030" title=" " alt="" coords="932,104,931,139,925,138,927,104"/>
 <area shape="rect" id="Node000031" href="$d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="1001,152,1129,177"/>
 <area shape="poly" id="edge48_Node000006_Node000031" title=" " alt="" coords="952,102,1026,143,1024,148,949,106"/>

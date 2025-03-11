@@ -7,6 +7,7 @@
 /**
  * @file Events.h
  * @author Louis Alban
+ * @brief Gestion des Events SDL
  * @date 17/02/2025
  */
 

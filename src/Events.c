@@ -457,6 +457,8 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
     PlayerState newState = game.gameData.player->state;
     bool shouldMove = false;
 
+    
+
     if (keyState[SDL_SCANCODE_RIGHT]) {
         if (newMatrixX < MAP_WIDTH - 1 && !game.gameData.player->isMovingToTarget) {
             newMatrixX++;

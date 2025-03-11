@@ -8,6 +8,7 @@
 /**
  * @file Game.h
  * @author Louis Alban
+ * @brief Gestion des backgrounds, Initialisation de la structure globale
  * @date 17/02/2025
  */
 

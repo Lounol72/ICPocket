@@ -4,6 +4,7 @@
 /**
  * @file Log.h
  * @author Louis
+ * @brief Initialisation des fonctions de logs
  * @date 17/02/2025
  */
 

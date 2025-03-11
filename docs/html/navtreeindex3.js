@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"de/de9/structGame.html#a911428bfef2d00d5ece40210d3488fdb":[6,0,5,10],
 "de/de9/structGame.html#aa9455d40a57196c6fe96dcf3c20203b3":[6,0,5,16],
 "de/de9/structGame.html#abd03c2e680627cef2ddda2c5f804049a":[6,0,5,8],
 "de/de9/structGame.html#abdcdb055424572d4d18a0758eaea2cf4":[6,0,5,5],
