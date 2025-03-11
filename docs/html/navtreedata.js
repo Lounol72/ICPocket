@@ -59,9 +59,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d5/d18/Camera_8c.html#a2066b5ada76e803c9b0e2ae818c73b85",
-"d9/d0e/Buttons_8c.html#a46d3f067fb44669bc3438b8030823799",
-"df/d27/trainerAI_8h_source.html"
+"d4/d6e/structGameData.html",
+"d8/de4/structUI__Elements.html#a81dd7be9de23fa9878fe34cdef448ce7",
+"de/de9/structGame.html#aa9455d40a57196c6fe96dcf3c20203b3"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';

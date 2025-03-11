@@ -16,35 +16,18 @@
 [1] [2] You must call Mix_SetMusicCMD() first
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
-[0] [3] Changement d'état : 4
-[0] [3] PV : 267/267
-[0] [3] PV : 136/136
-[0] [3] PV : 13/13
-[1] [2] Couldn't open assets/Monsters/New Versions/HaTeMiL.png
-[0] [3] ❌ Failed to load image: assets/Monsters/New Versions/HaTeMiL.png
-[0] [3] PV : 46/46
-[0] [3] PV : 61/61
-[0] [3] PV : 62/62
-[0] [3] PV : 64/64
-[0] [3] PV : 51/51
-[0] [3] PV : 38/38
-[0] [3] Changement d'état : 3
-[0] [2] ScrollingText created successfully
-[0] [2] ScrollingText created successfully
-[0] [2] ScrollingText created successfully
-[0] [2] ScrollingText created successfully
-[0] [2] ScrollingText created successfully
-[0] [2] ScrollingText created successfully
-[0] [3] Changement d'état : 7
-[0] [3] Changement d'état : 10
-[0] [3] PV : 266/267
-[0] [3] PV : 136/136
-[0] [3] PV : 32/32
-[0] [3] PV : 0/64
-[0] [3] Changement d'état : 7
-[0] [3] PV : 72/72
-[0] [3] PV : 50/50
-[1] [2] Couldn't open assets/Monsters/New Versions/Compily.png
-[0] [3] ❌ Failed to load image: assets/Monsters/New Versions/Compily.png
-[0] [3] PV : 59/59
-[0] [3] PV : 64/64
+[0] [3] Changement d'état : 0
+[0] [3] ✅ Musique libérée
+[0] [3] ✅ Musique inter libérée
+[0] [3] ✅ UI libérée
+[0] [3] ✅ State handlers libérés
+[0] [3] ✅ LargeFont libéré
+[0] [3] ✅ MediumFont libéré
+[0] [3] ✅ SmallFont libéré
+[0] [3] ✅ font libéré
+[0] [3] ✅ renderer libéré
+[0] [3] ✅ window libéré
+[0] [3] ✅ cursor libéré
+[0] [3] ✅ cursor_hover libéré
+[0] [3] ✅ audio libéré
+[0] [3] ✅ SDL quitté

@@ -9,11 +9,12 @@ var searchData=
   ['matrixy_6',['matrixY',['../dc/d7b/structPlayer.html#a253309b22a6a6f4a2bd562affe853cea',1,'Player']]],
   ['max_5fpp_7',['max_pp',['../d1/d68/structt__Move.html#ae1c24e65900a4ec3f539382aa15ef0a9',1,'t_Move']]],
   ['mediumfont_8',['MediumFont',['../d6/d08/structWindow.html#a5a19cfd746d4467c4e495b696a81b0cc',1,'Window']]],
-  ['movebleu_9',['moveBleu',['../d2/d52/structBattleState.html#a18a9e8369cfbc15af7015bf420900220',1,'BattleState']]],
-  ['moveid_10',['moveId',['../de/dac/structLvl__Up__Buffer.html#a91397717040f88f5ad02d703925a31ba',1,'Lvl_Up_Buffer']]],
-  ['movelist_11',['moveList',['../d7/d09/structt__Poke.html#a36ec65f265f2b85686a8b0883f187ba2',1,'t_Poke']]],
-  ['moverouge_12',['moveRouge',['../d2/d52/structBattleState.html#a1beff4fb0bb997891f05bc3508ba277a',1,'BattleState']]],
-  ['movespeed_13',['moveSpeed',['../dc/d7b/structPlayer.html#a45d6174464d2e2cee07029e0b5aa5f82',1,'Player']]],
-  ['music_14',['music',['../d2/d3d/structGameState.html#a52a85cc148348dad5cf3e5c9c106d59f',1,'GameState']]],
-  ['music_5finter_15',['music_inter',['../d2/d3d/structGameState.html#a70ae8e79ae6352db0a36b1a365bf736a',1,'GameState']]]
+  ['message_9',['message',['../d7/dfe/structNPC.html#ad3dc94d2ab477f98c190744edb1b5ce1',1,'NPC']]],
+  ['movebleu_10',['moveBleu',['../d2/d52/structBattleState.html#a18a9e8369cfbc15af7015bf420900220',1,'BattleState']]],
+  ['moveid_11',['moveId',['../de/dac/structLvl__Up__Buffer.html#a91397717040f88f5ad02d703925a31ba',1,'Lvl_Up_Buffer']]],
+  ['movelist_12',['moveList',['../d7/d09/structt__Poke.html#a36ec65f265f2b85686a8b0883f187ba2',1,'t_Poke']]],
+  ['moverouge_13',['moveRouge',['../d2/d52/structBattleState.html#a1beff4fb0bb997891f05bc3508ba277a',1,'BattleState']]],
+  ['movespeed_14',['moveSpeed',['../dc/d7b/structPlayer.html#a45d6174464d2e2cee07029e0b5aa5f82',1,'Player']]],
+  ['music_15',['music',['../d2/d3d/structGameState.html#a52a85cc148348dad5cf3e5c9c106d59f',1,'GameState']]],
+  ['music_5finter_16',['music_inter',['../d2/d3d/structGameState.html#a70ae8e79ae6352db0a36b1a365bf736a',1,'GameState']]]
 ];

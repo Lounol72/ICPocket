@@ -1,0 +1,37 @@
+\doxysection{NPC.\+h}
+\hypertarget{NPC_8h_source}{}\label{NPC_8h_source}\index{include/NPC.h@{include/NPC.h}}
+\mbox{\hyperlink{NPC_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ NPC\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ NPC\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{GameEngine_8h}{GameEngine.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structNPC_a8b3a9a6150ad01e3fba1773a9dd5a8ba}{x}},\ y;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Position\ sur\ la\ carte}}
+\DoxyCodeLine{00008\ \ \ \ \ SDL\_Texture*\ \mbox{\hyperlink{structNPC_aa327074ea9cb123cbdcd8c9e84ef53b7}{sprite}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sprite\ du\ PNJ}}
+\DoxyCodeLine{00009\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structNPC_af1664913818170cce9586965811f698b}{position}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Rectangle\ de\ position}}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{structt__Team}{t\_Team}}\ \mbox{\hyperlink{structNPC_a9185725c578d39f6d01fe795fd09555d}{team}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Équipe\ du\ PNJ}}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{structNPC_ad3dc94d2ab477f98c190744edb1b5ce1}{message}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Message\ avant\ le\ combat}}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structNPC_abe2eae3060a160e52c77e8d49a2d5c27}{hasBeenDefeated}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ le\ PNJ\ a\ déjà\ été\ battu}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structNPC_abf5f75167466405b97e2f14367dc3091}{direction}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Direction\ du\ regard\ (0:\ bas,\ 1:\ gauche,\ 2:\ droite,\ 3:\ haut)}}
+\DoxyCodeLine{00014\ \}\ \mbox{\hyperlink{structNPC}{NPC}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{structNPC}{NPC}}*\ \mbox{\hyperlink{structNPCManager_ac0550661237fb4135732f3d8155fbad6}{npcs}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tableau\ de\ PNJ}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structNPCManager_aa82f4f557b4625e87e28866ce444e973}{count}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Nombre\ de\ PNJ}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structNPCManager_a36059656c91204bb73bcea83af52e1e4}{capacity}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Capacité\ maximale}}
+\DoxyCodeLine{00020\ \}\ \mbox{\hyperlink{structNPCManager}{NPCManager}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \mbox{\hyperlink{structNPCManager}{NPCManager}}*\ \mbox{\hyperlink{NPC_8h_a75817ce192babd4dda12609afe97a064}{createNPCManager}}(\textcolor{keywordtype}{int}\ initialCapacity);}
+\DoxyCodeLine{00023\ \mbox{\hyperlink{structNPC}{NPC}}*\ \mbox{\hyperlink{NPC_8h_a33985330b031c4f1d447b44385f26171}{createNPC}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ spritePath,\ \mbox{\hyperlink{structWindow}{Window}}*\ win,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ team,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ message);}
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{NPC_8h_a9d578a5e4184aae7cb20d422285db64c}{updateNPCs}}(\mbox{\hyperlink{structWindow}{Window}}*\ win);}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{NPC_8h_ae13f9ea0d69437713cd781acd1f4f6c9}{renderNPCs}}(\mbox{\hyperlink{structWindow}{Window}}*\ win);}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{NPC_8h_acf2059eeff1393caaa6af3ad04e013aa}{startNPCBattle}}(\mbox{\hyperlink{structNPC}{NPC}}*\ npc);}
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{NPC_8h_a5461a006cdc440b960fb2ef7e8f25d88}{destroyNPCManager}}(\mbox{\hyperlink{structNPCManager}{NPCManager}}*\ manager);}
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{NPC_8h_ae04331beaafaf4dc2ca0ef6aff7c41c8}{destroyNPC}}(\mbox{\hyperlink{structNPC}{NPC}}*\ npc);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

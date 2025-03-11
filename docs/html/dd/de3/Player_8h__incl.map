@@ -1,17 +1,13 @@
 <map id="include/Player.h" name="include/Player.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="137,5,262,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="162,225,258,251"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,33,108,57,49,90,27,110,12,131,9,153,19,176,45,201,78,218,114,228,149,233,148,238,112,233,76,223,42,205,14,179,4,153,8,129,23,107,46,86,106,52,164,28"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="29,152,173,177"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="193,33,159,80,118,142,113,139,154,77,188,30"/>
-<area shape="rect" id="Node000004" href="$df/d79/Map_8h.html" title=" " alt="" coords="168,79,231,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="202,31,202,65,197,65,197,31"/>
-<area shape="rect" id="Node000005" href="$dd/de4/Camera_8h.html" title="Gestion de la caméra pour le défilement de la vue du jeu." alt="" coords="247,152,333,177"/>
-<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="211,29,245,77,280,138,275,141,241,80,206,32"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="306,79,389,104"/>
-<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="224,28,312,70,310,75,222,33"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="203,104,211,211,205,212,197,105"/>
-<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="185,106,129,146,126,142,182,102"/>
-<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="215,102,266,141,262,145,212,106"/>
-<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="279,179,235,218,231,214,275,175"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="132,5,257,31"/>
+<area shape="rect" id="Node000002" href="$df/d79/Map_8h.html" title=" " alt="" coords="115,79,178,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,33,164,69,160,66,185,30"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="203,79,285,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="205,29,230,66,226,69,201,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,149,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="137,106,100,144,96,140,133,102"/>
+<area shape="rect" id="Node000004" href="$dd/de4/Camera_8h.html" title="Gestion de la caméra pour le défilement de la vue du jeu." alt="" coords="173,152,259,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="160,102,197,140,193,144,156,106"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="168,225,264,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="219,178,219,212,213,212,213,178"/>
 </map>

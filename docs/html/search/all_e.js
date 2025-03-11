@@ -15,7 +15,7 @@ var searchData=
   ['playerturn_12',['playerTurn',['../d2/d3d/structGameState.html#ab59b804acb3666c52c22d51d6dd0fa06',1,'GameState']]],
   ['poison_13',['poison',['../dd/da3/structures_8h.html#a76147bdc67aed9a2286c8facfd7b8ce0a8b190bd2899a6dfc2e663da9fbe6bd0e',1,'structures.h']]],
   ['poke_5fis_5fabscent_14',['poke_is_abscent',['../da/d71/structPoke_8h.html#a925c3d26c7e99b966e2656f91943f27c',1,'POKE_IS_ABSCENT:&#160;structPoke.h'],['../d6/d8e/duel_8h.html#a925c3d26c7e99b966e2656f91943f27c',1,'POKE_IS_ABSCENT:&#160;duel.h']]],
-  ['position_15',['position',['../dc/d7b/structPlayer.html#a326f16b65e24150ec60c27c22b4ec00d',1,'Player::position'],['../d2/db3/structScrollingText.html#a27974f82a064816e799395e1bc59e4d2',1,'ScrollingText::position']]],
+  ['position_15',['position',['../d7/dfe/structNPC.html#af1664913818170cce9586965811f698b',1,'NPC::position'],['../dc/d7b/structPlayer.html#a326f16b65e24150ec60c27c22b4ec00d',1,'Player::position'],['../d2/db3/structScrollingText.html#a27974f82a064816e799395e1bc59e4d2',1,'ScrollingText::position']]],
   ['pour_20le_20jeu_16',['Idées pour le jeu',['../index.html#autotoc_md5',1,'']]],
   ['power_17',['power',['../d1/d68/structt__Move.html#a0b7411c0d24bb5042fca30e80c3b756a',1,'t_Move']]],
   ['ppcheck_18',['ppcheck',['../d1/d18/duel_8c.html#a9b7c88dfcaf3b3fb7cc7093fdb99e341',1,'ppCheck(t_Move *move):&#160;duel.c'],['../d6/d8e/duel_8h.html#aa112c976011418f424765e88722d77d4',1,'ppCheck(t_Move *):&#160;duel.c']]],

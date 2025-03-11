@@ -11,6 +11,7 @@ var dir_d44c64559bbebec7f509842c48db8b23 =
     [ "Log.h", "d1/d45/Log_8h.html", "d1/d45/Log_8h" ],
     [ "Map.h", "df/d79/Map_8h.html", "df/d79/Map_8h" ],
     [ "ministdlib.h", "d4/da0/ministdlib_8h.html", "d4/da0/ministdlib_8h" ],
+    [ "NPC.h", "d4/d62/NPC_8h.html", "d4/d62/NPC_8h" ],
     [ "Player.h", "da/dbf/Player_8h.html", "da/dbf/Player_8h" ],
     [ "RenderICMons.h", "d2/d98/RenderICMons_8h.html", "d2/d98/RenderICMons_8h" ],
     [ "save.h", "d5/d5e/save_8h.html", "d5/d5e/save_8h" ],

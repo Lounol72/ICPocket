@@ -11,6 +11,8 @@ var annotated_dup =
     [ "IMG_ICMons", "dd/d1a/structIMG__ICMons.html", "dd/d1a/structIMG__ICMons" ],
     [ "Lvl_Up_Buffer", "de/dac/structLvl__Up__Buffer.html", "de/dac/structLvl__Up__Buffer" ],
     [ "Map", "da/ddc/structMap.html", "da/ddc/structMap" ],
+    [ "NPC", "d7/dfe/structNPC.html", "d7/dfe/structNPC" ],
+    [ "NPCManager", "df/d56/structNPCManager.html", "df/d56/structNPCManager" ],
     [ "Player", "dc/d7b/structPlayer.html", "dc/d7b/structPlayer" ],
     [ "ScrollingText", "d2/db3/structScrollingText.html", "d2/db3/structScrollingText" ],
     [ "Slider", "df/dd7/structSlider.html", "df/dd7/structSlider" ],

@@ -109,4 +109,6 @@ void testPP(t_Team * rouge, t_Team * bleu);
 void testStruggle(t_Team * rouge, t_Team * bleu);
 void teamTest(t_Team * t, int);
 
+#include "interDuel.h"
+
 #endif

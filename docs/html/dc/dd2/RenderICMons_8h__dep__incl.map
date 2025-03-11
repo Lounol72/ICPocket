@@ -1,57 +1,26 @@
 <map id="include/RenderICMons.h" name="include/RenderICMons.h">
-<area shape="rect" id="Node000001" title="Définition et gestion du rendu des ICMons." alt="" coords="530,5,708,31"/>
-<area shape="rect" id="Node000002" href="$d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="443,79,611,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="588,41,537,81,533,76,584,36"/>
-<area shape="rect" id="Node000020" href="$d9/d0c/RenderICMons_8c.html" title="Fonctions de gestion des sprites ICMon." alt="" coords="636,79,786,104"/>
-<area shape="poly" id="edge35_Node000001_Node000020" title=" " alt="" coords="646,37,697,76,694,81,643,41"/>
-<area shape="poly" id="edge8_Node000002_Node000001" title=" " alt="" coords="559,69,609,29,613,33,562,73"/>
-<area shape="rect" id="Node000003" href="$d0/dbb/Events_8h.html" title=" " alt="" coords="697,372,826,397"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="616,105,657,123,693,150,713,177,728,208,747,272,756,331,760,372,755,372,750,331,742,273,723,210,709,180,689,154,654,127,614,110"/>
-<area shape="rect" id="Node000005" href="$d3/d5f/Game_8h.html" title=" " alt="" coords="566,152,690,177"/>
-<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="549,110,606,150,603,154,546,115"/>
-<area shape="rect" id="Node000007" href="$d5/d5e/save_8h.html" title="Save the player&#39;s data in a file." alt="" coords="374,152,490,177"/>
-<area shape="poly" id="edge9_Node000002_Node000007" title=" " alt="" coords="495,114,442,154,439,150,492,109"/>
-<area shape="rect" id="Node000018" href="$d5/d81/GameEngine_8c.html" title="Moteur principal du jeu : gestion de la boucle de jeu, des ressources et des interactions." alt="" coords="30,152,168,177"/>
-<area shape="poly" id="edge33_Node000002_Node000018" title=" " alt="" coords="445,109,168,155,167,149,444,104"/>
-<area shape="rect" id="Node000019" href="$d1/dd5/ThreadManager_8c.html" title=" " alt="" coords="192,152,350,177"/>
-<area shape="poly" id="edge34_Node000002_Node000019" title=" " alt="" coords="474,110,313,154,312,149,472,105"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="767,358,768,315,762,260,745,203,731,177,713,154,691,135,666,121,610,104,612,98,668,116,694,131,717,150,735,174,749,201,767,259,774,314,772,358"/>
-<area shape="rect" id="Node000004" href="$d7/d9f/Events_8c.html" title="Gestion des événements et interactions utilisateur pour l&#39;application." alt="" coords="712,445,812,471"/>
-<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="764,411,764,445,759,445,759,411"/>
-<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="606,145,548,106,551,102,609,141"/>
-<area shape="rect" id="Node000006" href="$dc/d22/Game_8c.html" title="Initialisation du jeu, de ses interfaces et ressources." alt="" coords="581,225,676,251"/>
-<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="631,191,631,225,626,225,626,191"/>
-<area shape="poly" id="edge10_Node000007_Node000002" title=" " alt="" coords="464,142,517,102,520,106,467,146"/>
-<area shape="rect" id="Node000008" href="$d6/d8e/duel_8h.html" title="Gestion des duels dans le style de &quot;Pokémon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="266,225,380,251"/>
-<area shape="poly" id="edge11_Node000007_Node000008" title=" " alt="" coords="397,187,335,227,332,223,394,182"/>
-<area shape="rect" id="Node000011" href="$db/df7/mainDuel_8c.html" title=" " alt="" coords="198,372,317,397"/>
-<area shape="poly" id="edge31_Node000007_Node000011" title=" " alt="" coords="363,183,277,203,184,231,103,264,73,282,54,300,50,311,54,322,73,332,112,345,207,369,206,374,110,350,71,337,50,326,45,311,50,297,70,278,101,259,182,226,276,198,361,178"/>
-<area shape="rect" id="Node000017" href="$df/dcf/save_8c.html" title=" " alt="" coords="404,225,490,251"/>
-<area shape="poly" id="edge32_Node000007_Node000017" title=" " alt="" coords="440,190,447,225,442,226,435,191"/>
-<area shape="poly" id="edge16_Node000008_Node000007" title=" " alt="" coords="358,216,420,175,423,180,361,221"/>
-<area shape="rect" id="Node000009" href="$da/d1d/interDuel_8h.html" title="Définition et gestion des combats entre équipes." alt="" coords="389,299,534,324"/>
-<area shape="poly" id="edge12_Node000008_Node000009" title=" " alt="" coords="358,254,440,296,438,301,356,259"/>
-<area shape="poly" id="edge30_Node000008_Node000011" title=" " alt="" coords="300,262,284,279,271,300,261,338,260,372,254,372,255,338,266,298,279,276,296,258"/>
-<area shape="rect" id="Node000012" href="$da/d71/structPoke_8h.html" title=" " alt="" coords="558,299,712,324"/>
-<area shape="poly" id="edge17_Node000008_Node000012" title=" " alt="" coords="380,251,578,296,577,301,379,256"/>
-<area shape="rect" id="Node000014" href="$df/d27/trainerAI_8h.html" title=" " alt="" coords="64,299,206,324"/>
-<area shape="poly" id="edge24_Node000008_Node000014" title=" " alt="" coords="274,258,160,301,158,296,272,253"/>
-<area shape="rect" id="Node000016" href="$d1/d18/duel_8c.html" title=" " alt="" coords="281,299,365,324"/>
-<area shape="poly" id="edge29_Node000008_Node000016" title=" " alt="" coords="326,264,326,299,320,299,320,264"/>
-<area shape="poly" id="edge13_Node000009_Node000002" title=" " alt="" coords="479,286,500,250,513,209,520,168,524,104,530,104,525,168,518,210,505,252,483,289"/>
-<area shape="rect" id="Node000010" href="$d6/da6/interDuel_8c.html" title=" " alt="" coords="406,372,522,397"/>
-<area shape="poly" id="edge14_Node000009_Node000010" title=" " alt="" coords="465,338,466,372,461,372,460,338"/>
-<area shape="poly" id="edge15_Node000009_Node000011" title=" " alt="" coords="417,331,291,374,290,369,415,326"/>
-<area shape="poly" id="edge19_Node000012_Node000001" title=" " alt="" coords="664,289,719,251,748,226,775,198,796,169,808,139,809,109,797,80,779,62,757,47,708,29,709,24,760,42,782,57,801,77,815,108,813,140,800,172,779,202,752,230,722,255,667,294"/>
-<area shape="poly" id="edge18_Node000012_Node000003" title=" " alt="" coords="669,328,742,369,740,374,666,333"/>
-<area shape="poly" id="edge20_Node000012_Node000008" title=" " alt="" coords="577,298,379,253,380,248,578,293"/>
-<area shape="poly" id="edge21_Node000012_Node000010" title=" " alt="" coords="596,332,493,374,491,369,594,327"/>
-<area shape="poly" id="edge22_Node000012_Node000011" title=" " alt="" coords="561,329,318,375,317,370,560,324"/>
-<area shape="rect" id="Node000013" href="$d3/dfe/structPoke_8c.html" title=" " alt="" coords="549,372,673,397"/>
-<area shape="poly" id="edge23_Node000012_Node000013" title=" " alt="" coords="629,338,617,373,612,371,624,336"/>
-<area shape="poly" id="edge25_Node000014_Node000002" title=" " alt="" coords="101,293,62,265,25,229,11,210,4,190,5,170,16,150,37,138,76,129,189,113,322,101,442,94,443,99,322,106,189,118,77,134,39,143,19,154,10,171,9,189,16,207,29,226,65,261,104,289"/>
-<area shape="poly" id="edge26_Node000014_Node000008" title=" " alt="" coords="184,292,299,248,300,253,186,297"/>
-<area shape="poly" id="edge27_Node000014_Node000011" title=" " alt="" coords="168,328,239,369,236,374,165,333"/>
-<area shape="rect" id="Node000015" href="$de/d53/trainerAI_8c.html" title=" " alt="" coords="63,372,175,397"/>
-<area shape="poly" id="edge28_Node000014_Node000015" title=" " alt="" coords="132,338,124,372,119,371,127,337"/>
+<area shape="rect" id="Node000001" title="Définition et gestion du rendu des ICMons." alt="" coords="131,5,310,31"/>
+<area shape="rect" id="Node000002" href="$d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="137,79,305,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,44,216,78,211,79,209,45"/>
+<area shape="rect" id="Node000011" href="$d9/d0c/RenderICMons_8c.html" title="Fonctions de gestion des sprites ICMon." alt="" coords="329,79,480,104"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="264,33,376,76,374,81,262,38"/>
+<area shape="poly" id="edge10_Node000002_Node000001" title=" " alt="" coords="227,65,225,31,230,31,232,65"/>
+<area shape="rect" id="Node000003" href="$d0/dbb/Events_8h.html" title=" " alt="" coords="5,152,135,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="178,112,89,154,87,149,176,107"/>
+<area shape="rect" id="Node000005" href="$d3/d5f/Game_8h.html" title=" " alt="" coords="159,152,283,177"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="215,118,216,152,211,152,209,118"/>
+<area shape="rect" id="Node000007" href="$d4/d62/NPC_8h.html" title=" " alt="" coords="307,152,419,177"/>
+<area shape="poly" id="edge8_Node000002_Node000007" title=" " alt="" coords="257,108,341,149,339,154,254,112"/>
+<area shape="rect" id="Node000009" href="$d5/d81/GameEngine_8c.html" title="Moteur principal du jeu : gestion de la boucle de jeu, des ressources et des interactions." alt="" coords="443,152,582,177"/>
+<area shape="poly" id="edge11_Node000002_Node000009" title=" " alt="" coords="281,105,466,149,465,154,280,110"/>
+<area shape="rect" id="Node000010" href="$d1/dd5/ThreadManager_8c.html" title=" " alt="" coords="606,152,763,177"/>
+<area shape="poly" id="edge12_Node000002_Node000010" title=" " alt="" coords="309,103,610,149,610,155,308,109"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="113,144,202,102,204,106,115,149"/>
+<area shape="rect" id="Node000004" href="$d7/d9f/Events_8c.html" title="Gestion des événements et interactions utilisateur pour l&#39;application." alt="" coords="20,225,120,251"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="73,191,73,225,67,225,67,191"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="227,139,225,104,230,104,232,138"/>
+<area shape="rect" id="Node000006" href="$dc/d22/Game_8c.html" title="Initialisation du jeu, de ses interfaces et ressources." alt="" coords="173,225,268,251"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="223,191,223,225,218,225,218,191"/>
+<area shape="rect" id="Node000008" href="$d9/d18/NPC_8c.html" title=" " alt="" coords="322,225,405,251"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="366,191,366,225,361,225,361,191"/>
 </map>

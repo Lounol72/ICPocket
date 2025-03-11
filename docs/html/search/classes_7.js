@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['player_0',['Player',['../dc/d7b/structPlayer.html',1,'']]]
+  ['npc_0',['NPC',['../d7/dfe/structNPC.html',1,'']]],
+  ['npcmanager_1',['NPCManager',['../df/d56/structNPCManager.html',1,'']]]
 ];

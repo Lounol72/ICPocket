@@ -1,24 +1,17 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_mixer.h>
-#include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_gamecontroller.h>
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "Utils.h"
 // Added explicit include to ensure AppState is defined:
-#include "Window.h"
+
 #include "interDuel.h"
-#include "trainerAI.h"
-#include "save.h"
+
+
 #include "Text.h"
-#include "Map.h"
+
 #include "Player.h"
-#include "Camera.h"
+
 #include "ThreadManager.h"
 
 /**

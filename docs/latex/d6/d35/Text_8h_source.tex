@@ -10,68 +10,69 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string.h>}}
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structWindow}{Window}}\ \mbox{\hyperlink{structWindow}{Window}};}
-\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structText}{Text}}\ \{}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structText_afd5ae3e5ca1c95e23040086d417674fe}{text}};\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00024\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structText_abfd7707d427d99386fa552cd4a114487}{rect}};\ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00025\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structText_a91cd916c0252115269b4676134d0fc0a}{initialRect}};\ \ \ \ }
-\DoxyCodeLine{00026\ \ \ \ \ SDL\_Color\ \mbox{\hyperlink{structText_ab0f771bd18d8e968f7aaee4a4e26e385}{color}};\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00027\ \ \ \ \ TTF\_Font\ *\mbox{\hyperlink{structText_ae23ac53acb57e760b91c81d8c4aec8c7}{font}};\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00028\ \ \ \ \ SDL\_Surface\ *\mbox{\hyperlink{structText_a881e261364e0678ddcf6865bf9d668b9}{surface}};\ \ \ \ }
-\DoxyCodeLine{00029\ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{structText_aea2a82ef1d8b4d448b6b3e524bce2cc2}{texture}};\ \ \ \ }
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structText_af3b5cd8831bae56013cf3acb84fbf903}{is\_dynamic}};\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00031\ \}\ \mbox{\hyperlink{structText}{Text}};}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{structScrollingText_a4ab1f559c8f70903ff59015ef7f89283}{fullText}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Texte\ complet\ à\ afficher}}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{structScrollingText_a45736c5777a0a86e4eb44a77e5696b32}{currentText}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Texte\ actuellement\ affiché}}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structScrollingText_a2b9e20bdd5d83530a72bf3c72738c9f9}{currentLength}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Longueur\ actuelle\ du\ texte\ affiché}}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structScrollingText_aacd986e65d969c618377a5032cfa124f}{fullLength}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Longueur\ totale\ du\ texte}}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structScrollingText_a57cafba670a7328cba62aa072909c5b1}{isComplete}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ le\ texte\ est\ entièrement\ affiché}}
-\DoxyCodeLine{00039\ \ \ \ \ Uint32\ \mbox{\hyperlink{structScrollingText_a45d3b6906d6048b7e73b312ac998e7f5}{lastCharTime}};\ \ \ \ \ \textcolor{comment}{//\ Temps\ du\ dernier\ caractère\ affiché}}
-\DoxyCodeLine{00040\ \ \ \ \ Uint32\ \mbox{\hyperlink{structScrollingText_a75df6cfdd4a199a476e607b05071f44e}{charDelay}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Délai\ entre\ chaque\ caractère\ (en\ ms)}}
-\DoxyCodeLine{00041\ \ \ \ \ SDL\_Texture*\ \mbox{\hyperlink{structScrollingText_aaf02414c21d2c08fee21a8ba7dd313b6}{texture}};\ \ \ \ \textcolor{comment}{//\ Texture\ du\ texte}}
-\DoxyCodeLine{00042\ \ \ \ \ SDL\_Texture*\ \mbox{\hyperlink{structScrollingText_a7569ba99205d21881c8bb291a8e2c80d}{background}};\ \textcolor{comment}{//\ Texture\ du\ fond}}
-\DoxyCodeLine{00043\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structScrollingText_a27974f82a064816e799395e1bc59e4d2}{position}};\ \ \ \ \ \ \ \textcolor{comment}{//\ Position\ du\ texte}}
-\DoxyCodeLine{00044\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structScrollingText_a3ff77f63369aba917bae4d7ccdc3c7d4}{initialPosition}};\ \textcolor{comment}{//\ Position\ initiale\ du\ texte}}
-\DoxyCodeLine{00045\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structScrollingText_a4071fe7c95e813b3f4c0d345409061ec}{backgroundPosition}};\ \textcolor{comment}{//\ Position\ du\ fond}}
-\DoxyCodeLine{00046\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structScrollingText_abc6cc822de83da7c209357ea758edde4}{initialBackgroundPosition}};\ \textcolor{comment}{//\ Position\ initiale\ du\ fond}}
-\DoxyCodeLine{00047\ \ \ \ \ TTF\_Font*\ \mbox{\hyperlink{structScrollingText_a9d9a9d2e41d0e445af33ca13b9ab4997}{font}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Police\ utilisée}}
-\DoxyCodeLine{00048\ \ \ \ \ SDL\_Color\ \mbox{\hyperlink{structScrollingText_a1174cc304d5c5fb6cd8ba86332449060}{color}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Couleur\ du\ texte}}
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structScrollingText_a83505dffbc6ef744e9db6d0d9333bf11}{width}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Largeur\ du\ texte}}
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structScrollingText_a4dd1e280afd139057d8df1ba25b8702d}{isValid}};}
-\DoxyCodeLine{00051\ \}\ \mbox{\hyperlink{structScrollingText}{ScrollingText}};}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00054\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structText}{Text}}\ \mbox{\hyperlink{Text_8h_aa7b28bc428ccbbcf4f77ed6ec1deccf9}{title}};\ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00055\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structText}{Text}}\ \mbox{\hyperlink{Text_8h_a4cc75f256324e33385aa00bd67430368}{NewGameText}};\ \ \ \ \ }
-\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_ae96d247380273da323d069ed370b9bb5}{initText}}(\ \mbox{\hyperlink{structWindow}{Window}}\ *win);}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00078\ \mbox{\hyperlink{structText}{Text}}\ *\mbox{\hyperlink{Text_8h_a1311acdef7d344c53fe43c83769610e9}{createText}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *text,\ SDL\_Renderer\ *renderer,\ SDL\_Rect\ rect,\ SDL\_Color\ color,\ TTF\_Font\ *font);}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_aa3e6ed3d92366b3bd8523a5d991cfb49}{renderText}}(\ \mbox{\hyperlink{structWindow}{Window}}\ *win,\ \mbox{\hyperlink{structText}{Text}}\ *text);}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a015ae8ec886baef9970798a86f682b27}{updateTextPosition}}(\mbox{\hyperlink{structText}{Text}}\ *text,\ \textcolor{keywordtype}{float}\ scaleX,\ \textcolor{keywordtype}{float}\ scaleY);}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00108\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a452ccfba136e1b799b2f51cc82e66638}{destroyText}}(\mbox{\hyperlink{structText}{Text}}\ *text);}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00119\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_aa873f47f05aa894283bed1c93b836b09}{updateText}}(\mbox{\hyperlink{structText}{Text}}\ *text,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *newText,\ SDL\_Renderer\ *renderer);}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00129\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a7d818bb937ba7baa5e9658e96d8f0fe4}{changeTextSpeed}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *data);}
-\DoxyCodeLine{00130\ }
-\DoxyCodeLine{00136\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a77ea26949d0d6e6d9fb47a543c47db08}{cleanupText}}();}
-\DoxyCodeLine{00137\ }
-\DoxyCodeLine{00152\ \mbox{\hyperlink{structScrollingText}{ScrollingText}}*\ \mbox{\hyperlink{Text_8h_ad496f949929781a8b018234536b6978a}{createScrollingText}}(\textcolor{keywordtype}{char}*\ text,\ TTF\_Font*\ font,\ SDL\_Color\ color,\ \textcolor{keywordtype}{int}\ charDelay,\ SDL\_Rect\ backgroundPosition,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ backgroundPath,\ SDL\_Renderer*\ renderer);}
-\DoxyCodeLine{00153\ }
-\DoxyCodeLine{00162\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a70b0c8ad2591d026ed13498d2f5b51e5}{updateScrollingText}}(\mbox{\hyperlink{structScrollingText}{ScrollingText}}*\ text,\ SDL\_Renderer*\ renderer);}
-\DoxyCodeLine{00163\ }
-\DoxyCodeLine{00172\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a79aac055a15042af251ed87cf51d3e4b}{renderScrollingText}}(\mbox{\hyperlink{structScrollingText}{ScrollingText}}*\ text,\ SDL\_Renderer*\ renderer);}
-\DoxyCodeLine{00173\ }
-\DoxyCodeLine{00182\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a0a8e528a34a830bd97a8f89252c02d91}{resetScrollingText}}(\mbox{\hyperlink{structScrollingText}{ScrollingText}}*\ text,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ newText);}
-\DoxyCodeLine{00190\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_afa6a319144e236a3c666e758d35c7d9c}{destroyScrollingText}}(\mbox{\hyperlink{structScrollingText}{ScrollingText}}*\ text);}
-\DoxyCodeLine{00191\ }
-\DoxyCodeLine{00200\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a0bc289fcd1d02a1ab742f93c882b5370}{skipScrollingText}}(\mbox{\hyperlink{structScrollingText}{ScrollingText}}*\ text,\ SDL\_Renderer*\ renderer);}
-\DoxyCodeLine{00201\ }
-\DoxyCodeLine{00209\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a86fb5ff45e3d26ccd1ed237a8aafbbcb}{cleanupScrollingText}}(\mbox{\hyperlink{structScrollingText}{ScrollingText}}**\ text);}
-\DoxyCodeLine{00210\ }
-\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TEXT\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structText}{Text}}\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structText_afd5ae3e5ca1c95e23040086d417674fe}{text}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structText_abfd7707d427d99386fa552cd4a114487}{rect}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structText_a91cd916c0252115269b4676134d0fc0a}{initialRect}};\ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ SDL\_Color\ \mbox{\hyperlink{structText_ab0f771bd18d8e968f7aaee4a4e26e385}{color}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ TTF\_Font\ *\mbox{\hyperlink{structText_ae23ac53acb57e760b91c81d8c4aec8c7}{font}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ SDL\_Surface\ *\mbox{\hyperlink{structText_a881e261364e0678ddcf6865bf9d668b9}{surface}};\ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{structText_aea2a82ef1d8b4d448b6b3e524bce2cc2}{texture}};\ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structText_af3b5cd8831bae56013cf3acb84fbf903}{is\_dynamic}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \}\ \mbox{\hyperlink{structText}{Text}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{structScrollingText_a4ab1f559c8f70903ff59015ef7f89283}{fullText}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Texte\ complet\ à\ afficher}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{structScrollingText_a45736c5777a0a86e4eb44a77e5696b32}{currentText}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Texte\ actuellement\ affiché}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structScrollingText_a2b9e20bdd5d83530a72bf3c72738c9f9}{currentLength}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Longueur\ actuelle\ du\ texte\ affiché}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structScrollingText_aacd986e65d969c618377a5032cfa124f}{fullLength}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Longueur\ totale\ du\ texte}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structScrollingText_a57cafba670a7328cba62aa072909c5b1}{isComplete}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ le\ texte\ est\ entièrement\ affiché}}
+\DoxyCodeLine{00040\ \ \ \ \ Uint32\ \mbox{\hyperlink{structScrollingText_a45d3b6906d6048b7e73b312ac998e7f5}{lastCharTime}};\ \ \ \ \ \textcolor{comment}{//\ Temps\ du\ dernier\ caractère\ affiché}}
+\DoxyCodeLine{00041\ \ \ \ \ Uint32\ \mbox{\hyperlink{structScrollingText_a75df6cfdd4a199a476e607b05071f44e}{charDelay}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Délai\ entre\ chaque\ caractère\ (en\ ms)}}
+\DoxyCodeLine{00042\ \ \ \ \ SDL\_Texture*\ \mbox{\hyperlink{structScrollingText_aaf02414c21d2c08fee21a8ba7dd313b6}{texture}};\ \ \ \ \textcolor{comment}{//\ Texture\ du\ texte}}
+\DoxyCodeLine{00043\ \ \ \ \ SDL\_Texture*\ \mbox{\hyperlink{structScrollingText_a7569ba99205d21881c8bb291a8e2c80d}{background}};\ \textcolor{comment}{//\ Texture\ du\ fond}}
+\DoxyCodeLine{00044\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structScrollingText_a27974f82a064816e799395e1bc59e4d2}{position}};\ \ \ \ \ \ \ \textcolor{comment}{//\ Position\ du\ texte}}
+\DoxyCodeLine{00045\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structScrollingText_a3ff77f63369aba917bae4d7ccdc3c7d4}{initialPosition}};\ \textcolor{comment}{//\ Position\ initiale\ du\ texte}}
+\DoxyCodeLine{00046\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structScrollingText_a4071fe7c95e813b3f4c0d345409061ec}{backgroundPosition}};\ \textcolor{comment}{//\ Position\ du\ fond}}
+\DoxyCodeLine{00047\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structScrollingText_abc6cc822de83da7c209357ea758edde4}{initialBackgroundPosition}};\ \textcolor{comment}{//\ Position\ initiale\ du\ fond}}
+\DoxyCodeLine{00048\ \ \ \ \ TTF\_Font*\ \mbox{\hyperlink{structScrollingText_a9d9a9d2e41d0e445af33ca13b9ab4997}{font}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Police\ utilisée}}
+\DoxyCodeLine{00049\ \ \ \ \ SDL\_Color\ \mbox{\hyperlink{structScrollingText_a1174cc304d5c5fb6cd8ba86332449060}{color}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Couleur\ du\ texte}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structScrollingText_a83505dffbc6ef744e9db6d0d9333bf11}{width}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Largeur\ du\ texte}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structScrollingText_a4dd1e280afd139057d8df1ba25b8702d}{isValid}};}
+\DoxyCodeLine{00052\ \}\ \mbox{\hyperlink{structScrollingText}{ScrollingText}};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structText}{Text}}\ \mbox{\hyperlink{Text_8h_aa7b28bc428ccbbcf4f77ed6ec1deccf9}{title}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structText}{Text}}\ \mbox{\hyperlink{Text_8h_a4cc75f256324e33385aa00bd67430368}{NewGameText}};\ \ \ \ \ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_ae96d247380273da323d069ed370b9bb5}{initText}}(\ \mbox{\hyperlink{structWindow}{Window}}\ *win);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00079\ \mbox{\hyperlink{structText}{Text}}\ *\mbox{\hyperlink{Text_8h_a1311acdef7d344c53fe43c83769610e9}{createText}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *text,\ SDL\_Renderer\ *renderer,\ SDL\_Rect\ rect,\ SDL\_Color\ color,\ TTF\_Font\ *font);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_aa3e6ed3d92366b3bd8523a5d991cfb49}{renderText}}(\ \mbox{\hyperlink{structWindow}{Window}}\ *win,\ \mbox{\hyperlink{structText}{Text}}\ *text);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a015ae8ec886baef9970798a86f682b27}{updateTextPosition}}(\mbox{\hyperlink{structText}{Text}}\ *text,\ \textcolor{keywordtype}{float}\ scaleX,\ \textcolor{keywordtype}{float}\ scaleY);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a452ccfba136e1b799b2f51cc82e66638}{destroyText}}(\mbox{\hyperlink{structText}{Text}}\ *text);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00120\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_aa873f47f05aa894283bed1c93b836b09}{updateText}}(\mbox{\hyperlink{structText}{Text}}\ *text,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *newText,\ SDL\_Renderer\ *renderer);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00130\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a7d818bb937ba7baa5e9658e96d8f0fe4}{changeTextSpeed}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *data);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00137\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a77ea26949d0d6e6d9fb47a543c47db08}{cleanupText}}();}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00153\ \mbox{\hyperlink{structScrollingText}{ScrollingText}}*\ \mbox{\hyperlink{Text_8h_ad496f949929781a8b018234536b6978a}{createScrollingText}}(\textcolor{keywordtype}{char}*\ text,\ TTF\_Font*\ font,\ SDL\_Color\ color,\ \textcolor{keywordtype}{int}\ charDelay,\ SDL\_Rect\ backgroundPosition,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ backgroundPath,\ SDL\_Renderer*\ renderer);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00163\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a70b0c8ad2591d026ed13498d2f5b51e5}{updateScrollingText}}(\mbox{\hyperlink{structScrollingText}{ScrollingText}}*\ text,\ SDL\_Renderer*\ renderer);}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00173\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a79aac055a15042af251ed87cf51d3e4b}{renderScrollingText}}(\mbox{\hyperlink{structScrollingText}{ScrollingText}}*\ text,\ SDL\_Renderer*\ renderer);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00183\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a0a8e528a34a830bd97a8f89252c02d91}{resetScrollingText}}(\mbox{\hyperlink{structScrollingText}{ScrollingText}}*\ text,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ newText);}
+\DoxyCodeLine{00191\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_afa6a319144e236a3c666e758d35c7d9c}{destroyScrollingText}}(\mbox{\hyperlink{structScrollingText}{ScrollingText}}*\ text);}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00201\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a0bc289fcd1d02a1ab742f93c882b5370}{skipScrollingText}}(\mbox{\hyperlink{structScrollingText}{ScrollingText}}*\ text,\ SDL\_Renderer*\ renderer);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00210\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Text_8h_a86fb5ff45e3d26ccd1ed237a8aafbbcb}{cleanupScrollingText}}(\mbox{\hyperlink{structScrollingText}{ScrollingText}}**\ text);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TEXT\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

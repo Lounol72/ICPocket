@@ -2,7 +2,6 @@
 #define THREAD_MANAGER_H
 
 #include <pthread.h>
-#include <SDL2/SDL.h>
 
 /**
  * @file TheadManager.h

@@ -12,6 +12,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "mainDuel.c", "db/df7/mainDuel_8c.html", "db/df7/mainDuel_8c" ],
     [ "Map.c", "dc/df2/Map_8c.html", "dc/df2/Map_8c" ],
     [ "ministdlib.c", "d2/db5/ministdlib_8c.html", "d2/db5/ministdlib_8c" ],
+    [ "NPC.c", "d9/d18/NPC_8c.html", null ],
     [ "Player.c", "d1/d12/Player_8c.html", "d1/d12/Player_8c" ],
     [ "RenderICMons.c", "d9/d0c/RenderICMons_8c.html", "d9/d0c/RenderICMons_8c" ],
     [ "save.c", "df/dcf/save_8c.html", "df/dcf/save_8c" ],

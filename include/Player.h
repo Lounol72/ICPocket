@@ -1,10 +1,9 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+
 #include "Map.h"
-#include "Camera.h"
+
 #include <stdbool.h>
 
 #define FRAME_WIDTH 16   // Largeur d'une frame dans la spritesheet

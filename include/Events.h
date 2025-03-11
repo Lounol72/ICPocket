@@ -3,10 +3,6 @@
 
 #include "GameEngine.h"
 
-#include "Text.h"
-#include "structPoke.h"
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_gamecontroller.h>
 
 /**
  * @file Events.h
