@@ -55,11 +55,8 @@ void generate_poke(t_Poke *p, int line)
 		}
 
 		/*Load Base stats*/
-		fscanf(dataPoke, "%d,%[^,],%d,%d,%d,%d,%d,%d\n", &(p->id), p->name, &(p->baseStats[PV]), &(p->baseStats[ATT]), &(p->baseStats[DEF]), &(p->baseStats[SPA]), &(p->baseStats[SPD]), &(p->baseStats[SPE]));
+		fscanf(dataPoke, "%d,%[^,],%d,%d,%d,%d,%d,%d,%d,%d\n", &(p->id), p->name, &(p->baseStats[PV]), &(p->baseStats[ATT]), &(p->baseStats[DEF]), &(p->baseStats[SPA]), &(p->baseStats[SPD]), &(p->baseStats[SPE]),(int*)&(p->type[0]),(int*)&(p->type[1]));
 		
-		/*Load Types*/
-		p->type[0] = rand() % (typeNumber-1) + 1;
-		p->type[1] = rand() % typeNumber;
 
 		p->lvl = rand() % 100 + 1;
 		p->exp = expCurve(p->lvl); /*This is to match the start of a random generated level*/
@@ -97,7 +94,7 @@ void generate_poke_enemi(t_Poke *p, int line,t_Team * joueur)
 			}
 		}
 		
-		fscanf(dataPoke, "%d,%[^,],%d,%d,%d,%d,%d,%d\n", &(p->id), p->name, &(p->baseStats[PV]), &(p->baseStats[ATT]), &(p->baseStats[DEF]), &(p->baseStats[SPA]), &(p->baseStats[SPD]), &(p->baseStats[SPE]));
+		fscanf(dataPoke, "%d,%[^,],%d,%d,%d,%d,%d,%d,%d,%d\n", &(p->id), p->name, &(p->baseStats[PV]), &(p->baseStats[ATT]), &(p->baseStats[DEF]), &(p->baseStats[SPA]), &(p->baseStats[SPD]), &(p->baseStats[SPE]),(int*)&(p->type[0]),(int*)&(p->type[1]));
 		
 		//Load Types
 		p->type[0] = rand() % (typeNumber-1) + 1;
@@ -223,12 +220,20 @@ void printPoke(t_Poke * p)
 		case feu:printf("type 1 = feu\n");break;
 		case eau:printf("type 1 = eau\n");break;
 		case plante:printf("type 1 = plante\n");break;
+		case electrique:printf("type 1 = electrique\n");break;
+		case malware:printf("type 1 = malware\n");break;
+		case data:printf("type 1 = data\n");break;
+		case net:printf("type 1 = net\n");break;
 		default:printf("Erreur\n");
 	}
 	switch (p->type[1]){
 		case feu:printf("type 2 = feu\n");break;
 		case eau:printf("type 2 = eau\n");break;
 		case plante:printf("type 2 = plante\n");break;
+		case electrique:printf("type 2 = electrique\n");break;
+		case malware:printf("type 2 = malware\n");break;
+		case data:printf("type 2 = data\n");break;
+		case net:printf("type 2 = net\n");break;
 		default:printf("pure\n");
 	}
 	printf("nature=%s\n", tabNature[p->nature].nature);
