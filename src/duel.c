@@ -156,6 +156,14 @@ void initBlueTeam(t_Team *t,t_Team *joueur) {
 }
 
 int calcDamage(t_Team * offender, t_Team * defender, t_Move * move){
+	/*cas des inefficacités de type*/
+	if(typeChart[move->type][defender->team[0].type[0]]<0.1 || typeChart[move->type][defender->team[0].type[1]]<0.1) {
+		printf("Ca n'a aucun effet...\n");
+		return 0;
+	}
+	/*cas des moves de status*/
+	if(move->power==0) return 0;
+
 	int coupCritique=((rand()%24)==0);
 	int damage;
 
@@ -429,7 +437,7 @@ void gainExp(t_Team * target, t_Poke * source){
 			static const int BASE_EXP_MULTIPLIER = 2;
 			static const int EXP_DIVISOR = 7;
 			
-			exp_amount = (TRAINER_BONUS * EXP_BOOST * source->lvl * BASE_EXP_MULTIPLIER * calcStatFrom(source, PV)) / EXP_DIVISOR;
+			exp_amount = (TRAINER_BONUS * EXP_BOOST * source->lvl * BASE_EXP_MULTIPLIER * (source->baseStats[PV])) / EXP_DIVISOR;
 			target->team[i].exp += (unsigned)exp_amount;
 			printf("%s gagne %d exp\n", target->team[i].name, exp_amount);
 			

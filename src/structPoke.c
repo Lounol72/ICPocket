@@ -3,15 +3,16 @@
 t_Nature tabNature[25];
 float typeChart[typeNumber][typeNumber] = {
     /*defender*/
-    /*offender*//*noType  feu     plante   eau     electrique  malware  data    net*/
-    /*notype*/  {1.,     1.,     1.,     1.,     1.,         1.,      1.,     1.},
-    /*feu*/     {1.,     0.5,    2.,     0.5,    1.,         2,       0.5,    2.},
-    /*plante*/  {1.,     0.5,    0.5,    2.,     1.,         0.5,     2.,     1.},
-    /*eau*/     {1.,     2.,     0.5,    0.5,    1.,         1.,      2.,     1.},
-    /*electrique*/ {1.,  1.,     1.,     1.,     0.5,        2.,      2.,     2.},
-    /*malware*/ {1.,     0.5,    2.,     1.,     0.5,        2.,      2.,     2.},
-    /*data*/    {1.,     2.,     0.5,    0.5,    0.5,        0.5,     0.,     2.},
-    /*net*/     {1.5,    1.5,    1.5,    1.5,    1.5,        1.5,     1.5,    0.}
+    /*offender*//*noType  feu     plante   eau     electrique  malware  data    net		waifu*/
+    /*notype*/  {1.,     1.,     	1.,     1.,     1.,         1.,      1.,     1.,		1.	},
+    /*feu*/     {1.,     0.5,    	2.,     0.5,    1.,         2,       0.5,    2.,		2.	},
+    /*plante*/  {1.,     0.5,    	0.5,    2.,     1.,         0.5,     2.,     1.,		1.	},
+    /*eau*/     {1.,     2.,     	0.5,    0.5,    1.,         1.,      2.,     1.,		1.	},
+    /*electrique*/ {1.,  1.,     	1.,     1.,     0.5,        2.,      2.,     2.,		0.5	},
+    /*malware*/ {1.,     0.5,    	2.,     1.,     0.5,        2.,      2.,     2.,		1.	},
+    /*data*/    {1.,     2.,     	0.5,    0.5,    0.5,        0.5,     0.,     2.,		1.	},
+    /*net*/     {1.,    1.5,    	1.5,    1.5,    1.5,        1.5,     1.5,    0.,		0.5	},
+	/*waifu*/	{1.,	0.5,		1.,		1.,		1.,			1.,		1.,		2.,			2.	}
 };
 
 
@@ -105,9 +106,6 @@ void generate_poke_enemi(t_Poke *p, int line,t_Team * joueur)
 		
 		fscanf(dataPoke, "%d,%[^,],%d,%d,%d,%d,%d,%d,%d,%d\n", &(p->id), p->name, &(p->baseStats[PV]), &(p->baseStats[ATT]), &(p->baseStats[DEF]), &(p->baseStats[SPA]), &(p->baseStats[SPD]), &(p->baseStats[SPE]),(int*)&(p->type[0]),(int*)&(p->type[1]));
 		
-		//Load Types
-		p->type[0] = rand() % (typeNumber-1) + 1;
-		p->type[1] = rand() % typeNumber;
 		
 		p->lvl = generatelvl(joueur);
 		//IV et Moves
