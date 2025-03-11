@@ -271,10 +271,11 @@ void changePokemon(Window *win, void *data) {
 }
 
 void initSwapTeam(Window *win, void *data) {
-    game.swappingIndex[0]=-1;
-    game.swappingIndex[1]=game.battleState.rouge.nb_poke;
+    game.swappingIndex[0]=0;
+    game.swappingIndex[1]=game.battleState.rouge.nb_poke%6;
     updateICMonsButtonText(win, &game.battleState.bleu, 6 ,10);
     updateICMonsButtonText(win, &game.battleState.rouge, 12 ,10);
+
     changeState(win,data);
 }
 
@@ -287,12 +288,12 @@ void changeIndexSwap(Window *win, void *data) {
 }
 
 void validateSwap(Window *win, void *data) {
-    if(isExisting(&game.battleState.bleu.team[game.swappingIndex[0]])){
-        if(isExisting(&game.battleState.rouge.team[game.swappingIndex[1]])){
+    if(game.swappingIndex[0]<game.battleState.bleu.nb_poke){
+        if(game.swappingIndex[1]<game.battleState.rouge.nb_poke){
             destroyICMonsSprite(&game.battleState.rouge.team[game.swappingIndex[1]]);
         }
+        destroyICMonsSprite(&game.battleState.bleu.team[game.swappingIndex[0]]);
         getPokeFromTeam(&game.battleState.rouge,game.swappingIndex[1],&game.battleState.bleu,game.swappingIndex[0]);
-        destroyICMonsSprite(&game.battleState.rouge.team[game.swappingIndex[1]]);
         initTeamSprites(win, &game.battleState.rouge,RED_SPRITE_X_RATIO, RED_SPRITE_Y_RATIO, 0);
         updateICButtons(win, &game.battleState.rouge);
         updateICMonsButtonText(win, &game.battleState.rouge, 6, 6);
