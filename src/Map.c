@@ -1,17 +1,17 @@
 #include "../include/Map.h"
 #include <stdio.h>
 #include <string.h>
-
+/*
 static void initCollisionMap(Map *map) {
-    for (int i = 0; i < MAP_HEIGHT; i++) {
-        for (int j = 0; j < MAP_WIDTH; j++) {
-            if (i == 0 || i == MAP_HEIGHT - 1 || j == 0 || j == MAP_WIDTH - 1) {
+    for (int i = 0; i < map->tileSizeH; i++) {
+        for (int j = 0; j < map->tileSizeW; j++) {
+            if (i == 0 || i == map->tileSizeH - 1 || j == 0 || j == map->tileSizeW - 1) {
                 map->mat[i][j] = COLLISION;
             }
             else map->mat[i][j] = AIR;
         }
     }
-}
+}*/
 
 static void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight) {
     destroyMap(*map);
@@ -24,65 +24,109 @@ static void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapH
 }
 
 static void initCollisionMapFromCSV(Map *map, const char *path) {
-    char separator = ',';
     FILE *file = fopen(path, "r");
     if (!file) {
         printf("Erreur ouverture fichier: %s\n", path);
-        initCollisionMap(map);
         return;
     }
-    for (int i = 0; i < MAP_HEIGHT; i++) {
-        for (int j = 0; j < MAP_WIDTH; j++) {
-            fscanf(file, "%d%c", &map->mat[i][j], &separator);
+    
+    char line[1024];  // Buffer pour lire chaque ligne
+    int i = 0;
+    
+    // Initialiser toute la matrice à 0 d'abord
+    for (int y = 0; y < map->tileSizeH; y++) {
+        for (int x = 0; x < map->tileSizeW; x++) {
+            map->mat[y][x] = 0;
         }
     }
+    
+    // Lire le fichier ligne par ligne
+    while (fgets(line, sizeof(line), file) && i < map->tileSizeH) {
+        char *token = strtok(line, ",");
+        int j = 0;
+        
+        while (token && j < map->tileSizeW) {
+            map->mat[i][j] = atoi(token);
+            token = strtok(NULL, ",");
+            j++;
+        }
+        i++;
+    }
+    
     fclose(file);
+    
 }
 
 
 Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSizeH) {
     Map *map = (Map *)malloc(sizeof(Map));
-    if (!map) return NULL;
-    int x,y;
-    SDL_GetWindowSize(SDL_GetWindowFromID(1), &x, &y);
-    map->mat = (int **)malloc(TileSizeH * sizeof(int *));
-    map->rect = (SDL_Rect){0, 0, (x / TileSizeW),(  y / TileSizeH)};
-    for (int i = 0; i < TileSizeH; i++) {
-        map->mat[i] = (int *)malloc(TileSizeW * sizeof(int));
-    }
-    map->rect = (SDL_Rect){0, 0, TileSizeW * (x / TileSizeW), TileSizeH * (y / TileSizeH)};
-    // enlever le .png et mettre .csv
-    // ! Remettre lorsque fichier csv sera prêt
-    
-    char *tempPath = (char *)malloc(strlen(path) - 3); // Allocate enough space for the string without the last 4 characters
-    if (!tempPath) {
-        printf("Erreur allocation mémoire pour tempPath\n");
+    if (!map) {
+        printf("Erreur allocation mémoire pour map\n");
         return NULL;
     }
-    strncpy(tempPath, path, strlen(path) - 4); // Copy the string without the last 4 characters
-    tempPath[strlen(path) - 4] = '\0'; // Null-terminate the string
+    
+    // Initialiser les dimensions avant d'allouer la matrice
+    map->tileSizeW = TileSizeW;
+    map->tileSizeH = TileSizeH;
+    map->renderer = renderer;
+    
+    // Obtenir les dimensions de la fenêtre
+    int windowWidth, windowHeight;
+    SDL_GetWindowSize(SDL_GetWindowFromID(1), &windowWidth, &windowHeight);
+    
+    // Allouer la matrice
+    map->mat = (int **)malloc(TileSizeH * sizeof(int *));
+    if (!map->mat) {
+        printf("Erreur allocation mémoire pour map->mat\n");
+        free(map);
+        return NULL;
+    }
+    
+    for (int i = 0; i < TileSizeH; i++) {
+        map->mat[i] = (int *)calloc(TileSizeW, sizeof(int));  // Utiliser calloc pour initialiser à 0
+        if (!map->mat[i]) {
+            printf("Erreur allocation mémoire pour map->mat[%d]\n", i);
+            for (int j = 0; j < i; j++) {
+                free(map->mat[j]);
+            }
+            free(map->mat);
+            free(map);
+            return NULL;
+        }
+    }
+    
+    // Configurer les dimensions et le rectangle
+    map->width = TileSizeW;
+    map->height = TileSizeH;
+    
+    map->rect = (SDL_Rect){
+        0, 
+        0, 
+        TileSizeW * (int)(windowWidth / TileSizeW), 
+        TileSizeH * (int)(windowHeight / TileSizeH)
+    };
 
-    char *csvPath = (char *)malloc(strlen(tempPath) + 5); // Allocate enough space for the new string with ".csv"
+    // Charger le fichier CSV
+    char *csvPath = (char *)malloc(strlen(path) + 1);
     if (!csvPath) {
         printf("Erreur allocation mémoire pour csvPath\n");
-        free(tempPath);
+        destroyMap(map);
         return NULL;
     }
-    strcpy(csvPath, tempPath);
-    strcat(csvPath, ".csv");
-
-    initCollisionMapFromCSV(map, csvPath);
-
-    free(tempPath);
+    strcpy(csvPath, path);
+    char *dot = strrchr(csvPath, '.');
+    if (dot) {
+        strcpy(dot, ".csv");
+        printf("Chargement du fichier CSV: %s\n", csvPath);
+        initCollisionMapFromCSV(map, csvPath);
+    }
     free(csvPath);
-
-    map->renderer = renderer;
 
     // Charger la texture
     SDL_Surface *surface = IMG_Load(path);
     if (!surface) {
         printf("Erreur chargement texture map: %s\n", IMG_GetError());
-        free(map);
+        destroyMap(map);
         return NULL;
     }
 
@@ -91,7 +135,7 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
 
     if (!map->texture) {
         printf("Erreur création texture map: %s\n", SDL_GetError());
-        free(map);
+        destroyMap(map);
         return NULL;
     }
 
@@ -115,8 +159,8 @@ void checkAndLoadNewMap(Map **map, int playerX, int playerY) {
 }
 
 void DEBUG_printMap(Map *map) {
-    for (int i = 0; i < MAP_HEIGHT; i++) {
-        for (int j = 0; j < MAP_WIDTH; j++) {
+    for (int i = 0; i < map->tileSizeH; i++) {
+        for (int j = 0; j < map->tileSizeW; j++) {
             printf("%d ", map->mat[i][j]);
         }
         printf("\n");
@@ -144,11 +188,13 @@ void renderMapDebug(Map *map) {
 
 void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera) {
     // D'abord, rendre la texture de la map complète avec la caméra
+    int windowWidth, windowHeight;
+    SDL_GetWindowSize(SDL_GetWindowFromID(1), &windowWidth, &windowHeight);
     SDL_Rect worldRect = {
         0,
         0,
-        MAP_WIDTH * TILE_SIZE_W_SCALE,
-        MAP_HEIGHT * TILE_SIZE_H_SCALE
+        map->width * (int)(windowWidth / map->tileSizeW),
+        map->height * (int)(windowHeight / map->tileSizeH)
     };
     SDL_Rect screenRect = getWorldToScreenRect(camera, worldRect);
     
@@ -199,11 +245,18 @@ void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera) {
 }
 
 void destroyMap(Map *map) {
-    for (int i = 0; i < MAP_HEIGHT; i++) {
-        free(map->mat[i]);
+    if (map) {
+        if (map->mat) {
+            for (int i = 0; i < map->tileSizeH; i++) {
+                free(map->mat[i]);
+            }
+            free(map->mat);
+        }
+        if (map->texture) {
+            SDL_DestroyTexture(map->texture);
+        }
+        free(map);
     }
-    free(map->mat);
-    free(map);
 }
 
 

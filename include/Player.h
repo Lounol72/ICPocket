@@ -51,10 +51,12 @@ typedef struct {
     float targetX;            // Position cible X en pixels
     float targetY;            // Position cible Y en pixels
     bool isMovingToTarget;
+    int sizeMapW;
+    int sizeMapH;
 } Player;
 
 
-Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath);
+Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * map);
 void updatePlayerAnimation(Player *player, float deltaTime);
 void updatePlayerPosition(Player *player, float deltaTime);
 void renderPlayer(SDL_Renderer *renderer, Player *player);

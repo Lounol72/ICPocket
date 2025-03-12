@@ -6,7 +6,7 @@
 #define ANIMATION_SPEED 0.10f // Temps entre chaque frame
 #define FRAMES_PER_ANIMATION 4 // Nombre de frames par animation
 
-Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath) {
+Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * map) {
     Player *player = malloc(sizeof(Player));
     if (!player) {
         printf("Erreur allocation player\n");
@@ -29,14 +29,17 @@ Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath) {
     }
 
     // Calculer la position centrale dans la matrice
-    player->matrixX = MAP_WIDTH / 2;
-    player->matrixY = MAP_HEIGHT / 2;
+    player->matrixX = map->width / 2;
+    player->matrixY = map->height / 2;
+
+    int windowWidth, windowHeight;
+    SDL_GetWindowSize(SDL_GetWindowFromID(1), &windowWidth, &windowHeight);
 
     // Calculer la position en pixels au centre de l'écran
-    player->position.w = TILE_SIZE_W_SCALE;
-    player->position.h = TILE_SIZE_H_SCALE;
-    player->position.x = player->matrixX * TILE_SIZE_W_SCALE;
-    player->position.y = player->matrixY * TILE_SIZE_H_SCALE;
+    player->position.w = (int)(windowWidth / map->tileSizeW);
+    player->position.h = (int)(windowHeight / map->tileSizeH);
+    player->position.x = player->matrixX * map->tileSizeW;
+    player->position.y = player->matrixY * map->tileSizeH;
 
     printf("Position initiale du joueur: [%d,%d] en matrice, [%d,%d] en pixels\n", 
            player->matrixX, player->matrixY, 
@@ -54,12 +57,12 @@ Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath) {
     player->isMoving = 0;
     player->state = IDLE_DOWN;
 
-    player->mat = (int **)malloc(sizeof(int *) * MAP_HEIGHT);
-    for (int i = 0; i < MAP_HEIGHT; i++) {
-        player->mat[i] = (int *)malloc(sizeof(int) * MAP_WIDTH);
+    player->mat = (int **)malloc(sizeof(int *) * map->height);
+    for (int i = 0; i < map->height; i++) {
+        player->mat[i] = (int *)malloc(sizeof(int) * map->width);
     }
-    for (int i = 0; i < MAP_HEIGHT; i++) {
-        for (int j = 0; j < MAP_WIDTH; j++) {
+    for (int i = 0; i < map->height; i++) {
+        for (int j = 0; j < map->width; j++) {
             player->mat[i][j] = 0;
         }
     }
@@ -73,6 +76,8 @@ Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath) {
     player->targetX = player->position.x;
     player->targetY = player->position.y;
     player->isMovingToTarget = false;
+    player->sizeMapH = map->height;
+    player->sizeMapW = map->width;
 
     SDL_FreeSurface(surface);
     return player;
@@ -80,8 +85,8 @@ Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath) {
 
 // ! DEBUG
 void DEBUG_printPlayerMat(Player *player) {
-    for (int i = 0; i < MAP_HEIGHT; i++) {
-        for (int j = 0; j < MAP_WIDTH; j++) {
+    for (int i = 0; i < player->sizeMapH; i++) {
+        for (int j = 0; j < player->sizeMapW; j++) {
             printf("%d ", player->mat[i][j]);
         }
         printf("\n");
@@ -161,7 +166,7 @@ void destroyPlayer(Player *player) {
         if (player->spriteSheet) {
             SDL_DestroyTexture(player->spriteSheet);
         }
-        for (int i = 0; i < MAP_HEIGHT; i++) {
+        for (int i = 0; i < player->sizeMapH; i++) {
             free(player->mat[i]);
         }
         free(player->mat);

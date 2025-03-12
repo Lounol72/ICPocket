@@ -29,6 +29,8 @@ typedef struct Map {
 	SDL_Texture *texture;
 	int width;  
 	int height; 
+	int tileSizeW;
+	int tileSizeH;
 } Map;
 
 Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSizeH);

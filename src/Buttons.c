@@ -347,6 +347,7 @@ static inline float clampf(float v, float min, float max) {
 int handleSliderEvent(Slider *slider, SDL_Event *event) {
     if (!slider)
         return 0;
+    printf("slider value: %f\n", slider->value);
     switch (event->type) {
         case SDL_MOUSEBUTTONDOWN:
             if (SDL_PointInRect(&(SDL_Point){ event->button.x, event->button.y }, &(slider->rect))) {
@@ -358,6 +359,12 @@ int handleSliderEvent(Slider *slider, SDL_Event *event) {
                 slider->value = (float)(event->motion.x - slider->rect.x) / slider->rect.w;
                 slider->value = clampf(slider->value, 0.0f, 1.0f);
                 slider->cursor.x = slider->rect.x + (int)(slider->value * slider->rect.w) - (slider->cursor.w / 2);
+                //changer le volume 
+                if (slider->value == 0.0f) {
+                    Mix_VolumeMusic(0);
+                } else {
+                    Mix_VolumeMusic(slider->value * 100);
+                }
             }
             break;
         case SDL_MOUSEBUTTONUP:
