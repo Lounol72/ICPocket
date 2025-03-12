@@ -99,7 +99,7 @@ void initGame(Window *win) {
     game.gameData.player->position.y = MAP_HEIGHT * TILE_SIZE_H_SCALE / 2;
     
     /* Initialisation de la carte et de la caméra */
-    game.gameData.map = initMap(win->renderer, "assets/Tileset/Map/hall.png");
+    game.gameData.map = initMap(win->renderer, "assets/Tileset/Map/hall.png", MAP_WIDTH, MAP_HEIGHT);
     game.gameData.camera = createCamera(WINDOWS_W, WINDOWS_H);
     
     /* Initialisation du système de texte */

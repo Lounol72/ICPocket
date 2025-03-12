@@ -321,12 +321,10 @@ void handleSettingsEvent(Window *win, SDL_Event *event) {
     if (!win || !event || !game.ui[game.gameState.currentState].sliders->sliders ||
         game.ui[game.gameState.currentState].sliders->size <= 0)
         return;
-    
-    if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
+    handleSliderEvent(game.ui[game.gameState.currentState].sliders->sliders[0], event);
+    if (event->type == SDL_MOUSEBUTTONDOWN) {
         int x, y;
         SDL_GetMouseState(&x, &y);
-        
-        handleSliderEvent(game.ui[game.gameState.currentState].sliders->sliders[0], event);
         for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
             ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
         }

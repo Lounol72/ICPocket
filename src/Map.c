@@ -13,9 +13,10 @@ static void initCollisionMap(Map *map) {
     }
 }
 
-static void loadNewMap(Map **map, const char *newMapPath) {
+static void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight) {
     destroyMap(*map);
-    *map = initMap((*map)->renderer, newMapPath);
+    
+    *map = initMap((*map)->renderer, newMapPath, mapWidth, mapHeight);
     if (!*map) {
         printf("Erreur chargement nouvelle map\n");
         return;
@@ -39,16 +40,17 @@ static void initCollisionMapFromCSV(Map *map, const char *path) {
 }
 
 
-Map *initMap(SDL_Renderer *renderer, const char *path) {
+Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSizeH) {
     Map *map = (Map *)malloc(sizeof(Map));
     if (!map) return NULL;
-
-    map->mat = (int **)malloc(MAP_HEIGHT * sizeof(int *));
-    map->rect = (SDL_Rect){0, 0, MAP_WIDTH * TILE_SIZE_W_SCALE, MAP_HEIGHT * TILE_SIZE_H_SCALE};
-    for (int i = 0; i < MAP_HEIGHT; i++) {
-        map->mat[i] = (int *)malloc(MAP_WIDTH * sizeof(int));
+    int x,y;
+    SDL_GetWindowSize(SDL_GetWindowFromID(1), &x, &y);
+    map->mat = (int **)malloc(TileSizeH * sizeof(int *));
+    map->rect = (SDL_Rect){0, 0, (x / TileSizeW),(  y / TileSizeH)};
+    for (int i = 0; i < TileSizeH; i++) {
+        map->mat[i] = (int *)malloc(TileSizeW * sizeof(int));
     }
-    map->rect = (SDL_Rect){0, 0, MAP_WIDTH * TILE_SIZE_W_SCALE, MAP_HEIGHT * TILE_SIZE_H_SCALE};
+    map->rect = (SDL_Rect){0, 0, TileSizeW * (x / TileSizeW), TileSizeH * (y / TileSizeH)};
     // enlever le .png et mettre .csv
     // ! Remettre lorsque fichier csv sera prêt
     
@@ -99,15 +101,15 @@ Map *initMap(SDL_Renderer *renderer, const char *path) {
 void checkAndLoadNewMap(Map **map, int playerX, int playerY) {
     if ((*map)->mat[playerY][playerX] == 2) {
         const char *newMapPath = "assets/Tileset/Map/2.png";
-        loadNewMap(map, newMapPath);
+        loadNewMap(map, newMapPath, 16, 10);
     }
     if ((*map)->mat[playerY][playerX] == 3) {
         const char *newMapPath = "assets/Tileset/Map/3.png";
-        loadNewMap(map, newMapPath);
+        loadNewMap(map, newMapPath, 16, 10);
     }
     if ((*map)->mat[playerY][playerX] == 9) {
         const char *newMapPath = "assets/Tileset/Map/hall.png";
-        loadNewMap(map, newMapPath);
+        loadNewMap(map, newMapPath, 32, 10);
     }
     
 }

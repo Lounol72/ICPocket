@@ -21,17 +21,17 @@
  */
 
 typedef struct Map {
-    SDL_Rect rect;
-    SDL_Rect nameRect;
-    SDL_Rect pvRect;
-    SDL_Renderer *renderer;
-    int **mat;
-    SDL_Texture *texture;
-    int width;  // Ajouter le membre width
-    int height; // Ajouter le membre height
+	SDL_Rect rect;
+	SDL_Rect nameRect;
+	SDL_Rect pvRect;
+	SDL_Renderer *renderer;
+	int **mat;
+	SDL_Texture *texture;
+	int width;  
+	int height; 
 } Map;
 
-Map *initMap(SDL_Renderer *renderer, const char *path);
+Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSizeH);
 void renderMapDebug(Map *map);
 void destroyMap(Map *map);
 void updateMap(Map *map);
