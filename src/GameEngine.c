@@ -954,6 +954,7 @@ void executeAction(t_Team *attacker, t_Team *defender, int move) {
         sprintf(msg, "Action invalide !");
         resetScrollingText(game.battleState.text, msg);
         game.battleState.turnState = TURN_NONE;
+        cleanupScrollingText(&game.battleState.text);
         return;
     }
 
