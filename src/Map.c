@@ -50,7 +50,6 @@ static void initCollisionMapFromCSV(Map *map, const char *path, int *spawnX, int
     while (fgets(line, sizeof(line), file) && i < map->tileSizeH) {
         char *token = strtok(line, ",");
         int j = 0;
-        
         while (token && j < map->tileSizeW) {
             int value = atoi(token);
             if (value == -1) {
