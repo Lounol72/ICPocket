@@ -21,6 +21,7 @@ var GameEngine_8h =
     [ "executeAction", "d7/d1f/GameEngine_8h.html#a0f30ad9309996b75a4472a6235a17bd1", null ],
     [ "initAllButtons", "d7/d1f/GameEngine_8h.html#ac7a261e0d935ffeeca4d7a0713913bd2", null ],
     [ "initSwapTeam", "d7/d1f/GameEngine_8h.html#a28332eed894602447a49a8cdb433d25d", null ],
+    [ "learningMoveChoice", "d7/d1f/GameEngine_8h.html#a5ed19d39baab73ab804232213baf91b2", null ],
     [ "mainLoop", "d7/d1f/GameEngine_8h.html#ad119335fdbed767125510c855f2629ce", null ],
     [ "manageFrameRate", "d7/d1f/GameEngine_8h.html#a6ed42cf8883eef51f3764c8587d7bc59", null ],
     [ "nextDuel", "d7/d1f/GameEngine_8h.html#a275ae329d3830bface72c1c30db48b04", null ],

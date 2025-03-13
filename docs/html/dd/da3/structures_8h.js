@@ -27,7 +27,12 @@ var structures_8h =
       [ "noType", "dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2ae1e1f2af0184ac5fa40380545412fc1c", null ],
       [ "feu", "dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2abeaed13a6c54935151875013008013a3", null ],
       [ "plante", "dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a80963026e42f86adaf9240e84768d9f9", null ],
-      [ "eau", "dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a0729b1e157ef30cedeef889f7a263594", null ]
+      [ "eau", "dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a0729b1e157ef30cedeef889f7a263594", null ],
+      [ "electrique", "dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a92826403c2edd2039b462445b2710d5b", null ],
+      [ "malware", "dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a069c08f52754028ff8c67fe7c6819362", null ],
+      [ "data", "dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b", null ],
+      [ "net", "dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a618a1a70e109f5e1bea905b695f8e265", null ],
+      [ "waifu", "dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a54e29005250909ce6c7187203331dcd1", null ]
     ] ],
     [ "tabNature", "dd/da3/structures_8h.html#a3e0b3eb9a62d3b43c0f95146281bba83", null ],
     [ "typeChart", "dd/da3/structures_8h.html#ab3f16f2365e129e0337bae5d412816e3", null ]

@@ -36,7 +36,7 @@ var duel_8c =
     [ "testSwitch", "d1/d18/duel_8c.html#aae3304431eebf95aac22ed64a644d398", null ],
     [ "bleu", "d1/d18/duel_8c.html#a2318bae80db59839bf744d39a02a2931", null ],
     [ "confusedMove", "d1/d18/duel_8c.html#acde9cb2f6b18119fde97bf6be55639c9", null ],
-    [ "lvl_up_buffer", "d1/d18/duel_8c.html#a14297bdf3858bfcb9f2b5553c4a37ad2", null ],
+    [ "lvl_up_buffer", "d1/d18/duel_8c.html#a4793ece8efa3c418cf46daa244e783c7", null ],
     [ "lvl_up_buffer_size", "d1/d18/duel_8c.html#a5fa7c71ee69bf53efd73ff3978602ab6", null ],
     [ "rouge", "d1/d18/duel_8c.html#a549b747fa4f6f9c153b959c84c2d5ffa", null ],
     [ "SecEffectTab", "d1/d18/duel_8c.html#adc50e7669e9a8b080c36aff121cf7836", null ],

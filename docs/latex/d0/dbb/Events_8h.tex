@@ -6,7 +6,8 @@ Gestion des Events SDL.
 
 
 {\ttfamily \#include "{}Game\+Engine.\+h"{}}\newline
-Graphe des dépendances par inclusion de Events.\+h\+:\nopagebreak
+Graphe des dépendances par inclusion de Events.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -73,7 +74,9 @@ void \mbox{\hyperlink{Events_8h_a244d37073550388354a68561ac959ecb}{handle\+Playe
 void \mbox{\hyperlink{Events_8h_a088e629868d61238138f13c5c467699b}{handle\+Swap\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
 \begin{DoxyCompactList}\small\item\em Handles events when the player swap an ICmon with the \doxylink{structAI}{AI}. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{Events_8h_ac44c928e776e8e08d0c8a3aa20152c8a}{init\+Team\+Sprites}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}team\+Sprite, float x\+\_\+ratio, float y\+\_\+ratio, int team\+Flag)
-\begin{DoxyCompactList}\small\item\em Initialise les sprites pour tous les pokémons d\textquotesingle{}une équipe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initialise les sprites pour tous les pokémons d\textquotesingle{}une équipe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Events_8h_a1fd0d272cf6ce72af70f8adfa63a46be}{handle\+Learning\+Event}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -263,6 +266,12 @@ Traite notamment les clics sur les boutons et délègue le reste au gestionnaire
 {\em event} & Pointeur sur l\textquotesingle{}événement SDL. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{Events_8h_a1fd0d272cf6ce72af70f8adfa63a46be}\label{Events_8h_a1fd0d272cf6ce72af70f8adfa63a46be} 
+\index{Events.h@{Events.h}!handleLearningEvent@{handleLearningEvent}}
+\index{handleLearningEvent@{handleLearningEvent}!Events.h@{Events.h}}
+\doxysubsubsection{\texorpdfstring{handleLearningEvent()}{handleLearningEvent()}}
+{\footnotesize\ttfamily void handle\+Learning\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})}
+
 \Hypertarget{Events_8h_aade80eb59d9a637677b7a309cd8c702c}\label{Events_8h_aade80eb59d9a637677b7a309cd8c702c} 
 \index{Events.h@{Events.h}!handleLoadGameEvent@{handleLoadGameEvent}}
 \index{handleLoadGameEvent@{handleLoadGameEvent}!Events.h@{Events.h}}

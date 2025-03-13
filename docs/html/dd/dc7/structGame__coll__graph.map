@@ -14,8 +14,8 @@
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="533,1884,580,1959,644,2042,698,2098,754,2147,750,2151,694,2101,640,2046,576,1962,529,1887"/>
 <area shape="rect" id="Node000008" href="$dc/d7b/structPlayer.html" title=" " alt="" coords="266,1372,418,1637"/>
 <area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="409,1636,492,1804,488,1807,405,1639"/>
-<area shape="rect" id="Node000009" href="$da/ddc/structMap.html" title=" " alt="" coords="443,1402,537,1607"/>
-<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="499,1608,512,1803,507,1804,494,1608"/>
+<area shape="rect" id="Node000009" href="$da/ddc/structMap.html" title=" " alt="" coords="443,1382,537,1627"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="501,1628,512,1804,507,1804,495,1628"/>
 <area shape="rect" id="Node000010" href="$d7/d7e/structCamera.html" title="Structure représentant la caméra du jeu." alt="" coords="562,1422,647,1587"/>
 <area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="586,1588,528,1805,523,1804,580,1587"/>
 <area shape="rect" id="Node000011" href="$d2/d52/structBattleState.html" title="Données de combat." alt="" coords="641,1780,750,1925"/>

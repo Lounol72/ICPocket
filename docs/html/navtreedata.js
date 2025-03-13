@@ -59,9 +59,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d4/d6e/structGameData.html",
-"d8/de4/structUI__Elements.html#a81dd7be9de23fa9878fe34cdef448ce7",
-"de/de9/structGame.html#a911428bfef2d00d5ece40210d3488fdb"
+"d4/d62/NPC_8h.html#ae04331beaafaf4dc2ca0ef6aff7c41c8",
+"d8/daa/Audio_8h.html",
+"de/dac/structLvl__Up__Buffer.html#a4234e21b25061a081c461f9faf002cd5"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';

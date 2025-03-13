@@ -2,7 +2,7 @@ var Player_8c =
 [
     [ "ANIMATION_SPEED", "d1/d12/Player_8c.html#aaa69f89df4c8e47abeb574bfdd11d9f4", null ],
     [ "FRAMES_PER_ANIMATION", "d1/d12/Player_8c.html#aacb988fff541a047d8ce1b3a98553a6f", null ],
-    [ "createPlayer", "d1/d12/Player_8c.html#a4f43f3c6bdc319322499494c7216fa8f", null ],
+    [ "createPlayer", "d1/d12/Player_8c.html#a008b68a8a93839ca6d584a22d3b013a1", null ],
     [ "DEBUG_printPlayerMat", "d1/d12/Player_8c.html#ac51a136d8106379440e8e12fe95d3999", null ],
     [ "destroyPlayer", "d1/d12/Player_8c.html#aeaca5c627e5599b60cc71af248c0f98e", null ],
     [ "renderPlayer", "d1/d12/Player_8c.html#a70c274fd4a9307435d4c483cec371711", null ],

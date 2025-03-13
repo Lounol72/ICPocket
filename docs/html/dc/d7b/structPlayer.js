@@ -13,6 +13,8 @@ var structPlayer =
     [ "matrixY", "dc/d7b/structPlayer.html#a253309b22a6a6f4a2bd562affe853cea", null ],
     [ "moveSpeed", "dc/d7b/structPlayer.html#a45d6174464d2e2cee07029e0b5aa5f82", null ],
     [ "position", "dc/d7b/structPlayer.html#a326f16b65e24150ec60c27c22b4ec00d", null ],
+    [ "sizeMapH", "dc/d7b/structPlayer.html#aa491cdeee4ad65fc13e956fb6b57641d", null ],
+    [ "sizeMapW", "dc/d7b/structPlayer.html#abeabc4a723f99e6784898f16b2c04818", null ],
     [ "spriteSheet", "dc/d7b/structPlayer.html#af38c8900e62c2e65e2038114b67644ae", null ],
     [ "startX", "dc/d7b/structPlayer.html#a49c81cb4c913348521ca65600d2e6211", null ],
     [ "startY", "dc/d7b/structPlayer.html#ad8cc1331719e900d83c4d5ca67b40840", null ],

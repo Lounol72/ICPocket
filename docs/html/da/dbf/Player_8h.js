@@ -16,7 +16,7 @@ var Player_8h =
       [ "WALK_RIGHT", "da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1a2fbeac521c5adf9280370533098f6891", null ]
     ] ],
     [ "checkCollision", "da/dbf/Player_8h.html#a929d06e98b093613850709d65b4da5f7", null ],
-    [ "createPlayer", "da/dbf/Player_8h.html#a4f43f3c6bdc319322499494c7216fa8f", null ],
+    [ "createPlayer", "da/dbf/Player_8h.html#a008b68a8a93839ca6d584a22d3b013a1", null ],
     [ "DEBUG_printPlayerMat", "da/dbf/Player_8h.html#ac51a136d8106379440e8e12fe95d3999", null ],
     [ "destroyPlayer", "da/dbf/Player_8h.html#aeaca5c627e5599b60cc71af248c0f98e", null ],
     [ "movePlayer", "da/dbf/Player_8h.html#a4b4cb0bbe11f3ac2217b842eefb84846", null ],

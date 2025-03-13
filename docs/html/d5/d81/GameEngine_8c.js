@@ -10,6 +10,7 @@ var GameEngine_8c =
     [ "initAllButtons", "d5/d81/GameEngine_8c.html#ac7a261e0d935ffeeca4d7a0713913bd2", null ],
     [ "initializeController", "d5/d81/GameEngine_8c.html#a4a1fa4c820fe7db5a69d6b4d576f2813", null ],
     [ "initSwapTeam", "d5/d81/GameEngine_8c.html#a28332eed894602447a49a8cdb433d25d", null ],
+    [ "learningMoveChoice", "d5/d81/GameEngine_8c.html#a5ed19d39baab73ab804232213baf91b2", null ],
     [ "mainLoop", "d5/d81/GameEngine_8c.html#ad119335fdbed767125510c855f2629ce", null ],
     [ "makeWindowFullScreen", "d5/d81/GameEngine_8c.html#a5e16d7cc1bf7868bf8f67575b2a0ef1c", null ],
     [ "makeWindowWindowed", "d5/d81/GameEngine_8c.html#afebb7c43646aae14210881f147faed62", null ],

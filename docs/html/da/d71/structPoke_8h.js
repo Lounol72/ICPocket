@@ -16,7 +16,6 @@ var structPoke_8h =
     [ "SPE", "da/d71/structPoke_8h.html#a4b23fe370a3a09cc47acd1e837a5b125", null ],
     [ "STRUGGLE", "da/d71/structPoke_8h.html#ad17fa6eb61b38334f7b136e02a78ff37", null ],
     [ "TRUE", "da/d71/structPoke_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d", null ],
-    [ "typeNumber", "da/d71/structPoke_8h.html#ad5122cd563904de0bfe762d37bdfacdf", null ],
     [ "generate_poke", "da/d71/structPoke_8h.html#afe2be4dcf1abaf503e3ce46c3af588e9", null ],
     [ "generate_poke_enemi", "da/d71/structPoke_8h.html#a51de8e3a42ddb12141a26f4b987e5d7e", null ],
     [ "generateMove", "da/d71/structPoke_8h.html#aff185784e3522330be3818416ad1cb93", null ],

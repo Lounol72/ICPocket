@@ -25,21 +25,23 @@
 \DoxyCodeLine{00027\ \ \ \ \ SDL\_Renderer\ *\mbox{\hyperlink{structMap_a92378f27d8c961168ac079ef6d019fc7}{renderer}};}
 \DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ **\mbox{\hyperlink{structMap_a13973d475de860c9fd9fc3764b299f6a}{mat}};}
 \DoxyCodeLine{00029\ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{structMap_a6cc56acfe807be88e919bd949528c05f}{texture}};}
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structMap_a9ecfe932ad2d2bc22492416033bdacfd}{width}};\ \ \textcolor{comment}{//\ Ajouter\ le\ membre\ width}}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structMap_a0546fef98caebe38385bb2e0c7a15da1}{height}};\ \textcolor{comment}{//\ Ajouter\ le\ membre\ height}}
-\DoxyCodeLine{00032\ \}\ \mbox{\hyperlink{structMap}{Map}};}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \mbox{\hyperlink{structMap}{Map}}\ *\mbox{\hyperlink{Map_8h_a2d3b5b6a74e6800de411e1edf7dfea2e}{initMap}}(SDL\_Renderer\ *renderer,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path);}
-\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Map_8h_a9903966da30d78752ca378caa3cb5dc5}{renderMapDebug}}(\mbox{\hyperlink{structMap}{Map}}\ *map);}
-\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Map_8h_a64df896c814cef549bef88fcd20d9a67}{destroyMap}}(\mbox{\hyperlink{structMap}{Map}}\ *map);}
-\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Map_8h_a68ba8a390de3a556e314c6b60d45232e}{updateMap}}(\mbox{\hyperlink{structMap}{Map}}\ *map);}
-\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Map_8h_a184a6d0c81c91133a682450fa7807b06}{loadMapIMG}}(\mbox{\hyperlink{structMap}{Map}}\ *map,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path);}
-\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Map_8h_addb7cea9964f63947c5e882c547d3d7d}{renderMapWithCamera}}(\mbox{\hyperlink{structMap}{Map}}*\ map,\ SDL\_Renderer*\ renderer,\ \mbox{\hyperlink{structCamera}{Camera}}*\ camera);}
-\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Map_8h_ae0656f1ed1c85e750b8bc65bd7269f62}{checkAndLoadNewMap}}(\mbox{\hyperlink{structMap}{Map}}\ **map,\ \textcolor{keywordtype}{int}\ playerX,\ \textcolor{keywordtype}{int}\ playerY);}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{comment}{//\ !\ DEBUG}}
-\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Map_8h_a6a8408146457cc93ec3694e180bb5574}{DEBUG\_printMap}}(\mbox{\hyperlink{structMap}{Map}}\ *map);}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structMap_a9ecfe932ad2d2bc22492416033bdacfd}{width}};\ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structMap_a0546fef98caebe38385bb2e0c7a15da1}{height}};\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structMap_ae0162e07555fbbe9b7b1dfb6a6a1ad81}{tileSizeW}};}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structMap_a122e746d4656a14c02b0732ba7470091}{tileSizeH}};}
+\DoxyCodeLine{00034\ \}\ \mbox{\hyperlink{structMap}{Map}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \mbox{\hyperlink{structMap}{Map}}\ *\mbox{\hyperlink{Map_8h_ae9475bf0ea7e30db360ff261097387b5}{initMap}}(SDL\_Renderer\ *renderer,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \textcolor{keywordtype}{int}\ TileSizeW,\ \textcolor{keywordtype}{int}\ TileSizeH);}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Map_8h_a9903966da30d78752ca378caa3cb5dc5}{renderMapDebug}}(\mbox{\hyperlink{structMap}{Map}}\ *map);}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Map_8h_a64df896c814cef549bef88fcd20d9a67}{destroyMap}}(\mbox{\hyperlink{structMap}{Map}}\ *map);}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Map_8h_a68ba8a390de3a556e314c6b60d45232e}{updateMap}}(\mbox{\hyperlink{structMap}{Map}}\ *map);}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Map_8h_a184a6d0c81c91133a682450fa7807b06}{loadMapIMG}}(\mbox{\hyperlink{structMap}{Map}}\ *map,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path);}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Map_8h_addb7cea9964f63947c5e882c547d3d7d}{renderMapWithCamera}}(\mbox{\hyperlink{structMap}{Map}}*\ map,\ SDL\_Renderer*\ renderer,\ \mbox{\hyperlink{structCamera}{Camera}}*\ camera);}
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Map_8h_ae0656f1ed1c85e750b8bc65bd7269f62}{checkAndLoadNewMap}}(\mbox{\hyperlink{structMap}{Map}}\ **map,\ \textcolor{keywordtype}{int}\ playerX,\ \textcolor{keywordtype}{int}\ playerY);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ !\ DEBUG}}
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Map_8h_a6a8408146457cc93ec3694e180bb5574}{DEBUG\_printMap}}(\mbox{\hyperlink{structMap}{Map}}\ *map);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

@@ -22,40 +22,41 @@
 \DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056ea56b36d0d0bb01b339cf1041adc08e262}{PAUSE}},\ \textcolor{comment}{//\ 8}}
 \DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056ea4cafa5feda04184537b4d7d346e1e89b}{MAP}},\ \textcolor{comment}{//\ 9}}
 \DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056eaaa826be4c1bbb2ee3d5f2e2fb6912a23}{SWAP}},\ \textcolor{comment}{//10}}
-\DoxyCodeLine{00021\ \}\ \mbox{\hyperlink{Window_8h_a5971f8f64b1fd772c90649cda6fddd86}{AppState}};}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#if\ defined(SDL\_RENDERER\_PRESENTVSYNC)}}
-\DoxyCodeLine{00034\ \textcolor{preprocessor}{\ \ \ \ \#define\ renderer\_flags\ DEFAULT\_RENDERER\_VSYNC\ }}
-\DoxyCodeLine{00035\ \textcolor{comment}{//\#elif\ defined(\_\_linux\_\_)}}
-\DoxyCodeLine{00036\ \textcolor{comment}{//\ \ \ \ \#define\ renderer\_flags\ SDL\_RENDERER\_ACCELERATED\ /**<\ Drapeaux\ du\ renderer\ pour\ Linux.\ */}}
-\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00038\ \textcolor{preprocessor}{\ \ \ \ \#define\ renderer\_flags\ SDL\_RENDERER\_SOFTWARE\ }}
-\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00042\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structGame}{Game}}\ \mbox{\hyperlink{structGame}{Game}};}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00045\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structGame}{Game}}\ \mbox{\hyperlink{Window_8h_ac6a5ed6191fcf3a5bf0445921feb4f48}{game}};}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00053\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structWindow}{Window}}\ \{}
-\DoxyCodeLine{00054\ \ \ \ \ SDL\_Window\ *\mbox{\hyperlink{structWindow_ae39a7755a5a6ab74bcbdbe3e2e206820}{window}};\ \ \ \ \ \ }
-\DoxyCodeLine{00055\ \ \ \ \ SDL\_Renderer\ *\mbox{\hyperlink{structWindow_a2b52309ef359b6392454a3bb57398b5d}{renderer}};\ \ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structWindow_af5b1c436782cc9752d386493fbc5dc8c}{width}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structWindow_af0ac1732ca6b79a6f6b78aa344140514}{height}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structWindow_a3b3cd24de4f91b4688550ab88b9fed39}{InitialWidth}};\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structWindow_ac6e5a576bc47bd10a1785af5ef4147d2}{InitialHeight}};\ \ \ \ \ \ \ }
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structWindow_a18acde62ad63dfc0613b6d17188ad1ea}{quit}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00061\ \ \ \ \ TTF\_Font\ *\mbox{\hyperlink{structWindow_ac208f33ca6acb2a4d346746a5a0f2303}{LargeFont}};\ \ \ \ \ }
-\DoxyCodeLine{00062\ \ \ \ \ TTF\_Font\ *\mbox{\hyperlink{structWindow_a5a19cfd746d4467c4e495b696a81b0cc}{MediumFont}};\ \ \ \ }
-\DoxyCodeLine{00063\ \ \ \ \ TTF\_Font\ *\mbox{\hyperlink{structWindow_a40546adc7b532007f27cef033ca1f2ac}{SmallFont}};\ \ \ \ \ }
-\DoxyCodeLine{00064\ \ \ \ \ TTF\_Font\ *\mbox{\hyperlink{structWindow_a84a27f3b1dc32dde7048b8c379635055}{font}};\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{Window_8h_a5971f8f64b1fd772c90649cda6fddd86}{AppState}}\ \mbox{\hyperlink{structWindow_a3a0f4a5dd608a0bf99bccda616fd6630}{state}};\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structWindow_a8cb0c3cce4f3426270c20aad800b7ebd}{textSpeed}};\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00067\ \}\ \mbox{\hyperlink{structWindow}{Window}};}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Window_8h_ab072fc478679f5b8fb5ffae288d1e7f2}{initWindow}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *FontPath);}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Window_8h_ab7c9ee132f977dd2efd33ab66509d650}{destroyGame}}();}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ WINDOW\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{Window_8h_a416822946d800083b7b87337456d056ea4605012625a370679a770354448167cb}{LEARNMOVE}},\ \textcolor{comment}{//11}}
+\DoxyCodeLine{00022\ \}\ \mbox{\hyperlink{Window_8h_a5971f8f64b1fd772c90649cda6fddd86}{AppState}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#if\ defined(SDL\_RENDERER\_PRESENTVSYNC)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\ \ \ \ \#define\ renderer\_flags\ DEFAULT\_RENDERER\_VSYNC\ }}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\#elif\ defined(\_\_linux\_\_)}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ \ \ \ \#define\ renderer\_flags\ SDL\_RENDERER\_ACCELERATED\ /**<\ Drapeaux\ du\ renderer\ pour\ Linux.\ */}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\ \ \ \ \#define\ renderer\_flags\ SDL\_RENDERER\_SOFTWARE\ }}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structGame}{Game}}\ \mbox{\hyperlink{structGame}{Game}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structGame}{Game}}\ \mbox{\hyperlink{Window_8h_ac6a5ed6191fcf3a5bf0445921feb4f48}{game}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structWindow}{Window}}\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ SDL\_Window\ *\mbox{\hyperlink{structWindow_ae39a7755a5a6ab74bcbdbe3e2e206820}{window}};\ \ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ SDL\_Renderer\ *\mbox{\hyperlink{structWindow_a2b52309ef359b6392454a3bb57398b5d}{renderer}};\ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structWindow_af5b1c436782cc9752d386493fbc5dc8c}{width}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structWindow_af0ac1732ca6b79a6f6b78aa344140514}{height}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structWindow_a3b3cd24de4f91b4688550ab88b9fed39}{InitialWidth}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structWindow_ac6e5a576bc47bd10a1785af5ef4147d2}{InitialHeight}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structWindow_a18acde62ad63dfc0613b6d17188ad1ea}{quit}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ TTF\_Font\ *\mbox{\hyperlink{structWindow_ac208f33ca6acb2a4d346746a5a0f2303}{LargeFont}};\ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ TTF\_Font\ *\mbox{\hyperlink{structWindow_a5a19cfd746d4467c4e495b696a81b0cc}{MediumFont}};\ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ TTF\_Font\ *\mbox{\hyperlink{structWindow_a40546adc7b532007f27cef033ca1f2ac}{SmallFont}};\ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ TTF\_Font\ *\mbox{\hyperlink{structWindow_a84a27f3b1dc32dde7048b8c379635055}{font}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{Window_8h_a5971f8f64b1fd772c90649cda6fddd86}{AppState}}\ \mbox{\hyperlink{structWindow_a3a0f4a5dd608a0bf99bccda616fd6630}{state}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structWindow_a8cb0c3cce4f3426270c20aad800b7ebd}{textSpeed}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \}\ \mbox{\hyperlink{structWindow}{Window}};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Window_8h_ab072fc478679f5b8fb5ffae288d1e7f2}{initWindow}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *FontPath);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Window_8h_ab7c9ee132f977dd2efd33ab66509d650}{destroyGame}}();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ WINDOW\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

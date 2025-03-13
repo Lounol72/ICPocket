@@ -7,5 +7,7 @@ var structMap =
     [ "rect", "da/ddc/structMap.html#aaf3855c86505c42a21b7320d8135b38c", null ],
     [ "renderer", "da/ddc/structMap.html#a92378f27d8c961168ac079ef6d019fc7", null ],
     [ "texture", "da/ddc/structMap.html#a6cc56acfe807be88e919bd949528c05f", null ],
+    [ "tileSizeH", "da/ddc/structMap.html#a122e746d4656a14c02b0732ba7470091", null ],
+    [ "tileSizeW", "da/ddc/structMap.html#ae0162e07555fbbe9b7b1dfb6a6a1ad81", null ],
     [ "width", "da/ddc/structMap.html#a9ecfe932ad2d2bc22492416033bdacfd", null ]
 ];

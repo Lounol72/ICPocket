@@ -5,7 +5,6 @@
 Définition et gestion du moteur de jeu.  
 
 
-{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
 {\ttfamily \#include "{}Utils.\+h"{}}\newline
 {\ttfamily \#include "{}inter\+Duel.\+h"{}}\newline
 {\ttfamily \#include "{}Text.\+h"{}}\newline
@@ -14,7 +13,8 @@ Définition et gestion du moteur de jeu.
 {\ttfamily \#include "{}Game.\+h"{}}\newline
 {\ttfamily \#include "{}Events.\+h"{}}\newline
 {\ttfamily \#include "{}Render\+ICMons.\+h"{}}\newline
-Graphe des dépendances par inclusion de Game\+Engine.\+h\+:\nopagebreak
+Graphe des dépendances par inclusion de Game\+Engine.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -70,19 +70,21 @@ void \mbox{\hyperlink{GameEngine_8h_adce05963537a78c4c589298117616864}{render}} 
 \begin{DoxyCompactList}\small\item\em Rend le contenu de la fenêtre. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{GameEngine_8h_ad119335fdbed767125510c855f2629ce}{main\+Loop}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win)
 \begin{DoxyCompactList}\small\item\em Boucle principale du jeu. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{GameEngine_8h_a8f8e57777ac436d2bfa2a87224c0eb8c}{attq\+Button\+Clicked}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+void \mbox{\hyperlink{GameEngine_8h_a8f8e57777ac436d2bfa2a87224c0eb8c}{attq\+Button\+Clicked}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}})
 \begin{DoxyCompactList}\small\item\em Gestionnaire de clic pour le bouton d\textquotesingle{}attaque. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{GameEngine_8h_ae30f21d07d1066ecda7ed1097d584e6b}{change\+State}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+void \mbox{\hyperlink{GameEngine_8h_ae30f21d07d1066ecda7ed1097d584e6b}{change\+State}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}})
 \begin{DoxyCompactList}\small\item\em Callback générique pour le changement d\textquotesingle{}état. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{GameEngine_8h_a28332eed894602447a49a8cdb433d25d}{init\+Swap\+Team}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+void \mbox{\hyperlink{GameEngine_8h_a28332eed894602447a49a8cdb433d25d}{init\+Swap\+Team}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}})
 \begin{DoxyCompactList}\small\item\em Callback pour le game\+State SWAP. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{GameEngine_8h_aa9e408a2d39655e3d5db43606825801b}{change\+Index\+Swap}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+void \mbox{\hyperlink{GameEngine_8h_aa9e408a2d39655e3d5db43606825801b}{change\+Index\+Swap}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}})
 \item 
-void \mbox{\hyperlink{GameEngine_8h_a4f4fd64e6dbdcdcd83fd46f43c35d9bf}{validate\+Swap}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+void \mbox{\hyperlink{GameEngine_8h_a4f4fd64e6dbdcdcd83fd46f43c35d9bf}{validate\+Swap}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}})
+\item 
+void \mbox{\hyperlink{GameEngine_8h_a5ed19d39baab73ab804232213baf91b2}{learning\+Move\+Choice}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}})
 \item 
 void \mbox{\hyperlink{GameEngine_8h_aa9e620870df635719d54d19fd83bb423}{update\+ICButtons}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}team)
 \begin{DoxyCompactList}\small\item\em Met à jour les boutons d\textquotesingle{}attaque. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{GameEngine_8h_a275ae329d3830bface72c1c30db48b04}{next\+Duel}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}data)
+void \mbox{\hyperlink{GameEngine_8h_a275ae329d3830bface72c1c30db48b04}{next\+Duel}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}})
 \begin{DoxyCompactList}\small\item\em Passe au duel suivant. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1}{update\+Current\+Button}} ()
 \begin{DoxyCompactList}\small\item\em Met à jour le bouton actuel. \end{DoxyCompactList}\item 
@@ -283,6 +285,12 @@ Cette fonction prépare le changement de state pour l\textquotesingle{}échange 
 {\em data} & Données supplémentaires pour le changement d\textquotesingle{}état. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{GameEngine_8h_a5ed19d39baab73ab804232213baf91b2}\label{GameEngine_8h_a5ed19d39baab73ab804232213baf91b2} 
+\index{GameEngine.h@{GameEngine.h}!learningMoveChoice@{learningMoveChoice}}
+\index{learningMoveChoice@{learningMoveChoice}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{learningMoveChoice()}{learningMoveChoice()}}
+{\footnotesize\ttfamily void learning\+Move\+Choice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
 \Hypertarget{GameEngine_8h_ad119335fdbed767125510c855f2629ce}\label{GameEngine_8h_ad119335fdbed767125510c855f2629ce} 
 \index{GameEngine.h@{GameEngine.h}!mainLoop@{mainLoop}}
 \index{mainLoop@{mainLoop}!GameEngine.h@{GameEngine.h}}

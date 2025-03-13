@@ -1,7 +1,7 @@
 var searchData=
 [
   ['damageonly_0',['damageOnly',['../df/d27/trainerAI_8h.html#a57d6e306e6a876cacd7cd69e71eb23e0a27d8a8f645f9c425741d92a2d23f5e6e',1,'trainerAI.h']]],
-  ['data_1',['data',['../d7/d19/structButton.html#a221fd9ab3b9125d019a12be97833172e',1,'Button']]],
+  ['data_1',['data',['../d7/d19/structButton.html#a221fd9ab3b9125d019a12be97833172e',1,'Button::data'],['../dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b',1,'data:&#160;structures.h']]],
   ['debug_5fprintmap_2',['debug_printmap',['../dc/df2/Map_8c.html#a6a8408146457cc93ec3694e180bb5574',1,'DEBUG_printMap(Map *map):&#160;Map.c'],['../df/d79/Map_8h.html#a6a8408146457cc93ec3694e180bb5574',1,'DEBUG_printMap(Map *map):&#160;Map.c']]],
   ['debug_5fprintplayermat_3',['debug_printplayermat',['../d1/d12/Player_8c.html#ac51a136d8106379440e8e12fe95d3999',1,'DEBUG_printPlayerMat(Player *player):&#160;Player.c'],['../da/dbf/Player_8h.html#ac51a136d8106379440e8e12fe95d3999',1,'DEBUG_printPlayerMat(Player *player):&#160;Player.c']]],
   ['def_4',['DEF',['../da/d71/structPoke_8h.html#a397419fc12b37ed479c8abb9d444d843',1,'structPoke.h']]],

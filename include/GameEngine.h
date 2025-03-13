@@ -1,7 +1,6 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 
-#include <SDL2/SDL_ttf.h>
 #include "Utils.h"
 // Added explicit include to ensure AppState is defined:
 
