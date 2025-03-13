@@ -1,6 +1,12 @@
 
 .vscode/
 .idea/
+docs/
+lib/
+bin/
+data/save/
+doxygen-awesome-css/
+*.log
 # Object files
 *.o
 *.json
@@ -23,9 +29,7 @@
 *.sh 
 *.tar.gz
 
-src/data/save/Save_*.txt
-bin/*
+
 
 
 *.Identifier
-*.log
