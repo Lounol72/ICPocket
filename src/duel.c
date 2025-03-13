@@ -395,13 +395,20 @@ void checkLearningMove(t_Poke * p){
 	FILE * movepoolFile=fopen("data/movepools.csv","r");
 	if (movepoolFile!=NULL){
 		char format[10];
-		int idMove;
+		char line[10];
+		int idMove=-1;
 		/*format is 'idPoke;lvl;%d' where %d is the id of the move we search*/
 		sprintf(format,"%d;%d;%%d",p->id,p->lvl);
-		if(fscanf(movepoolFile,format,&idMove)!=0){
-			//potentiel malloc
-			lvl_up_buffer[lvl_up_buffer_size].moveId=idMove;
-			lvl_up_buffer[lvl_up_buffer_size++].target=p;
+		while (fgets(line,sizeof(line),movepoolFile)){
+			if(sscanf(line,format,&idMove)==1){
+				if(p->nb_move<4){
+					p->moveList[p->nb_move++]=generateMove(idMove);
+				}
+				else{
+					lvl_up_buffer[lvl_up_buffer_size].moveId=idMove;
+					lvl_up_buffer[lvl_up_buffer_size++].target=p;
+				}
+			}
 		}
 	fclose(movepoolFile);
 	}

@@ -882,8 +882,10 @@ void updateBattleTurn() {
             tempMove.current_pp,
             tempMove.max_pp);
         setButtonText(game.ui[LEARNMOVE].buttons->buttons[4], temp, game.win->renderer);
-        updateICButtons(game.win,&game.battleState.rouge);
+        printf("buffer : %d\n",lvl_up_buffer_size);
         changeState(game.win,&game.stateHandlers[11].state);
+        game.battleState.turnState=TURN_NONE;
+        return;
     }
     switch (game.battleState.turnState) {
         case TURN_INIT: {
