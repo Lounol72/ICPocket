@@ -5,6 +5,7 @@
 
 #include "Utils.h"
 #include "Log.h"
+#include <SDL2/SDL_ttf.h>
 
 typedef enum AppState_s {
     QUIT = 0, // 0

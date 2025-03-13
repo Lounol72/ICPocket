@@ -179,7 +179,7 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
         free(img->PVText);
         img->PVText = NULL;
     }
-    Mix_Chunk *ICMonSound = Mix_LoadWAV("assets/audio/soundEffects/Enregistrement.mp3");
+    Mix_Chunk *ICMonSound = Mix_LoadWAV("assets/audio/soundEffects/bodycount.mp3");
     if (!ICMonSound) {
         SDL_Log("❌ Failed to load ICMonSound: %s", Mix_GetError());
     }
