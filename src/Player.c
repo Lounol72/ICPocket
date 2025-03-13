@@ -232,5 +232,5 @@ void updatePhysics(Player *player, Camera* camera, Map *map, float deltaTime) {
     updateCamera(camera, player->position.x, player->position.y, deltaTime);
     // Mettre à jour l'animation indépendamment du mouvement
     updatePlayerAnimation(player, deltaTime);
-    checkAndLoadNewMap(map, player->matrixX, player->matrixY);
+    checkAndLoadNewMap(&map, player->matrixX, player->matrixY);
 }

@@ -74,7 +74,7 @@ void* physicsThreadFunction(void* arg) {
         lastTime = currentTime;
         
         pthread_mutex_lock(&game->threadManager.physicsMutex);
-        updatePhysics(game->gameData.player, game->gameData.camera, deltaTime);
+        updatePhysics(game->gameData.player, game->gameData.camera, game->gameData.map, deltaTime);
         pthread_mutex_unlock(&game->threadManager.physicsMutex);
         
         manageFrameRate(currentTime);
