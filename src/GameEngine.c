@@ -148,6 +148,9 @@ void render(Window *win) {
         renderICMonsSprite(win, &(game.battleState.bleu.team[game.swappingIndex[0]]));
         renderICMonsSprite(win, &(game.battleState.rouge.team[game.swappingIndex[1]]));
     }
+    else if (game.gameState.currentState == LEARNMOVE){
+        renderICMonsSprite(win, lvl_up_buffer[lvl_up_buffer_size-1].target);
+    }
 }
 
 /**
@@ -301,6 +304,15 @@ void validateSwap(Window *win, void *data) {
     }
 }
 
+void learningMoveChoice(Window *win, void *data){
+    int value=(int)(intptr_t)data;
+    if(value!=4){
+        lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[value]=generateMove(lvl_up_buffer[lvl_up_buffer_size-1].moveId);
+    }
+    lvl_up_buffer_size--;
+    changeState(win,&game.stateHandlers[3].state);
+}
+
 /**
  * @brief Passe au duel suivant.
  *
@@ -412,15 +424,17 @@ void initAllButtons(Window *win)
     int nbButtonsICMons = 7;
     int nbButtonsInter = 3;
     int nbButtonsSwap = 14;
+    int nbButtonsLearn = 5;
 
-    Button *buttonsMenu[4];
-    Button *buttonsParam[6];
-    Button *buttonsLoadGame[3];
-    Button *buttonsGame[5];
-    Button *buttonsICMons[7];
-    Button *buttonsInter[3];
-    Button *buttonsSwap[14];
-    Slider *sliders[1];
+    Button *buttonsMenu[nbButtonsMenu];
+    Button *buttonsParam[nbButtonsParam];
+    Button *buttonsLoadGame[nbButtonsLoad];
+    Button *buttonsGame[nbButtonsGame];
+    Button *buttonsICMons[nbButtonsICMons];
+    Button *buttonsInter[nbButtonsInter];
+    Button *buttonsSwap[nbButtonsSwap];
+    Button *buttonsLearn[nbButtonsLearn];
+    Slider *sliders[nbSlidersSettings];
 
     /* Boutons du menu */
     buttonsMenu[0] = createButton(
@@ -694,7 +708,39 @@ void initAllButtons(Window *win)
         validateSwap, &game.stateHandlers[7].state, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
+
+    /* Boutons Learning Move */
     
+    buttonsLearn[0] = createButton(
+        "Attack 1", win, (SDL_Rect){startX, startY, buttonWidth, buttonHeight},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        learningMoveChoice, (void*)(intptr_t)0, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsLearn[1] = createButton(
+        "Attack 2", win, (SDL_Rect){startX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        learningMoveChoice, (void*)(intptr_t)1, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsLearn[2] = createButton(
+        "Attack 3", win, (SDL_Rect){startX + buttonWidth + spacingX, startY, buttonWidth, buttonHeight},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        learningMoveChoice, (void*)(intptr_t)2, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsLearn[3] = createButton(
+        "Attack 4", win, (SDL_Rect){startX + buttonWidth + spacingX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        learningMoveChoice, (void*)(intptr_t)3, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsLearn[4] = createButton(
+        "Attack 5", win, (SDL_Rect){950, startY, 300, 180},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        learningMoveChoice, (void*)(intptr_t)4, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
     
 
     /* Création du slider */
@@ -710,6 +756,7 @@ void initAllButtons(Window *win)
     addListButton(game.ui[6].buttons, buttonsICMons, nbButtonsICMons);
     addListButton(game.ui[7].buttons, buttonsInter, nbButtonsInter);
     addListButton(game.ui[10].buttons, buttonsSwap, nbButtonsSwap);
+    addListButton(game.ui[11].buttons, buttonsLearn, nbButtonsLearn);
 }
 
 /**
@@ -817,6 +864,27 @@ void startBattleTurn(int moveRouge, int moveBleu) {
 }
 
 void updateBattleTurn() {
+    if(lvl_up_buffer_size!=0) {
+        char temp[100];
+        for(int i=0; i<4; i++){
+            if (lvl_up_buffer[lvl_up_buffer_size-1].target->nb_move > i) {
+                snprintf(temp, sizeof(temp), "%s  %d/%d",
+                    lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[i].name,
+                    lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[i].current_pp,
+                    lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[i].max_pp);
+                setButtonText(game.ui[LEARNMOVE].buttons->buttons[i], temp, game.win->renderer);
+            }
+            else setButtonText(game.ui[LEARNMOVE].buttons->buttons[i], "  ", game.win->renderer);
+        }
+        t_Move tempMove=generateMove(lvl_up_buffer[lvl_up_buffer_size-1].moveId);
+        snprintf(temp, sizeof(temp), "%s  %d/%d",
+            tempMove.name,
+            tempMove.current_pp,
+            tempMove.max_pp);
+        setButtonText(game.ui[LEARNMOVE].buttons->buttons[4], temp, game.win->renderer);
+        updateICButtons(game.win,&game.battleState.rouge);
+        changeState(game.win,&game.stateHandlers[11].state);
+    }
     switch (game.battleState.turnState) {
         case TURN_INIT: {
             // Création et affichage d'un texte annonçant le début du tour

@@ -10,7 +10,7 @@ t_Move struggle={-1,"lutte",50,noType,physical,200,1,1,0,1,2,100,25,0};
 
 t_Move confusedMove={-2,"Confus",40,noType,physical,200,1,1,0,1,-1,0,0,0};
 
-Lvl_Up_Buffer lvl_up_buffer[6];
+Lvl_Up_Buffer lvl_up_buffer[12];
 int lvl_up_buffer_size=0;
 
 int statVarChange(t_Team * target, int probability, int modifier, int targetedStat){
@@ -392,7 +392,7 @@ int playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 
 
 void checkLearningMove(t_Poke * p){
-	FILE * movepoolFile=fopen("src/data/movepools.csv","r");
+	FILE * movepoolFile=fopen("data/movepools.csv","r");
 	if (movepoolFile!=NULL){
 		char format[10];
 		int idMove;

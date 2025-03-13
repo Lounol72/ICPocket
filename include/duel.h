@@ -37,7 +37,7 @@ typedef struct{
 extern int (*SecEffectTab[3])(t_Team *,int,int,int);
 
 /*This buffer purpose is to allow leveling up learning moves to work without blocking the SDL window*/
-extern Lvl_Up_Buffer lvl_up_buffer[6];
+extern Lvl_Up_Buffer lvl_up_buffer[12];
 extern int lvl_up_buffer_size;
 
 extern t_Team rouge;

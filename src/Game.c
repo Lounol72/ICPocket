@@ -26,7 +26,7 @@ void initGame(Window *win) {
     game.win = win;
     
     /* Initialisation des éléments de l'interface utilisateur (UI) */
-    game.nbMenu = 11;
+    game.nbMenu = 12;
     game.ui = malloc(game.nbMenu * sizeof(UI_Elements));
     game.ui[0] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // Quit Page            = 0
     game.ui[1] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = malloc(sizeof(SliderList)), .background = NULL }; // Settings Page = 1
@@ -39,6 +39,7 @@ void initGame(Window *win) {
     game.ui[8] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // Pause Page           = 8
     game.ui[9] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // Map Page             = 9
     game.ui[10]= (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // Team swap Page       = 10
+    game.ui[11]= (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // Learning Move page   = 11
 
     for (int i = 0; i < game.nbMenu; i++) {
         game.ui[i].buttons->buttons = NULL;
@@ -52,7 +53,7 @@ void initGame(Window *win) {
     game.gameState = (GameState){ .music = NULL, .playerTurn = 1, .initialized = 0, .currentState = MENU };
 
     /* Initialisation des gestionnaires d'états */
-    game.nbStates = 11;
+    game.nbStates = 12;
     game.stateHandlers = malloc(game.nbStates * sizeof(StateHandler));
     game.stateHandlers[0] = (StateHandler){ QUIT, handleQuitEvent };
     game.stateHandlers[1] = (StateHandler){ SETTINGS, handleSettingsEvent };
@@ -65,6 +66,7 @@ void initGame(Window *win) {
     game.stateHandlers[8] = (StateHandler){ PAUSE, handlePauseEvent };
     game.stateHandlers[9] = (StateHandler){ MAP, handlePlayerEvent };
     game.stateHandlers[10]= (StateHandler){ SWAP, handleSwapEvent };
+    game.stateHandlers[11]= (StateHandler){ LEARNMOVE, handleLearningEvent };
 
     /* Configuration de la fréquence d'images (FPS) */
     game.FPS = 60;
@@ -83,6 +85,7 @@ void initGame(Window *win) {
     loadBackground(&game.ui[7].background, win->renderer, "assets/Title Screen/combat.png");
     loadBackground(&game.ui[8].background, win->renderer, "assets/Title Screen/BG.jpg");
     loadBackground(&game.ui[10].background,win->renderer, "assets/Title Screen/BG.jpg");
+    loadBackground(&game.ui[11].background,win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_backpack_background.png");
 
     /* Initialisation de l'audio et chargement de la musique */
     initAudio();

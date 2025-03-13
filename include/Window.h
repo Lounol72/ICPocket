@@ -18,6 +18,7 @@ typedef enum AppState_s {
     PAUSE, // 8
     MAP, // 9
     SWAP, //10
+    LEARNMOVE, //11
 } AppState;
 
 /**

@@ -193,6 +193,8 @@ void changeState(Window *win, void *data);
 
  void validateSwap(Window *win, void *data);
 
+ void learningMoveChoice(Window *win, void *data);
+
 /* Text-related updates for attacks */
 /**
  * @brief Met à jour les boutons d'attaque.

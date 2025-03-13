@@ -102,4 +102,6 @@ void handlePlayerEvent(Window *win, SDL_Event *event);
 
  int initTeamSprites(Window *win, t_Team *teamSprite, float x_ratio, float y_ratio, int teamFlag);
 
+ void handleLearningEvent(Window *win, SDL_Event *event);
+
 #endif /* HANDLEEVENTS_H */

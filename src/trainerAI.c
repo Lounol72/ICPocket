@@ -62,7 +62,7 @@ int AI_move_choice(t_AI *ai, t_Team *opponent) {
     }
 
     // Affichage pour le débogage (en 0-indexé)
-    printf("Tab damage après tri : ");
+    /*printf("Tab damage après tri : ");
     for (int i = 0; i < nb_valid_moves; i++) {
         printf("%d ", tab_damage[i]);
     }
@@ -75,6 +75,7 @@ int AI_move_choice(t_AI *ai, t_Team *opponent) {
     printf("\n");
 
     printf("Move choisi (index 0-based) : %d\n", tab_move[chosenIndex]);
+    */
 
     return tab_move[chosenIndex];
 }
