@@ -6,7 +6,7 @@
 #define ANIMATION_SPEED 0.10f // Temps entre chaque frame
 #define FRAMES_PER_ANIMATION 4 // Nombre de frames par animation
 
-Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * map) {
+Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * map, int spawnX, int spawnY) {
     Player *player = malloc(sizeof(Player));
     if (!player) {
         printf("Erreur allocation player\n");
@@ -28,9 +28,9 @@ Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * 
         return NULL;
     }
 
-    // Calculer la position centrale dans la matrice
-    player->matrixX = map->width / 2;
-    player->matrixY = map->height / 2;
+    // Utiliser les coordonnées de spawn
+    player->matrixX = spawnX;
+    player->matrixY = spawnY;
 
     int windowWidth, windowHeight;
     SDL_GetWindowSize(SDL_GetWindowFromID(1), &windowWidth, &windowHeight);
@@ -58,9 +58,27 @@ Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * 
     player->state = IDLE_DOWN;
 
     player->mat = (int **)malloc(sizeof(int *) * map->height);
+    if (!player->mat) {
+        printf("Erreur allocation mémoire pour player->mat\n");
+        SDL_DestroyTexture(player->spriteSheet);
+        free(player);
+        return NULL;
+    }
+
     for (int i = 0; i < map->height; i++) {
         player->mat[i] = (int *)malloc(sizeof(int) * map->width);
+        if (!player->mat[i]) {
+            printf("Erreur allocation mémoire pour player->mat[%d]\n", i);
+            for (int j = 0; j < i; j++) {
+                free(player->mat[j]);
+            }
+            free(player->mat);
+            SDL_DestroyTexture(player->spriteSheet);
+            free(player);
+            return NULL;
+        }
     }
+
     for (int i = 0; i < map->height; i++) {
         for (int j = 0; j < map->width; j++) {
             player->mat[i][j] = 0;
