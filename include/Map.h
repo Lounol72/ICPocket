@@ -5,7 +5,8 @@
 #define MAP_HEIGHT 20
 #define TILE_SIZE_W_SCALE 40
 #define TILE_SIZE_H_SCALE 36
-
+#define TILE_SIZE_W 80
+#define TILE_SIZE_H 72
 
 
 #define AIR 0
@@ -33,7 +34,8 @@ typedef struct Map {
 	int tileSizeH;
 } Map;
 
-Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSizeH);
+Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSizeH, int *spawnX, int *spawnY);
+void scaleMap(Map *map, int originalWidth, int originalHeight, int newWidth, int newHeight);
 void renderMapDebug(Map *map);
 void destroyMap(Map *map);
 void updateMap(Map *map);

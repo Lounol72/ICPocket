@@ -56,7 +56,7 @@ typedef struct {
 } Player;
 
 
-Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * map);
+Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * map, int spawnX, int spawnY);
 void updatePlayerAnimation(Player *player, float deltaTime);
 void updatePlayerPosition(Player *player, float deltaTime);
 void renderPlayer(SDL_Renderer *renderer, Player *player);

@@ -91,18 +91,21 @@ void initGame(Window *win) {
     initAudio();
     loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");
     loadMusic(&game.gameState.music_inter, "assets/audio/Ciel.mp3");
-    /* Création et configuration du joueur */
+
     /* Initialisation de la carte et de la caméra */
-    game.gameData.map = initMap(win->renderer, "assets/Tileset/Map/hall.png", MAP_WIDTH, MAP_HEIGHT);
+    int spawnX, spawnY;
+    game.gameData.map = initMap(win->renderer, "assets/Tileset/Map/hall.png", MAP_WIDTH, MAP_HEIGHT, &spawnX, &spawnY);
     game.gameData.camera = createCamera(WINDOWS_W, WINDOWS_H);
-    game.gameData.player = createPlayer(win->renderer, "assets/Characters/Character 10.png", game.gameData.map);
+
+    /* Création et configuration du joueur */
+    game.gameData.player = createPlayer(win->renderer, "assets/Characters/Character 10.png", game.gameData.map, spawnX, spawnY);
     if (!game.gameData.player) {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
                          "❌ Erreur : Impossible de créer le joueur");
         return;
     }
-    game.gameData.player->position.x = MAP_WIDTH * TILE_SIZE_W_SCALE / 2;
-    game.gameData.player->position.y = MAP_HEIGHT * TILE_SIZE_H_SCALE / 2;
+    game.gameData.player->position.x = spawnX * TILE_SIZE_W_SCALE;
+    game.gameData.player->position.y = spawnY * TILE_SIZE_H_SCALE;
         
     /* Initialisation du système de texte */
     initText(win);

@@ -13,17 +13,23 @@ static void initCollisionMap(Map *map) {
     }
 }*/
 
-static void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight) {
+static void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY) {
+    printf("Chargement de la nouvelle map: %s\n", newMapPath);
     destroyMap(*map);
     
-    *map = initMap((*map)->renderer, newMapPath, mapWidth, mapHeight);
+    *map = initMap((*map)->renderer, newMapPath, mapWidth, mapHeight, spawnX, spawnY);
     if (!*map) {
         printf("Erreur chargement nouvelle map\n");
         return;
     }
+
+    // Mettre à jour les coordonnées de spawn du joueur
+    if (spawnX && spawnY) {
+        printf("Nouvelles coordonnées de spawn: [%d, %d]\n", *spawnX, *spawnY);
+    }
 }
 
-static void initCollisionMapFromCSV(Map *map, const char *path) {
+static void initCollisionMapFromCSV(Map *map, const char *path, int *spawnX, int *spawnY) {
     FILE *file = fopen(path, "r");
     if (!file) {
         printf("Erreur ouverture fichier: %s\n", path);
@@ -46,7 +52,14 @@ static void initCollisionMapFromCSV(Map *map, const char *path) {
         int j = 0;
         
         while (token && j < map->tileSizeW) {
-            map->mat[i][j] = atoi(token);
+            int value = atoi(token);
+            if (value == -1) {
+                *spawnX = j;
+                *spawnY = i; 
+                map->mat[i][j] = value;  // Conserver le -1 dans la matrice
+            } else {
+                map->mat[i][j] = value;
+            }
             token = strtok(NULL, ",");
             j++;
         }
@@ -54,11 +67,11 @@ static void initCollisionMapFromCSV(Map *map, const char *path) {
     }
     
     fclose(file);
-    
 }
 
+Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSizeH, int *spawnX, int *spawnY) {
+    printf("Initialisation de la map avec les dimensions: %d x %d\n", TileSizeW, TileSizeH);
 
-Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSizeH) {
     Map *map = (Map *)malloc(sizeof(Map));
     if (!map) {
         printf("Erreur allocation mémoire pour map\n");
@@ -69,10 +82,6 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
     map->tileSizeW = TileSizeW;
     map->tileSizeH = TileSizeH;
     map->renderer = renderer;
-    
-    // Obtenir les dimensions de la fenêtre
-    int windowWidth, windowHeight;
-    SDL_GetWindowSize(SDL_GetWindowFromID(1), &windowWidth, &windowHeight);
     
     // Allouer la matrice
     map->mat = (int **)malloc(TileSizeH * sizeof(int *));
@@ -99,11 +108,12 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
     map->width = TileSizeW;
     map->height = TileSizeH;
     
+    // Ajuster le rectangle de rendu pour respecter les dimensions du CSV
     map->rect = (SDL_Rect){
         0, 
         0, 
-        TileSizeW * (int)(windowWidth / TileSizeW), 
-        TileSizeH * (int)(windowHeight / TileSizeH)
+        TileSizeH * TILE_SIZE_H_SCALE,
+        TileSizeW * TILE_SIZE_W_SCALE
     };
 
     // Charger le fichier CSV
@@ -118,7 +128,7 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
     if (dot) {
         strcpy(dot, ".csv");
         printf("Chargement du fichier CSV: %s\n", csvPath);
-        initCollisionMapFromCSV(map, csvPath);
+        initCollisionMapFromCSV(map, csvPath, spawnX, spawnY);
     }
     free(csvPath);
 
@@ -139,23 +149,41 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
         return NULL;
     }
 
+    // Imprimer les dimensions de la map pour le débogage
+    printf("Map initialisée avec les dimensions: %d x %d\n", TileSizeW, TileSizeH);
+
     return map;
 }
 
 void checkAndLoadNewMap(Map **map, int playerX, int playerY) {
+    if (!map || !*map || !(*map)->mat) {
+        printf("Erreur: map ou map->mat est NULL\n");
+        return;
+    }
+
+    if (playerX < 0 || playerX >= (*map)->tileSizeW || playerY < 0 || playerY >= (*map)->tileSizeH) {
+        printf("Indices de joueur invalides: playerX=%d, playerY=%d\n", playerX, playerY);
+        return;
+    }
+
+    int spawnX = playerX;
+    int spawnY = playerY;
+
     if ((*map)->mat[playerY][playerX] == 2) {
         const char *newMapPath = "assets/Tileset/Map/2.png";
-        loadNewMap(map, newMapPath, 16, 10);
+        loadNewMap(map, newMapPath, 16, 10, &spawnX, &spawnY);
+        DEBUG_printMap(*map);  // Ajouter cette ligne pour imprimer la matrice
     }
     if ((*map)->mat[playerY][playerX] == 3) {
         const char *newMapPath = "assets/Tileset/Map/3.png";
-        loadNewMap(map, newMapPath, 16, 10);
+        loadNewMap(map, newMapPath, 16, 10, &spawnX, &spawnY);
+        DEBUG_printMap(*map);  // Ajouter cette ligne pour imprimer la matrice
     }
     if ((*map)->mat[playerY][playerX] == 9) {
         const char *newMapPath = "assets/Tileset/Map/hall.png";
-        loadNewMap(map, newMapPath, 32, 10);
+        loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
+        DEBUG_printMap(*map);  // Ajouter cette ligne pour imprimer la matrice
     }
-    
 }
 
 void DEBUG_printMap(Map *map) {
