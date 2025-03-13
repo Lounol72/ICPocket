@@ -73,20 +73,9 @@ void* physicsThreadFunction(void* arg) {
         float deltaTime = (currentTime - lastTime) / 1000.0f;
         lastTime = currentTime;
         
-        if (game->gameState.currentState == MAP && game->gameData.player) {
-            pthread_mutex_lock(&game->threadManager.physicsMutex);
-
-            updatePlayerPosition(game->gameData.player, deltaTime);
-            updateCamera(game->gameData.camera, 
-                       game->gameData.player->position.x, 
-                       game->gameData.player->position.y, 
-                       deltaTime);
-            
-            // Mettre à jour l'animation indépendamment du mouvement
-            updatePlayerAnimation(game->gameData.player, deltaTime);
-            
-            pthread_mutex_unlock(&game->threadManager.physicsMutex);
-        }
+        pthread_mutex_lock(&game->threadManager.physicsMutex);
+        updatePhysics(game->gameData.player, game->gameData.camera, game->gameData.map, deltaTime);
+        pthread_mutex_unlock(&game->threadManager.physicsMutex);
         
         manageFrameRate(currentTime);
     }

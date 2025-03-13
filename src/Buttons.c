@@ -347,7 +347,6 @@ static inline float clampf(float v, float min, float max) {
 int handleSliderEvent(Slider *slider, SDL_Event *event) {
     if (!slider)
         return 0;
-    printf("slider value: %f\n", slider->value);
     switch (event->type) {
         case SDL_MOUSEBUTTONDOWN:
             if (SDL_PointInRect(&(SDL_Point){ event->button.x, event->button.y }, &(slider->rect))) {

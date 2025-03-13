@@ -382,7 +382,7 @@ void mainLoop(Window *win) {
         }
         
         if (game.gameState.currentState == MAP) {
-            checkAndLoadNewMap(&game.gameData.map, game.gameData.player->matrixX, game.gameData.player->matrixY);
+            
             renderMap(win);
             
         } else {

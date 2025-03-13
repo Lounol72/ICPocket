@@ -50,7 +50,6 @@ static void initCollisionMapFromCSV(Map *map, const char *path, int *spawnX, int
     while (fgets(line, sizeof(line), file) && i < map->tileSizeH) {
         char *token = strtok(line, ",");
         int j = 0;
-        
         while (token && j < map->tileSizeW) {
             int value = atoi(token);
             if (value == -1) {
@@ -112,8 +111,8 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
     map->rect = (SDL_Rect){
         0, 
         0, 
-        TileSizeH * TILE_SIZE_H_SCALE,
-        TileSizeW * TILE_SIZE_W_SCALE
+        20 * TILE_SIZE_H_SCALE,
+        32 * TILE_SIZE_W_SCALE
     };
 
     // Charger le fichier CSV
@@ -171,18 +170,18 @@ void checkAndLoadNewMap(Map **map, int playerX, int playerY) {
 
     if ((*map)->mat[playerY][playerX] == 2) {
         const char *newMapPath = "assets/Tileset/Map/2.png";
-        loadNewMap(map, newMapPath, 16, 10, &spawnX, &spawnY);
-        DEBUG_printMap(*map);  // Ajouter cette ligne pour imprimer la matrice
+        loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
+        
     }
     if ((*map)->mat[playerY][playerX] == 3) {
         const char *newMapPath = "assets/Tileset/Map/3.png";
-        loadNewMap(map, newMapPath, 16, 10, &spawnX, &spawnY);
-        DEBUG_printMap(*map);  // Ajouter cette ligne pour imprimer la matrice
+        loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
+        
     }
     if ((*map)->mat[playerY][playerX] == 9) {
         const char *newMapPath = "assets/Tileset/Map/hall.png";
         loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
-        DEBUG_printMap(*map);  // Ajouter cette ligne pour imprimer la matrice
+        
     }
 }
 
