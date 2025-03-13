@@ -24,6 +24,9 @@ typedef struct SliderList SliderList;
 
 #include "Utils.h"
 
+#define MIN_PADDING 5
+#define MAX_SCALE 2.0f
+
 
 typedef struct Window Window;
 /**

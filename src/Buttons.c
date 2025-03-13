@@ -1,8 +1,8 @@
 #include "../include/Buttons.h"
 #include <stdlib.h>
 
-#define MIN_PADDING 5
-#define MAX_SCALE 2.0f
+
+
 
 static void Scaling(const char *text, TTF_Font *font, SDL_Rect *rect, const SDL_Rect *initialRect) {
     if (!text || !font || !rect || !initialRect) return;
