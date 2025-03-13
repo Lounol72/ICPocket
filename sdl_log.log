@@ -17,6 +17,7 @@
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 [0] [3] Changement d'état : 1
 [0] [3] Changement d'état : 2
 [0] [3] Changement d'état : 9
@@ -52,15 +53,19 @@
 [0] [2] ScrollingText created successfully
 [0] [2] ScrollingText created successfully
 [0] [3] Changement d'état : 2
+=======
+>>>>>>> f4e83c7 (Work in progress - Update map dimensions and player physics integration; add new tileset and save data)
 [0] [3] Changement d'état : 9
-[0] [3] Changement d'état : 2
-[0] [3] Changement d'état : 0
+[7] [3] Quit
 [0] [3] ✅ Musique libérée
 [0] [3] ✅ Musique inter libérée
 [0] [3] ✅ UI libérée
+<<<<<<< HEAD
 [0] [3] ✅ ICMons rouges libérés
 [0] [3] ✅ ICMons bleus libérés
 >>>>>>> a526973 (Work in progress de la gestion de la taille des cartes)
+=======
+>>>>>>> f4e83c7 (Work in progress - Update map dimensions and player physics integration; add new tileset and save data)
 [0] [3] ✅ State handlers libérés
 [0] [3] ✅ LargeFont libéré
 [0] [3] ✅ MediumFont libéré
