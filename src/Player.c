@@ -85,6 +85,9 @@ Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * 
         }
     }
 
+    // Définir la position de spawn initiale à -1
+    player->mat[spawnY][spawnX] = -1;
+
     player->interpolationTime = 0.0f;
     player->moveSpeed = 0.4f;  // Augmenté à 0.4 secondes par case (était 0.2)
     player->targetMatrixX = player->matrixX;
@@ -192,6 +195,9 @@ void destroyPlayer(Player *player) {
     }
 }
 
+//void uptadeSpawnPlayer(Player *player, )
+
+
 void updatePlayerPosition(Player *player, float deltaTime) {
     if (player->isMovingToTarget) {
         player->interpolationTime += deltaTime;
@@ -207,7 +213,7 @@ void updatePlayerPosition(Player *player, float deltaTime) {
         // Mettre à jour la position en pixels
         player->position.x = (int)newX;
         player->position.y = (int)newY;
-
+        
         // Si le mouvement est terminé
         if (t >= 1.0f) {
             player->matrixX = player->targetMatrixX;
@@ -232,5 +238,6 @@ void updatePhysics(Player *player, Camera* camera, Map *map, float deltaTime) {
     updateCamera(camera, player->position.x, player->position.y, deltaTime);
     // Mettre à jour l'animation indépendamment du mouvement
     updatePlayerAnimation(player, deltaTime);
-    checkAndLoadNewMap(&map, player->matrixX, player->matrixY);
+    checkAndLoadNewMap(&map, &player->matrixX, &player->matrixY);
+    
 }

@@ -41,7 +41,7 @@ void destroyMap(Map *map);
 void updateMap(Map *map);
 void loadMapIMG(Map *map, const char *path);
 void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera);
-void checkAndLoadNewMap(Map **map, int playerX, int playerY);
+void checkAndLoadNewMap(Map **map, int *playerX, int *playerY);
 
 // ! DEBUG
 void DEBUG_printMap(Map *map);
