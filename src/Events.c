@@ -87,10 +87,6 @@ void handleEvent(Window *win, SDL_Event *event) {
                 SDL_LogMessage(SDL_LOG_CATEGORY_INPUT, SDL_LOG_PRIORITY_INFO, "Quit");
                 return;
             }
-            if (key == SDLK_ESCAPE && game.gameState.currentState == MAP) {
-                changeState(win, &game.stateHandlers[2].state);
-                return;
-            }
 
             /* Navigation dans les boutons */
             if (game.ui[game.gameState.currentState].buttons) {
@@ -458,7 +454,7 @@ void handlePauseEvent(Window *win, SDL_Event *event) {
  * @param event Pointeur sur l'événement SDL.
  */
 void handlePlayerEvent(Window *win, SDL_Event *event) {
-    (void)win;
+    
     (void)event;
     
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
@@ -497,6 +493,8 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
             shouldMove = true;
         }
     }
+    else if (keyState[SDL_SCANCODE_ESCAPE]) changeState(win, &game.stateHandlers[2].state);
+    else if (keyState[SDL_SCANCODE_DELETE]) changeState(win, &game.stateHandlers[0].state);
     
     if (shouldMove && game.gameData.map->mat[newMatrixY][newMatrixX] != COLLISION) {
         game.gameData.player->startX = game.gameData.player->position.x;
@@ -509,5 +507,5 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
         game.gameData.player->isMovingToTarget = true;
         game.gameData.player->interpolationTime = 0.0f;
     }
-    handleEvent(win, event);
+    
 }
