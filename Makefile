@@ -78,10 +78,12 @@ testDuel: $(DUEL_EXE)
 	@echo "🚀 Lancement du programme duel..."
 	@./$(BIN_DIR)/$(DUEL_EXE)
 
-testMain: $(MAIN_EXE)
+run: $(MAIN_EXE)
 	@echo "🚀 Lancement du programme main..."
 	@./$(BIN_DIR)/$(MAIN_EXE)
 	@echo "✅ Main terminé"
+
+
 
 testValgrind: $(MAIN_EXE)
 	@echo "🚀 Lancement de Valgrind..."
@@ -91,6 +93,7 @@ testMain-debug: $(MAIN_EXE)
 	@echo "🚀 Lancement de Valgrind..."
 	@./$(BIN_DIR)/$(MAIN_EXE) -debug
 
+rebuild: clean all
 # Cible de nettoyage
 clean:
 	@echo "🧹 Nettoyage en cours..."

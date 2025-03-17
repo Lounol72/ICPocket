@@ -864,29 +864,7 @@ void startBattleTurn(int moveRouge, int moveBleu) {
 }
 
 void updateBattleTurn() {
-    if(lvl_up_buffer_size!=0) {
-        char temp[100];
-        for(int i=0; i<4; i++){
-            if (lvl_up_buffer[lvl_up_buffer_size-1].target->nb_move > i) {
-                snprintf(temp, sizeof(temp), "%s  %d/%d",
-                    lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[i].name,
-                    lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[i].current_pp,
-                    lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[i].max_pp);
-                setButtonText(game.ui[LEARNMOVE].buttons->buttons[i], temp, game.win->renderer);
-            }
-            else setButtonText(game.ui[LEARNMOVE].buttons->buttons[i], "  ", game.win->renderer);
-        }
-        t_Move tempMove=generateMove(lvl_up_buffer[lvl_up_buffer_size-1].moveId);
-        snprintf(temp, sizeof(temp), "%s  %d/%d",
-            tempMove.name,
-            tempMove.current_pp,
-            tempMove.max_pp);
-        setButtonText(game.ui[LEARNMOVE].buttons->buttons[4], temp, game.win->renderer);
-        printf("buffer : %d\n",lvl_up_buffer_size);
-        changeState(game.win,&game.stateHandlers[11].state);
-        game.battleState.turnState=TURN_NONE;
-        return;
-    }
+    
     switch (game.battleState.turnState) {
         case TURN_INIT: {
             // Création et affichage d'un texte annonçant le début du tour
@@ -918,8 +896,10 @@ void updateBattleTurn() {
             if (game.battleState.hasAttacked == false){
                 // La fonction executeAction reprend la logique de playATurn pour une action
                 if(game.battleState.first) {
-                    if (isTeamAlive(&game.battleState.rouge) && isAlive(&(game.battleState.rouge.team[0])))
+                    if (isTeamAlive(&game.battleState.rouge) && isAlive(&(game.battleState.rouge.team[0]))){
                         executeAction(&game.battleState.rouge, &game.battleState.bleu, game.battleState.moveRouge);
+                        if (!isAlive(&(game.battleState.bleu.team[0]))) gainExp(&game.battleState.rouge, &game.battleState.bleu.team[0]);
+                    }
                 }
                 else {
                     if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {
@@ -961,8 +941,10 @@ void updateBattleTurn() {
                         executeAction(&game.battleState.bleu, &game.battleState.rouge, game.battleState.moveBleu);
                 }
                 else {
-                    if (isTeamAlive(&game.battleState.rouge) && isAlive(&(game.battleState.rouge.team[0])))
+                    if (isTeamAlive(&game.battleState.rouge) && isAlive(&(game.battleState.rouge.team[0]))){
                         executeAction(&game.battleState.rouge, &game.battleState.bleu, game.battleState.moveRouge);
+                        if (!isAlive(&(game.battleState.bleu.team[0]))) gainExp(&game.battleState.rouge, &game.battleState.bleu.team[0]);
+                    }
                 }
                 game.battleState.hasAttacked = true;
             }
@@ -973,24 +955,52 @@ void updateBattleTurn() {
             break;
         }
         case TURN_FINISHED: {
-            // Le tour est terminé, vous pouvez ici déclencher des mises à jour d'interface ou des vérifications de fin de combat.
-            updateICButtons(game.win, &game.battleState.rouge);
-            if(!isAlive(&game.battleState.rouge.team[0]) && isTeamAlive(&game.battleState.rouge)) changeState(game.win, &game.stateHandlers[6].state);
-            if (!isAlive(&(game.battleState.bleu.team[0]))) gainExp(&game.battleState.rouge, &game.battleState.bleu.team[0]);
-            if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {
-                int nb_valide = 0;
-                int liste_valide[game.battleState.bleu.nb_poke];
-                for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
-                    if (isAlive(&game.battleState.bleu.team[i]))
-                        liste_valide[nb_valide++] = i + 10;
-                }
-                int x = rand() % nb_valide;
-                swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
+            // Le tour est terminé
+            for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+                updateICMonText(&game.battleState.bleu.team[i]);
             }
-            if(!isAlive(&game.battleState.bleu.team[0]) &&  !isTeamAlive(&game.battleState.bleu)) changeState(game.win, &game.stateHandlers[7].state);
-            destroyScrollingText(game.battleState.text);
-            game.battleState.text = NULL;
-            game.battleState.turnState = TURN_NONE;
+            for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
+                updateICMonText(&game.battleState.rouge.team[i]);
+            }
+            if(lvl_up_buffer_size!=0 && game.gameState.currentState != LEARNMOVE) {
+                char temp[100];
+                for(int i=0; i<4; i++){
+                    if (lvl_up_buffer[lvl_up_buffer_size-1].target->nb_move > i) {
+                        snprintf(temp, sizeof(temp), "%s  %d/%d",
+                            lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[i].name,
+                            lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[i].current_pp,
+                            lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[i].max_pp);
+                        setButtonText(game.ui[LEARNMOVE].buttons->buttons[i], temp, game.win->renderer);
+                    }
+                    else setButtonText(game.ui[LEARNMOVE].buttons->buttons[i], "  ", game.win->renderer);
+                }
+                t_Move tempMove=generateMove(lvl_up_buffer[lvl_up_buffer_size-1].moveId);
+                snprintf(temp, sizeof(temp), "%s  %d/%d",
+                    tempMove.name,
+                    tempMove.current_pp,
+                    tempMove.max_pp);
+                setButtonText(game.ui[LEARNMOVE].buttons->buttons[4], temp, game.win->renderer);
+                changeState(game.win,&game.stateHandlers[11].state);
+            }
+            else{
+                updateICButtons(game.win, &game.battleState.rouge);
+                if(!isAlive(&game.battleState.rouge.team[0]) && isTeamAlive(&game.battleState.rouge)) changeState(game.win, &game.stateHandlers[6].state);
+                if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {
+                    int nb_valide = 0;
+                    int liste_valide[game.battleState.bleu.nb_poke];
+                    for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+                        if (isAlive(&game.battleState.bleu.team[i]))
+                            liste_valide[nb_valide++] = i + 10;
+                    }
+                    int x = rand() % nb_valide;
+                    swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
+                }
+                if(!isAlive(&game.battleState.bleu.team[0]) &&  !isTeamAlive(&game.battleState.bleu)) changeState(game.win, &game.stateHandlers[7].state);
+                destroyScrollingText(game.battleState.text);
+                game.battleState.text = NULL;
+                
+                game.battleState.turnState = TURN_NONE;
+            }
             
             break;
         }

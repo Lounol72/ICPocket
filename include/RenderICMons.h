@@ -77,6 +77,15 @@ void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
 void renderICMonsSprite(Window *win, t_Poke *poke);
 
 /**
+ * @brief Met à jour le texte des ICMons.
+ * 
+ * Cette fonction met à jour le texte des ICMons en fonction des paramètres donnés.
+ * 
+ * @param poke Un pointeur vers la structure t_Poke représentant l'ICMons.
+ */
+void updateICMonText(t_Poke *poke);
+
+/**
  * @brief Détruit un sprite ICMons.
  * 
  * Cette fonction libère les ressources associées au sprite ICMons spécifié.

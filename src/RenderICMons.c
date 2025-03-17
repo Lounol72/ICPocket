@@ -294,6 +294,21 @@ void destroyICMonsSprite(t_Poke *poke) {
 }
 
 /**
+ * @brief Met à jour le texte des ICMons.
+ * 
+ * Cette fonction met à jour le texte des ICMons en fonction des paramètres donnés.
+ * 
+ * @param poke Un pointeur vers la structure t_Poke représentant l'ICMons.
+ */
+void updateICMonText(t_Poke *poke) {
+    if (!poke->img) return;
+    
+    // Mise à jour du texte de LVL avec les valeurs actuelles
+    static char lvlBuffer[32];
+    snprintf(lvlBuffer, sizeof(lvlBuffer), "N.%d", poke->lvl);
+    updateText(poke->img->LvlText, lvlBuffer, poke->img->renderer);
+}
+/**
  * @brief Met à jour le sprite ICMon en appliquant une échelle sur les dimensions et positions.
  *
  * Cette fonction met à jour la taille et la position du sprite, du nom et de la barre de PV
