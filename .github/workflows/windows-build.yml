@@ -1,11 +1,13 @@
-name: Windows Build
+name: Windows Build at Midnight
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * *'  # Exécution tous les jours à minuit UTC
   workflow_dispatch:
+
+permissions:
+  contents: write  # Permet de modifier le contenu du dépôt, y compris les commits
+  actions: write   # Permet à GitHub Actions de créer des releases et de modifier les artefacts
 
 env:
   BUILD_TYPE: Release
@@ -14,13 +16,29 @@ env:
 jobs:
   build:
     runs-on: windows-latest
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
+
+    - name: Check if commits were made today
+      id: check_commits
+      run: |
+        # Obtenir la date actuelle en format ISO (ex: 2025-03-18)
+        TODAY=$(date --utc +%Y-%m-%d)
         
+        # Vérifier si des commits ont été faits aujourd'hui
+        COMMITS_TODAY=$(git log --since="${TODAY}T00:00:00Z" --until="${TODAY}T23:59:59Z" --oneline)
+        
+        if [ -z "$COMMITS_TODAY" ]; then
+          echo "Aucun commit trouvé aujourd'hui. Le workflow ne sera pas exécuté."
+          exit 0
+        else
+          echo "Des commits ont été effectués aujourd'hui. Continuer avec le build."
+        fi
+
     - name: Setup MSYS2
       uses: msys2/setup-msys2@v2
       with:
@@ -46,13 +64,9 @@ jobs:
     - name: Build Project
       shell: msys2 {0}
       run: |
-        # Créer les répertoires nécessaires
         mkdir -p bin/windows
-        
-        # Compiler avec make
         make package-windows
-        
-        # Si make n'est pas configuré, utiliser gcc directement
+
         if [ $? -ne 0 ]; then
           echo "Compilation directe avec GCC..."
           gcc -o bin/windows/${{ env.PROJECT_NAME }}.exe \
@@ -68,31 +82,18 @@ jobs:
     - name: Package Dependencies
       shell: msys2 {0}
       run: |
-        # Liste des DLLs nécessaires
-        DLLS=(
-          "SDL2.dll"
-          "SDL2_image.dll"
-          "SDL2_mixer.dll"
-          "SDL2_ttf.dll"
-          "libpng16-16.dll"
-          "zlib1.dll"
-          "libjpeg-8.dll"
-          "libfreetype-6.dll"
-        )
+        DLLS=("SDL2.dll" "SDL2_image.dll" "SDL2_mixer.dll" "SDL2_ttf.dll" "libpng16-16.dll" "zlib1.dll" "libjpeg-8.dll" "libfreetype-6.dll")
         
-        # Copier les DLLs
         for dll in "${DLLS[@]}"; do
           cp -v "/mingw64/bin/$dll" bin/windows/
         done
         
-        # Créer le script de lancement
         cat > bin/windows/launch.bat << EOF
         @echo off
         cd %~dp0
         start ${{ env.PROJECT_NAME }}.exe %*
         EOF
         
-        # Créer l'archive
         cd bin
         zip -r ../${{ env.PROJECT_NAME }}-windows.zip windows/ ../assets/ ../data/ ../README.md
         cd ..
@@ -106,9 +107,8 @@ jobs:
         git add ${{ env.PROJECT_NAME }}-windows.zip
         git commit -m "Add Windows build ZIP from commit ${{ github.sha }}"
         
-        # Push avec le GITHUB_TOKEN
+        # Utiliser le GITHUB_TOKEN pour effectuer le push
         git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref_name }}
-
 
     - name: Cleanup
       if: always()
