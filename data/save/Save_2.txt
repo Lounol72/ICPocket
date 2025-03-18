@@ -1,7 +1,7 @@
 User name : SAVE1
 nb:3
 id:2
-lvl:3
+lvl:89
 nature:0
 nbmove:3
 iv:20
@@ -17,7 +17,7 @@ move:3
 
 
 id:1
-lvl:3
+lvl:89
 nature:0
 nbmove:4
 iv:20

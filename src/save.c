@@ -84,13 +84,13 @@ void sauvegarder(char * nomSave ,t_Team * joueur,t_Team * adverse){
 }
 
 //Charger une sauvegarde
-void charger(char *nomSave, t_Team *joueur, t_Team *dresseur) {
+int charger(char *nomSave, t_Team *joueur, t_Team *dresseur) {
     char filePath[256];
     snprintf(filePath, sizeof(filePath), "data/save/%s.txt", nomSave);
     FILE *fichier = fopen(filePath, "r");
     if (fichier == NULL) {
         printf("Erreur : impossible d'ouvrir le fichier de sauvegarde.\n");
-        exit(1);
+        return 0;
     } else {
         fscanf(fichier, "User name : %s\n", joueur->trainerName);
         fscanf(fichier, "nb:%d\n", &(joueur->nb_poke));
@@ -125,5 +125,6 @@ void charger(char *nomSave, t_Team *joueur, t_Team *dresseur) {
         strcpy(dresseur->trainerName,"oui");
         fscanf(fichier, "Dernier dresseur battu : %s id: %d\n", temp, &(joueur->lastEnemiID));
         fclose(fichier);
+        return 1;
     }
 }
