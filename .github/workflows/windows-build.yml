@@ -106,8 +106,9 @@ jobs:
         git add ${{ env.PROJECT_NAME }}-windows.zip
         git commit -m "Add Windows build ZIP from commit ${{ github.sha }}"
         
-        # Push sur la branche actuelle
-        git push origin HEAD:${{ github.ref_name }}
+        # Push avec le GITHUB_TOKEN
+        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref_name }}
+
 
     - name: Cleanup
       if: always()
