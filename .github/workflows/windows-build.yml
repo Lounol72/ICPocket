@@ -97,13 +97,6 @@ jobs:
         zip -r ../${{ env.PROJECT_NAME }}-windows.zip windows/ ../assets/ ../data/ ../README.md
         cd ..
 
-    - name: Upload Build Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: ${{ env.PROJECT_NAME }}-Windows
-        path: ${{ env.PROJECT_NAME }}-windows.zip
-        compression-level: 9
-
     - name: Commit and Push ZIP
       shell: bash
       run: |
