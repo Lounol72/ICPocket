@@ -412,7 +412,7 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
         if(clickedButtonIndex == 0)charger("Save_1", &game.battleState.rouge, &game.battleState.bleu);  
         else if(clickedButtonIndex == 1)charger("Save_2", &game.battleState.rouge, &game.battleState.bleu);  
         initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
-        game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu}; 
+        game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
         if (initTeamSprites(win, &game.battleState.rouge, RED_SPRITE_X_RATIO, RED_SPRITE_Y_RATIO, 0) != 0)return;
         if (initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1) != 0)return;
         updateICButtons(win, &game.battleState.rouge);

@@ -15,7 +15,7 @@ float typeChart[typeNumber][typeNumber] = {
 	/*waifu*/	{1.,	0.5,		1.,		1.,		1.,			1.,		1.,		2.,			2.	}
 };
 
-
+/*A SUPPR UNE FOIS LE JEU FONCTIONNEL*/
 void generatePoke(t_Poke *p)
 {
 		strcpy(p->name,"dummy");
@@ -35,7 +35,11 @@ void generatePoke(t_Poke *p)
 	}
 	//fclose(dataPoke);
 
-
+/**
+*   @brief Genere un pokemon a partir d'un fichier.csv
+*   @param p structure poke
+*   @param line ligne dans le fichier du poke recherché
+*/
 void generate_poke(t_Poke *p, int line)
 {
 	FILE *dataPoke;
@@ -73,7 +77,10 @@ void generate_poke(t_Poke *p, int line)
 		fclose(dataPoke);
 	}
 }
-
+/**
+*   @brief Renvois un entier en fonction du nombre d'adversaire battu
+*   @param joueur struct joueur
+*/
 int generatelvl(t_Team * joueur){
 	int min,max;
 	if(joueur->nb_enemiBeat<3){min = 3 ; max = 5;}
@@ -83,6 +90,13 @@ int generatelvl(t_Team * joueur){
 	else{min = 60; max = 99;}
 	return min + rand()%(max-min+1);
 }
+
+/**
+*   @brief Genere un pokemon enemi a partir d'un fichier.csv
+*   @param p structure poke
+*   @param line ligne dans le fichier du poke recherché
+*	@param joueur struct team de la team du joueur
+*/
 
 void generate_poke_enemi(t_Poke *p, int line,t_Team * joueur)
 {
@@ -137,7 +151,11 @@ t_Move generateRandomMove()
 	}
 	return move;
 }
-
+/**
+*   @brief Genere un move a partir d'un fichier.csv
+*   @param p structure poke
+*   @param line ligne dans le fichier du poke recherché
+*/
 /*For now, the generation is random*/
 t_Move generateRandomMoveBetter(t_Poke *p){
 	FILE *dataMove;

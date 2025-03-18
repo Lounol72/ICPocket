@@ -105,7 +105,11 @@ int calcStatFrom(t_Poke * p, int stat) {
 	return value;
 }
 
-
+/**
+*   @brief Initialise l'équipe du joueur
+*   @param t structure de l'equipe du joueur
+*   @param nbpoke nombre de pokemon a mettre dans l'equipe
+*/
 void initTeam(t_Team * t, int nb_poke){
 	t->nb_poke=nb_poke;
 	t->effect=noEffect;
@@ -122,8 +126,11 @@ void initTeam(t_Team * t, int nb_poke){
 	}
 }
 
-//Non fonctionnel pour l'instant
-
+/**
+*   @brief Initialise l'équipe adverse en fonction du nombre d'adversaire battu par le joueur
+*   @param t structure de l'equipe adverse
+*   @param joueur structure de l'equipe du joueur
+*/
 void initBlueTeam(t_Team *t,t_Team *joueur) {
     FILE *fichierTrainer = fopen("data/dataTrainer.csv", "r");
     if (fichierTrainer == NULL) {
