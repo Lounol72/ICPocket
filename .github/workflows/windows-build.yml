@@ -5,14 +5,14 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch:  # Permet de lancer manuellement le workflow
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Set up MSYS2
       uses: msys2/setup-msys2@v2
@@ -63,7 +63,7 @@ jobs:
         zip -r ICPocket-windows.zip bin/ assets/ data/ run.bat README.md
         
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # Mise à jour vers v4
       with:
         name: ICPocket-Windows
         path: ICPocket-windows.zip
