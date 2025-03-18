@@ -34,10 +34,17 @@ CFLAGS    = -Wall -Wextra -Werror -std=c11 -g `sdl2-config --cflags` -I/usr/incl
 # Bibliothèques à lier
 LIBS      = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lpthread
 
-# Ajout du compilateur Windows
+# Compilateur et options Windows
 WINCC     = x86_64-w64-mingw32-gcc
-WINCFLAGS = -Wall -Wextra -std=c11 -g -pthread -DSDL_MAIN_HANDLED -I$(INCLUDE_DIR) -I/usr/x86_64-w64-mingw32/include/SDL2
-WINLIBS   = -L$(shell pwd)/windowsDLL -lmingw32 -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lm -static-libgcc -static-libstdc++ -lpthread
+WINCFLAGS = -Wall -Wextra -std=c11 -g \
+           -I$(INCLUDE_DIR) \
+           -I/usr/x86_64-w64-mingw32/include \
+           -I/usr/x86_64-w64-mingw32/include/SDL2 \
+           -D_REENTRANT \
+           -DSDL_MAIN_HANDLED
+
+WINLIBS   = -L/usr/x86_64-w64-mingw32/lib \
+            -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lpthread
 
 # Fichiers objets Windows
 WIN_OBJS  = $(patsubst %.c,$(OBJ_DIR)/%_win.o,$(notdir $(SRCS)))
@@ -47,7 +54,8 @@ all:
 	@clear
 	@$(MAKE) $(MAIN_EXE) $(DUEL_EXE) 
 
-$(MAIN_EXE): $(OBJ_DIR)/main.o $(OBJS)
+$(MAIN_EXE): $(OBJS)
+	@echo "🛠️ Compilation Linux en cours..."
 	@$(CC) -o $(BIN_DIR)/$@ $^ $(LIBS)
 	@echo "✅ Compilation terminée"
 
@@ -64,14 +72,20 @@ $(OBJ_DIR):
 	@mkdir -p $@
 	@mkdir -p $(BIN_DIR)
 
-# Règles de compilation génériques pour les sources situés dans SRC_DIR
+# Règles de compilation Linux
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-# Règle spécifique pour main.c
 $(OBJ_DIR)/main.o: main.c | $(OBJ_DIR)
 	@echo "🛠️ Compilation en cours..."
 	@$(CC) $(CFLAGS) -c $< -o $@
+
+# Règles de compilation Windows
+$(OBJ_DIR)/%_win.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	@$(WINCC) $(WINCFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/main_win.o: main.c | $(OBJ_DIR)
+	@$(WINCC) $(WINCFLAGS) -c $< -o $@
 
 # Cibles de tests
 testDuel: $(DUEL_EXE)
@@ -83,8 +97,6 @@ run: $(MAIN_EXE)
 	@./$(BIN_DIR)/$(MAIN_EXE)
 	@echo "✅ Main terminé"
 
-
-
 testValgrind: $(MAIN_EXE)
 	@echo "🚀 Lancement de Valgrind..."
 	@valgrind --leak-check=full ./$(BIN_DIR)/$(MAIN_EXE)
@@ -93,12 +105,11 @@ testMain-debug: $(MAIN_EXE)
 	@echo "🚀 Lancement de Valgrind..."
 	@./$(BIN_DIR)/$(MAIN_EXE) -debug
 
-rebuild: clean all
+rebuild: clean main
 # Cible de nettoyage
 clean:
 	@echo "🧹 Nettoyage en cours..."
-	@rm -f $(OBJ_DIR)/*.o
-	@rm -f $(BIN_DIR)/*.o
+	@rm -rf $(OBJ_DIR)/*.o $(BIN_DIR)/*
 	@echo "✅ Nettoyage terminé"
 
 package-linux:
@@ -117,31 +128,15 @@ package-linux:
 	@tar -czf ICPocket.tar.gz run.sh $(BIN_DIR) assets data README.md >/dev/null 2>&1 || true
 	@echo "✅ Package linux créé : ICPocket.tar.gz"
 
-package-windows:
-	@echo "📦 Création du package windows..."
-	@mkdir -p $(BIN_DIR) >/dev/null 2>&1
-	@mkdir -p $(OBJ_DIR) >/dev/null 2>&1
-	@echo "@echo off" > run.bat
-	@echo "cd %%~dp0" >> run.bat
-	@echo "set PATH=%%~dp0$(BIN_DIR);%%PATH%%" >> run.bat
-	@echo "$(BIN_DIR)\$(MAIN_EXE).exe %%*" >> run.bat
-	@echo "🔨 Compilation pour Windows en cours..."
-	@$(WINCC) $(WINCFLAGS) -c main.c -o $(OBJ_DIR)/main_win.o
-	@for src in $(SRCS); do \
-		$(WINCC) $(WINCFLAGS) -c $$src -o $(OBJ_DIR)/$$(basename $$src .c)_win.o; \
-	done
-	@$(WINCC) -pthread $(OBJ_DIR)/*_win.o $(WINLIBS) -o $(BIN_DIR)/$(MAIN_EXE).exe || (echo "❌ Erreur de compilation Windows" && exit 1)
-	@cp windowsDLL/*.dll $(BIN_DIR)/ 2>/dev/null || true
-	@cp /usr/x86_64-w64-mingw32/lib/libwinpthread-1.dll $(BIN_DIR)/ 2>/dev/null || true
-	@chmod -R 775 $(BIN_DIR) >/dev/null 2>&1
-	@chmod -R 775 assets >/dev/null 2>&1
-	@chmod -R 777 data >/dev/null 2>&1
-	@zip -r ICPocket-windows.zip run.bat $(BIN_DIR) assets data README.md >/dev/null 2>&1 || true
-	@echo "✅ Package windows créé : ICPocket-windows.zip"
-
 doxygen:
 	@echo "🧹 Nettoyage en cours..."
 	@rm -rf docs/html
 	@doxygen Doxyfile 
 	@echo "✅ Documentation générée dans docs/html"
-.PHONY: clean all 
+
+windows: $(WIN_OBJS)
+	@echo "🛠️ Compilation Windows en cours..."
+	@$(WINCC) -o $(BIN_DIR)/$(MAIN_EXE).exe $^ $(WINLIBS)
+	@echo "✅ Compilation Windows terminée"
+
+.PHONY: all clean windows package-windows 
