@@ -10,7 +10,7 @@ permissions:
   actions: write   # Permet à GitHub Actions de créer des releases et de modifier les artefacts
 
 env:
-  BUILD_TYPE: Release
+  BUILD_TYPE: Commit & push
   PROJECT_NAME: ICPocket
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
@@ -45,11 +45,11 @@ jobs:
         msystem: MINGW64
         update: true
         install: |
-          mingw-w64-x86_64-gcc
-          mingw-w64-x86_64-SDL2
-          mingw-w64-x86_64-SDL2_image
-          mingw-w64-x86_64-SDL2_mixer
-          mingw-w64-x86_64-SDL2_ttf
+          mingw-w64-x86_64-gcc=10.3.0-1
+          mingw-w64-x86_64-SDL2=2.0.14-2
+          mingw-w64-x86_64-SDL2_image=2.0.5-1
+          mingw-w64-x86_64-SDL2_mixer=2.0.4-1
+          mingw-w64-x86_64-SDL2_ttf=2.0.15-1
           zip
           make
 
@@ -57,7 +57,7 @@ jobs:
       uses: actions/cache@v4
       with:
         path: C:\msys64\var\cache\pacman\pkg
-        key: ${{ runner.os }}-msys2-${{ hashFiles('**/workflow.yml') }}
+        key: ${{ runner.os }}-msys2-${{ hashFiles('**/workflow.yml') }}-${{ hashFiles('C:/msys64/etc/pacman.d/mirrorlist.*') }}
         restore-keys: |
           ${{ runner.os }}-msys2-
 
@@ -65,9 +65,7 @@ jobs:
       shell: msys2 {0}
       run: |
         mkdir -p bin/windows
-        make package-windows
-
-        if [ $? -ne 0 ]; then
+        make package-windows || {
           echo "Compilation directe avec GCC..."
           gcc -o bin/windows/${{ env.PROJECT_NAME }}.exe \
             main.c src/*.c \
@@ -76,8 +74,8 @@ jobs:
             -L/mingw64/lib \
             -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf \
             -mwindows \
-            -O2
-        fi
+            -O2 || { echo "GCC compilation failed"; exit 1; }
+        }
 
     - name: Package Dependencies
       shell: msys2 {0}
@@ -105,7 +103,7 @@ jobs:
         git config --global user.email "actions@github.com"
         
         git add ${{ env.PROJECT_NAME }}-windows.zip
-        git commit -m "Add Windows build ZIP from commit ${{ github.sha }}"
+        git commit -m "Add Windows build ZIP for commit ${{ github.sha }} on ${{ github.ref_name }}"
         
         # Utiliser le GITHUB_TOKEN pour effectuer le push
         git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref_name }}
