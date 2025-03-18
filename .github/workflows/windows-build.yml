@@ -7,75 +7,126 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+env:
+  BUILD_TYPE: Release
+  PROJECT_NAME: ICPocket
+
 jobs:
   build:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Set up MSYS2
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: Setup MSYS2
       uses: msys2/setup-msys2@v2
       with:
         msystem: MINGW64
         update: true
-        install: >-
+        install: |
           mingw-w64-x86_64-gcc
-          mingw-w64-x86_64-make
           mingw-w64-x86_64-SDL2
           mingw-w64-x86_64-SDL2_image
           mingw-w64-x86_64-SDL2_mixer
           mingw-w64-x86_64-SDL2_ttf
           zip
-          
-    - name: Build
+          make
+
+    - name: Cache MSYS2 packages
+      uses: actions/cache@v4
+      with:
+        path: C:\msys64\var\cache\pacman\pkg
+        key: ${{ runner.os }}-msys2-${{ hashFiles('**/workflow.yml') }}
+        restore-keys: |
+          ${{ runner.os }}-msys2-
+
+    - name: Build Project
       shell: msys2 {0}
       run: |
-        mkdir -p bin
-        mkdir -p obj
+        # Créer les répertoires nécessaires
+        mkdir -p bin/windows
         
-        # Compiler le projet
-        gcc -o bin/main.exe main.c src/*.c \
-        -I./include \
-        -I/mingw64/include/SDL2 \
-        -L/mingw64/lib \
-        -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf \
-        -mwindows
+        # Compiler avec make
+        make package-windows
         
-        # Copier les DLLs nécessaires
-        cp /mingw64/bin/SDL2.dll bin/
-        cp /mingw64/bin/SDL2_image.dll bin/
-        cp /mingw64/bin/SDL2_mixer.dll bin/
-        cp /mingw64/bin/SDL2_ttf.dll bin/
-        cp /mingw64/bin/libpng16-16.dll bin/
-        cp /mingw64/bin/zlib1.dll bin/
-        cp /mingw64/bin/libjpeg-8.dll bin/
-        cp /mingw64/bin/libtiff-5.dll bin/
-        cp /mingw64/bin/libwebp-7.dll bin/
-        cp /mingw64/bin/libfreetype-6.dll bin/
+        # Si make n'est pas configuré, utiliser gcc directement
+        if [ $? -ne 0 ]; then
+          echo "Compilation directe avec GCC..."
+          gcc -o bin/windows/${{ env.PROJECT_NAME }}.exe \
+            main.c src/*.c \
+            -I./include \
+            -I/mingw64/include/SDL2 \
+            -L/mingw64/lib \
+            -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf \
+            -mwindows \
+            -O2
+        fi
+
+    - name: Package Dependencies
+      shell: msys2 {0}
+      run: |
+        # Liste des DLLs nécessaires
+        DLLS=(
+          "SDL2.dll"
+          "SDL2_image.dll"
+          "SDL2_mixer.dll"
+          "SDL2_ttf.dll"
+          "libpng16-16.dll"
+          "zlib1.dll"
+          "libjpeg-8.dll"
+          "libfreetype-6.dll"
+        )
         
-        # Créer le script batch de lancement
-        echo "@echo off" > run.bat
-        echo "cd %~dp0" >> run.bat
-        echo "bin\main.exe %*" >> run.bat
+        # Copier les DLLs
+        for dll in "${DLLS[@]}"; do
+          cp -v "/mingw64/bin/$dll" bin/windows/
+        done
         
-        # Créer le package ZIP
-        zip -r ICPocket-windows.zip bin/ assets/ data/ run.bat README.md
+        # Créer le script de lancement
+        cat > bin/windows/launch.bat << EOF
+        @echo off
+        cd %~dp0
+        start ${{ env.PROJECT_NAME }}.exe %*
+        EOF
         
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4  # Mise à jour vers v4
+        # Créer l'archive
+        cd bin
+        zip -r ../${{ env.PROJECT_NAME }}-windows.zip windows/ ../assets/ ../data/ ../README.md
+        cd ..
+
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v4
       with:
-        name: ICPocket-Windows
-        path: ICPocket-windows.zip
-        
+        name: ${{ env.PROJECT_NAME }}-Windows
+        path: ${{ env.PROJECT_NAME }}-windows.zip
+        compression-level: 9
+
     - name: Create Release
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       uses: softprops/action-gh-release@v1
       with:
-        files: ICPocket-windows.zip
+        files: ${{ env.PROJECT_NAME }}-windows.zip
         tag_name: v${{ github.run_number }}
         name: Release ${{ github.run_number }}
+        body: |
+          Windows build for ${{ env.PROJECT_NAME }}
+          
+          **Installation:**
+          1. Download and extract the ZIP file
+          2. Run `launch.bat` in the extracted folder
+          
+          Built from commit: ${{ github.sha }}
         draft: false
         prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Cleanup
+      if: always()
+      shell: msys2 {0}
+      run: |
+        rm -rf bin/
+        rm -f *.zip
