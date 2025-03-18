@@ -24,7 +24,7 @@
 typedef struct IMG_ICMons {
     SDL_Renderer *renderer;          /**< Pointeur vers le renderer SDL. */
     SDL_Texture *ICMonTexture;       /**< Texture pour le sprite ICMons. */
-    Mix_Chunk *ICMonSound;           /**< Son pour le sprite ICMons. */
+    Mix_Chunk *ICMonSound[4];        /**< Son pour le sprite ICMons. */
     SDL_Rect rect;                   /**< Rectangle définissant la position et la taille du sprite. */
     SDL_Rect initialRect;            /**< Rectangle initial pour les besoins de mise à l'échelle. */
     Text *PVText;                    /**< Objet Text pour afficher les PV (points de vie) de l'ICMons. */

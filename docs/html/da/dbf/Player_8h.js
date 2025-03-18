@@ -16,12 +16,13 @@ var Player_8h =
       [ "WALK_RIGHT", "da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1a2fbeac521c5adf9280370533098f6891", null ]
     ] ],
     [ "checkCollision", "da/dbf/Player_8h.html#a929d06e98b093613850709d65b4da5f7", null ],
-    [ "createPlayer", "da/dbf/Player_8h.html#a008b68a8a93839ca6d584a22d3b013a1", null ],
+    [ "createPlayer", "da/dbf/Player_8h.html#aeb7c20d506502a44774496786d574b53", null ],
     [ "DEBUG_printPlayerMat", "da/dbf/Player_8h.html#ac51a136d8106379440e8e12fe95d3999", null ],
     [ "destroyPlayer", "da/dbf/Player_8h.html#aeaca5c627e5599b60cc71af248c0f98e", null ],
     [ "movePlayer", "da/dbf/Player_8h.html#a4b4cb0bbe11f3ac2217b842eefb84846", null ],
     [ "renderPlayer", "da/dbf/Player_8h.html#a70c274fd4a9307435d4c483cec371711", null ],
     [ "renderPlayerWithCamera", "da/dbf/Player_8h.html#a8c37aaa7c00bdf19f095649c9f46e55e", null ],
+    [ "updatePhysics", "da/dbf/Player_8h.html#aef811de53e1d844f7f0e641237548658", null ],
     [ "updatePlayerAnimation", "da/dbf/Player_8h.html#afd90f424179051138eeeb7cb8cc0667e", null ],
     [ "updatePlayerPosition", "da/dbf/Player_8h.html#a40da9b0e713099872485ca1866f1ee6c", null ]
 ];

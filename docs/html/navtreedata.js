@@ -59,9 +59,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d4/d62/NPC_8h.html#ae04331beaafaf4dc2ca0ef6aff7c41c8",
-"d8/daa/Audio_8h.html",
-"de/dac/structLvl__Up__Buffer.html#a4234e21b25061a081c461f9faf002cd5"
+"d4/d62/NPC_8h.html#a5461a006cdc440b960fb2ef7e8f25d88",
+"d7/dfe/structNPC.html#abe2eae3060a160e52c77e8d49a2d5c27",
+"de/d53/trainerAI_8c.html#a2363fbb8b3625e95861e09fb53dfd7f5"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';

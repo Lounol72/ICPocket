@@ -121,12 +121,12 @@ Graphe des dépendances par inclusion de Map.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a981f2354b20569b6400d1bc2fd4f9137" id="r_a981f2354b20569b6400d1bc2fd4f9137"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df2/Map_8c.html#a981f2354b20569b6400d1bc2fd4f9137">loadNewMap</a> (<a class="el" href="../../da/ddc/structMap.html">Map</a> **map, const char *newMapPath, int mapWidth, int mapHeight)</td></tr>
-<tr class="separator:a981f2354b20569b6400d1bc2fd4f9137"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55235be5591748a7d94545201c4c38e9" id="r_a55235be5591748a7d94545201c4c38e9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df2/Map_8c.html#a55235be5591748a7d94545201c4c38e9">initCollisionMapFromCSV</a> (<a class="el" href="../../da/ddc/structMap.html">Map</a> *map, const char *path)</td></tr>
-<tr class="separator:a55235be5591748a7d94545201c4c38e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9475bf0ea7e30db360ff261097387b5" id="r_ae9475bf0ea7e30db360ff261097387b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/ddc/structMap.html">Map</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df2/Map_8c.html#ae9475bf0ea7e30db360ff261097387b5">initMap</a> (SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSizeH)</td></tr>
-<tr class="separator:ae9475bf0ea7e30db360ff261097387b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6ecfe38fd7feade118d8c73233f6af1" id="r_ab6ecfe38fd7feade118d8c73233f6af1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df2/Map_8c.html#ab6ecfe38fd7feade118d8c73233f6af1">loadNewMap</a> (<a class="el" href="../../da/ddc/structMap.html">Map</a> **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY)</td></tr>
+<tr class="separator:ab6ecfe38fd7feade118d8c73233f6af1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c4085e71fd163da62be9b5f873aaab0" id="r_a4c4085e71fd163da62be9b5f873aaab0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df2/Map_8c.html#a4c4085e71fd163da62be9b5f873aaab0">initCollisionMapFromCSV</a> (<a class="el" href="../../da/ddc/structMap.html">Map</a> *map, const char *path, int *spawnX, int *spawnY)</td></tr>
+<tr class="separator:a4c4085e71fd163da62be9b5f873aaab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8047a0b859589538d6778c80325e1898" id="r_a8047a0b859589538d6778c80325e1898"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/ddc/structMap.html">Map</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df2/Map_8c.html#a8047a0b859589538d6778c80325e1898">initMap</a> (SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSizeH, int *spawnX, int *spawnY)</td></tr>
+<tr class="separator:a8047a0b859589538d6778c80325e1898"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0656f1ed1c85e750b8bc65bd7269f62" id="r_ae0656f1ed1c85e750b8bc65bd7269f62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df2/Map_8c.html#ae0656f1ed1c85e750b8bc65bd7269f62">checkAndLoadNewMap</a> (<a class="el" href="../../da/ddc/structMap.html">Map</a> **map, int playerX, int playerY)</td></tr>
 <tr class="separator:ae0656f1ed1c85e750b8bc65bd7269f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a8408146457cc93ec3694e180bb5574" id="r_a6a8408146457cc93ec3694e180bb5574"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df2/Map_8c.html#a6a8408146457cc93ec3694e180bb5574">DEBUG_printMap</a> (<a class="el" href="../../da/ddc/structMap.html">Map</a> *map)</td></tr>
@@ -209,8 +209,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a55235be5591748a7d94545201c4c38e9" name="a55235be5591748a7d94545201c4c38e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55235be5591748a7d94545201c4c38e9">&#9670;&#160;</a></span>initCollisionMapFromCSV()</h2>
+<a id="a4c4085e71fd163da62be9b5f873aaab0" name="a4c4085e71fd163da62be9b5f873aaab0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c4085e71fd163da62be9b5f873aaab0">&#9670;&#160;</a></span>initCollisionMapFromCSV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,7 +228,19 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>path</em>&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>spawnX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>spawnY</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -245,8 +257,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae9475bf0ea7e30db360ff261097387b5" name="ae9475bf0ea7e30db360ff261097387b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9475bf0ea7e30db360ff261097387b5">&#9670;&#160;</a></span>initMap()</h2>
+<a id="a8047a0b859589538d6778c80325e1898" name="a8047a0b859589538d6778c80325e1898"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8047a0b859589538d6778c80325e1898">&#9670;&#160;</a></span>initMap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -273,7 +285,19 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>TileSizeH</em>&#160;</td>
+          <td class="paramname"><em>TileSizeH</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>spawnX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>spawnY</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -285,8 +309,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a981f2354b20569b6400d1bc2fd4f9137" name="a981f2354b20569b6400d1bc2fd4f9137"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a981f2354b20569b6400d1bc2fd4f9137">&#9670;&#160;</a></span>loadNewMap()</h2>
+<a id="ab6ecfe38fd7feade118d8c73233f6af1" name="ab6ecfe38fd7feade118d8c73233f6af1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6ecfe38fd7feade118d8c73233f6af1">&#9670;&#160;</a></span>loadNewMap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -316,7 +340,19 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>mapHeight</em>&#160;</td>
+          <td class="paramname"><em>mapHeight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>spawnX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>spawnY</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

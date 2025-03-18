@@ -32,6 +32,10 @@ struct \mbox{\hyperlink{structMap}{Map}}
 \item 
 \#define \mbox{\hyperlink{Map_8h_a753f2756c680e7ad1cf607b8d7a8ebe4}{TILE\+\_\+\+SIZE\+\_\+\+H\+\_\+\+SCALE}}~36
 \item 
+\#define \mbox{\hyperlink{Map_8h_a0a4a86f9a3b0ed639dcb350c8cd73ac3}{TILE\+\_\+\+SIZE\+\_\+W}}~80
+\item 
+\#define \mbox{\hyperlink{Map_8h_a6344bbb33003bae576374112de9df753}{TILE\+\_\+\+SIZE\+\_\+H}}~72
+\item 
 \#define \mbox{\hyperlink{Map_8h_a9c9ed176f84de328afaf7f514ded7df3}{AIR}}~0
 \item 
 \#define \mbox{\hyperlink{Map_8h_aafd826a123a41fd03a9c88842387a821}{COLLISION}}~1
@@ -44,7 +48,9 @@ typedef struct \mbox{\hyperlink{structMap}{Map}} \mbox{\hyperlink{Map_8h_a767ff9
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Map_8h_ae9475bf0ea7e30db360ff261097387b5}{init\+Map}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const char \texorpdfstring{$\ast$}{*}path, int Tile\+SizeW, int Tile\+SizeH)
+\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Map_8h_a8047a0b859589538d6778c80325e1898}{init\+Map}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const char \texorpdfstring{$\ast$}{*}path, int Tile\+SizeW, int Tile\+SizeH, int \texorpdfstring{$\ast$}{*}spawnX, int \texorpdfstring{$\ast$}{*}spawnY)
+\item 
+void \mbox{\hyperlink{Map_8h_ae04904342610e0b751643c2f1a818008}{scale\+Map}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map, int original\+Width, int original\+Height, int new\+Width, int new\+Height)
 \item 
 void \mbox{\hyperlink{Map_8h_a9903966da30d78752ca378caa3cb5dc5}{render\+Map\+Debug}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map)
 \item 
@@ -96,11 +102,23 @@ Louis
 \doxysubsubsection{\texorpdfstring{MAP\_WIDTH}{MAP\_WIDTH}}
 {\footnotesize\ttfamily \#define MAP\+\_\+\+WIDTH~32}
 
+\Hypertarget{Map_8h_a6344bbb33003bae576374112de9df753}\label{Map_8h_a6344bbb33003bae576374112de9df753} 
+\index{Map.h@{Map.h}!TILE\_SIZE\_H@{TILE\_SIZE\_H}}
+\index{TILE\_SIZE\_H@{TILE\_SIZE\_H}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{TILE\_SIZE\_H}{TILE\_SIZE\_H}}
+{\footnotesize\ttfamily \#define TILE\+\_\+\+SIZE\+\_\+H~72}
+
 \Hypertarget{Map_8h_a753f2756c680e7ad1cf607b8d7a8ebe4}\label{Map_8h_a753f2756c680e7ad1cf607b8d7a8ebe4} 
 \index{Map.h@{Map.h}!TILE\_SIZE\_H\_SCALE@{TILE\_SIZE\_H\_SCALE}}
 \index{TILE\_SIZE\_H\_SCALE@{TILE\_SIZE\_H\_SCALE}!Map.h@{Map.h}}
 \doxysubsubsection{\texorpdfstring{TILE\_SIZE\_H\_SCALE}{TILE\_SIZE\_H\_SCALE}}
 {\footnotesize\ttfamily \#define TILE\+\_\+\+SIZE\+\_\+\+H\+\_\+\+SCALE~36}
+
+\Hypertarget{Map_8h_a0a4a86f9a3b0ed639dcb350c8cd73ac3}\label{Map_8h_a0a4a86f9a3b0ed639dcb350c8cd73ac3} 
+\index{Map.h@{Map.h}!TILE\_SIZE\_W@{TILE\_SIZE\_W}}
+\index{TILE\_SIZE\_W@{TILE\_SIZE\_W}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{TILE\_SIZE\_W}{TILE\_SIZE\_W}}
+{\footnotesize\ttfamily \#define TILE\+\_\+\+SIZE\+\_\+W~80}
 
 \Hypertarget{Map_8h_a62fd79d09fbf7702d076db82bc7220dc}\label{Map_8h_a62fd79d09fbf7702d076db82bc7220dc} 
 \index{Map.h@{Map.h}!TILE\_SIZE\_W\_SCALE@{TILE\_SIZE\_W\_SCALE}}
@@ -138,11 +156,11 @@ Louis
 \doxysubsubsection{\texorpdfstring{destroyMap()}{destroyMap()}}
 {\footnotesize\ttfamily void destroy\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map }\end{DoxyParamCaption})}
 
-\Hypertarget{Map_8h_ae9475bf0ea7e30db360ff261097387b5}\label{Map_8h_ae9475bf0ea7e30db360ff261097387b5} 
+\Hypertarget{Map_8h_a8047a0b859589538d6778c80325e1898}\label{Map_8h_a8047a0b859589538d6778c80325e1898} 
 \index{Map.h@{Map.h}!initMap@{initMap}}
 \index{initMap@{initMap}!Map.h@{Map.h}}
 \doxysubsubsection{\texorpdfstring{initMap()}{initMap()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*} init\+Map (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{int}]{Tile\+SizeW,  }\item[{int}]{Tile\+SizeH }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*} init\+Map (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{int}]{Tile\+SizeW,  }\item[{int}]{Tile\+SizeH,  }\item[{int \texorpdfstring{$\ast$}{*}}]{spawnX,  }\item[{int \texorpdfstring{$\ast$}{*}}]{spawnY }\end{DoxyParamCaption})}
 
 \Hypertarget{Map_8h_a184a6d0c81c91133a682450fa7807b06}\label{Map_8h_a184a6d0c81c91133a682450fa7807b06} 
 \index{Map.h@{Map.h}!loadMapIMG@{loadMapIMG}}
@@ -161,6 +179,12 @@ Louis
 \index{renderMapWithCamera@{renderMapWithCamera}!Map.h@{Map.h}}
 \doxysubsubsection{\texorpdfstring{renderMapWithCamera()}{renderMapWithCamera()}}
 {\footnotesize\ttfamily void render\+Map\+With\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}}]{camera }\end{DoxyParamCaption})}
+
+\Hypertarget{Map_8h_ae04904342610e0b751643c2f1a818008}\label{Map_8h_ae04904342610e0b751643c2f1a818008} 
+\index{Map.h@{Map.h}!scaleMap@{scaleMap}}
+\index{scaleMap@{scaleMap}!Map.h@{Map.h}}
+\doxysubsubsection{\texorpdfstring{scaleMap()}{scaleMap()}}
+{\footnotesize\ttfamily void scale\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{int}]{original\+Width,  }\item[{int}]{original\+Height,  }\item[{int}]{new\+Width,  }\item[{int}]{new\+Height }\end{DoxyParamCaption})}
 
 \Hypertarget{Map_8h_a68ba8a390de3a556e314c6b60d45232e}\label{Map_8h_a68ba8a390de3a556e314c6b60d45232e} 
 \index{Map.h@{Map.h}!updateMap@{updateMap}}

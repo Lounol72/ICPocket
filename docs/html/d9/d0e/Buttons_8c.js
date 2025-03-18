@@ -1,7 +1,5 @@
 var Buttons_8c =
 [
-    [ "MAX_SCALE", "d9/d0e/Buttons_8c.html#a0706168c32c39d519133d981a3df0687", null ],
-    [ "MIN_PADDING", "d9/d0e/Buttons_8c.html#a3c165f54c5ddde91e065ba56b97a8c6a", null ],
     [ "addListButton", "d9/d0e/Buttons_8c.html#ae76e871e4375b26d06e1e703325002ad", null ],
     [ "addListSlider", "d9/d0e/Buttons_8c.html#ab4f0f8d2f09eef09c6ba3cadb1f66f5c", null ],
     [ "ButtonClicked", "d9/d0e/Buttons_8c.html#ad1f08565a6d9a8c92fc8f2c752b8e915", null ],

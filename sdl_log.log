@@ -16,20 +16,20 @@
 [1] [2] You must call Mix_SetMusicCMD() first
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
-[0] [3] Changement d'état : 9
-[0] [3] Changement d'état : 2
-[0] [3] Changement d'état : 5
+[0] [3] Changement d'état : 4
+[0] [3] PV : 168/168
+[0] [3] PV : 104/104
+[0] [3] PV : 77/77
+[0] [3] PV : 40/40
+[0] [3] PV : 25/25
+[1] [2] Couldn't open assets/Monsters/New Versions/Compily.png
+[0] [3] ❌ Failed to load image: assets/Monsters/New Versions/Compily.png
+[0] [3] PV : 22/22
+[0] [3] PV : 22/22
 [0] [3] PV : 14/14
-[0] [3] PV : 19/19
-[0] [3] PV : 244/244
-[0] [3] PV : 16/16
-[0] [3] PV : 16/16
-[0] [3] PV : 18/18
-[0] [3] PV : 21/21
-[0] [3] PV : 16/16
-[0] [3] PV : 21/21
-[0] [3] Red team PV: 14, Blue team PV: 16
-[0] [3] Changement d'état : 9
+[0] [3] PV : 20/20
+[0] [3] Changement d'état : 3
+[0] [2] ScrollingText created successfully
 [0] [3] Changement d'état : 2
 [0] [3] Changement d'état : 0
 [0] [3] ✅ Musique libérée

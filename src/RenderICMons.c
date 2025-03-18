@@ -179,11 +179,16 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
         free(img->PVText);
         img->PVText = NULL;
     }
-    Mix_Chunk *ICMonSound = Mix_LoadWAV("assets/audio/soundEffects/bodycount.mp3");
-    if (!ICMonSound) {
-        SDL_Log("❌ Failed to load ICMonSound: %s", Mix_GetError());
+
+    for (int i = 0; i < poke->nb_move; i++) {
+        char soundPath[128];
+        snprintf(soundPath, sizeof(soundPath), "assets/audio/soundEffects/%d.mp3",(int) (poke->moveList[i].type));
+        Mix_Chunk *ICMonSound = Mix_LoadWAV(soundPath);
+        if (!ICMonSound) {
+            SDL_Log("❌ Failed to load ICMonSound: %s", Mix_GetError());
+        }
+        img->ICMonSound[i] = ICMonSound;
     }
-    img->ICMonSound = ICMonSound;
 
     return img;
 }
@@ -288,7 +293,9 @@ void destroyICMonsSprite(t_Poke *poke) {
         destroyText(poke->img->PVText);
     
         
-    Mix_FreeChunk(poke->img->ICMonSound);
+    for (int i = 0; i < poke->nb_move; i++) {
+        Mix_FreeChunk(poke->img->ICMonSound[i]);
+    }
     free(poke->img);
     poke->img = NULL;
 }
