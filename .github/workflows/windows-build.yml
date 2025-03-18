@@ -6,11 +6,11 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # Permet de modifier le contenu du dépôt, y compris les commits
-  actions: write   # Permet à GitHub Actions de créer des releases et de modifier les artefacts
+  contents: write
+  actions: write
 
 env:
-  BUILD_TYPE: Commit & push
+  BUILD_TYPE: Release
   PROJECT_NAME: ICPocket
 
 jobs:
@@ -19,54 +19,50 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
-    - name: Check if commits were made today
+    - name: Check for today's commits
       id: check_commits
+      shell: bash
       run: |
-        # Obtenir la date actuelle en format ISO (ex: 2025-03-18)
-        TODAY=$(date --utc +%Y-%m-%d)
-        
-        # Vérifier si des commits ont été faits aujourd'hui
-        COMMITS_TODAY=$(git log --since="${TODAY}T00:00:00Z" --until="${TODAY}T23:59:59Z" --oneline)
-        
-        if [ -z "$COMMITS_TODAY" ]; then
-          echo "Aucun commit trouvé aujourd'hui. Le workflow ne sera pas exécuté."
-          exit 0
+        TODAY=$(date -u +%Y-%m-%d)
+        COMMITS_TODAY=$(git log --since="$TODAY 00:00:00" --until="$TODAY 23:59:59" --oneline)
+        if [ -n "$COMMITS_TODAY" ]; then
+          echo "HAS_COMMITS=true" >> $GITHUB_ENV
+          echo "Des commits ont été trouvés aujourd'hui"
         else
-          echo "Des commits ont été effectués aujourd'hui. Continuer avec le build."
+          echo "HAS_COMMITS=false" >> $GITHUB_ENV
+          echo "Pas de commits aujourd'hui"
         fi
 
     - name: Setup MSYS2
+      if: env.HAS_COMMITS == 'true'
       uses: msys2/setup-msys2@v2
       with:
         msystem: MINGW64
         update: true
         install: |
-          mingw-w64-x86_64-gcc=10.3.0-1
-          mingw-w64-x86_64-SDL2=2.0.14-2
-          mingw-w64-x86_64-SDL2_image=2.0.5-1
-          mingw-w64-x86_64-SDL2_mixer=2.0.4-1
-          mingw-w64-x86_64-SDL2_ttf=2.0.15-1
+          mingw-w64-x86_64-gcc
+          mingw-w64-x86_64-SDL2
+          mingw-w64-x86_64-SDL2_image
+          mingw-w64-x86_64-SDL2_mixer
+          mingw-w64-x86_64-SDL2_ttf
           zip
           make
 
-    - name: Cache MSYS2 packages
-      uses: actions/cache@v4
-      with:
-        path: C:\msys64\var\cache\pacman\pkg
-        key: ${{ runner.os }}-msys2-${{ hashFiles('**/workflow.yml') }}-${{ hashFiles('C:/msys64/etc/pacman.d/mirrorlist.*') }}
-        restore-keys: |
-          ${{ runner.os }}-msys2-
-
-    - name: Build Project
+    - name: Build
+      if: env.HAS_COMMITS == 'true'
       shell: msys2 {0}
       run: |
         mkdir -p bin/windows
-        make package-windows || {
-          echo "Compilation directe avec GCC..."
+        
+        # Tentative de compilation avec make
+        if [ -f "Makefile" ]; then
+          make package-windows
+        else
+          # Compilation directe avec GCC
           gcc -o bin/windows/${{ env.PROJECT_NAME }}.exe \
             main.c src/*.c \
             -I./include \
@@ -74,43 +70,65 @@ jobs:
             -L/mingw64/lib \
             -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf \
             -mwindows \
-            -O2 || { echo "GCC compilation failed"; exit 1; }
-        }
+            -O2
+        fi
 
-    - name: Package Dependencies
+    - name: Package
+      if: env.HAS_COMMITS == 'true'
       shell: msys2 {0}
       run: |
-        DLLS=("SDL2.dll" "SDL2_image.dll" "SDL2_mixer.dll" "SDL2_ttf.dll" "libpng16-16.dll" "zlib1.dll" "libjpeg-8.dll" "libfreetype-6.dll")
+        # Liste des DLLs requises
+        DLLS=(
+          "SDL2.dll"
+          "SDL2_image.dll"
+          "SDL2_mixer.dll"
+          "SDL2_ttf.dll"
+          "libpng16-16.dll"
+          "zlib1.dll"
+          "libjpeg-8.dll"
+          "libfreetype-6.dll"
+        )
         
+        # Copie des DLLs
         for dll in "${DLLS[@]}"; do
-          cp -v "/mingw64/bin/$dll" bin/windows/
+          if [ -f "/mingw64/bin/$dll" ]; then
+            cp -v "/mingw64/bin/$dll" bin/windows/
+          else
+            echo "Warning: $dll not found"
+          fi
         done
         
-        cat > bin/windows/launch.bat << EOF
-        @echo off
-        cd %~dp0
-        start ${{ env.PROJECT_NAME }}.exe %*
-        EOF
+        # Création du script de lancement
+        echo "@echo off" > bin/windows/launch.bat
+        echo "cd %~dp0" >> bin/windows/launch.bat
+        echo "start ${{ env.PROJECT_NAME }}.exe %*" >> bin/windows/launch.bat
         
-        cd bin
-        zip -r ../${{ env.PROJECT_NAME }}-windows.zip windows/ ../assets/ ../data/ ../README.md
-        cd ..
+        # Création de l'archive
+        zip -r ${{ env.PROJECT_NAME }}-windows.zip bin/windows/ assets/ data/ README.md
 
     - name: Commit and Push ZIP
+      if: env.HAS_COMMITS == 'true'
       shell: bash
       run: |
-        git config --global user.name "GitHub Actions"
-        git config --global user.email "actions@github.com"
+        # Configurer Git
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
         
+        # Créer une branche pour le build si elle n'existe pas
+        git checkout -b builds
+        
+        # Ajouter le ZIP au dépôt
         git add ${{ env.PROJECT_NAME }}-windows.zip
-        git commit -m "Add Windows build ZIP for commit ${{ github.sha }} on ${{ github.ref_name }}"
         
-        # Utiliser le GITHUB_TOKEN pour effectuer le push
-        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref_name }}
+        # Créer le commit avec la date
+        git commit -m "📦 Windows build $(date -u +%Y-%m-%d)"
+        
+        # Pousser les changements
+        git push origin builds --force
 
     - name: Cleanup
       if: always()
-      shell: msys2 {0}
+      shell: bash
       run: |
         rm -rf bin/
         rm -f *.zip
