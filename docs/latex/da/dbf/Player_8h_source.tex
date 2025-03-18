@@ -54,7 +54,7 @@
 \DoxyCodeLine{00056\ \}\ \mbox{\hyperlink{structPlayer}{Player}};}
 \DoxyCodeLine{00057\ }
 \DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \mbox{\hyperlink{structPlayer}{Player}}*\ \mbox{\hyperlink{Player_8h_a008b68a8a93839ca6d584a22d3b013a1}{createPlayer}}(SDL\_Renderer\ *renderer,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *spritesheetPath,\ \mbox{\hyperlink{structMap}{Map}}\ *\ map);}
+\DoxyCodeLine{00059\ \mbox{\hyperlink{structPlayer}{Player}}*\ \mbox{\hyperlink{Player_8h_aeb7c20d506502a44774496786d574b53}{createPlayer}}(SDL\_Renderer\ *renderer,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *spritesheetPath,\ \mbox{\hyperlink{structMap}{Map}}\ *\ map,\ \textcolor{keywordtype}{int}\ spawnX,\ \textcolor{keywordtype}{int}\ spawnY);}
 \DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Player_8h_afd90f424179051138eeeb7cb8cc0667e}{updatePlayerAnimation}}(\mbox{\hyperlink{structPlayer}{Player}}\ *player,\ \textcolor{keywordtype}{float}\ deltaTime);}
 \DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Player_8h_a40da9b0e713099872485ca1866f1ee6c}{updatePlayerPosition}}(\mbox{\hyperlink{structPlayer}{Player}}\ *player,\ \textcolor{keywordtype}{float}\ deltaTime);}
 \DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Player_8h_a70c274fd4a9307435d4c483cec371711}{renderPlayer}}(SDL\_Renderer\ *renderer,\ \mbox{\hyperlink{structPlayer}{Player}}\ *player);}
@@ -62,10 +62,12 @@
 \DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Player_8h_a929d06e98b093613850709d65b4da5f7}{checkCollision}}(\mbox{\hyperlink{structPlayer}{Player}}\ *player);}
 \DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Player_8h_aeaca5c627e5599b60cc71af248c0f98e}{destroyPlayer}}(\mbox{\hyperlink{structPlayer}{Player}}\ *player);}
 \DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Player_8h_a8c37aaa7c00bdf19f095649c9f46e55e}{renderPlayerWithCamera}}(\mbox{\hyperlink{structPlayer}{Player}}*\ player,\ SDL\_Renderer*\ renderer,\ \mbox{\hyperlink{structCamera}{Camera}}*\ camera);}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \textcolor{comment}{//\ !\ DEBUG}}
-\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Player_8h_ac51a136d8106379440e8e12fe95d3999}{DEBUG\_printPlayerMat}}(\mbox{\hyperlink{structPlayer}{Player}}\ *player);}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Player_8h_aef811de53e1d844f7f0e641237548658}{updatePhysics}}(\mbox{\hyperlink{structPlayer}{Player}}\ *player,\ \mbox{\hyperlink{structCamera}{Camera}}*\ camera,\ \mbox{\hyperlink{structMap}{Map}}\ *map,\ \textcolor{keywordtype}{float}\ deltaTime);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ !\ DEBUG}}
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Player_8h_ac51a136d8106379440e8e12fe95d3999}{DEBUG\_printPlayerMat}}(\mbox{\hyperlink{structPlayer}{Player}}\ *player);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

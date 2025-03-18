@@ -238,7 +238,7 @@ void attqButtonClicked(Window *win, void *data) {
             return;
         }
         if (isAlive(&(game.battleState.rouge.team[0])) && game.battleState.turnState == TURN_NONE) {
-            Mix_PlayChannel(2, game.battleState.rouge.team[0].img->ICMonSound, 0);
+            
             startBattleTurn(moveIndex, AI_move_choice(&game.battleState.ia, &game.battleState.rouge));
         }
         game.gameState.playerTurn = 0;
@@ -897,7 +897,10 @@ void updateBattleTurn() {
                 // La fonction executeAction reprend la logique de playATurn pour une action
                 if(game.battleState.first) {
                     if (isTeamAlive(&game.battleState.rouge) && isAlive(&(game.battleState.rouge.team[0]))){
+                        if(isAttacking(game.battleState.moveRouge))
+                            Mix_PlayChannel(2, game.battleState.rouge.team[0].img->ICMonSound[game.battleState.moveRouge], 0);
                         executeAction(&game.battleState.rouge, &game.battleState.bleu, game.battleState.moveRouge);
+                        
                         if (!isAlive(&(game.battleState.bleu.team[0]))) gainExp(&game.battleState.rouge, &game.battleState.bleu.team[0]);
                     }
                 }
@@ -911,8 +914,11 @@ void updateBattleTurn() {
                         }
                         int x = rand() % nb_valide;
                         swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
-                    } else
+                    } else if (isTeamAlive(&game.battleState.bleu)){
+                        if(isAttacking(game.battleState.moveBleu))
+                            Mix_PlayChannel(3, game.battleState.bleu.team[0].img->ICMonSound[game.battleState.moveBleu], 0);
                         executeAction(&game.battleState.bleu, &game.battleState.rouge, game.battleState.moveBleu);
+                    }
                 }
                 game.battleState.hasAttacked = true;
             }
@@ -937,11 +943,16 @@ void updateBattleTurn() {
                         int x = rand() % nb_valide;
                         swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
                     }
-                    else
+                    else if (isTeamAlive(&game.battleState.bleu)){
+                        if(isAttacking(game.battleState.moveBleu))
+                            Mix_PlayChannel(3, game.battleState.bleu.team[0].img->ICMonSound[game.battleState.moveBleu], 0);
                         executeAction(&game.battleState.bleu, &game.battleState.rouge, game.battleState.moveBleu);
+                    }
                 }
                 else {
                     if (isTeamAlive(&game.battleState.rouge) && isAlive(&(game.battleState.rouge.team[0]))){
+                        if(isAttacking(game.battleState.moveRouge))
+                            Mix_PlayChannel(2, game.battleState.rouge.team[0].img->ICMonSound[game.battleState.moveRouge], 0);
                         executeAction(&game.battleState.rouge, &game.battleState.bleu, game.battleState.moveRouge);
                         if (!isAlive(&(game.battleState.bleu.team[0]))) gainExp(&game.battleState.rouge, &game.battleState.bleu.team[0]);
                     }

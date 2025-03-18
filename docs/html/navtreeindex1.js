@@ -1,5 +1,9 @@
 var NAVTREEINDEX1 =
 {
+"d4/d62/NPC_8h.html#a5461a006cdc440b960fb2ef7e8f25d88":[7,0,0,11,5],
+"d4/d62/NPC_8h.html#a75817ce192babd4dda12609afe97a064":[7,0,0,11,3],
+"d4/d62/NPC_8h.html#a9d578a5e4184aae7cb20d422285db64c":[7,0,0,11,8],
+"d4/d62/NPC_8h.html#acf2059eeff1393caaa6af3ad04e013aa":[7,0,0,11,7],
 "d4/d62/NPC_8h.html#ae04331beaafaf4dc2ca0ef6aff7c41c8":[7,0,0,11,4],
 "d4/d62/NPC_8h.html#ae13f9ea0d69437713cd781acd1f4f6c9":[7,0,0,11,6],
 "d4/d62/NPC_8h_source.html":[7,0,0,11],
@@ -245,9 +249,5 @@ var NAVTREEINDEX1 =
 "d7/dfe/structNPC.html#a393ad1df3e414d2d5c4f9eec97ca6fbf":[6,0,11,7],
 "d7/dfe/structNPC.html#a8b3a9a6150ad01e3fba1773a9dd5a8ba":[6,0,11,6],
 "d7/dfe/structNPC.html#a9185725c578d39f6d01fe795fd09555d":[6,0,11,5],
-"d7/dfe/structNPC.html#aa327074ea9cb123cbdcd8c9e84ef53b7":[6,0,11,4],
-"d7/dfe/structNPC.html#abe2eae3060a160e52c77e8d49a2d5c27":[6,0,11,1],
-"d7/dfe/structNPC.html#abf5f75167466405b97e2f14367dc3091":[6,0,11,0],
-"d7/dfe/structNPC.html#ad3dc94d2ab477f98c190744edb1b5ce1":[6,0,11,2],
-"d7/dfe/structNPC.html#af1664913818170cce9586965811f698b":[6,0,11,3]
+"d7/dfe/structNPC.html#aa327074ea9cb123cbdcd8c9e84ef53b7":[6,0,11,4]
 };

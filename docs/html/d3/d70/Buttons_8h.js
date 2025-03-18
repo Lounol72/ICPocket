@@ -4,6 +4,8 @@ var Buttons_8h =
     [ "ButtonList", "da/db4/structButtonList.html", "da/db4/structButtonList" ],
     [ "Slider", "df/dd7/structSlider.html", "df/dd7/structSlider" ],
     [ "SliderList", "db/d53/structSliderList.html", "db/d53/structSliderList" ],
+    [ "MAX_SCALE", "d3/d70/Buttons_8h.html#a0706168c32c39d519133d981a3df0687", null ],
+    [ "MIN_PADDING", "d3/d70/Buttons_8h.html#a3c165f54c5ddde91e065ba56b97a8c6a", null ],
     [ "Button", "d3/d70/Buttons_8h.html#aabbec029df4131b530b45fc227cfddcc", null ],
     [ "ButtonList", "d3/d70/Buttons_8h.html#aaf7f3aeec6211aa81bd709c9ef94c5b2", null ],
     [ "Slider", "d3/d70/Buttons_8h.html#a09caa5522ea90cabc00b7bbc3747d1b6", null ],

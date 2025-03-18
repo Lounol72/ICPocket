@@ -130,8 +130,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a008b68a8a93839ca6d584a22d3b013a1" id="r_a008b68a8a93839ca6d584a22d3b013a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d7b/structPlayer.html">Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d12/Player_8c.html#a008b68a8a93839ca6d584a22d3b013a1">createPlayer</a> (SDL_Renderer *renderer, const char *spritesheetPath, <a class="el" href="../../da/ddc/structMap.html">Map</a> *map)</td></tr>
-<tr class="separator:a008b68a8a93839ca6d584a22d3b013a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb7c20d506502a44774496786d574b53" id="r_aeb7c20d506502a44774496786d574b53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d7b/structPlayer.html">Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d12/Player_8c.html#aeb7c20d506502a44774496786d574b53">createPlayer</a> (SDL_Renderer *renderer, const char *spritesheetPath, <a class="el" href="../../da/ddc/structMap.html">Map</a> *map, int spawnX, int spawnY)</td></tr>
+<tr class="separator:aeb7c20d506502a44774496786d574b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac51a136d8106379440e8e12fe95d3999" id="r_ac51a136d8106379440e8e12fe95d3999"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d12/Player_8c.html#ac51a136d8106379440e8e12fe95d3999">DEBUG_printPlayerMat</a> (<a class="el" href="../../dc/d7b/structPlayer.html">Player</a> *player)</td></tr>
 <tr class="separator:ac51a136d8106379440e8e12fe95d3999"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd90f424179051138eeeb7cb8cc0667e" id="r_afd90f424179051138eeeb7cb8cc0667e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d12/Player_8c.html#afd90f424179051138eeeb7cb8cc0667e">updatePlayerAnimation</a> (<a class="el" href="../../dc/d7b/structPlayer.html">Player</a> *player, float deltaTime)</td></tr>
@@ -144,6 +144,8 @@ Fonctions</h2></td></tr>
 <tr class="separator:aeaca5c627e5599b60cc71af248c0f98e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40da9b0e713099872485ca1866f1ee6c" id="r_a40da9b0e713099872485ca1866f1ee6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d12/Player_8c.html#a40da9b0e713099872485ca1866f1ee6c">updatePlayerPosition</a> (<a class="el" href="../../dc/d7b/structPlayer.html">Player</a> *player, float deltaTime)</td></tr>
 <tr class="separator:a40da9b0e713099872485ca1866f1ee6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef811de53e1d844f7f0e641237548658" id="r_aef811de53e1d844f7f0e641237548658"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d12/Player_8c.html#aef811de53e1d844f7f0e641237548658">updatePhysics</a> (<a class="el" href="../../dc/d7b/structPlayer.html">Player</a> *player, <a class="el" href="../../d7/d7e/structCamera.html">Camera</a> *camera, <a class="el" href="../../da/ddc/structMap.html">Map</a> *map, float deltaTime)</td></tr>
+<tr class="separator:aef811de53e1d844f7f0e641237548658"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des macros</h2>
 <a id="aaa69f89df4c8e47abeb574bfdd11d9f4" name="aaa69f89df4c8e47abeb574bfdd11d9f4"></a>
@@ -175,8 +177,8 @@ Fonctions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a008b68a8a93839ca6d584a22d3b013a1" name="a008b68a8a93839ca6d584a22d3b013a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a008b68a8a93839ca6d584a22d3b013a1">&#9670;&#160;</a></span>createPlayer()</h2>
+<a id="aeb7c20d506502a44774496786d574b53" name="aeb7c20d506502a44774496786d574b53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb7c20d506502a44774496786d574b53">&#9670;&#160;</a></span>createPlayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,7 +199,19 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../da/ddc/structMap.html">Map</a> *&#160;</td>
-          <td class="paramname"><em>map</em>&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>spawnX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>spawnY</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -296,6 +310,46 @@ Fonctions</h2></td></tr>
           <td></td>
           <td class="paramtype"><a class="el" href="../../d7/d7e/structCamera.html">Camera</a> *&#160;</td>
           <td class="paramname"><em>camera</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef811de53e1d844f7f0e641237548658" name="aef811de53e1d844f7f0e641237548658"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef811de53e1d844f7f0e641237548658">&#9670;&#160;</a></span>updatePhysics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updatePhysics </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/d7b/structPlayer.html">Player</a> *&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d7e/structCamera.html">Camera</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/ddc/structMap.html">Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

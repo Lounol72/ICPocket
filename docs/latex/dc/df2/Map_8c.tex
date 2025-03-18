@@ -13,11 +13,11 @@ Graphe des dépendances par inclusion de Map.\+c\+:\nopagebreak
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{Map_8c_a981f2354b20569b6400d1bc2fd4f9137}{load\+New\+Map}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}map, const char \texorpdfstring{$\ast$}{*}new\+Map\+Path, int map\+Width, int map\+Height)
+static void \mbox{\hyperlink{Map_8c_ab6ecfe38fd7feade118d8c73233f6af1}{load\+New\+Map}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}map, const char \texorpdfstring{$\ast$}{*}new\+Map\+Path, int map\+Width, int map\+Height, int \texorpdfstring{$\ast$}{*}spawnX, int \texorpdfstring{$\ast$}{*}spawnY)
 \item 
-static void \mbox{\hyperlink{Map_8c_a55235be5591748a7d94545201c4c38e9}{init\+Collision\+Map\+From\+CSV}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map, const char \texorpdfstring{$\ast$}{*}path)
+static void \mbox{\hyperlink{Map_8c_a4c4085e71fd163da62be9b5f873aaab0}{init\+Collision\+Map\+From\+CSV}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map, const char \texorpdfstring{$\ast$}{*}path, int \texorpdfstring{$\ast$}{*}spawnX, int \texorpdfstring{$\ast$}{*}spawnY)
 \item 
-\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Map_8c_ae9475bf0ea7e30db360ff261097387b5}{init\+Map}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const char \texorpdfstring{$\ast$}{*}path, int Tile\+SizeW, int Tile\+SizeH)
+\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Map_8c_a8047a0b859589538d6778c80325e1898}{init\+Map}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const char \texorpdfstring{$\ast$}{*}path, int Tile\+SizeW, int Tile\+SizeH, int \texorpdfstring{$\ast$}{*}spawnX, int \texorpdfstring{$\ast$}{*}spawnY)
 \item 
 void \mbox{\hyperlink{Map_8c_ae0656f1ed1c85e750b8bc65bd7269f62}{check\+And\+Load\+New\+Map}} (\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}map, int playerX, int playerY)
 \item 
@@ -50,23 +50,23 @@ void \mbox{\hyperlink{Map_8c_a64df896c814cef549bef88fcd20d9a67}{destroy\+Map}} (
 \doxysubsubsection{\texorpdfstring{destroyMap()}{destroyMap()}}
 {\footnotesize\ttfamily void destroy\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map }\end{DoxyParamCaption})}
 
-\Hypertarget{Map_8c_a55235be5591748a7d94545201c4c38e9}\label{Map_8c_a55235be5591748a7d94545201c4c38e9} 
+\Hypertarget{Map_8c_a4c4085e71fd163da62be9b5f873aaab0}\label{Map_8c_a4c4085e71fd163da62be9b5f873aaab0} 
 \index{Map.c@{Map.c}!initCollisionMapFromCSV@{initCollisionMapFromCSV}}
 \index{initCollisionMapFromCSV@{initCollisionMapFromCSV}!Map.c@{Map.c}}
 \doxysubsubsection{\texorpdfstring{initCollisionMapFromCSV()}{initCollisionMapFromCSV()}}
-{\footnotesize\ttfamily static void init\+Collision\+Map\+From\+CSV (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static void init\+Collision\+Map\+From\+CSV (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{int \texorpdfstring{$\ast$}{*}}]{spawnX,  }\item[{int \texorpdfstring{$\ast$}{*}}]{spawnY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-\Hypertarget{Map_8c_ae9475bf0ea7e30db360ff261097387b5}\label{Map_8c_ae9475bf0ea7e30db360ff261097387b5} 
+\Hypertarget{Map_8c_a8047a0b859589538d6778c80325e1898}\label{Map_8c_a8047a0b859589538d6778c80325e1898} 
 \index{Map.c@{Map.c}!initMap@{initMap}}
 \index{initMap@{initMap}!Map.c@{Map.c}}
 \doxysubsubsection{\texorpdfstring{initMap()}{initMap()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*} init\+Map (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{int}]{Tile\+SizeW,  }\item[{int}]{Tile\+SizeH }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*} init\+Map (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{int}]{Tile\+SizeW,  }\item[{int}]{Tile\+SizeH,  }\item[{int \texorpdfstring{$\ast$}{*}}]{spawnX,  }\item[{int \texorpdfstring{$\ast$}{*}}]{spawnY }\end{DoxyParamCaption})}
 
-\Hypertarget{Map_8c_a981f2354b20569b6400d1bc2fd4f9137}\label{Map_8c_a981f2354b20569b6400d1bc2fd4f9137} 
+\Hypertarget{Map_8c_ab6ecfe38fd7feade118d8c73233f6af1}\label{Map_8c_ab6ecfe38fd7feade118d8c73233f6af1} 
 \index{Map.c@{Map.c}!loadNewMap@{loadNewMap}}
 \index{loadNewMap@{loadNewMap}!Map.c@{Map.c}}
 \doxysubsubsection{\texorpdfstring{loadNewMap()}{loadNewMap()}}
-{\footnotesize\ttfamily static void load\+New\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{map,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{new\+Map\+Path,  }\item[{int}]{map\+Width,  }\item[{int}]{map\+Height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static void load\+New\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{map,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{new\+Map\+Path,  }\item[{int}]{map\+Width,  }\item[{int}]{map\+Height,  }\item[{int \texorpdfstring{$\ast$}{*}}]{spawnX,  }\item[{int \texorpdfstring{$\ast$}{*}}]{spawnY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 \Hypertarget{Map_8c_a9903966da30d78752ca378caa3cb5dc5}\label{Map_8c_a9903966da30d78752ca378caa3cb5dc5} 
 \index{Map.c@{Map.c}!renderMapDebug@{renderMapDebug}}

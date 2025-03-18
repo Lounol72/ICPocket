@@ -12,7 +12,7 @@
 \DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structIMG__ICMons}{IMG\_ICMons}}\ \{}
 \DoxyCodeLine{00025\ \ \ \ \ SDL\_Renderer\ *\mbox{\hyperlink{structIMG__ICMons_aa08e4de210817826ea3a6ea843d05f77}{renderer}};\ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00026\ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{structIMG__ICMons_aca5f72f238f579cbf502c1f323a4d3ba}{ICMonTexture}};\ \ \ \ \ \ \ }
-\DoxyCodeLine{00027\ \ \ \ \ Mix\_Chunk\ *\mbox{\hyperlink{structIMG__ICMons_a82f16e87712b6dcce9f7d243dccfde1a}{ICMonSound}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ Mix\_Chunk\ *\mbox{\hyperlink{structIMG__ICMons_a441e0f2a2e2deb340bfe05932b4f8405}{ICMonSound}}[4];\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00028\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structIMG__ICMons_a992f76fe06dfeb67fd0baf7f257177b5}{rect}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00029\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{structIMG__ICMons_a59ff78849260d7a61cbc9bed404134f7}{initialRect}};\ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{structText}{Text}}\ *\mbox{\hyperlink{structIMG__ICMons_aebb4857364a22bdf15be0b7d0c3cfba3}{PVText}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
@@ -33,8 +33,10 @@
 \DoxyCodeLine{00068\ }
 \DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{RenderICMons_8h_a1f0630ab702e1360f9f72e55ac3a347e}{renderICMonsSprite}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *poke);}
 \DoxyCodeLine{00078\ }
-\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{RenderICMons_8h_ad5893493e984d32da31956aa3cb09ca8}{destroyICMonsSprite}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *poke);}
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{RenderICMons_8h_a516f7a2efba56c89acef86bbe68ed32a}{updateICMonText}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *poke);}
 \DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{RenderICMons_8h_ad5893493e984d32da31956aa3cb09ca8}{destroyICMonsSprite}}(\mbox{\hyperlink{structt__Poke}{t\_Poke}}\ *poke);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

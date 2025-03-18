@@ -11,7 +11,7 @@ var searchData=
   ['loadgame_8',['LOADGAME',['../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea8ea08ca82a0d1952666e6b27cc459795',1,'Window.h']]],
   ['loadmapimg_9',['loadMapIMG',['../df/d79/Map_8h.html#a184a6d0c81c91133a682450fa7807b06',1,'Map.h']]],
   ['loadmusic_10',['loadmusic',['../d3/d48/Audio_8c.html#a442ac79688294b67c76dbe10c87e1383',1,'loadMusic(Mix_Music **music, const char *musicPath):&#160;Audio.c'],['../d8/daa/Audio_8h.html#a442ac79688294b67c76dbe10c87e1383',1,'loadMusic(Mix_Music **music, const char *musicPath):&#160;Audio.c']]],
-  ['loadnewmap_11',['loadNewMap',['../dc/df2/Map_8c.html#a981f2354b20569b6400d1bc2fd4f9137',1,'Map.c']]],
+  ['loadnewmap_11',['loadNewMap',['../dc/df2/Map_8c.html#ab6ecfe38fd7feade118d8c73233f6af1',1,'Map.c']]],
   ['loadtexture_12',['loadTexture',['../d9/ded/Utils_8h.html#a7ff3780681b488f1d4bf7650f1ceae86',1,'Utils.h']]],
   ['log_2ec_13',['Log.c',['../d6/df2/Log_8c.html',1,'']]],
   ['log_2eh_14',['Log.h',['../d1/d45/Log_8h.html',1,'']]],

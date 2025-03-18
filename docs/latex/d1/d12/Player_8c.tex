@@ -19,7 +19,7 @@ Graphe des dépendances par inclusion de Player.\+c\+:\nopagebreak
 \doxysubsubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Player_8c_a008b68a8a93839ca6d584a22d3b013a1}{create\+Player}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const char \texorpdfstring{$\ast$}{*}spritesheet\+Path, \mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map)
+\mbox{\hyperlink{structPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Player_8c_aeb7c20d506502a44774496786d574b53}{create\+Player}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const char \texorpdfstring{$\ast$}{*}spritesheet\+Path, \mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map, int spawnX, int spawnY)
 \item 
 void \mbox{\hyperlink{Player_8c_ac51a136d8106379440e8e12fe95d3999}{DEBUG\+\_\+print\+Player\+Mat}} (\mbox{\hyperlink{structPlayer}{Player}} \texorpdfstring{$\ast$}{*}player)
 \item 
@@ -32,6 +32,8 @@ void \mbox{\hyperlink{Player_8c_a8c37aaa7c00bdf19f095649c9f46e55e}{render\+Playe
 void \mbox{\hyperlink{Player_8c_aeaca5c627e5599b60cc71af248c0f98e}{destroy\+Player}} (\mbox{\hyperlink{structPlayer}{Player}} \texorpdfstring{$\ast$}{*}player)
 \item 
 void \mbox{\hyperlink{Player_8c_a40da9b0e713099872485ca1866f1ee6c}{update\+Player\+Position}} (\mbox{\hyperlink{structPlayer}{Player}} \texorpdfstring{$\ast$}{*}player, float delta\+Time)
+\item 
+void \mbox{\hyperlink{Player_8c_aef811de53e1d844f7f0e641237548658}{update\+Physics}} (\mbox{\hyperlink{structPlayer}{Player}} \texorpdfstring{$\ast$}{*}player, \mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}camera, \mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}map, float delta\+Time)
 \end{DoxyCompactItemize}
 
 
@@ -51,11 +53,11 @@ void \mbox{\hyperlink{Player_8c_a40da9b0e713099872485ca1866f1ee6c}{update\+Playe
 
 
 \doxysubsection{Documentation des fonctions}
-\Hypertarget{Player_8c_a008b68a8a93839ca6d584a22d3b013a1}\label{Player_8c_a008b68a8a93839ca6d584a22d3b013a1} 
+\Hypertarget{Player_8c_aeb7c20d506502a44774496786d574b53}\label{Player_8c_aeb7c20d506502a44774496786d574b53} 
 \index{Player.c@{Player.c}!createPlayer@{createPlayer}}
 \index{createPlayer@{createPlayer}!Player.c@{Player.c}}
 \doxysubsubsection{\texorpdfstring{createPlayer()}{createPlayer()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structPlayer}{Player}} \texorpdfstring{$\ast$}{*} create\+Player (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{spritesheet\+Path,  }\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPlayer}{Player}} \texorpdfstring{$\ast$}{*} create\+Player (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{spritesheet\+Path,  }\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{int}]{spawnX,  }\item[{int}]{spawnY }\end{DoxyParamCaption})}
 
 \Hypertarget{Player_8c_ac51a136d8106379440e8e12fe95d3999}\label{Player_8c_ac51a136d8106379440e8e12fe95d3999} 
 \index{Player.c@{Player.c}!DEBUG\_printPlayerMat@{DEBUG\_printPlayerMat}}
@@ -80,6 +82,12 @@ void \mbox{\hyperlink{Player_8c_a40da9b0e713099872485ca1866f1ee6c}{update\+Playe
 \index{renderPlayerWithCamera@{renderPlayerWithCamera}!Player.c@{Player.c}}
 \doxysubsubsection{\texorpdfstring{renderPlayerWithCamera()}{renderPlayerWithCamera()}}
 {\footnotesize\ttfamily void render\+Player\+With\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{player,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}}]{camera }\end{DoxyParamCaption})}
+
+\Hypertarget{Player_8c_aef811de53e1d844f7f0e641237548658}\label{Player_8c_aef811de53e1d844f7f0e641237548658} 
+\index{Player.c@{Player.c}!updatePhysics@{updatePhysics}}
+\index{updatePhysics@{updatePhysics}!Player.c@{Player.c}}
+\doxysubsubsection{\texorpdfstring{updatePhysics()}{updatePhysics()}}
+{\footnotesize\ttfamily void update\+Physics (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{player,  }\item[{\mbox{\hyperlink{structCamera}{Camera}} \texorpdfstring{$\ast$}{*}}]{camera,  }\item[{\mbox{\hyperlink{structMap}{Map}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{float}]{delta\+Time }\end{DoxyParamCaption})}
 
 \Hypertarget{Player_8c_afd90f424179051138eeeb7cb8cc0667e}\label{Player_8c_afd90f424179051138eeeb7cb8cc0667e} 
 \index{Player.c@{Player.c}!updatePlayerAnimation@{updatePlayerAnimation}}

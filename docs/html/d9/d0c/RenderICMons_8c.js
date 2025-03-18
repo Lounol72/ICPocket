@@ -5,5 +5,6 @@ var RenderICMons_8c =
     [ "initICMonSprite", "d9/d0c/RenderICMons_8c.html#ac4e6519f6e42e14df90574527af9e3f8", null ],
     [ "renderICMonsSprite", "d9/d0c/RenderICMons_8c.html#a1f0630ab702e1360f9f72e55ac3a347e", null ],
     [ "updateICMonsSprite", "d9/d0c/RenderICMons_8c.html#a00792a5dc944c5d8992198d436c219d7", null ],
+    [ "updateICMonText", "d9/d0c/RenderICMons_8c.html#a516f7a2efba56c89acef86bbe68ed32a", null ],
     [ "updatePVBar", "d9/d0c/RenderICMons_8c.html#a59416d9326ffdcab2c4bc4b71c422783", null ]
 ];

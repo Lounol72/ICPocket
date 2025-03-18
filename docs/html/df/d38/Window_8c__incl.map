@@ -1,25 +1,26 @@
 <map id="src/Window.c" name="src/Window.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="255,5,361,31"/>
-<area shape="rect" id="Node000002" href="$d3/ded/Window_8h.html" title="Définition et gestion de la fenêtre principale de l&#39;application." alt="" coords="234,79,382,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="311,31,311,65,305,65,305,31"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="50,152,251,177"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="284,106,190,149,188,144,282,102"/>
-<area shape="rect" id="Node000004" href="$d9/ded/Utils_8h.html" title=" " alt="" coords="276,152,340,177"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="304,104,302,139,297,138,298,104"/>
-<area shape="rect" id="Node000010" href="$d1/d45/Log_8h.html" title="Initialisation des fonctions de logs." alt="" coords="379,152,437,177"/>
-<area shape="poly" id="edge11_Node000002_Node000010" title=" " alt="" coords="326,102,382,142,379,146,323,106"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="312,152,314,118,319,118,318,152"/>
-<area shape="rect" id="Node000005" href="$d3/d70/Buttons_8h.html" title="Gestion des boutons et curseurs pour l&#39;application." alt="" coords="266,225,350,251"/>
-<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="304,178,302,212,297,212,298,178"/>
-<area shape="poly" id="edge10_Node000005_Node000004" title=" " alt="" coords="312,225,314,191,319,191,318,225"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="329,5,436,31"/>
+<area shape="rect" id="Node000002" href="$d3/ded/Window_8h.html" title="Définition et gestion de la fenêtre principale de l&#39;application." alt="" coords="309,79,457,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="385,31,385,65,380,65,380,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="125,152,326,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="358,106,264,149,262,144,356,102"/>
+<area shape="rect" id="Node000004" href="$d9/ded/Utils_8h.html" title=" " alt="" coords="351,152,415,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="378,104,377,139,371,138,373,104"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="443,299,560,324"/>
+<area shape="poly" id="edge13_Node000002_Node000007" title=" " alt="" coords="394,102,429,151,467,223,494,285,489,287,462,225,424,153,390,106"/>
+<area shape="rect" id="Node000010" href="$d1/d45/Log_8h.html" title="Initialisation des fonctions de logs." alt="" coords="505,152,562,177"/>
+<area shape="poly" id="edge11_Node000002_Node000010" title=" " alt="" coords="408,102,497,144,495,148,406,106"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="387,152,389,118,394,118,392,152"/>
+<area shape="rect" id="Node000005" href="$d3/d70/Buttons_8h.html" title="Gestion des boutons et curseurs pour l&#39;application." alt="" coords="335,225,419,251"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="378,178,373,212,368,211,372,177"/>
+<area shape="poly" id="edge10_Node000005_Node000004" title=" " alt="" coords="382,225,387,191,392,191,388,226"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="5,299,149,324"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="272,253,128,297,127,292,270,248"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="173,299,291,324"/>
-<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="298,253,256,291,253,287,294,249"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="315,299,453,324"/>
-<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="322,249,363,287,360,291,318,253"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="477,299,560,324"/>
-<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="343,248,473,292,471,297,341,253"/>
-<area shape="rect" id="Node000011" title=" " alt="" coords="375,225,471,251"/>
-<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="413,177,420,211,415,212,408,178"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="336,252,140,298,138,293,334,247"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="399,248,471,289,468,294,396,253"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="173,299,312,324"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="357,253,278,294,276,290,354,248"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="336,299,419,324"/>
+<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="380,251,380,285,375,285,375,251"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="495,225,591,251"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="538,177,542,211,537,212,532,178"/>
 </map>

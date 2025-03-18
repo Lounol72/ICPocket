@@ -7,8 +7,7 @@ Fonctions de gestion des sprites ICMon.
 
 {\ttfamily \#include "{}../include/\+Render\+ICMons.\+h"{}}\newline
 {\ttfamily \#include $<$math.\+h$>$}\newline
-Graphe des dépendances par inclusion de Render\+ICMons.\+c\+:
-\nopagebreak
+Graphe des dépendances par inclusion de Render\+ICMons.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -28,6 +27,8 @@ void \mbox{\hyperlink{RenderICMons_8c_a1f0630ab702e1360f9f72e55ac3a347e}{render\
 \begin{DoxyCompactList}\small\item\em Rendu du sprite ICMon sur la fenêtre. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{RenderICMons_8c_ad5893493e984d32da31956aa3cb09ca8}{destroy\+ICMons\+Sprite}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}poke)
 \begin{DoxyCompactList}\small\item\em Détruit et libère les ressources associées au sprite d\textquotesingle{}un ICMon. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{RenderICMons_8c_a516f7a2efba56c89acef86bbe68ed32a}{update\+ICMon\+Text}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}poke)
+\begin{DoxyCompactList}\small\item\em Met à jour le texte des ICMons. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{RenderICMons_8c_a00792a5dc944c5d8992198d436c219d7}{update\+ICMons\+Sprite}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}poke, float scaleX, float scaleY)
 \begin{DoxyCompactList}\small\item\em Met à jour le sprite ICMon en appliquant une échelle sur les dimensions et positions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -165,6 +166,23 @@ Cette fonction met à jour la taille et la position du sprite, du nom et de la b
 {\em scaleX} & L\textquotesingle{}échelle appliquée sur l\textquotesingle{}axe horizontal. \\
 \hline
 {\em scaleY} & L\textquotesingle{}échelle appliquée sur l\textquotesingle{}axe vertical. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{RenderICMons_8c_a516f7a2efba56c89acef86bbe68ed32a}\label{RenderICMons_8c_a516f7a2efba56c89acef86bbe68ed32a} 
+\index{RenderICMons.c@{RenderICMons.c}!updateICMonText@{updateICMonText}}
+\index{updateICMonText@{updateICMonText}!RenderICMons.c@{RenderICMons.c}}
+\doxysubsubsection{\texorpdfstring{updateICMonText()}{updateICMonText()}}
+{\footnotesize\ttfamily void update\+ICMon\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{poke }\end{DoxyParamCaption})}
+
+
+
+Met à jour le texte des ICMons. 
+
+Cette fonction met à jour le texte des ICMons en fonction des paramètres donnés.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em poke} & Un pointeur vers la structure \doxylink{structt__Poke}{t\+\_\+\+Poke} représentant l\textquotesingle{}ICMons. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{RenderICMons_8c_a59416d9326ffdcab2c4bc4b71c422783}\label{RenderICMons_8c_a59416d9326ffdcab2c4bc4b71c422783} 
