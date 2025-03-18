@@ -1,0 +1,81 @@
+name: Windows Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # Permet de lancer manuellement le workflow
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up MSYS2
+      uses: msys2/setup-msys2@v2
+      with:
+        msystem: MINGW64
+        update: true
+        install: >-
+          mingw-w64-x86_64-gcc
+          mingw-w64-x86_64-make
+          mingw-w64-x86_64-SDL2
+          mingw-w64-x86_64-SDL2_image
+          mingw-w64-x86_64-SDL2_mixer
+          mingw-w64-x86_64-SDL2_ttf
+          zip
+          
+    - name: Build
+      shell: msys2 {0}
+      run: |
+        mkdir -p bin
+        mkdir -p obj
+        
+        # Compiler le projet
+        gcc -o bin/main.exe main.c src/*.c \
+        -I./include \
+        -I/mingw64/include/SDL2 \
+        -L/mingw64/lib \
+        -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf \
+        -mwindows
+        
+        # Copier les DLLs nécessaires
+        cp /mingw64/bin/SDL2.dll bin/
+        cp /mingw64/bin/SDL2_image.dll bin/
+        cp /mingw64/bin/SDL2_mixer.dll bin/
+        cp /mingw64/bin/SDL2_ttf.dll bin/
+        cp /mingw64/bin/libpng16-16.dll bin/
+        cp /mingw64/bin/zlib1.dll bin/
+        cp /mingw64/bin/libjpeg-8.dll bin/
+        cp /mingw64/bin/libtiff-5.dll bin/
+        cp /mingw64/bin/libwebp-7.dll bin/
+        cp /mingw64/bin/libfreetype-6.dll bin/
+        
+        # Créer le script batch de lancement
+        echo "@echo off" > run.bat
+        echo "cd %~dp0" >> run.bat
+        echo "bin\main.exe %*" >> run.bat
+        
+        # Créer le package ZIP
+        zip -r ICPocket-windows.zip bin/ assets/ data/ run.bat README.md
+        
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ICPocket-Windows
+        path: ICPocket-windows.zip
+        
+    - name: Create Release
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: softprops/action-gh-release@v1
+      with:
+        files: ICPocket-windows.zip
+        tag_name: v${{ github.run_number }}
+        name: Release ${{ github.run_number }}
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
