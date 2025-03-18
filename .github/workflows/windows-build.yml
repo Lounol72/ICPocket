@@ -136,7 +136,7 @@ jobs:
         
         git add .gitattributes
         git commit -m "📦 Windows build $(date -u +%Y-%m-%d)"
-        git push origin builds --force
+        git push origin main --force
 
     - name: Upload to Artifacts
       if: env.HAS_COMMITS == 'true'
