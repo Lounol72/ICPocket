@@ -16,10 +16,35 @@
 [1] [2] You must call Mix_SetMusicCMD() first
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
-[0] [3] Changement d'état : 0
+[0] [3] Changement d'état : 5
+[0] [3] Changement d'état : 4
+[0] [3] PV : 14/14
+[0] [3] PV : 19/19
+[0] [3] PV : 244/244
+[0] [3] PV : 26/26
+[0] [3] PV : 21/21
+[0] [3] PV : 25/25
+[0] [3] PV : 26/26
+[0] [3] Red team PV: 14, Blue team PV: 26
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 6
+[0] [3] Changement d'état : 3
+[0] [2] ScrollingText created successfully
+[0] [2] ScrollingText created successfully
+[0] [3] Changement d'état : 11
+[0] [3] Changement d'état : 3
+[0] [3] Changement d'état : 11
+[0] [3] Changement d'état : 3
+[0] [2] ScrollingText created successfully
+[0] [3] Changement d'état : 11
+[0] [3] Changement d'état : 3
+[0] [2] ScrollingText created successfully
+[7] [3] Quit
 [0] [3] ✅ Musique libérée
 [0] [3] ✅ Musique inter libérée
 [0] [3] ✅ UI libérée
+[0] [3] ✅ ICMons rouges libérés
+[0] [3] ✅ ICMons bleus libérés
 [0] [3] ✅ State handlers libérés
 [0] [3] ✅ LargeFont libéré
 [0] [3] ✅ MediumFont libéré

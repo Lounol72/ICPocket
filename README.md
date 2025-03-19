@@ -66,24 +66,6 @@ Les fichiers audio doivent être au format MP3. Si vous avez un fichier dans un 
         ```sh
         git push
         ```
-2. **Commandes docker** :
-
-    - **Build le docker**:
-        
-        ```sh
-        sudo docker build -t icpocket .
-        ```
-    - **Pour exécuter le conteneur avec support graphique (sur Linux)**:
-        ```sh
-            xhost +local:docker
-            sudo docker run -it \
-                --env="DISPLAY" \
-                --env="QT_X11_NO_MITSHM=1" \
-                --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-                --volume="$PWD/assets:/app/assets" \
-                --volume="$PWD/data:/app/data" \
-                icpocket
-        ```
 
 ## Idées pour le jeu
 

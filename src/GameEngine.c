@@ -1004,8 +1004,7 @@ void updateBattleTurn() {
             if(lvl_up_buffer_size!=0 && game.gameState.currentState != LEARNMOVE) {
                 initLearningMove();
             }
-            else if (game.battleState.text->isComplete){
-                game.battleState.text->isComplete = false;
+            else if (lvl_up_buffer_size==0 ){
                 updateICButtons(game.win, &game.battleState.rouge);
                 if(!isAlive(&game.battleState.rouge.team[0]) && isTeamAlive(&game.battleState.rouge)) changeState(game.win, &game.stateHandlers[6].state);
                 if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {

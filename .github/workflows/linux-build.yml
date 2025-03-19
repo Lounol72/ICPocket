@@ -1,0 +1,122 @@
+name: Linux Build at Midnight
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+env:
+  BUILD_TYPE: Release
+  PROJECT_NAME: ICPocket
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        lfs: true
+
+    - name: Setup Git LFS
+      run: |
+        git lfs install
+        git lfs track "*.zip"
+        git add .gitattributes
+
+    - name: Check for today's commits
+      id: check_commits
+      shell: bash
+      run: |
+        TODAY=$(date -u +%Y-%m-%d)
+        COMMITS_TODAY=$(git log --since="$TODAY 00:00:00" --until="$TODAY 23:59:59" --oneline)
+        if [ -n "$COMMITS_TODAY" ]; then
+          echo "HAS_COMMITS=true" >> $GITHUB_ENV
+        else
+          echo "HAS_COMMITS=false" >> $GITHUB_ENV
+        fi
+
+    - name: Install Dependencies
+      if: env.HAS_COMMITS == 'true'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gcc make zip \
+          libsdl2-dev libsdl2-image-dev \
+          libsdl2-mixer-dev libsdl2-ttf-dev
+
+    - name: Build
+      if: env.HAS_COMMITS == 'true'
+      run: |
+        mkdir -p bin/linux
+        
+        if [ -f "Makefile" ]; then
+          make package-linux
+        else
+          gcc -o bin/linux/${{ env.PROJECT_NAME }} \
+            main.c src/*.c \
+            -I./include \
+            $(sdl2-config --cflags --libs) \
+            -lSDL2_image -lSDL2_mixer -lSDL2_ttf \
+            -O2
+        fi
+
+    - name: Package
+      if: env.HAS_COMMITS == 'true'
+      run: |
+        echo "#!/bin/bash" > bin/linux/run.sh
+        echo "cd \"\$(dirname \"\$0\")\"" >> bin/linux/run.sh
+        echo "./${{ env.PROJECT_NAME }} \"\$@\"" >> bin/linux/run.sh
+        chmod +x bin/linux/run.sh
+        
+        cd bin
+        zip -9 -r ../${{ env.PROJECT_NAME }}-linux.zip linux/ ../assets/ ../data/ ../README.md
+        cd ..
+
+    - name: Split ZIP if needed
+      if: env.HAS_COMMITS == 'true'
+      run: |
+        ZIP_SIZE=$(stat -c %s "${{ env.PROJECT_NAME }}-linux.zip")
+        if [ $ZIP_SIZE -gt 95000000 ]; then
+          echo "Splitting ZIP file..."
+          split -b 95m "${{ env.PROJECT_NAME }}-linux.zip" "${{ env.PROJECT_NAME }}-linux.zip.part"
+        fi
+
+    - name: Commit and Push
+      if: env.HAS_COMMITS == 'true'
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        
+        if [ -f "${{ env.PROJECT_NAME }}-linux.zip.partaa" ]; then
+          for part in ${{ env.PROJECT_NAME }}-linux.zip.part*; do
+            git lfs track "$part"
+            git add "$part"
+          done
+        else
+          git lfs track "${{ env.PROJECT_NAME }}-linux.zip"
+          git add "${{ env.PROJECT_NAME }}-linux.zip"
+        fi
+        
+        git add .gitattributes
+        git commit -m "📦 Linux build $(date -u +%Y-%m-%d)"
+        git push origin main --force
+
+    - name: Upload to Artifacts
+      if: env.HAS_COMMITS == 'true'
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.PROJECT_NAME }}-Linux
+        path: ${{ env.PROJECT_NAME }}-linux.zip*
+        retention-days: 5
+
+    - name: Cleanup
+      if: always()
+      run: |
+        rm -rf bin/
+        rm -f *.zip*
