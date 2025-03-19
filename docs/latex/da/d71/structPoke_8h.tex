@@ -57,7 +57,7 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 void \mbox{\hyperlink{structPoke_8h_afe2be4dcf1abaf503e3ce46c3af588e9}{generate\+\_\+poke}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p, int id)
 \begin{DoxyCompactList}\small\item\em Generate a Icmon from a given id in the data\+Poke.\+csv file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{structPoke_8h_a51de8e3a42ddb12141a26f4b987e5d7e}{generate\+\_\+poke\+\_\+enemi}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p, int line, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}joueur)
-\item 
+\begin{DoxyCompactList}\small\item\em Genere un pokemon enemi a partir d\textquotesingle{}un fichier.\+csv. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{structPoke_8h_a2654983666510a2dc455ff7e1a4e281a}{generate\+Poke}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*})
 \item 
 \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{structPoke_8h_aff185784e3522330be3818416ad1cb93}{generate\+Move}} (int id)
@@ -65,7 +65,7 @@ void \mbox{\hyperlink{structPoke_8h_a2654983666510a2dc455ff7e1a4e281a}{generate\
 \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{structPoke_8h_a0c149d758c5a0d385c66b6cfe90abd73}{generate\+Random\+Move}} ()
 \begin{DoxyCompactList}\small\item\em generer aleatoirement \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{structPoke_8h_a69afa9b406c2e19b2821261e7bc00bac}{generate\+Random\+Move\+Better}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p)
-\item 
+\begin{DoxyCompactList}\small\item\em Genere un move a partir d\textquotesingle{}un fichier.\+csv. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{structPoke_8h_aa6e57a0e7270157be9d895337f9dea6c}{learn\+Move}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}, int)
 \item 
 void \mbox{\hyperlink{structPoke_8h_ae4f820b89cf498b99b912c97e95a2414}{print\+Poke}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*})
@@ -191,7 +191,7 @@ Nathan William
 \index{structPoke.h@{structPoke.h}!generate\_poke@{generate\_poke}}
 \index{generate\_poke@{generate\_poke}!structPoke.h@{structPoke.h}}
 \doxysubsubsection{\texorpdfstring{generate\_poke()}{generate\_poke()}}
-{\footnotesize\ttfamily void generate\+\_\+poke (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{int}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void generate\+\_\+poke (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{int}]{line }\end{DoxyParamCaption})}
 
 
 
@@ -201,7 +201,16 @@ Generate a Icmon from a given id in the data\+Poke.\+csv file.
 \begin{DoxyParams}{Paramètres}
 {\em p} & \+: the structure Icmon to generate \\
 \hline
-{\em id} & \+: the id of the Icmon to generate \\
+{\em id} & \+: the id of the Icmon to generate\\
+\hline
+\end{DoxyParams}
+Generate a Icmon from a given id in the data\+Poke.\+csv file.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & structure poke \\
+\hline
+{\em line} & ligne dans le fichier du poke recherché \\
 \hline
 \end{DoxyParams}
 \Hypertarget{structPoke_8h_a51de8e3a42ddb12141a26f4b987e5d7e}\label{structPoke_8h_a51de8e3a42ddb12141a26f4b987e5d7e} 
@@ -210,6 +219,19 @@ Generate a Icmon from a given id in the data\+Poke.\+csv file.
 \doxysubsubsection{\texorpdfstring{generate\_poke\_enemi()}{generate\_poke\_enemi()}}
 {\footnotesize\ttfamily void generate\+\_\+poke\+\_\+enemi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{int}]{line,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{joueur }\end{DoxyParamCaption})}
 
+
+
+Genere un pokemon enemi a partir d\textquotesingle{}un fichier.\+csv. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & structure poke \\
+\hline
+{\em line} & ligne dans le fichier du poke recherché \\
+\hline
+{\em joueur} & struct team de la team du joueur \\
+\hline
+\end{DoxyParams}
 \Hypertarget{structPoke_8h_aff185784e3522330be3818416ad1cb93}\label{structPoke_8h_aff185784e3522330be3818416ad1cb93} 
 \index{structPoke.h@{structPoke.h}!generateMove@{generateMove}}
 \index{generateMove@{generateMove}!structPoke.h@{structPoke.h}}
@@ -250,6 +272,17 @@ generer aleatoirement
 \doxysubsubsection{\texorpdfstring{generateRandomMoveBetter()}{generateRandomMoveBetter()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} generate\+Random\+Move\+Better (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
 
+
+
+Genere un move a partir d\textquotesingle{}un fichier.\+csv. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & structure poke \\
+\hline
+{\em line} & ligne dans le fichier du poke recherché \\
+\hline
+\end{DoxyParams}
 \Hypertarget{structPoke_8h_a057e50bb0d116718182997db0f1e7b53}\label{structPoke_8h_a057e50bb0d116718182997db0f1e7b53} 
 \index{structPoke.h@{structPoke.h}!initData@{initData}}
 \index{initData@{initData}!structPoke.h@{structPoke.h}}

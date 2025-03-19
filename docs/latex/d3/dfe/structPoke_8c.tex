@@ -14,15 +14,15 @@ Graphe des dépendances par inclusion de struct\+Poke.\+c\+:\nopagebreak
 void \mbox{\hyperlink{structPoke_8c_adacb8af813c0d5a693489fa598fe5530}{generate\+Poke}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p)
 \item 
 void \mbox{\hyperlink{structPoke_8c_a5c2b1dbe3b3455a646dad97376a288b6}{generate\+\_\+poke}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p, int line)
-\begin{DoxyCompactList}\small\item\em Generate a Icmon from a given id in the data\+Poke.\+csv file. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Genere un pokemon a partir d\textquotesingle{}un fichier.\+csv. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{structPoke_8c_a366af89457de55c9d93c01fdea222e2b}{generatelvl}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}joueur)
-\item 
+\begin{DoxyCompactList}\small\item\em Renvois un entier en fonction du nombre d\textquotesingle{}adversaire battu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{structPoke_8c_a51de8e3a42ddb12141a26f4b987e5d7e}{generate\+\_\+poke\+\_\+enemi}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p, int line, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}joueur)
-\item 
+\begin{DoxyCompactList}\small\item\em Genere un pokemon enemi a partir d\textquotesingle{}un fichier.\+csv. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{structPoke_8c_a0c149d758c5a0d385c66b6cfe90abd73}{generate\+Random\+Move}} ()
 \begin{DoxyCompactList}\small\item\em generer aleatoirement \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{structPoke_8c_a69afa9b406c2e19b2821261e7bc00bac}{generate\+Random\+Move\+Better}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p)
-\item 
+\begin{DoxyCompactList}\small\item\em Genere un move a partir d\textquotesingle{}un fichier.\+csv. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \mbox{\hyperlink{structPoke_8c_a3aedb30523082779fa3de3d78b207987}{generate\+Move}} (int line)
 \begin{DoxyCompactList}\small\item\em Fonctions pour générer des moves ( attaques de nos montres) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{structPoke_8c_a7015b1513a0fee88f04ded20913866ba}{learn\+Move}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p, \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}m, int ind)
@@ -49,17 +49,19 @@ float \mbox{\hyperlink{structPoke_8c_ab3f16f2365e129e0337bae5d412816e3}{type\+Ch
 \index{structPoke.c@{structPoke.c}!generate\_poke@{generate\_poke}}
 \index{generate\_poke@{generate\_poke}!structPoke.c@{structPoke.c}}
 \doxysubsubsection{\texorpdfstring{generate\_poke()}{generate\_poke()}}
-{\footnotesize\ttfamily void generate\+\_\+poke (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{int}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void generate\+\_\+poke (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{int}]{line }\end{DoxyParamCaption})}
 
 
 
-Generate a Icmon from a given id in the data\+Poke.\+csv file. 
+Genere un pokemon a partir d\textquotesingle{}un fichier.\+csv. 
+
+Generate a Icmon from a given id in the data\+Poke.\+csv file.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em p} & \+: the structure Icmon to generate \\
+{\em p} & structure poke \\
 \hline
-{\em id} & \+: the id of the Icmon to generate \\
+{\em line} & ligne dans le fichier du poke recherché \\
 \hline
 \end{DoxyParams}
 \Hypertarget{structPoke_8c_a51de8e3a42ddb12141a26f4b987e5d7e}\label{structPoke_8c_a51de8e3a42ddb12141a26f4b987e5d7e} 
@@ -68,12 +70,34 @@ Generate a Icmon from a given id in the data\+Poke.\+csv file.
 \doxysubsubsection{\texorpdfstring{generate\_poke\_enemi()}{generate\_poke\_enemi()}}
 {\footnotesize\ttfamily void generate\+\_\+poke\+\_\+enemi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{int}]{line,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{joueur }\end{DoxyParamCaption})}
 
+
+
+Genere un pokemon enemi a partir d\textquotesingle{}un fichier.\+csv. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & structure poke \\
+\hline
+{\em line} & ligne dans le fichier du poke recherché \\
+\hline
+{\em joueur} & struct team de la team du joueur \\
+\hline
+\end{DoxyParams}
 \Hypertarget{structPoke_8c_a366af89457de55c9d93c01fdea222e2b}\label{structPoke_8c_a366af89457de55c9d93c01fdea222e2b} 
 \index{structPoke.c@{structPoke.c}!generatelvl@{generatelvl}}
 \index{generatelvl@{generatelvl}!structPoke.c@{structPoke.c}}
 \doxysubsubsection{\texorpdfstring{generatelvl()}{generatelvl()}}
 {\footnotesize\ttfamily int generatelvl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{joueur }\end{DoxyParamCaption})}
 
+
+
+Renvois un entier en fonction du nombre d\textquotesingle{}adversaire battu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joueur} & struct joueur \\
+\hline
+\end{DoxyParams}
 \Hypertarget{structPoke_8c_a3aedb30523082779fa3de3d78b207987}\label{structPoke_8c_a3aedb30523082779fa3de3d78b207987} 
 \index{structPoke.c@{structPoke.c}!generateMove@{generateMove}}
 \index{generateMove@{generateMove}!structPoke.c@{structPoke.c}}
@@ -114,6 +138,17 @@ generer aleatoirement
 \doxysubsubsection{\texorpdfstring{generateRandomMoveBetter()}{generateRandomMoveBetter()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} generate\+Random\+Move\+Better (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
 
+
+
+Genere un move a partir d\textquotesingle{}un fichier.\+csv. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & structure poke \\
+\hline
+{\em line} & ligne dans le fichier du poke recherché \\
+\hline
+\end{DoxyParams}
 \Hypertarget{structPoke_8c_a057e50bb0d116718182997db0f1e7b53}\label{structPoke_8c_a057e50bb0d116718182997db0f1e7b53} 
 \index{structPoke.c@{structPoke.c}!initData@{initData}}
 \index{initData@{initData}!structPoke.c@{structPoke.c}}

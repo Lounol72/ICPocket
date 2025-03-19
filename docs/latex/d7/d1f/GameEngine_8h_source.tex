@@ -83,56 +83,59 @@
 \DoxyCodeLine{00117\ \ \ \ \ SDL\_Surface\ *\mbox{\hyperlink{structGame_a718b25063a2b739e7fd0c886c2509269}{cursor}};\ \ \ \ \ \ \ }
 \DoxyCodeLine{00118\ \ \ \ \ SDL\_Surface\ *\mbox{\hyperlink{structGame_a8368793aa6f05e1a40a64eab95757bf5}{cursor\_hover}};\ }
 \DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGame_adc1a066a885d3620870682192a65afe0}{swappingIndex}}[2];}
-\DoxyCodeLine{00120\ \}\ \mbox{\hyperlink{structGame}{Game}};}
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Game_8h}{Game.h}}"{}}}
-\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Events_8h}{Events.h}}"{}}}
-\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{RenderICMons_8h}{RenderICMons.h}}"{}}}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Function\ Prototypes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00135\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_ac7a261e0d935ffeeca4d7a0713913bd2}{initAllButtons}}(\mbox{\hyperlink{structWindow}{Window}}\ *win);}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00137\ \textcolor{comment}{/*\ Render\ */}}
-\DoxyCodeLine{00145\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_adce05963537a78c4c589298117616864}{render}}(\mbox{\hyperlink{structWindow}{Window}}\ *win);}
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00147\ \textcolor{comment}{/*\ Main\ loop\ */}}
-\DoxyCodeLine{00155\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_ad119335fdbed767125510c855f2629ce}{mainLoop}}(\mbox{\hyperlink{structWindow}{Window}}\ *win);}
-\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{structText}{Text}}\ *\ \mbox{\hyperlink{structGame_a07aed13634df31954f4baa515d8217ea}{windowText}};}
+\DoxyCodeLine{00121\ \}\ \mbox{\hyperlink{structGame}{Game}};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Game_8h}{Game.h}}"{}}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Events_8h}{Events.h}}"{}}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{RenderICMons_8h}{RenderICMons.h}}"{}}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Function\ Prototypes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00136\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_ac7a261e0d935ffeeca4d7a0713913bd2}{initAllButtons}}(\mbox{\hyperlink{structWindow}{Window}}\ *win);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{comment}{/*\ Render\ */}}
+\DoxyCodeLine{00146\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_adce05963537a78c4c589298117616864}{render}}(\mbox{\hyperlink{structWindow}{Window}}\ *win);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \textcolor{comment}{/*\ Main\ loop\ */}}
+\DoxyCodeLine{00156\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_ad119335fdbed767125510c855f2629ce}{mainLoop}}(\mbox{\hyperlink{structWindow}{Window}}\ *win);}
 \DoxyCodeLine{00157\ }
-\DoxyCodeLine{00158\ \textcolor{comment}{/*\ Attack\ button\ */}}
-\DoxyCodeLine{00167\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a8f8e57777ac436d2bfa2a87224c0eb8c}{attqButtonClicked}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}});}
-\DoxyCodeLine{00168\ }
-\DoxyCodeLine{00169\ \textcolor{comment}{/*\ Generic\ state\ change\ button\ callback\ */}}
-\DoxyCodeLine{00178\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_ae30f21d07d1066ecda7ed1097d584e6b}{changeState}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}});}
-\DoxyCodeLine{00179\ }
-\DoxyCodeLine{00180\ \textcolor{comment}{/*\ Initialize\ basics\ for\ a\ Team\ Swap*/}}
-\DoxyCodeLine{00189\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a28332eed894602447a49a8cdb433d25d}{initSwapTeam}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}});}
-\DoxyCodeLine{00190\ }
-\DoxyCodeLine{00191\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_aa9e408a2d39655e3d5db43606825801b}{changeIndexSwap}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}});}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{comment}{/*\ Attack\ button\ */}}
+\DoxyCodeLine{00168\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a8f8e57777ac436d2bfa2a87224c0eb8c}{attqButtonClicked}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}});}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{comment}{/*\ Generic\ state\ change\ button\ callback\ */}}
+\DoxyCodeLine{00179\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_ae30f21d07d1066ecda7ed1097d584e6b}{changeState}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}});}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{comment}{/*\ Initialize\ basics\ for\ a\ Team\ Swap*/}}
+\DoxyCodeLine{00191\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a9669132b31ee4c108472d7f46c3b3499}{initLearningMove}}(\textcolor{keywordtype}{void});}
 \DoxyCodeLine{00192\ }
-\DoxyCodeLine{00193\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a4f4fd64e6dbdcdcd83fd46f43c35d9bf}{validateSwap}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}});}
+\DoxyCodeLine{00193\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a28332eed894602447a49a8cdb433d25d}{initSwapTeam}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}});}
 \DoxyCodeLine{00194\ }
-\DoxyCodeLine{00195\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a5ed19d39baab73ab804232213baf91b2}{learningMoveChoice}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}});}
+\DoxyCodeLine{00195\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_aa9e408a2d39655e3d5db43606825801b}{changeIndexSwap}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}});}
 \DoxyCodeLine{00196\ }
-\DoxyCodeLine{00197\ \textcolor{comment}{/*\ Text-\/related\ updates\ for\ attacks\ */}}
-\DoxyCodeLine{00206\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_aa9e620870df635719d54d19fd83bb423}{updateICButtons}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *team);}
-\DoxyCodeLine{00207\ }
-\DoxyCodeLine{00216\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a275ae329d3830bface72c1c30db48b04}{nextDuel}}(\mbox{\hyperlink{structWindow}{Window}}*\ win,\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}});}
-\DoxyCodeLine{00217\ }
-\DoxyCodeLine{00223\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1}{updateCurrentButton}}();}
-\DoxyCodeLine{00224\ }
-\DoxyCodeLine{00230\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_ae728be2d7ae42605618aa49e1a837466}{updateMusic}}();}
-\DoxyCodeLine{00231\ }
-\DoxyCodeLine{00239\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a6ed42cf8883eef51f3764c8587d7bc59}{manageFrameRate}}(\textcolor{keywordtype}{int}\ frameStart);}
-\DoxyCodeLine{00240\ }
-\DoxyCodeLine{00246\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_adabbbc541f65101aca7e21be011712ae}{startBattleTurn}}(\textcolor{keywordtype}{int}\ moveRouge,\ \textcolor{keywordtype}{int}\ moveBleu);}
-\DoxyCodeLine{00247\ }
-\DoxyCodeLine{00253\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a0f30ad9309996b75a4472a6235a17bd1}{executeAction}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *attacker,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *defender,\ \textcolor{keywordtype}{int}\ move);}
-\DoxyCodeLine{00254\ }
-\DoxyCodeLine{00260\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_aeffafb56f1266491593b4e3e0fd3fb28}{updateBattleTurn}}();}
-\DoxyCodeLine{00261\ }
-\DoxyCodeLine{00262\ }
-\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GAMEENGINE\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00197\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a4f4fd64e6dbdcdcd83fd46f43c35d9bf}{validateSwap}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}});}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a5ed19d39baab73ab804232213baf91b2}{learningMoveChoice}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}});}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{comment}{/*\ Text-\/related\ updates\ for\ attacks\ */}}
+\DoxyCodeLine{00210\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_aa9e620870df635719d54d19fd83bb423}{updateICButtons}}(\mbox{\hyperlink{structWindow}{Window}}\ *win,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *team);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00220\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a275ae329d3830bface72c1c30db48b04}{nextDuel}}(\mbox{\hyperlink{structWindow}{Window}}*\ win,\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}});}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00227\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_aa35dc6fb12b09280f097e5781e5892e1}{updateCurrentButton}}();}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00234\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_ae728be2d7ae42605618aa49e1a837466}{updateMusic}}();}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00243\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a6ed42cf8883eef51f3764c8587d7bc59}{manageFrameRate}}(\textcolor{keywordtype}{int}\ frameStart);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00250\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_adabbbc541f65101aca7e21be011712ae}{startBattleTurn}}(\textcolor{keywordtype}{int}\ moveRouge,\ \textcolor{keywordtype}{int}\ moveBleu);}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00257\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_a0f30ad9309996b75a4472a6235a17bd1}{executeAction}}(\mbox{\hyperlink{structt__Team}{t\_Team}}\ *attacker,\ \mbox{\hyperlink{structt__Team}{t\_Team}}\ *defender,\ \textcolor{keywordtype}{int}\ move);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00264\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{GameEngine_8h_aeffafb56f1266491593b4e3e0fd3fb28}{updateBattleTurn}}();}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GAMEENGINE\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

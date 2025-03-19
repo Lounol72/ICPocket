@@ -28,9 +28,9 @@ int \mbox{\hyperlink{duel_8c_a856d1b8c22a68e78412f1d4a4ca3c0b0}{test\+Action\+Va
 int \mbox{\hyperlink{duel_8c_a0e27a0c4136f1f57a6f4f3e052ab2e54}{calc\+Stat\+From}} (\mbox{\hyperlink{structt__Poke}{t\+\_\+\+Poke}} \texorpdfstring{$\ast$}{*}p, int stat)
 \item 
 void \mbox{\hyperlink{duel_8c_a008ac39eea8c44c8b962e362897c5634}{init\+Team}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t, int nb\+\_\+poke)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialise l\textquotesingle{}équipe du joueur. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{duel_8c_a5c425221de6c8fc3581cb8ad38a77579}{init\+Blue\+Team}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}t, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}joueur)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialise l\textquotesingle{}équipe adverse en fonction du nombre d\textquotesingle{}adversaire battu par le joueur. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{duel_8c_ac70ebbfe144e52d4a596dd2c424cd3f9}{calc\+Damage}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}offender, \mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}defender, \mbox{\hyperlink{structt__Move}{t\+\_\+\+Move}} \texorpdfstring{$\ast$}{*}move)
 \item 
 void \mbox{\hyperlink{duel_8c_a8fc0892b3753845a32113b61ce8b1b6c}{set\+Default\+Stat\+Changes}} (\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}p)
@@ -161,12 +161,34 @@ int \mbox{\hyperlink{duel_8c_a5fa7c71ee69bf53efd73ff3978602ab6}{lvl\+\_\+up\+\_\
 \doxysubsubsection{\texorpdfstring{initBlueTeam()}{initBlueTeam()}}
 {\footnotesize\ttfamily void init\+Blue\+Team (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{joueur }\end{DoxyParamCaption})}
 
+
+
+Initialise l\textquotesingle{}équipe adverse en fonction du nombre d\textquotesingle{}adversaire battu par le joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em t} & structure de l\textquotesingle{}equipe adverse \\
+\hline
+{\em joueur} & structure de l\textquotesingle{}equipe du joueur \\
+\hline
+\end{DoxyParams}
 \Hypertarget{duel_8c_a008ac39eea8c44c8b962e362897c5634}\label{duel_8c_a008ac39eea8c44c8b962e362897c5634} 
 \index{duel.c@{duel.c}!initTeam@{initTeam}}
 \index{initTeam@{initTeam}!duel.c@{duel.c}}
 \doxysubsubsection{\texorpdfstring{initTeam()}{initTeam()}}
 {\footnotesize\ttfamily void init\+Team (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__Team}{t\+\_\+\+Team}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{int}]{nb\+\_\+poke }\end{DoxyParamCaption})}
 
+
+
+Initialise l\textquotesingle{}équipe du joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em t} & structure de l\textquotesingle{}equipe du joueur \\
+\hline
+{\em nbpoke} & nombre de pokemon a mettre dans l\textquotesingle{}equipe \\
+\hline
+\end{DoxyParams}
 \Hypertarget{duel_8c_a58123fcf9acb6bb6b68e7b1213f374ff}\label{duel_8c_a58123fcf9acb6bb6b68e7b1213f374ff} 
 \index{duel.c@{duel.c}!isAlive@{isAlive}}
 \index{isAlive@{isAlive}!duel.c@{duel.c}}

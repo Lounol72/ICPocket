@@ -73,8 +73,10 @@ void \mbox{\hyperlink{GameEngine_8h_a8f8e57777ac436d2bfa2a87224c0eb8c}{attq\+But
 \begin{DoxyCompactList}\small\item\em Gestionnaire de clic pour le bouton d\textquotesingle{}attaque. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{GameEngine_8h_ae30f21d07d1066ecda7ed1097d584e6b}{change\+State}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}})
 \begin{DoxyCompactList}\small\item\em Callback générique pour le changement d\textquotesingle{}état. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{GameEngine_8h_a28332eed894602447a49a8cdb433d25d}{init\+Swap\+Team}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}})
+void \mbox{\hyperlink{GameEngine_8h_a9669132b31ee4c108472d7f46c3b3499}{init\+Learning\+Move}} (void)
 \begin{DoxyCompactList}\small\item\em Callback pour le game\+State SWAP. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{GameEngine_8h_a28332eed894602447a49a8cdb433d25d}{init\+Swap\+Team}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}})
+\item 
 void \mbox{\hyperlink{GameEngine_8h_aa9e408a2d39655e3d5db43606825801b}{change\+Index\+Swap}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}})
 \item 
 void \mbox{\hyperlink{GameEngine_8h_a4f4fd64e6dbdcdcd83fd46f43c35d9bf}{validate\+Swap}} (\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}win, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structures_8h_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b}{data}})
@@ -265,11 +267,11 @@ Crée et configure les boutons pour les différents états (menu, paramètres, l
 {\em win} & Pointeur sur la fenêtre. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{GameEngine_8h_a28332eed894602447a49a8cdb433d25d}\label{GameEngine_8h_a28332eed894602447a49a8cdb433d25d} 
-\index{GameEngine.h@{GameEngine.h}!initSwapTeam@{initSwapTeam}}
-\index{initSwapTeam@{initSwapTeam}!GameEngine.h@{GameEngine.h}}
-\doxysubsubsection{\texorpdfstring{initSwapTeam()}{initSwapTeam()}}
-{\footnotesize\ttfamily void init\+Swap\+Team (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+\Hypertarget{GameEngine_8h_a9669132b31ee4c108472d7f46c3b3499}\label{GameEngine_8h_a9669132b31ee4c108472d7f46c3b3499} 
+\index{GameEngine.h@{GameEngine.h}!initLearningMove@{initLearningMove}}
+\index{initLearningMove@{initLearningMove}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{initLearningMove()}{initLearningMove()}}
+{\footnotesize\ttfamily void init\+Learning\+Move (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -284,6 +286,12 @@ Cette fonction prépare le changement de state pour l\textquotesingle{}échange 
 {\em data} & Données supplémentaires pour le changement d\textquotesingle{}état. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{GameEngine_8h_a28332eed894602447a49a8cdb433d25d}\label{GameEngine_8h_a28332eed894602447a49a8cdb433d25d} 
+\index{GameEngine.h@{GameEngine.h}!initSwapTeam@{initSwapTeam}}
+\index{initSwapTeam@{initSwapTeam}!GameEngine.h@{GameEngine.h}}
+\doxysubsubsection{\texorpdfstring{initSwapTeam()}{initSwapTeam()}}
+{\footnotesize\ttfamily void init\+Swap\+Team (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structWindow}{Window}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
 \Hypertarget{GameEngine_8h_a5ed19d39baab73ab804232213baf91b2}\label{GameEngine_8h_a5ed19d39baab73ab804232213baf91b2} 
 \index{GameEngine.h@{GameEngine.h}!learningMoveChoice@{learningMoveChoice}}
 \index{learningMoveChoice@{learningMoveChoice}!GameEngine.h@{GameEngine.h}}
