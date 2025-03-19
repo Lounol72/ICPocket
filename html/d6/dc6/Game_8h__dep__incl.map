@@ -1,0 +1,26 @@
+<map id="include/Game.h" name="include/Game.h">
+<area shape="rect" id="Node000001" title="Gestion des backgrounds, Initialisation de la structure globale." alt="" coords="323,5,447,31"/>
+<area shape="rect" id="Node000002" href="$d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="301,79,469,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="379,44,380,78,375,79,373,45"/>
+<area shape="rect" id="Node000011" href="$dc/d22/Game_8c.html" title="Initialisation du jeu, de ses interfaces et ressources." alt="" coords="493,79,588,104"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="423,34,516,76,514,81,421,39"/>
+<area shape="poly" id="edge5_Node000002_Node000001" title=" " alt="" coords="391,65,389,31,394,31,396,65"/>
+<area shape="rect" id="Node000003" href="$d0/dbb/Events_8h.html" title="Gestion des Events SDL." alt="" coords="5,152,135,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="315,109,115,154,114,149,314,104"/>
+<area shape="rect" id="Node000005" href="$d4/d62/NPC_8h.html" title=" " alt="" coords="159,152,271,177"/>
+<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="346,112,244,154,242,149,344,107"/>
+<area shape="rect" id="Node000007" href="$d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="295,152,474,177"/>
+<area shape="poly" id="edge8_Node000002_Node000007" title=" " alt="" coords="379,118,380,152,375,152,373,118"/>
+<area shape="rect" id="Node000009" href="$d5/d81/GameEngine_8c.html" title="Moteur principal du jeu : gestion de la boucle de jeu, des ressources et des interactions." alt="" coords="498,152,637,177"/>
+<area shape="poly" id="edge11_Node000002_Node000009" title=" " alt="" coords="428,106,538,149,536,154,426,111"/>
+<area shape="rect" id="Node000010" href="$d1/dd5/ThreadManager_8c.html" title=" " alt="" coords="661,152,818,177"/>
+<area shape="poly" id="edge12_Node000002_Node000010" title=" " alt="" coords="455,104,682,149,681,155,454,109"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="140,146,340,101,342,107,141,152"/>
+<area shape="rect" id="Node000004" href="$d7/d9f/Events_8c.html" title="Gestion des événements et interactions utilisateur pour l&#39;application." alt="" coords="20,225,120,251"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="73,191,73,225,67,225,67,191"/>
+<area shape="rect" id="Node000006" href="$d9/d18/NPC_8c.html" title=" " alt="" coords="174,225,257,251"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="218,191,218,225,213,225,213,191"/>
+<area shape="poly" id="edge9_Node000007_Node000002" title=" " alt="" coords="391,139,389,104,394,104,396,138"/>
+<area shape="rect" id="Node000008" href="$d9/d0c/RenderICMons_8c.html" title="Fonctions de gestion des sprites ICMon." alt="" coords="309,225,460,251"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="387,191,387,225,382,225,382,191"/>
+</map>

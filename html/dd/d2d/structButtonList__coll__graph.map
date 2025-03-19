@@ -1,0 +1,5 @@
+<map id="ButtonList" name="ButtonList">
+<area shape="rect" id="Node000001" title="Liste de boutons." alt="" coords="31,333,111,399"/>
+<area shape="rect" id="Node000002" href="$d7/d19/structButton.html" title="Représente un bouton dans l&#39;application." alt="" coords="5,5,137,271"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,271,74,317,69,317,69,271"/>
+</map>

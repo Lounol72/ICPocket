@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ICPocket: Référence du fichier include/ThreadManager.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ICPocket
+   </div>
+   <div id="projectbrief">A Pokemon like game</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d0/daa/ThreadManager_8h.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier ThreadManager.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;pthread.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de ThreadManager.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/d4d/ThreadManager_8h__incl.png" border="0" usemap="#ainclude_2ThreadManager_8h" alt=""/></div>
+<map name="ainclude_2ThreadManager_8h" id="ainclude_2ThreadManager_8h">
+<area shape="rect" title=" " alt="" coords="5,5,192,31"/>
+<area shape="rect" title=" " alt="" coords="57,79,141,104"/>
+<area shape="poly" title=" " alt="" coords="101,31,101,65,96,65,96,31"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d59/ThreadManager_8h__dep__incl.png" border="0" usemap="#ainclude_2ThreadManager_8hdep" alt=""/></div>
+<map name="ainclude_2ThreadManager_8hdep" id="ainclude_2ThreadManager_8hdep">
+<area shape="rect" title=" " alt="" coords="270,5,457,31"/>
+<area shape="rect" href="../../d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="279,79,447,104"/>
+<area shape="poly" title=" " alt="" coords="366,44,366,79,361,79,361,44"/>
+<area shape="rect" href="../../d0/dbb/Events_8h.html" title="Gestion des Events SDL." alt="" coords="5,152,135,177"/>
+<area shape="poly" title=" " alt="" coords="297,110,111,154,110,149,295,104"/>
+<area shape="rect" href="../../d3/d5f/Game_8h.html" title="Gestion des backgrounds, Initialisation de la structure globale." alt="" coords="159,152,283,177"/>
+<area shape="poly" title=" " alt="" coords="322,112,238,154,236,149,320,107"/>
+<area shape="rect" href="../../d4/d62/NPC_8h.html" title=" " alt="" coords="307,152,419,177"/>
+<area shape="poly" title=" " alt="" coords="366,118,366,152,361,152,361,118"/>
+<area shape="rect" href="../../d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="443,152,622,177"/>
+<area shape="poly" title=" " alt="" coords="397,107,499,149,497,154,395,112"/>
+<area shape="rect" href="../../d5/d81/GameEngine_8c.html" title="Moteur principal du jeu : gestion de la boucle de jeu, des ressources et des interactions." alt="" coords="646,152,785,177"/>
+<area shape="poly" title=" " alt="" coords="434,104,659,149,658,155,433,109"/>
+<area shape="rect" href="../../d1/dd5/ThreadManager_8c.html" title=" " alt="" coords="809,152,966,177"/>
+<area shape="poly" title=" " alt="" coords="462,103,809,150,808,155,461,109"/>
+<area shape="poly" title=" " alt="" coords="137,146,322,101,324,107,138,151"/>
+<area shape="rect" href="../../d7/d9f/Events_8c.html" title="Gestion des événements et interactions utilisateur pour l&#39;application." alt="" coords="20,225,120,251"/>
+<area shape="poly" title=" " alt="" coords="73,191,73,225,67,225,67,191"/>
+<area shape="poly" title=" " alt="" coords="262,144,346,102,348,106,264,149"/>
+<area shape="rect" href="../../dc/d22/Game_8c.html" title="Initialisation du jeu, de ses interfaces et ressources." alt="" coords="173,225,268,251"/>
+<area shape="poly" title=" " alt="" coords="223,191,223,225,218,225,218,191"/>
+<area shape="rect" href="../../d9/d18/NPC_8c.html" title=" " alt="" coords="322,225,405,251"/>
+<area shape="poly" title=" " alt="" coords="366,191,366,225,361,225,361,191"/>
+<area shape="poly" title=" " alt="" coords="499,149,396,106,398,102,501,144"/>
+<area shape="rect" href="../../d9/d0c/RenderICMons_8c.html" title="Fonctions de gestion des sprites ICMon." alt="" coords="457,225,608,251"/>
+<area shape="poly" title=" " alt="" coords="535,191,535,225,530,225,530,191"/>
+</map>
+</div>
+</div>
+<p><a href="../../d0/daa/ThreadManager_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d64/structThreadManager.html">ThreadManager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de gestion des threads.  <a href="../../d5/d64/structThreadManager.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a9a6bb720b545cd20bb13c0a0947dc050" id="r_a9a6bb720b545cd20bb13c0a0947dc050"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="../../d5/d64/structThreadManager.html">ThreadManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#a9a6bb720b545cd20bb13c0a0947dc050">ThreadManager</a></td></tr>
+<tr class="memdesc:a9a6bb720b545cd20bb13c0a0947dc050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de gestion des threads.  <br /></td></tr>
+<tr class="separator:a9a6bb720b545cd20bb13c0a0947dc050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:afee76d915ed992e08d60d5aeb57fd94b" id="r_afee76d915ed992e08d60d5aeb57fd94b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#afee76d915ed992e08d60d5aeb57fd94b">initThreadManager</a> (struct <a class="el" href="../../de/de9/structGame.html">Game</a> *<a class="el" href="../../d5/d81/GameEngine_8c.html#ac6a5ed6191fcf3a5bf0445921feb4f48">game</a>)</td></tr>
+<tr class="memdesc:afee76d915ed992e08d60d5aeb57fd94b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le gestionnaire de threads.  <br /></td></tr>
+<tr class="separator:afee76d915ed992e08d60d5aeb57fd94b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad734831476cb021f3c4b0e5ba8a20ab0" id="r_ad734831476cb021f3c4b0e5ba8a20ab0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#ad734831476cb021f3c4b0e5ba8a20ab0">cleanupThreads</a> (struct <a class="el" href="../../de/de9/structGame.html">Game</a> *<a class="el" href="../../d5/d81/GameEngine_8c.html#ac6a5ed6191fcf3a5bf0445921feb4f48">game</a>)</td></tr>
+<tr class="memdesc:ad734831476cb021f3c4b0e5ba8a20ab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nettoie et termine les threads.  <br /></td></tr>
+<tr class="separator:ad734831476cb021f3c4b0e5ba8a20ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca5053a41c03f29919bee861884c0a70" id="r_aca5053a41c03f29919bee861884c0a70"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#aca5053a41c03f29919bee861884c0a70">audioThreadFunction</a> (void *arg)</td></tr>
+<tr class="memdesc:aca5053a41c03f29919bee861884c0a70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction du thread audio.  <br /></td></tr>
+<tr class="separator:aca5053a41c03f29919bee861884c0a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7fd089aeb14f8bcbf5722455366c8fa" id="r_ab7fd089aeb14f8bcbf5722455366c8fa"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#ab7fd089aeb14f8bcbf5722455366c8fa">physicsThreadFunction</a> (void *arg)</td></tr>
+<tr class="memdesc:ab7fd089aeb14f8bcbf5722455366c8fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction du thread de physique.  <br /></td></tr>
+<tr class="separator:ab7fd089aeb14f8bcbf5722455366c8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaff54a9d240b3e5d945861bc3d16e7d3" id="r_aaff54a9d240b3e5d945861bc3d16e7d3"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#aaff54a9d240b3e5d945861bc3d16e7d3">renderThreadFunction</a> (void *arg)</td></tr>
+<tr class="memdesc:aaff54a9d240b3e5d945861bc3d16e7d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction du thread de rendu.  <br /></td></tr>
+<tr class="separator:aaff54a9d240b3e5d945861bc3d16e7d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="a9a6bb720b545cd20bb13c0a0947dc050" name="a9a6bb720b545cd20bb13c0a0947dc050"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a6bb720b545cd20bb13c0a0947dc050">&#9670;&#160;</a></span>ThreadManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="../../d5/d64/structThreadManager.html">ThreadManager</a> <a class="el" href="../../d5/d64/structThreadManager.html">ThreadManager</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Structure de gestion des threads. </p>
+<p>Cette structure contient les threads et mutex nécessaires pour gérer :</p><ul>
+<li>Le rendu graphique (renderThread)</li>
+<li>La physique du jeu (physicsThread)</li>
+<li>L'audio (audioThread)</li>
+</ul>
+<p>Les mutex permettent de synchroniser l'accès aux ressources partagées entre les différents threads.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">audioThread</td><td>Thread dédié au traitement audio </td></tr>
+    <tr><td class="paramname">renderThread</td><td>Thread dédié au traitement du render lorsque l'on est pas sur la map </td></tr>
+    <tr><td class="paramname">physicsThread</td><td>Thread dédié aux calculs physiques </td></tr>
+    <tr><td class="paramname">audioMutex</td><td>Mutex pour synchroniser l'accès aux ressources audio </td></tr>
+    <tr><td class="paramname">renderMutex</td><td>Mutex pour synchroniser l'accès au render </td></tr>
+    <tr><td class="paramname">physicsMutex</td><td>Mutex pour synchroniser l'accès aux données physiques </td></tr>
+    <tr><td class="paramname">isRunning</td><td>Flag indiquant si les threads doivent continuer à s'exécuter </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aca5053a41c03f29919bee861884c0a70" name="aca5053a41c03f29919bee861884c0a70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca5053a41c03f29919bee861884c0a70">&#9670;&#160;</a></span>audioThreadFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * audioThreadFunction </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction du thread audio. </p>
+<p>Cette fonction est exécutée par le thread audio. Elle gère le traitement audio en boucle tant que le jeu est en cours d'exécution.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td>Pointeur vers la structure <a class="el" href="../../de/de9/structGame.html" title="Structure principale du jeu.">Game</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>NULL </dd></dl>
+
+</div>
+</div>
+<a id="ad734831476cb021f3c4b0e5ba8a20ab0" name="ad734831476cb021f3c4b0e5ba8a20ab0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad734831476cb021f3c4b0e5ba8a20ab0">&#9670;&#160;</a></span>cleanupThreads()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cleanupThreads </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../de/de9/structGame.html">Game</a> *&#160;</td>
+          <td class="paramname"><em>game</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nettoie et termine les threads. </p>
+<p>Cette fonction arrête tous les threads en cours d'exécution, attend leur terminaison et détruit les mutex associés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>Pointeur vers la structure <a class="el" href="../../de/de9/structGame.html" title="Structure principale du jeu.">Game</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afee76d915ed992e08d60d5aeb57fd94b" name="afee76d915ed992e08d60d5aeb57fd94b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afee76d915ed992e08d60d5aeb57fd94b">&#9670;&#160;</a></span>initThreadManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initThreadManager </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/de9/structGame.html">Game</a> *&#160;</td>
+          <td class="paramname"><em>game</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise le gestionnaire de threads. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>Pointeur vers la structure <a class="el" href="../../de/de9/structGame.html" title="Structure principale du jeu.">Game</a> Initialise les différent verrous mutex pour les ressourcers partagées et crée les threads parallèles </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab7fd089aeb14f8bcbf5722455366c8fa" name="ab7fd089aeb14f8bcbf5722455366c8fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7fd089aeb14f8bcbf5722455366c8fa">&#9670;&#160;</a></span>physicsThreadFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * physicsThreadFunction </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction du thread de physique. </p>
+<p>Cette fonction est exécutée par le thread de physique. Elle gère les calculs physiques en boucle tant que le jeu est en cours d'exécution.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td>Pointeur vers la structure <a class="el" href="../../de/de9/structGame.html" title="Structure principale du jeu.">Game</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>NULL </dd></dl>
+
+</div>
+</div>
+<a id="aaff54a9d240b3e5d945861bc3d16e7d3" name="aaff54a9d240b3e5d945861bc3d16e7d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaff54a9d240b3e5d945861bc3d16e7d3">&#9670;&#160;</a></span>renderThreadFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * renderThreadFunction </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction du thread de rendu. </p>
+<p>Cette fonction est exécutée par le thread de rendu. Elle gère le rendu graphique en boucle tant que le jeu est en cours d'exécution. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../d0/daa/ThreadManager_8h.html">ThreadManager.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

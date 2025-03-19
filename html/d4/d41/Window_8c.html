@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ICPocket: Référence du fichier src/Window.c</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ICPocket
+   </div>
+   <div id="projectbrief">A Pokemon like game</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d4/d41/Window_8c.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier Window.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/ded/Window_8h_source.html">../include/Window.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de Window.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d38/Window_8c__incl.png" border="0" usemap="#asrc_2Window_8c" alt=""/></div>
+<map name="asrc_2Window_8c" id="asrc_2Window_8c">
+<area shape="rect" title=" " alt="" coords="329,5,436,31"/>
+<area shape="rect" href="../../d3/ded/Window_8h.html" title="Définition et gestion de la fenêtre principale de l&#39;application." alt="" coords="309,79,457,104"/>
+<area shape="poly" title=" " alt="" coords="385,31,385,65,380,65,380,31"/>
+<area shape="rect" title=" " alt="" coords="125,152,326,177"/>
+<area shape="poly" title=" " alt="" coords="358,106,264,149,262,144,356,102"/>
+<area shape="rect" href="../../d9/ded/Utils_8h.html" title=" " alt="" coords="351,152,415,177"/>
+<area shape="poly" title=" " alt="" coords="378,104,377,139,371,138,373,104"/>
+<area shape="rect" title=" " alt="" coords="443,299,560,324"/>
+<area shape="poly" title=" " alt="" coords="394,102,429,151,467,223,494,285,489,287,462,225,424,153,390,106"/>
+<area shape="rect" href="../../d1/d45/Log_8h.html" title="Initialisation des fonctions de logs." alt="" coords="505,152,562,177"/>
+<area shape="poly" title=" " alt="" coords="408,102,497,144,495,148,406,106"/>
+<area shape="poly" title=" " alt="" coords="387,152,389,118,394,118,392,152"/>
+<area shape="rect" href="../../d3/d70/Buttons_8h.html" title="Gestion des boutons et curseurs pour l&#39;application." alt="" coords="335,225,419,251"/>
+<area shape="poly" title=" " alt="" coords="378,178,373,212,368,211,372,177"/>
+<area shape="poly" title=" " alt="" coords="382,225,387,191,392,191,388,226"/>
+<area shape="rect" title=" " alt="" coords="5,299,149,324"/>
+<area shape="poly" title=" " alt="" coords="336,252,140,298,138,293,334,247"/>
+<area shape="poly" title=" " alt="" coords="399,248,471,289,468,294,396,253"/>
+<area shape="rect" title=" " alt="" coords="173,299,312,324"/>
+<area shape="poly" title=" " alt="" coords="357,253,278,294,276,290,354,248"/>
+<area shape="rect" title=" " alt="" coords="336,299,419,324"/>
+<area shape="poly" title=" " alt="" coords="380,251,380,285,375,285,375,251"/>
+<area shape="rect" title=" " alt="" coords="495,225,591,251"/>
+<area shape="poly" title=" " alt="" coords="538,177,542,211,537,212,532,178"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ac20fb0253f94eb0a7a8b9061414f9c47" id="r_ac20fb0253f94eb0a7a8b9061414f9c47"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d41/Window_8c.html#ac20fb0253f94eb0a7a8b9061414f9c47">cleanupAndExit</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, const char *errorMsg)</td></tr>
+<tr class="memdesc:ac20fb0253f94eb0a7a8b9061414f9c47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction utilitaire pour nettoyer et quitter en cas d'erreur.  <br /></td></tr>
+<tr class="separator:ac20fb0253f94eb0a7a8b9061414f9c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab072fc478679f5b8fb5ffae288d1e7f2" id="r_ab072fc478679f5b8fb5ffae288d1e7f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d41/Window_8c.html#ab072fc478679f5b8fb5ffae288d1e7f2">initWindow</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, int width, int height, const char *FontPath)</td></tr>
+<tr class="memdesc:ab072fc478679f5b8fb5ffae288d1e7f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise la fenêtre principale de l'application.  <br /></td></tr>
+<tr class="separator:ab072fc478679f5b8fb5ffae288d1e7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ac20fb0253f94eb0a7a8b9061414f9c47" name="ac20fb0253f94eb0a7a8b9061414f9c47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac20fb0253f94eb0a7a8b9061414f9c47">&#9670;&#160;</a></span>cleanupAndExit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void cleanupAndExit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d08/structWindow.html">Window</a> *&#160;</td>
+          <td class="paramname"><em>win</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>errorMsg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fonction utilitaire pour nettoyer et quitter en cas d'erreur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Pointeur sur la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a>. </td></tr>
+    <tr><td class="paramname">errorMsg</td><td>Message d'erreur à afficher. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab072fc478679f5b8fb5ffae288d1e7f2" name="ab072fc478679f5b8fb5ffae288d1e7f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab072fc478679f5b8fb5ffae288d1e7f2">&#9670;&#160;</a></span>initWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initWindow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d08/structWindow.html">Window</a> *&#160;</td>
+          <td class="paramname"><em>win</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>FontPath</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise la fenêtre principale de l'application. </p>
+<p>Cette fonction initialise la fenêtre principale de l'application avec les dimensions et le chemin de police spécifiés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Un pointeur vers la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> à initialiser. </td></tr>
+    <tr><td class="paramname">width</td><td>La largeur initiale de la fenêtre. </td></tr>
+    <tr><td class="paramname">height</td><td>La hauteur initiale de la fenêtre. </td></tr>
+    <tr><td class="paramname">FontPath</td><td>Le chemin du fichier de police à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../d4/d41/Window_8c.html">Window.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

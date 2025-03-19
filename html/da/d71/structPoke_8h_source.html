@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ICPocket:  Fichier source de include/structPoke.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ICPocket
+   </div>
+   <div id="projectbrief">A Pokemon like game</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('da/d71/structPoke_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">structPoke.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../da/d71/structPoke_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef STRUCTPOKE_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define STRUCTPOKE_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d8e/duel_8h.html">duel.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/da3/structures_8h.html">structures.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#a73481505b6cdf382ecfc1e3c0faaa593">   13</a></span><span class="preprocessor">#define NEUTRAL_STAT_CHANGE 6</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#a925c3d26c7e99b966e2656f91943f27c">   14</a></span><span class="preprocessor">#define POKE_IS_ABSCENT -1</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#ad17fa6eb61b38334f7b136e02a78ff37">   15</a></span><span class="preprocessor">#define STRUGGLE -10</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#a80705627450b48083f1a1a04e38cd488">   16</a></span><span class="preprocessor">#define CONFUSED_MOVE -20</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#a6b5a19d44831a7f2be0d9be0276d478c">   18</a></span><span class="preprocessor">#define ATTAQUE_1 0</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#a4a381e7575fc4042d463c7b326d72249">   19</a></span><span class="preprocessor">#define ATTAQUE_2 1</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#ac419152371c156bf45d75a3cd6657661">   20</a></span><span class="preprocessor">#define ATTAQUE_3 2</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#a4387846cbc27ec370d916ce7222c5d12">   21</a></span><span class="preprocessor">#define ATTAQUE_4 3</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#a46b90e99485a21a2150e424cc2a4afba">   23</a></span><span class="preprocessor">#define PV 0</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#ac0e9e8b25a91810f74372a05cba70777">   24</a></span><span class="preprocessor">#define ATT 1</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#a397419fc12b37ed479c8abb9d444d843">   25</a></span><span class="preprocessor">#define DEF 2</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#a1aee781eba2e7a4d1579b07a8cdb3366">   26</a></span><span class="preprocessor">#define SPA 3</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#a3fee30674709bf7cf2601f2e499372cf">   27</a></span><span class="preprocessor">#define SPD 4</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#a4b23fe370a3a09cc47acd1e837a5b125">   28</a></span><span class="preprocessor">#define SPE 5</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">   30</a></span><span class="preprocessor">#define TRUE 1</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../da/d71/structPoke_8h.html#aa93f0eb578d23995850d61f7d61c55c1">   31</a></span><span class="preprocessor">#define FALSE 0</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d71/structPoke_8h.html#afe2be4dcf1abaf503e3ce46c3af588e9">generate_poke</a>(<a class="code hl_struct" href="../../d7/d09/structt__Poke.html">t_Poke</a> *p,<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d71/structPoke_8h.html#a51de8e3a42ddb12141a26f4b987e5d7e">generate_poke_enemi</a>(<a class="code hl_struct" href="../../d7/d09/structt__Poke.html">t_Poke</a> *p, <span class="keywordtype">int</span> line,<a class="code hl_struct" href="../../da/d63/structt__Team.html">t_Team</a> * joueur);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d71/structPoke_8h.html#a2654983666510a2dc455ff7e1a4e281a">generatePoke</a>(<a class="code hl_struct" href="../../d7/d09/structt__Poke.html">t_Poke</a> *);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><a class="code hl_struct" href="../../d1/d68/structt__Move.html">t_Move</a> <a class="code hl_function" href="../../da/d71/structPoke_8h.html#aff185784e3522330be3818416ad1cb93">generateMove</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><a class="code hl_struct" href="../../d1/d68/structt__Move.html">t_Move</a> <a class="code hl_function" href="../../da/d71/structPoke_8h.html#a0c149d758c5a0d385c66b6cfe90abd73">generateRandomMove</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><a class="code hl_struct" href="../../d1/d68/structt__Move.html">t_Move</a> <a class="code hl_function" href="../../da/d71/structPoke_8h.html#a69afa9b406c2e19b2821261e7bc00bac">generateRandomMoveBetter</a>(<a class="code hl_struct" href="../../d7/d09/structt__Poke.html">t_Poke</a> *p);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d71/structPoke_8h.html#aa6e57a0e7270157be9d895337f9dea6c">learnMove</a>(<a class="code hl_struct" href="../../d7/d09/structt__Poke.html">t_Poke</a> *, <a class="code hl_struct" href="../../d1/d68/structt__Move.html">t_Move</a> *, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d71/structPoke_8h.html#ae4f820b89cf498b99b912c97e95a2414">printPoke</a>(<a class="code hl_struct" href="../../d7/d09/structt__Poke.html">t_Poke</a> *);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d71/structPoke_8h.html#ad8d8693792c2e018b7e452a36fd161e9">initNature</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d71/structPoke_8h.html#a057e50bb0d116718182997db0f1e7b53">initData</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d71/structPoke_8h.html#adc5adb43430a43f36c770a469f434abb">printChart</a>();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aduel_8h_html"><div class="ttname"><a href="../../d6/d8e/duel_8h.html">duel.h</a></div><div class="ttdoc">Gestion des duels dans le style de &quot;Pokémon&quot; : système de tour par tour avec 2 équipes opposées.</div></div>
+<div class="ttc" id="astructPoke_8h_html_a057e50bb0d116718182997db0f1e7b53"><div class="ttname"><a href="../../da/d71/structPoke_8h.html#a057e50bb0d116718182997db0f1e7b53">initData</a></div><div class="ttdeci">void initData()</div><div class="ttdef"><b>Definition</b> structPoke.c:413</div></div>
+<div class="ttc" id="astructPoke_8h_html_a0c149d758c5a0d385c66b6cfe90abd73"><div class="ttname"><a href="../../da/d71/structPoke_8h.html#a0c149d758c5a0d385c66b6cfe90abd73">generateRandomMove</a></div><div class="ttdeci">t_Move generateRandomMove()</div><div class="ttdoc">generer aleatoirement</div><div class="ttdef"><b>Definition</b> structPoke.c:139</div></div>
+<div class="ttc" id="astructPoke_8h_html_a2654983666510a2dc455ff7e1a4e281a"><div class="ttname"><a href="../../da/d71/structPoke_8h.html#a2654983666510a2dc455ff7e1a4e281a">generatePoke</a></div><div class="ttdeci">void generatePoke(t_Poke *)</div><div class="ttdef"><b>Definition</b> structPoke.c:19</div></div>
+<div class="ttc" id="astructPoke_8h_html_a51de8e3a42ddb12141a26f4b987e5d7e"><div class="ttname"><a href="../../da/d71/structPoke_8h.html#a51de8e3a42ddb12141a26f4b987e5d7e">generate_poke_enemi</a></div><div class="ttdeci">void generate_poke_enemi(t_Poke *p, int line, t_Team *joueur)</div><div class="ttdoc">Genere un pokemon enemi a partir d'un fichier.csv.</div><div class="ttdef"><b>Definition</b> structPoke.c:101</div></div>
+<div class="ttc" id="astructPoke_8h_html_a69afa9b406c2e19b2821261e7bc00bac"><div class="ttname"><a href="../../da/d71/structPoke_8h.html#a69afa9b406c2e19b2821261e7bc00bac">generateRandomMoveBetter</a></div><div class="ttdeci">t_Move generateRandomMoveBetter(t_Poke *p)</div><div class="ttdoc">Genere un move a partir d'un fichier.csv.</div><div class="ttdef"><b>Definition</b> structPoke.c:160</div></div>
+<div class="ttc" id="astructPoke_8h_html_aa6e57a0e7270157be9d895337f9dea6c"><div class="ttname"><a href="../../da/d71/structPoke_8h.html#aa6e57a0e7270157be9d895337f9dea6c">learnMove</a></div><div class="ttdeci">void learnMove(t_Poke *, t_Move *, int)</div><div class="ttdef"><b>Definition</b> structPoke.c:224</div></div>
+<div class="ttc" id="astructPoke_8h_html_ad8d8693792c2e018b7e452a36fd161e9"><div class="ttname"><a href="../../da/d71/structPoke_8h.html#ad8d8693792c2e018b7e452a36fd161e9">initNature</a></div><div class="ttdeci">void initNature()</div><div class="ttdef"><b>Definition</b> structPoke.c:313</div></div>
+<div class="ttc" id="astructPoke_8h_html_adc5adb43430a43f36c770a469f434abb"><div class="ttname"><a href="../../da/d71/structPoke_8h.html#adc5adb43430a43f36c770a469f434abb">printChart</a></div><div class="ttdeci">void printChart()</div><div class="ttdef"><b>Definition</b> structPoke.c:419</div></div>
+<div class="ttc" id="astructPoke_8h_html_ae4f820b89cf498b99b912c97e95a2414"><div class="ttname"><a href="../../da/d71/structPoke_8h.html#ae4f820b89cf498b99b912c97e95a2414">printPoke</a></div><div class="ttdeci">void printPoke(t_Poke *)</div><div class="ttdef"><b>Definition</b> structPoke.c:230</div></div>
+<div class="ttc" id="astructPoke_8h_html_afe2be4dcf1abaf503e3ce46c3af588e9"><div class="ttname"><a href="../../da/d71/structPoke_8h.html#afe2be4dcf1abaf503e3ce46c3af588e9">generate_poke</a></div><div class="ttdeci">void generate_poke(t_Poke *p, int id)</div><div class="ttdoc">Generate a Icmon from a given id in the dataPoke.csv file.</div><div class="ttdef"><b>Definition</b> structPoke.c:43</div></div>
+<div class="ttc" id="astructPoke_8h_html_aff185784e3522330be3818416ad1cb93"><div class="ttname"><a href="../../da/d71/structPoke_8h.html#aff185784e3522330be3818416ad1cb93">generateMove</a></div><div class="ttdeci">t_Move generateMove(int id)</div><div class="ttdoc">Fonctions pour générer des moves ( attaques de nos montres)</div><div class="ttdef"><b>Definition</b> structPoke.c:198</div></div>
+<div class="ttc" id="astructt__Move_html"><div class="ttname"><a href="../../d1/d68/structt__Move.html">t_Move</a></div><div class="ttdef"><b>Definition</b> structures.h:28</div></div>
+<div class="ttc" id="astructt__Poke_html"><div class="ttname"><a href="../../d7/d09/structt__Poke.html">t_Poke</a></div><div class="ttdef"><b>Definition</b> structures.h:50</div></div>
+<div class="ttc" id="astructt__Team_html"><div class="ttname"><a href="../../da/d63/structt__Team.html">t_Team</a></div><div class="ttdoc">La structure t_Team contient tout les attributs nécessaire à la génération et à l'utilisation d'une é...</div><div class="ttdef"><b>Definition</b> structures.h:78</div></div>
+<div class="ttc" id="astructures_8h_html"><div class="ttname"><a href="../../dd/da3/structures_8h.html">structures.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../da/d71/structPoke_8h.html">structPoke.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
