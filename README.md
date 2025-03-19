@@ -81,3 +81,7 @@ Les fichiers audio doivent être au format MP3. Si vous avez un fichier dans un 
 
 ## GANTT
 [Lien vers le GANTT](https://docs.google.com/spreadsheets/d/1JiNN4hBVWgQdRoLmsXpOZefp3q4jUFyiuYVRdjpeE_4/edit?gid=1709744959#gid=1709744959)
+
+## GANTT Prévisionnel
+[Lien vers le GANTT](https://docs.google.com/spreadsheets/d/1AqGpYmEBtP7KtYeO5m7FdebBRN59XQRUxrBPlVJ7CM0/edit?gid=1709744959#gid=1709744959)
+
