@@ -117,6 +117,7 @@ typedef struct Game {
     SDL_Surface *cursor;       /**< Surface du curseur. */
     SDL_Surface *cursor_hover; /**< Surface du curseur au survol. */
     int swappingIndex[2];
+    Text * windowText;
 } Game;
 
 #include "Game.h"
@@ -186,6 +187,9 @@ void changeState(Window *win, void *data);
  * @param win Un pointeur vers la structure Window.
  * @param data Données supplémentaires pour le changement d'état.
  */
+
+ void initLearningMove(void);
+
  void initSwapTeam(Window *win, void *data);
 
  void changeIndexSwap(Window *win, void *data);

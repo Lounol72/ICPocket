@@ -179,6 +179,7 @@ void handleWindowSizeChange(Window *win) {
     }
     updateTextPosition(&NewGameText, scaleX, scaleY);
     updateTextPosition(&title, scaleX, scaleY);
+    updateTextPosition(game.windowText, scaleX, scaleY);
     
     for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
         updateICMonsSprite(&(game.battleState.rouge.team[i]), scaleX, scaleY);

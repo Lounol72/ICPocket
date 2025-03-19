@@ -85,7 +85,13 @@ Text *createText(const char *text, SDL_Renderer *renderer, SDL_Rect rect, SDL_Co
     newText->texture = NULL;
 
     // Créer la surface
-    SDL_Surface *tempSurface = TTF_RenderText_Solid(font, text, color);
+    //SDL_Surface *tempSurface = TTF_RenderText_Solid(font, text, color); a feur
+    SDL_Surface* tempSurface = TTF_RenderUTF8_Blended_Wrapped(
+        newText->font,
+        newText->text,
+        newText->color,
+        newText->rect.w
+    );
     if (!tempSurface) {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "❌ Erreur de rendu du texte : %s", TTF_GetError());
         free(newText);
@@ -103,6 +109,7 @@ Text *createText(const char *text, SDL_Renderer *renderer, SDL_Rect rect, SDL_Co
     }
 
     newText->texture = tempTexture;
+    StayScaled(font, newText, &rect, &newText->initialRect);
     return newText;
 }
 

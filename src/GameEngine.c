@@ -149,6 +149,7 @@ void render(Window *win) {
         renderICMonsSprite(win, &(game.battleState.rouge.team[game.swappingIndex[1]]));
     }
     else if (game.gameState.currentState == LEARNMOVE){
+        renderText(win,game.windowText);
         renderICMonsSprite(win, lvl_up_buffer[lvl_up_buffer_size-1].target);
     }
 }
@@ -282,6 +283,31 @@ void initSwapTeam(Window *win, void *data) {
     changeState(win,data);
 }
 
+void initLearningMove(void){
+    char temp[200];
+    for(int i=0; i<4; i++){
+        if (lvl_up_buffer[lvl_up_buffer_size-1].target->nb_move > i) {
+            snprintf(temp, sizeof(temp), "%s  %d/%d",
+                lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[i].name,
+                lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[i].current_pp,
+                lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[i].max_pp);
+            setButtonText(game.ui[LEARNMOVE].buttons->buttons[i], temp, game.win->renderer);
+        }
+        else setButtonText(game.ui[LEARNMOVE].buttons->buttons[i], "  ", game.win->renderer);
+    }
+    t_Move tempMove=generateMove(lvl_up_buffer[lvl_up_buffer_size-1].moveId);
+    snprintf(temp, sizeof(temp), "%s  %d/%d",
+        tempMove.name,
+        tempMove.current_pp,
+        tempMove.max_pp);
+    setButtonText(game.ui[LEARNMOVE].buttons->buttons[4], temp, game.win->renderer);
+    snprintf(temp, sizeof(temp), "%s veut apprendre %s, mais il possède déjà 4 capacités, choisissez l'attaque à oublier",
+        lvl_up_buffer[lvl_up_buffer_size-1].target->name,
+        tempMove.name);
+    game.windowText=createText(temp,game.win->renderer,(SDL_Rect){game.win->width / 2 + 200, game.win->height /2 -85, 300, 170},(SDL_Color){255,255,255,255},game.win->SmallFont);
+    changeState(game.win,&game.stateHandlers[11].state);
+}
+
 void changeIndexSwap(Window *win, void *data) {
     (void)win;
     int value=(int)(intptr_t)data;
@@ -310,6 +336,8 @@ void learningMoveChoice(Window *win, void *data){
         lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[value]=generateMove(lvl_up_buffer[lvl_up_buffer_size-1].moveId);
     }
     lvl_up_buffer_size--;
+    destroyText(game.windowText);
+    game.windowText=NULL;
     changeState(win,&game.stateHandlers[3].state);
 }
 
@@ -974,26 +1002,10 @@ void updateBattleTurn() {
                 updateICMonText(&game.battleState.rouge.team[i]);
             }
             if(lvl_up_buffer_size!=0 && game.gameState.currentState != LEARNMOVE) {
-                char temp[100];
-                for(int i=0; i<4; i++){
-                    if (lvl_up_buffer[lvl_up_buffer_size-1].target->nb_move > i) {
-                        snprintf(temp, sizeof(temp), "%s  %d/%d",
-                            lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[i].name,
-                            lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[i].current_pp,
-                            lvl_up_buffer[lvl_up_buffer_size-1].target->moveList[i].max_pp);
-                        setButtonText(game.ui[LEARNMOVE].buttons->buttons[i], temp, game.win->renderer);
-                    }
-                    else setButtonText(game.ui[LEARNMOVE].buttons->buttons[i], "  ", game.win->renderer);
-                }
-                t_Move tempMove=generateMove(lvl_up_buffer[lvl_up_buffer_size-1].moveId);
-                snprintf(temp, sizeof(temp), "%s  %d/%d",
-                    tempMove.name,
-                    tempMove.current_pp,
-                    tempMove.max_pp);
-                setButtonText(game.ui[LEARNMOVE].buttons->buttons[4], temp, game.win->renderer);
-                changeState(game.win,&game.stateHandlers[11].state);
+                initLearningMove();
             }
-            else{
+            else if (game.battleState.text->isComplete){
+                game.battleState.text->isComplete = false;
                 updateICButtons(game.win, &game.battleState.rouge);
                 if(!isAlive(&game.battleState.rouge.team[0]) && isTeamAlive(&game.battleState.rouge)) changeState(game.win, &game.stateHandlers[6].state);
                 if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {
