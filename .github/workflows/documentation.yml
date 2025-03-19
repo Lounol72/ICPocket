@@ -53,20 +53,31 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           
+          # Ajouter tous les fichiers modifiés dans docs
+          git add docs/html/* docs/latex/*
           
-          git commit -a -m "📚 Documentation update $(date -u +%Y-%m-%d)"
-          git push origin main --force
+          # Vérifier s'il y a des changements à commiter
+          if git diff --staged --quiet; then
+            echo "Aucun changement dans la documentation"
+            exit 0
+          else
+            git commit -m "📚 Documentation update $(date -u +%Y-%m-%d)"
+            git push origin main --force
+          fi
 
       - name: Upload Documentation Artifact
         if: env.HAS_COMMITS == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: Documentation
-          path: docs/html/
+          path: |
+            docs/html/
+            docs/latex/
           retention-days: 5
 
       - name: Cleanup
         if: always()
         run: |
           rm -rf docs/html/
+          rm -rf docs/latex/
           
