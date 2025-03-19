@@ -80,9 +80,9 @@ void initGame(Window *win) {
     loadBackground(&game.ui[5].background, win->renderer, "assets/Title Screen/LoadGame.png");
     loadBackground(&game.ui[1].background, win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_party_background.png");
     loadBackground(&game.ui[4].background, win->renderer, "assets/Title Screen/GameStart.jpg");
-    loadBackground(&game.ui[3].background, win->renderer, "assets/Title Screen/combat.png");
+    loadBackground(&game.ui[3].background, win->renderer, "assets/Title Screen/combat.jpg");
     loadBackground(&game.ui[6].background, win->renderer, "assets/Title Screen/BG.jpg");
-    loadBackground(&game.ui[7].background, win->renderer, "assets/Title Screen/combat.png");
+    loadBackground(&game.ui[7].background, win->renderer, "assets/Title Screen/combat.jpg");
     loadBackground(&game.ui[8].background, win->renderer, "assets/Title Screen/BG.jpg");
     loadBackground(&game.ui[10].background,win->renderer, "assets/Title Screen/BG.jpg");
     loadBackground(&game.ui[11].background,win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_backpack_background.png");

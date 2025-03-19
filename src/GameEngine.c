@@ -304,7 +304,7 @@ void initLearningMove(void){
     snprintf(temp, sizeof(temp), "%s veut apprendre %s, mais il possède déjà 4 capacités, choisissez l'attaque à oublier",
         lvl_up_buffer[lvl_up_buffer_size-1].target->name,
         tempMove.name);
-    game.windowText=createText(temp,game.win->renderer,(SDL_Rect){game.win->width / 2 + 200, game.win->height /2 -85, 300, 170},(SDL_Color){255,255,255,255},game.win->SmallFont);
+    game.windowText=createText(temp,game.win->renderer,(SDL_Rect){game.win->width / 2 + 200, game.win->height /2 -85, 300, 200},(SDL_Color){255,255,255,255},game.win->SmallFont);
     changeState(game.win,&game.stateHandlers[11].state);
 }
 
@@ -904,8 +904,8 @@ void updateBattleTurn() {
                     game.win->LargeFont,
                     (SDL_Color){255, 255, 255, 255},
                     game.speed,     // Délai entre les caractères en ms
-                    (SDL_Rect){game.win->width * 0.4531, game.win->height *0.5
-                    , game.win->width * 0.5, game.win->height * 0.2}, // Fond du texte
+                    (SDL_Rect){game.win->width * 0.014, game.win->height *0.736
+                    , game.win->width * 0.7, game.win->height * 0.27}, // Fond du texte
                     "assets/User Interface/Grey/button_rectangle_depth_flat.png", // Chemin de l'image de fond
                     game.win->renderer
                 );

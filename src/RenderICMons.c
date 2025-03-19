@@ -345,6 +345,9 @@ void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY) {
     poke->img->PVRect.h = (int)(poke->img->PVInitialRect.h * scaleY);
     poke->img->PVRect.x = (int)(poke->img->PVInitialRect.x * scaleX);
     poke->img->PVRect.y = (int)(poke->img->PVInitialRect.y * scaleY);
+
+
+    // Mise à jour des dimensions et positions du lvl
     
     if (poke->img->PVText)
         updateTextPosition(poke->img->PVText, scaleX, scaleY);

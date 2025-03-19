@@ -13,9 +13,9 @@
 
 /* Constantes pour le positionnement et la taille des sprites */
 #define RED_SPRITE_X_RATIO 0.23f
-#define RED_SPRITE_Y_RATIO 0.35f
+#define RED_SPRITE_Y_RATIO 0.4f
 #define BLUE_SPRITE_X_RATIO 0.60f 
-#define BLUE_SPRITE_Y_RATIO 0.15f
+#define BLUE_SPRITE_Y_RATIO 0.275f
 #define SPRITE_WIDTH_RATIO 0.2f
 #define SPRITE_HEIGHT_RATIO 0.25f
 #define NAME_Y_OFFSET 25
