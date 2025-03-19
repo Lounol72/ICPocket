@@ -53,6 +53,7 @@ typedef struct {
     bool isMovingToTarget;
     int sizeMapW;
     int sizeMapH;
+    
 } Player;
 
 

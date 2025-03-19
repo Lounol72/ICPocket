@@ -23,12 +23,7 @@ static void checkAndLoadNewMap(Map **map, int *playerX, int *playerY) {
     } else if ((*map)->mat[*playerY][*playerX] == 9) {
         const char *newMapPath = "assets/Tileset/Map/hall.png";
         loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
-    } else if ((*map)->mat[*playerY][*playerX] == 6) {
-        //DEBUG
-        printf("Collision interactive détectée sur la case 6\n");
-        handleInteractiveCollision(); // Appeler une fonction pour gérer l'interaction
     }
-
     // Mettre à jour les coordonnées du joueur avec les nouvelles coordonnées de spawn
     *playerX = spawnX;
     *playerY = spawnY;
@@ -114,7 +109,7 @@ void* physicsThreadFunction(void* arg) {
         lastTime = currentTime;
         
         pthread_mutex_lock(&game->threadManager.physicsMutex);
-        if(game->gameState.currentState == MAP)
+        //if(game->gameState.currentState == MAP)
         updatePhysics(game->gameData.player, game->gameData.camera, game->gameData.map, deltaTime);
         pthread_mutex_unlock(&game->threadManager.physicsMutex);
         

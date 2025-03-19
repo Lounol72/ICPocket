@@ -23,6 +23,15 @@
 #define NAME_HEIGHT 20
 #define PV_BAR_HEIGHT 15
 
+/** @brief Initializes the team sprites
+ *  @param win Pointer to the Window structure containing game state
+ *  @param teamSprite Pointer to the team sprite structure
+ *  @param x_ratio X ratio for the sprite
+ *  @param y_ratio Y ratio for the sprite
+ *  @param teamFlag Team flag for the sprite 0 = red, 1 = blue
+ */
+ int initTeamSprites(Window *win, t_Team *teamSprite, float x_ratio, float y_ratio, int teamFlag);
+
 /** @brief Main event handler that processes all SDL events
  *  @param win Pointer to the Window structure containing game state
  *  @param event Pointer to the SDL_Event to process
@@ -100,12 +109,16 @@ void handlePlayerEvent(Window *win, SDL_Event *event);
  */
  void handleSwapEvent(Window *win, SDL_Event *event);
 
- int initTeamSprites(Window *win, t_Team *teamSprite, float x_ratio, float y_ratio, int teamFlag);
+/** @brief Handles events when the player is in combat
+ *  @param win Pointer to the Window structure containing game state
+ *  @param event Pointer to the SDL_Event to process
+ */
+ void handleCombatEvent(Window *win, SDL_Event *event);
 
+/** @brief Handles events when the player is learning
+ *  @param win Pointer to the Window structure containing game state
+ *  @param event Pointer to the SDL_Event to process
+ */
  void handleLearningEvent(Window *win, SDL_Event *event);
-
- void handleInteractiveCollision();
-
-
 
 #endif /* HANDLEEVENTS_H */

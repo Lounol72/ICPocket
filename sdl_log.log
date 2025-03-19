@@ -16,21 +16,38 @@
 [1] [2] You must call Mix_SetMusicCMD() first
 [4] [3] ✅ Chargement de la musique réussi.
 [0] [3] ✅ Nombre de manettes connectées : 0
-[0] [3] Changement d'état : 4
-[0] [3] PV : 207/207
-[0] [3] PV : 144/144
-[0] [3] PV : 31/31
-[0] [3] PV : 18/18
-[0] [3] PV : 18/18
-[0] [3] PV : 20/20
-[0] [3] PV : 18/18
-[0] [3] PV : 18/18
-[0] [3] PV : 16/16
-[0] [3] Changement d'état : 3
-[0] [2] ScrollingText created successfully
-[0] [3] Changement d'état : 2
 [0] [3] Changement d'état : 9
-[0] [3] Changement d'état : 2
+[0] [3] Changement d'état : 4
+[0] [3] PV : 99/99
+[0] [3] PV : 86/86
+[0] [3] PV : 67/67
+[0] [3] PV : 16/16
+[1] [2] Couldn't open assets/Monsters/New Versions/TroXiT.png
+[0] [3] ❌ Failed to load image: assets/Monsters/New Versions/TroXiT.png
+[0] [3] PV : 16/16
+[0] [3] PV : 19/19
+[1] [2] Couldn't open assets/Monsters/New Versions/DCodeur.png
+[0] [3] ❌ Failed to load image: assets/Monsters/New Versions/DCodeur.png
+[0] [3] PV : 22/22
+[1] [2] Couldn't open assets/Monsters/New Versions/Xunil.png
+[0] [3] ❌ Failed to load image: assets/Monsters/New Versions/Xunil.png
+[0] [3] PV : 19/19
+[0] [3] PV : 15/15
+[0] [3] Changement d'état : 3
 [7] [3] Quit
 [0] [3] ✅ Musique libérée
 [0] [3] ✅ Musique inter libérée
+[0] [3] ✅ UI libérée
+[0] [3] ✅ ICMons rouges libérés
+[0] [3] ✅ ICMons bleus libérés
+[0] [3] ✅ State handlers libérés
+[0] [3] ✅ LargeFont libéré
+[0] [3] ✅ MediumFont libéré
+[0] [3] ✅ SmallFont libéré
+[0] [3] ✅ font libéré
+[0] [3] ✅ renderer libéré
+[0] [3] ✅ window libéré
+[0] [3] ✅ cursor libéré
+[0] [3] ✅ cursor_hover libéré
+[0] [3] ✅ audio libéré
+[0] [3] ✅ SDL quitté

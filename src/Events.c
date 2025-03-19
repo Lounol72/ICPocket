@@ -472,7 +472,6 @@ void handlePauseEvent(Window *win, SDL_Event *event) {
 void handlePlayerEvent(Window *win, SDL_Event *event) {
     (void)win;
     (void)event;
-    
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
     int newMatrixX = game.gameData.player->matrixX;
     int newMatrixY = game.gameData.player->matrixY;
@@ -509,6 +508,16 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
             shouldMove = true;
         }
     }
+    else if (keyState[SDL_SCANCODE_ESCAPE]) {
+        changeState(game.win, &game.stateHandlers[MENU].state);
+    }
+    else if (keyState[SDL_SCANCODE_DELETE]) {
+        changeState(game.win, &game.stateHandlers[QUIT].state);
+    }
+    else if (keyState[SDL_SCANCODE_C] && game.gameData.map->mat[newMatrixY-1][newMatrixX] == 6) {
+        printf("Collision interactive détectée sur la case 6\n");
+        changeState(game.win, &game.stateHandlers[NEWGAME].state);
+    }
     
     if (shouldMove && game.gameData.map->mat[newMatrixY][newMatrixX] != COLLISION) {
         game.gameData.player->startX = game.gameData.player->position.x;
@@ -521,14 +530,5 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
         game.gameData.player->isMovingToTarget = true;
         game.gameData.player->interpolationTime = 0.0f;
     }
-    handleEvent(win, event);
+    
 }
-
-void handleInteractiveCollision() {
-    //printf("Voulez-vous combattre ? (Appuyez sur C pour combattre, ESC pour annuler)\n");
-    // Change the state to an intermediate interaction state
-    game.gameData.player->matrixX--;
-    game.gameData.player->targetX = game.gameData.player->matrixX* TILE_SIZE_W_SCALE;
-    changeState(game.win, &game.stateHandlers[NEWGAME].state);
-}
-
