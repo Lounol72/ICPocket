@@ -1,0 +1,89 @@
+name: Documentation by Doxygen
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+env:
+  BUILD_TYPE: Release
+  PROJECT_NAME: ICPocket
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Check for today's commits
+        id: check_commits
+        shell: bash
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          COMMITS_TODAY=$(git log --since="$TODAY 00:00:00" --until="$TODAY 23:59:59" --oneline)
+          if [ -n "$COMMITS_TODAY" ]; then
+            echo "HAS_COMMITS=true" >> $GITHUB_ENV
+          else
+            echo "HAS_COMMITS=false" >> $GITHUB_ENV
+          fi
+
+      - name: Install Dependencies
+        if: env.HAS_COMMITS == 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y doxygen graphviz make 
+
+      - name: Generate Documentation
+        if: env.HAS_COMMITS == 'true'
+        run: |
+          make doxygen
+          
+      - name: Create Documentation Archive
+        if: env.HAS_COMMITS == 'true'
+        run: |
+          cd docs
+          tar -czf ../documentation.tar.gz html/
+          cd ..
+
+      - name: Commit and Push Documentation
+        if: env.HAS_COMMITS == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # Tracker les fichiers volumineux avec Git LFS
+          git lfs track "*.tar.gz"
+          
+          # Ajouter la documentation et l'archive
+          git add -f docs/html/
+          git add documentation.tar.gz
+          git add .gitattributes
+          
+          git commit -m "📚 Documentation update $(date -u +%Y-%m-%d)"
+          git push origin main --force
+
+      - name: Upload Documentation Artifact
+        if: env.HAS_COMMITS == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Documentation
+          path: |
+            documentation.tar.gz
+            docs/html/
+          retention-days: 5
+
+      - name: Cleanup
+        if: always()
+        run: |
+          rm -rf docs/html/
+          rm -rf docs/latex/
+          

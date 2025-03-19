@@ -136,10 +136,10 @@ doxygen:
 
 latex:
 	@echo "🧹 Nettoyage en cours..."
-	@rm -rf docs/tpLatex/modele.pdf
-	@cd docs/tpLatex && pdflatex modele.tex
-	@cd docs/tpLatex && makeglossaries modele
-	@cd docs/tpLatex && pdflatex modele.tex
+	@find rapport -type f ! -name "*.tex" ! -name "*.png" -delete
+	@cd rapport && pdflatex modele.tex
+	@cd rapport && makeglossaries modele
+	@cd rapport && pdflatex modele.tex
 	@echo "✅ Documentation générée dans docs/tpLatex/modele.pdf"
 
 
