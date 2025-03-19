@@ -1,0 +1,111 @@
+\documentclass[12pt,a4paper, twoside]{article}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{array}
+\pagestyle{fancy}
+\setlength{\headheight}{12pt}
+\begin{document}
+
+\begin{titlepage}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[height=1.01cm]{logolemansU.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.25\textwidth}
+        \includegraphics[height=1.6cm]{logo_IC2.png}
+    \end{minipage}
+    
+    \vspace{2cm}
+    \begin{center}
+        \Large\textbf{Le Mans Université}\\
+        \vspace{0.5cm}
+        Licence Informatique 2ème année\\
+        Module 17UF02 Rapport de Projet\\
+        \vspace{0.5cm}
+        \Large\textbf{Titre du projet}\\
+        \vspace{1cm}
+        {\large Noms des auteurs}\\
+        \vspace{0.5cm}
+        {\normalsize \today}  % Date automatique en français
+    \end{center}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+\abstract{
+    Ceci est le texte de mon résumé...
+}
+\section{Introduction}
+
+\emph{Cette introduction présentera le sujet qui sera traité et le travail avec une présentation du plan adopté} \\
+Ce document présente un projet de jeu XXX réalisé dans le cadre de la formation de L2 informatique de l’université du Mans pendant la d-période de janvier à avril 2024. Ce projet a été développé en langage C avec la librairie SDL. Ce jeu fait ceci cela ... \\Nous présenterons dans une première partie notre jeu , des scénarios d’utilisation et les principales fonctionnalités puis dans une deuxième partie la gestion du projet ensuite dans une troisième partie les éléments principaux de conception (algorithmes,structures de données, .....) ensuite nous présenterons l’architecture de notre application (structuration du code en fichiers) enfin nous montrerons les principaux résultats. Enfin nous présenterons en conclusion les points forts et les limites de notre travail, les écarts entre la planification prévisionnelle et le déroulement réel de notre projet et les leçons tirés de cette expérience. En annexe nous présenterons un exemple de débogage et des tests ( jeux d’essai et cas de test d’un exemple au moinsle fichier .c étant dans le git dans un répertoire dédié "test") ....
+\section{Conception}
+    Dans cette première partie nous allons présenter .... . La figure 1 illustre .....
+
+    L’instruction \/begin figure [!h] force l’image à se positionner comme on le désire. Le positionnement de l’image dépend également de ses dimensions, si elle est située en bas de page, et qu’elle est trop grande, elle va se positionner sur la page suivante et le texte qui suit se retrouvera donc avant l’image. Il faudra réduire la taille. Ceci peut se faire avec l’option scale de includegraphics.
+\newpage
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{image.png}
+    \label{fig:logo}
+\end{figure}
+\subsection{Sous partie 1}
+\subsection{Sous partie 2}
+\section{Partie 2-Les tableaux en Latex}
+
+    Les algorithmes de \LaTeX pour mettre en forme les tableaux ont quelques imperfections. L’une d’entre elles est qu’il n’affiche pas automatiquement le texte sur plusieurs lignes dans les cellules, même si celui-ci déborde de la largeur de la page. Pour les colonnes qui contiendront une certaine quantité de texte, il est recommandé d’employer l’attribut p et d’indiquer la largeur désirée de la colonne (bien que cela puisse obliger à effectuer quelques ajustements avant d’obtenir le résultat souhaité) (figure2etfigure3oufigure 4)[3] [3]. ...
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Un titre de colonne} & \textbf{Un autre titre} & \textbf{Encore un} \\
+        \hline
+        \textbf{à gauche} & \textbf{au centre} & \textbf{à droite} \\
+        \hline
+        \textbf{d} & \textbf{au centre} & \textbf{à droite} \\
+        \hline
+        \textbf{Si j’écris plus de texte je dépasse la taille de la page} & \textbf{texte} & \textbf{texte} \\
+        \hline
+    \end{tabular}
+    \caption{\emph{Un tableau simple}}
+    \label{tab:test}
+\end{table}
+
+\newpage
+
+\begin{center}
+\begin{tabular}{|c|p{8cm}|}
+
+\hline
+2 - 1 & On met un grand texte qui sera sur plusieurs lignes \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Conclusion}
+C'est la fin de mon document.
+
+\newpage 
+\section{Annexes}
+
+\begin{itemize}
+    \item \href{https://www.libsdl.org/}{libsdl.org}
+    \item \href{https://www.libsdl.org/projects/SDL_image/}{SDL\_image}
+    \item \href{https://www.libsdl.org/projects/SDL_ttf/}{SDL\_ttf}
+    \item \href{https://www.libsdl.org/projects/SDL_mixer/}{SDL\_mixer}
+    \item \href{https://github.com/}{github.com}
+    \item \href{https://discord.com/}{discord.com}
+    \item \href{https://code.visualstudio.com/}{code.visualstudio.com}
+\end{itemize}
+
+\end{document}
