@@ -232,6 +232,18 @@ void handleIntermediateEvent(Window *win, SDL_Event *event) {
             ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
         }
     }
+    const Uint8 *keyState = SDL_GetKeyboardState(NULL);
+
+    // Si le joueur appuie sur E, lancer le combat
+    if (keyState[SDL_SCANCODE_E]) {
+        printf("Lancement du combat...\n");
+        changeState(win, &game.stateHandlers[GAME].state); // Passer à l'état de combat
+    }
+    // Si le joueur appuie sur Échap, annuler l'interaction
+    else if (keyState[SDL_SCANCODE_ESCAPE]) {
+        printf("Interaction annulée. Retour à la carte.\n");
+        game.gameState.currentState = MAP; // Retourner à l'état de la carte
+    }
     handleEvent(win, event);
 }
 
@@ -511,3 +523,12 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
     }
     handleEvent(win, event);
 }
+
+void handleInteractiveCollision() {
+    //printf("Voulez-vous combattre ? (Appuyez sur C pour combattre, ESC pour annuler)\n");
+    // Change the state to an intermediate interaction state
+    game.gameData.player->matrixX--;
+    game.gameData.player->targetX = game.gameData.player->matrixX* TILE_SIZE_W_SCALE;
+    changeState(game.win, &game.stateHandlers[NEWGAME].state);
+}
+

@@ -1,6 +1,9 @@
 #include "../include/Map.h"
 #include <stdio.h>
 #include <string.h>
+
+
+
 /*
 static void initCollisionMap(Map *map) {
     for (int i = 0; i < map->tileSizeH; i++) {
@@ -12,8 +15,9 @@ static void initCollisionMap(Map *map) {
         }
     }
 }*/
+//temporaire
 
-static void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY) {
+void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY) {
     printf("Chargement de la nouvelle map: %s\n", newMapPath);
     destroyMap(*map);
     
@@ -152,37 +156,8 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
     return map;
 }
 
-void checkAndLoadNewMap(Map **map, int *playerX, int *playerY) {
-    if (!map || !*map || !(*map)->mat) {
-        printf("Erreur: map ou map->mat est NULL\n");
-        return;
-    }
 
-    if (*playerX < 0 || *playerX >= (*map)->tileSizeW || *playerY < 0 || *playerY >= (*map)->tileSizeH) {
-        printf("Indices de joueur invalides: playerX=%d, playerY=%d\n", *playerX, *playerY);
-        return;
-    }
 
-    int spawnX = *playerX;
-    int spawnY = *playerY;
-
-    if ((*map)->mat[*playerY][*playerX] == 2) {
-        const char *newMapPath = "assets/Tileset/Map/2.png";
-        loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
-    }
-    if ((*map)->mat[*playerY][*playerX] == 3) {
-        const char *newMapPath = "assets/Tileset/Map/3.png";
-        loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
-    }
-    if ((*map)->mat[*playerY][*playerX] == 9) {
-        const char *newMapPath = "assets/Tileset/Map/hall.png";
-        loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
-    }
-
-    // Mettre à jour les coordonnées du joueur avec les nouvelles coordonnées de spawn
-    *playerX = spawnX;
-    *playerY = spawnY;
-}
 
 void DEBUG_printMap(Map *map) {
     for (int i = 0; i < map->tileSizeH; i++) {

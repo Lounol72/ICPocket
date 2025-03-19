@@ -104,4 +104,8 @@ void handlePlayerEvent(Window *win, SDL_Event *event);
 
  void handleLearningEvent(Window *win, SDL_Event *event);
 
+ void handleInteractiveCollision();
+
+
+
 #endif /* HANDLEEVENTS_H */

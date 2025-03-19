@@ -440,7 +440,7 @@ void initAllButtons(Window *win)
     buttonsMenu[0] = createButton(
         " PLAY ", win, (SDL_Rect){500, 150, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[4].state, win->MediumFont,
+        changeState, &game.stateHandlers[NEWGAME].state, win->MediumFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsMenu[1] = createButton(

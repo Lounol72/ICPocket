@@ -61,10 +61,8 @@ void updatePlayerAnimation(Player *player, float deltaTime);
 void updatePlayerPosition(Player *player, float deltaTime);
 void renderPlayer(SDL_Renderer *renderer, Player *player);
 void movePlayer(Player *player);
-void checkCollision(Player *player);
 void destroyPlayer(Player *player);
 void renderPlayerWithCamera(Player* player, SDL_Renderer* renderer, Camera* camera);
-void updatePhysics(Player *player, Camera* camera, Map *map, float deltaTime);
 
 
 // ! DEBUG
