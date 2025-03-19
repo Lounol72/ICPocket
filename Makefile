@@ -134,9 +134,13 @@ doxygen:
 	@doxygen Doxyfile 
 	@echo "✅ Documentation générée dans docs/html"
 
-windows: $(WIN_OBJS)
-	@echo "🛠️ Compilation Windows en cours..."
-	@$(WINCC) -o $(BIN_DIR)/$(MAIN_EXE).exe $^ $(WINLIBS)
-	@echo "✅ Compilation Windows terminée"
+latex:
+	@echo "🧹 Nettoyage en cours..."
+	@rm -rf docs/tpLatex/modele.pdf
+	@cd docs/tpLatex && pdflatex modele.tex
+	@cd docs/tpLatex && makeglossaries modele
+	@cd docs/tpLatex && pdflatex modele.tex
+	@echo "✅ Documentation générée dans docs/tpLatex/modele.pdf"
+
 
 .PHONY: all clean windows package-windows 
