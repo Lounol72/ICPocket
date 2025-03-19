@@ -5,10 +5,26 @@
 \contentsline {subsection}{\numberline {2.2}Direction artistique}{4}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Fonctionnalités}{4}{subsection.2.3}%
 \contentsline {section}{\numberline {3}Organisation}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Planning Prévisionnel}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Répartition des tâches}{4}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Outils}{4}{subsection.3.3}%
-\contentsline {section}{\numberline {4}...}{5}{section.4}%
-\contentsline {section}{\numberline {5}Conclusion}{5}{section.5}%
-\contentsline {section}{\numberline {6}Bibliographie}{5}{section.6}%
-\contentsline {section}{\numberline {7}Annexes}{6}{section.7}%
+\contentsline {subsection}{\numberline {3.1}}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Sous partie 2}{4}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Partie 2-Les tableaux en Latex}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Planning Prévisionnel}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Répartition des tâches}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Outils}{4}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Developpement}{6}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Gestions des ICMons}{6}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}structures de données}{6}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}systèmes de combats}{6}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Gestion des bases de données}{6}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}sauvegarde}{6}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}base de données des icmons}{6}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}Gestion de la map}{6}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}chargement de la map}{6}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}caméra}{6}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}deplacement}{6}{subsubsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.4}rendu du jeu}{6}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}gestion de l'interface}{6}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}gestion des combats avec SDL}{6}{subsubsection.5.4.2}%
+\contentsline {section}{\numberline {6}Bilan et résultats}{6}{section.6}%
+\contentsline {section}{\numberline {7}Références}{6}{section.7}%
+\contentsline {section}{\numberline {8}Annexes}{6}{section.8}%
