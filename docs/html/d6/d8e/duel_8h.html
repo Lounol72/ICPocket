@@ -256,8 +256,10 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a0e27a0c4136f1f57a6f4f3e052ab2e54" id="r_a0e27a0c4136f1f57a6f4f3e052ab2e54"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a0e27a0c4136f1f57a6f4f3e052ab2e54">calcStatFrom</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *p, int stat)</td></tr>
 <tr class="separator:a0e27a0c4136f1f57a6f4f3e052ab2e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b3832f2db59021e5a2a8f4438ddadc1" id="r_a4b3832f2db59021e5a2a8f4438ddadc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a4b3832f2db59021e5a2a8f4438ddadc1">initTeam</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t, int)</td></tr>
+<tr class="memdesc:a4b3832f2db59021e5a2a8f4438ddadc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise l'équipe du joueur.  <br /></td></tr>
 <tr class="separator:a4b3832f2db59021e5a2a8f4438ddadc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c425221de6c8fc3581cb8ad38a77579" id="r_a5c425221de6c8fc3581cb8ad38a77579"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a5c425221de6c8fc3581cb8ad38a77579">initBlueTeam</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *joueur)</td></tr>
+<tr class="memdesc:a5c425221de6c8fc3581cb8ad38a77579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise l'équipe adverse en fonction du nombre d'adversaire battu par le joueur.  <br /></td></tr>
 <tr class="separator:a5c425221de6c8fc3581cb8ad38a77579"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74d793946dc5e0e5f1dc6ed14d3d96dc" id="r_a74d793946dc5e0e5f1dc6ed14d3d96dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d8e/duel_8h.html#a74d793946dc5e0e5f1dc6ed14d3d96dc">calcDamage</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *offender, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *defender, <a class="el" href="../../d1/d68/structt__Move.html">t_Move</a> *)</td></tr>
 <tr class="separator:a74d793946dc5e0e5f1dc6ed14d3d96dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -700,6 +702,15 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialise l'équipe adverse en fonction du nombre d'adversaire battu par le joueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>structure de l'equipe adverse </td></tr>
+    <tr><td class="paramname">joueur</td><td>structure de l'equipe du joueur </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a4b3832f2db59021e5a2a8f4438ddadc1" name="a4b3832f2db59021e5a2a8f4438ddadc1"></a>
@@ -727,6 +738,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialise l'équipe du joueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>structure de l'equipe du joueur </td></tr>
+    <tr><td class="paramname">nbpoke</td><td>nombre de pokemon a mettre dans l'equipe </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

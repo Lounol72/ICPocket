@@ -193,10 +193,11 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a71d424ddb5655e679926a179fb2ac34f" id="r_a71d424ddb5655e679926a179fb2ac34f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5e/save_8h.html#a71d424ddb5655e679926a179fb2ac34f">sauvegarder</a> (char *name, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *teamJ1, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *dresseur)</td></tr>
+<tr class="memdesc:a71d424ddb5655e679926a179fb2ac34f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de sauvegarde.  <br /></td></tr>
 <tr class="separator:a71d424ddb5655e679926a179fb2ac34f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c48d775f89bda18cec4d6e57ab31162" id="r_a8c48d775f89bda18cec4d6e57ab31162"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5e/save_8h.html#a8c48d775f89bda18cec4d6e57ab31162">charger</a> (char *name, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *teamJ1, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *dresseur)</td></tr>
-<tr class="memdesc:a8c48d775f89bda18cec4d6e57ab31162"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the player's data from a file.  <br /></td></tr>
-<tr class="separator:a8c48d775f89bda18cec4d6e57ab31162"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58fa945feb0d53e440db74f487f39dda" id="r_a58fa945feb0d53e440db74f487f39dda"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5e/save_8h.html#a58fa945feb0d53e440db74f487f39dda">charger</a> (char *name, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *teamJ1, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *dresseur)</td></tr>
+<tr class="memdesc:a58fa945feb0d53e440db74f487f39dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the player's data from a file.  <br /></td></tr>
+<tr class="separator:a58fa945feb0d53e440db74f487f39dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Save the player's data in a file. </p>
@@ -210,23 +211,23 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a8c48d775f89bda18cec4d6e57ab31162" name="a8c48d775f89bda18cec4d6e57ab31162"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c48d775f89bda18cec4d6e57ab31162">&#9670;&#160;</a></span>charger()</h2>
+<a id="a58fa945feb0d53e440db74f487f39dda" name="a58fa945feb0d53e440db74f487f39dda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58fa945feb0d53e440db74f487f39dda">&#9670;&#160;</a></span>charger()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void charger </td>
+          <td class="memname">int charger </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramname"><em>nomSave</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *&#160;</td>
-          <td class="paramname"><em>teamJ1</em>, </td>
+          <td class="paramname"><em>joueur</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -246,7 +247,16 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">nomSave</td><td>: the name of the save </td></tr>
-    <tr><td class="paramname">joueur</td><td>: the player's data </td></tr>
+    <tr><td class="paramname">joueur</td><td>: the player's data</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Load the player's data from a file.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nomSave</td><td>Nom de sauvegarde </td></tr>
+    <tr><td class="paramname">joueur</td><td>Equipe du joueur </td></tr>
+    <tr><td class="paramname">dresseur</td><td>Dernier dresseur battu </td></tr>
   </table>
   </dd>
 </dl>
@@ -263,19 +273,19 @@ Fonctions</h2></td></tr>
           <td class="memname">void sauvegarder </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramname"><em>nomSave</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *&#160;</td>
-          <td class="paramname"><em>teamJ1</em>, </td>
+          <td class="paramname"><em>joueur</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *&#160;</td>
-          <td class="paramname"><em>dresseur</em>&#160;</td>
+          <td class="paramname"><em>adverse</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -284,6 +294,16 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Fonction de sauvegarde. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nomSave</td><td>Nom de sauvegarde </td></tr>
+    <tr><td class="paramname">joueur</td><td>Equipe du joueur </td></tr>
+    <tr><td class="paramname">adverse</td><td>Dernier dresseur battu </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

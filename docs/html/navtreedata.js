@@ -33,6 +33,7 @@ var NAVTREE =
     [ "Idées pour le jeu", "index.html#autotoc_md5", null ],
     [ "Table RACI", "index.html#autotoc_md6", null ],
     [ "GANTT", "index.html#autotoc_md7", null ],
+    [ "GANTT Prévisionnel", "index.html#autotoc_md8", null ],
     [ "Classes", "annotated.html", [
       [ "Liste des classes", "annotated.html", "annotated_dup" ],
       [ "Index des classes", "classes.html", null ],
@@ -60,8 +61,8 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "d4/d62/NPC_8h.html#a5461a006cdc440b960fb2ef7e8f25d88",
-"d7/dfe/structNPC.html#abe2eae3060a160e52c77e8d49a2d5c27",
-"de/d53/trainerAI_8c.html#a2363fbb8b3625e95861e09fb53dfd7f5"
+"d7/dfe/structNPC.html#a9185725c578d39f6d01fe795fd09555d",
+"de/d53/trainerAI_8c.html"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';

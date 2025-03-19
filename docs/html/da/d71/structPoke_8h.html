@@ -230,6 +230,7 @@ Fonctions</h2></td></tr>
 <tr class="memdesc:afe2be4dcf1abaf503e3ce46c3af588e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a Icmon from a given id in the dataPoke.csv file.  <br /></td></tr>
 <tr class="separator:afe2be4dcf1abaf503e3ce46c3af588e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51de8e3a42ddb12141a26f4b987e5d7e" id="r_a51de8e3a42ddb12141a26f4b987e5d7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d71/structPoke_8h.html#a51de8e3a42ddb12141a26f4b987e5d7e">generate_poke_enemi</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *p, int line, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *joueur)</td></tr>
+<tr class="memdesc:a51de8e3a42ddb12141a26f4b987e5d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genere un pokemon enemi a partir d'un fichier.csv.  <br /></td></tr>
 <tr class="separator:a51de8e3a42ddb12141a26f4b987e5d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2654983666510a2dc455ff7e1a4e281a" id="r_a2654983666510a2dc455ff7e1a4e281a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d71/structPoke_8h.html#a2654983666510a2dc455ff7e1a4e281a">generatePoke</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *)</td></tr>
 <tr class="separator:a2654983666510a2dc455ff7e1a4e281a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -240,6 +241,7 @@ Fonctions</h2></td></tr>
 <tr class="memdesc:a0c149d758c5a0d385c66b6cfe90abd73"><td class="mdescLeft">&#160;</td><td class="mdescRight">generer aleatoirement  <br /></td></tr>
 <tr class="separator:a0c149d758c5a0d385c66b6cfe90abd73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69afa9b406c2e19b2821261e7bc00bac" id="r_a69afa9b406c2e19b2821261e7bc00bac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d68/structt__Move.html">t_Move</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d71/structPoke_8h.html#a69afa9b406c2e19b2821261e7bc00bac">generateRandomMoveBetter</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *p)</td></tr>
+<tr class="memdesc:a69afa9b406c2e19b2821261e7bc00bac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genere un move a partir d'un fichier.csv.  <br /></td></tr>
 <tr class="separator:a69afa9b406c2e19b2821261e7bc00bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6e57a0e7270157be9d895337f9dea6c" id="r_aa6e57a0e7270157be9d895337f9dea6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d71/structPoke_8h.html#aa6e57a0e7270157be9d895337f9dea6c">learnMove</a> (<a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a> *, <a class="el" href="../../d1/d68/structt__Move.html">t_Move</a> *, int)</td></tr>
 <tr class="separator:aa6e57a0e7270157be9d895337f9dea6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -497,7 +499,7 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
+          <td class="paramname"><em>line</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -511,7 +513,15 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">p</td><td>: the structure Icmon to generate </td></tr>
-    <tr><td class="paramname">id</td><td>: the id of the Icmon to generate </td></tr>
+    <tr><td class="paramname">id</td><td>: the id of the Icmon to generate</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Generate a Icmon from a given id in the dataPoke.csv file.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>structure poke </td></tr>
+    <tr><td class="paramname">line</td><td>ligne dans le fichier du poke recherché </td></tr>
   </table>
   </dd>
 </dl>
@@ -549,6 +559,16 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Genere un pokemon enemi a partir d'un fichier.csv. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>structure poke </td></tr>
+    <tr><td class="paramname">line</td><td>ligne dans le fichier du poke recherché </td></tr>
+    <tr><td class="paramname">joueur</td><td>struct team de la team du joueur </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -631,6 +651,15 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Genere un move a partir d'un fichier.csv. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>structure poke </td></tr>
+    <tr><td class="paramname">line</td><td>ligne dans le fichier du poke recherché </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

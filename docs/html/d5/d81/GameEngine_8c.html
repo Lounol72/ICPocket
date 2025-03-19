@@ -229,8 +229,10 @@ Fonctions</h2></td></tr>
 <tr class="memdesc:ad415d6a187bef9acb06baf2b8cdda059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change le pokémon actif lors d'un échange.  <br /></td></tr>
 <tr class="separator:ad415d6a187bef9acb06baf2b8cdda059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28332eed894602447a49a8cdb433d25d" id="r_a28332eed894602447a49a8cdb433d25d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/GameEngine_8c.html#a28332eed894602447a49a8cdb433d25d">initSwapTeam</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, void *<a class="el" href="../../dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b">data</a>)</td></tr>
-<tr class="memdesc:a28332eed894602447a49a8cdb433d25d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback pour le gameState SWAP.  <br /></td></tr>
 <tr class="separator:a28332eed894602447a49a8cdb433d25d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9669132b31ee4c108472d7f46c3b3499" id="r_a9669132b31ee4c108472d7f46c3b3499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/GameEngine_8c.html#a9669132b31ee4c108472d7f46c3b3499">initLearningMove</a> (void)</td></tr>
+<tr class="memdesc:a9669132b31ee4c108472d7f46c3b3499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback pour le gameState SWAP.  <br /></td></tr>
+<tr class="separator:a9669132b31ee4c108472d7f46c3b3499"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9e408a2d39655e3d5db43606825801b" id="r_aa9e408a2d39655e3d5db43606825801b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/GameEngine_8c.html#aa9e408a2d39655e3d5db43606825801b">changeIndexSwap</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, void *<a class="el" href="../../dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b">data</a>)</td></tr>
 <tr class="separator:aa9e408a2d39655e3d5db43606825801b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f4fd64e6dbdcdcd83fd46f43c35d9bf" id="r_a4f4fd64e6dbdcdcd83fd46f43c35d9bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/GameEngine_8c.html#a4f4fd64e6dbdcdcd83fd46f43c35d9bf">validateSwap</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, void *<a class="el" href="../../dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b">data</a>)</td></tr>
@@ -607,6 +609,34 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a9669132b31ee4c108472d7f46c3b3499" name="a9669132b31ee4c108472d7f46c3b3499"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9669132b31ee4c108472d7f46c3b3499">&#9670;&#160;</a></span>initLearningMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initLearningMove </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Callback pour le gameState SWAP. </p>
+<p>Cette fonction prépare le changement de state pour l'échange de ICmons.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Un pointeur vers la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a>. </td></tr>
+    <tr><td class="paramname">data</td><td>Données supplémentaires pour le changement d'état. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a28332eed894602447a49a8cdb433d25d" name="a28332eed894602447a49a8cdb433d25d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a28332eed894602447a49a8cdb433d25d">&#9670;&#160;</a></span>initSwapTeam()</h2>
 
@@ -632,16 +662,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Callback pour le gameState SWAP. </p>
-<p>Cette fonction prépare le changement de state pour l'échange de ICmons.</p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">win</td><td>Un pointeur vers la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a>. </td></tr>
-    <tr><td class="paramname">data</td><td>Données supplémentaires pour le changement d'état. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

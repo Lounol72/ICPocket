@@ -18,5 +18,6 @@ var structGame =
     [ "swappingIndex", "de/de9/structGame.html#adc1a066a885d3620870682192a65afe0", null ],
     [ "threadManager", "de/de9/structGame.html#aa9455d40a57196c6fe96dcf3c20203b3", null ],
     [ "ui", "de/de9/structGame.html#a1983960f961427e4f38cca321f7e34e3", null ],
-    [ "win", "de/de9/structGame.html#a1ab9219c52f831df72ec2bb42c56aa2b", null ]
+    [ "win", "de/de9/structGame.html#a1ab9219c52f831df72ec2bb42c56aa2b", null ],
+    [ "windowText", "de/de9/structGame.html#a07aed13634df31954f4baa515d8217ea", null ]
 ];
