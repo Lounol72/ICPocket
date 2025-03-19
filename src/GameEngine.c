@@ -61,8 +61,8 @@ void manageFrameRate(int frameStart) {
     
     game.deltaTime = frameTime / 1000.0f;
     
-    printf("\r⚡ Delta: %.2f | FPS: %.2f", game.deltaTime, 1 / game.deltaTime);
-    fflush(stdout);
+    //printf("\r⚡ Delta: %.2f | FPS: %.2f", game.deltaTime, 1 / game.deltaTime);
+    //fflush(stdout);
 }
 
 /**

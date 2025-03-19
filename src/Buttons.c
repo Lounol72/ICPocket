@@ -274,14 +274,33 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
     slider->value = 0.5f;
     slider->rect = (SDL_Rect){x, y, w, h};
     slider->initialBar = slider->rect;
-    int cursorW = 10;
+    int cursorW = 25;
     slider->cursor.w = cursorW;
-    slider->cursor = (SDL_Rect){slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2), y-5, cursorW, h+12};
+    slider->cursor = (SDL_Rect){slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2), y, cursorW, h+2};
     slider->initialCursor = slider->cursor;
     slider->color = color;
     slider->cursorColor = cursorColor;
     slider->renderer = renderer;
     slider->dragging = 0; // Initialiser le champ 'dragging'
+
+    SDL_Surface *surface = IMG_Load("assets/User Interface/Grey/slide_horizontal_grey.png");
+    if (!surface) {
+        SDL_Log("❌ Erreur lors du chargement de l'image : %s", IMG_GetError());
+        return NULL;
+    }
+    slider->textureBar = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    if (!slider->textureBar) {
+        SDL_Log("❌ Erreur lors de la création de la texture : %s", SDL_GetError());
+        return NULL;
+    }
+    SDL_Surface *surfaceCursor = IMG_Load("assets/User Interface/Blue/icon_circle.png");
+    if (!surfaceCursor) {
+        SDL_Log("❌ Erreur lors du chargement de l'image : %s", IMG_GetError());
+        return NULL;
+    }
+    slider->textureCursor = SDL_CreateTextureFromSurface(renderer, surfaceCursor);
+    SDL_FreeSurface(surfaceCursor);
 
     return slider;
 }
@@ -289,6 +308,8 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
 
 void destroySlider(Slider *slider) {
     if (slider) {
+        if (slider->textureBar) SDL_DestroyTexture(slider->textureBar);
+        if (slider->textureCursor) SDL_DestroyTexture(slider->textureCursor);
         free(slider);
     }
 }
@@ -321,20 +342,24 @@ void renderSliderList(SliderList *S) {
 
 void renderSlider(Slider *slider) {
     if (!slider) return;
+    if (slider->textureBar && slider->textureCursor) {
+        SDL_RenderCopy(slider->renderer, slider->textureBar, NULL, &slider->rect);
+        SDL_RenderCopy(slider->renderer, slider->textureCursor, NULL, &slider->cursor);
+    }else{
+        // Fonction utilitaire pour définir la couleur
+        void setColor(SDL_Renderer *renderer, SDL_Color color) {
+            SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+        }
 
-    // Fonction utilitaire pour définir la couleur
-    void setColor(SDL_Renderer *renderer, SDL_Color color) {
-        SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+        // Dessiner le slider
+        setColor(slider->renderer, slider->color);
+        SDL_RenderFillRect(slider->renderer, &slider->rect);
+
+        // Dessiner le curseur
+        setColor(slider->renderer, slider->cursorColor);
+        
+        SDL_RenderFillRect(slider->renderer, &slider->cursor);
     }
-
-    // Dessiner le slider
-    setColor(slider->renderer, slider->color);
-    SDL_RenderFillRect(slider->renderer, &slider->rect);
-
-    // Dessiner le curseur
-    setColor(slider->renderer, slider->cursorColor);
-    
-    SDL_RenderFillRect(slider->renderer, &slider->cursor);
 }
 
 // Supposez que la structure Slider contient un champ 'int dragging;' (0 ou 1).
@@ -355,14 +380,16 @@ int handleSliderEvent(Slider *slider, SDL_Event *event) {
             break;
         case SDL_MOUSEMOTION:
             if (slider->dragging) {
-                slider->value = (float)(event->motion.x - slider->rect.x) / slider->rect.w;
+                slider->value = (float)(event->motion.x - slider->rect.x) / (slider->rect.w);
                 slider->value = clampf(slider->value, 0.0f, 1.0f);
-                slider->cursor.x = slider->rect.x + (int)(slider->value * slider->rect.w) - (slider->cursor.w / 2);
+                if (slider->value > 0.88f) slider->cursor.x = slider->rect.x + slider->rect.w - slider->cursor.w;
+                else slider->cursor.x = slider->rect.x + (int)(slider->value * slider->rect.w);
                 //changer le volume 
-                if (slider->value == 0.0f) {
+                if (slider->value == 0.05f) {
                     Mix_VolumeMusic(0);
                 } else {
                     Mix_VolumeMusic(slider->value * 100);
+                    printf("Volume : %.4f\n", slider->value * 100);
                 }
             }
             break;

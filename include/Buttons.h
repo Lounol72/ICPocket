@@ -72,15 +72,17 @@ typedef struct ButtonList {
  * Cette structure contient des informations sur un curseur, y compris sa position, sa couleur, et sa valeur actuelle.
  */
 typedef struct Slider {
-    SDL_Rect rect;           /**< Rectangle définissant la position et la taille du curseur. */
-    SDL_Rect initialBar;      /**< Rectangle initial de la barre du curseur. */
-    SDL_Rect cursor;         /**< Rectangle du curseur. */
-    SDL_Rect initialCursor;  /**< Rectangle initial du curseur pour les besoins de mise à l'échelle. */
-    SDL_Color color;         /**< Couleur de la barre du curseur. */
-    SDL_Color cursorColor;   /**< Couleur du curseur. */
-    SDL_Renderer *renderer;   /**< Renderer SDL utilisé pour dessiner le curseur. */
-    float value;            /**< Valeur actuelle du curseur. */
-    int dragging;           /**< Indicateur de glissement du curseur. */
+    SDL_Rect rect;                  /**< Rectangle définissant la position et la taille du curseur. */
+    SDL_Rect initialBar;            /**< Rectangle initial de la barre du curseur. */
+    SDL_Rect cursor;                /**< Rectangle du curseur. */
+    SDL_Rect initialCursor;         /**< Rectangle initial du curseur pour les besoins de mise à l'échelle. */
+    SDL_Color color;                /**< Couleur de la barre du curseur. */
+    SDL_Color cursorColor;          /**< Couleur du curseur. */
+    SDL_Texture *textureCursor;     /**< Texture du curseur. */
+    SDL_Texture *textureBar;        /**< Texture de la barre du curseur. */
+    SDL_Renderer *renderer;         /**< Renderer SDL utilisé pour dessiner le curseur. */
+    float value;                    /**< Valeur actuelle du curseur. */
+    int dragging;                   /**< Indicateur de glissement du curseur. */
 } Slider;
 
 /**
