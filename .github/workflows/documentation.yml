@@ -46,13 +46,6 @@ jobs:
         if: env.HAS_COMMITS == 'true'
         run: |
           make doxygen
-          
-      - name: Create Documentation Archive
-        if: env.HAS_COMMITS == 'true'
-        run: |
-          cd docs
-          tar -czf ../documentation.tar.gz html/
-          cd ..
 
       - name: Commit and Push Documentation
         if: env.HAS_COMMITS == 'true'
@@ -60,13 +53,8 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           
-          # Tracker les fichiers volumineux avec Git LFS
-          git lfs track "*.tar.gz"
-          
-          # Ajouter la documentation et l'archive
+          # Ajouter la documentation générée
           git add -f docs/html/
-          git add documentation.tar.gz
-          git add .gitattributes
           
           git commit -m "📚 Documentation update $(date -u +%Y-%m-%d)"
           git push origin main --force
@@ -76,14 +64,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Documentation
-          path: |
-            documentation.tar.gz
-            docs/html/
+          path: docs/html/
           retention-days: 5
 
       - name: Cleanup
         if: always()
         run: |
           rm -rf docs/html/
-          rm -rf docs/latex/
           
