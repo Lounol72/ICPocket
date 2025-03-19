@@ -54,7 +54,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           
           # Ajouter tous les fichiers modifiés dans docs
-          git add docs/html/* docs/latex/*
+          git add html/*
           
           # Vérifier s'il y a des changements à commiter
           if git diff --staged --quiet; then
@@ -71,13 +71,13 @@ jobs:
         with:
           name: Documentation
           path: |
-            docs/html/
-            docs/latex/
+            html/
+            
           retention-days: 5
 
       - name: Cleanup
         if: always()
         run: |
           rm -rf docs/html/
-          rm -rf docs/latex/
+          
           
