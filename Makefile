@@ -130,9 +130,9 @@ package-linux:
 
 doxygen:
 	@echo "🧹 Nettoyage en cours..."
-	@rm -rf html/*
+	@rm -rf docs/*
 	@doxygen Doxyfile 
-	@echo "✅ Documentation générée dans html"
+	@echo "✅ Documentation générée dans docs"
 
 latex:
 	@echo "🧹 Nettoyage en cours..."
