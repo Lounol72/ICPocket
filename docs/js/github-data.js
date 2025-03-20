@@ -3,7 +3,7 @@
  */
 
 // Configuration
-const DATA_PATH = 'data/';
+const DATA_PATH = '/data/';
 const DATA_FILES = {
     repo: 'repo.json',
     contributors: 'contributors.json',
@@ -73,8 +73,30 @@ async function loadRepoData() {
 }
 
 async function loadContributorsData() {
-    const response = await fetch(`${DATA_PATH}${DATA_FILES.contributors}`);
-    return await response.json();
+    try {
+        const response = await fetch(`${DATA_PATH}${DATA_FILES.contributors}`);
+        
+        // Vérifier si la réponse est OK
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP: ${response.status}`);
+        }
+        
+        // Vérifier le type de contenu
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            console.warn('Le serveur a renvoyé un contenu non-JSON:', contentType);
+            // Afficher les premières lignes de la réponse pour debug
+            const text = await response.text();
+            console.warn('Début de la réponse:', text.substring(0, 100));
+            throw new Error('Réponse non-JSON reçue');
+        }
+        
+        return await response.json();
+    } catch (error) {
+        console.error('Erreur lors du chargement des contributeurs:', error);
+        // Retourner un tableau vide en cas d'erreur
+        return [];
+    }
 }
 
 async function loadReleasesData() {

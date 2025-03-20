@@ -22,6 +22,17 @@ const TEAM_MEMBERS = {
     }
 };
 
+// Ajouter cette ligne après la définition de TEAM_MEMBERS
+const FALLBACK_CONTRIBUTORS = [
+  {
+    "login": "Lounol72",
+    "avatar_url": "https://avatars.githubusercontent.com/u/16176398",
+    "html_url": "https://github.com/Lounol72",
+    "contributions": 156
+  }
+  // Ajoutez d'autres membres si nécessaire
+];
+
 // Génération du HTML pour un membre de l'équipe
 function createTeamMemberHTML(username, memberInfo, contributorData) {
     // Utiliser l'avatar GitHub si disponible, sinon utiliser un placeholder
@@ -52,6 +63,9 @@ function createTeamMemberHTML(username, memberInfo, contributorData) {
 
 // Afficher les membres de l'équipe
 function displayTeamMembers(contributors) {
+    // Utiliser les données de secours si aucun contributeur n'est fourni
+    contributors = contributors && contributors.length ? contributors : FALLBACK_CONTRIBUTORS;
+    
     const teamGrid = document.querySelector('.team-grid');
     if (!teamGrid) return;
     
