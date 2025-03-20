@@ -78,11 +78,12 @@ void handleGameEvent(Window *win, SDL_Event *event);
  *  @param event Pointer to the SDL_Event to process
  */
 void handleNewGameEvent(Window *win, SDL_Event *event);
-
 /** @brief Handles events when loading a saved game
  *  @param win Pointer to the Window structure containing game state
  *  @param event Pointer to the SDL_Event to process
  */
+void loadFile(Window *win, void *event);
+
 void handleLoadGameEvent(Window *win, SDL_Event *event);
 
 /** @brief Handles events in the ICMons interface

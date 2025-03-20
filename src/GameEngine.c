@@ -532,13 +532,13 @@ void initAllButtons(Window *win)
     buttonsLoadGame[0] = createButton(
         " Save 1 ", win, (SDL_Rect){500, 104, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[4].state, win->LargeFont,
+        loadFile, (void*)(char*)"1", win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsLoadGame[1] = createButton(
         " Save 2 ", win, (SDL_Rect){500, 258, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[4].state, win->LargeFont,
+        loadFile, (void*)(char*)"2" , win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsLoadGame[2] = createButton(

@@ -17,11 +17,15 @@ move:2
 
 
 id:1
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 lvl:53
 =======
 lvl:95
+>>>>>>> Stashed changes
+=======
+lvl:99
 >>>>>>> Stashed changes
 nature:0
 nbmove:3
@@ -29,21 +33,6 @@ iv:21
 iv:31
 iv:26
 iv:16
-<<<<<<< Updated upstream
-=======
-iv:8
-type:7
-move:10
-move:8
-move:22
-
-
-id:2
-lvl:95
-nature:0
-nbmove:3
-iv:5
->>>>>>> Stashed changes
 iv:15
 iv:20
 type:7
@@ -52,13 +41,8 @@ move:4
 move:12
 
 
-<<<<<<< Updated upstream
 id:2
-lvl:32
-=======
-id:4
 lvl:99
->>>>>>> Stashed changes
 nature:0
 nbmove:2
 iv:22
@@ -73,7 +57,7 @@ move:4
 
 
 id:4
-lvl:92
+lvl:99
 nature:0
 nbmove:2
 iv:31
@@ -88,11 +72,7 @@ move:27
 
 
 id:14
-<<<<<<< Updated upstream
 lvl:7
-=======
-lvl:99
->>>>>>> Stashed changes
 nature:0
 nbmove:1
 iv:18

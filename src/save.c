@@ -85,6 +85,7 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur) {
         strcpy(dresseur->trainerName,"oui");
         fscanf(fichier, "Dernier dresseur battu : %s id: %d\n", temp, &(joueur->lastEnemiID));
         fclose(fichier);
+        printf("Chargement effectué\n");
         return 1;
     }
 }

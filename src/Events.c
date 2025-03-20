@@ -409,6 +409,8 @@ void handleNewGameEvent(Window *win, SDL_Event *event) {
  * @param win Pointeur sur la fenêtre.
  * @param event Pointeur sur l'événement SDL.
  */
+
+ /*
 void handleLoadGameEvent(Window *win, SDL_Event *event) {
     
     if (!win || !event) return;
@@ -436,7 +438,43 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
         game.gameState.initialized = 1; 
     }
     handleEvent(win, event);
+}*/
+void handleLoadGameEvent(Window *win, SDL_Event *event) {
+    if (!win || !event) return;
+    srand(time(NULL));
+    if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
+        int x, y;
+        SDL_GetMouseState(&x, &y);
+        for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
+            ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
+        }
+    } 
+    handleEvent(win, event);
 }
+
+void loadFile(Window *win, void *event){
+    if(!game.gameState.initialized){
+        initData();
+        char data[50];
+        snprintf(data,50,"Save_%s",(char*)event);
+        printf("data %s\n",data);
+        charger(data, &game.battleState.rouge, &game.battleState.bleu);
+
+        initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
+        game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
+        
+        if (initTeamSprites(win, &game.battleState.rouge, RED_SPRITE_X_RATIO, RED_SPRITE_Y_RATIO, 0) != 0)
+            return;
+        if (initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1) != 0)
+            return;
+        
+        updateICButtons(win, &game.battleState.rouge);
+        
+        game.gameState.initialized = 1;
+        changeState(win, &game.stateHandlers[3].state);
+    }
+}
+
 
 
 /**
