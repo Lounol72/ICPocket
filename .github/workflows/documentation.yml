@@ -51,8 +51,7 @@ jobs:
         if: env.HAS_COMMITS == 'true'
         run: |
           # Afficher le répertoire de travail pour le débogage
-          pwd
-          ls -la
+          ls -l doxygen-awesome-css/doxygen-custom/header.html
           
           # Option 1: Spécifier explicitement le chemin du Doxyfile
           make doxygen DOXYFILE_PATH=$(pwd)/Doxyfile
