@@ -7,9 +7,19 @@ on:
   pull_request:
     branches: [ "main" ]
 
+# Ajoutez cette section de permissions
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   github-pages:
     runs-on: ubuntu-latest
+    # Ajoutez cette configuration d'environnement
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v4
@@ -19,6 +29,7 @@ jobs:
           destination: ./_site
       - uses: actions/upload-pages-artifact@v3
       - name: Deploy to GitHub Pages
+        id: deployment  # Ajoutez cet ID pour référencer l'étape
         if: github.event_name == 'push'
         uses: actions/deploy-pages@v4
         with:
