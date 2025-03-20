@@ -399,7 +399,7 @@ void handleNewGameEvent(Window *win, SDL_Event *event) {
         
         game.gameState.initialized = 1;
     } else {
-        changeState(win, &game.stateHandlers[3].state);
+        changeState(win, &game.stateHandlers[GAME].state);
     }
 }
 
@@ -442,6 +442,7 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
             game.battleState.bleu.team[0].current_pv);
             
         game.gameState.initialized = 1;
+        changeState(win, &game.stateHandlers[MAP].state);
     }
 }
 
@@ -514,12 +515,12 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
     else if (keyState[SDL_SCANCODE_DELETE]) {
         changeState(game.win, &game.stateHandlers[QUIT].state);
     }
-    else if (keyState[SDL_SCANCODE_C] && game.gameData.map->mat[newMatrixY-1][newMatrixX] == 6) {
-        printf("Collision interactive détectée sur la case 6\n");
-        changeState(game.win, &game.stateHandlers[NEWGAME].state);
+    else if (keyState[SDL_SCANCODE_C] && game.gameData.map->mat[newMatrixY-1][newMatrixX] == 6 && game.gameState.currentState == MAP) {
+        nextDuel(game.win, NULL);
+        printf("%d\n", game.gameState.initialized);
     }
     
-    if (shouldMove && game.gameData.map->mat[newMatrixY][newMatrixX] != COLLISION) {
+    if (shouldMove && game.gameData.map->mat[newMatrixY][newMatrixX] != COLLISION && game.gameData.map->mat[newMatrixY][newMatrixX] != 6) {
         game.gameData.player->startX = game.gameData.player->position.x;
         game.gameData.player->startY = game.gameData.player->position.y;
         game.gameData.player->targetMatrixX = newMatrixX;
