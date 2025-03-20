@@ -1,6 +1,23 @@
 User name : SAVE1
 nb:4
+id:24
+lvl:99
+nature:0
+nbmove:3
+iv:7
+iv:25
+iv:3
+iv:27
+iv:18
+iv:19
+type:2
+move:6
+move:1
+move:2
+
+
 id:1
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 lvl:53
 =======
@@ -86,6 +103,55 @@ iv:13
 iv:14
 type:5
 move:1
+=======
+lvl:10
+nature:0
+nbmove:4
+iv:20
+iv:25
+iv:16
+iv:27
+iv:14
+iv:27
+type:1
+move:7
+move:4
+move:3
+move:9
 
 
-Dernier dresseur battu : Pi id: 2
+id:2
+lvl:10
+nature:0
+nbmove:4
+iv:20
+iv:25
+iv:16
+iv:27
+iv:14
+iv:27
+type:1
+move:7
+move:4
+move:3
+move:7
+>>>>>>> fix-map-feature
+
+
+id:20
+lvl:13
+nature:0
+nbmove:3
+iv:22
+iv:11
+iv:22
+iv:4
+iv:19
+iv:26
+type:6
+move:35
+move:7
+move:11
+
+
+Dernier dresseur battu : Lounol id: 5
