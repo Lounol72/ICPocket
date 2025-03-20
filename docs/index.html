@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>ICPocket</title>
+    <title>ICPocket - Un jeu Pokemon-like innovant</title>
+    <meta name="description" content="ICPocket est un jeu de combat et d'aventure inspiré de Pokémon, développé par des étudiants de l'Université du Mans">
+    <meta name="keywords" content="ICPocket, jeu, pokemon, RPG, combat, tour par tour, pixel art">
 </head>
 <body>
     <nav>
         <button><a href="index.html">Accueil</a></button>
         <div class="separator"></div>
         <button><a href="html/index.html">Documentation</a></button>
+        <div class="separator"></div>
+        <button><a href="#gameplay">Gameplay</a></button>
+        <div class="separator"></div>
+        <button><a href="#team">Notre Équipe</a></button>
         <div class="separator"></div>
         <button><a href="https://github.com/Lounol72/ICPocket">GitHub</a></button>
         <div id="nav-right">
@@ -23,14 +29,18 @@
 
     <div id="top">
         <h1>ICPocket</h1>
+        <p class="tagline">L'aventure numérique à portée de main</p>
         <button id="downloadButton" class="download-button">
             <i class="fas fa-download"></i>
             <span>Télécharger le jeu</span>
         </button>
+        <div class="version-info">Version 0.8.3 | Mise à jour : 15/06/2024</div>
     </div>
 
     <div id="game-info">
         <div class="main-content">
+            <!-- Section Screenshots avec titre -->
+            <h2 class="section-title"><i class="fas fa-images"></i> Captures d'écran</h2>
             <div class="screenshots-container">
                 <div class="main-screenshot">
                     <button class="nav-button prev" onclick="prevImage()">
@@ -53,72 +63,276 @@
             </div>
 
             <div class="description">
-                <h2>À propos du jeu</h2>
+                <h2 class="section-title" id="about"><i class="fas fa-info-circle"></i> À propos du jeu</h2>
                 <p>ICPocket est un jeu "Pokemon-like" développé par des étudiants passionnés de l'Université du Mans. 
                 Plongez dans un univers unique où la programmation rencontre l'aventure !</p>
+                
+                <p>Dans un monde où les créatures numériques et la technologie se mêlent harmonieusement, 
+                vous incarnez un jeune développeur qui doit relever le défi de devenir le meilleur dresseur 
+                d'ICPocket. Explorez des environnements variés, des villes high-tech aux mystérieuses forêts 
+                de données corrompues, et affrontez d'autres dresseurs dans des combats stratégiques au tour par tour.</p>
                 
                 <div class="features">
                     <h3>Caractéristiques principales</h3>
                     <div class="feature-item">
                         <i class="fas fa-gamepad feature-icon"></i>
-                        <span>Combats au tour par tour stratégiques</span>
+                        <span>Combats au tour par tour stratégiques avec plus de 50 capacités uniques</span>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-map feature-icon"></i>
-                        <span>Monde ouvert à explorer</span>
+                        <span>Monde ouvert à explorer avec 8 régions distinctes</span>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-code feature-icon"></i>
                         <span>Thème unique mêlant technologie et aventure</span>
                     </div>
+                    <div class="feature-item">
+                        <i class="fas fa-puzzle-piece feature-icon"></i>
+                        <span>Plus de 25 énigmes et puzzles à résoudre</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-users feature-icon"></i>
+                        <span>30+ NPCs avec dialogues dynamiques et quêtes</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nouvelle section: Gameplay -->
+            <div id="gameplay" class="gameplay-section">
+                <h2 class="section-title"><i class="fas fa-chess"></i> Gameplay</h2>
+                <div class="gameplay-columns">
+                    <div class="gameplay-col">
+                        <h3><i class="fas fa-fist-raised"></i> Système de Combat</h3>
+                        <p>Le système de combat d'ICPocket reprend les fondamentaux des jeux RPG au tour par tour, 
+                        tout en y ajoutant des mécaniques uniques. Chaque créature possède un type principal 
+                        (Data, Function, Loop, Error...) qui détermine ses forces et faiblesses.</p>
+                        <p>Les combats se déroulent dans une arène dynamique où l'environnement 
+                        peut influencer le déroulement des affrontements.</p>
+                    </div>
+                    <div class="gameplay-col">
+                        <h3><i class="fas fa-globe-americas"></i> Exploration</h3>
+                        <p>Parcourez un vaste monde divisé en régions thématiques: Mémoire Centrale, 
+                        Vallée des Fichiers, Montagnes des Compilateurs et bien d'autres lieux 
+                        qui vous attendent pour être découverts.</p>
+                        <p>Chaque zone possède ses propres créatures endémiques et défis uniques à relever.</p>
+                    </div>
+                </div>
+                <div class="gameplay-columns">
+                    <div class="gameplay-col">
+                        <h3><i class="fas fa-network-wired"></i> Collection & Évolution</h3>
+                        <p>Capturez plus de 150 créatures différentes, chacune avec ses propres statistiques, 
+                        capacités et évolutions. Certaines créatures évoluent par niveau, d'autres nécessitent 
+                        des conditions spéciales pour se transformer.</p>
+                    </div>
+                    <div class="gameplay-col">
+                        <h3><i class="fas fa-tasks"></i> Quêtes & Progression</h3>
+                        <p>Une histoire principale captivante divisée en 8 chapitres, complétée par 
+                        plus de 40 quêtes secondaires. Progressez dans l'histoire en relevant 
+                        des défis auprès des 8 maîtres des Bios-Arènes.</p>
+                    </div>
                 </div>
             </div>
 
             <div class="system-requirements">
-                <h3>Configuration requise</h3>
-                <ul>
-                    <li>OS: Windows 10/11 ou Linux</li>
-                    <li>Processeur: Dual Core</li>
-                    <li>Mémoire: 2 GB RAM</li>
-                    <li>Graphiques: Compatible OpenGL</li>
-                    <li>Stockage: 500 MB</li>
-                </ul>
+                <h3><i class="fas fa-microchip"></i> Configuration requise</h3>
+                <div class="requirements-grid">
+                    <div class="req-item">
+                        <i class="fas fa-desktop"></i>
+                        <span>OS: Windows 10/11 ou Linux</span>
+                    </div>
+                    <div class="req-item">
+                        <i class="fas fa-microchip"></i>
+                        <span>Processeur: Dual Core 2.0GHz ou supérieur</span>
+                    </div>
+                    <div class="req-item">
+                        <i class="fas fa-memory"></i>
+                        <span>Mémoire: 2 GB RAM minimum</span>
+                    </div>
+                    <div class="req-item">
+                        <i class="fas fa-hdd"></i>
+                        <span>Stockage: 500 MB d'espace disponible</span>
+                    </div>
+                    <div class="req-item">
+                        <i class="fas fa-tv"></i>
+                        <span>Graphiques: Compatible OpenGL 3.0+</span>
+                    </div>
+                    <div class="req-item">
+                        <i class="fas fa-volume-up"></i>
+                        <span>Son: Compatible DirectSound</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nouvelle section: Roadmap -->
+            <div class="roadmap">
+                <h2 class="section-title"><i class="fas fa-road"></i> Roadmap de développement</h2>
+                <div class="timeline">
+                    <div class="timeline-item completed">
+                        <div class="timeline-date">Q1 2024</div>
+                        <div class="timeline-content">
+                            <h4>Alpha 0.8.0</h4>
+                            <p>Système de combat et base du jeu</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item completed">
+                        <div class="timeline-date">Q2 2024</div>
+                        <div class="timeline-content">
+                            <h4>Alpha 0.8.3</h4>
+                            <p>4 régions, 80+ créatures</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item current">
+                        <div class="timeline-date">Q3 2024</div>
+                        <div class="timeline-content">
+                            <h4>Beta 0.9.0</h4>
+                            <p>Histoire complète, toutes les régions</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Q4 2024</div>
+                        <div class="timeline-content">
+                            <h4>Release 1.0</h4>
+                            <p>Version finale avec contenu post-game</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="sidebar">
-            <div class="dev-team">
-                <h3>Équipe de développement</h3>
+            <div class="dev-team" id="team">
+                <h3><i class="fas fa-users"></i> Équipe de développement</h3>
                 <div class="dev-links">
                     <button onclick="window.location.href='https://github.com/Lounol72'">
                         <i class="fas fa-user-ninja"></i>
                         <span class="dev-link">Lounol72</span>
+                        <span class="dev-role">Lead Developer</span>
                     </button>
                     <button onclick="window.location.href='https://github.com/AstrozR'">
                         <i class="fas fa-user-astronaut"></i>
                         <span class="dev-link">AstrozR</span>
+                        <span class="dev-role">Game Designer</span>
                     </button>
                     <button onclick="window.location.href='https://github.com/Natp24109'">
                         <i class="fas fa-user-secret"></i>
                         <span class="dev-link">Natp24109</span>
+                        <span class="dev-role">Graphics Artist</span>
                     </button>
                     <button onclick="window.location.href='https://github.com/lOkaal1'">
                         <i class="fas fa-user-graduate"></i>
                         <span class="dev-link">Okaal</span>
+                        <span class="dev-role">Sound Designer</span>
                     </button>
                 </div>
+            </div>
+            
+            <!-- Nouvelles sections dans la sidebar -->
+            <div class="latest-news">
+                <h3><i class="fas fa-newspaper"></i> Dernières nouvelles</h3>
+                <div class="news-item">
+                    <div class="news-date">15 Juin 2024</div>
+                    <div class="news-title">Alpha 0.8.3 disponible!</div>
+                    <p>Nouvelle mise à jour avec 20 nouvelles créatures et 2 régions inédites.</p>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">1 Mai 2024</div>
+                    <div class="news-title">Maintenance réseau</div>
+                    <p>Optimisation des serveurs pour améliorer la capture des données.</p>
+                </div>
+                <a href="#" class="more-news">Voir toutes les actualités →</a>
+            </div>
+            
+            <div class="community-links">
+                <h3><i class="fas fa-comment-dots"></i> Rejoignez-nous</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-discord"></i> Discord</a>
+                    <a href="#" class="social-link"><i class="fab fa-reddit"></i> Reddit</a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i> YouTube</a>
+                </div>
+            </div>
+            
+            <div class="game-stats">
+                <h3><i class="fas fa-chart-bar"></i> Statistiques</h3>
+                <div class="stat-item">
+                    <div class="stat-label">Téléchargements</div>
+                    <div class="stat-value" data-stat="downloads">---</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Contributeurs</div>
+                    <div class="stat-value" data-stat="contributors">---</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">GitHub Stars</div>
+                    <div class="stat-value" data-stat="stars">---</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Forks</div>
+                    <div class="stat-value" data-stat="forks">---</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Nouvelle section FAQ -->
+    <div class="faq-section">
+        <h2 class="section-title"><i class="fas fa-question-circle"></i> Questions fréquentes</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3>Est-ce que le jeu est gratuit ?</h3>
+                <p>Oui, ICPocket est entièrement gratuit et open-source sous licence GPLv3.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Comment puis-je contribuer au projet ?</h3>
+                <p>Vous pouvez contribuer via GitHub en proposant des pull requests, en signalant des bugs ou en suggérant des améliorations.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Le jeu sera-t-il disponible sur d'autres plateformes ?</h3>
+                <p>Nous travaillons actuellement sur des versions pour macOS et Android, prévues pour fin 2024.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Y a-t-il un mode multijoueur ?</h3>
+                <p>Pas encore, mais c'est une fonctionnalité prévue pour la version 1.2 en 2025.</p>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>© 2024 ICPocket Team - Sous licence GPLv3</p>
-        <div class="footer-links">
-            <a href="html/index.html">Documentation</a>
-            <a href="https://github.com/Lounol72/ICPocket">Code source</a>
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h4>ICPocket</h4>
+                <ul>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#gameplay">Gameplay</a></li>
+                    <li><a href="#team">Notre équipe</a></li>
+                    <li><a href="html/index.html">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Ressources</h4>
+                <ul>
+                    <li><a href="https://github.com/Lounol72/ICPocket">Code source</a></li>
+                    <li><a href="#">Guide du débutant</a></li>
+                    <li><a href="#">Wiki du jeu</a></li>
+                    <li><a href="#">Signaler un bug</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:contact@icpocket.com">Email</a></li>
+                    <li><a href="#">Discord</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 ICPocket Team - Sous licence GPLv3</p>
+            <p class="made-with">Fait avec <i class="fas fa-heart"></i> à l'Université du Mans</p>
         </div>
     </footer>
     <script src="js/main.js"></script>
+    <script src="js/github-stats.js"></script>
 
     <!-- Ajouter une section de résultats de recherche -->
     <div id="searchResults" class="search-results" style="display: none;">
