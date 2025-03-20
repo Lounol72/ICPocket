@@ -1,80 +1,46 @@
 # ICPocket
 
-## Installation
+![ICPocket Logo](docs/img/favicon.png)
 
-1. Téléchargez l'archive ICPocket.tar.gz
-2. Décompressez l'archive :
-   ```sh
-   tar -xzf ICPocket.tar.gz -C ./ICPocket
-   ```
-3. Accédez au répertoire :
-   ```sh
-   cd ICPocket
-   ```
-4. Lancez le jeu :
-   ```sh
-   ./bin/main
-   ```
+## À propos du projet
+ICPocket est un jeu de combat et d'aventure inspiré de Pokémon, développé par des étudiants de l'Université du Mans. Dans cet univers unique où les créatures numériques et la technologie se mêlent harmonieusement, vous incarnez un jeune développeur qui doit relever le défi de devenir le meilleur dresseur d'ICPocket.
 
-## Ajouter un son
+## 🎮 Le jeu
+Explorez des environnements variés, des villes high-tech aux mystérieuses forêts de données corrompues, et affrontez d'autres dresseurs dans des combats stratégiques au tour par tour.
 
-Les fichiers audio doivent être au format MP3. Si vous avez un fichier dans un autre format, vous pouvez le convertir en MP3 en utilisant `ffmpeg` :
+**Version actuelle :** 0.9
 
-1. Installez `ffmpeg` si ce n'est pas déjà fait :
+## 🌐 Site web
+Le site web d'ICPocket propose :
+- Une page d'accueil présentant le jeu et permettant son téléchargement
+- Une page d'actualités suivant l'évolution du développement
+- Des informations sur l'équipe de développement
+- Une documentation complète
+- Un formulaire de contact
 
-    ```sh
-    sudo apt-get install ffmpeg
-    ```
+## 📁 Structure du projet
+- `docs/` - Site web et documentation
+  - `index.html` - Page d'accueil
+  - `news.html` - Actualités du développement
+  - `team.html` - Présentation de l'équipe
+  - `contact.html` - Formulaire de contact
+  - `css/` - Feuilles de style
+  - `js/` - Scripts JavaScript
+  - `img/` - Images et ressources graphiques
+  - `html/` - Documentation technique
 
-2. Convertissez le fichier audio :
+## 🔧 Technologies utilisées
+- HTML5/CSS3 pour l'interface web
+- JavaScript pour les fonctionnalités interactives
+- Intégration avec l'API GitHub pour les actualités du développement
 
-    ```sh
-    ffmpeg -i assets/audio/background_music.mp4 -q:a 0 -map a assets/audio/background_music.mp3
-    ```
+## 🚀 Comment contribuer
+1. Consultez notre [GitHub](https://github.com/Lounol72/ICPocket)
+2. Explorez la [documentation](https://lounol72.github.io/ICPocket/html/index.html)
+3. Contactez l'équipe via notre [formulaire de contact](https://lounol72.github.io/ICPocket/contact.html)
 
-## Git
-
-### Explications
-
-1. **Commandes Git** :
-    - **Naviguer vers le répertoire du projet** :
-
-        ```sh
-        cd ~/ICPocket-main
-        ```
-
-    - **Récupérer les dernières modifications du dépôt distant** :
-
-        ```sh
-        git pull
-        ```
-
-    - **Ajouter des fichiers** :
-
-        ```sh
-        git add .
-        ```
-
-    - **Commit des modifications** :
-
-        ```sh
-        git commit -m "Modification qu'apporte le commit"
-        ```
-
-    - **Push après le commit** :
-
-        ```sh
-        git push
-        ```
-
-## Idées pour le jeu
-
-- Faire une table de types avec de nouveaux types (binaire/machine par exemple...)
-- Faire trembler la fenêtre du joueur lorsqu'il subit une attaque
-- Loup veut une team de waifus (0 blagues)
-- Poké custom (ex : une raspberry qui évolue en PC portable qui évolue en PC gamer)
-- Pas d'objets en combats
-- Nous quatre formons les quatre membres qui donnent chacun un starter au choix
+## 👥 Équipe
+Développé par une équipe d'étudiants passionnés de l'Université du Mans. Découvrez notre équipe [ici](https://lounol72.github.io/ICPocket/team.html).
 
 ## Table RACI
 [Lien vers la table RACI](https://docs.google.com/spreadsheets/d/18GRBhOJjPINtjTH3fe337HzVoUgaLmINAeefcjlDmGY/edit?usp=sharing)
@@ -85,3 +51,6 @@ Les fichiers audio doivent être au format MP3. Si vous avez un fichier dans un 
 ## GANTT Prévisionnel
 [Lien vers le GANTT](https://docs.google.com/spreadsheets/d/1AqGpYmEBtP7KtYeO5m7FdebBRN59XQRUxrBPlVJ7CM0/edit?gid=1709744959#gid=1709744959)
 
+
+## 📄 Licence
+© 2024 ICPocket. Tous droits réservés.
