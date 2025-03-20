@@ -1,8 +1,10 @@
 // Configuration
 const REPO_OWNER = 'Lounol72';  // Remplacez par votre nom d'utilisateur GitHub
 const REPO_NAME = 'ICPocket';   // Remplacez par le nom de votre dépôt
-const MAX_RELEASES = 6;         // Nombre de releases à afficher
-const MAX_COMMITS = 9;          // Nombre de commits à afficher (changé de 10 à 9)
+//const MAX_COMMITS = 9;          // Nombre de commits à afficher (changé de 10 à 9)
+
+// Au début du fichier github-news.js
+console.log('github-news.js chargé');
 
 // Fonction pour formater la date
 function formatDate(dateString) {
@@ -21,124 +23,112 @@ function formatDate(dateString) {
     }
 }
 
-// Afficher les releases GitHub
-function displayReleases(releases) {
-    const releasesContainer = document.getElementById('releases-container');
-    if (!releasesContainer) return;
+// Fonction de debug pour vérifier le contenu des fichiers JSON
+function debugJsonContent() {
+    console.log("Débogage du contenu JSON");
+    fetch('./data/releases.json')
+        .then(response => {
+            console.log("Status response releases:", response.status);
+            return response.json();
+        })
+        .then(data => {
+            console.log("Contenu du fichier releases.json:", data);
+        })
+        .catch(error => {
+            console.error("Erreur lors du chargement de releases.json:", error);
+        });
+        
+    fetch('./data/commits.json')
+        .then(response => {
+            console.log("Status response commits:", response.status);
+            return response.json();
+        })
+        .then(data => {
+            console.log("Contenu du fichier commits.json:", data);
+        })
+        .catch(error => {
+            console.error("Erreur lors du chargement de commits.json:", error);
+        });
+}
 
-    if (!releases || !Array.isArray(releases) || releases.length === 0) {
-        releasesContainer.innerHTML = `
-            <div class="empty-message">
-                <i class="fas fa-info-circle"></i>
-                <p>Aucune version publiée pour le moment.</p>
-            </div>
-        `;
+// Fonction pour afficher les releases avec délai d'animation
+function displayReleases(releases) {
+    console.log('displayReleases appelé avec:', releases);
+    const container = document.getElementById('releases-container');
+    
+    // Si pas de container ou pas de releases, sortir
+    if (!container || !releases || !Array.isArray(releases) || releases.length === 0) {
+        container.innerHTML = '<div class="empty-message">Aucune version disponible pour le moment.</div>';
         return;
     }
     
-    console.log(`Affichage de ${releases.length} releases`);
-    releasesContainer.innerHTML = '';
+    // Vider le conteneur des releases
+    container.innerHTML = '';
     
-    releases.forEach(release => {
-        if (!release) return;
+    // Parcourir les releases et créer les éléments HTML avec délai d'animation
+    releases.forEach((release, index) => {
+        const releaseDate = new Date(release.published_at || release.created_at);
+        const formattedDate = releaseDate.toLocaleDateString('fr-FR');
         
-        const releaseDate = formatDate(release.published_at);
-        const assetCount = release.assets ? release.assets.length : 0;
-        const downloadCount = release.assets ? release.assets.reduce((total, asset) => {
-            return total + (asset.download_count || 0);
-        }, 0) : 0;
-        
-        // Extraire la description (prendre les 200 premiers caractères)
-        let description = release.body || "Pas de description disponible.";
-        if (description.length > 200) {
-            description = description.substring(0, 200) + '...';
-        }
-        
-        const releaseCard = document.createElement('div');
-        releaseCard.className = 'release-card';
-        releaseCard.innerHTML = `
-            <div class="release-header">
-                <div class="release-tag">${release.tag_name || 'v0.0.0'}</div>
-                <div class="release-date">${releaseDate}</div>
+        const releaseElement = document.createElement('div');
+        releaseElement.className = 'news-card';
+        releaseElement.style.animationDelay = `${index * 0.1}s`;
+        releaseElement.innerHTML = `
+            <div class="news-header">
+                <h3 class="news-title">${release.name || release.tag_name}</h3>
+                <div class="news-date">${formattedDate}</div>
             </div>
-            <h3 class="release-title">
-                <a href="${release.html_url}" target="_blank" rel="noopener noreferrer">
-                    ${release.name || `Version ${release.tag_name || '?'}`}
-                </a>
-            </h3>
-            <div class="release-description markdown-body">
-                ${description.replace(/\n/g, '<br>')}
+            <div class="news-content">
+                <p>${release.body ? release.body.substring(0, 150) + (release.body.length > 150 ? '...' : '') : 'Pas de description disponible'}</p>
             </div>
-            <div class="release-stats">
-                <div class="release-stat">
-                    <i class="fas fa-download"></i> ${downloadCount} téléchargements
-                </div>
-                <div class="release-stat">
-                    <i class="fas fa-file-archive"></i> ${assetCount} fichiers
-                </div>
+            <div class="news-footer">
+                <a href="${release.html_url}" target="_blank" class="btn-small"><i class="fas fa-external-link-alt"></i> Détails</a>
+                ${release.assets && release.assets.length > 0 
+                    ? `<a href="${release.assets[0].browser_download_url}" class="btn-download"><i class="fas fa-download"></i> Télécharger</a>` 
+                    : ''}
             </div>
-            <a href="${release.html_url}" class="view-release-btn" target="_blank" rel="noopener noreferrer">
-                Voir les détails <i class="fas fa-external-link-alt"></i>
-            </a>
         `;
         
-        releasesContainer.appendChild(releaseCard);
+        container.appendChild(releaseElement);
     });
 }
 
-// Afficher les commits GitHub
+// Fonction pour afficher les commits
 function displayCommits(commits) {
-    const commitsContainer = document.getElementById('commits-container');
-    if (!commitsContainer) return;
-
-    if (!commits || !Array.isArray(commits) || commits.length === 0) {
-        commitsContainer.innerHTML = `
-            <div class="empty-message">
-                <i class="fas fa-info-circle"></i>
-                <p>Aucun commit trouvé dans ce dépôt.</p>
-            </div>
-        `;
+    console.log('Affichage des commits:', commits);
+    const container = document.getElementById('commits-container');
+    
+    // Si pas de container ou pas de commits, sortir
+    if (!container || !commits || !Array.isArray(commits) || commits.length === 0) {
+        container.innerHTML = '<div class="empty-message">Aucun commit disponible pour le moment.</div>';
         return;
     }
     
-    console.log(`Affichage de ${commits.length} commits`);
-    commitsContainer.innerHTML = '';
+    // Vider le conteneur des commits
+    container.innerHTML = '';
     
+    // Parcourir les commits et créer les éléments HTML
     commits.forEach(commit => {
-        if (!commit || !commit.commit) return;
+        const commitDate = new Date(commit.commit.author.date);
+        const formattedDate = commitDate.toLocaleDateString('fr-FR');
         
-        const commitDate = formatDate(commit.commit.author?.date);
-        const authorName = commit.commit.author?.name || 'Auteur inconnu';
-        
-        // Extraire le message de commit (première ligne uniquement)
-        let message = (commit.commit.message || 'No message').split('\n')[0];
-        if (message.length > 80) {
-            message = message.substring(0, 80) + '...';
-        }
-        
-        const commitCard = document.createElement('div');
-        commitCard.className = 'commit-card';
-        commitCard.innerHTML = `
-            <div class="commit-author">
-                <img src="${commit.author?.avatar_url || 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'}" 
-                     alt="${authorName}" class="author-avatar">
-                <div class="author-info">
-                    <div class="author-name">${authorName}</div>
-                    <div class="commit-date">${commitDate}</div>
-                </div>
+        const commitElement = document.createElement('div');
+        commitElement.className = 'news-card';
+        commitElement.innerHTML = `
+            <div class="news-header">
+                <h3 class="news-title">${commit.commit.message.split('\n')[0]}</h3>
+                <div class="news-date">${formattedDate}</div>
             </div>
-            <div class="commit-message">
-                <a href="${commit.html_url || '#'}" target="_blank" rel="noopener noreferrer">
-                    ${message}
-                </a>
+            <div class="news-author">
+                <img src="${commit.author ? commit.author.avatar_url : 'img/default-avatar.png'}" alt="Avatar" class="author-avatar">
+                <span>${commit.commit.author.name}</span>
             </div>
-            <div class="commit-sha">
-                <i class="fas fa-code-branch"></i>
-                <code>${commit.sha ? commit.sha.substring(0, 7) : '???????'}</code>
+            <div class="news-footer">
+                <a href="${commit.html_url}" target="_blank" class="btn-small">Voir les détails</a>
             </div>
         `;
         
-        commitsContainer.appendChild(commitCard);
+        container.appendChild(commitElement);
     });
 }
 
@@ -159,26 +149,37 @@ function displayError(container, message) {
 
 // Écouteurs d'événements pour les données GitHub
 document.addEventListener(window.GitHubData.EVENTS.RELEASES_READY, function(e) {
-    console.log('Événement RELEASES_READY reçu');
+    console.log('Événement RELEASES_READY reçu dans github-news.js');
     displayReleases(e.detail);
 });
 
 document.addEventListener(window.GitHubData.EVENTS.COMMITS_READY, function(e) {
-    console.log('Événement COMMITS_READY reçu');
+    console.log('Événement COMMITS_READY reçu dans github-news.js');
     displayCommits(e.detail);
 });
 
+// Ajouter aussi un écouteur pour les erreurs
 document.addEventListener(window.GitHubData.EVENTS.ERROR, function(e) {
-    console.log('Événement ERROR reçu');
+    console.error('Erreur lors du chargement des données:', e.detail);
     const releasesContainer = document.getElementById('releases-container');
     const commitsContainer = document.getElementById('commits-container');
     
     if (releasesContainer) {
-        displayError(releasesContainer, e.detail ? e.detail.message : 'Erreur inconnue');
+        releasesContainer.innerHTML = `
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Erreur lors du chargement des données. Veuillez réessayer plus tard.</p>
+            </div>
+        `;
     }
     
     if (commitsContainer) {
-        displayError(commitsContainer, e.detail ? e.detail.message : 'Erreur inconnue');
+        commitsContainer.innerHTML = `
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Erreur lors du chargement des données. Veuillez réessayer plus tard.</p>
+            </div>
+        `;
     }
 });
 
@@ -198,4 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
-}); 
+});
+
+// Appeler la fonction au chargement de la page
+document.addEventListener('DOMContentLoaded', debugJsonContent); 

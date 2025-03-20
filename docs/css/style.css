@@ -5,22 +5,23 @@
 
 /* Variables pour les couleurs */
 :root {
-    --steam-dark: #171a21;
-    --steam-blue: #1b2838;
+    --steam-dark: #1b2838;
+    --steam-darker: #171a21;
+    --steam-blue: #1c3c5a;
     --steam-light: #66c0f4;
-    --steam-hover: #1bd1e9;
+    --steam-hover: #1999ff;
     
     /* Espacements */
     --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 2rem;
-    --spacing-lg: 3rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
     --spacing-xl: 4rem;
     
     /* Bordures */
-    --border-radius-sm: 0.25rem;
-    --border-radius-md: 0.5rem;
-    --border-radius-lg: 1rem;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
     
     /* Ombres */
     --shadow-sm: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
@@ -917,5 +918,10 @@ footer {
     padding: 20px;
     color: #acb2b8;
     font-style: italic;
+}
+
+.dark-theme {
+    background-color: var(--steam-darker);
+    color: #fff;
 }
 

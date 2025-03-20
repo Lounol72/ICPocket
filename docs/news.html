@@ -3,41 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/utilities.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Actualités ICPocket</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Actualités - ICPocket</title>
-    <meta name="description" content="Suivez les dernières actualités du développement d'ICPocket">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/news.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
-<body>
-    <nav>
-        <button><a href="index.html">Accueil</a></button>
-        <div class="separator"></div>
-        <button><a href="news.html" class="active">Actualités</a></button>
-        <div class="separator"></div>
-        <button><a href="team.html">Notre Équipe</a></button>
-        <div class="separator"></div>
-        <button><a href="html/index.html">Documentation</a></button>
-        <div class="separator"></div>
-        <button><a href="https://github.com/Lounol72/ICPocket">GitHub</a></button>
-        <div id="nav-right">
-            <input type="text" placeholder="Rechercher...">
+<body class="dark-theme">
+    <div class="page-container">
+        <nav>
+            <button><a href="index.html" class="active">Accueil</a></button>
             <div class="separator"></div>
-            <button><i class="fas fa-search"></i></button>
-        </div>
-    </nav>
+            <button><a href="news.html">Actualités</a></button>
+            <div class="separator"></div>
+            <button><a href="team.html">Notre Équipe</a></button>
+            <div class="separator"></div>
+            <button><a href="https://lounol72.github.io/ICPocket/html/index.html">Documentation</a></button>
+            <div class="separator"></div>
+            <button><a href="https://github.com/Lounol72/ICPocket">GitHub</a></button>
+            <div id="nav-right">
+                <input type="text" placeholder="Rechercher...">
+                <div class="separator"></div>
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </nav>
 
-    <div class="container">
-        <header>
-            <h1>Actualités du développement</h1>
-            <p class="tagline">Suivez l'évolution du projet ICPocket</p>
+        <header class="page-header">
+            <div class="header-content">
+                <h1>Actualités du développement</h1>
+                <p class="tagline">Suivez l'évolution du projet ICPocket</p>
+            </div>
+            <div class="header-background"></div>
         </header>
 
-        <main>
-            <section class="releases-section">
+        <main class="content-container">
+            <section class="releases-section section-card">
                 <h2 class="section-title"><i class="fas fa-tag"></i> Dernières Versions</h2>
                 <div id="releases-container" class="news-grid">
                     <div class="loading-animation">
@@ -46,7 +47,7 @@
                 </div>
             </section>
 
-            <section class="commits-section">
+            <section class="commits-section section-card">
                 <h2 class="section-title"><i class="fas fa-code-commit"></i> Activité Récente</h2>
                 <div id="commits-container" class="news-grid">
                     <div class="loading-animation">
@@ -90,7 +91,7 @@
     </div>
 
     <script src="js/github-data.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/github-news.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html> 

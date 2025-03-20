@@ -1,60 +1,70 @@
 // Fonction de recherche
 function handleSearch() {
     const searchInput = document.querySelector('#nav-right input');
-    const searchTerm = searchInput.value.toLowerCase();
     
-    // Rediriger vers la page de documentation avec le terme de recherche
-    window.location.href = `html/index.html?search=${encodeURIComponent(searchTerm)}`;
+    if (searchInput && searchInput.value.trim() !== '') {
+        const query = searchInput.value.trim();
+        console.log('Recherche de:', query);
+        
+        // Code de recherche...
+        // ...
+    }
 }
 
 // Fonction pour activer/désactiver la recherche
 function toggleSearch() {
     const navRight = document.querySelector('#nav-right');
-    navRight.classList.toggle('search-active');
+    const searchInput = document.querySelector('#nav-right input');
     
-    // Si la barre de recherche devient active, mettre le focus dessus
-    if (navRight.classList.contains('search-active')) {
-        setTimeout(() => {
-            document.querySelector('#nav-right input').focus();
-        }, 300); // Délai court pour attendre la fin de l'animation
+    if (navRight) {
+        navRight.classList.toggle('search-active');
+        
+        // Mettre le focus sur le champ de recherche s'il est visible
+        if (searchInput && navRight.classList.contains('search-active')) {
+            setTimeout(() => searchInput.focus(), 100);
+        }
     }
 }
 
 // Attendre que le DOM soit chargé
 document.addEventListener('DOMContentLoaded', function() {
+    // Recherche des éléments du DOM
     const searchButton = document.querySelector('#nav-right button');
     const searchInput = document.querySelector('#nav-right input');
-
-    // Activation de la recherche au clic sur la loupe
-    searchButton.addEventListener('click', function(e) {
-        const navRight = document.querySelector('#nav-right');
-        
-        // Si la barre est active et contient du texte, lancer la recherche
-        if (navRight.classList.contains('search-active') && searchInput.value.trim() !== '') {
-            handleSearch();
-        } else {
-            // Sinon, basculer la visibilité
-            toggleSearch();
-            e.preventDefault(); // Empêcher l'envoi du formulaire
-        }
-    });
+    const navRight = document.querySelector('#nav-right');
+    const downloadButton = document.getElementById('downloadButton');
+    
+    // Gestion du bouton de recherche
+    if (searchButton) {
+        searchButton.addEventListener('click', function(e) {
+            // Si la barre est active et contient du texte, lancer la recherche
+            if (navRight && navRight.classList.contains('search-active') && searchInput && searchInput.value.trim() !== '') {
+                handleSearch();
+            } else if (navRight) {
+                // Sinon, basculer la visibilité
+                toggleSearch();
+                e.preventDefault(); // Empêcher l'envoi du formulaire
+            }
+        });
+    }
 
     // Recherche en appuyant sur Entrée
-    searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            handleSearch();
-        }
-    });
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleSearch();
+            }
+        });
+    }
     
     // Fermer la recherche en appuyant sur Escape
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            document.querySelector('#nav-right').classList.remove('search-active');
+        if (e.key === 'Escape' && navRight) {
+            navRight.classList.remove('search-active');
         }
     });
 
     // Ajout du gestionnaire pour le bouton de téléchargement
-    const downloadButton = document.getElementById('downloadButton');
     if (downloadButton) {
         downloadButton.addEventListener('click', function() {
             window.location.href = 'https://github.com/Lounol72/ICPocket/releases';
@@ -167,14 +177,16 @@ let touchEndX = 0;
 
 const mainScreenshot = document.querySelector('.main-screenshot');
 
-mainScreenshot.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-});
+if (mainScreenshot) {
+    mainScreenshot.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
 
-mainScreenshot.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
+    mainScreenshot.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+}
 
 function handleSwipe() {
     const swipeThreshold = 50;
