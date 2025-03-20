@@ -3,7 +3,7 @@
  */
 
 // Configuration
-const DATA_PATH = '/data/';
+const DATA_PATH = './data/'; // Utiliser un chemin relatif explicite
 const DATA_FILES = {
     repo: 'repo.json',
     contributors: 'contributors.json',
@@ -36,10 +36,12 @@ const EVENTS = {
 // Fonction principale pour charger toutes les données GitHub
 async function loadAllGitHubData() {
     try {
+        console.log('Chargement des données GitHub depuis les fichiers statiques...');
+        
         // Récupérer les métadonnées pour afficher quand les données ont été mises à jour
-        const metadataResponse = await fetch(`${DATA_PATH}${DATA_FILES.metadata}`);
-        const metadata = await metadataResponse.json();
-        gitHubData.lastUpdated = new Date(metadata.last_updated);
+        const metadataResponse = await fetchWithFallback(`${DATA_PATH}${DATA_FILES.metadata}`);
+        const metadata = await safeJsonParse(metadataResponse);
+        gitHubData.lastUpdated = metadata ? new Date(metadata.last_updated) : new Date();
         
         // Exécuter tous les chargements en parallèle
         const [repoData, contributorsData, releasesData, commitsData] = await Promise.all([
@@ -50,10 +52,15 @@ async function loadAllGitHubData() {
         ]);
 
         // Stocker les résultats
-        gitHubData.repo = repoData;
-        gitHubData.contributors = contributorsData;
-        gitHubData.releases = releasesData;
-        gitHubData.commits = commitsData.slice(0, MAX_COMMITS);
+        gitHubData.repo = repoData || {};
+        gitHubData.contributors = contributorsData || [];
+        gitHubData.releases = releasesData || [];
+        gitHubData.commits = commitsData ? commitsData.slice(0, MAX_COMMITS) : [];
+        
+        console.log('Données GitHub chargées avec succès:', 
+            `${gitHubData.contributors.length} contributeurs, ` +
+            `${gitHubData.releases.length} releases, ` +
+            `${gitHubData.commits.length} commits`);
         
         // Notifier que toutes les données sont prêtes
         notifyAllDataReady();
@@ -68,53 +75,68 @@ async function loadAllGitHubData() {
 
 // Fonctions individuelles pour charger chaque type de donnée
 async function loadRepoData() {
-    const response = await fetch(`${DATA_PATH}${DATA_FILES.repo}`);
-    return await response.json();
+    const response = await fetchWithFallback(`${DATA_PATH}${DATA_FILES.repo}`);
+    return await safeJsonParse(response);
 }
 
 async function loadContributorsData() {
+    const response = await fetchWithFallback(`${DATA_PATH}${DATA_FILES.contributors}`);
+    return await safeJsonParse(response);
+}
+
+async function loadReleasesData() {
+    const response = await fetchWithFallback(`${DATA_PATH}${DATA_FILES.releases}`);
+    return await safeJsonParse(response);
+}
+
+async function loadCommitsData() {
+    const response = await fetchWithFallback(`${DATA_PATH}${DATA_FILES.commits}`);
+    return await safeJsonParse(response);
+}
+
+// Fetch avec gestion d'erreur et fallback
+async function fetchWithFallback(url) {
     try {
-        const response = await fetch(`${DATA_PATH}${DATA_FILES.contributors}`);
+        console.log(`Fetching: ${url}`);
+        const response = await fetch(url);
         
-        // Vérifier si la réponse est OK
         if (!response.ok) {
-            throw new Error(`Erreur HTTP: ${response.status}`);
+            console.warn(`HTTP error ${response.status} for ${url}`);
+            return null;
         }
         
         // Vérifier le type de contenu
         const contentType = response.headers.get('content-type');
-        if (!contentType || !contentType.includes('application/json')) {
-            console.warn('Le serveur a renvoyé un contenu non-JSON:', contentType);
-            // Afficher les premières lignes de la réponse pour debug
+        if (contentType && !contentType.includes('application/json')) {
+            console.warn(`Unexpected content type: ${contentType} for ${url}`);
             const text = await response.text();
-            console.warn('Début de la réponse:', text.substring(0, 100));
-            throw new Error('Réponse non-JSON reçue');
+            console.warn(`Response preview: ${text.substring(0, 100)}`);
+            return null;
         }
         
-        return await response.json();
+        return response;
     } catch (error) {
-        console.error('Erreur lors du chargement des contributeurs:', error);
-        // Retourner un tableau vide en cas d'erreur
-        return [];
+        console.error(`Fetch error for ${url}:`, error);
+        return null;
     }
 }
 
-async function loadReleasesData() {
-    const response = await fetch(`${DATA_PATH}${DATA_FILES.releases}`);
-    return await response.json();
-}
-
-async function loadCommitsData() {
-    const response = await fetch(`${DATA_PATH}${DATA_FILES.commits}`);
-    return await response.json();
+// Parse JSON avec gestion d'erreur
+async function safeJsonParse(response) {
+    if (!response) return null;
+    
+    try {
+        return await response.json();
+    } catch (error) {
+        console.error('Error parsing JSON:', error);
+        return null;
+    }
 }
 
 // Fonctions pour notifier les composants
 function notifyAllDataReady() {
     // Calculer le nombre de téléchargements
-    const totalDownloads = gitHubData.releases.reduce((total, release) => {
-        return total + release.assets.reduce((subTotal, asset) => subTotal + asset.download_count, 0);
-    }, 0);
+    const totalDownloads = calculateTotalDownloads();
     
     // Notifier pour les statistiques
     document.dispatchEvent(new CustomEvent(EVENTS.STATS_READY, { 
@@ -150,31 +172,56 @@ function notifyAllDataReady() {
     updateLastUpdatedIndicator();
 }
 
+// Calculer le nombre total de téléchargements
+function calculateTotalDownloads() {
+    if (!gitHubData.releases || !Array.isArray(gitHubData.releases)) {
+        return 0;
+    }
+    
+    return gitHubData.releases.reduce((total, release) => {
+        if (!release.assets || !Array.isArray(release.assets)) {
+            return total;
+        }
+        
+        return total + release.assets.reduce((subTotal, asset) => {
+            return subTotal + (asset.download_count || 0);
+        }, 0);
+    }, 0);
+}
+
 // Mettre à jour l'indicateur de dernière mise à jour des données
 function updateLastUpdatedIndicator() {
     const indicators = document.querySelectorAll('.data-last-updated');
     if (indicators.length > 0 && gitHubData.lastUpdated) {
-        const formattedDate = gitHubData.lastUpdated.toLocaleDateString('fr-FR', {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-        });
-        
-        indicators.forEach(indicator => {
-            indicator.textContent = `Données mises à jour le ${formattedDate}`;
-        });
+        try {
+            const formattedDate = gitHubData.lastUpdated.toLocaleDateString('fr-FR', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            
+            indicators.forEach(indicator => {
+                indicator.textContent = `Données mises à jour le ${formattedDate}`;
+            });
+        } catch (e) {
+            console.warn('Erreur lors du formatage de la date:', e);
+            indicators.forEach(indicator => {
+                indicator.textContent = `Données mises à jour récemment`;
+            });
+        }
     }
 }
 
 // Exporter les fonctions et constantes
 window.GitHubData = {
     load: loadAllGitHubData,
-    EVENTS: EVENTS
+    EVENTS: EVENTS,
+    getData: () => gitHubData
 };
 
-// Charger les données au démarrage
+// Charger les données au démarrage avec un léger délai pour laisser la page se charger
 document.addEventListener('DOMContentLoaded', function() {
     // Ne charger les données que si un des composants qui les utilise est présent
     const needsGitHubData = document.querySelector('[data-stat]') || 
@@ -184,6 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
                            document.querySelector('.latest-news');
                            
     if (needsGitHubData) {
-        loadAllGitHubData();
+        // Petit délai pour laisser la page se charger complètement
+        setTimeout(loadAllGitHubData, 100);
     }
 }); 

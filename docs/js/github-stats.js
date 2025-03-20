@@ -4,6 +4,10 @@ const REPO_NAME = 'ICPocket';
 
 // Fonction pour formater les nombres avec séparateur de milliers
 function formatNumber(num) {
+    if (typeof num !== 'number') {
+        num = parseInt(num) || 0;
+    }
+    
     if (num >= 1000000) {
         return (num / 1000000).toFixed(1) + 'M';
     }
@@ -51,6 +55,8 @@ async function fetchGitHubStats() {
 
 // Mettre à jour les statistiques sur la page
 function updateStats(stats) {
+    console.log('Mise à jour des statistiques:', stats);
+    
     // Pour chaque type de statistique, mettre à jour l'affichage
     document.querySelectorAll('[data-stat]').forEach(element => {
         const statType = element.getAttribute('data-stat');
@@ -242,6 +248,8 @@ function updateNewsSection(releases) {
     const newsContainer = document.querySelector('.latest-news');
     if (!newsContainer) return;
     
+    console.log(`Mise à jour de la section actualités avec ${releases ? releases.length : 0} releases`);
+    
     // Trouver la zone de contenu après le titre
     let newsContent = newsContainer.querySelector('.news-content');
     
@@ -262,12 +270,25 @@ function updateNewsSection(releases) {
     // Vider le contenu actuel
     newsContent.innerHTML = '';
     
+    // Si pas de releases, afficher un message
+    if (!releases || !Array.isArray(releases) || releases.length === 0) {
+        newsContent.innerHTML = `
+            <div class="news-item">
+                <div class="news-title">Aucune version disponible</div>
+                <p>Aucune version n'a encore été publiée pour ce projet.</p>
+            </div>
+        `;
+        return;
+    }
+    
     // Ajouter les 2 dernières releases
     releases.slice(0, 2).forEach(release => {
-        const publishDate = new Date(release.published_at);
+        if (!release) return;
+        
+        const publishDate = new Date(release.published_at || new Date());
         
         // Extraire la première phrase de la description ou les 100 premiers caractères
-        let description = release.body || "";
+        let description = release.body || "Pas de description disponible.";
         if (description.length > 100) {
             const firstSentenceMatch = description.match(/^.+?[.!?]/);
             description = firstSentenceMatch 
@@ -280,15 +301,15 @@ function updateNewsSection(releases) {
         
         newsItem.innerHTML = `
             <div class="news-date">${publishDate.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })}</div>
-            <div class="news-title">${release.name || `Version ${release.tag_name}`}</div>
+            <div class="news-title">${release.name || `Version ${release.tag_name || '?'}`}</div>
             <p>${description}</p>
-            <a href="${release.html_url}" target="_blank" rel="noopener noreferrer">Voir plus</a>
+            <a href="${release.html_url || '#'}" target="_blank" rel="noopener noreferrer">Voir plus</a>
         `;
         
         newsContent.appendChild(newsItem);
     });
     
-    // Ajouter un lien vers toutes les releases
+    // Ajouter un lien vers toutes les actualités
     const moreNews = document.createElement('a');
     moreNews.className = 'more-news';
     moreNews.href = `news.html`;
@@ -299,24 +320,51 @@ function updateNewsSection(releases) {
 
 // Écouteurs d'événements pour les données GitHub
 document.addEventListener(window.GitHubData.EVENTS.STATS_READY, function(e) {
+    console.log('Événement STATS_READY reçu');
     updateStats(e.detail);
 });
 
 document.addEventListener(window.GitHubData.EVENTS.RELEASES_READY, function(e) {
+    console.log('Événement RELEASES_READY reçu');
     updateNewsSection(e.detail);
 });
 
 // Appeler les deux fonctions au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
-    // Variables globales pour le dépôt (assurez-vous que ces variables sont définies)
-    if (typeof REPO_OWNER === 'undefined' || typeof REPO_NAME === 'undefined') {
-        window.REPO_OWNER = 'Lounol72';  // Remplacez par votre nom d'utilisateur GitHub
-        window.REPO_NAME = 'ICPocket';   // Remplacez par le nom de votre dépôt
+    console.log('DOM chargé pour github-stats.js');
+    if (window.GitHubData && window.GitHubData.getData) {
+        const data = window.GitHubData.getData();
+        if (data) {
+            if (data.repo) {
+                console.log('Utilisation des statistiques déjà chargées');
+                updateStats({
+                    stars: data.repo.stargazers_count || 0,
+                    forks: data.repo.forks_count || 0,
+                    contributors: data.contributors?.length || 0,
+                    downloads: calculateTotalDownloads(data.releases) || 0
+                });
+            }
+            if (data.releases && data.releases.length > 0) {
+                console.log('Utilisation des releases déjà chargées pour les actualités');
+                updateNewsSection(data.releases);
+            }
+        }
+    }
+});
+
+// Fonction pour calculer le total des téléchargements
+function calculateTotalDownloads(releases) {
+    if (!releases || !Array.isArray(releases)) {
+        return 0;
     }
     
-    // Appeler les fonctions existantes et la nouvelle
-    fetchGitHubStats();
-    fetchLatestReleases();
-    fetchGitHubRoadmap();
-    // Si vous avez d'autres fonctions qui utilisent l'API GitHub, appelez-les ici
-}); 
+    return releases.reduce((total, release) => {
+        if (!release.assets || !Array.isArray(release.assets)) {
+            return total;
+        }
+        
+        return total + release.assets.reduce((subTotal, asset) => {
+            return subTotal + (asset.download_count || 0);
+        }, 0);
+    }, 0);
+} 

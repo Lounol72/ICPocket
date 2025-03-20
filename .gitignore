@@ -4,7 +4,6 @@
 lib/
 bin/
 data/save/
-doxygen-awesome-css/
 node_modules/
 obj/
 *.log

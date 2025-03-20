@@ -22,7 +22,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          lfs: true
+          lfs: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Skip LFS setup
+        run: |
+          git config lfs.fetchexclude "*"
 
       - name: Check for today's commits
         id: check_commits
@@ -62,17 +67,15 @@ jobs:
             exit 0
           else
             git commit -m "📚 Documentation update $(date -u +%Y-%m-%d)"
-            git push origin main --force
+            git push origin main
           fi
 
       - name: Upload Documentation Artifact
         if: env.HAS_COMMITS == 'true'
         uses: actions/upload-artifact@v4
         with:
-          name: Documentation
-          path: |
-            docs/html
-            
+          name: documentation
+          path: docs/html
           retention-days: 5
 
       - name: Cleanup
