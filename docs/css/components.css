@@ -1,0 +1,85 @@
+/* Navigation */
+nav {
+    display: flex;
+    background-color: rgba(23, 26, 33, 0.8);
+    padding: 1rem;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: 80%;
+    max-width: 1000px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#nav-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+nav button, #nav-right input {
+    background-color: var(--steam-blue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Boutons */
+.download-button {
+    background: linear-gradient(to right, var(--steam-light), var(--steam-hover));
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--spacing-md);
+}
+
+.download-button:hover {
+    background: linear-gradient(to right, var(--steam-hover), var(--steam-light));
+    box-shadow: 0 0 10px rgba(102, 192, 244, 0.5);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    margin: 2rem 0;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    background-color: var(--steam-light);
+}
+
+.milestone-progress {
+    margin-top: 10px;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: rgba(76, 91, 110, 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+/* Autres composants... */

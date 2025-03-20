@@ -1,0 +1,59 @@
+/* Classes utilitaires */
+.text-center {
+    text-align: center;
+}
+
+.rounded {
+    border-radius: var(--border-radius-md);
+}
+
+.shadow {
+    box-shadow: var(--shadow-md);
+}
+
+/* Media queries */
+@media (max-width: 1200px) {
+    #game-info {
+        grid-template-columns: calc(100% - 170px) 170px;
+    }
+}
+
+@media (max-width: 768px) {
+    .gameplay-columns {
+        flex-direction: column;
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-columns {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .requirements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .screenshots {
+        grid-template-columns: repeat(2, 1fr);
+        padding: var(--spacing-sm);
+    }
+    
+    .screenshot {
+        height: 25vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .screenshots {
+        grid-template-columns: 1fr;
+    }
+    
+    .screenshot {
+        height: 20vh;
+    }
+}
+
+/* Autres utilitaires... */ 

@@ -1,0 +1,58 @@
+/* Structure principale */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+}
+
+header {
+    padding-top: 100px;
+    text-align: center;
+}
+
+main {
+    margin: var(--spacing-lg) 0;
+}
+
+footer {
+    background-color: var(--steam-dark);
+    padding: var(--spacing-lg) var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+/* Grilles et layouts */
+#game-info {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 30px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.screenshots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+}
+
+.requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+}
+
+.sidebar {
+    width: 300px;
+    background: linear-gradient(to bottom, #1b2838, #171a21);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    height: fit-content;
+}
+
+/* Autres classes de layout... */
