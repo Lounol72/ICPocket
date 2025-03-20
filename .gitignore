@@ -2,9 +2,8 @@
 .vscode/
 .idea/
 lib/
-bin/
+
 data/save/
-node_modules/
 obj/
 *.log
 
