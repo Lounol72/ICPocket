@@ -19,15 +19,17 @@ Le site web d'ICPocket propose :
 - Un formulaire de contact
 
 ## 📁 Structure du projet
-- `docs/` - Site web et documentation
-  - `index.html` - Page d'accueil
-  - `news.html` - Actualités du développement
-  - `team.html` - Présentation de l'équipe
-  - `contact.html` - Formulaire de contact
-  - `css/` - Feuilles de style
-  - `js/` - Scripts JavaScript
-  - `img/` - Images et ressources graphiques
-  - `html/` - Documentation technique
+- `src/` - Code source du jeu
+  - `battle/` - Système de combat
+  - `characters/` - Personnages et créatures
+  - `world/` - Environnement de jeu
+- `include/` - Fichiers d'en-tête
+- `assets/` - Ressources graphiques et sonores
+  - `sprites/` - Images des personnages et créatures
+  - `audio/` - Musiques et effets sonores
+  - `maps/` - Cartes du monde
+- `bin/` - Exécutables et fichiers compilés
+- `docs/` - Site web et documentation technique
 
 ## 🔧 Technologies utilisées
 - HTML5/CSS3 pour l'interface web
