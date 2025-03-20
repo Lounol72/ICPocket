@@ -10,10 +10,13 @@
 <body>
     <nav>
         <button><a href="index.html">Accueil</a></button>
+        <div class="separator"></div>
         <button><a href="html/index.html">Documentation</a></button>
+        <div class="separator"></div>
         <button><a href="https://github.com/Lounol72/ICPocket">GitHub</a></button>
         <div id="nav-right">
             <input type="text" placeholder="Rechercher...">
+            <div class="separator"></div>
             <button><i class="fas fa-search"></i></button>
         </div>
     </nav>
@@ -28,10 +31,25 @@
 
     <div id="game-info">
         <div class="main-content">
-            <div class="screenshots">
-                <img src="assets/screenshots/screen1.jpg" alt="Screenshot 1" class="screenshot">
-                <img src="assets/screenshots/screen2.jpg" alt="Screenshot 2" class="screenshot">
-                <img src="assets/screenshots/screen3.jpg" alt="Screenshot 3" class="screenshot">
+            <div class="screenshots-container">
+                <div class="main-screenshot">
+                    <button class="nav-button prev" onclick="prevImage()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <img id="currentScreenshot" src="img/screenshots/screen1.png" alt="Screenshot 1">
+                    <button class="nav-button next" onclick="nextImage()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="thumbnails-navigation">
+                    <div class="thumbnails-container">
+                        <div class="thumbnails">
+                            <img src="img/screenshots/screen1.png" alt="Screenshot 1" class="thumbnail active" onclick="changeImage(0)">
+                            <img src="img/screenshots/screen2.png" alt="Screenshot 2" class="thumbnail" onclick="changeImage(1)">
+                            <img src="img/screenshots/screen3.png" alt="Screenshot 3" class="thumbnail" onclick="changeImage(2)">
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="description">

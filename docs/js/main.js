@@ -7,18 +7,49 @@ function handleSearch() {
     window.location.href = `html/index.html?search=${encodeURIComponent(searchTerm)}`;
 }
 
+// Fonction pour activer/désactiver la recherche
+function toggleSearch() {
+    const navRight = document.querySelector('#nav-right');
+    navRight.classList.toggle('search-active');
+    
+    // Si la barre de recherche devient active, mettre le focus dessus
+    if (navRight.classList.contains('search-active')) {
+        setTimeout(() => {
+            document.querySelector('#nav-right input').focus();
+        }, 300); // Délai court pour attendre la fin de l'animation
+    }
+}
+
 // Attendre que le DOM soit chargé
 document.addEventListener('DOMContentLoaded', function() {
     const searchButton = document.querySelector('#nav-right button');
     const searchInput = document.querySelector('#nav-right input');
 
-    // Recherche au clic sur le bouton
-    searchButton.addEventListener('click', handleSearch);
+    // Activation de la recherche au clic sur la loupe
+    searchButton.addEventListener('click', function(e) {
+        const navRight = document.querySelector('#nav-right');
+        
+        // Si la barre est active et contient du texte, lancer la recherche
+        if (navRight.classList.contains('search-active') && searchInput.value.trim() !== '') {
+            handleSearch();
+        } else {
+            // Sinon, basculer la visibilité
+            toggleSearch();
+            e.preventDefault(); // Empêcher l'envoi du formulaire
+        }
+    });
 
     // Recherche en appuyant sur Entrée
     searchInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             handleSearch();
+        }
+    });
+    
+    // Fermer la recherche en appuyant sur Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.querySelector('#nav-right').classList.remove('search-active');
         }
     });
 
@@ -83,4 +114,77 @@ function displayResults(results) {
     }
     
     searchResults.style.display = 'block';
+}
+
+let currentIndex = 0;
+const screenshots = [
+    'img/screenshots/screen1.png',
+    'img/screenshots/screen2.png',
+    'img/screenshots/screen3.png'
+    // Ajoutez d'autres screenshots selon besoin
+];
+
+function changeImage(index) {
+    // Utilisation du modulo pour un défilement circulaire
+    currentIndex = ((index % screenshots.length) + screenshots.length) % screenshots.length;
+    
+    const mainImage = document.getElementById('currentScreenshot');
+    mainImage.src = screenshots[currentIndex];
+    
+    // Mise à jour des thumbnails
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    thumbnails.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === currentIndex);
+    });
+    
+    // Défilement des thumbnails
+    const thumbnailsContainer = document.querySelector('.thumbnails');
+    const thumbnail = document.querySelector('.thumbnail');
+    const scrollOffset = thumbnail.offsetWidth + parseInt(getComputedStyle(thumbnail).marginRight);
+    thumbnailsContainer.style.transform = `translateX(-${scrollOffset * Math.max(0, currentIndex - 1)}px)`;
+}
+
+function nextImage() {
+    changeImage(currentIndex + 1);
+}
+
+function prevImage() {
+    changeImage(currentIndex - 1);
+}
+
+// Gestion des touches clavier
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+        prevImage();
+    } else if (e.key === 'ArrowRight') {
+        nextImage();
+    }
+});
+
+// Gestion du swipe sur mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+const mainScreenshot = document.querySelector('.main-screenshot');
+
+mainScreenshot.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+mainScreenshot.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const swipeThreshold = 50;
+    const swipeLength = touchEndX - touchStartX;
+    
+    if (Math.abs(swipeLength) > swipeThreshold) {
+        if (swipeLength > 0) {
+            prevImage();
+        } else {
+            nextImage();
+        }
+    }
 }
