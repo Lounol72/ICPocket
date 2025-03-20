@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>ICPocket - Un jeu Pokemon-like innovant</title>
     <meta name="description" content="ICPocket est un jeu de combat et d'aventure inspiré de Pokémon, développé par des étudiants de l'Université du Mans">
     <meta name="keywords" content="ICPocket, jeu, pokemon, RPG, combat, tour par tour, pixel art">
@@ -21,7 +23,7 @@
         <div class="separator"></div>
         <button><a href="team.html">Notre Équipe</a></button>
         <div class="separator"></div>
-        <button><a href="html/index.html">Documentation</a></button>
+        <button><a href="https://lounol72.github.io/ICPocket/documentation/index.html">Documentation</a></button>
         <div class="separator"></div>
         <button><a href="https://github.com/Lounol72/ICPocket">GitHub</a></button>
         <div id="nav-right">
@@ -298,8 +300,8 @@
                 <ul>
                     <li><a href="#about">À propos</a></li>
                     <li><a href="#gameplay">Gameplay</a></li>
-                    <li><a href="#team">Notre équipe</a></li>
-                    <li><a href="html/index.html">Documentation</a></li>
+                    <li><a href="team.html">Notre équipe</a></li>
+                    <li><a href="https://lounol72.github.io/ICPocket/documentation/index.html">Documentation</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -308,13 +310,13 @@
                     <li><a href="https://github.com/Lounol72/ICPocket">Code source</a></li>
                     <li><a href="#">Guide du débutant</a></li>
                     <li><a href="#">Wiki du jeu</a></li>
-                    <li><a href="#">Signaler un bug</a></li>
+                    <li><a href="https://github.com/Lounol72/ICPocket/issues">Signaler un bug</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h4>Contact</h4>
                 <ul>
-                    <li><a href="mailto:contact@icpocket.com">Email</a></li>
+                    <li><a href="#">Email</a></li>
                     <li><a href="#">Discord</a></li>
                     <li><a href="#">Twitter</a></li>
                 </ul>
@@ -325,7 +327,7 @@
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="news.html">Actualités</a></li>
                     <li><a href="team.html">Notre Équipe</a></li>
-                    <li><a href="html/index.html">Documentation</a></li>
+                    <li><a href="https://lounol72.github.io/ICPocket/documentation/index.html">Documentation</a></li>
                     <li><a href="https://github.com/Lounol72/ICPocket">GitHub</a></li>
                 </ul>
             </div>
@@ -347,5 +349,19 @@
         <h3>Résultats de recherche</h3>
         <div class="results-container"></div>
     </div>
+
+    <script>
+        // Rediriger les liens vers la documentation
+        document.addEventListener('DOMContentLoaded', function() {
+            const docLinks = document.querySelectorAll('a[href^="html/"]');
+            docLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const path = this.getAttribute('href').replace('html/', '');
+                    window.location.href = 'https://lounol72.github.io/ICPocket/documentation/' + path;
+                });
+            });
+        });
+    </script>
 </body>
 </html>

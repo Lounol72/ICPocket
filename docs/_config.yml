@@ -3,8 +3,6 @@ include:
   - "*.css"
   - "*.js"
   - "*.ttf"
-  - "*.woff"
-  - "*.woff2"
 
 # Activer le traitement des fichiers CSS
 sass:
