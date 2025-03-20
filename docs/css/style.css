@@ -104,7 +104,7 @@ nav button:hover a {
 #top {
     position: relative;
     height: 60vh;
-    background-image: url('/assets/Title\ Screen/BG.jpg');
+    background-image: url('/docs/img/BG.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
