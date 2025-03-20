@@ -1,0 +1,930 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>ICPocket: Référence du fichier include/Text.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="../../toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">ICPocket
+   </div>
+   <div id="projectbrief">A Pokemon like game</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d6/d35/Text_8h.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier Text.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Définition et gestion des éléments de texte.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de Text.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d3/da1/Text_8h__incl.png" border="0" usemap="#ainclude_2Text_8h" alt=""/></div>
+<map name="ainclude_2Text_8h" id="ainclude_2Text_8h">
+<area shape="rect" title="Définition et gestion des éléments de texte." alt="" coords="128,5,240,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,101,104"/>
+<area shape="poly" title=" " alt="" coords="164,33,88,74,85,70,162,28"/>
+<area shape="rect" title=" " alt="" coords="125,79,243,104"/>
+<area shape="poly" title=" " alt="" coords="187,31,187,65,181,65,181,31"/>
+<area shape="rect" title=" " alt="" coords="266,79,337,104"/>
+<area shape="poly" title=" " alt="" coords="204,28,272,69,269,74,201,33"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d2f/Text_8h__dep__incl.png" border="0" usemap="#ainclude_2Text_8hdep" alt=""/></div>
+<map name="ainclude_2Text_8hdep" id="ainclude_2Text_8hdep">
+<area shape="rect" title="Définition et gestion des éléments de texte." alt="" coords="382,5,494,31"/>
+<area shape="rect" href="../../d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="279,79,447,104"/>
+<area shape="poly" title=" " alt="" coords="418,42,377,80,374,77,414,38"/>
+<area shape="rect" href="../../dc/dae/Text_8c.html" title=" " alt="" coords="471,79,554,104"/>
+<area shape="poly" title=" " alt="" coords="462,38,502,77,499,80,458,42"/>
+<area shape="rect" href="../../d0/dbb/Events_8h.html" title="Gestion des Events SDL." alt="" coords="5,152,135,177"/>
+<area shape="poly" title=" " alt="" coords="297,110,111,154,110,149,295,104"/>
+<area shape="rect" href="../../d3/d5f/Game_8h.html" title="Gestion des backgrounds, Initialisation de la structure globale." alt="" coords="159,152,283,177"/>
+<area shape="poly" title=" " alt="" coords="322,112,238,154,236,149,320,107"/>
+<area shape="rect" href="../../d4/d62/NPC_8h.html" title=" " alt="" coords="307,152,419,177"/>
+<area shape="poly" title=" " alt="" coords="366,118,366,152,361,152,361,118"/>
+<area shape="rect" href="../../d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="443,152,622,177"/>
+<area shape="poly" title=" " alt="" coords="397,107,499,149,497,154,395,112"/>
+<area shape="rect" href="../../d5/d81/GameEngine_8c.html" title="Moteur principal du jeu : gestion de la boucle de jeu, des ressources et des interactions." alt="" coords="646,152,785,177"/>
+<area shape="poly" title=" " alt="" coords="434,104,659,149,658,155,433,109"/>
+<area shape="rect" href="../../d1/dd5/ThreadManager_8c.html" title=" " alt="" coords="809,152,966,177"/>
+<area shape="poly" title=" " alt="" coords="462,103,809,150,808,155,461,109"/>
+<area shape="poly" title=" " alt="" coords="137,146,322,101,324,107,138,151"/>
+<area shape="rect" href="../../d7/d9f/Events_8c.html" title="Gestion des événements et interactions utilisateur pour l&#39;application." alt="" coords="20,225,120,251"/>
+<area shape="poly" title=" " alt="" coords="73,191,73,225,67,225,67,191"/>
+<area shape="poly" title=" " alt="" coords="262,144,346,102,348,106,264,149"/>
+<area shape="rect" href="../../dc/d22/Game_8c.html" title="Initialisation du jeu, de ses interfaces et ressources." alt="" coords="173,225,268,251"/>
+<area shape="poly" title=" " alt="" coords="223,191,223,225,218,225,218,191"/>
+<area shape="rect" href="../../d9/d18/NPC_8c.html" title=" " alt="" coords="322,225,405,251"/>
+<area shape="poly" title=" " alt="" coords="366,191,366,225,361,225,361,191"/>
+<area shape="poly" title=" " alt="" coords="499,149,396,106,398,102,501,144"/>
+<area shape="rect" href="../../d9/d0c/RenderICMons_8c.html" title="Fonctions de gestion des sprites ICMon." alt="" coords="457,225,608,251"/>
+<area shape="poly" title=" " alt="" coords="535,191,535,225,530,225,530,191"/>
+</map>
+</div>
+</div>
+<p><a href="../../d6/d35/Text_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dda/structText.html">Text</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente un élément de texte dans l'application.  <a href="../../d2/dda/structText.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:adb2a551453af16dd3214a23b16e67544" id="r_adb2a551453af16dd3214a23b16e67544"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="../../d6/d08/structWindow.html">Window</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#adb2a551453af16dd3214a23b16e67544">Window</a></td></tr>
+<tr class="separator:adb2a551453af16dd3214a23b16e67544"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a230d9bf1ae79368f80b618fa0e4eda09" id="r_a230d9bf1ae79368f80b618fa0e4eda09"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="../../d2/dda/structText.html">Text</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#a230d9bf1ae79368f80b618fa0e4eda09">Text</a></td></tr>
+<tr class="separator:a230d9bf1ae79368f80b618fa0e4eda09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ae96d247380273da323d069ed370b9bb5" id="r_ae96d247380273da323d069ed370b9bb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#ae96d247380273da323d069ed370b9bb5">initText</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win)</td></tr>
+<tr class="memdesc:ae96d247380273da323d069ed370b9bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les objets texte.  <br /></td></tr>
+<tr class="separator:ae96d247380273da323d069ed370b9bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1311acdef7d344c53fe43c83769610e9" id="r_a1311acdef7d344c53fe43c83769610e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dda/structText.html">Text</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#a1311acdef7d344c53fe43c83769610e9">createText</a> (const char *text, SDL_Renderer *renderer, SDL_Rect rect, SDL_Color color, TTF_Font *font)</td></tr>
+<tr class="memdesc:a1311acdef7d344c53fe43c83769610e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un nouvel objet texte.  <br /></td></tr>
+<tr class="separator:a1311acdef7d344c53fe43c83769610e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3e6ed3d92366b3bd8523a5d991cfb49" id="r_aa3e6ed3d92366b3bd8523a5d991cfb49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#aa3e6ed3d92366b3bd8523a5d991cfb49">renderText</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, <a class="el" href="../../d2/dda/structText.html">Text</a> *text)</td></tr>
+<tr class="memdesc:aa3e6ed3d92366b3bd8523a5d991cfb49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rend un objet texte.  <br /></td></tr>
+<tr class="separator:aa3e6ed3d92366b3bd8523a5d991cfb49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a015ae8ec886baef9970798a86f682b27" id="r_a015ae8ec886baef9970798a86f682b27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#a015ae8ec886baef9970798a86f682b27">updateTextPosition</a> (<a class="el" href="../../d2/dda/structText.html">Text</a> *text, float scaleX, float scaleY)</td></tr>
+<tr class="memdesc:a015ae8ec886baef9970798a86f682b27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour la position d'un objet texte.  <br /></td></tr>
+<tr class="separator:a015ae8ec886baef9970798a86f682b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a452ccfba136e1b799b2f51cc82e66638" id="r_a452ccfba136e1b799b2f51cc82e66638"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#a452ccfba136e1b799b2f51cc82e66638">destroyText</a> (<a class="el" href="../../d2/dda/structText.html">Text</a> *text)</td></tr>
+<tr class="memdesc:a452ccfba136e1b799b2f51cc82e66638"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un objet texte.  <br /></td></tr>
+<tr class="separator:a452ccfba136e1b799b2f51cc82e66638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa873f47f05aa894283bed1c93b836b09" id="r_aa873f47f05aa894283bed1c93b836b09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#aa873f47f05aa894283bed1c93b836b09">updateText</a> (<a class="el" href="../../d2/dda/structText.html">Text</a> *text, const char *newText, SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:aa873f47f05aa894283bed1c93b836b09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour le contenu d'un objet texte.  <br /></td></tr>
+<tr class="separator:aa873f47f05aa894283bed1c93b836b09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d818bb937ba7baa5e9658e96d8f0fe4" id="r_a7d818bb937ba7baa5e9658e96d8f0fe4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#a7d818bb937ba7baa5e9658e96d8f0fe4">changeTextSpeed</a> (<a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, void *<a class="el" href="../../dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b">data</a>)</td></tr>
+<tr class="memdesc:a7d818bb937ba7baa5e9658e96d8f0fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la vitesse du texte.  <br /></td></tr>
+<tr class="separator:a7d818bb937ba7baa5e9658e96d8f0fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77ea26949d0d6e6d9fb47a543c47db08" id="r_a77ea26949d0d6e6d9fb47a543c47db08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#a77ea26949d0d6e6d9fb47a543c47db08">cleanupText</a> ()</td></tr>
+<tr class="memdesc:a77ea26949d0d6e6d9fb47a543c47db08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nettoie les objets texte.  <br /></td></tr>
+<tr class="separator:a77ea26949d0d6e6d9fb47a543c47db08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad496f949929781a8b018234536b6978a" id="r_ad496f949929781a8b018234536b6978a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#ad496f949929781a8b018234536b6978a">createScrollingText</a> (char *text, TTF_Font *font, SDL_Color color, int charDelay, SDL_Rect backgroundPosition, const char *backgroundPath, SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:ad496f949929781a8b018234536b6978a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un nouvel objet de texte défilant.  <br /></td></tr>
+<tr class="separator:ad496f949929781a8b018234536b6978a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70b0c8ad2591d026ed13498d2f5b51e5" id="r_a70b0c8ad2591d026ed13498d2f5b51e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#a70b0c8ad2591d026ed13498d2f5b51e5">updateScrollingText</a> (<a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> *text, SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:a70b0c8ad2591d026ed13498d2f5b51e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour un objet de texte défilant.  <br /></td></tr>
+<tr class="separator:a70b0c8ad2591d026ed13498d2f5b51e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79aac055a15042af251ed87cf51d3e4b" id="r_a79aac055a15042af251ed87cf51d3e4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#a79aac055a15042af251ed87cf51d3e4b">renderScrollingText</a> (<a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> *text, SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:a79aac055a15042af251ed87cf51d3e4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rend un objet de texte défilant.  <br /></td></tr>
+<tr class="separator:a79aac055a15042af251ed87cf51d3e4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a8e528a34a830bd97a8f89252c02d91" id="r_a0a8e528a34a830bd97a8f89252c02d91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#a0a8e528a34a830bd97a8f89252c02d91">resetScrollingText</a> (<a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> *text, const char *newText)</td></tr>
+<tr class="memdesc:a0a8e528a34a830bd97a8f89252c02d91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réinitialise un objet de texte défilant.  <br /></td></tr>
+<tr class="separator:a0a8e528a34a830bd97a8f89252c02d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa6a319144e236a3c666e758d35c7d9c" id="r_afa6a319144e236a3c666e758d35c7d9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#afa6a319144e236a3c666e758d35c7d9c">destroyScrollingText</a> (<a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> *text)</td></tr>
+<tr class="memdesc:afa6a319144e236a3c666e758d35c7d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un objet de texte défilant.  <br /></td></tr>
+<tr class="separator:afa6a319144e236a3c666e758d35c7d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bc289fcd1d02a1ab742f93c882b5370" id="r_a0bc289fcd1d02a1ab742f93c882b5370"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#a0bc289fcd1d02a1ab742f93c882b5370">skipScrollingText</a> (<a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> *text, SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:a0bc289fcd1d02a1ab742f93c882b5370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Passe à la suite un objet de texte défilant.  <br /></td></tr>
+<tr class="separator:a0bc289fcd1d02a1ab742f93c882b5370"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86fb5ff45e3d26ccd1ed237a8aafbbcb" id="r_a86fb5ff45e3d26ccd1ed237a8aafbbcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#a86fb5ff45e3d26ccd1ed237a8aafbbcb">cleanupScrollingText</a> (<a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> **text)</td></tr>
+<tr class="memdesc:a86fb5ff45e3d26ccd1ed237a8aafbbcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nettoie un objet de texte défilant.  <br /></td></tr>
+<tr class="separator:a86fb5ff45e3d26ccd1ed237a8aafbbcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aa7b28bc428ccbbcf4f77ed6ec1deccf9" id="r_aa7b28bc428ccbbcf4f77ed6ec1deccf9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dda/structText.html">Text</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#aa7b28bc428ccbbcf4f77ed6ec1deccf9">title</a></td></tr>
+<tr class="separator:aa7b28bc428ccbbcf4f77ed6ec1deccf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cc75f256324e33385aa00bd67430368" id="r_a4cc75f256324e33385aa00bd67430368"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dda/structText.html">Text</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d35/Text_8h.html#a4cc75f256324e33385aa00bd67430368">NewGameText</a></td></tr>
+<tr class="separator:a4cc75f256324e33385aa00bd67430368"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Définition et gestion des éléments de texte. </p>
+<p>Ce fichier définit la structure <a class="el" href="../../d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application.">Text</a> et les fonctions associées pour la gestion du rendu de texte dans une application SDL. </p>
+</div><h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="a230d9bf1ae79368f80b618fa0e4eda09" name="a230d9bf1ae79368f80b618fa0e4eda09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a230d9bf1ae79368f80b618fa0e4eda09">&#9670;&#160;</a></span>Text</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="../../d2/dda/structText.html">Text</a> <a class="el" href="../../d2/dda/structText.html">Text</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb2a551453af16dd3214a23b16e67544" name="adb2a551453af16dd3214a23b16e67544"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb2a551453af16dd3214a23b16e67544">&#9670;&#160;</a></span>Window</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="../../d6/d08/structWindow.html">Window</a> <a class="el" href="../../d6/d08/structWindow.html">Window</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a7d818bb937ba7baa5e9658e96d8f0fe4" name="a7d818bb937ba7baa5e9658e96d8f0fe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d818bb937ba7baa5e9658e96d8f0fe4">&#9670;&#160;</a></span>changeTextSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void changeTextSpeed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d08/structWindow.html">Window</a> *&#160;</td>
+          <td class="paramname"><em>win</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change la vitesse du texte. </p>
+<p>Cette fonction change la vitesse à laquelle le texte est affiché. C'est une fonction temporaire.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Un pointeur vers la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a>. </td></tr>
+    <tr><td class="paramname">data</td><td>Données supplémentaires pour changer la vitesse du texte. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a86fb5ff45e3d26ccd1ed237a8aafbbcb" name="a86fb5ff45e3d26ccd1ed237a8aafbbcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86fb5ff45e3d26ccd1ed237a8aafbbcb">&#9670;&#160;</a></span>cleanupScrollingText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cleanupScrollingText </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> **&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nettoie un objet de texte défilant. </p>
+<p>Cette fonction nettoie un objet de texte défilant avec les paramètres spécifiés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Un pointeur vers l'objet <a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a77ea26949d0d6e6d9fb47a543c47db08" name="a77ea26949d0d6e6d9fb47a543c47db08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77ea26949d0d6e6d9fb47a543c47db08">&#9670;&#160;</a></span>cleanupText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cleanupText </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nettoie les objets texte. </p>
+<p>Cette fonction nettoie les objets texte utilisés dans l'application. </p>
+
+</div>
+</div>
+<a id="ad496f949929781a8b018234536b6978a" name="ad496f949929781a8b018234536b6978a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad496f949929781a8b018234536b6978a">&#9670;&#160;</a></span>createScrollingText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> * createScrollingText </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Color&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>charDelay</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect&#160;</td>
+          <td class="paramname"><em>backgroundPosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>backgroundPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crée un nouvel objet de texte défilant. </p>
+<p>Cette fonction crée un nouvel objet de texte défilant avec les paramètres spécifiés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Le contenu textuel. </td></tr>
+    <tr><td class="paramname">font</td><td>La police utilisée pour rendre le texte. </td></tr>
+    <tr><td class="paramname">color</td><td>La couleur du texte. </td></tr>
+    <tr><td class="paramname">x</td><td>La position horizontale du texte. </td></tr>
+    <tr><td class="paramname">y</td><td>La position verticale du texte. </td></tr>
+    <tr><td class="paramname">charDelay</td><td>Le délai entre chaque caractère (en ms). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un pointeur vers l'objet <a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> créé. </dd></dl>
+
+</div>
+</div>
+<a id="a1311acdef7d344c53fe43c83769610e9" name="a1311acdef7d344c53fe43c83769610e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1311acdef7d344c53fe43c83769610e9">&#9670;&#160;</a></span>createText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/dda/structText.html">Text</a> * createText </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect&#160;</td>
+          <td class="paramname"><em>rect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Color&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crée un nouvel objet texte. </p>
+<p>Cette fonction crée un nouvel objet texte avec les paramètres spécifiés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Le contenu textuel. </td></tr>
+    <tr><td class="paramname">renderer</td><td>Le renderer SDL. </td></tr>
+    <tr><td class="paramname">rect</td><td>Le rectangle définissant la position et la taille du texte. </td></tr>
+    <tr><td class="paramname">color</td><td>La couleur du texte. </td></tr>
+    <tr><td class="paramname">font</td><td>La police utilisée pour rendre le texte. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un pointeur vers l'objet <a class="el" href="../../d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application.">Text</a> créé. </dd></dl>
+
+</div>
+</div>
+<a id="afa6a319144e236a3c666e758d35c7d9c" name="afa6a319144e236a3c666e758d35c7d9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa6a319144e236a3c666e758d35c7d9c">&#9670;&#160;</a></span>destroyScrollingText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void destroyScrollingText </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> *&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit un objet de texte défilant. </p>
+<p>Cette fonction détruit un objet de texte défilant avec les paramètres spécifiés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Un pointeur vers l'objet <a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a452ccfba136e1b799b2f51cc82e66638" name="a452ccfba136e1b799b2f51cc82e66638"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a452ccfba136e1b799b2f51cc82e66638">&#9670;&#160;</a></span>destroyText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void destroyText </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dda/structText.html">Text</a> *&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit un objet texte. </p>
+<p>Cette fonction libère les ressources associées à l'objet texte spécifié.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Un pointeur vers l'objet <a class="el" href="../../d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application.">Text</a> à détruire. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae96d247380273da323d069ed370b9bb5" name="ae96d247380273da323d069ed370b9bb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae96d247380273da323d069ed370b9bb5">&#9670;&#160;</a></span>initText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initText </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d08/structWindow.html">Window</a> *&#160;</td>
+          <td class="paramname"><em>win</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise les objets texte. </p>
+<p>Cette fonction initialise les objets texte utilisés dans l'application. C'est une fonction temporaire.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Un pointeur vers la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a79aac055a15042af251ed87cf51d3e4b" name="a79aac055a15042af251ed87cf51d3e4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79aac055a15042af251ed87cf51d3e4b">&#9670;&#160;</a></span>renderScrollingText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void renderScrollingText </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rend un objet de texte défilant. </p>
+<p>Cette fonction rend un objet de texte défilant avec les paramètres spécifiés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Un pointeur vers l'objet <a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a>. </td></tr>
+    <tr><td class="paramname">renderer</td><td>Le renderer SDL. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa3e6ed3d92366b3bd8523a5d991cfb49" name="aa3e6ed3d92366b3bd8523a5d991cfb49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3e6ed3d92366b3bd8523a5d991cfb49">&#9670;&#160;</a></span>renderText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void renderText </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d08/structWindow.html">Window</a> *&#160;</td>
+          <td class="paramname"><em>win</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/dda/structText.html">Text</a> *&#160;</td>
+          <td class="paramname"><em>text</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rend un objet texte. </p>
+<p>Cette fonction rend l'objet texte spécifié à l'écran.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Un pointeur vers la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a>. </td></tr>
+    <tr><td class="paramname">text</td><td>Un pointeur vers l'objet <a class="el" href="../../d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application.">Text</a> à rendre. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0a8e528a34a830bd97a8f89252c02d91" name="a0a8e528a34a830bd97a8f89252c02d91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a8e528a34a830bd97a8f89252c02d91">&#9670;&#160;</a></span>resetScrollingText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void resetScrollingText </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>newText</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Réinitialise un objet de texte défilant. </p>
+<p>Cette fonction réinitialise un objet de texte défilant avec les paramètres spécifiés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Un pointeur vers l'objet <a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a>. </td></tr>
+    <tr><td class="paramname">newText</td><td>Le nouveau texte à afficher. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0bc289fcd1d02a1ab742f93c882b5370" name="a0bc289fcd1d02a1ab742f93c882b5370"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bc289fcd1d02a1ab742f93c882b5370">&#9670;&#160;</a></span>skipScrollingText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void skipScrollingText </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Passe à la suite un objet de texte défilant. </p>
+<p>Cette fonction passe à la suite un objet de texte défilant avec les paramètres spécifiés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Un pointeur vers l'objet <a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a>. </td></tr>
+    <tr><td class="paramname">renderer</td><td>Le renderer SDL. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a70b0c8ad2591d026ed13498d2f5b51e5" name="a70b0c8ad2591d026ed13498d2f5b51e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70b0c8ad2591d026ed13498d2f5b51e5">&#9670;&#160;</a></span>updateScrollingText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateScrollingText </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met à jour un objet de texte défilant. </p>
+<p>Cette fonction met à jour un objet de texte défilant avec les paramètres spécifiés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Un pointeur vers l'objet <a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a>. </td></tr>
+    <tr><td class="paramname">renderer</td><td>Le renderer SDL. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa873f47f05aa894283bed1c93b836b09" name="aa873f47f05aa894283bed1c93b836b09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa873f47f05aa894283bed1c93b836b09">&#9670;&#160;</a></span>updateText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateText </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dda/structText.html">Text</a> *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>newText</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met à jour le contenu d'un objet texte. </p>
+<p>Cette fonction met à jour le contenu textuel de l'objet texte spécifié et le rend à nouveau.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Un pointeur vers l'objet <a class="el" href="../../d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application.">Text</a>. </td></tr>
+    <tr><td class="paramname">newText</td><td>Le nouveau contenu textuel. </td></tr>
+    <tr><td class="paramname">renderer</td><td>Le renderer SDL. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a015ae8ec886baef9970798a86f682b27" name="a015ae8ec886baef9970798a86f682b27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a015ae8ec886baef9970798a86f682b27">&#9670;&#160;</a></span>updateTextPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateTextPosition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dda/structText.html">Text</a> *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>scaleX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>scaleY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met à jour la position d'un objet texte. </p>
+<p>Cette fonction met à jour la position de l'objet texte spécifié en fonction des facteurs de mise à l'échelle donnés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Un pointeur vers l'objet <a class="el" href="../../d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application.">Text</a>. </td></tr>
+    <tr><td class="paramname">scaleX</td><td>Le facteur de mise à l'échelle horizontal. </td></tr>
+    <tr><td class="paramname">scaleY</td><td>Le facteur de mise à l'échelle vertical. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a4cc75f256324e33385aa00bd67430368" name="a4cc75f256324e33385aa00bd67430368"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cc75f256324e33385aa00bd67430368">&#9670;&#160;</a></span>NewGameText</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/dda/structText.html">Text</a> NewGameText</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>L'élément de texte pour le nouveau jeu. </p>
+
+</div>
+</div>
+<a id="aa7b28bc428ccbbcf4f77ed6ec1deccf9" name="aa7b28bc428ccbbcf4f77ed6ec1deccf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7b28bc428ccbbcf4f77ed6ec1deccf9">&#9670;&#160;</a></span>title</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/dda/structText.html">Text</a> title</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Éléments de texte globaux utilisés dans l'application. L'élément de texte pour le titre. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../d6/d35/Text_8h.html">Text.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

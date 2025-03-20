@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>ICPocket:  Fichier source de include/Events.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="../../toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">ICPocket
+   </div>
+   <div id="projectbrief">A Pokemon like game</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d0/dbb/Events_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Events.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d0/dbb/Events_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef EVENTS_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define EVENTS_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d1f/GameEngine_8h.html">GameEngine.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/* Constantes pour le positionnement et la taille des sprites */</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../d0/dbb/Events_8h.html#a24e30c48e4a12af2d8978ab881ff8cd6">   15</a></span><span class="preprocessor">#define RED_SPRITE_X_RATIO 0.23f</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d0/dbb/Events_8h.html#adbf4214d1a8baa4ba1c48f370d8e5a46">   16</a></span><span class="preprocessor">#define RED_SPRITE_Y_RATIO 0.4f</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d0/dbb/Events_8h.html#ae497e49222225eb5a29a8314de4d53da">   17</a></span><span class="preprocessor">#define BLUE_SPRITE_X_RATIO 0.60f </span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d0/dbb/Events_8h.html#abbaa24093da04659ced5ed2f23e5cb4a">   18</a></span><span class="preprocessor">#define BLUE_SPRITE_Y_RATIO 0.275f</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d0/dbb/Events_8h.html#a8ed83b574e4321ec38983b72540690eb">   19</a></span><span class="preprocessor">#define SPRITE_WIDTH_RATIO 0.2f</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d0/dbb/Events_8h.html#ad9ce5dd1a4b281c4d2e6f5de0523e961">   20</a></span><span class="preprocessor">#define SPRITE_HEIGHT_RATIO 0.25f</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d0/dbb/Events_8h.html#a640dbca6eec1fc69a3984b99b9185e0e">   21</a></span><span class="preprocessor">#define NAME_Y_OFFSET 25</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d0/dbb/Events_8h.html#aa48c386af32107492a2fc79171566223">   22</a></span><span class="preprocessor">#define PV_Y_OFFSET 25</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d0/dbb/Events_8h.html#a86367cafa3412ebbaa3516737170c4d1">   23</a></span><span class="preprocessor">#define NAME_HEIGHT 20</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d0/dbb/Events_8h.html#a504d86d46c5bcbb27c506747484a34ba">   24</a></span><span class="preprocessor">#define PV_BAR_HEIGHT 15</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> <span class="keywordtype">int</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#ac44c928e776e8e08d0c8a3aa20152c8a">initTeamSprites</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, <a class="code hl_struct" href="../../da/d63/structt__Team.html">t_Team</a> *teamSprite, <span class="keywordtype">float</span> x_ratio, <span class="keywordtype">float</span> y_ratio, <span class="keywordtype">int</span> teamFlag);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#a6f17bb9492dd6a4e5ace526c8686679f">handleEvent</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#a9e83431dc3f66988e64a74a4e0a2ed58">handleWindowSizeChange</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#a513da2d00e9995e84d9033ef82316ba9">handleIntermediateEvent</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#a25c2257aeb4db95d02ee807d21f2b387">handleQuitEvent</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#ab14649f183a1cbf95f28b1cda31acb8e">handleSettingsEvent</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#a3dd192e3954e5e38c991024ad04b4b5a">handleMenuEvent</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#a7e807113e014d5725e945ee30180483c">handleGameEvent</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#a2eb85b27aa836abb19135fc494112449">handleNewGameEvent</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#a2da64eddce0620bfe4f48287730a9ce8">loadFile</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, <span class="keywordtype">void</span> *event);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#aade80eb59d9a637677b7a309cd8c702c">handleLoadGameEvent</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#abb1d99ee132734d10ca7f03286da3b18">handleICMonsEvent</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#a353673ce0aa1c823efdc9087cbde90cc">handlePauseEvent</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#a244d37073550388354a68561ac959ecb">handlePlayerEvent</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#a088e629868d61238138f13c5c467699b">handleSwapEvent</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="../../d0/dbb/Events_8h.html#a3c12e40388a1f6da7436f1c36a50bd31">  117</a></span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#a3c12e40388a1f6da7436f1c36a50bd31">handleCombatEvent</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/dbb/Events_8h.html#a1fd0d272cf6ce72af70f8adfa63a46be">handleLearningEvent</a>(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Event *event);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#endif </span><span class="comment">/* HANDLEEVENTS_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aEvents_8h_html_a088e629868d61238138f13c5c467699b"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#a088e629868d61238138f13c5c467699b">handleSwapEvent</a></div><div class="ttdeci">void handleSwapEvent(Window *win, SDL_Event *event)</div><div class="ttdoc">Handles events when the player swap an ICmon with the AI.</div><div class="ttdef"><b>Definition</b> Events.c:247</div></div>
+<div class="ttc" id="aEvents_8h_html_a1fd0d272cf6ce72af70f8adfa63a46be"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#a1fd0d272cf6ce72af70f8adfa63a46be">handleLearningEvent</a></div><div class="ttdeci">void handleLearningEvent(Window *win, SDL_Event *event)</div><div class="ttdoc">Handles events when the player is learning.</div><div class="ttdef"><b>Definition</b> Events.c:259</div></div>
+<div class="ttc" id="aEvents_8h_html_a244d37073550388354a68561ac959ecb"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#a244d37073550388354a68561ac959ecb">handlePlayerEvent</a></div><div class="ttdeci">void handlePlayerEvent(Window *win, SDL_Event *event)</div><div class="ttdoc">Handles events when the player is in the map.</div><div class="ttdef"><b>Definition</b> Events.c:510</div></div>
+<div class="ttc" id="aEvents_8h_html_a25c2257aeb4db95d02ee807d21f2b387"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#a25c2257aeb4db95d02ee807d21f2b387">handleQuitEvent</a></div><div class="ttdeci">void handleQuitEvent(Window *win, SDL_Event *event)</div><div class="ttdoc">Handles quit events to close the application.</div><div class="ttdef"><b>Definition</b> Events.c:366</div></div>
+<div class="ttc" id="aEvents_8h_html_a2da64eddce0620bfe4f48287730a9ce8"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#a2da64eddce0620bfe4f48287730a9ce8">loadFile</a></div><div class="ttdeci">void loadFile(Window *win, void *event)</div><div class="ttdoc">Handles events when loading a saved game.</div><div class="ttdef"><b>Definition</b> Events.c:455</div></div>
+<div class="ttc" id="aEvents_8h_html_a2eb85b27aa836abb19135fc494112449"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#a2eb85b27aa836abb19135fc494112449">handleNewGameEvent</a></div><div class="ttdeci">void handleNewGameEvent(Window *win, SDL_Event *event)</div><div class="ttdoc">Handles events when starting a new game.</div><div class="ttdef"><b>Definition</b> Events.c:380</div></div>
+<div class="ttc" id="aEvents_8h_html_a353673ce0aa1c823efdc9087cbde90cc"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#a353673ce0aa1c823efdc9087cbde90cc">handlePauseEvent</a></div><div class="ttdeci">void handlePauseEvent(Window *win, SDL_Event *event)</div><div class="ttdoc">Handles events when the game is paused.</div><div class="ttdef"><b>Definition</b> Events.c:494</div></div>
+<div class="ttc" id="aEvents_8h_html_a3c12e40388a1f6da7436f1c36a50bd31"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#a3c12e40388a1f6da7436f1c36a50bd31">handleCombatEvent</a></div><div class="ttdeci">void handleCombatEvent(Window *win, SDL_Event *event)</div><div class="ttdoc">Handles events when the player is in combat.</div></div>
+<div class="ttc" id="aEvents_8h_html_a3dd192e3954e5e38c991024ad04b4b5a"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#a3dd192e3954e5e38c991024ad04b4b5a">handleMenuEvent</a></div><div class="ttdeci">void handleMenuEvent(Window *win, SDL_Event *event)</div><div class="ttdoc">Handles events in the main menu.</div><div class="ttdef"><b>Definition</b> Events.c:279</div></div>
+<div class="ttc" id="aEvents_8h_html_a513da2d00e9995e84d9033ef82316ba9"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#a513da2d00e9995e84d9033ef82316ba9">handleIntermediateEvent</a></div><div class="ttdeci">void handleIntermediateEvent(Window *win, SDL_Event *event)</div><div class="ttdoc">Handles events in the intermediate game state.</div><div class="ttdef"><b>Definition</b> Events.c:223</div></div>
+<div class="ttc" id="aEvents_8h_html_a6f17bb9492dd6a4e5ace526c8686679f"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#a6f17bb9492dd6a4e5ace526c8686679f">handleEvent</a></div><div class="ttdeci">void handleEvent(Window *win, SDL_Event *event)</div><div class="ttdoc">Main event handler that processes all SDL events.</div><div class="ttdef"><b>Definition</b> Events.c:64</div></div>
+<div class="ttc" id="aEvents_8h_html_a7e807113e014d5725e945ee30180483c"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#a7e807113e014d5725e945ee30180483c">handleGameEvent</a></div><div class="ttdeci">void handleGameEvent(Window *win, SDL_Event *event)</div><div class="ttdoc">Handles events during active gameplay.</div><div class="ttdef"><b>Definition</b> Events.c:298</div></div>
+<div class="ttc" id="aEvents_8h_html_a9e83431dc3f66988e64a74a4e0a2ed58"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#a9e83431dc3f66988e64a74a4e0a2ed58">handleWindowSizeChange</a></div><div class="ttdeci">void handleWindowSizeChange(Window *win)</div><div class="ttdoc">Handles window size change events.</div><div class="ttdef"><b>Definition</b> Events.c:171</div></div>
+<div class="ttc" id="aEvents_8h_html_aade80eb59d9a637677b7a309cd8c702c"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#aade80eb59d9a637677b7a309cd8c702c">handleLoadGameEvent</a></div><div class="ttdeci">void handleLoadGameEvent(Window *win, SDL_Event *event)</div><div class="ttdoc">Gère le chargement d'une partie sauvegardée.</div><div class="ttdef"><b>Definition</b> Events.c:442</div></div>
+<div class="ttc" id="aEvents_8h_html_ab14649f183a1cbf95f28b1cda31acb8e"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#ab14649f183a1cbf95f28b1cda31acb8e">handleSettingsEvent</a></div><div class="ttdeci">void handleSettingsEvent(Window *win, SDL_Event *event)</div><div class="ttdoc">Handles events in the settings menu.</div><div class="ttdef"><b>Definition</b> Events.c:341</div></div>
+<div class="ttc" id="aEvents_8h_html_abb1d99ee132734d10ca7f03286da3b18"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#abb1d99ee132734d10ca7f03286da3b18">handleICMonsEvent</a></div><div class="ttdeci">void handleICMonsEvent(Window *win, SDL_Event *event)</div><div class="ttdoc">Handles events in the ICMons interface.</div><div class="ttdef"><b>Definition</b> Events.c:200</div></div>
+<div class="ttc" id="aEvents_8h_html_ac44c928e776e8e08d0c8a3aa20152c8a"><div class="ttname"><a href="../../d0/dbb/Events_8h.html#ac44c928e776e8e08d0c8a3aa20152c8a">initTeamSprites</a></div><div class="ttdeci">int initTeamSprites(Window *win, t_Team *teamSprite, float x_ratio, float y_ratio, int teamFlag)</div><div class="ttdoc">Initializes the team sprites.</div><div class="ttdef"><b>Definition</b> Events.c:24</div></div>
+<div class="ttc" id="aGameEngine_8h_html"><div class="ttname"><a href="../../d7/d1f/GameEngine_8h.html">GameEngine.h</a></div><div class="ttdoc">Définition et gestion du moteur de jeu.</div></div>
+<div class="ttc" id="astructWindow_html"><div class="ttname"><a href="../../d6/d08/structWindow.html">Window</a></div><div class="ttdoc">Représente la fenêtre principale de l'application.</div><div class="ttdef"><b>Definition</b> Window.h:55</div></div>
+<div class="ttc" id="astructt__Team_html"><div class="ttname"><a href="../../da/d63/structt__Team.html">t_Team</a></div><div class="ttdoc">La structure t_Team contient tout les attributs nécessaire à la génération et à l'utilisation d'une é...</div><div class="ttdef"><b>Definition</b> structures.h:78</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../d0/dbb/Events_8h.html">Events.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

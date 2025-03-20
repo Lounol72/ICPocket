@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>ICPocket:  Fichier source de include/Buttons.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="../../toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">ICPocket
+   </div>
+   <div id="projectbrief">A Pokemon like game</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d3/d70/Buttons_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Buttons.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d3/d70/Buttons_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef BUTTONS_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define BUTTONS_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;SDL2/SDL_mixer.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d3/d70/Buttons_8h.html#aabbec029df4131b530b45fc227cfddcc">   20</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../d7/d19/structButton.html">Button</a> <a class="code hl_struct" href="../../d7/d19/structButton.html">Button</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d3/d70/Buttons_8h.html#aaf7f3aeec6211aa81bd709c9ef94c5b2">   21</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../da/db4/structButtonList.html">ButtonList</a> <a class="code hl_struct" href="../../da/db4/structButtonList.html">ButtonList</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d3/d70/Buttons_8h.html#a09caa5522ea90cabc00b7bbc3747d1b6">   22</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../df/dd7/structSlider.html">Slider</a> <a class="code hl_struct" href="../../df/dd7/structSlider.html">Slider</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d3/d70/Buttons_8h.html#aeac77718a40cda05fb2a853ec1aa3d56">   23</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../db/d53/structSliderList.html">SliderList</a> <a class="code hl_struct" href="../../db/d53/structSliderList.html">SliderList</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/ded/Utils_8h.html">Utils.h</a>&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d3/d70/Buttons_8h.html#a3c165f54c5ddde91e065ba56b97a8c6a">   27</a></span><span class="preprocessor">#define MIN_PADDING 5</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d3/d70/Buttons_8h.html#a0706168c32c39d519133d981a3df0687">   28</a></span><span class="preprocessor">#define MAX_SCALE 2.0f</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d3/d70/Buttons_8h.html#adb2a551453af16dd3214a23b16e67544">   31</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> <a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a>;</div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html">   38</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../d7/d19/structButton.html">Button</a> {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#a245d00855479e4efa9408976b902292f">   39</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="../../d7/d19/structButton.html#a245d00855479e4efa9408976b902292f">nom</a>[50];  </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#a6fcfa8e3d62cf1b78f5c4d5c9384b30d">   40</a></span>    SDL_Rect <a class="code hl_variable" href="../../d7/d19/structButton.html#a6fcfa8e3d62cf1b78f5c4d5c9384b30d">rect</a>; </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#a9dc90f55a2045928b0ae372a1ef50620">   41</a></span>    SDL_Rect <a class="code hl_variable" href="../../d7/d19/structButton.html#a9dc90f55a2045928b0ae372a1ef50620">initialRect</a>; </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#a31b42e45fec1098ac39047981f69c04e">   42</a></span>    SDL_Rect <a class="code hl_variable" href="../../d7/d19/structButton.html#a31b42e45fec1098ac39047981f69c04e">textRect</a>; </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#a77671e561daa9db4c9745aa37e8b546a">   43</a></span>    SDL_Rect <a class="code hl_variable" href="../../d7/d19/structButton.html#a77671e561daa9db4c9745aa37e8b546a">initialTextRect</a>; </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#abc7931919faeb301d72cb228432925a6">   44</a></span>    SDL_Color <a class="code hl_variable" href="../../d7/d19/structButton.html#abc7931919faeb301d72cb228432925a6">color</a>; </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#a0b4be5300889197f3e57e7b6530a8acc">   45</a></span>    SDL_Texture *<a class="code hl_variable" href="../../d7/d19/structButton.html#a0b4be5300889197f3e57e7b6530a8acc">texture</a>; </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#a9501a11ea4bf0ecd333c44408afe715e">   46</a></span>    SDL_Texture *<a class="code hl_variable" href="../../d7/d19/structButton.html#a9501a11ea4bf0ecd333c44408afe715e">initialTexture</a>; </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#a2ff48776616e5baa53524c9ffd99916a">   47</a></span>    SDL_Texture *<a class="code hl_variable" href="../../d7/d19/structButton.html#a2ff48776616e5baa53524c9ffd99916a">selectedTexture</a>; </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#a1a615b8f9d752330c9eee8dab574e6ae">   48</a></span>    SDL_Renderer *<a class="code hl_variable" href="../../d7/d19/structButton.html#a1a615b8f9d752330c9eee8dab574e6ae">renderer</a>; </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#adafb1aaa363ab04fca61c94c0937bd3d">   49</a></span>    <span class="keywordtype">char</span> *<a class="code hl_variable" href="../../d7/d19/structButton.html#adafb1aaa363ab04fca61c94c0937bd3d">text</a>; </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#a7c393b63851f6641fa4b5eb33d86bc54">   50</a></span>    SDL_Texture *<a class="code hl_variable" href="../../d7/d19/structButton.html#a7c393b63851f6641fa4b5eb33d86bc54">textTexture</a>; </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#a9f2a958c0c8c05c3ef56fd029a1b7b12">   51</a></span>    SDL_Color <a class="code hl_variable" href="../../d7/d19/structButton.html#a9f2a958c0c8c05c3ef56fd029a1b7b12">textcolor</a>; </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#aa5571a7ee87f4a2d6038ca8cfae90ea6">   52</a></span>    TTF_Font *<a class="code hl_variable" href="../../d7/d19/structButton.html#aa5571a7ee87f4a2d6038ca8cfae90ea6">font</a>;  </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#a393319ffc2e21f7c7e4e34aa5a1d8bad">   53</a></span>    void (*<a class="code hl_variable" href="../../d7/d19/structButton.html#a393319ffc2e21f7c7e4e34aa5a1d8bad">onClick</a>)(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, <span class="keywordtype">void</span> *<a class="code hl_variable" href="../../d7/d19/structButton.html#a221fd9ab3b9125d019a12be97833172e">data</a>); </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d7/d19/structButton.html#a221fd9ab3b9125d019a12be97833172e">   54</a></span>    <span class="keywordtype">void</span> *<a class="code hl_variable" href="../../d7/d19/structButton.html#a221fd9ab3b9125d019a12be97833172e">data</a>; </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>} <a class="code hl_struct" href="../../d7/d19/structButton.html">Button</a>;</div>
+</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="};">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../da/db4/structButtonList.html">   63</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../da/db4/structButtonList.html">ButtonList</a> {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../da/db4/structButtonList.html#affb149a874f5043c4b9bd57e1056ef70">   64</a></span>    <a class="code hl_struct" href="../../d7/d19/structButton.html">Button</a> **<a class="code hl_variable" href="../../da/db4/structButtonList.html#affb149a874f5043c4b9bd57e1056ef70">buttons</a>; </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../da/db4/structButtonList.html#ad7445659822f0579c483505993e61130">   65</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../da/db4/structButtonList.html#ad7445659822f0579c483505993e61130">size</a>;       </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>} <a class="code hl_struct" href="../../da/db4/structButtonList.html">ButtonList</a>;</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="};">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../df/dd7/structSlider.html">   74</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../df/dd7/structSlider.html">Slider</a> {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="../../df/dd7/structSlider.html#a85af70ee4db87fede8369bf981a32557">   75</a></span>    SDL_Rect <a class="code hl_variable" href="../../df/dd7/structSlider.html#a85af70ee4db87fede8369bf981a32557">rect</a>;                  </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="../../df/dd7/structSlider.html#a14e0d872ff4a1b010dd71f26bd1ac9f1">   76</a></span>    SDL_Rect <a class="code hl_variable" href="../../df/dd7/structSlider.html#a14e0d872ff4a1b010dd71f26bd1ac9f1">initialBar</a>;            </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../df/dd7/structSlider.html#a275f3826dcc7aeb875be76feed365c78">   77</a></span>    SDL_Rect <a class="code hl_variable" href="../../df/dd7/structSlider.html#a275f3826dcc7aeb875be76feed365c78">cursor</a>;                </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../df/dd7/structSlider.html#acf7729cd31578b1a26c812d3da581f26">   78</a></span>    SDL_Rect <a class="code hl_variable" href="../../df/dd7/structSlider.html#acf7729cd31578b1a26c812d3da581f26">initialCursor</a>;         </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="../../df/dd7/structSlider.html#a00c7337ffabf5ae63eca715ca5bae397">   79</a></span>    SDL_Color <a class="code hl_variable" href="../../df/dd7/structSlider.html#a00c7337ffabf5ae63eca715ca5bae397">color</a>;                </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="../../df/dd7/structSlider.html#afac1472537743bb654e1ebd4b9ac6a55">   80</a></span>    SDL_Color <a class="code hl_variable" href="../../df/dd7/structSlider.html#afac1472537743bb654e1ebd4b9ac6a55">cursorColor</a>;          </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="../../df/dd7/structSlider.html#aa811583b6f67d65a10df313ab25481c7">   81</a></span>    SDL_Texture *<a class="code hl_variable" href="../../df/dd7/structSlider.html#aa811583b6f67d65a10df313ab25481c7">textureCursor</a>;     </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="../../df/dd7/structSlider.html#a555f0a2b63f0ecf012d4f4b2b1eeffc8">   82</a></span>    SDL_Texture *<a class="code hl_variable" href="../../df/dd7/structSlider.html#a555f0a2b63f0ecf012d4f4b2b1eeffc8">textureBar</a>;        </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="../../df/dd7/structSlider.html#a1de0eae97b505e36baf7b8069d4562f0">   83</a></span>    SDL_Renderer *<a class="code hl_variable" href="../../df/dd7/structSlider.html#a1de0eae97b505e36baf7b8069d4562f0">renderer</a>;         </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="../../df/dd7/structSlider.html#ae7a169abde25f6d0c42837b1b201f11a">   84</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="../../df/dd7/structSlider.html#ae7a169abde25f6d0c42837b1b201f11a">value</a>;                    </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="../../df/dd7/structSlider.html#aea0d11495677602ea0c0b35d25088c5f">   85</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../df/dd7/structSlider.html#aea0d11495677602ea0c0b35d25088c5f">dragging</a>;                   </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>} <a class="code hl_struct" href="../../df/dd7/structSlider.html">Slider</a>;</div>
+</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="foldopen" id="foldopen00094" data-start="{" data-end="};">
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="../../db/d53/structSliderList.html">   94</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="../../db/d53/structSliderList.html">SliderList</a> {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="../../db/d53/structSliderList.html#a10738247d3a9859446f1bc50f12bad05">   95</a></span>    <a class="code hl_struct" href="../../df/dd7/structSlider.html">Slider</a> **<a class="code hl_variable" href="../../db/d53/structSliderList.html#a10738247d3a9859446f1bc50f12bad05">sliders</a>; </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="../../db/d53/structSliderList.html#acbbb8cbaf76e0f24dbac3d658d8d1c05">   96</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="../../db/d53/structSliderList.html#acbbb8cbaf76e0f24dbac3d658d8d1c05">size</a>;       </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>} <a class="code hl_struct" href="../../db/d53/structSliderList.html">SliderList</a>;</div>
+</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="../../d3/d70/Buttons_8h.html#a6e42448bfedad8ffa789e09b45782fe7">  113</a></span><a class="code hl_struct" href="../../d7/d19/structButton.html">Button</a> *<a class="code hl_function" href="../../d3/d70/Buttons_8h.html#a6e42448bfedad8ffa789e09b45782fe7">createButton</a>(<span class="keywordtype">char</span> *text, <a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, SDL_Rect rect, SDL_Color color, SDL_Color textcolor,</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                     <span class="keywordtype">void</span> (*onClick)(<a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win, <span class="keywordtype">void</span> *<a class="code hl_enumvalue" href="../../dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b">data</a>), <span class="keywordtype">void</span> *<a class="code hl_enumvalue" href="../../dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b">data</a>, TTF_Font *font,</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                     <span class="keyword">const</span> <span class="keywordtype">char</span> *imagePath);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d70/Buttons_8h.html#ae76e871e4375b26d06e1e703325002ad">addListButton</a>(<a class="code hl_struct" href="../../da/db4/structButtonList.html">ButtonList</a> *list, <a class="code hl_struct" href="../../d7/d19/structButton.html">Button</a> **buttons, <span class="keywordtype">int</span> count);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d70/Buttons_8h.html#a6f2d10aaa75aec651d944a49824dfaca">destroyButtonList</a>(<a class="code hl_struct" href="../../da/db4/structButtonList.html">ButtonList</a> *list);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d70/Buttons_8h.html#a73fede4267ce18db513f7ea5e430cdca">renderButtonList</a>(<a class="code hl_struct" href="../../da/db4/structButtonList.html">ButtonList</a> *B);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d70/Buttons_8h.html#ad1f08565a6d9a8c92fc8f2c752b8e915">ButtonClicked</a>(<a class="code hl_struct" href="../../d7/d19/structButton.html">Button</a> *button, <span class="keywordtype">int</span> mouseX, <span class="keywordtype">int</span> mouseY, <a class="code hl_struct" href="../../d6/d08/structWindow.html">Window</a> *win);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d70/Buttons_8h.html#a604a2e476e66033908fc016c70138aac">updateButtonPosition</a>(<a class="code hl_struct" href="../../da/db4/structButtonList.html">ButtonList</a> *buttons, <span class="keywordtype">float</span> Scalex, <span class="keywordtype">float</span> Scaley);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d70/Buttons_8h.html#a46d3f067fb44669bc3438b8030823799">setButtonText</a>(<a class="code hl_struct" href="../../d7/d19/structButton.html">Button</a> *button, <span class="keyword">const</span> <span class="keywordtype">char</span> *text, SDL_Renderer *renderer);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><a class="code hl_struct" href="../../df/dd7/structSlider.html">Slider</a> *<a class="code hl_function" href="../../d3/d70/Buttons_8h.html#a38653592fe2d409f3a7a620a1d6de080">createSlider</a>(SDL_Renderer *renderer, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h, SDL_Color color,</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                     SDL_Color cursorColor);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="../../d3/d70/Buttons_8h.html#ac397d132d59d67574bd320918402f5a2">  192</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d70/Buttons_8h.html#ac397d132d59d67574bd320918402f5a2">DragCursor</a>(<a class="code hl_struct" href="../../df/dd7/structSlider.html">Slider</a> *slider, <span class="keywordtype">int</span> mouseX);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d70/Buttons_8h.html#a36eeecc07a5e96684859833ad0986c4a">renderSlider</a>(<a class="code hl_struct" href="../../df/dd7/structSlider.html">Slider</a> *slider);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d70/Buttons_8h.html#afa394eaa634219089d84e0d91e3a6345">destroySlider</a>(<a class="code hl_struct" href="../../df/dd7/structSlider.html">Slider</a> *slider);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d70/Buttons_8h.html#abcb6effb395215a5c8d11247edfcaaf2">destroySliderList</a>(<a class="code hl_struct" href="../../db/d53/structSliderList.html">SliderList</a> *list);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d70/Buttons_8h.html#ab4f0f8d2f09eef09c6ba3cadb1f66f5c">addListSlider</a>(<a class="code hl_struct" href="../../db/d53/structSliderList.html">SliderList</a> *S, <a class="code hl_struct" href="../../df/dd7/structSlider.html">Slider</a> *sliders[], <span class="keywordtype">int</span> size);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d70/Buttons_8h.html#a160b73f6e05ac0b81b4fd57a404393f0">renderSliderList</a>(<a class="code hl_struct" href="../../db/d53/structSliderList.html">SliderList</a> *S);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d3/d70/Buttons_8h.html#a45f0315f0ea8b5ef2e7beec0f31b52da">handleSliderEvent</a>(<a class="code hl_struct" href="../../df/dd7/structSlider.html">Slider</a> *slider, SDL_Event *event);</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d70/Buttons_8h.html#a109411bd394d38718374d0b1fde9a020">updateSliderPosition</a>(<a class="code hl_struct" href="../../db/d53/structSliderList.html">SliderList</a> *sliders, <span class="keywordtype">float</span> Scalex, <span class="keywordtype">float</span> Scaley);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aButtons_8h_html_a109411bd394d38718374d0b1fde9a020"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#a109411bd394d38718374d0b1fde9a020">updateSliderPosition</a></div><div class="ttdeci">void updateSliderPosition(SliderList *sliders, float Scalex, float Scaley)</div><div class="ttdoc">Met à jour la position des curseurs en fonction des coordonnées X et Y de la souris.</div><div class="ttdef"><b>Definition</b> Buttons.c:403</div></div>
+<div class="ttc" id="aButtons_8h_html_a160b73f6e05ac0b81b4fd57a404393f0"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#a160b73f6e05ac0b81b4fd57a404393f0">renderSliderList</a></div><div class="ttdeci">void renderSliderList(SliderList *S)</div><div class="ttdoc">Rend la liste de curseurs.</div><div class="ttdef"><b>Definition</b> Buttons.c:337</div></div>
+<div class="ttc" id="aButtons_8h_html_a36eeecc07a5e96684859833ad0986c4a"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#a36eeecc07a5e96684859833ad0986c4a">renderSlider</a></div><div class="ttdeci">void renderSlider(Slider *slider)</div><div class="ttdoc">Rend un curseur.</div><div class="ttdef"><b>Definition</b> Buttons.c:343</div></div>
+<div class="ttc" id="aButtons_8h_html_a38653592fe2d409f3a7a620a1d6de080"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#a38653592fe2d409f3a7a620a1d6de080">createSlider</a></div><div class="ttdeci">Slider * createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Color color, SDL_Color cursorColor)</div><div class="ttdoc">Crée un objet Slider.</div><div class="ttdef"><b>Definition</b> Buttons.c:268</div></div>
+<div class="ttc" id="aButtons_8h_html_a45f0315f0ea8b5ef2e7beec0f31b52da"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#a45f0315f0ea8b5ef2e7beec0f31b52da">handleSliderEvent</a></div><div class="ttdeci">int handleSliderEvent(Slider *slider, SDL_Event *event)</div><div class="ttdoc">Gère l'événement de curseur.</div><div class="ttdef"><b>Definition</b> Buttons.c:372</div></div>
+<div class="ttc" id="aButtons_8h_html_a46d3f067fb44669bc3438b8030823799"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#a46d3f067fb44669bc3438b8030823799">setButtonText</a></div><div class="ttdeci">void setButtonText(Button *button, const char *text, SDL_Renderer *renderer)</div><div class="ttdoc">Définit le texte d'un bouton.</div><div class="ttdef"><b>Definition</b> Buttons.c:230</div></div>
+<div class="ttc" id="aButtons_8h_html_a604a2e476e66033908fc016c70138aac"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#a604a2e476e66033908fc016c70138aac">updateButtonPosition</a></div><div class="ttdeci">void updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley)</div><div class="ttdoc">Met à jour les états des boutons et applique des facteurs de mise à l'échelle aux éléments de l'inter...</div><div class="ttdef"><b>Definition</b> Buttons.c:210</div></div>
+<div class="ttc" id="aButtons_8h_html_a6e42448bfedad8ffa789e09b45782fe7"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#a6e42448bfedad8ffa789e09b45782fe7">createButton</a></div><div class="ttdeci">Button * createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SDL_Color textcolor, void(*onClick)(Window *win, void *data), void *data, TTF_Font *font, const char *imagePath)</div><div class="ttdoc">Crée et retourne un nouvel objet Button.</div></div>
+<div class="ttc" id="aButtons_8h_html_a6f2d10aaa75aec651d944a49824dfaca"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#a6f2d10aaa75aec651d944a49824dfaca">destroyButtonList</a></div><div class="ttdeci">void destroyButtonList(ButtonList *list)</div><div class="ttdoc">Détruit la liste de boutons.</div><div class="ttdef"><b>Definition</b> Buttons.c:164</div></div>
+<div class="ttc" id="aButtons_8h_html_a73fede4267ce18db513f7ea5e430cdca"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#a73fede4267ce18db513f7ea5e430cdca">renderButtonList</a></div><div class="ttdeci">void renderButtonList(ButtonList *B)</div><div class="ttdoc">Rend la liste de boutons.</div><div class="ttdef"><b>Definition</b> Buttons.c:187</div></div>
+<div class="ttc" id="aButtons_8h_html_ab4f0f8d2f09eef09c6ba3cadb1f66f5c"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#ab4f0f8d2f09eef09c6ba3cadb1f66f5c">addListSlider</a></div><div class="ttdeci">void addListSlider(SliderList *S, Slider *sliders[], int size)</div><div class="ttdoc">Ajoute une liste de curseurs à la liste de curseurs.</div><div class="ttdef"><b>Definition</b> Buttons.c:328</div></div>
+<div class="ttc" id="aButtons_8h_html_abcb6effb395215a5c8d11247edfcaaf2"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#abcb6effb395215a5c8d11247edfcaaf2">destroySliderList</a></div><div class="ttdeci">void destroySliderList(SliderList *list)</div><div class="ttdoc">Détruit la liste de curseurs.</div><div class="ttdef"><b>Definition</b> Buttons.c:317</div></div>
+<div class="ttc" id="aButtons_8h_html_ac397d132d59d67574bd320918402f5a2"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#ac397d132d59d67574bd320918402f5a2">DragCursor</a></div><div class="ttdeci">void DragCursor(Slider *slider, int mouseX)</div><div class="ttdoc">Déplace le curseur du slider en fonction de la coordonnée X de la souris.</div></div>
+<div class="ttc" id="aButtons_8h_html_ad1f08565a6d9a8c92fc8f2c752b8e915"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#ad1f08565a6d9a8c92fc8f2c752b8e915">ButtonClicked</a></div><div class="ttdeci">void ButtonClicked(Button *button, int mouseX, int mouseY, Window *win)</div><div class="ttdoc">Gère l'interaction avec le bouton en fonction de la position actuelle de la souris et du contexte de ...</div><div class="ttdef"><b>Definition</b> Buttons.c:203</div></div>
+<div class="ttc" id="aButtons_8h_html_ae76e871e4375b26d06e1e703325002ad"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#ae76e871e4375b26d06e1e703325002ad">addListButton</a></div><div class="ttdeci">void addListButton(ButtonList *list, Button **buttons, int count)</div><div class="ttdoc">Ajoute une liste de boutons à la liste de boutons.</div><div class="ttdef"><b>Definition</b> Buttons.c:149</div></div>
+<div class="ttc" id="aButtons_8h_html_afa394eaa634219089d84e0d91e3a6345"><div class="ttname"><a href="../../d3/d70/Buttons_8h.html#afa394eaa634219089d84e0d91e3a6345">destroySlider</a></div><div class="ttdeci">void destroySlider(Slider *slider)</div><div class="ttdoc">Détruit un curseur.</div><div class="ttdef"><b>Definition</b> Buttons.c:309</div></div>
+<div class="ttc" id="aUtils_8h_html"><div class="ttname"><a href="../../d9/ded/Utils_8h.html">Utils.h</a></div></div>
+<div class="ttc" id="astructButtonList_html"><div class="ttname"><a href="../../da/db4/structButtonList.html">ButtonList</a></div><div class="ttdoc">Liste de boutons.</div><div class="ttdef"><b>Definition</b> Buttons.h:63</div></div>
+<div class="ttc" id="astructButtonList_html_ad7445659822f0579c483505993e61130"><div class="ttname"><a href="../../da/db4/structButtonList.html#ad7445659822f0579c483505993e61130">ButtonList::size</a></div><div class="ttdeci">int size</div><div class="ttdef"><b>Definition</b> Buttons.h:65</div></div>
+<div class="ttc" id="astructButtonList_html_affb149a874f5043c4b9bd57e1056ef70"><div class="ttname"><a href="../../da/db4/structButtonList.html#affb149a874f5043c4b9bd57e1056ef70">ButtonList::buttons</a></div><div class="ttdeci">Button ** buttons</div><div class="ttdef"><b>Definition</b> Buttons.h:64</div></div>
+<div class="ttc" id="astructButton_html"><div class="ttname"><a href="../../d7/d19/structButton.html">Button</a></div><div class="ttdoc">Représente un bouton dans l'application.</div><div class="ttdef"><b>Definition</b> Buttons.h:38</div></div>
+<div class="ttc" id="astructButton_html_a0b4be5300889197f3e57e7b6530a8acc"><div class="ttname"><a href="../../d7/d19/structButton.html#a0b4be5300889197f3e57e7b6530a8acc">Button::texture</a></div><div class="ttdeci">SDL_Texture * texture</div><div class="ttdef"><b>Definition</b> Buttons.h:45</div></div>
+<div class="ttc" id="astructButton_html_a1a615b8f9d752330c9eee8dab574e6ae"><div class="ttname"><a href="../../d7/d19/structButton.html#a1a615b8f9d752330c9eee8dab574e6ae">Button::renderer</a></div><div class="ttdeci">SDL_Renderer * renderer</div><div class="ttdef"><b>Definition</b> Buttons.h:48</div></div>
+<div class="ttc" id="astructButton_html_a221fd9ab3b9125d019a12be97833172e"><div class="ttname"><a href="../../d7/d19/structButton.html#a221fd9ab3b9125d019a12be97833172e">Button::data</a></div><div class="ttdeci">void * data</div><div class="ttdef"><b>Definition</b> Buttons.h:54</div></div>
+<div class="ttc" id="astructButton_html_a245d00855479e4efa9408976b902292f"><div class="ttname"><a href="../../d7/d19/structButton.html#a245d00855479e4efa9408976b902292f">Button::nom</a></div><div class="ttdeci">char nom[50]</div><div class="ttdef"><b>Definition</b> Buttons.h:39</div></div>
+<div class="ttc" id="astructButton_html_a2ff48776616e5baa53524c9ffd99916a"><div class="ttname"><a href="../../d7/d19/structButton.html#a2ff48776616e5baa53524c9ffd99916a">Button::selectedTexture</a></div><div class="ttdeci">SDL_Texture * selectedTexture</div><div class="ttdef"><b>Definition</b> Buttons.h:47</div></div>
+<div class="ttc" id="astructButton_html_a31b42e45fec1098ac39047981f69c04e"><div class="ttname"><a href="../../d7/d19/structButton.html#a31b42e45fec1098ac39047981f69c04e">Button::textRect</a></div><div class="ttdeci">SDL_Rect textRect</div><div class="ttdef"><b>Definition</b> Buttons.h:42</div></div>
+<div class="ttc" id="astructButton_html_a393319ffc2e21f7c7e4e34aa5a1d8bad"><div class="ttname"><a href="../../d7/d19/structButton.html#a393319ffc2e21f7c7e4e34aa5a1d8bad">Button::onClick</a></div><div class="ttdeci">void(* onClick)(Window *win, void *data)</div><div class="ttdef"><b>Definition</b> Buttons.h:53</div></div>
+<div class="ttc" id="astructButton_html_a6fcfa8e3d62cf1b78f5c4d5c9384b30d"><div class="ttname"><a href="../../d7/d19/structButton.html#a6fcfa8e3d62cf1b78f5c4d5c9384b30d">Button::rect</a></div><div class="ttdeci">SDL_Rect rect</div><div class="ttdef"><b>Definition</b> Buttons.h:40</div></div>
+<div class="ttc" id="astructButton_html_a77671e561daa9db4c9745aa37e8b546a"><div class="ttname"><a href="../../d7/d19/structButton.html#a77671e561daa9db4c9745aa37e8b546a">Button::initialTextRect</a></div><div class="ttdeci">SDL_Rect initialTextRect</div><div class="ttdef"><b>Definition</b> Buttons.h:43</div></div>
+<div class="ttc" id="astructButton_html_a7c393b63851f6641fa4b5eb33d86bc54"><div class="ttname"><a href="../../d7/d19/structButton.html#a7c393b63851f6641fa4b5eb33d86bc54">Button::textTexture</a></div><div class="ttdeci">SDL_Texture * textTexture</div><div class="ttdef"><b>Definition</b> Buttons.h:50</div></div>
+<div class="ttc" id="astructButton_html_a9501a11ea4bf0ecd333c44408afe715e"><div class="ttname"><a href="../../d7/d19/structButton.html#a9501a11ea4bf0ecd333c44408afe715e">Button::initialTexture</a></div><div class="ttdeci">SDL_Texture * initialTexture</div><div class="ttdef"><b>Definition</b> Buttons.h:46</div></div>
+<div class="ttc" id="astructButton_html_a9dc90f55a2045928b0ae372a1ef50620"><div class="ttname"><a href="../../d7/d19/structButton.html#a9dc90f55a2045928b0ae372a1ef50620">Button::initialRect</a></div><div class="ttdeci">SDL_Rect initialRect</div><div class="ttdef"><b>Definition</b> Buttons.h:41</div></div>
+<div class="ttc" id="astructButton_html_a9f2a958c0c8c05c3ef56fd029a1b7b12"><div class="ttname"><a href="../../d7/d19/structButton.html#a9f2a958c0c8c05c3ef56fd029a1b7b12">Button::textcolor</a></div><div class="ttdeci">SDL_Color textcolor</div><div class="ttdef"><b>Definition</b> Buttons.h:51</div></div>
+<div class="ttc" id="astructButton_html_aa5571a7ee87f4a2d6038ca8cfae90ea6"><div class="ttname"><a href="../../d7/d19/structButton.html#aa5571a7ee87f4a2d6038ca8cfae90ea6">Button::font</a></div><div class="ttdeci">TTF_Font * font</div><div class="ttdef"><b>Definition</b> Buttons.h:52</div></div>
+<div class="ttc" id="astructButton_html_abc7931919faeb301d72cb228432925a6"><div class="ttname"><a href="../../d7/d19/structButton.html#abc7931919faeb301d72cb228432925a6">Button::color</a></div><div class="ttdeci">SDL_Color color</div><div class="ttdef"><b>Definition</b> Buttons.h:44</div></div>
+<div class="ttc" id="astructButton_html_adafb1aaa363ab04fca61c94c0937bd3d"><div class="ttname"><a href="../../d7/d19/structButton.html#adafb1aaa363ab04fca61c94c0937bd3d">Button::text</a></div><div class="ttdeci">char * text</div><div class="ttdef"><b>Definition</b> Buttons.h:49</div></div>
+<div class="ttc" id="astructSliderList_html"><div class="ttname"><a href="../../db/d53/structSliderList.html">SliderList</a></div><div class="ttdoc">Liste de curseurs.</div><div class="ttdef"><b>Definition</b> Buttons.h:94</div></div>
+<div class="ttc" id="astructSliderList_html_a10738247d3a9859446f1bc50f12bad05"><div class="ttname"><a href="../../db/d53/structSliderList.html#a10738247d3a9859446f1bc50f12bad05">SliderList::sliders</a></div><div class="ttdeci">Slider ** sliders</div><div class="ttdef"><b>Definition</b> Buttons.h:95</div></div>
+<div class="ttc" id="astructSliderList_html_acbbb8cbaf76e0f24dbac3d658d8d1c05"><div class="ttname"><a href="../../db/d53/structSliderList.html#acbbb8cbaf76e0f24dbac3d658d8d1c05">SliderList::size</a></div><div class="ttdeci">int size</div><div class="ttdef"><b>Definition</b> Buttons.h:96</div></div>
+<div class="ttc" id="astructSlider_html"><div class="ttname"><a href="../../df/dd7/structSlider.html">Slider</a></div><div class="ttdoc">Représente un curseur dans l'application.</div><div class="ttdef"><b>Definition</b> Buttons.h:74</div></div>
+<div class="ttc" id="astructSlider_html_a00c7337ffabf5ae63eca715ca5bae397"><div class="ttname"><a href="../../df/dd7/structSlider.html#a00c7337ffabf5ae63eca715ca5bae397">Slider::color</a></div><div class="ttdeci">SDL_Color color</div><div class="ttdef"><b>Definition</b> Buttons.h:79</div></div>
+<div class="ttc" id="astructSlider_html_a14e0d872ff4a1b010dd71f26bd1ac9f1"><div class="ttname"><a href="../../df/dd7/structSlider.html#a14e0d872ff4a1b010dd71f26bd1ac9f1">Slider::initialBar</a></div><div class="ttdeci">SDL_Rect initialBar</div><div class="ttdef"><b>Definition</b> Buttons.h:76</div></div>
+<div class="ttc" id="astructSlider_html_a1de0eae97b505e36baf7b8069d4562f0"><div class="ttname"><a href="../../df/dd7/structSlider.html#a1de0eae97b505e36baf7b8069d4562f0">Slider::renderer</a></div><div class="ttdeci">SDL_Renderer * renderer</div><div class="ttdef"><b>Definition</b> Buttons.h:83</div></div>
+<div class="ttc" id="astructSlider_html_a275f3826dcc7aeb875be76feed365c78"><div class="ttname"><a href="../../df/dd7/structSlider.html#a275f3826dcc7aeb875be76feed365c78">Slider::cursor</a></div><div class="ttdeci">SDL_Rect cursor</div><div class="ttdef"><b>Definition</b> Buttons.h:77</div></div>
+<div class="ttc" id="astructSlider_html_a555f0a2b63f0ecf012d4f4b2b1eeffc8"><div class="ttname"><a href="../../df/dd7/structSlider.html#a555f0a2b63f0ecf012d4f4b2b1eeffc8">Slider::textureBar</a></div><div class="ttdeci">SDL_Texture * textureBar</div><div class="ttdef"><b>Definition</b> Buttons.h:82</div></div>
+<div class="ttc" id="astructSlider_html_a85af70ee4db87fede8369bf981a32557"><div class="ttname"><a href="../../df/dd7/structSlider.html#a85af70ee4db87fede8369bf981a32557">Slider::rect</a></div><div class="ttdeci">SDL_Rect rect</div><div class="ttdef"><b>Definition</b> Buttons.h:75</div></div>
+<div class="ttc" id="astructSlider_html_aa811583b6f67d65a10df313ab25481c7"><div class="ttname"><a href="../../df/dd7/structSlider.html#aa811583b6f67d65a10df313ab25481c7">Slider::textureCursor</a></div><div class="ttdeci">SDL_Texture * textureCursor</div><div class="ttdef"><b>Definition</b> Buttons.h:81</div></div>
+<div class="ttc" id="astructSlider_html_acf7729cd31578b1a26c812d3da581f26"><div class="ttname"><a href="../../df/dd7/structSlider.html#acf7729cd31578b1a26c812d3da581f26">Slider::initialCursor</a></div><div class="ttdeci">SDL_Rect initialCursor</div><div class="ttdef"><b>Definition</b> Buttons.h:78</div></div>
+<div class="ttc" id="astructSlider_html_ae7a169abde25f6d0c42837b1b201f11a"><div class="ttname"><a href="../../df/dd7/structSlider.html#ae7a169abde25f6d0c42837b1b201f11a">Slider::value</a></div><div class="ttdeci">float value</div><div class="ttdef"><b>Definition</b> Buttons.h:84</div></div>
+<div class="ttc" id="astructSlider_html_aea0d11495677602ea0c0b35d25088c5f"><div class="ttname"><a href="../../df/dd7/structSlider.html#aea0d11495677602ea0c0b35d25088c5f">Slider::dragging</a></div><div class="ttdeci">int dragging</div><div class="ttdef"><b>Definition</b> Buttons.h:85</div></div>
+<div class="ttc" id="astructSlider_html_afac1472537743bb654e1ebd4b9ac6a55"><div class="ttname"><a href="../../df/dd7/structSlider.html#afac1472537743bb654e1ebd4b9ac6a55">Slider::cursorColor</a></div><div class="ttdeci">SDL_Color cursorColor</div><div class="ttdef"><b>Definition</b> Buttons.h:80</div></div>
+<div class="ttc" id="astructWindow_html"><div class="ttname"><a href="../../d6/d08/structWindow.html">Window</a></div><div class="ttdoc">Représente la fenêtre principale de l'application.</div><div class="ttdef"><b>Definition</b> Window.h:55</div></div>
+<div class="ttc" id="astructures_8h_html_a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b"><div class="ttname"><a href="../../dd/da3/structures_8h.html#a7aa89bcce33ca45f04236a0df17656e2a604ac82e88d7a367d4c2830411520c2b">data</a></div><div class="ttdeci">@ data</div><div class="ttdef"><b>Definition</b> structures.h:15</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../d3/d70/Buttons_8h.html">Buttons.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

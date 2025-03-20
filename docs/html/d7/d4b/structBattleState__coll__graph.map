@@ -1,0 +1,18 @@
+<map id="BattleState" name="BattleState">
+<area shape="rect" id="Node000001" title="Données de combat." alt="" coords="153,1640,262,1785"/>
+<area shape="rect" id="Node000002" href="$da/d63/structt__Team.html" title="La structure t_Team contient tout les attributs nécessaire à la génération et à l&#39;utilisation d&#39;une é..." alt="" coords="61,1044,183,1249"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,1250,95,1323,92,1406,97,1493,104,1535,115,1576,128,1607,146,1636,141,1639,123,1610,110,1578,99,1536,92,1493,87,1406,90,1323,99,1249"/>
+<area shape="rect" id="Node000007" href="$d5/d48/structAI.html" title=" " alt="" coords="175,1402,240,1487"/>
+<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="154,1249,193,1386,188,1387,149,1250"/>
+<area shape="rect" id="Node000003" href="$d7/d09/structt__Poke.html" title=" " alt="" coords="69,676,175,981"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="125,982,125,1028,119,1028,119,982"/>
+<area shape="rect" id="Node000004" href="$d1/d68/structt__Move.html" title=" " alt="" coords="5,288,132,613"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,613,99,652,100,659,95,660,94,652,89,614"/>
+<area shape="rect" id="Node000005" href="$dd/d1a/structIMG__ICMons.html" title="Représente un sprite ICMons dans l&#39;application." alt="" coords="157,298,303,603"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="189,605,175,653,173,661,168,659,170,651,184,603"/>
+<area shape="rect" id="Node000006" href="$d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application." alt="" coords="179,5,281,211"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="233,211,233,281,227,281,227,211"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="210,1487,210,1623,205,1623,205,1487"/>
+<area shape="rect" id="Node000008" href="$d2/db3/structScrollingText.html" title=" " alt="" coords="264,1312,383,1577"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="268,1579,248,1626,243,1624,263,1576"/>
+</map>
