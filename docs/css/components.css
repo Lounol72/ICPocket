@@ -265,11 +265,14 @@ nav button, #nav-right input {
 
 .team-member {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: var(--steam-dark);
     border-radius: var(--border-radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
 }
 
 .team-member:hover {
@@ -278,10 +281,14 @@ nav button, #nav-right input {
 }
 
 .member-avatar {
-    flex: 0 0 120px;
-    align-self: stretch;
+    flex: 0 0 90px;
+    height: 90px;
     position: relative;
     overflow: hidden;
+    border-radius: 50%;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(102, 192, 244, 0.4);
+    border: 2px solid var(--steam-light);
 }
 
 .member-avatar img {
@@ -289,15 +296,18 @@ nav button, #nav-right input {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
+    border-radius: 50%;
 }
 
-.team-member:hover .member-avatar img {
-    transform: scale(1.05);
+/* Effet de halo lumineux au survol */
+.team-member:hover .member-avatar {
+    box-shadow: 0 0 20px rgba(27, 209, 233, 0.8);
 }
 
 .member-info {
-    flex: 1;
+    text-align: center;
     padding: 1.5rem;
+    width: 100%;
 }
 
 .member-info h3 {
@@ -510,8 +520,8 @@ nav a.active {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
 }
 
 /* État de chargement pour la grille d'équipe */
@@ -533,4 +543,68 @@ nav a.active {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Styles pour l'indicateur de fraîcheur des données */
+.data-freshness {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: #acb2b8;
+    font-style: italic;
+}
+
+.data-freshness::before {
+    content: '';
+    display: block;
+    width: 30%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(102, 192, 244, 0.3), transparent);
+    margin: 1rem auto;
+}
+
+/* Style avatar façon photo de profil optimisé */
+.member-avatar {
+    flex: 0 0 90px; /* Taille réduite */
+    height: 90px;   /* Hauteur fixe pour garantir un cercle parfait */
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(102, 192, 244, 0.4);
+    border: 2px solid var(--steam-light);
+}
+
+.member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    border-radius: 50%;
+}
+
+/* Pour garantir que l'avatar est bien centré */
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--steam-dark);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.member-info {
+    width: 100%;
+    padding-top: 0.75rem;
+}
+
+.member-contributions {
+    font-size: 0.9rem;
+    color: var(--steam-light);
+    margin: 0.75rem 0;
+}
+
+.member-contributions i {
+    margin-right: 0.5rem;
 }

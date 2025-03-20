@@ -1,0 +1,51 @@
+name: Update GitHub Data
+
+on:
+  schedule:
+    - cron: '0 */1 * * *'  # Exécuter toutes les heures
+  workflow_dispatch:       # Permet de déclencher manuellement
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write      # Nécessaire pour commit les changements
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Fetch GitHub Data
+        run: |
+          mkdir -p docs/data
+          
+          # Repo info
+          curl -s -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }} > docs/data/repo.json
+          
+          # Contributors
+          curl -s -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }}/contributors > docs/data/contributors.json
+          
+          # Releases
+          curl -s -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }}/releases > docs/data/releases.json
+          
+          # Commits (limités aux 30 derniers)
+          curl -s -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }}/commits > docs/data/commits.json
+          
+          # Créer un fichier metadata.json
+          echo "{\"last_updated\":\"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\"}" > docs/data/metadata.json
+      
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add docs/data/
+          git diff --staged --quiet || (git commit -m "📊 Update GitHub data" && git push) 

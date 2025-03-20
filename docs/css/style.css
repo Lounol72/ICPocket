@@ -752,17 +752,19 @@ footer {
 
 .social-links {
     display: flex;
-    flex-direction: column;
+    
     gap: 0.75rem;
 }
 
 .social-link {
     color: #acb2b8;
+    font-size: 2rem;
     text-decoration: none;
     padding: 0.5rem;
     border-radius: var(--border-radius-sm);
     transition: all 0.2s ease;
     display: flex;
+    text-align: center;
     align-items: center;
 }
 

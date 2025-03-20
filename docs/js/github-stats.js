@@ -4,7 +4,13 @@ const REPO_NAME = 'ICPocket';
 
 // Fonction pour formater les nombres avec séparateur de milliers
 function formatNumber(num) {
-    return new Intl.NumberFormat().format(num);
+    if (num >= 1000000) {
+        return (num / 1000000).toFixed(1) + 'M';
+    }
+    if (num >= 1000) {
+        return (num / 1000).toFixed(1) + 'K';
+    }
+    return num.toString();
 }
 
 // Récupérer les statistiques GitHub
@@ -45,29 +51,13 @@ async function fetchGitHubStats() {
 
 // Mettre à jour les statistiques sur la page
 function updateStats(stats) {
-    // Stars
-    const starsElement = document.querySelector('.stat-value[data-stat="stars"]');
-    if (starsElement) {
-        starsElement.textContent = formatNumber(stats.stars);
-    }
-    
-    // Contributeurs
-    const contributorsElement = document.querySelector('.stat-value[data-stat="contributors"]');
-    if (contributorsElement) {
-        contributorsElement.textContent = formatNumber(stats.contributors);
-    }
-    
-    // Forks
-    const forksElement = document.querySelector('.stat-value[data-stat="forks"]');
-    if (forksElement) {
-        forksElement.textContent = formatNumber(stats.forks);
-    }
-    
-    // Téléchargements
-    const downloadsElement = document.querySelector('.stat-value[data-stat="downloads"]');
-    if (downloadsElement) {
-        downloadsElement.textContent = formatNumber(stats.downloads) + '+';
-    }
+    // Pour chaque type de statistique, mettre à jour l'affichage
+    document.querySelectorAll('[data-stat]').forEach(element => {
+        const statType = element.getAttribute('data-stat');
+        if (stats[statType] !== undefined) {
+            element.textContent = formatNumber(stats[statType]);
+        }
+    });
 }
 
 // Récupérer les milestones GitHub pour la roadmap
@@ -272,16 +262,27 @@ function updateNewsSection(releases) {
     // Vider le contenu actuel
     newsContent.innerHTML = '';
     
-    // Ajouter chaque release comme un élément d'actualité
-    releases.forEach(release => {
+    // Ajouter les 2 dernières releases
+    releases.slice(0, 2).forEach(release => {
+        const publishDate = new Date(release.published_at);
+        
+        // Extraire la première phrase de la description ou les 100 premiers caractères
+        let description = release.body || "";
+        if (description.length > 100) {
+            const firstSentenceMatch = description.match(/^.+?[.!?]/);
+            description = firstSentenceMatch 
+                ? firstSentenceMatch[0] 
+                : description.substring(0, 100) + "...";
+        }
+        
         const newsItem = document.createElement('div');
         newsItem.className = 'news-item';
         
         newsItem.innerHTML = `
-            <div class="news-date">${release.date}</div>
-            <div class="news-title">${release.title}</div>
-            <p>${release.description}</p>
-            <a href="${release.url}" target="_blank" rel="noopener noreferrer">Voir plus</a>
+            <div class="news-date">${publishDate.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })}</div>
+            <div class="news-title">${release.name || `Version ${release.tag_name}`}</div>
+            <p>${description}</p>
+            <a href="${release.html_url}" target="_blank" rel="noopener noreferrer">Voir plus</a>
         `;
         
         newsContent.appendChild(newsItem);
@@ -290,13 +291,20 @@ function updateNewsSection(releases) {
     // Ajouter un lien vers toutes les releases
     const moreNews = document.createElement('a');
     moreNews.className = 'more-news';
-    moreNews.href = `https://github.com/${REPO_OWNER}/${REPO_NAME}/releases`;
-    moreNews.target = '_blank';
-    moreNews.rel = 'noopener noreferrer';
+    moreNews.href = `news.html`;
     moreNews.textContent = 'Voir toutes les actualités →';
     
     newsContent.appendChild(moreNews);
 }
+
+// Écouteurs d'événements pour les données GitHub
+document.addEventListener(window.GitHubData.EVENTS.STATS_READY, function(e) {
+    updateStats(e.detail);
+});
+
+document.addEventListener(window.GitHubData.EVENTS.RELEASES_READY, function(e) {
+    updateNewsSection(e.detail);
+});
 
 // Appeler les deux fonctions au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
