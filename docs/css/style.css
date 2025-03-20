@@ -1,0 +1,313 @@
+/* Variables pour les couleurs */
+:root {
+    --steam-dark: #171a21;
+    --steam-blue: #1b2838;
+    --steam-light: #66c0f4;
+    --steam-hover: #1bd1e9;
+}
+
+@font-face {
+    font-family: 'PressStart2P';
+    src: url('/assets/fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--steam-blue);
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    display: flex;
+    background-color: var(--steam-dark);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#nav-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+nav button, #nav-right input {
+    background-color: var(--steam-blue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+nav button:hover {
+    background-color: var(--steam-light);
+    color: var(--steam-dark);
+}
+
+nav button a {
+    text-decoration: none;
+    color: white;
+}
+
+nav button {
+    border-radius: 0px;
+    border: none;
+    border-left: 1px solid rgba(142, 238, 241, 0.705);
+    background-color: inherit;
+    color: white;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+nav button:hover {
+    background-color: var(--steam-hover);
+}
+
+nav button:hover a {
+    color: var(--steam-dark);
+}
+
+#top {
+    position: relative;
+    height: 60vh;
+    background-image: url(../../assets/Title\ Screen/BG.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+#top::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(transparent, var(--steam-blue));
+    z-index: 1;
+}
+
+h1 {
+    position: relative;
+    z-index: 2;
+    font-family: 'PressStart2P';
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+#game-info {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.screenshots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.screenshot {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.screenshot:hover {
+    transform: scale(1.05);
+}
+
+.features {
+    background-color: var(--steam-dark);
+    padding: 2rem;
+    border-radius: 5px;
+    margin: 2rem 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.feature-icon {
+    margin-right: 1rem;
+    color: var(--steam-light);
+}
+
+footer {
+    background-color: var(--steam-dark);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.download-button {
+    position: relative;
+    z-index: 2;
+    background-color: var(--steam-light);
+    color: var(--steam-dark);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.download-button:hover {
+    background-color: var(--steam-hover);
+    transform: translateY(-2px);
+}
+
+.download-button i {
+    font-size: 1.4rem;
+}
+
+#title {
+    
+    font-weight: bold;
+}
+#rest {
+    display: flex;
+
+}
+
+#dev-team-links {
+    background-color: #1bd1e9;
+    height: 100vh;
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    flex-direction: column;
+}
+#dev-team-links button{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+#dev-team-links button a {
+    background-color: #ffffff8f;
+    color: rgb(107, 99, 99);
+    border: none;
+    padding: 10px;
+}
+
+#dev-team-links button a {
+    text-decoration: none;
+    color: black;
+}
+#dev-team-links button:hover {
+    background-color: #00000021;
+    color: #6e6a6a;
+}
+
+.dev-team {
+    background-color: var(--steam-dark);
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin-top: 2rem;
+}
+
+.dev-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dev-links button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--steam-blue);
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 100%;
+    transition: all 0.3s ease;
+    color: white;
+    cursor: pointer;
+}
+
+.dev-links button:hover {
+    background-color: var(--steam-light);
+    transform: translateX(5px);
+}
+
+.dev-links i {
+    font-size: 1.5rem;
+    color: var(--steam-light);
+}
+
+.dev-links button:hover i {
+    color: var(--steam-dark);
+}
+
+.dev-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.dev-links button:hover .dev-link {
+    color: var(--steam-dark);
+}
+
+.search-results {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: var(--steam-dark);
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    max-width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.search-result {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--steam-light);
+}
+
+.search-result:last-child {
+    border-bottom: none;
+}
+
+.search-result h4 {
+    color: var(--steam-light);
+    margin: 0 0 0.5rem 0;
+}
+
+.search-result a {
+    color: var(--steam-hover);
+    text-decoration: none;
+}
+
+.search-result a:hover {
+    text-decoration: underline;
+}
+
+

@@ -3,14 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>ICPocket</title>
 </head>
 <body>
-    <h1>ICMon</h1>
-    
+    <nav>
+        <button><a href="index.html">Accueil</a></button>
+        <button><a href="html/index.html">Documentation</a></button>
+        <button><a href="https://github.com/Lounol72/ICPocket">GitHub</a></button>
+        <div id="nav-right">
+            <input type="text" placeholder="Rechercher...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </nav>
 
-    <h2>Documentation HTML</h2>
-    <a href="html/index.html">Documentation HTML</a>
+    <div id="top">
+        <h1>ICPocket</h1>
+        <button id="downloadButton" class="download-button">
+            <i class="fas fa-download"></i>
+            <span>Télécharger le jeu</span>
+        </button>
+    </div>
+
+    <div id="game-info">
+        <div class="main-content">
+            <div class="screenshots">
+                <img src="assets/screenshots/screen1.jpg" alt="Screenshot 1" class="screenshot">
+                <img src="assets/screenshots/screen2.jpg" alt="Screenshot 2" class="screenshot">
+                <img src="assets/screenshots/screen3.jpg" alt="Screenshot 3" class="screenshot">
+            </div>
+
+            <div class="description">
+                <h2>À propos du jeu</h2>
+                <p>ICPocket est un jeu "Pokemon-like" développé par des étudiants passionnés de l'Université du Mans. 
+                Plongez dans un univers unique où la programmation rencontre l'aventure !</p>
+                
+                <div class="features">
+                    <h3>Caractéristiques principales</h3>
+                    <div class="feature-item">
+                        <i class="fas fa-gamepad feature-icon"></i>
+                        <span>Combats au tour par tour stratégiques</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-map feature-icon"></i>
+                        <span>Monde ouvert à explorer</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-code feature-icon"></i>
+                        <span>Thème unique mêlant technologie et aventure</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="system-requirements">
+                <h3>Configuration requise</h3>
+                <ul>
+                    <li>OS: Windows 10/11 ou Linux</li>
+                    <li>Processeur: Dual Core</li>
+                    <li>Mémoire: 2 GB RAM</li>
+                    <li>Graphiques: Compatible OpenGL</li>
+                    <li>Stockage: 500 MB</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="dev-team">
+                <h3>Équipe de développement</h3>
+                <div class="dev-links">
+                    <button onclick="window.location.href='https://github.com/Lounol72'">
+                        <i class="fas fa-user-ninja"></i>
+                        <span class="dev-link">Lounol72</span>
+                    </button>
+                    <button onclick="window.location.href='https://github.com/AstrozR'">
+                        <i class="fas fa-user-astronaut"></i>
+                        <span class="dev-link">AstrozR</span>
+                    </button>
+                    <button onclick="window.location.href='https://github.com/Natp24109'">
+                        <i class="fas fa-user-secret"></i>
+                        <span class="dev-link">Natp24109</span>
+                    </button>
+                    <button onclick="window.location.href='https://github.com/lOkaal1'">
+                        <i class="fas fa-user-graduate"></i>
+                        <span class="dev-link">Okaal</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 ICPocket Team - Sous licence GPLv3</p>
+        <div class="footer-links">
+            <a href="html/index.html">Documentation</a>
+            <a href="https://github.com/Lounol72/ICPocket">Code source</a>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+
+    <!-- Ajouter une section de résultats de recherche -->
+    <div id="searchResults" class="search-results" style="display: none;">
+        <h3>Résultats de recherche</h3>
+        <div class="results-container"></div>
+    </div>
 </body>
 </html>
