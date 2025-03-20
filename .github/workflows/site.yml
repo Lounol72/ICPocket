@@ -1,0 +1,36 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]  # Remplacez par votre branche principale si différente
+    paths:
+      - 'docs/**'       # Se déclenche uniquement quand des fichiers dans docs sont modifiés
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+        
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs       # Le dossier contenant les fichiers à déployer
+          branch: gh-pages   # La branche où publier le site
+          clean: true        # Nettoie les fichiers existants
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Alternative utilisant l'action officielle de GitHub
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: 'docs'
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
