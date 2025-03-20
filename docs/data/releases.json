@@ -65,7 +65,7 @@
         "content_type": "application/x-zip-compressed",
         "state": "uploaded",
         "size": 98546195,
-        "download_count": 1,
+        "download_count": 5,
         "created_at": "2025-03-08T15:17:29Z",
         "updated_at": "2025-03-08T15:17:37Z",
         "browser_download_url": "https://github.com/Lounol72/ICPocket/releases/download/Pre-release/ICPocket-windows.zip"
