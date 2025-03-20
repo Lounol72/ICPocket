@@ -23,11 +23,19 @@ jobs:
         with:
           fetch-depth: 0
           lfs: false
+          submodules: recursive
           token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Skip LFS setup
         run: |
           git config lfs.fetchexclude "*"
+
+      - name: Verify submodules
+        if: env.HAS_COMMITS == 'true'
+        run: |
+          echo "==== Vérification des submodules ===="
+          git submodule status
+          ls -la */doxygen-awesome* || echo "Submodule doxygen-awesome non trouvé"
 
       - name: Check for today's commits
         id: check_commits
@@ -50,17 +58,12 @@ jobs:
       - name: Generate Documentation
         if: env.HAS_COMMITS == 'true'
         run: |
-          # Afficher le répertoire de travail pour le débogage
           ls -l doxygen-awesome-css/doxygen-custom/header.html
           
-          # Option 1: Spécifier explicitement le chemin du Doxyfile
+          
           make doxygen DOXYFILE_PATH=$(pwd)/Doxyfile
           
-          # Option 2 (alternative): Modifier directement les chemins dans le Doxyfile
-          # sed -i 's|HTML_EXTRA_STYLESHEET  =|HTML_EXTRA_STYLESHEET  = '$(pwd)'/chemin/vers/votre/stylesheet|g' Doxyfile
-          # sed -i 's|HTML_EXTRA_FILES       =|HTML_EXTRA_FILES       = '$(pwd)'/chemin/vers/vos/fichiers|g' Doxyfile
-          # sed -i 's|HTML_HEADER            =|HTML_HEADER            = '$(pwd)'/chemin/vers/votre/header|g' Doxyfile
-          # make doxygen
+          
 
       - name: Commit and Push Documentation
         if: env.HAS_COMMITS == 'true'
