@@ -44,3 +44,15 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+# Forcer GitHub Pages à utiliser les bons types MIME
+include:
+  - "*.css"
+  - "*.js"
+  - "*.ttf"
+  - "*.woff"
+  - "*.woff2"
+
+# Activer le traitement des fichiers CSS
+sass:
+  style: compressed
