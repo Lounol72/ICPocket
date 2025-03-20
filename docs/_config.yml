@@ -1,0 +1,11 @@
+# Configuration Jekyll pour GitHub Pages
+include:
+  - "*.css"
+  - "*.js"
+  - "*.ttf"
+  - "*.woff"
+  - "*.woff2"
+
+# Activer le traitement des fichiers CSS
+sass:
+  style: compressed 

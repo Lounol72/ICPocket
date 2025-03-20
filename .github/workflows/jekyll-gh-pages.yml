@@ -1,58 +1,25 @@
-# Workflow pour déployer le contenu du dossier docs vers GitHub Pages
-name: Deploy site to Pages
+# Votre workflow file devrait ressembler à ceci:
+name: Build and deploy Jekyll site to GitHub Pages
 
 on:
-  # Se déclenche lors d'un push sur la branche principale
   push:
-    branches: ["main"]
-  
-  # Permet de lancer manuellement depuis l'onglet Actions
-  workflow_dispatch:
-
-# Définir les permissions du token GITHUB_TOKEN
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Un seul déploiement simultané
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  # Job de déploiement
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  github-pages:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      
-      # Télécharger le dossier docs comme artefact
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v4
+      - uses: actions/jekyll-build-pages@v1
         with:
-          path: 'docs'  # Le chemin vers votre site
-      
-      # Déployer sur GitHub Pages
+          source: ./docs
+          destination: ./_site
+      - uses: actions/upload-pages-artifact@v3
       - name: Deploy to GitHub Pages
-        id: deployment
+        if: github.event_name == 'push'
         uses: actions/deploy-pages@v4
-
-# Forcer GitHub Pages à utiliser les bons types MIME
-include:
-  - "*.css"
-  - "*.js"
-  - "*.ttf"
-  - "*.woff"
-  - "*.woff2"
-
-# Activer le traitement des fichiers CSS
-sass:
-  style: compressed
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
