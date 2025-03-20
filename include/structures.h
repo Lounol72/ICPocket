@@ -84,6 +84,7 @@ typedef struct{
 	t_Effect effect;
 	int lastEnemiID;
 	int nb_enemiBeat;
+	int id_save;
 }t_Team;
 
 #endif // STRUCTURES_H

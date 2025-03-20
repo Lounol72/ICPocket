@@ -458,7 +458,13 @@ void loadFile(Window *win, void *event){
         char data[50];
         snprintf(data,50,"Save_%s",(char*)event);
         printf("data %s\n",data);
-        charger(data, &game.battleState.rouge, &game.battleState.bleu);
+        if(charger(data, &game.battleState.rouge, &game.battleState.bleu)){
+            printf("Erreur lors du chargement de la sauvegarde\n");
+            printf("Creation d'une nouvelle partie\n");
+            changeState(win, &game.stateHandlers[NEWGAME].state);
+            handleEvent(win, event);
+            return;
+        }
 
         initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
         game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
@@ -502,7 +508,7 @@ void handlePauseEvent(Window *win, SDL_Event *event) {
  * @param event Pointeur sur l'événement SDL.
  */
 void handlePlayerEvent(Window *win, SDL_Event *event) {
-    
+    (void)win;
     (void)event;
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
     int newMatrixX = game.gameData.player->matrixX;

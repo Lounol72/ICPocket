@@ -6,12 +6,10 @@
 *   @param joueur Equipe du joueur
 *   @param adverse Dernier dresseur battu
 */
-void sauvegarder(char * nomSave ,t_Team * joueur,t_Team * adverse){
+void sauvegarder(t_Team * joueur,t_Team * adverse){
     char nomFichier[1024];
-    strcpy(nomFichier , "data/save/");
-    strcat(nomFichier,nomSave);
-    strcat(nomFichier,".txt");
-    FILE *fichier = fopen(nomFichier, "w");
+    snprintf(nomFichier, sizeof(nomFichier), "data/save/Save_%d.txt", joueur->id_save);
+    FILE *fichier = fopen(nomFichier, "w+");
     if(fichier == NULL){
         printf("Erreur : impossible d'ouvrir le fichier.\n");
         exit(1);
@@ -30,6 +28,7 @@ void sauvegarder(char * nomSave ,t_Team * joueur,t_Team * adverse){
             for(int j = 0 ; j < joueur->team[i].nb_move ; j++){
                 fprintf(fichier, "move:%d\n", joueur->team[i].moveList[j].id);
             }
+            fprintf(fichier,"fichier de save_%d\n",joueur->id_save);
             fprintf(fichier,"\n\n");
         }
         fprintf(fichier, "Dernier dresseur battu : %s id: %d\n", adverse->trainerName, adverse->id);
@@ -50,7 +49,9 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur) {
     FILE *fichier = fopen(filePath, "r");
     if (fichier == NULL) {
         printf("Erreur : impossible d'ouvrir le fichier de sauvegarde.\n");
-        return 0;
+        printf("Creation d'un fichier sauvegarde\n");
+        return -1;
+
     } else {
         fscanf(fichier, "User name : %s\n", joueur->trainerName);
         fscanf(fichier, "nb:%d\n", &(joueur->nb_poke));
@@ -71,6 +72,8 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur) {
                 fscanf(fichier, "move:%d\n", &(joueur->team[i].moveList[j].id));
                 joueur->team[i].moveList[j] = generateMove(joueur->team[i].moveList[j].id);
             }
+            fscanf(fichier,"fichier de save_%d\n",&(joueur->id_save));
+
             for(int j=0;j<6;j++) joueur->statChanges[j]=NEUTRAL_STAT_CHANGE;
 		    joueur->team[i].current_pv=calcStatFrom(&(joueur->team[i]),PV);
 		    joueur->team[i].initial_pv = joueur->team[i].current_pv;
@@ -80,7 +83,6 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur) {
                 joueur->team[i].moveList[j].current_pp = joueur->team[i].moveList[j].max_pp;
 		    }
         }
-        
         char temp[10];
         strcpy(dresseur->trainerName,"oui");
         fscanf(fichier, "Dernier dresseur battu : %s id: %d\n", temp, &(joueur->lastEnemiID));
