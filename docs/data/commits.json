@@ -1,5 +1,169 @@
 [
   {
+    "sha": "358dd56b08ff4da01fc4e6aae38cffafd18d63bc",
+    "node_id": "C_kwDONbExYtoAKDM1OGRkNTZiMDhmZjRkYTAxZmM0ZTZhYWUzOGNmZmFmZDE4ZDYzYmM",
+    "commit": {
+      "author": {
+        "name": "Lounol72",
+        "email": "subtil.louis2005@gmail.com",
+        "date": "2025-03-20T21:13:47Z"
+      },
+      "committer": {
+        "name": "Lounol72",
+        "email": "subtil.louis2005@gmail.com",
+        "date": "2025-03-20T21:13:47Z"
+      },
+      "message": "Add doxygen-awesome-css subproject as a new dependency",
+      "tree": {
+        "sha": "c42909efd0fbb1520d678496bcffa5404723d446",
+        "url": "https://api.github.com/repos/Lounol72/ICPocket/git/trees/c42909efd0fbb1520d678496bcffa5404723d446"
+      },
+      "url": "https://api.github.com/repos/Lounol72/ICPocket/git/commits/358dd56b08ff4da01fc4e6aae38cffafd18d63bc",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/Lounol72/ICPocket/commits/358dd56b08ff4da01fc4e6aae38cffafd18d63bc",
+    "html_url": "https://github.com/Lounol72/ICPocket/commit/358dd56b08ff4da01fc4e6aae38cffafd18d63bc",
+    "comments_url": "https://api.github.com/repos/Lounol72/ICPocket/commits/358dd56b08ff4da01fc4e6aae38cffafd18d63bc/comments",
+    "author": {
+      "login": "Lounol72",
+      "id": 104394576,
+      "node_id": "U_kgDOBjjvUA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/104394576?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Lounol72",
+      "html_url": "https://github.com/Lounol72",
+      "followers_url": "https://api.github.com/users/Lounol72/followers",
+      "following_url": "https://api.github.com/users/Lounol72/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Lounol72/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Lounol72/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Lounol72/subscriptions",
+      "organizations_url": "https://api.github.com/users/Lounol72/orgs",
+      "repos_url": "https://api.github.com/users/Lounol72/repos",
+      "events_url": "https://api.github.com/users/Lounol72/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Lounol72/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Lounol72",
+      "id": 104394576,
+      "node_id": "U_kgDOBjjvUA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/104394576?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Lounol72",
+      "html_url": "https://github.com/Lounol72",
+      "followers_url": "https://api.github.com/users/Lounol72/followers",
+      "following_url": "https://api.github.com/users/Lounol72/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Lounol72/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Lounol72/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Lounol72/subscriptions",
+      "organizations_url": "https://api.github.com/users/Lounol72/orgs",
+      "repos_url": "https://api.github.com/users/Lounol72/repos",
+      "events_url": "https://api.github.com/users/Lounol72/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Lounol72/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "27764f62c92a80f34bd9b2872e3ec5d471d85d45",
+        "url": "https://api.github.com/repos/Lounol72/ICPocket/commits/27764f62c92a80f34bd9b2872e3ec5d471d85d45",
+        "html_url": "https://github.com/Lounol72/ICPocket/commit/27764f62c92a80f34bd9b2872e3ec5d471d85d45"
+      }
+    ]
+  },
+  {
+    "sha": "27764f62c92a80f34bd9b2872e3ec5d471d85d45",
+    "node_id": "C_kwDONbExYtoAKDI3NzY0ZjYyYzkyYTgwZjM0YmQ5YjI4NzJlM2VjNWQ0NzFkODVkNDU",
+    "commit": {
+      "author": {
+        "name": "github-actions[bot]",
+        "email": "github-actions[bot]@users.noreply.github.com",
+        "date": "2025-03-20T20:44:46Z"
+      },
+      "committer": {
+        "name": "github-actions[bot]",
+        "email": "github-actions[bot]@users.noreply.github.com",
+        "date": "2025-03-20T20:44:46Z"
+      },
+      "message": "📊 Update GitHub data",
+      "tree": {
+        "sha": "44f57577d52e0e17f63dbd919491c9544132300e",
+        "url": "https://api.github.com/repos/Lounol72/ICPocket/git/trees/44f57577d52e0e17f63dbd919491c9544132300e"
+      },
+      "url": "https://api.github.com/repos/Lounol72/ICPocket/git/commits/27764f62c92a80f34bd9b2872e3ec5d471d85d45",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/Lounol72/ICPocket/commits/27764f62c92a80f34bd9b2872e3ec5d471d85d45",
+    "html_url": "https://github.com/Lounol72/ICPocket/commit/27764f62c92a80f34bd9b2872e3ec5d471d85d45",
+    "comments_url": "https://api.github.com/repos/Lounol72/ICPocket/commits/27764f62c92a80f34bd9b2872e3ec5d471d85d45/comments",
+    "author": {
+      "login": "github-actions[bot]",
+      "id": 41898282,
+      "node_id": "MDM6Qm90NDE4OTgyODI=",
+      "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+      "html_url": "https://github.com/apps/github-actions",
+      "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+      "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+      "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+      "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+      "type": "Bot",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "github-actions[bot]",
+      "id": 41898282,
+      "node_id": "MDM6Qm90NDE4OTgyODI=",
+      "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+      "html_url": "https://github.com/apps/github-actions",
+      "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+      "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+      "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+      "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+      "type": "Bot",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "735e00a5f9dad8b0cfe1df83b58caa1c41ced70c",
+        "url": "https://api.github.com/repos/Lounol72/ICPocket/commits/735e00a5f9dad8b0cfe1df83b58caa1c41ced70c",
+        "html_url": "https://github.com/Lounol72/ICPocket/commit/735e00a5f9dad8b0cfe1df83b58caa1c41ced70c"
+      }
+    ]
+  },
+  {
     "sha": "735e00a5f9dad8b0cfe1df83b58caa1c41ced70c",
     "node_id": "C_kwDONbExYtoAKDczNWUwMGE1ZjlkYWQ4YjBjZmUxZGY4M2I1OGNhYTFjNDFjZWQ3MGM",
     "commit": {
@@ -2307,170 +2471,6 @@
         "sha": "385c22867509417adb51618c063f71700e4d9ec7",
         "url": "https://api.github.com/repos/Lounol72/ICPocket/commits/385c22867509417adb51618c063f71700e4d9ec7",
         "html_url": "https://github.com/Lounol72/ICPocket/commit/385c22867509417adb51618c063f71700e4d9ec7"
-      }
-    ]
-  },
-  {
-    "sha": "e217ea1366c6a176409061320736f62a12312389",
-    "node_id": "C_kwDONbExYtoAKGUyMTdlYTEzNjZjNmExNzY0MDkwNjEzMjA3MzZmNjJhMTIzMTIzODk",
-    "commit": {
-      "author": {
-        "name": "Lounol72",
-        "email": "subtil.louis2005@gmail.com",
-        "date": "2025-03-20T11:17:41Z"
-      },
-      "committer": {
-        "name": "Lounol72",
-        "email": "subtil.louis2005@gmail.com",
-        "date": "2025-03-20T11:17:41Z"
-      },
-      "message": "Fix Doxygen cleanup command to remove all files in the HTML directory",
-      "tree": {
-        "sha": "9cb6f13fd1270efb7bd0f432b409fd2d323c1cd5",
-        "url": "https://api.github.com/repos/Lounol72/ICPocket/git/trees/9cb6f13fd1270efb7bd0f432b409fd2d323c1cd5"
-      },
-      "url": "https://api.github.com/repos/Lounol72/ICPocket/git/commits/e217ea1366c6a176409061320736f62a12312389",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null,
-        "verified_at": null
-      }
-    },
-    "url": "https://api.github.com/repos/Lounol72/ICPocket/commits/e217ea1366c6a176409061320736f62a12312389",
-    "html_url": "https://github.com/Lounol72/ICPocket/commit/e217ea1366c6a176409061320736f62a12312389",
-    "comments_url": "https://api.github.com/repos/Lounol72/ICPocket/commits/e217ea1366c6a176409061320736f62a12312389/comments",
-    "author": {
-      "login": "Lounol72",
-      "id": 104394576,
-      "node_id": "U_kgDOBjjvUA",
-      "avatar_url": "https://avatars.githubusercontent.com/u/104394576?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Lounol72",
-      "html_url": "https://github.com/Lounol72",
-      "followers_url": "https://api.github.com/users/Lounol72/followers",
-      "following_url": "https://api.github.com/users/Lounol72/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Lounol72/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Lounol72/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Lounol72/subscriptions",
-      "organizations_url": "https://api.github.com/users/Lounol72/orgs",
-      "repos_url": "https://api.github.com/users/Lounol72/repos",
-      "events_url": "https://api.github.com/users/Lounol72/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Lounol72/received_events",
-      "type": "User",
-      "user_view_type": "public",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "Lounol72",
-      "id": 104394576,
-      "node_id": "U_kgDOBjjvUA",
-      "avatar_url": "https://avatars.githubusercontent.com/u/104394576?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Lounol72",
-      "html_url": "https://github.com/Lounol72",
-      "followers_url": "https://api.github.com/users/Lounol72/followers",
-      "following_url": "https://api.github.com/users/Lounol72/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Lounol72/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Lounol72/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Lounol72/subscriptions",
-      "organizations_url": "https://api.github.com/users/Lounol72/orgs",
-      "repos_url": "https://api.github.com/users/Lounol72/repos",
-      "events_url": "https://api.github.com/users/Lounol72/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Lounol72/received_events",
-      "type": "User",
-      "user_view_type": "public",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "aba43938c96be0615e78aba30714230fdb09dfa2",
-        "url": "https://api.github.com/repos/Lounol72/ICPocket/commits/aba43938c96be0615e78aba30714230fdb09dfa2",
-        "html_url": "https://github.com/Lounol72/ICPocket/commit/aba43938c96be0615e78aba30714230fdb09dfa2"
-      }
-    ]
-  },
-  {
-    "sha": "aba43938c96be0615e78aba30714230fdb09dfa2",
-    "node_id": "C_kwDONbExYtoAKGFiYTQzOTM4Yzk2YmUwNjE1ZTc4YWJhMzA3MTQyMzBmZGIwOWRmYTI",
-    "commit": {
-      "author": {
-        "name": "Lounol72",
-        "email": "subtil.louis2005@gmail.com",
-        "date": "2025-03-20T11:16:21Z"
-      },
-      "committer": {
-        "name": "Lounol72",
-        "email": "subtil.louis2005@gmail.com",
-        "date": "2025-03-20T11:16:21Z"
-      },
-      "message": "Add initial HTML documentation structure",
-      "tree": {
-        "sha": "97a1dce49c461941594e2373af2d2f4d6ae1e96b",
-        "url": "https://api.github.com/repos/Lounol72/ICPocket/git/trees/97a1dce49c461941594e2373af2d2f4d6ae1e96b"
-      },
-      "url": "https://api.github.com/repos/Lounol72/ICPocket/git/commits/aba43938c96be0615e78aba30714230fdb09dfa2",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null,
-        "verified_at": null
-      }
-    },
-    "url": "https://api.github.com/repos/Lounol72/ICPocket/commits/aba43938c96be0615e78aba30714230fdb09dfa2",
-    "html_url": "https://github.com/Lounol72/ICPocket/commit/aba43938c96be0615e78aba30714230fdb09dfa2",
-    "comments_url": "https://api.github.com/repos/Lounol72/ICPocket/commits/aba43938c96be0615e78aba30714230fdb09dfa2/comments",
-    "author": {
-      "login": "Lounol72",
-      "id": 104394576,
-      "node_id": "U_kgDOBjjvUA",
-      "avatar_url": "https://avatars.githubusercontent.com/u/104394576?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Lounol72",
-      "html_url": "https://github.com/Lounol72",
-      "followers_url": "https://api.github.com/users/Lounol72/followers",
-      "following_url": "https://api.github.com/users/Lounol72/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Lounol72/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Lounol72/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Lounol72/subscriptions",
-      "organizations_url": "https://api.github.com/users/Lounol72/orgs",
-      "repos_url": "https://api.github.com/users/Lounol72/repos",
-      "events_url": "https://api.github.com/users/Lounol72/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Lounol72/received_events",
-      "type": "User",
-      "user_view_type": "public",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "Lounol72",
-      "id": 104394576,
-      "node_id": "U_kgDOBjjvUA",
-      "avatar_url": "https://avatars.githubusercontent.com/u/104394576?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Lounol72",
-      "html_url": "https://github.com/Lounol72",
-      "followers_url": "https://api.github.com/users/Lounol72/followers",
-      "following_url": "https://api.github.com/users/Lounol72/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Lounol72/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Lounol72/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Lounol72/subscriptions",
-      "organizations_url": "https://api.github.com/users/Lounol72/orgs",
-      "repos_url": "https://api.github.com/users/Lounol72/repos",
-      "events_url": "https://api.github.com/users/Lounol72/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Lounol72/received_events",
-      "type": "User",
-      "user_view_type": "public",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "999069260eab6ee4125b96fc85ec9bbaa57de256",
-        "url": "https://api.github.com/repos/Lounol72/ICPocket/commits/999069260eab6ee4125b96fc85ec9bbaa57de256",
-        "html_url": "https://github.com/Lounol72/ICPocket/commit/999069260eab6ee4125b96fc85ec9bbaa57de256"
       }
     ]
   }
