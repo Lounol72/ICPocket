@@ -24,14 +24,17 @@ int statVarChange(t_Team * target, int probability, int modifier, int targetedSt
 }
 
 int applyEffect(t_Team * target, int probability, int effect, int bool_main_effect){
-	if(target->team[0].main_effect==noEffect && rand()%100<probability) {
-		if(bool_main_effect){
+	if(bool_main_effect){
+		if(target->team[0].main_effect==noEffect && rand()%100<probability){
 			target->team[0].main_effect=effect;
+			return TRUE;
 		}
-		else{
+	}
+	else{
+		if(target->effect==noEffect && rand()%100<probability){
 			target->effect=effect;
+			return TRUE;
 		}
-		return TRUE;
 	}
 	return FALSE;
 }
@@ -309,6 +312,7 @@ void swapActualAttacker(t_Team * t, int swapIndex){
 	t_Poke sauv=t->team[0];
 	t->team[0]=t->team[swapIndex-10];
 	t->team[swapIndex-10]=sauv;
+	t->effect=noEffect;
 	setDefaultStatChanges(t);
 	printf("Swapping Happened\n\n");
 }
@@ -388,8 +392,8 @@ int playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 		/*Poison and burn damage applier*/
 		if (isAlive(&(firstTeam->team[0])) && firstTeam->team[0].main_effect==burn) recoilDamage(firstTeam,100,6,0);
 		if (isAlive(&(firstTeam->team[0])) && firstTeam->team[0].main_effect==poison) recoilDamage(firstTeam,100,12,0);
-		if (isAlive(&(firstTeam->team[0])) && firstTeam->team[0].main_effect==burn) recoilDamage(secondTeam,100,6,0);
-		if (isAlive(&(firstTeam->team[0])) && firstTeam->team[0].main_effect==poison) recoilDamage(secondTeam,100,12,0);
+		if (isAlive(&(secondTeam->team[0])) && secondTeam->team[0].main_effect==burn) recoilDamage(secondTeam,100,6,0);
+		if (isAlive(&(secondTeam->team[0])) && secondTeam->team[0].main_effect==poison) recoilDamage(secondTeam,100,12,0);
 		
 		/*flinch reset at end of turn*/
 		if(firstTeam->effect==flinch) firstTeam->effect=noEffect;

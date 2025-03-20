@@ -263,5 +263,7 @@ void executeAction(t_Team *attacker, t_Team *defender, int move);
  */
 void updateBattleTurn();
 
+void finishApplyEffectDamage();
+
 
 #endif /* GAMEENGINE_H */

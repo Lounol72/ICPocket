@@ -990,12 +990,16 @@ void updateBattleTurn() {
             }
             if (game.battleState.text->isComplete) {
                 game.battleState.text->isComplete = false;
+                game.battleState.hasAttacked = false;
                 game.battleState.turnState = TURN_FINISHED;
             }
             break;
         }
         case TURN_FINISHED: {
             // Le tour est terminé
+            if (game.battleState.hasAttacked == false)
+            {finishApplyEffectDamage();game.battleState.hasAttacked = true;}
+
             for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
                 updateICMonText(&game.battleState.bleu.team[i]);
             }
@@ -1005,7 +1009,7 @@ void updateBattleTurn() {
             if(lvl_up_buffer_size!=0 && game.gameState.currentState != LEARNMOVE) {
                 initLearningMove();
             }
-            else if (lvl_up_buffer_size==0 ){
+            else if (lvl_up_buffer_size==0  && game.battleState.text->isComplete){
                 updateICButtons(game.win, &game.battleState.rouge);
                 if(!isAlive(&game.battleState.rouge.team[0]) && isTeamAlive(&game.battleState.rouge)) changeState(game.win, &game.stateHandlers[6].state);
                 if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {
@@ -1039,7 +1043,7 @@ void updateBattleTurn() {
 }
 
 void executeAction(t_Team *attacker, t_Team *defender, int move) {
-    char msg[50] = "";
+    char msg[60] = "";
     // Si le Pokémon n'a plus de PP et qu'il attaque, forcer l'utilisation de Lutte.
     if (!hasMoveLeft(&(attacker->team[0])) && isAttacking(move)) {
         printf("Lutte\n");
@@ -1062,6 +1066,20 @@ void executeAction(t_Team *attacker, t_Team *defender, int move) {
 
     // Si l'action est une attaque
     if (isAttacking(move)) {
+
+        /*flinch check*/
+        if(attacker->effect==flinch){
+            sprintf(msg, "%s a peur, il ne peut pas attaquer !",attacker->team[0].name);
+            resetScrollingText(game.battleState.text, msg);
+            return;
+        }
+        /*paralyze check*/
+        if(attacker->team[0].main_effect==paralyze && rand()%100<25){
+            sprintf(msg, "%s est paralysé, il ne peut pas bouger !",attacker->team[0].name);
+            resetScrollingText(game.battleState.text, msg);
+            return;
+        }
+
         // Gestion de la confusion
         if (attacker->effect == confusion) {
             // Si le Pokémon est confus et utilise Lutte, ne pas afficher "Lutte" mais "se blesse dans sa confusion"
@@ -1102,4 +1120,32 @@ void executeAction(t_Team *attacker, t_Team *defender, int move) {
         sprintf(msg, "%s change de pokémon !", attacker->team[0].name);
         resetScrollingText(game.battleState.text, msg);
     }
+}
+
+void finishApplyEffectDamage(){
+    char msg[60] = "";
+    if (isAlive(&(game.battleState.rouge.team[0])) && game.battleState.rouge.team[0].main_effect==burn){
+        sprintf(msg,"%s souffre de sa brulûre !",game.battleState.rouge.team[0].name);
+        resetScrollingText(game.battleState.text, msg);
+        recoilDamage(&game.battleState.rouge,100,6,0);
+    }
+	if (isAlive(&(game.battleState.rouge.team[0])) && game.battleState.rouge.team[0].main_effect==poison){
+        sprintf(msg,"%s souffre du poison !",game.battleState.rouge.team[0].name);
+        resetScrollingText(game.battleState.text, msg);
+        recoilDamage(&game.battleState.rouge,100,12,0);
+    }
+	if (isAlive(&(game.battleState.bleu.team[0])) && game.battleState.bleu.team[0].main_effect==burn){
+        sprintf(msg,"%s souffre de sa brulûre !",game.battleState.bleu.team[0].name);
+        resetScrollingText(game.battleState.text, msg);
+        recoilDamage(&game.battleState.bleu,100,6,0);
+    }
+	if (isAlive(&(game.battleState.bleu.team[0])) && game.battleState.bleu.team[0].main_effect==poison){
+        sprintf(msg,"%s souffre du poison !",game.battleState.bleu.team[0].name);
+        resetScrollingText(game.battleState.text, msg);
+        recoilDamage(&game.battleState.bleu,100,12,0);
+    }
+
+    /*flinch reset at end of turn*/
+	if(game.battleState.rouge.effect==flinch) game.battleState.rouge.effect=noEffect;
+	if(game.battleState.bleu.effect==flinch) game.battleState.bleu.effect=noEffect;
 }

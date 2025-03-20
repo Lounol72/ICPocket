@@ -29,7 +29,7 @@ int AI_move_choice(t_AI *ai, t_Team *opponent) {
 
     // Pour le débogage, affichez le nombre d'attaques du Pokémon actif
     int nb_moves = ai->AI_t_Team->team[0].nb_move;
-    printf("Nombre d'attaques disponibles (nb_move) : %d\n", nb_moves);
+    //printf("Nombre d'attaques disponibles (nb_move) : %d\n", nb_moves);
 
     // Remplissage des tableaux avec les attaques dont il reste des PP
     for (int i = 0; i < nb_moves; i++) {
@@ -41,7 +41,7 @@ int AI_move_choice(t_AI *ai, t_Team *opponent) {
     }
 
     if (nb_valid_moves == 0) {
-        printf("Aucune attaque valide\n");
+        //printf("Aucune attaque valide\n");
         return 0;  // Optionnel : retourner STRUGGLE ou un autre code d'action si nécessaire
     }
 
@@ -50,10 +50,36 @@ int AI_move_choice(t_AI *ai, t_Team *opponent) {
 
     int chosenIndex = 0;
     // Choix de l'attaque selon le type d'IA
-    if (ai->type % 3 == 0) { // status_first AI
-        chosenIndex = (rand() % ai->AI_lvl) % nb_valid_moves;
+    if (ai->type % 2 == 0) { // status_first AI
+        int has_move_with_effects=0;
+        for(int i=0;i<nb_moves;i++){
+            /*try to do an main effect applier attack*/
+            if (SecEffectTab[ai->AI_t_Team->team[0].moveList[tab_move[i]].ind_secEffect]==applyEffect 
+                && ai->AI_t_Team->team[0].moveList[tab_move[i]].power==0 
+                && opponent->team[0].main_effect==noEffect 
+                && ai->AI_t_Team->team[0].moveList[tab_move[i]].value_effect<4){
+                if (ai->AI_lvl >= rand() % 21){
+                    chosenIndex=i;
+                    has_move_with_effects=1;
+                    break;
+                }
+            }
+            /*try to do a second effect applier attack*/
+            if (SecEffectTab[ai->AI_t_Team->team[0].moveList[tab_move[i]].ind_secEffect]==applyEffect 
+                && ai->AI_t_Team->team[0].moveList[tab_move[i]].power==0 
+                && opponent->effect==noEffect 
+                && ai->AI_t_Team->team[0].moveList[tab_move[i]].value_effect>3){
+                if (ai->AI_lvl >= rand() % 21){
+                    chosenIndex=i;
+                    has_move_with_effects=1;
+                    break;
+                }
+            }
+        }
+        if(!has_move_with_effects && ai->type!=boss)
+            chosenIndex = (rand() % ai->AI_lvl) % nb_valid_moves;
     }
-    else if (ai->type % 2 == 0) { // damage_first AI
+    else if (ai->type % 3 == 0) { // damage_first AI
         while (chosenIndex < nb_valid_moves - 1 && (rand() % 20) > ai->AI_lvl)
             chosenIndex++;
     }
