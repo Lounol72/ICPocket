@@ -1,0 +1,490 @@
+/* ============================================
+   AMÉLIORATIONS PROFESSIONNELLES POUR ICPOCKET
+   ============================================ */
+
+/* Effet de flou global */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(27, 40, 56, 0.4) 0%, rgba(27, 40, 56, 0) 70%);
+    pointer-events: none;
+    z-index: -1;
+    animation: pulse-subtle 15s infinite alternate;
+}
+
+@keyframes pulse-subtle {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.7; }
+}
+
+/* ===== TYPOGRAPHIE AMÉLIORÉE ===== */
+body {
+    font-feature-settings: "kern", "liga", "calt";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+body.page-transition-out {
+    opacity: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* Soulignement dynamique pour les liens */
+a:not(.btn-primary):not(.btn-secondary):not(.download-button):not(.download-asset):not(.modern-card a) {
+    position: relative;
+}
+
+a:not(.btn-primary):not(.btn-secondary):not(.download-button):not(.download-asset):not(.modern-card a)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--steam-hover);
+    transition: width 0.3s ease;
+}
+
+a:not(.btn-primary):not(.btn-secondary):not(.download-button):not(.download-asset):not(.modern-card a):hover::after {
+    width: 100%;
+}
+
+/* ===== NAVIGATION AMÉLIORÉE ===== */
+nav.scrolled {
+    background-color: rgba(23, 26, 33, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+nav button::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--steam-light);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav button:hover::after {
+    width: 80%;
+    left: 10%;
+}
+
+/* ===== CARTES MODERNISÉES ===== */
+.modern-card, .section-card, .release-card, .commit-card, .news-card, .latest-release-section {
+    background: linear-gradient(145deg, rgba(35, 39, 47, 0.8), rgba(27, 40, 56, 0.8));
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 
+                0 1px 3px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(102, 192, 244, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.modern-card::before, .section-card::before, .release-card::before, .commit-card::before, .news-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--steam-light), transparent);
+    opacity: 0.7;
+}
+
+.modern-card:hover, .section-card:hover, .release-card:hover, .commit-card:hover, .news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), 
+                0 5px 15px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(102, 192, 244, 0.1);
+}
+
+.modern-card:hover::before, .section-card:hover::before, .release-card:hover::before, .commit-card:hover::before, .news-card:hover::before {
+    opacity: 1;
+}
+
+.modern-card .card-title {
+    position: relative;
+    color: var(--steam-light);
+    transition: color 0.3s ease;
+}
+
+.modern-card:hover .card-title {
+    color: var(--steam-hover);
+}
+
+.modern-card .card-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: var(--steam-hover);
+    transition: width 0.3s ease;
+}
+
+.modern-card:hover .card-title::after {
+    width: 30%;
+}
+
+/* ===== BOUTONS AMÉLIORÉS ===== */
+.download-button, .btn-primary, .btn-secondary, .btn-small, .btn-download {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.download-button::before, .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+    z-index: -1;
+}
+
+.download-button:hover::before, .btn-primary:hover::before {
+    left: 100%;
+}
+
+/* ===== ÉTATS DE CHARGEMENT AMÉLIORÉS ===== */
+.loading-animation {
+    position: relative;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.loading-animation::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(27, 40, 56, 0.7) 0%, 
+        rgba(27, 40, 56, 0.8) 20%, 
+        rgba(27, 40, 56, 0.7) 40%);
+    animation: shimmer 1.5s infinite;
+    background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+    0% { background-position: -100% 0; }
+    100% { background-position: 100% 0; }
+}
+
+/* ===== SKELETONS POUR CHARGEMENT ===== */
+.skeleton-card {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(145deg, rgba(35, 39, 47, 0.5), rgba(27, 40, 56, 0.5));
+    border-radius: var(--border-radius-md);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.skeleton-title {
+    width: 70%;
+    height: 24px;
+    background: rgba(102, 192, 244, 0.05);
+    border-radius: 4px;
+    margin: 20px;
+}
+
+.skeleton-text {
+    width: 90%;
+    height: 14px;
+    background: rgba(102, 192, 244, 0.05);
+    border-radius: 4px;
+    margin: 10px 20px;
+}
+
+.skeleton-text:last-child {
+    width: 60%;
+}
+
+.skeleton-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.05), 
+        transparent);
+    animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* ===== EFFETS DE PARALLAXE POUR LES HEADERS ===== */
+.page-header .header-background {
+    transform: scale(1.05);
+    transition: transform 0.5s ease-out;
+    animation: subtle-movement 30s infinite alternate ease-in-out;
+}
+
+@keyframes subtle-movement {
+    0% { transform: scale(1.05) translate(0, 0); }
+    50% { transform: scale(1.05) translate(-5px, -5px); }
+    100% { transform: scale(1.05) translate(5px, 5px); }
+}
+
+/* ===== EFFETS DE SURVOL POUR LES ASSETS ===== */
+.assets-list li {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.assets-list li:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+}
+
+/* ===== INTERACTION UTILISATEUR AMÉLIORÉE ===== */
+button, a, input, select, textarea {
+    transition: all 0.3s ease;
+    outline: none !important;
+}
+
+button:focus, a:focus, input:focus, select:focus, textarea:focus {
+    box-shadow: 0 0 0 3px rgba(102, 192, 244, 0.3);
+}
+
+/* ===== SYSTÈME DE NOTIFICATIONS ===== */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(145deg, rgba(35, 39, 47, 0.9), rgba(27, 40, 56, 0.9));
+    border-left: 3px solid var(--steam-light);
+    color: #fff;
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    max-width: 400px;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification.success { border-left-color: #4CAF50; }
+.notification.error { border-left-color: #F44336; }
+.notification.info { border-left-color: var(--steam-light); }
+
+.notification .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #acb2b8;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* ===== CLASSES UTILITAIRES ===== */
+.blur-bg {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-effect {
+    background: rgba(27, 40, 56, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(102, 192, 244, 0.1);
+}
+
+.text-focus-in {
+    animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@keyframes text-focus-in {
+    0% {
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 15px rgba(102, 192, 244, 0.5);
+}
+
+/* ===== OPTIMISATION RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .modern-card { padding: 1.4rem; }
+    .modern-card .card-title { font-size: 1.3rem; }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.3rem; }
+    
+    .notification {
+        max-width: calc(100% - 40px);
+        left: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modern-card { padding: 1.2rem; }
+    .section-title { font-size: 1.4rem; }
+}
+
+/* ===== ANIMATIONS DE PAGE ===== */
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation séquentielle pour les éléments enfants */
+.stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.stagger-children > *:nth-child(1) { animation: slideUp 0.5s 0.1s ease-out forwards; }
+.stagger-children > *:nth-child(2) { animation: slideUp 0.5s 0.2s ease-out forwards; }
+.stagger-children > *:nth-child(3) { animation: slideUp 0.5s 0.3s ease-out forwards; }
+.stagger-children > *:nth-child(4) { animation: slideUp 0.5s 0.4s ease-out forwards; }
+.stagger-children > *:nth-child(5) { animation: slideUp 0.5s 0.5s ease-out forwards; }
+.stagger-children > *:nth-child(6) { animation: slideUp 0.5s 0.6s ease-out forwards; }
+
+/* Style pour le bouton de retour en haut */
+.scroll-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--steam-light), var(--steam-hover));
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 99;
+}
+
+.scroll-top-button.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-top-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Style amélioré pour les liens actifs dans la navigation */
+nav button a.active {
+    color: var(--steam-light);
+    font-weight: bold;
+}
+
+nav button.current-page {
+    background-color: rgba(102, 192, 244, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+nav button.current-page::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background-color: var(--steam-light);
+}
+
+/* Variante B pour A/B testing */
+.download-button-variant-b {
+    background: linear-gradient(to right, var(--steam-hover), #4a32db);
+    border-radius: 50px;
+    padding: 14px 30px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.download-button-variant-b:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.download-button-variant-b i {
+    font-size: 1.1em;
+}
+
+/* Indicateur de chargement des pages */
+.page-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--steam-light), var(--steam-hover));
+    z-index: 1000;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+/* Style pour les images qui n'ont pas pu être chargées */
+.img-error {
+    filter: grayscale(1);
+    opacity: 0.7;
+} 

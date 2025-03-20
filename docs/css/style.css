@@ -109,17 +109,14 @@ nav button:hover a {
 
 #top {
     position: relative;
-    height: 60vh;
-    background-image: url('../img/BG.jpg');
-    background-size: cover;
-    background-position: center;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    padding: 2rem;
     text-align: center;
-    padding-top: 80px;
+    overflow: hidden;
+    padding: 0 1rem;
 }
 
 #top::before {
@@ -399,7 +396,7 @@ footer {
 }
 
 .dev-links button:hover .dev-link {
-    color: var(--steam-dark);
+    color: var(--steam-light);
 }
 
 .search-results {
@@ -634,7 +631,8 @@ footer {
     font-size: 1.2rem;
 }
 
-/* Timeline de développement */
+/* Timeline de développement - À SUPPRIMER OU COMMENTER */
+/*
 .roadmap {
     background-color: var(--steam-dark);
     padding: 2rem;
@@ -647,48 +645,7 @@ footer {
     margin: 2rem 0;
     padding-left: 2rem;
 }
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 2px;
-    background-color: var(--steam-light);
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 2rem;
-    padding-left: 1.5rem;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -10px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: var(--steam-dark);
-    border: 2px solid var(--steam-light);
-}
-
-.timeline-item.completed::before {
-    background-color: var(--steam-light);
-}
-
-.timeline-item.current::before {
-    background-color: var(--steam-hover);
-}
-
-.timeline-date {
-    font-weight: bold;
-    color: var(--steam-light);
-    margin-bottom: 0.5rem;
-}
+*/
 
 /* Sidebar améliorée */
 .dev-role {

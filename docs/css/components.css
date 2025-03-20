@@ -13,23 +13,8 @@ nav {
     border-radius: 10px;
     backdrop-filter: blur(5px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-#nav-right {
-    margin-left: auto;
-    display: flex;
+    justify-content: center;
     align-items: center;
-    position: relative;
-}
-
-nav button, #nav-right input {
-    background-color: var(--steam-blue);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 0 5px;
-    border-radius: 3px;
-    transition: all 0.3s ease;
 }
 
 /* Boutons */
@@ -53,7 +38,8 @@ nav button, #nav-right input {
     box-shadow: 0 0 10px rgba(102, 192, 244, 0.5);
 }
 
-/* Timeline */
+/* Timeline - À SUPPRIMER OU COMMENTER SI NON UTILISÉ AILLEURS */
+/*
 .timeline {
     position: relative;
     margin: 2rem 0;
@@ -81,6 +67,7 @@ nav button, #nav-right input {
     overflow: hidden;
     margin-bottom: 5px;
 }
+*/
 
 /* Autres composants... */
 
@@ -607,4 +594,20 @@ nav a.active {
 
 .member-contributions i {
     margin-right: 0.5rem;
+}
+
+/* Styles pour les boutons de navigation */
+nav button {
+    background-color: var(--steam-blue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Suppression des styles spécifiques au nav-right qui n'existe plus */
+#nav-right {
+    display: none; /* On masque complètement ce conteneur */
 }

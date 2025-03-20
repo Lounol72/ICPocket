@@ -1,0 +1,176 @@
+/* ==============================
+   ANIMATIONS ET TRANSITIONS
+   ============================== */
+
+/* Animation de pulsation subtile */
+@keyframes pulse-subtle {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.7; }
+}
+
+/* Animation de fondu */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Animation de déplacement vers le haut */
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation de fondu avec déplacement */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation de mise au point du texte */
+@keyframes text-focus-in {
+    0% {
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+/* Animation de chargement */
+@keyframes shimmer {
+    0% { background-position: -100% 0; }
+    100% { background-position: 100% 0; }
+}
+
+/* Animation pour les skeletons */
+@keyframes skeleton-loading {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Animation de mouvement subtil pour effets parallax */
+@keyframes subtle-movement {
+    0% { transform: scale(1.05) translate(0, 0); }
+    50% { transform: scale(1.05) translate(-5px, -5px); }
+    100% { transform: scale(1.05) translate(5px, 5px); }
+}
+
+/* Animation de pulse pour chargement */
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Classes d'animation */
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.text-focus-in {
+    animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+/* Animation séquentielle pour les éléments enfants */
+.stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.stagger-children > *:nth-child(1) { animation: slideUp 0.5s 0.1s ease-out forwards; }
+.stagger-children > *:nth-child(2) { animation: slideUp 0.5s 0.2s ease-out forwards; }
+.stagger-children > *:nth-child(3) { animation: slideUp 0.5s 0.3s ease-out forwards; }
+.stagger-children > *:nth-child(4) { animation: slideUp 0.5s 0.4s ease-out forwards; }
+.stagger-children > *:nth-child(5) { animation: slideUp 0.5s 0.5s ease-out forwards; }
+.stagger-children > *:nth-child(6) { animation: slideUp 0.5s 0.6s ease-out forwards; }
+
+/* États de chargement */
+.loading-animation {
+    position: relative;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    animation: pulse 1.5s infinite;
+}
+
+.loading-animation::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(27, 40, 56, 0.7) 0%, 
+        rgba(27, 40, 56, 0.8) 20%, 
+        rgba(27, 40, 56, 0.7) 40%);
+    animation: shimmer 1.5s infinite;
+    background-size: 200% 100%;
+}
+
+/* Skeletons */
+.skeleton-card {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(145deg, rgba(35, 39, 47, 0.5), rgba(27, 40, 56, 0.5));
+    border-radius: var(--border-radius-md);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.skeleton-title {
+    width: 70%;
+    height: 24px;
+    background: rgba(102, 192, 244, 0.05);
+    border-radius: 4px;
+    margin: 20px;
+}
+
+.skeleton-text {
+    width: 90%;
+    height: 14px;
+    background: rgba(102, 192, 244, 0.05);
+    border-radius: 4px;
+    margin: 10px 20px;
+}
+
+.skeleton-text:last-child {
+    width: 60%;
+}
+
+.skeleton-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.05), 
+        transparent);
+    animation: skeleton-loading 1.5s infinite;
+} 

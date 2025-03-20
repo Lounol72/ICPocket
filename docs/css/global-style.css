@@ -1,0 +1,111 @@
+/* Style de la barre de navigation */
+nav {
+    background-color: rgba(22, 26, 35, 0.95);
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px auto;
+    max-width: 900px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav a.active {
+    background-color: rgba(30, 144, 255, 0.3);
+    color: #1e90ff;
+}
+
+/* Style du titre du jeu */
+#title {
+    font-family: 'Press Start 2P', monospace, sans-serif;
+    font-size: 4rem;
+    color: white;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+    margin: 30px 0 20px;
+    letter-spacing: 2px;
+}
+
+/* Style pour le bouton de téléchargement */
+.download-button {
+    background: linear-gradient(90deg, #1e90ff 0%, #7b68ee 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.download-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.download-button i {
+    font-size: 20px;
+}
+
+.version-info {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 30px;
+}
+
+/* Ajustements pour le background */
+body {
+    background-color: #1a2430;
+    color: white;
+}
+
+#top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    position: relative;
+}
+
+.tagline {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+    }
+    
+    #title {
+        font-size: 2.5rem;
+    }
+} 

@@ -1,0 +1,61 @@
+/* Style pour la section principale de l'accueil */
+#top {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 0 1rem;
+}
+
+/* Dégradé nébuleuse spatiale */
+.header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(215deg,
+                #0f0c29 0%,
+                #1b2838 30%,
+                #24243e 65%,
+                #302b63 100%);
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: nebula 25s ease infinite;
+}
+
+@keyframes nebula {
+    0% { background-position: 0% 0%; }
+    25% { background-position: 50% 100%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 0%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* Effet de nébuleuse stellaire */
+.header-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 35%, rgba(102, 192, 244, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(27, 209, 233, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 60% 80%, rgba(102, 192, 244, 0.06) 0%, transparent 45%);
+}
+
+#title {
+    color: #fff;
+    font-size: 6rem;
+    font-family: 'PressStart2P', cursive;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease-in-out;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}

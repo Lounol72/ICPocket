@@ -1,0 +1,207 @@
+/* Styles pour la page de contact */
+
+/* Header avec effet parallaxe */
+.page-header {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+}
+
+.header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(23, 26, 33, 0.9));
+    filter: brightness(0.6);
+    z-index: 1;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.page-header:hover .header-background {
+    transform: scale(1);
+}
+
+/* Conteneur principal avec espacement */
+.content-container {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section avec carte */
+.section-card {
+    background-color: var(--steam-dark);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-description {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: #acb2b8;
+    font-size: 1.1rem;
+}
+
+/* Options de contribution */
+.contribution-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.contrib-card {
+    background-color: rgba(35, 39, 47, 0.7);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(76, 91, 110, 0.2);
+}
+
+.contrib-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-color: var(--steam-light);
+}
+
+.contrib-icon {
+    font-size: 2.5rem;
+    color: var(--steam-light);
+    margin-bottom: 1rem;
+}
+
+.contrib-card h3 {
+    color: var(--steam-light);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.contrib-card p {
+    margin-bottom: 1.5rem;
+    color: #e9eaeb;
+}
+
+/* Boutons */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, var(--steam-light), var(--steam-hover));
+    color: white;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, var(--steam-hover), var(--steam-light));
+    box-shadow: 0 0 10px rgba(102, 192, 244, 0.4);
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: rgba(76, 91, 110, 0.3);
+    color: var(--steam-light);
+    border: 1px solid rgba(102, 192, 244, 0.3);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(76, 91, 110, 0.5);
+    color: white;
+}
+
+/* Méthodes de contact */
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.contact-card {
+    background-color: rgba(35, 39, 47, 0.7);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgba(76, 91, 110, 0.2);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--steam-light);
+}
+
+.contact-card i {
+    font-size: 2.5rem;
+    color: var(--steam-light);
+    margin-bottom: 1rem;
+}
+
+.contact-card h3 {
+    color: var(--steam-light);
+    margin-bottom: 1rem;
+}
+
+.contact-card p {
+    margin-bottom: 1.5rem;
+    color: #e9eaeb;
+}
+
+/* FAQ */
+.faq-item {
+    background-color: rgba(35, 39, 47, 0.7);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease;
+    border-left: 3px solid var(--steam-light);
+}
+
+.faq-item:hover {
+    background-color: rgba(35, 39, 47, 0.9);
+}
+
+.faq-item h3 {
+    color: var(--steam-light);
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.faq-item p {
+    color: #e9eaeb;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contribution-options, .contact-methods {
+        grid-template-columns: 1fr;
+    }
+} 

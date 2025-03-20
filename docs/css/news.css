@@ -178,8 +178,15 @@
 }
 
 .btn-download {
-    background-color: var(--steam-blue);
+    background-color: var(--steam-light);
     color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
 }
 
 .btn-small:hover {
