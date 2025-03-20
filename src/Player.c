@@ -85,9 +85,6 @@ Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * 
         }
     }
 
-    // Définir la position de spawn initiale à -1
-    player->mat[spawnY][spawnX] = -1;
-
     player->interpolationTime = 0.0f;
     player->moveSpeed = 0.4f;  // Augmenté à 0.4 secondes par case (était 0.2)
     player->targetMatrixX = player->matrixX;
