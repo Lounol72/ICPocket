@@ -189,8 +189,126 @@ function extractVersion(title) {
     return match ? match[1] || match[3] : null;
 }
 
-// Charger les statistiques quand la page est prête
+// Récupérer les dernières releases pour la section actualités
+async function fetchLatestReleases() {
+    try {
+        // Récupérer les releases du dépôt
+        const releasesResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases`);
+        const releasesData = await releasesResponse.json();
+        
+        // Vérifier si des releases existent
+        if (releasesData.length === 0) {
+            updateNewsSection([
+                {
+                    date: new Date().toLocaleDateString('fr-FR'),
+                    title: "Aucune release disponible pour le moment",
+                    description: "Restez à l'écoute pour les futures mises à jour du jeu.",
+                    url: `https://github.com/${REPO_OWNER}/${REPO_NAME}/releases`
+                }
+            ]);
+            return;
+        }
+        
+        // Prendre les deux dernières releases
+        const latestReleases = releasesData.slice(0, 2).map(release => {
+            const publishDate = new Date(release.published_at);
+            
+            // Extraire la première phrase de la description ou les 100 premiers caractères
+            let description = release.body || "";
+            if (description.length > 100) {
+                const firstSentenceMatch = description.match(/^.+?[.!?]/);
+                description = firstSentenceMatch 
+                    ? firstSentenceMatch[0] 
+                    : description.substring(0, 100) + "...";
+            }
+            
+            return {
+                date: publishDate.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' }),
+                title: release.name || `Version ${release.tag_name}`,
+                description: description,
+                url: release.html_url
+            };
+        });
+        
+        // Mettre à jour la section actualités
+        updateNewsSection(latestReleases);
+        
+    } catch (error) {
+        console.error('Erreur lors de la récupération des releases GitHub:', error);
+        // Afficher un message d'erreur dans la section actualités
+        updateNewsSection([
+            {
+                date: new Date().toLocaleDateString('fr-FR'),
+                title: "Erreur de connexion à GitHub",
+                description: "Impossible de récupérer les dernières actualités. Veuillez réessayer plus tard.",
+                url: `https://github.com/${REPO_OWNER}/${REPO_NAME}/releases`
+            }
+        ]);
+    }
+}
+
+// Mettre à jour la section actualités avec les données des releases
+function updateNewsSection(releases) {
+    const newsContainer = document.querySelector('.latest-news');
+    if (!newsContainer) return;
+    
+    // Trouver la zone de contenu après le titre
+    let newsContent = newsContainer.querySelector('.news-content');
+    
+    // Si la zone n'existe pas, la créer
+    if (!newsContent) {
+        newsContent = document.createElement('div');
+        newsContent.className = 'news-content';
+        
+        // Trouver le titre h3 et insérer après
+        const newsTitle = newsContainer.querySelector('h3');
+        if (newsTitle) {
+            newsTitle.after(newsContent);
+        } else {
+            newsContainer.appendChild(newsContent);
+        }
+    }
+    
+    // Vider le contenu actuel
+    newsContent.innerHTML = '';
+    
+    // Ajouter chaque release comme un élément d'actualité
+    releases.forEach(release => {
+        const newsItem = document.createElement('div');
+        newsItem.className = 'news-item';
+        
+        newsItem.innerHTML = `
+            <div class="news-date">${release.date}</div>
+            <div class="news-title">${release.title}</div>
+            <p>${release.description}</p>
+            <a href="${release.url}" target="_blank" rel="noopener noreferrer">Voir plus</a>
+        `;
+        
+        newsContent.appendChild(newsItem);
+    });
+    
+    // Ajouter un lien vers toutes les releases
+    const moreNews = document.createElement('a');
+    moreNews.className = 'more-news';
+    moreNews.href = `https://github.com/${REPO_OWNER}/${REPO_NAME}/releases`;
+    moreNews.target = '_blank';
+    moreNews.rel = 'noopener noreferrer';
+    moreNews.textContent = 'Voir toutes les actualités →';
+    
+    newsContent.appendChild(moreNews);
+}
+
+// Appeler les deux fonctions au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
+    // Variables globales pour le dépôt (assurez-vous que ces variables sont définies)
+    if (typeof REPO_OWNER === 'undefined' || typeof REPO_NAME === 'undefined') {
+        window.REPO_OWNER = 'Lounol72';  // Remplacez par votre nom d'utilisateur GitHub
+        window.REPO_NAME = 'ICPocket';   // Remplacez par le nom de votre dépôt
+    }
+    
+    // Appeler les fonctions existantes et la nouvelle
     fetchGitHubStats();
+    fetchLatestReleases();
     fetchGitHubRoadmap();
+    // Si vous avez d'autres fonctions qui utilisent l'API GitHub, appelez-les ici
 }); 

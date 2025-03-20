@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Actualités - ICPocket</title>
+    <meta name="description" content="Suivez les dernières actualités du développement d'ICPocket">
+</head>
+<body>
+    <nav>
+        <button><a href="index.html">Accueil</a></button>
+        <div class="separator"></div>
+        <button><a href="news.html" class="active">Actualités</a></button>
+        <div class="separator"></div>
+        <button><a href="team.html">Notre Équipe</a></button>
+        <div class="separator"></div>
+        <button><a href="html/index.html">Documentation</a></button>
+        <div class="separator"></div>
+        <button><a href="https://github.com/Lounol72/ICPocket">GitHub</a></button>
+        <div id="nav-right">
+            <input type="text" placeholder="Rechercher...">
+            <div class="separator"></div>
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Actualités du développement</h1>
+            <p class="tagline">Suivez l'évolution du projet ICPocket</p>
+        </header>
+
+        <main>
+            <section class="releases-section">
+                <h2 class="section-title"><i class="fas fa-tag"></i> Dernières Versions</h2>
+                <div id="releases-container" class="news-grid">
+                    <div class="loading-animation">
+                        <i class="fas fa-spinner fa-spin"></i> Chargement des versions...
+                    </div>
+                </div>
+            </section>
+
+            <section class="commits-section">
+                <h2 class="section-title"><i class="fas fa-code-commit"></i> Activité Récente</h2>
+                <div id="commits-container" class="news-grid">
+                    <div class="loading-animation">
+                        <i class="fas fa-spinner fa-spin"></i> Chargement des commits...
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h3>ICPocket</h3>
+                    <p>Un jeu de combat et d'aventure inspiré de Pokémon, développé par des étudiants de l'Université du Mans.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="news.html">Actualités</a></li>
+                        <li><a href="team.html">Notre Équipe</a></li>
+                        <li><a href="html/index.html">Documentation</a></li>
+                        <li><a href="https://github.com/Lounol72/ICPocket">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Communauté</h3>
+                    <p>Rejoignez-nous sur GitHub pour contribuer au projet et suivre son évolution.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/Lounol72/ICPocket" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 ICPocket. Tous droits réservés.
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/github-news.js"></script>
+</body>
+</html> 
