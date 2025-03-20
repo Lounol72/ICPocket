@@ -1,6 +1,6 @@
 #include "../include/NPC.h"
-/*
-NPCManager* createNPCManager(int initialCapacity) {
+
+/*NPCManager* createNPCManager(int initialCapacity) {
     NPCManager* manager = malloc(sizeof(NPCManager));
     manager->npcs = malloc(sizeof(NPC) * initialCapacity);
     manager->count = 0;
@@ -81,18 +81,21 @@ void renderNPCs(Window* win) {
 }
 
 void startNPCBattle(NPC* npc) {
+    printf("Début du combat avec un NPC !\n");
     // Sauvegarder l'équipe bleue actuelle
     t_Team tempBlueTeam = game.battleState.bleu;
-    
+
     // Remplacer par l'équipe du PNJ
-    game.battleState.bleu = npc->team;
-    
+    if (npc) {
+        game.battleState.bleu = npc->team;
+    }
+
     // Afficher le message du PNJ
     if (game.battleState.text) {
         cleanupScrollingText(&game.battleState.text);
     }
     game.battleState.text = createScrollingText(
-        npc->message,
+        "Un combat commence !",
         game.win->LargeFont,
         (SDL_Color){255, 255, 255, 255},
         game.speed,
@@ -101,10 +104,10 @@ void startNPCBattle(NPC* npc) {
         "assets/User Interface/Grey/button_rectangle_depth_flat.png",
         game.win->renderer
     );
-    
-    // Changer l'état du jeu
+
+    // Changer l'état du jeu pour GAME
     changeState(game.win, &game.stateHandlers[3].state);
-} 
+}
 
 void destroyNPCManager(NPCManager* manager) {
     free(manager->npcs);

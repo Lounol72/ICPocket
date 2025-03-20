@@ -28,18 +28,11 @@ void initGame(Window *win) {
     /* Initialisation des éléments de l'interface utilisateur (UI) */
     game.nbMenu = 12;
     game.ui = malloc(game.nbMenu * sizeof(UI_Elements));
-    game.ui[0] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // Quit Page            = 0
-    game.ui[1] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = malloc(sizeof(SliderList)), .background = NULL }; // Settings Page = 1
-    game.ui[2] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // Menu Page            = 2
-    game.ui[3] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // Game Page            = 3
-    game.ui[4] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // New Game Page        = 4
-    game.ui[5] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // Load Game Page       = 5
-    game.ui[6] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // ICMons Page          = 6
-    game.ui[7] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // Intermediate         = 7
-    game.ui[8] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // Pause Page           = 8
-    game.ui[9] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // Map Page             = 9
-    game.ui[10]= (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // Team swap Page       = 10
-    game.ui[11]= (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };  // Learning Move page   = 11
+    for(int i = 0; i < game.nbMenu; i++) {
+        game.ui[i] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };
+    }
+    game.ui[1].sliders = malloc(sizeof(SliderList)); 
+
 
     for (int i = 0; i < game.nbMenu; i++) {
         game.ui[i].buttons->buttons = NULL;

@@ -229,6 +229,18 @@ void handleIntermediateEvent(Window *win, SDL_Event *event) {
             ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
         }
     }
+    const Uint8 *keyState = SDL_GetKeyboardState(NULL);
+
+    // Si le joueur appuie sur E, lancer le combat
+    if (keyState[SDL_SCANCODE_E]) {
+        printf("Lancement du combat...\n");
+        changeState(win, &game.stateHandlers[GAME].state); // Passer à l'état de combat
+    }
+    // Si le joueur appuie sur Échap, annuler l'interaction
+    else if (keyState[SDL_SCANCODE_ESCAPE]) {
+        printf("Interaction annulée. Retour à la carte.\n");
+        game.gameState.currentState = MAP; // Retourner à l'état de la carte
+    }
     handleEvent(win, event);
 }
 
@@ -454,7 +466,6 @@ void handlePauseEvent(Window *win, SDL_Event *event) {
 void handlePlayerEvent(Window *win, SDL_Event *event) {
     
     (void)event;
-    
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
     int newMatrixX = game.gameData.player->matrixX;
     int newMatrixY = game.gameData.player->matrixY;
@@ -491,8 +502,16 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
             shouldMove = true;
         }
     }
-    else if (keyState[SDL_SCANCODE_ESCAPE]) changeState(win, &game.stateHandlers[2].state);
-    else if (keyState[SDL_SCANCODE_DELETE]) changeState(win, &game.stateHandlers[0].state);
+    else if (keyState[SDL_SCANCODE_ESCAPE]) {
+        changeState(game.win, &game.stateHandlers[MENU].state);
+    }
+    else if (keyState[SDL_SCANCODE_DELETE]) {
+        changeState(game.win, &game.stateHandlers[QUIT].state);
+    }
+    else if (keyState[SDL_SCANCODE_C] && game.gameData.map->mat[newMatrixY-1][newMatrixX] == 6) {
+        printf("Collision interactive détectée sur la case 6\n");
+        changeState(game.win, &game.stateHandlers[NEWGAME].state);
+    }
     
     if (shouldMove && game.gameData.map->mat[newMatrixY][newMatrixX] != COLLISION) {
         game.gameData.player->startX = game.gameData.player->position.x;

@@ -85,6 +85,9 @@ Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * 
         }
     }
 
+    // Définir la position de spawn initiale à -1
+    player->mat[spawnY][spawnX] = -1;
+
     player->interpolationTime = 0.0f;
     player->moveSpeed = 0.4f;  // Augmenté à 0.4 secondes par case (était 0.2)
     player->targetMatrixX = player->matrixX;
@@ -192,31 +195,29 @@ void destroyPlayer(Player *player) {
     }
 }
 
+//void uptadeSpawnPlayer(Player *player, )
+
+
 void updatePlayerPosition(Player *player, float deltaTime) {
     if (player->isMovingToTarget) {
         player->interpolationTime += deltaTime;
         float t = player->interpolationTime / player->moveSpeed;
-        
-        // Limiter t à 1.0
+
         if (t > 1.0f) t = 1.0f;
-        
-        // Interpolation linéaire de la position
+
         float newX = player->startX + (player->targetX - player->startX) * t;
         float newY = player->startY + (player->targetY - player->startY) * t;
-        
-        // Mettre à jour la position en pixels
+
         player->position.x = (int)newX;
         player->position.y = (int)newY;
 
-        // Si le mouvement est terminé
         if (t >= 1.0f) {
             player->matrixX = player->targetMatrixX;
             player->matrixY = player->targetMatrixY;
             player->isMovingToTarget = false;
             player->interpolationTime = 0.0f;
-            
-            // Retour à l'état idle
-            switch(player->state) {
+
+            switch (player->state) {
                 case WALK_UP: player->state = IDLE_UP; break;
                 case WALK_DOWN: player->state = IDLE_DOWN; break;
                 case WALK_LEFT: player->state = IDLE_LEFT; break;
@@ -227,10 +228,5 @@ void updatePlayerPosition(Player *player, float deltaTime) {
     }
 }
 
-void updatePhysics(Player *player, Camera* camera, Map *map, float deltaTime) {
-    updatePlayerPosition(player, deltaTime);
-    updateCamera(camera, player->position.x, player->position.y, deltaTime);
-    // Mettre à jour l'animation indépendamment du mouvement
-    updatePlayerAnimation(player, deltaTime);
-    checkAndLoadNewMap(&map, player->matrixX, player->matrixY);
-}
+
+

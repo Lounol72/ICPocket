@@ -1,6 +1,9 @@
 #include "../include/Map.h"
 #include <stdio.h>
 #include <string.h>
+
+
+
 /*
 static void initCollisionMap(Map *map) {
     for (int i = 0; i < map->tileSizeH; i++) {
@@ -12,8 +15,9 @@ static void initCollisionMap(Map *map) {
         }
     }
 }*/
+//temporaire
 
-static void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY) {
+void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY) {
     printf("Chargement de la nouvelle map: %s\n", newMapPath);
     destroyMap(*map);
     
@@ -32,7 +36,7 @@ static void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapH
 static void initCollisionMapFromCSV(Map *map, const char *path, int *spawnX, int *spawnY) {
     FILE *file = fopen(path, "r");
     if (!file) {
-        printf("Erreur ouverture fichier: %s\n", path);
+        printf("Erreur ouverture fichier CSV: %s\n", path);
         return;
     }
     
@@ -52,12 +56,10 @@ static void initCollisionMapFromCSV(Map *map, const char *path, int *spawnX, int
         int j = 0;
         while (token && j < map->tileSizeW) {
             int value = atoi(token);
+            map->mat[i][j] = value;
             if (value == -1) {
                 *spawnX = j;
-                *spawnY = i; 
-                map->mat[i][j] = value;  // Conserver le -1 dans la matrice
-            } else {
-                map->mat[i][j] = value;
+                *spawnY = i;
             }
             token = strtok(NULL, ",");
             j++;
@@ -154,36 +156,8 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
     return map;
 }
 
-void checkAndLoadNewMap(Map **map, int playerX, int playerY) {
-    if (!map || !*map || !(*map)->mat) {
-        printf("Erreur: map ou map->mat est NULL\n");
-        return;
-    }
 
-    if (playerX < 0 || playerX >= (*map)->tileSizeW || playerY < 0 || playerY >= (*map)->tileSizeH) {
-        printf("Indices de joueur invalides: playerX=%d, playerY=%d\n", playerX, playerY);
-        return;
-    }
 
-    int spawnX = playerX;
-    int spawnY = playerY;
-
-    if ((*map)->mat[playerY][playerX] == 2) {
-        const char *newMapPath = "assets/Tileset/Map/2.png";
-        loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
-        
-    }
-    if ((*map)->mat[playerY][playerX] == 3) {
-        const char *newMapPath = "assets/Tileset/Map/3.png";
-        loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
-        
-    }
-    if ((*map)->mat[playerY][playerX] == 9) {
-        const char *newMapPath = "assets/Tileset/Map/hall.png";
-        loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
-        
-    }
-}
 
 void DEBUG_printMap(Map *map) {
     for (int i = 0; i < map->tileSizeH; i++) {

@@ -1,7 +1,42 @@
 
 #include "../include/GameEngine.h"
+static void checkAndLoadNewMap(Map **map, int *playerX, int *playerY) {
+    if (!map || !*map || !(*map)->mat) {
+        printf("Erreur: map ou map->mat est NULL\n");
+        return;
+    }
 
+    if (*playerX < 0 || *playerX >= (*map)->tileSizeW || *playerY < 0 || *playerY >= (*map)->tileSizeH) {
+        printf("Indices de joueur invalides: playerX=%d, playerY=%d\n", *playerX, *playerY);
+        return;
+    }
 
+    int spawnX = *playerX;
+    int spawnY = *playerY;
+
+    if ((*map)->mat[*playerY][*playerX] == 2) {
+        const char *newMapPath = "assets/Tileset/Map/2.png";
+        loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
+    } else if ((*map)->mat[*playerY][*playerX] == 3) {
+        const char *newMapPath = "assets/Tileset/Map/3.png";
+        loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
+    } else if ((*map)->mat[*playerY][*playerX] == 9) {
+        const char *newMapPath = "assets/Tileset/Map/hall.png";
+        loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
+    }
+    // Mettre à jour les coordonnées du joueur avec les nouvelles coordonnées de spawn
+    *playerX = spawnX;
+    *playerY = spawnY;
+}
+
+static void updatePhysics(Player *player, Camera* camera, Map *map, float deltaTime) {
+    updatePlayerPosition(player, deltaTime);
+    updateCamera(camera, player->position.x, player->position.y, deltaTime);
+    // Mettre à jour l'animation indépendamment du mouvement
+    updatePlayerAnimation(player, deltaTime);
+    checkAndLoadNewMap(&map, &player->matrixX, &player->matrixY);
+    
+}
 /**
  * @brief Initialise le gestionnaire de threads
  * 
@@ -74,6 +109,7 @@ void* physicsThreadFunction(void* arg) {
         lastTime = currentTime;
         
         pthread_mutex_lock(&game->threadManager.physicsMutex);
+        //if(game->gameState.currentState == MAP)
         updatePhysics(game->gameData.player, game->gameData.camera, game->gameData.map, deltaTime);
         pthread_mutex_unlock(&game->threadManager.physicsMutex);
         

@@ -13,7 +13,9 @@
 #define COLLISION 1
 
 #include <SDL2/SDL_image.h>
+
 #include "Camera.h"
+
 
 /**
  * @file Map.h
@@ -41,7 +43,7 @@ void destroyMap(Map *map);
 void updateMap(Map *map);
 void loadMapIMG(Map *map, const char *path);
 void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera);
-void checkAndLoadNewMap(Map **map, int playerX, int playerY);
+void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY);
 
 // ! DEBUG
 void DEBUG_printMap(Map *map);
