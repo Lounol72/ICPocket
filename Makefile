@@ -52,6 +52,7 @@ WIN_OBJS  = $(patsubst %.c,$(OBJ_DIR)/%_win.o,$(notdir $(SRCS)))
 # Cibles principales
 all: 
 	@clear
+	@mkdir -p $(BIN_DIR)
 	@$(MAKE) $(MAIN_EXE) $(DUEL_EXE) 
 
 $(MAIN_EXE): $(OBJS)
@@ -106,6 +107,9 @@ testMain-debug: $(MAIN_EXE)
 	@./$(BIN_DIR)/$(MAIN_EXE) -debug
 
 rebuild: clean main
+	@clear
+	@$(MAKE) $(MAIN_EXE) $(DUEL_EXE) 
+
 # Cible de nettoyage
 clean:
 	@echo "🧹 Nettoyage en cours..."

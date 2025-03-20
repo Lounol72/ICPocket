@@ -385,11 +385,11 @@ int handleSliderEvent(Slider *slider, SDL_Event *event) {
                 if (slider->value > 0.88f) slider->cursor.x = slider->rect.x + slider->rect.w - slider->cursor.w;
                 else slider->cursor.x = slider->rect.x + (int)(slider->value * slider->rect.w);
                 //changer le volume 
-                if (slider->value == 0.05f) {
+                if (slider->value <= 0.05f) {
                     Mix_VolumeMusic(0);
                 } else {
                     Mix_VolumeMusic(slider->value * 100);
-                    printf("Volume : %.4f\n", slider->value * 100);
+                    
                 }
             }
             break;
