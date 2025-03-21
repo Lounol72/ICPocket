@@ -15,26 +15,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
+      - name: Install jq
+        run: sudo apt-get install jq -y
+      
       - name: Create data directory
         run: mkdir -p docs/data
       
       - name: Fetch GitHub Data
         run: |
-          # Repo info
+          # Repo info - filtrer les données sensibles
           curl -s -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/${{ github.repository }} > docs/data/repo.json
+            https://api.github.com/repos/${{ github.repository }} | \
+            jq 'del(.private_key, .ssh_url) | {name, description, html_url, homepage, language, stargazers_count, watchers_count, forks_count, open_issues_count, default_branch, created_at, updated_at, topics}' > docs/data/repo.json
           
-          # Contributors
+          # Contributors - ne garder que les noms publics et le nombre de contributions
           curl -s -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/${{ github.repository }}/contributors > docs/data/contributors.json
+            https://api.github.com/repos/${{ github.repository }}/contributors | \
+            jq 'map({login, avatar_url, html_url, contributions})' > docs/data/contributors.json
           
-          # Releases
+          # Releases - supprimer les informations sensibles
           curl -s -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/${{ github.repository }}/releases > docs/data/releases.json
+            https://api.github.com/repos/${{ github.repository }}/releases | \
+            jq 'map({name, tag_name, published_at, html_url, body})' > docs/data/releases.json
           
-          # Commits (30 derniers)
+          # Commits - filtrer et anonymiser les données sensibles
           curl -s -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/${{ github.repository }}/commits > docs/data/commits.json
+            https://api.github.com/repos/${{ github.repository }}/commits | \
+            jq 'map({sha: .sha[0:8], message: .commit.message | split("\n")[0], date: .commit.author.date, author: {name: .commit.author.name, username: .author.login}, url: .html_url})' > docs/data/commits.json
           
           # Metadata
           echo "{\"last_updated\":\"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\"}" > docs/data/metadata.json
