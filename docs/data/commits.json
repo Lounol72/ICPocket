@@ -1,5 +1,135 @@
 [
   {
+    "sha": "d2dacc01",
+    "message": "Fix merge conflicts and update event handling logic",
+    "date": "2025-03-21T11:01:15Z",
+    "author": {
+      "name": "AstroZr",
+      "username": "AstroZr"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/d2dacc01fbd548f9bbd47b85f8a3c2e908b78088"
+  },
+  {
+    "sha": "21d69ac7",
+    "message": "Merge branch 'main' of https://github.com/Lounol72/ICPocket into main",
+    "date": "2025-03-21T10:58:00Z",
+    "author": {
+      "name": "Natp24109",
+      "username": "Natp24109"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/21d69ac7b427791eaa8fb8e182edb3de3d8a189b"
+  },
+  {
+    "sha": "ae4848ed",
+    "message": "added basics for resume screen",
+    "date": "2025-03-21T10:57:57Z",
+    "author": {
+      "name": "Natp24109",
+      "username": "Natp24109"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/ae4848edf95b5f1ac33d12938387df9eb1e5f91c"
+  },
+  {
+    "sha": "84826f24",
+    "message": "added basics for resume screen",
+    "date": "2025-03-21T10:57:42Z",
+    "author": {
+      "name": "Natp24109",
+      "username": "Natp24109"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/84826f246a7c3a9e811fc354388ec612f2d44d6c"
+  },
+  {
+    "sha": "dcedc500",
+    "message": "Update Moves and Poke",
+    "date": "2025-03-21T10:55:15Z",
+    "author": {
+      "name": "lOkaal1",
+      "username": "lOkaal1"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/dcedc5009e4eed8345ee563de4268015635e456d"
+  },
+  {
+    "sha": "020b4ab0",
+    "message": "fix checkandloadnewmap",
+    "date": "2025-03-21T10:35:20Z",
+    "author": {
+      "name": "AstroZr",
+      "username": "AstroZr"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/020b4ab019f6f60e3144b66b246c8137d261d2ae"
+  },
+  {
+    "sha": "1cccbcd3",
+    "message": "update npc and test to fix the map",
+    "date": "2025-03-21T10:32:11Z",
+    "author": {
+      "name": "AstroZr",
+      "username": "AstroZr"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/1cccbcd3388a60e0ce096f0232be722b762c92a6"
+  },
+  {
+    "sha": "2fb0f8a9",
+    "message": "Web site finished -",
+    "date": "2025-03-21T10:12:47Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/2fb0f8a9d9c22a32b531035792fdf651f7a282c7"
+  },
+  {
+    "sha": "b20ce1c0",
+    "message": "Save and movepool issues fixed",
+    "date": "2025-03-21T10:11:50Z",
+    "author": {
+      "name": "lOkaal1",
+      "username": "lOkaal1"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/b20ce1c0913be24e998a3d2215a67e499140b627"
+  },
+  {
+    "sha": "39b5ca59",
+    "message": "📊 Update download button styles for improved visibility and responsiveness",
+    "date": "2025-03-21T09:54:30Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/39b5ca5974f10c825fc117bbc7b4612f4634a7e6"
+  },
+  {
+    "sha": "921db232",
+    "message": "📊 Update DOCTYPE references to use HTTPS and modify search data for improved clarity",
+    "date": "2025-03-21T09:46:17Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/921db232c6f6520d9b1f9f592bf2e56cbc1efc16"
+  },
+  {
+    "sha": "138254a3",
+    "message": "added starters selection screen + minor fixes",
+    "date": "2025-03-21T09:27:11Z",
+    "author": {
+      "name": "Natp24109",
+      "username": "Natp24109"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/138254a3e3df209c638dd38682d66b2583d83357"
+  },
+  {
+    "sha": "5a67b517",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-21T08:59:40Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/5a67b5174338660be1bf9f8f3766e573e410550e"
+  },
+  {
     "sha": "9f9d1308",
     "message": "📊 Fix null check for release assets in GitHub stats calculation",
     "date": "2025-03-21T08:58:34Z",
@@ -168,135 +298,5 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/254e0b35134c29bcedb95fb248e9f9a08d78541e"
-  },
-  {
-    "sha": "04308706",
-    "message": "Enhance documentation and styles; add version info and update navigation",
-    "date": "2025-03-20T23:09:31Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/04308706f45406b0900b4993b2013801b86da955"
-  },
-  {
-    "sha": "69ce144e",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-20T22:15:37Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/69ce144e098528996b3d93acc3014feba9f7bc97"
-  },
-  {
-    "sha": "a9070d95",
-    "message": "Add unit tests for GameEngine and enhance dark theme styles in documentation",
-    "date": "2025-03-20T22:09:05Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/a9070d95060ba462ab1471d456176847b3f66599"
-  },
-  {
-    "sha": "c80acf75",
-    "message": "📚 Documentation update 2025-03-20",
-    "date": "2025-03-20T21:47:36Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/c80acf75b888eb286701cd8b46257e4bfd9f16c2"
-  },
-  {
-    "sha": "620c52d3",
-    "message": "Update .gitignore to remove unnecessary entries and mark doxygen-awesome-css subproject as dirty",
-    "date": "2025-03-20T21:45:57Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/620c52d3b82847a9d84e735f0bf8e33ed36340c8"
-  },
-  {
-    "sha": "f95add78",
-    "message": "Update .gitignore and mark doxygen-awesome-css subproject as dirty",
-    "date": "2025-03-20T21:44:16Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/f95add783c8ff062fde1140dd096e44c5ea7991b"
-  },
-  {
-    "sha": "a2341bbe",
-    "message": "Enhance documentation workflow by verifying submodules and marking doxygen-awesome-css as dirty",
-    "date": "2025-03-20T21:41:50Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/a2341bbe1efd1dd72852fe3b9c19d051ba16c497"
-  },
-  {
-    "sha": "f62ae3e2",
-    "message": "Update documentation workflow to include specific path check for header.html and mark subproject as dirty",
-    "date": "2025-03-20T21:37:03Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/f62ae3e23febc3af014121f13f7612a40b603154"
-  },
-  {
-    "sha": "f1036700",
-    "message": "Update Doxyfile paths for consistency and enhance documentation workflow with debugging steps",
-    "date": "2025-03-20T21:35:28Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/f10367007eae07cb6ea363ba9aeacb0e5fbc2ee1"
-  },
-  {
-    "sha": "3f126a70",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-20T21:27:18Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/3f126a70c87674aef9ccb18b6135ad18f40f4f16"
-  },
-  {
-    "sha": "2fbed80b",
-    "message": "Fix HTML header path in Doxyfile and mark doxygen-awesome-css subproject as dirty",
-    "date": "2025-03-20T21:26:42Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/2fbed80b12aaa952e1477ba3cf93ebe7c4e7fbc1"
-  },
-  {
-    "sha": "f79d6d4b",
-    "message": "Update Doxyfile paths and change HTML color style to dark; fix documentation link in index.html",
-    "date": "2025-03-20T21:24:52Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/f79d6d4b99dc62bdbdb8f8dc8e3a391de8319be0"
-  },
-  {
-    "sha": "78d4f561",
-    "message": "added Doxygen awesome",
-    "date": "2025-03-20T21:20:04Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/78d4f5617583af4f4debc338549a2f7b71ec789b"
   }
 ]
