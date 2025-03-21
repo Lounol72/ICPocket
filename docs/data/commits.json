@@ -1,5 +1,15 @@
 [
   {
+    "sha": "8589cd46",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-21T12:13:26Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/8589cd4683826c70f37c7e90652a4a230c84d98d"
+  },
+  {
     "sha": "d2dacc01",
     "message": "Fix merge conflicts and update event handling logic",
     "date": "2025-03-21T11:01:15Z",
@@ -288,15 +298,5 @@
       "username": "github-actions[bot]"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/60ddb7929e003760ab78084d4c00e3f66bc13ed3"
-  },
-  {
-    "sha": "254e0b35",
-    "message": "Update README.md to enhance project description, add contribution guidelines, and improve structure; mark doxygen-awesome-css subproject as dirty",
-    "date": "2025-03-20T23:15:33Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/254e0b35134c29bcedb95fb248e9f9a08d78541e"
   }
 ]
