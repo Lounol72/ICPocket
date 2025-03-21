@@ -204,7 +204,11 @@ void changeState(Window *win, void *data);
 
  void validateStarterChoice(Window *win, void *data);
 
- void initStarters(Window * win, void * data);
+ void initStarters(Window *win, void * data);
+
+ void initResume(Window *win, void *data);
+
+ void destroyResume(Window *win, void *data);
 
 /* Text-related updates for attacks */
 /**

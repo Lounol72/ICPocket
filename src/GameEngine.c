@@ -155,6 +155,10 @@ void render(Window *win) {
     else if (game.gameState.currentState == STARTERS){
         renderICMonsSprite(win, &game.starters[game.startersIndex]);
     }
+    else if (game.gameState.currentState == RESUME){
+        renderICMonsSprite(win, &(game.battleState.bleu.team[game.swappingIndex[0]]));
+        renderText(win,game.windowText);
+    }
 }
 
 /**
@@ -354,8 +358,6 @@ void selectOtherStarter(Window *win, void *data){
 void validateStarterChoice(Window *win, void *data){
     (void)data;
     game.battleState.rouge.team[0]=game.starters[game.startersIndex];
-    initData();
-    srand(time(NULL));
     initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
     game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
         
@@ -374,6 +376,8 @@ void validateStarterChoice(Window *win, void *data){
 void initStarters(Window *win, void *data){
     (void)win;
     (void)data;
+    initData();
+    srand(time(NULL));
     int ids[4]={29,17,12,7};
 
     game.battleState.rouge.nb_poke=1;
@@ -384,7 +388,7 @@ void initStarters(Window *win, void *data){
     for(int i=0;i<4;i++){
         game.starters[i].main_effect=noEffect;
         generate_poke(&game.starters[i],ids[i]);
-        game.starters[i].lvl=5;
+        game.starters[i].lvl=100;
         game.starters[i].exp = expCurve(game.starters[i].lvl);
         game.starters[i].current_pv=calcStatFrom(&(game.starters[i]),PV);
 		game.starters[i].initial_pv = game.starters[i].current_pv;
@@ -415,6 +419,38 @@ void initStarters(Window *win, void *data){
         }
     }
     changeState(game.win,&game.stateHandlers[STARTERS].state);
+}
+
+void initResume(Window *win, void *data){
+    (void)data;
+    char temp[200];
+    for(int i=0; i<4; i++){
+        if (game.battleState.bleu.team[game.swappingIndex[0]].nb_move > i) {
+            snprintf(temp, sizeof(temp), "%s  %d/%d",
+                game.battleState.bleu.team[game.swappingIndex[0]].moveList[i].name,
+                game.battleState.bleu.team[game.swappingIndex[0]].moveList[i].current_pp,
+                game.battleState.bleu.team[game.swappingIndex[0]].moveList[i].max_pp);
+            setButtonText(game.ui[RESUME].buttons->buttons[i], temp, win->renderer);
+        }
+        else setButtonText(game.ui[RESUME].buttons->buttons[i], "  ", win->renderer);
+    }
+    snprintf(temp, sizeof(temp), "%d-%d-%d-%d-%d",
+        calcStatFrom(&game.battleState.bleu.team[game.swappingIndex[0]],ATT),
+        calcStatFrom(&game.battleState.bleu.team[game.swappingIndex[0]],DEF),
+        calcStatFrom(&game.battleState.bleu.team[game.swappingIndex[0]],SPA),
+        calcStatFrom(&game.battleState.bleu.team[game.swappingIndex[0]],SPD),
+        calcStatFrom(&game.battleState.bleu.team[game.swappingIndex[0]],SPE)
+    );
+    /* a rescale*/
+    game.windowText=createText(temp,game.win->renderer,(SDL_Rect){(win->width / 2 -100)/ win->width, game.win->height /2 , 550, 300},(SDL_Color){0,0,0,255},game.win->SmallFont);
+    changeState(win,&game.stateHandlers[RESUME].state);
+}
+
+void destroyResume(Window *win, void *data){
+    (void)data;
+    destroyText(game.windowText);
+    game.windowText=NULL;
+    changeState(win,&game.stateHandlers[SWAP].state);
 }
 
 /**
@@ -481,15 +517,28 @@ void mainLoop(Window *win) {
     while (!win->quit) {
         frameStart = SDL_GetTicks();
         
+<<<<<<< Updated upstream
         while (SDL_PollEvent(&event)) game.stateHandlers[win->state].handleEvent(win, &event);
         if (game.gameState.currentState == MAP) renderMap(win);
         else {
+=======
+        
+        if (game.gameState.currentState == MAP) {
+            
+            renderMap(win);
+            
+        } else {
+>>>>>>> Stashed changes
             SDL_RenderClear(win->renderer);
             render(win);
             updateCurrentButton();
             if (game.battleState.turnState != TURN_NONE) updateBattleTurn();
             SDL_RenderPresent(win->renderer);
         }
+        while (SDL_PollEvent(&event)) {
+            game.stateHandlers[win->state].handleEvent(win, &event);
+        }
+
         game.deltaTime = (SDL_GetTicks() - frameStart) / 1000.0f;
         
         manageFrameRate(frameStart);
@@ -520,9 +569,10 @@ void initAllButtons(Window *win)
     int nbButtonsGame = 5;
     int nbButtonsICMons = 7;
     int nbButtonsInter = 3;
-    int nbButtonsSwap = 14;
+    int nbButtonsSwap = 15;
     int nbButtonsLearn = 5;
     int nbButtonsStarters = 3;
+    int nbButtonsResume = 5;
 
     Button *buttonsMenu[nbButtonsMenu];
     Button *buttonsParam[nbButtonsParam];
@@ -533,6 +583,7 @@ void initAllButtons(Window *win)
     Button *buttonsSwap[nbButtonsSwap];
     Button *buttonsLearn[nbButtonsLearn];
     Button *buttonsStarters[nbButtonsStarters];
+    Button *buttonsResume[nbButtonsResume];
     Slider *sliders[nbSlidersSettings];
 
     /* Boutons du menu */
@@ -796,15 +847,21 @@ void initAllButtons(Window *win)
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsSwap[12] = createButton(
-        "  Back  ", win, (SDL_Rect){100, 600, 300, 100},
+        "  Back  ", win, (SDL_Rect){180, 600, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         changeState, &game.stateHandlers[7].state, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsSwap[13] = createButton(
-        "  Validate  ", win, (SDL_Rect){1000, 600, 300, 100},
+        "  Validate  ", win, (SDL_Rect){840, 600, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
         validateSwap, &game.stateHandlers[7].state, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsSwap[14] = createButton(
+        "  Resume  ", win, (SDL_Rect){510, 600, 300, 100},
+        (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
+        initResume, &game.stateHandlers[7].state, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
 
@@ -861,7 +918,40 @@ void initAllButtons(Window *win)
         validateStarterChoice, (void*)(intptr_t)0, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
-    
+
+    /*Boutons Resume screen*/
+
+    buttonsResume[0] = createButton(
+        "Attack 1", win, (SDL_Rect){startX, startY, buttonWidth, buttonHeight},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        NULL, (void*)(intptr_t)0, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsResume[1] = createButton(
+        "Attack 2", win, (SDL_Rect){startX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        NULL, (void*)(intptr_t)0, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsResume[2] = createButton(
+        "Attack 3", win, (SDL_Rect){startX + buttonWidth + spacingX, startY, buttonWidth, buttonHeight},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        NULL, (void*)(intptr_t)0, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+    buttonsResume[3] = createButton(
+        "Attack 4", win, (SDL_Rect){startX + buttonWidth + spacingX, startY + buttonHeight + spacingY, buttonWidth, buttonHeight},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        NULL, (void*)(intptr_t)0, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+
+    buttonsResume[4] = createButton(
+        "Retour", win, (SDL_Rect){950, startY, 300, 180},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
+        destroyResume, (void*)(intptr_t)0, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
 
     /* Création du slider */
     sliders[0] = createSlider(win->renderer, 100, 100, 200, 25,
@@ -878,6 +968,7 @@ void initAllButtons(Window *win)
     addListButton(game.ui[10].buttons, buttonsSwap, nbButtonsSwap);
     addListButton(game.ui[11].buttons, buttonsLearn, nbButtonsLearn);
     addListButton(game.ui[12].buttons, buttonsStarters, nbButtonsStarters);
+    addListButton(game.ui[13].buttons, buttonsResume, nbButtonsResume);
 }
 
 /**

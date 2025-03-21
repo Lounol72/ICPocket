@@ -26,7 +26,7 @@ void initGame(Window *win) {
     game.win = win;
     
     /* Initialisation des éléments de l'interface utilisateur (UI) */
-    game.nbMenu = 13;
+    game.nbMenu = 14;
     game.ui = malloc(game.nbMenu * sizeof(UI_Elements));
     for(int i = 0; i < game.nbMenu; i++) {
         game.ui[i] = (UI_Elements){ .buttons = malloc(sizeof(ButtonList)), .sliders = NULL, .background = NULL };
@@ -46,7 +46,7 @@ void initGame(Window *win) {
     game.gameState = (GameState){ .music = NULL, .playerTurn = 1, .initialized = 0, .currentState = MENU };
 
     /* Initialisation des gestionnaires d'états */
-    game.nbStates = 13;
+    game.nbStates = 14;
     game.stateHandlers = malloc(game.nbStates * sizeof(StateHandler));
     game.stateHandlers[0] = (StateHandler){ QUIT, handleQuitEvent };
     game.stateHandlers[1] = (StateHandler){ SETTINGS, handleSettingsEvent };
@@ -61,6 +61,7 @@ void initGame(Window *win) {
     game.stateHandlers[10]= (StateHandler){ SWAP, handleSwapEvent };
     game.stateHandlers[11]= (StateHandler){ LEARNMOVE, handleLearningEvent };
     game.stateHandlers[12]= (StateHandler){ STARTERS, handleStartersEvent };
+    game.stateHandlers[13]= (StateHandler){ RESUME, handleResumeEvent };
 
     /* Configuration de la fréquence d'images (FPS) */
     game.FPS = 60;
@@ -81,6 +82,7 @@ void initGame(Window *win) {
     loadBackground(&game.ui[10].background,win->renderer, "assets/Title Screen/BG.jpg");
     loadBackground(&game.ui[11].background,win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_backpack_background.png");
     loadBackground(&game.ui[12].background,win->renderer, "assets/Title Screen/starters.png");
+    loadBackground(&game.ui[13].background,win->renderer, "assets/Title Screen/pokedex.png");
 
     /* Initialisation de l'audio et chargement de la musique */
     initAudio();

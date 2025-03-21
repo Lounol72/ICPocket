@@ -21,6 +21,7 @@ typedef enum AppState_s {
     SWAP, //10
     LEARNMOVE, //11
     STARTERS,   //12
+    RESUME,     //13
 } AppState;
 
 /**

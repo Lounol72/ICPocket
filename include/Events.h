@@ -124,4 +124,6 @@ void handlePlayerEvent(Window *win, SDL_Event *event);
 
  void handleStartersEvent(Window *win, SDL_Event *event);
 
+ void handleResumeEvent(Window *win, SDL_Event *event);
+
 #endif /* HANDLEEVENTS_H */
