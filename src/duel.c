@@ -116,7 +116,6 @@ int calcStatFrom(t_Poke * p, int stat) {
 void initTeam(t_Team * t, int nb_poke){
 	t->nb_poke=nb_poke;
 	t->effect=noEffect;
-	t->id_save=1;
 	//t->lastEnemiID = NULL;
 	t->nb_enemiBeat = 0;
 	for(int i=0;i<nb_poke;i++){

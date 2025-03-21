@@ -8,6 +8,7 @@
 */
 void sauvegarder(t_Team * joueur,t_Team * adverse){
     char nomFichier[1024];
+    printf("save : %d\n",joueur->id_save);
     snprintf(nomFichier, sizeof(nomFichier), "data/save/Save_%d.txt", joueur->id_save);
     FILE *fichier = fopen(nomFichier, "w+");
     if(fichier == NULL){
@@ -31,9 +32,10 @@ void sauvegarder(t_Team * joueur,t_Team * adverse){
             fprintf(fichier,"fichier de save_%d\n",joueur->id_save);
             fprintf(fichier,"\n\n");
         }
+        
         fprintf(fichier, "Dernier dresseur battu : %s id: %d\n", adverse->trainerName, adverse->id);
         joueur->lastEnemiID = adverse->id;
-        printf("Sauvegarde effectuée\n");
+        printf("Sauvegarde effectuée2\n");
         fclose(fichier);
     }
 }
@@ -43,17 +45,26 @@ void sauvegarder(t_Team * joueur,t_Team * adverse){
 *   @param joueur Equipe du joueur
 *   @param dresseur Dernier dresseur battu
 */
-int charger(char *nomSave, t_Team *joueur, t_Team *dresseur) {
+int charger(char *nomSave, t_Team *joueur, t_Team *dresseur){
     char filePath[256];
-    snprintf(filePath, sizeof(filePath), "data/save/%s.txt", nomSave);
+    int save=0;
+    snprintf(filePath, sizeof(filePath), "data/save/Save_%s.txt", nomSave);
     FILE *fichier = fopen(filePath, "r");
     if (fichier == NULL) {
         printf("Erreur : impossible d'ouvrir le fichier de sauvegarde.\n");
         printf("Creation d'un fichier sauvegarde\n");
+        fichier = fopen(filePath, "w+");
+        sauver(joueur,save,nomSave);
+        joueur->id_save = save;
         return -1;
 
     } else {
         fscanf(fichier, "User name : %s\n", joueur->trainerName);
+        if(strcmp(joueur->trainerName,"SAVE1")!=0){
+            printf("Sauvegarde vide\n");
+            sauver(joueur,save,nomSave);
+            return -1;
+        }
         fscanf(fichier, "nb:%d\n", &(joueur->nb_poke));
         joueur->effect = noEffect;
         for (int i = 0; i < joueur->nb_poke; i++) {
@@ -84,10 +95,15 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur) {
 		    }
         }
         char temp[10];
-        strcpy(dresseur->trainerName,"oui");
+        strcpy(temp,dresseur->trainerName);
         fscanf(fichier, "Dernier dresseur battu : %s id: %d\n", temp, &(joueur->lastEnemiID));
         fclose(fichier);
         printf("Chargement effectué\n");
         return 1;
     }
+}
+
+void sauver(t_Team * joueur,int save,char * nomsave){
+            save = atoi(nomsave);
+            joueur->id_save = save;
 }

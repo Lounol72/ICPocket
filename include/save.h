@@ -18,5 +18,5 @@ void sauvegarder(t_Team * teamJ1,t_Team * dresseur);
 *@param joueur : the player's data
  */
 int charger(char * name,t_Team * teamJ1,t_Team * dresseur);
-
+void sauver(t_Team * teamJ1,int save,char * nomSave);
 #endif // SAVE_H

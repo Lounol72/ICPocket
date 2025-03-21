@@ -468,14 +468,11 @@ void loadFile(Window *win, void *event){
     if(!game.gameState.initialized){
         initData();
         char data[50];
-        snprintf(data,50,"Save_%s",(char*)event);
+        snprintf(data,50,"%s",(char*)event);
         printf("data %s\n",data);
-        if(!(charger(data, &game.battleState.rouge, &game.battleState.bleu))){
-            printf("Erreur lors du chargement de la sauvegarde\n");
-            printf("Creation d'une nouvelle partie\n");
-            changeState(win, &game.stateHandlers[NEWGAME].state);
+        if((charger(data, &game.battleState.rouge, &game.battleState.bleu))==-1){
+            handleNewGameEvent(win, event);
             handleEvent(win, event);
-            return;
         }
 
         initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
@@ -489,7 +486,9 @@ void loadFile(Window *win, void *event){
         updateICButtons(win, &game.battleState.rouge);
         
         game.gameState.initialized = 1;
-        changeState(win, &game.stateHandlers[MAP].state);
+        changeState(win, &game.stateHandlers[3].state);
+        handleEvent(win, event);
+
     }
 }
 
