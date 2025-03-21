@@ -248,7 +248,7 @@ function initABTesting() {
     if (document.getElementById('downloadButton')) {
         // Générer aléatoirement la variante A ou B
         const downloadBtn = document.getElementById('downloadButton');
-        downloadBtn.classList.add('download-button-variant-b');
+        downloadBtn.classList.add('download-button');
         downloadBtn.innerHTML = '<i class="fas fa-rocket"></i><span>Télécharger v0.9</span>';
     }
 } 

@@ -256,7 +256,7 @@ footer {
 .download-button {
     position: relative;
     z-index: 2;
-    background-color: color-mix(in srgb, var(--steam-light), var(--steam-hover) 50%);
+    background-color: color-mix(in srgb, color percentage, color percentage);
     color: var(--steam-dark);
     padding: 1rem 2rem;
     border: none;
@@ -345,7 +345,7 @@ footer {
 .dev-links button {
     width: 100%;
     text-align: left;
-    background: linear-gradient(to right, #1b2838, #171a21);
+    background: linear-gradient(to right, #1b2838, #041231);
     border: none;
     padding: 0.75rem;
     color: #acb2b8;

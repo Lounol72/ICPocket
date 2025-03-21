@@ -58,6 +58,7 @@ a:not(.btn-primary):not(.btn-secondary):not(.download-button):not(.download-asse
 
 a:not(.btn-primary):not(.btn-secondary):not(.download-button):not(.download-asset):not(.modern-card a):hover::after {
     width: 100%;
+    
 }
 
 /* ===== NAVIGATION AMÉLIORÉE ===== */
@@ -472,27 +473,88 @@ nav button.current-page::before {
     background-color: var(--steam-light);
 }
 
-/* Variante B pour A/B testing */
-.download-button-variant-b {
-    background: linear-gradient(to right, var(--steam-hover), #6a14bb);
+/* Bouton download de index.html */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes shine {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.download-button {
+    /* Animation d'apparition et effet de gradient */
+    animation: fadeIn 0.5s ease-in forwards;
+    background: linear-gradient(90deg, var(--steam-hover), #6a14bb, #9b59b6, var(--steam-hover));
+    background-size: 300% 100%;
+    animation: gradientShift 5s ease infinite;
+    
+    /* Style de base */
     border-radius: 50px;
     padding: 14px 30px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     font-size: 2rem;
     width: 50vw;
     
-    
+    /* Nécessaire pour l'effet shine */
+    position: relative;
+    overflow: hidden;
 }
 
-.download-button-variant-b:hover {
+/* Effet shine avec pseudo-élément */
+.download-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent);
+    transform: translateX(-100%);
+    animation: shine 3s infinite;
+    z-index: 1;
+}
+
+/* Animation de l'icône */
+.download-button i {
+    font-size: 1.1em;
+    display: inline-block;
+    animation: iconFloat 2s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
+}
+
+/* Effet hover */
+.download-button:hover {
     transform: translateY(-3px) scale(1.03);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    
 }
 
-.download-button-variant-b i {
-    font-size: 1.1em;
-    
+/* Pour que le texte reste au-dessus de l'effet shine */
+.download-button span {
+    position: relative;
+    z-index: 2;
 }
 
 /* Indicateur de chargement des pages */
