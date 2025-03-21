@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
@@ -125,72 +125,71 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">ICPocket </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> </p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> <img src="docs/img/favicon.png" alt="ICPocket Logo" class="inline"/></p>
 <h1><a class="anchor" id="autotoc_md1"></a>
-Installation</h1>
-<ol type="1">
-<li>Téléchargez l'archive ICPocket.tar.gz</li>
-<li>Décompressez l'archive : <div class="fragment"><div class="line">tar -xzf ICPocket.tar.gz -C ./ICPocket</div>
-</div><!-- fragment --></li>
-<li>Accédez au répertoire : <div class="fragment"><div class="line">cd ICPocket</div>
-</div><!-- fragment --></li>
-<li>Lancez le jeu : <div class="fragment"><div class="line">./bin/main</div>
-</div><!-- fragment --></li>
-</ol>
+À propos du projet</h1>
+<p>ICPocket est un jeu de combat et d'aventure inspiré de Pokémon, développé par des étudiants de l'Université du Mans. Dans cet univers unique où les créatures numériques et la technologie se mêlent harmonieusement, vous incarnez un jeune développeur qui doit relever le défi de devenir le meilleur dresseur d'ICPocket.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
-Ajouter un son</h1>
-<p>Les fichiers audio doivent être au format MP3. Si vous avez un fichier dans un autre format, vous pouvez le convertir en MP3 en utilisant <code>ffmpeg</code> :</p>
-<ol type="1">
-<li><p class="startli">Installez <code>ffmpeg</code> si ce n'est pas déjà fait :</p>
-<div class="fragment"><div class="line">sudo apt-get install ffmpeg</div>
-</div><!-- fragment --></li>
-<li><p class="startli">Convertissez le fichier audio :</p>
-<div class="fragment"><div class="line">ffmpeg -i assets/audio/background_music.mp4 -q:a 0 -map a assets/audio/background_music.mp3</div>
-</div><!-- fragment --></li>
-</ol>
+🎮 Le jeu</h1>
+<p>Explorez des environnements variés, des villes high-tech aux mystérieuses forêts de données corrompues, et affrontez d'autres dresseurs dans des combats stratégiques au tour par tour.</p>
+<p><b>Version actuelle :</b> 0.9</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
-Git</h1>
-<h2><a class="anchor" id="autotoc_md4"></a>
-Explications</h2>
-<ol type="1">
-<li><b>Commandes Git</b> :<ul>
-<li><p class="startli"><b>Naviguer vers le répertoire du projet</b> :</p>
-<div class="fragment"><div class="line">cd ~/ICPocket-main</div>
-</div><!-- fragment --></li>
-<li><p class="startli"><b>Récupérer les dernières modifications du dépôt distant</b> :</p>
-<p class="startli"><code>sh git pull </code></p>
-</li>
-<li><p class="startli"><b>Ajouter des fichiers</b> :</p>
-<p class="startli"><code>sh git add . </code></p>
-</li>
-<li><p class="startli"><b>Commit des modifications</b> :</p>
-<p class="startli"><code>sh git commit -m "Modification qu'apporte le commit" </code></p>
-</li>
-<li><p class="startli"><b>Push après le commit</b> :</p>
-<p class="startli"><code>sh git push </code></p>
-</li>
+🌐 Site web</h1>
+<p>Le site web d'ICPocket propose :</p><ul>
+<li>Une page d'accueil présentant le jeu et permettant son téléchargement</li>
+<li>Une page d'actualités suivant l'évolution du développement</li>
+<li>Des informations sur l'équipe de développement</li>
+<li>Une documentation complète</li>
+<li>Un formulaire de contact</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md4"></a>
+📁 Structure du projet</h1>
+<ul>
+<li><code>src/</code> - Code source du jeu<ul>
+<li><code>battle/</code> - Système de combat</li>
+<li><code>characters/</code> - Personnages et créatures</li>
+<li><code>world/</code> - Environnement de jeu</li>
 </ul>
 </li>
-</ol>
+<li><code>include/</code> - Fichiers d'en-tête</li>
+<li><code>assets/</code> - Ressources graphiques et sonores<ul>
+<li><code>sprites/</code> - Images des personnages et créatures</li>
+<li><code>audio/</code> - Musiques et effets sonores</li>
+<li><code>maps/</code> - Cartes du monde</li>
+</ul>
+</li>
+<li><code>bin/</code> - Exécutables et fichiers compilés</li>
+<li><code>docs/</code> - Site web et documentation technique</li>
+</ul>
 <h1><a class="anchor" id="autotoc_md5"></a>
-Idées pour le jeu</h1>
+🔧 Technologies utilisées</h1>
 <ul>
-<li>Faire une table de types avec de nouveaux types (binaire/machine par exemple...)</li>
-<li>Faire trembler la fenêtre du joueur lorsqu'il subit une attaque</li>
-<li>Loup veut une team de waifus (0 blagues)</li>
-<li>Poké custom (ex : une raspberry qui évolue en PC portable qui évolue en PC gamer)</li>
-<li>Pas d'objets en combats</li>
-<li>Nous quatre formons les quatre membres qui donnent chacun un starter au choix</li>
+<li>HTML5/CSS3 pour l'interface web</li>
+<li>JavaScript pour les fonctionnalités interactives</li>
+<li>Intégration avec l'API GitHub pour les actualités du développement</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md6"></a>
+🚀 Comment contribuer</h1>
+<ol type="1">
+<li>Consultez notre <a href="https://github.com/Lounol72/ICPocket">GitHub</a></li>
+<li>Explorez la <a href="https://lounol72.github.io/ICPocket/html/index.html">documentation</a></li>
+<li>Contactez l'équipe via notre <a href="https://lounol72.github.io/ICPocket/contact.html">formulaire de contact</a></li>
+</ol>
+<h1><a class="anchor" id="autotoc_md7"></a>
+👥 Équipe</h1>
+<p>Développé par une équipe d'étudiants passionnés de l'Université du Mans. Découvrez notre équipe <a href="https://lounol72.github.io/ICPocket/team.html">ici</a>.</p>
+<h1><a class="anchor" id="autotoc_md8"></a>
 Table RACI</h1>
 <p><a href="https://docs.google.com/spreadsheets/d/18GRBhOJjPINtjTH3fe337HzVoUgaLmINAeefcjlDmGY/edit?usp=sharing">Lien vers la table RACI</a></p>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<h1><a class="anchor" id="autotoc_md9"></a>
 GANTT</h1>
 <p><a href="https://docs.google.com/spreadsheets/d/1JiNN4hBVWgQdRoLmsXpOZefp3q4jUFyiuYVRdjpeE_4/edit?gid=1709744959#gid=1709744959">Lien vers le GANTT</a></p>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md10"></a>
 GANTT Prévisionnel</h1>
-<p><a href="https://docs.google.com/spreadsheets/d/1AqGpYmEBtP7KtYeO5m7FdebBRN59XQRUxrBPlVJ7CM0/edit?gid=1709744959#gid=1709744959">Lien vers le GANTT</a> </p>
+<p><a href="https://docs.google.com/spreadsheets/d/1AqGpYmEBtP7KtYeO5m7FdebBRN59XQRUxrBPlVJ7CM0/edit?gid=1709744959#gid=1709744959">Lien vers le GANTT</a></p>
+<h1><a class="anchor" id="autotoc_md11"></a>
+📄 Licence</h1>
+<p>© 2024 ICPocket. Tous droits réservés. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

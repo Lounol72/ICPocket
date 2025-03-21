@@ -8,6 +8,5 @@ var searchData=
   ['events_2eh_5',['Events.h',['../d0/dbb/Events_8h.html',1,'']]],
   ['executeaction_6',['executeaction',['../d5/d81/GameEngine_8c.html#a0f30ad9309996b75a4472a6235a17bd1',1,'executeAction(t_Team *attacker, t_Team *defender, int move):&#160;GameEngine.c'],['../d7/d1f/GameEngine_8h.html#a0f30ad9309996b75a4472a6235a17bd1',1,'executeAction(t_Team *attacker, t_Team *defender, int move):&#160;GameEngine.c']]],
   ['exp_7',['exp',['../d7/d09/structt__Poke.html#afc7243b0a23a9ade0b20033d4970e1c8',1,'t_Poke']]],
-  ['expcurve_8',['expcurve',['../d1/d18/duel_8c.html#a3e88ec315719a73455623551f124fb62',1,'expCurve(int lvl):&#160;duel.c'],['../d6/d8e/duel_8h.html#a3e88ec315719a73455623551f124fb62',1,'expCurve(int lvl):&#160;duel.c']]],
-  ['explications_9',['Explications',['../index.html#autotoc_md4',1,'']]]
+  ['expcurve_8',['expcurve',['../d1/d18/duel_8c.html#a3e88ec315719a73455623551f124fb62',1,'expCurve(int lvl):&#160;duel.c'],['../d6/d8e/duel_8h.html#a3e88ec315719a73455623551f124fb62',1,'expCurve(int lvl):&#160;duel.c']]]
 ];

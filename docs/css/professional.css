@@ -61,6 +61,24 @@ a:not(.btn-primary):not(.btn-secondary):not(.download-button):not(.download-asse
 }
 
 /* ===== NAVIGATION AMÉLIORÉE ===== */
+nav {
+    display: flex;
+    background-color: rgba(23, 26, 33, 0.8);
+    padding: 1rem;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: 80%;
+    max-width: 1000px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    
+}
+
 nav.scrolled {
     background-color: rgba(23, 26, 33, 0.95);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);

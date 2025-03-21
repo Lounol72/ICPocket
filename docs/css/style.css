@@ -42,30 +42,10 @@ body {
     font-family: Arial, sans-serif;
 }
 
-nav {
-    display: flex;
-    background-color: rgba(23, 26, 33, 0.8);
-    padding: 1rem;
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    width: 80%;
-    max-width: 1000px;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
 
-#nav-right {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
 
-nav button, #nav-right input {
+
+nav button {
     background-color: var(--steam-blue);
     color: white;
     border: none;
@@ -276,7 +256,7 @@ footer {
 .download-button {
     position: relative;
     z-index: 2;
-    background-color: var(--steam-light);
+    background-color: color-mix(in srgb, var(--steam-light), var(--steam-hover) 50%);
     color: var(--steam-dark);
     padding: 1rem 2rem;
     border: none;
@@ -472,70 +452,7 @@ footer {
     }
 }
 
-/* Style pour la barre de recherche cachée */
-#nav-right {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
 
-#nav-right input {
-    width: 0;
-    padding: 10px 0;
-    margin-right: 0;
-    overflow: hidden;
-    border: none;
-    background-color: transparent;
-    color: white;
-    opacity: 0;
-    transition: all 0.3s ease-out;
-}
-
-#nav-right.search-active input {
-    width: 200px;
-    padding: 10px 15px;
-    margin-right: 5px;
-    opacity: 1;
-    background-color: rgba(27, 40, 56, 0.7);
-    border-radius: 3px;
-}
-
-#nav-right .separator {
-    opacity: 0;
-    width: 0;
-    transition: all 0.3s ease-out;
-}
-
-#nav-right.search-active .separator {
-    opacity: 1;
-    width: 1px;
-}
-
-/* Bouton loupe avec effet hover amélioré */
-#nav-right button {
-    background-color: transparent;
-    color: var(--steam-light);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#nav-right button:hover {
-    background-color: rgba(102, 192, 244, 0.2);
-    transform: scale(1.1);
-}
-
-.fa-search {
-
-    font-size: 1.15rem;
-}
 
 /* Styles pour les nouvelles sections et améliorations */
 

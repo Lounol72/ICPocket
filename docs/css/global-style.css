@@ -1,34 +1,3 @@
-/* Style de la barre de navigation */
-nav {
-    background-color: rgba(22, 26, 35, 0.95);
-    padding: 15px 20px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 15px auto;
-    max-width: 900px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 8px 15px;
-    margin: 0 5px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    font-size: 16px;
-}
-
-nav a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-nav a.active {
-    background-color: rgba(30, 144, 255, 0.3);
-    color: #1e90ff;
-}
 
 /* Style du titre du jeu */
 #title {
@@ -41,6 +10,7 @@ nav a.active {
 }
 
 /* Style pour le bouton de téléchargement */
+
 .download-button {
     background: linear-gradient(90deg, #1e90ff 0%, #7b68ee 100%);
     color: white;

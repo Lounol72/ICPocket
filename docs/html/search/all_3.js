@@ -22,6 +22,7 @@ var searchData=
   ['direction_19',['direction',['../d7/dfe/structNPC.html#abf5f75167466405b97e2f14367dc3091',1,'NPC']]],
   ['dragcursor_20',['DragCursor',['../d3/d70/Buttons_8h.html#ac397d132d59d67574bd320918402f5a2',1,'Buttons.h']]],
   ['dragging_21',['dragging',['../df/dd7/structSlider.html#aea0d11495677602ea0c0b35d25088c5f',1,'Slider']]],
-  ['duel_2ec_22',['duel.c',['../d1/d18/duel_8c.html',1,'']]],
-  ['duel_2eh_23',['duel.h',['../d6/d8e/duel_8h.html',1,'']]]
+  ['du_20projet_22',['du projet',['../index.html#autotoc_md1',1,'À propos du projet'],['../index.html#autotoc_md4',1,'📁 Structure du projet']]],
+  ['duel_2ec_23',['duel.c',['../d1/d18/duel_8c.html',1,'']]],
+  ['duel_2eh_24',['duel.h',['../d6/d8e/duel_8h.html',1,'']]]
 ];

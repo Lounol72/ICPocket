@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['raci_0',['Table RACI',['../index.html#autotoc_md6',1,'']]],
+  ['raci_0',['Table RACI',['../index.html#autotoc_md8',1,'']]],
   ['reachednextlvl_1',['reachednextlvl',['../d6/d8e/duel_8h.html#a109762b4b492c870f576af03d9c9a805',1,'reachedNextLvl(t_Poke *p):&#160;duel.c'],['../d1/d18/duel_8c.html#a109762b4b492c870f576af03d9c9a805',1,'reachedNextLvl(t_Poke *p):&#160;duel.c']]],
   ['readme_2emd_2',['README.md',['../da/ddd/README_8md.html',1,'']]],
   ['recoildamage_3',['recoildamage',['../d6/d8e/duel_8h.html#a8a4770999605ebb93a222787153477c8',1,'recoilDamage(t_Team *target, int probability, int percentage_of_val, int indexPoke):&#160;duel.c'],['../d1/d18/duel_8c.html#a8a4770999605ebb93a222787153477c8',1,'recoilDamage(t_Team *target, int probability, int percentage_of_val, int indexPoke):&#160;duel.c']]],

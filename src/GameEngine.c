@@ -481,18 +481,11 @@ void mainLoop(Window *win) {
     while (!win->quit) {
         frameStart = SDL_GetTicks();
         
-        while (SDL_PollEvent(&event)) {
-            game.stateHandlers[win->state].handleEvent(win, &event);
-        }
-        
-        if (game.gameState.currentState == MAP) {
-            
-            renderMap(win);
-            
-        } else {
+        while (SDL_PollEvent(&event)) game.stateHandlers[win->state].handleEvent(win, &event);
+        if (game.gameState.currentState == MAP) renderMap(win);
+        else {
             SDL_RenderClear(win->renderer);
             render(win);
-            
             updateCurrentButton();
             if (game.battleState.turnState != TURN_NONE) updateBattleTurn();
             SDL_RenderPresent(win->renderer);

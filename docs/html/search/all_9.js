@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jeu_0',['Idées pour le jeu',['../index.html#autotoc_md5',1,'']]]
+  ['jeu_0',['🎮 Le jeu',['../index.html#autotoc_md2',1,'']]]
 ];

@@ -247,17 +247,8 @@ function initABTesting() {
     // Exemple: tester deux variantes de bouton de téléchargement
     if (document.getElementById('downloadButton')) {
         // Générer aléatoirement la variante A ou B
-        const variant = Math.random() > 0.5 ? 'A' : 'B';
-        
-        if (variant === 'B') {
-            const downloadBtn = document.getElementById('downloadButton');
-            downloadBtn.classList.add('download-button-variant-b');
-            downloadBtn.innerHTML = '<i class="fas fa-rocket"></i><span>Télécharger v0.9</span>';
-            
-            // Enregistrer l'événement (normalement avec un service d'analytics)
-            console.log('A/B Testing: Variant B shown');
-        } else {
-            console.log('A/B Testing: Variant A shown');
-        }
+        const downloadBtn = document.getElementById('downloadButton');
+        downloadBtn.classList.add('download-button-variant-b');
+        downloadBtn.innerHTML = '<i class="fas fa-rocket"></i><span>Télécharger v0.9</span>';
     }
 } 
