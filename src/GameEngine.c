@@ -465,7 +465,6 @@ void destroyResume(Window *win, void *data){
 void nextDuel(Window *win, void *data) {
     (void)win;
     (void)data;
-
     // Arrêter tous les sons avant de sauvegarder
     Mix_HaltChannel(-1);
     Mix_HaltMusic();

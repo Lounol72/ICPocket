@@ -498,7 +498,7 @@ void loadFile(Window *win, void *event){
         updateICButtons(win, &game.battleState.rouge);
         
         game.gameState.initialized = 1;
-        changeState(win, &game.stateHandlers[3].state);
+        changeState(win, &game.stateHandlers[MAP].state);
         handleEvent(win, event);
 
     }
@@ -575,7 +575,7 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
     else if (keyState[SDL_SCANCODE_DELETE]) {
         changeState(game.win, &game.stateHandlers[QUIT].state);
     }
-    else if (keyState[SDL_SCANCODE_C] && game.gameData.map->mat[newMatrixY-1][newMatrixX] == 6 && game.gameState.currentState == MAP) {
+    else if (keyState[SDL_SCANCODE_E] && game.gameData.map->mat[newMatrixY-1][newMatrixX] == 6 && game.gameState.currentState == MAP) {
             nextDuel(game.win, NULL);
             printf("%d\n", game.gameState.initialized);
     }
