@@ -1,5 +1,25 @@
 [
   {
+    "sha": "9f9d1308",
+    "message": "📊 Fix null check for release assets in GitHub stats calculation",
+    "date": "2025-03-21T08:58:34Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/9f9d13084c3277d00f126532422eed2a8806a2f0"
+  },
+  {
+    "sha": "1ca1531a",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-21T08:50:57Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/1ca1531a1e8ba9f4a81f2a3128749e377c625326"
+  },
+  {
     "sha": "0951ad3a",
     "message": "📊 Enhance GitHub data workflow to include release assets and filter sensitive information; add no-assets message in UI",
     "date": "2025-03-21T08:50:30Z",
@@ -278,25 +298,5 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/78d4f5617583af4f4debc338549a2f7b71ec789b"
-  },
-  {
-    "sha": "8a73e097",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-20T21:15:56Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/8a73e097deb990ca4c6fb760649ad4111c61a356"
-  },
-  {
-    "sha": "358dd56b",
-    "message": "Add doxygen-awesome-css subproject as a new dependency",
-    "date": "2025-03-20T21:13:47Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/358dd56b08ff4da01fc4e6aae38cffafd18d63bc"
   }
 ]
