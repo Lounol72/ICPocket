@@ -35,9 +35,11 @@ async function fetchGitHubStats() {
         // Calculer le nombre total de téléchargements
         let totalDownloads = 0;
         releasesData.forEach(release => {
-            release.assets.forEach(asset => {
-                totalDownloads += asset.download_count;
-            });
+            if (release.assets) {
+                release.assets.forEach(asset => {
+                    totalDownloads += asset.download_count;
+                });
+            }
         });
         
         // Mettre à jour les statistiques sur la page
