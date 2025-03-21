@@ -517,18 +517,9 @@ void mainLoop(Window *win) {
     while (!win->quit) {
         frameStart = SDL_GetTicks();
         
-<<<<<<< Updated upstream
         while (SDL_PollEvent(&event)) game.stateHandlers[win->state].handleEvent(win, &event);
         if (game.gameState.currentState == MAP) renderMap(win);
         else {
-=======
-        
-        if (game.gameState.currentState == MAP) {
-            
-            renderMap(win);
-            
-        } else {
->>>>>>> Stashed changes
             SDL_RenderClear(win->renderer);
             render(win);
             updateCurrentButton();
