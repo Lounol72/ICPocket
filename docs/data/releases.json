@@ -4,20 +4,56 @@
     "tag_name": "Pre-release",
     "published_at": "2025-03-08T15:17:48Z",
     "html_url": "https://github.com/Lounol72/ICPocket/releases/tag/Pre-release",
-    "body": "The game is almost finished, we'll keep that updated by adding new ICMons and features but, we are one the finished line for what we promised to you.\r\nYou can test the game by downloading the version you want, uncompress it and run the run.bat or run.sh depending on your version.\r\nIf you have any issue with the game, please let us know by the Issue button on git or you can create a [new issue.](https://github.com/Lounol72/ICPocket/issues)\r\n@AstroZr @Natp24109 @lOkaal1 "
+    "body": "The game is almost finished, we'll keep that updated by adding new ICMons and features but, we are one the finished line for what we promised to you.\r\nYou can test the game by downloading the version you want, uncompress it and run the run.bat or run.sh depending on your version.\r\nIf you have any issue with the game, please let us know by the Issue button on git or you can create a [new issue.](https://github.com/Lounol72/ICPocket/issues)\r\n@AstroZr @Natp24109 @lOkaal1 ",
+    "assets": [
+      {
+        "name": "ICPocket-windows.zip",
+        "size": 98546195,
+        "download_count": 6,
+        "browser_download_url": "https://github.com/Lounol72/ICPocket/releases/download/Pre-release/ICPocket-windows.zip"
+      },
+      {
+        "name": "ICPocket.tar.gz",
+        "size": 98006773,
+        "download_count": 1,
+        "browser_download_url": "https://github.com/Lounol72/ICPocket/releases/download/Pre-release/ICPocket.tar.gz"
+      }
+    ]
   },
   {
     "name": "V-0.5",
     "tag_name": "Aplha",
     "published_at": "2025-02-28T18:43:07Z",
     "html_url": "https://github.com/Lounol72/ICPocket/releases/tag/Aplha",
-    "body": "In wait of the full DB this is the release of the new map & new moves & saves.\r\nThis is meant for tests, if you have any issues with the game pls notify us by creating a [new issue](https://github.com/Lounol72/ICPocket/issues)"
+    "body": "In wait of the full DB this is the release of the new map & new moves & saves.\r\nThis is meant for tests, if you have any issues with the game pls notify us by creating a [new issue](https://github.com/Lounol72/ICPocket/issues)",
+    "assets": [
+      {
+        "name": "ICPocket-windows.zip",
+        "size": 98324872,
+        "download_count": 1,
+        "browser_download_url": "https://github.com/Lounol72/ICPocket/releases/download/Aplha/ICPocket-windows.zip"
+      },
+      {
+        "name": "ICPocket.tar.gz",
+        "size": 98211883,
+        "download_count": 1,
+        "browser_download_url": "https://github.com/Lounol72/ICPocket/releases/download/Aplha/ICPocket.tar.gz"
+      }
+    ]
   },
   {
     "name": "V-0.1.1 Patch",
     "tag_name": "Beta",
     "published_at": "2025-02-24T14:22:12Z",
     "html_url": "https://github.com/Lounol72/ICPocket/releases/tag/Beta",
-    "body": "Release pour les premiers tests (non finalisée, à des fins de test uniquement)\r\nAfin de tester cette version veuillez lire le [README.md](https://github.com/Lounol72/ICPocket/blob/main/README.md).\r\n@Lounol72 @AstroZr @Natp24109 @lOkaal1 "
+    "body": "Release pour les premiers tests (non finalisée, à des fins de test uniquement)\r\nAfin de tester cette version veuillez lire le [README.md](https://github.com/Lounol72/ICPocket/blob/main/README.md).\r\n@Lounol72 @AstroZr @Natp24109 @lOkaal1 ",
+    "assets": [
+      {
+        "name": "ICPocket.tar.gz",
+        "size": 21592535,
+        "download_count": 0,
+        "browser_download_url": "https://github.com/Lounol72/ICPocket/releases/download/Beta/ICPocket.tar.gz"
+      }
+    ]
   }
 ]

@@ -1,5 +1,45 @@
 [
   {
+    "sha": "0951ad3a",
+    "message": "📊 Enhance GitHub data workflow to include release assets and filter sensitive information; add no-assets message in UI",
+    "date": "2025-03-21T08:50:30Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/0951ad3a2bd7aff7c53904cfcc781abaa4c59794"
+  },
+  {
+    "sha": "8dd863fc",
+    "message": "📊 Refactor loading animation styles and enhance commit display logic",
+    "date": "2025-03-21T08:42:35Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/8dd863fc755ec8610cca3d6b47cc565665972a57"
+  },
+  {
+    "sha": "64d46a7b",
+    "message": "📊 Update GitHub data workflow to run every 6 hours",
+    "date": "2025-03-21T08:10:30Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/64d46a7bd055d2c18041d9f39b550e3a0bdf1ad4"
+  },
+  {
+    "sha": "8a511ddd",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-21T08:09:58Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/8a511ddd0abd8b51cb3ba1e0172a4c12620296c5"
+  },
+  {
     "sha": "11da57aa",
     "message": "📊 Enhance GitHub data workflow to filter sensitive information and install jq",
     "date": "2025-03-21T08:09:27Z",
@@ -258,45 +298,5 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/358dd56b08ff4da01fc4e6aae38cffafd18d63bc"
-  },
-  {
-    "sha": "27764f62",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-20T20:44:46Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/27764f62c92a80f34bd9b2872e3ec5d471d85d45"
-  },
-  {
-    "sha": "735e00a5",
-    "message": "Remove obsolete GitHub Pages workflow and update data handling in JavaScript; add fallback contributors and improve error handling for data fetching",
-    "date": "2025-03-20T20:43:32Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/735e00a5f9dad8b0cfe1df83b58caa1c41ced70c"
-  },
-  {
-    "sha": "4a0dc87f",
-    "message": "Remove obsolete MD5 files and related search scripts from documentation",
-    "date": "2025-03-20T20:38:51Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/4a0dc87f5ca79d8dea7cea9f49ee82c2a3698503"
-  },
-  {
-    "sha": "7b075066",
-    "message": "Refactor GitHub Actions workflows for improved deployment; consolidate jobs, enhance permissions, and streamline documentation generation",
-    "date": "2025-03-20T20:27:44Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/7b0750663ef13adb4d149a13634df1ab2e608081"
   }
 ]
