@@ -882,3 +882,33 @@ footer {
     color: #fff;
 }
 
+.no-assets-message {
+    background-color: rgba(35, 39, 47, 0.4);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.no-assets-message p {
+    margin-bottom: 1rem;
+    color: #acb2b8;
+}
+
+.no-assets-message .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--steam-light);
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.no-assets-message .btn-primary:hover {
+    background-color: var(--steam-hover);
+    transform: translateY(-2px);
+}
+

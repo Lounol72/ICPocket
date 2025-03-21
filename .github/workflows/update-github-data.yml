@@ -33,10 +33,22 @@ jobs:
             https://api.github.com/repos/${{ github.repository }}/contributors | \
             jq 'map({login, avatar_url, html_url, contributions})' > docs/data/contributors.json
           
-          # Releases - supprimer les informations sensibles
+          # Releases - inclure les assets mais filtrer les données sensibles
           curl -s -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/${{ github.repository }}/releases | \
-            jq 'map({name, tag_name, published_at, html_url, body})' > docs/data/releases.json
+            jq 'map({
+              name, 
+              tag_name, 
+              published_at, 
+              html_url, 
+              body,
+              assets: [.assets[] | {
+                name,
+                size,
+                download_count,
+                browser_download_url
+              }]
+            })' > docs/data/releases.json
           
           # Commits - filtrer et anonymiser les données sensibles
           curl -s -H "Accept: application/vnd.github.v3+json" \

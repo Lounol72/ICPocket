@@ -39,25 +39,30 @@ function displayLatestRelease(releases) {
     
     // Préparer le HTML pour les assets (fichiers à télécharger)
     let assetsHTML = '';
-    if (latestRelease.assets && latestRelease.assets.length > 0) {
+    if (!latestRelease.assets || latestRelease.assets.length === 0) {
         assetsHTML = `
-            <div class="release-assets">
-                <h3>Téléchargements</h3>
-                <ul class="assets-list">
-                    ${latestRelease.assets.map(asset => `
-                        <li>
-                            <a href="${asset.browser_download_url}" class="download-asset">
-                                <i class="fas fa-download"></i> ${asset.name}
-                                <span class="asset-info">
-                                    <span class="asset-size">${formatFileSize(asset.size)}</span>
-                                    <span class="download-count"><i class="fas fa-cloud-download-alt"></i> ${asset.download_count}</span>
-                                </span>
-                            </a>
-                        </li>
-                    `).join('')}
-                </ul>
+            <div class="no-assets-message">
+                <p>Les fichiers de téléchargement seront disponibles prochainement.</p>
+                <a href="${latestRelease.html_url}" class="btn-primary" target="_blank">
+                    <i class="fab fa-github"></i> Voir sur GitHub
+                </a>
             </div>
         `;
+    } else {
+        // Code existant pour générer la liste des assets
+        assetsHTML = '<div class="release-assets">';
+        latestRelease.assets.forEach(asset => {
+            assetsHTML += `
+                <a href="${asset.browser_download_url}" class="download-asset">
+                    <i class="fas fa-download"></i> ${asset.name}
+                    <span class="asset-info">
+                        <span class="asset-size">${formatFileSize(asset.size)}</span>
+                        <span class="download-count"><i class="fas fa-cloud-download-alt"></i> ${asset.download_count}</span>
+                    </span>
+                </a>
+            `;
+        });
+        assetsHTML += '</div>';
     }
     
     // Construire le HTML complet
