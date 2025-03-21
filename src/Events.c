@@ -564,8 +564,8 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
         changeState(game.win, &game.stateHandlers[QUIT].state);
     }
     else if (keyState[SDL_SCANCODE_C] && game.gameData.map->mat[newMatrixY-1][newMatrixX] == 6 && game.gameState.currentState == MAP) {
-        nextDuel(game.win, NULL);
-        printf("%d\n", game.gameState.initialized);
+            nextDuel(game.win, NULL);
+            printf("%d\n", game.gameState.initialized);
     }
     
     if (shouldMove && game.gameData.map->mat[newMatrixY][newMatrixX] != COLLISION && game.gameData.map->mat[newMatrixY][newMatrixX] != 6) {

@@ -12,6 +12,7 @@
  * @date 17/02/2025
  */
 
+
 extern Game game;
 void initGame(Window *win);
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath) ;

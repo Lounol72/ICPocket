@@ -19,18 +19,30 @@ static void initCollisionMap(Map *map) {
 
 void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY) {
     printf("Chargement de la nouvelle map: %s\n", newMapPath);
+
+    // Détruire l'ancienne map
     destroyMap(*map);
-    
+
+    // Initialiser la nouvelle map
     *map = initMap((*map)->renderer, newMapPath, mapWidth, mapHeight, spawnX, spawnY);
     if (!*map) {
         printf("Erreur chargement nouvelle map\n");
         return;
     }
 
-    // Mettre à jour les coordonnées de spawn du joueur
-    if (spawnX && spawnY) {
-        printf("Nouvelles coordonnées de spawn: [%d, %d]\n", *spawnX, *spawnY);
+    // Rechercher les cases -1 dans la nouvelle map pour définir les coordonnées de spawn
+    for (int i = 0; i < (*map)->tileSizeH; i++) {
+        for (int j = 0; j < (*map)->tileSizeW; j++) {
+            if ((*map)->mat[i][j] == -1) {
+                *spawnX = j;
+                *spawnY = i;
+                printf("Coordonnées de spawn trouvées: [%d, %d]\n", *spawnX, *spawnY);
+                return;
+            }
+        }
     }
+
+    printf("Aucune case -1 trouvée, les coordonnées de spawn restent inchangées.\n");
 }
 
 static void initCollisionMapFromCSV(Map *map, const char *path, int *spawnX, int *spawnY) {

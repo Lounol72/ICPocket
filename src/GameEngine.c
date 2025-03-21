@@ -455,7 +455,7 @@ void nextDuel(Window *win, void *data) {
     updateICButtons(win, &game.battleState.rouge);
     
     // Changer d'état
-    changeState(win, &game.stateHandlers[3].state);
+    changeState(win, &game.stateHandlers[GAME].state);
 }
 
 /**
