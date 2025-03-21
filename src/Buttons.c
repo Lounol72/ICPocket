@@ -134,11 +134,14 @@ Button *createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SD
 
     Scaling(text, button->font, &button->textRect, &rect);
     button->initialTextRect = button->textRect;
-
+    char file[50]="\0";
+    char path[80]="assets/User Interface/Blue/button_rectangle_depth_flat.png";
+    if(sscanf(imagePath,"assets/User Interface/Grey/%s",file)==1)
+        snprintf(path,sizeof(path),"assets/User Interface/Blue/%s",file);
     // Création des textures
     if (!createTextTexture(button) || 
         !createButtonTexture(button, imagePath) ||
-        !createSelectedTexture(button, "assets/User Interface/Blue/button_rectangle_depth_flat.png")) {
+        !createSelectedTexture(button, path)) {
         destroyButton(button);
         return NULL;
     }

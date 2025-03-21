@@ -158,7 +158,7 @@ void initBlueTeam(t_Team *t,t_Team *joueur) {
         for (int i = 0; i < t->nb_poke; i++) {
             fscanf(fichierTrainer, "%d,", &id_poke);
             generate_poke_enemi(&(t->team[i]), id_poke,joueur);
-            for (int j = 0; j < t->nb_poke; j++) t->statChanges[j] = NEUTRAL_STAT_CHANGE;
+            for (int j = 0; j < 6; j++) t->statChanges[j] = NEUTRAL_STAT_CHANGE;
             t->team[i].current_pv = calcStatFrom(&(t->team[i]), PV);
             t->team[i].initial_pv = t->team[i].current_pv;
         }

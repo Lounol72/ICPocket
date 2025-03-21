@@ -122,4 +122,6 @@ void handlePlayerEvent(Window *win, SDL_Event *event);
  */
  void handleLearningEvent(Window *win, SDL_Event *event);
 
+ void handleStartersEvent(Window *win, SDL_Event *event);
+
 #endif /* HANDLEEVENTS_H */

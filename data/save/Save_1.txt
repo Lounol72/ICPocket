@@ -1,5 +1,6 @@
 User name : SAVE1
 nb:4
+nb:4
 id:1
 lvl:56
 nature:0
@@ -71,4 +72,4 @@ move:26
 fichier de save_1
 
 
-Dernier dresseur battu : OniiJ id: 8
+Dernier dresseur battu : Willy boy id: 6

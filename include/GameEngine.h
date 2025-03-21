@@ -118,6 +118,8 @@ typedef struct Game {
     SDL_Surface *cursor_hover; /**< Surface du curseur au survol. */
     int swappingIndex[2];
     Text * windowText;
+    t_Poke starters[4];
+    int startersIndex;
 } Game;
 
 #include "Game.h"
@@ -197,6 +199,12 @@ void changeState(Window *win, void *data);
  void validateSwap(Window *win, void *data);
 
  void learningMoveChoice(Window *win, void *data);
+
+ void selectOtherStarter(Window *win, void *data);
+
+ void validateStarterChoice(Window *win, void *data);
+
+ void initStarters(Window * win, void * data);
 
 /* Text-related updates for attacks */
 /**

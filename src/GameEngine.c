@@ -152,6 +152,9 @@ void render(Window *win) {
         renderText(win,game.windowText);
         renderICMonsSprite(win, lvl_up_buffer[lvl_up_buffer_size-1].target);
     }
+    else if (game.gameState.currentState == STARTERS){
+        renderICMonsSprite(win, &game.starters[game.startersIndex]);
+    }
 }
 
 /**
@@ -341,6 +344,79 @@ void learningMoveChoice(Window *win, void *data){
     changeState(win,&game.stateHandlers[3].state);
 }
 
+void selectOtherStarter(Window *win, void *data){
+    (void)win;
+    int value=(int)(intptr_t)data;
+    game.startersIndex=(game.startersIndex+value)%4;
+    if(game.startersIndex<0) game.startersIndex=3;
+}
+
+void validateStarterChoice(Window *win, void *data){
+    (void)data;
+    game.battleState.rouge.team[0]=game.starters[game.startersIndex];
+    initData();
+    srand(time(NULL));
+    initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
+    game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
+        
+    if (initTeamSprites(win, &game.battleState.rouge, RED_SPRITE_X_RATIO, RED_SPRITE_Y_RATIO, 0) != 0)
+        return;
+    if (initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1) != 0)
+        return;
+        
+    updateICButtons(win, &game.battleState.rouge);
+    setDefaultStatChanges(&game.battleState.rouge);
+        
+    game.gameState.initialized = 1;
+    changeState(win,&game.stateHandlers[GAME].state);
+}
+
+void initStarters(Window *win, void *data){
+    (void)win;
+    (void)data;
+    int ids[4]={29,17,12,7};
+
+    game.battleState.rouge.nb_poke=1;
+	game.battleState.rouge.effect=noEffect;
+	game.battleState.rouge.id_save=1;
+    game.battleState.rouge.nb_enemiBeat=0;
+
+    for(int i=0;i<4;i++){
+        game.starters[i].main_effect=noEffect;
+        generate_poke(&game.starters[i],ids[i]);
+        game.starters[i].lvl=5;
+        game.starters[i].exp = expCurve(game.starters[i].lvl);
+        game.starters[i].current_pv=calcStatFrom(&(game.starters[i]),PV);
+		game.starters[i].initial_pv = game.starters[i].current_pv;
+        SDL_Rect spriteRect = {
+            .x = (int)(game.win->width * RED_SPRITE_X_RATIO * 1.8),
+            .y = (int)(game.win->height * RED_SPRITE_Y_RATIO * 0.9),
+            .w = (int)(game.win->width * SPRITE_WIDTH_RATIO),
+            .h = (int)(game.win->height * SPRITE_HEIGHT_RATIO)
+        };
+        SDL_Rect nameRect = {
+            .x = spriteRect.x,
+            .y = spriteRect.y - NAME_Y_OFFSET,
+            .w = spriteRect.w / 2,
+            .h = NAME_HEIGHT
+        };
+        SDL_Rect pvRect = {
+            .x = spriteRect.x,
+            .y = spriteRect.y + spriteRect.h + PV_Y_OFFSET,
+            .w = spriteRect.w / 3,
+            .h = PV_BAR_HEIGHT
+        };
+        if(game.starters[i].img) destroyICMonsSprite(&game.starters[i]);
+        game.starters[i].img = initICMonSprite(game.win->renderer, spriteRect, nameRect, pvRect, &game.starters[i], game.win->LargeFont, 0);
+        if (!game.starters[i].img || !game.starters[i].img->ICMonTexture) {
+            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
+                "❌ Failed to initialize sprite\n");
+            return;
+        }
+    }
+    changeState(game.win,&game.stateHandlers[STARTERS].state);
+}
+
 /**
  * @brief Passe au duel suivant.
  *
@@ -453,6 +529,7 @@ void initAllButtons(Window *win)
     int nbButtonsInter = 3;
     int nbButtonsSwap = 14;
     int nbButtonsLearn = 5;
+    int nbButtonsStarters = 3;
 
     Button *buttonsMenu[nbButtonsMenu];
     Button *buttonsParam[nbButtonsParam];
@@ -462,13 +539,14 @@ void initAllButtons(Window *win)
     Button *buttonsInter[nbButtonsInter];
     Button *buttonsSwap[nbButtonsSwap];
     Button *buttonsLearn[nbButtonsLearn];
+    Button *buttonsStarters[nbButtonsStarters];
     Slider *sliders[nbSlidersSettings];
 
     /* Boutons du menu */
     buttonsMenu[0] = createButton(
         " PLAY ", win, (SDL_Rect){500, 150, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeState, &game.stateHandlers[NEWGAME].state, win->MediumFont,
+        initStarters, &game.stateHandlers[NEWGAME].state, win->MediumFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsMenu[1] = createButton(
@@ -769,6 +847,27 @@ void initAllButtons(Window *win)
         learningMoveChoice, (void*)(intptr_t)4, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
+
+    /*Boutons Starters screen*/
+
+    buttonsStarters[0] = createButton(
+        " ", win, (SDL_Rect){180, 600, 300, 100},
+        (SDL_Color){0, 0, 0, 0}, (SDL_Color){0, 0, 0, 255},
+        selectOtherStarter, (void*)(intptr_t)-1, win->LargeFont,
+        "assets/User Interface/Grey/arrow_basic_w.png"
+    );
+    buttonsStarters[1] = createButton(
+        " ", win, (SDL_Rect){840, 600, 300, 100},
+        (SDL_Color){0, 0, 0, 0}, (SDL_Color){0, 0, 0, 0},
+        selectOtherStarter, (void*)(intptr_t)1, win->LargeFont,
+        "assets/User Interface/Grey/arrow_basic_e.png"
+    );
+    buttonsStarters[2] = createButton(
+        "Choisir", win, (SDL_Rect){510, 600, 300, 100},
+        (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 0},
+        validateStarterChoice, (void*)(intptr_t)0, win->LargeFont,
+        "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
     
 
     /* Création du slider */
@@ -785,6 +884,7 @@ void initAllButtons(Window *win)
     addListButton(game.ui[7].buttons, buttonsInter, nbButtonsInter);
     addListButton(game.ui[10].buttons, buttonsSwap, nbButtonsSwap);
     addListButton(game.ui[11].buttons, buttonsLearn, nbButtonsLearn);
+    addListButton(game.ui[12].buttons, buttonsStarters, nbButtonsStarters);
 }
 
 /**
