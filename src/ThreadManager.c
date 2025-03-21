@@ -1,9 +1,6 @@
-#include "../include/GameEngine.h"
-static void checkAndLoadNewMap(Game *game, Map **map, int *playerX, int *playerY) {
-    if (!game->shouldCheckMapChange) {
-        return; // Ne pas vérifier si le drapeau n'est pas activé
-    }
 
+#include "../include/GameEngine.h"
+static void checkAndLoadNewMap(Map **map, int *playerX, int *playerY) {
     if (!map || !*map || !(*map)->mat) {
         printf("Erreur: map ou map->mat est NULL\n");
         return;
@@ -27,15 +24,9 @@ static void checkAndLoadNewMap(Game *game, Map **map, int *playerX, int *playerY
         const char *newMapPath = "assets/Tileset/Map/hall.png";
         loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
     }
-
     // Mettre à jour les coordonnées du joueur avec les nouvelles coordonnées de spawn
     *playerX = spawnX;
     *playerY = spawnY;
-
-    printf("Le joueur a été placé sur la case de spawn: [%d, %d]\n", *playerX, *playerY);
-
-    // Désactiver le drapeau après le changement de map
-    game->shouldCheckMapChange = 0;
 }
 
 static void updatePhysics(Player *player, Camera* camera, Map *map, float deltaTime) {
@@ -118,7 +109,7 @@ void* physicsThreadFunction(void* arg) {
         lastTime = currentTime;
         
         pthread_mutex_lock(&game->threadManager.physicsMutex);
-        if(game->gameState.currentState == MAP)
+        //if(game->gameState.currentState == MAP)
         updatePhysics(game->gameData.player, game->gameData.camera, game->gameData.map, deltaTime);
         pthread_mutex_unlock(&game->threadManager.physicsMutex);
         
