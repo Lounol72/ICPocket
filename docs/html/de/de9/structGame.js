@@ -14,6 +14,8 @@ var structGame =
     [ "nbStates", "de/de9/structGame.html#ad6d4967c8a2102963029b9db9dbc1b91", null ],
     [ "saved", "de/de9/structGame.html#ae4bd951ed7cce7f1c9424f816e765b73", null ],
     [ "speed", "de/de9/structGame.html#a02a58acc040d6d014e02832453695ef5", null ],
+    [ "starters", "de/de9/structGame.html#a3278474a1f2758b4282985a214e1ee51", null ],
+    [ "startersIndex", "de/de9/structGame.html#ab9768dfb1a28a9129aa287b01c0c27ec", null ],
     [ "stateHandlers", "de/de9/structGame.html#a2de84fee9a0524573b36b51c1cd15039", null ],
     [ "swappingIndex", "de/de9/structGame.html#adc1a066a885d3620870682192a65afe0", null ],
     [ "threadManager", "de/de9/structGame.html#aa9455d40a57196c6fe96dcf3c20203b3", null ],

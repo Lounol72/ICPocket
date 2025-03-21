@@ -30,5 +30,6 @@ var searchData=
   ['renderthreadfunction_27',['renderThreadFunction',['../d0/daa/ThreadManager_8h.html#aaff54a9d240b3e5d945861bc3d16e7d3',1,'ThreadManager.h']]],
   ['resetscrollingtext_28',['resetscrollingtext',['../dc/dae/Text_8c.html#a0a8e528a34a830bd97a8f89252c02d91',1,'resetScrollingText(ScrollingText *text, const char *newText):&#160;Text.c'],['../d6/d35/Text_8h.html#a0a8e528a34a830bd97a8f89252c02d91',1,'resetScrollingText(ScrollingText *text, const char *newText):&#160;Text.c']]],
   ['resolvespeedduel_29',['resolvespeedduel',['../d1/d18/duel_8c.html#af3283b0d510afb01446c27bf1600ba88',1,'resolveSpeedDuel(int speed1, int speed2):&#160;duel.c'],['../d6/d8e/duel_8h.html#af3283b0d510afb01446c27bf1600ba88',1,'resolveSpeedDuel(int speed1, int speed2):&#160;duel.c']]],
-  ['rouge_30',['rouge',['../d2/d52/structBattleState.html#abd7c28f22ad6901f0b4a4128798d48d8',1,'BattleState::rouge'],['../d1/d18/duel_8c.html#a549b747fa4f6f9c153b959c84c2d5ffa',1,'rouge:&#160;duel.c'],['../d6/d8e/duel_8h.html#a549b747fa4f6f9c153b959c84c2d5ffa',1,'rouge:&#160;duel.c']]]
+  ['resume_30',['RESUME',['../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea401283aaa98a76b506f2198465bd7009',1,'Window.h']]],
+  ['rouge_31',['rouge',['../d1/d18/duel_8c.html#a549b747fa4f6f9c153b959c84c2d5ffa',1,'rouge:&#160;duel.c'],['../d6/d8e/duel_8h.html#a549b747fa4f6f9c153b959c84c2d5ffa',1,'rouge:&#160;duel.c'],['../d2/d52/structBattleState.html#abd7c28f22ad6901f0b4a4128798d48d8',1,'BattleState::rouge']]]
 ];

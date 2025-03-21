@@ -17,7 +17,9 @@ var Window_8h =
       [ "PAUSE", "d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea56b36d0d0bb01b339cf1041adc08e262", null ],
       [ "MAP", "d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea4cafa5feda04184537b4d7d346e1e89b", null ],
       [ "SWAP", "d3/ded/Window_8h.html#a416822946d800083b7b87337456d056eaaa826be4c1bbb2ee3d5f2e2fb6912a23", null ],
-      [ "LEARNMOVE", "d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea4605012625a370679a770354448167cb", null ]
+      [ "LEARNMOVE", "d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea4605012625a370679a770354448167cb", null ],
+      [ "STARTERS", "d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea883a94174463c7de6eef745a4122c7d9", null ],
+      [ "RESUME", "d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea401283aaa98a76b506f2198465bd7009", null ]
     ] ],
     [ "destroyGame", "d3/ded/Window_8h.html#ab7c9ee132f977dd2efd33ab66509d650", null ],
     [ "initWindow", "d3/ded/Window_8h.html#ab072fc478679f5b8fb5ffae288d1e7f2", null ],
