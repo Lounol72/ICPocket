@@ -95,37 +95,55 @@ function displayReleases(releases) {
 
 // Fonction pour afficher les commits
 function displayCommits(commits) {
-    console.log('Affichage des commits:', commits);
-    const container = document.getElementById('commits-container');
-    
-    // Si pas de container ou pas de commits, sortir
-    if (!container || !commits || !Array.isArray(commits) || commits.length === 0) {
-        container.innerHTML = '<div class="empty-message">Aucun commit disponible pour le moment.</div>';
+    if (!commits || !Array.isArray(commits) || commits.length === 0) {
+        console.error('Aucun commit à afficher');
         return;
     }
     
-    // Vider le conteneur des commits
+    // Filtrer uniquement les commits "Update GitHub data"
+    const filteredCommits = commits.filter(commit => 
+        !(commit.author.username === 'github-actions[bot]' && 
+          commit.message.includes('Update GitHub data'))
+    );
+    
+    console.log(`Affichage de ${filteredCommits.length} commits (${commits.length - filteredCommits.length} commits automatiques filtrés)`);
+    
+    // Obtenir le conteneur
+    const container = document.getElementById('commits-container');
+    if (!container) {
+        console.error('Conteneur de commits non trouvé');
+        return;
+    }
+    
+    // Effacer les éventuels skeletons ou animations de chargement
     container.innerHTML = '';
     
-    // Parcourir les commits et créer les éléments HTML
-    commits.forEach(commit => {
-        const commitDate = new Date(commit.commit.author.date);
-        const formattedDate = commitDate.toLocaleDateString('fr-FR');
-        
+    // Si aucun commit après filtrage, afficher un message
+    if (filteredCommits.length === 0) {
+        container.innerHTML = '<div class="no-commits">Aucun commit significatif récent</div>';
+        return;
+    }
+    
+    // Créer un élément pour chaque commit
+    filteredCommits.forEach(commit => {
         const commitElement = document.createElement('div');
         commitElement.className = 'news-card';
+        
+        // Formater la date
+        const commitDate = new Date(commit.date);
+        const formattedDate = commitDate.toLocaleDateString('fr-FR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
         commitElement.innerHTML = `
             <div class="news-header">
-                <h3 class="news-title">${commit.commit.message.split('\n')[0]}</h3>
-                <div class="news-date">${formattedDate}</div>
+                <a href="${commit.url}" target="_blank" class="news-title">${commit.sha}</a>
+                <span class="news-date">${formattedDate}</span>
             </div>
-            <div class="news-author">
-                <img src="${commit.author ? commit.author.avatar_url : 'img/default-avatar.png'}" alt="Avatar" class="author-avatar">
-                <span>${commit.commit.author.name}</span>
-            </div>
-            <div class="news-footer">
-                <a href="${commit.html_url}" target="_blank" class="btn-small">Voir les détails</a>
-            </div>
+            <div class="news-content">${commit.message}</div>
+            <div class="news-author">par ${commit.author.name || commit.author.username}</div>
         `;
         
         container.appendChild(commitElement);
@@ -154,7 +172,7 @@ document.addEventListener(window.GitHubData.EVENTS.RELEASES_READY, function(e) {
 });
 
 document.addEventListener(window.GitHubData.EVENTS.COMMITS_READY, function(e) {
-    console.log('Événement COMMITS_READY reçu dans github-news.js');
+    console.log('Événement COMMITS_READY reçu');
     displayCommits(e.detail);
 });
 
@@ -183,20 +201,14 @@ document.addEventListener(window.GitHubData.EVENTS.ERROR, function(e) {
     }
 });
 
-// Initialisation au chargement de la page si les données sont déjà disponibles
+// Initialisation au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM chargé pour github-news.js');
+    // Vérifier si les données sont déjà disponibles
     if (window.GitHubData && window.GitHubData.getData) {
         const data = window.GitHubData.getData();
-        if (data) {
-            if (data.releases && data.releases.length > 0) {
-                console.log('Utilisation des releases déjà chargées');
-                displayReleases(data.releases);
-            }
-            if (data.commits && data.commits.length > 0) {
-                console.log('Utilisation des commits déjà chargés');
-                displayCommits(data.commits);
-            }
+        if (data && data.commits && data.commits.length > 0) {
+            console.log('Utilisation des commits déjà chargés');
+            displayCommits(data.commits);
         }
     }
 });

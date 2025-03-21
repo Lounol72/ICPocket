@@ -219,7 +219,18 @@ nav {
 .loading-animation {
     text-align: center;
     padding: 2rem;
-    color: #acb2b8;
+    color: var(--steam-light);
+    background-color: rgba(35, 39, 47, 0.4);
+    border-radius: var(--border-radius-sm);
+    margin: 1rem 0;
+    font-style: italic;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
 }
 
 .error-message, .empty-message {

@@ -12,7 +12,7 @@ const DATA_FILES = {
     metadata: 'metadata.json'
 };
 const MAX_RELEASES = 6;
-const MAX_COMMITS = 9;
+const MAX_COMMITS = 30;
 
 // Structure pour stocker toutes les données GitHub
 let gitHubData = {

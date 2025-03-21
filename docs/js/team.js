@@ -10,7 +10,7 @@ const TEAM_MEMBERS = {
         role: 'Game Developer & Level Designer',
         description: 'Conception des mécaniques de jeu et implémentation des fonctionnalités de gameplay.'
     },
-    'AstrozR': {
+    'AstroZr': {
         name: 'Alban Borde',
         role: 'Game Developer & Level Designer',
         description: 'Conception des mécaniques de jeu et implémentation des fonctionnalités de gameplay.'
