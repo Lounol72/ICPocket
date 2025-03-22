@@ -40,7 +40,11 @@ jobs:
         Expand-Archive -Path "git-lfs-windows.zip" -DestinationPath "bin/windows/git-lfs"
 
     - name: Restore dependencies
-      run: dotnet restore
+      shell: pwsh
+      run: |
+        dotnet restore
+        
+
 
     - name: Build
       run: |
