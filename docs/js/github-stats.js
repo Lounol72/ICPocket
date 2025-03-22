@@ -57,8 +57,6 @@ async function fetchGitHubStats() {
 
 // Mettre à jour les statistiques sur la page
 function updateStats(stats) {
-    console.log('Mise à jour des statistiques:', stats);
-    
     // Pour chaque type de statistique, mettre à jour l'affichage
     document.querySelectorAll('[data-stat]').forEach(element => {
         const statType = element.getAttribute('data-stat');
@@ -250,8 +248,6 @@ function updateNewsSection(releases) {
     const newsContainer = document.querySelector('.latest-news');
     if (!newsContainer) return;
     
-    console.log(`Mise à jour de la section actualités avec ${releases ? releases.length : 0} releases`);
-    
     // Trouver la zone de contenu après le titre
     let newsContent = newsContainer.querySelector('.news-content');
     
@@ -322,23 +318,19 @@ function updateNewsSection(releases) {
 
 // Écouteurs d'événements pour les données GitHub
 document.addEventListener(window.GitHubData.EVENTS.STATS_READY, function(e) {
-    console.log('Événement STATS_READY reçu');
     updateStats(e.detail);
 });
 
 document.addEventListener(window.GitHubData.EVENTS.RELEASES_READY, function(e) {
-    console.log('Événement RELEASES_READY reçu');
     updateNewsSection(e.detail);
 });
 
 // Appeler les deux fonctions au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM chargé pour github-stats.js');
     if (window.GitHubData && window.GitHubData.getData) {
         const data = window.GitHubData.getData();
         if (data) {
             if (data.repo) {
-                console.log('Utilisation des statistiques déjà chargées');
                 updateStats({
                     stars: data.repo.stargazers_count || 0,
                     forks: data.repo.forks_count || 0,
@@ -347,7 +339,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
             if (data.releases && data.releases.length > 0) {
-                console.log('Utilisation des releases déjà chargées pour les actualités');
                 updateNewsSection(data.releases);
             }
         }

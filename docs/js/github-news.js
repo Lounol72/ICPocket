@@ -3,9 +3,6 @@ const REPO_OWNER = 'Lounol72';  // Remplacez par votre nom d'utilisateur GitHub
 const REPO_NAME = 'ICPocket';   // Remplacez par le nom de votre dépôt
 //const MAX_COMMITS = 9;          // Nombre de commits à afficher (changé de 10 à 9)
 
-// Au début du fichier github-news.js
-console.log('github-news.js chargé');
-
 // Fonction pour formater la date
 function formatDate(dateString) {
     try {
@@ -18,42 +15,33 @@ function formatDate(dateString) {
             minute: '2-digit'
         });
     } catch (e) {
-        console.error('Erreur de formatage de date:', e);
         return dateString || 'Date inconnue';
     }
 }
 
 // Fonction de debug pour vérifier le contenu des fichiers JSON
 function debugJsonContent() {
-    console.log("Débogage du contenu JSON");
     fetch('./data/releases.json')
         .then(response => {
-            console.log("Status response releases:", response.status);
             return response.json();
         })
         .then(data => {
-            console.log("Contenu du fichier releases.json:", data);
         })
         .catch(error => {
-            console.error("Erreur lors du chargement de releases.json:", error);
         });
         
     fetch('./data/commits.json')
         .then(response => {
-            console.log("Status response commits:", response.status);
             return response.json();
         })
         .then(data => {
-            console.log("Contenu du fichier commits.json:", data);
         })
         .catch(error => {
-            console.error("Erreur lors du chargement de commits.json:", error);
         });
 }
 
 // Fonction pour afficher les releases avec délai d'animation
 function displayReleases(releases) {
-    console.log('displayReleases appelé avec:', releases);
     const container = document.getElementById('releases-container');
     
     // Si pas de container ou pas de releases, sortir
@@ -96,7 +84,6 @@ function displayReleases(releases) {
 // Fonction pour afficher les commits
 function displayCommits(commits) {
     if (!commits || !Array.isArray(commits) || commits.length === 0) {
-        console.error('Aucun commit à afficher');
         return;
     }
     
@@ -106,12 +93,9 @@ function displayCommits(commits) {
           commit.message.includes('Update GitHub data'))
     );
     
-    console.log(`Affichage de ${filteredCommits.length} commits (${commits.length - filteredCommits.length} commits automatiques filtrés)`);
-    
     // Obtenir le conteneur
     const container = document.getElementById('commits-container');
     if (!container) {
-        console.error('Conteneur de commits non trouvé');
         return;
     }
     
@@ -154,8 +138,6 @@ function displayCommits(commits) {
 function displayError(container, message) {
     if (!container) return;
     
-    console.error('Erreur news:', message);
-    
     container.innerHTML = `
         <div class="error-message">
             <i class="fas fa-exclamation-triangle"></i>
@@ -167,18 +149,15 @@ function displayError(container, message) {
 
 // Écouteurs d'événements pour les données GitHub
 document.addEventListener(window.GitHubData.EVENTS.RELEASES_READY, function(e) {
-    console.log('Événement RELEASES_READY reçu dans github-news.js');
     displayReleases(e.detail);
 });
 
 document.addEventListener(window.GitHubData.EVENTS.COMMITS_READY, function(e) {
-    console.log('Événement COMMITS_READY reçu');
     displayCommits(e.detail);
 });
 
 // Ajouter aussi un écouteur pour les erreurs
 document.addEventListener(window.GitHubData.EVENTS.ERROR, function(e) {
-    console.error('Erreur lors du chargement des données:', e.detail);
     const releasesContainer = document.getElementById('releases-container');
     const commitsContainer = document.getElementById('commits-container');
     
@@ -207,7 +186,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.GitHubData && window.GitHubData.getData) {
         const data = window.GitHubData.getData();
         if (data && data.commits && data.commits.length > 0) {
-            console.log('Utilisation des commits déjà chargés');
             displayCommits(data.commits);
         }
     }

@@ -6,6 +6,8 @@
     <meta name="description" content="ICPocket - Jeu de poche innovant inspiré par les jeux rétro. Téléchargez et découvrez une aventure numérique captivante.">
     <meta name="keywords" content="ICPocket, jeu, rétro, téléchargement, game, indie">
     <meta name="author" content="Équipe ICPocket">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1b2838">
     
     <!-- Balises Open Graph pour le partage sur les réseaux sociaux -->
     <meta property="og:title" content="ICPocket - L'aventure numérique à portée de main">
@@ -45,22 +47,30 @@
     <link rel="stylesheet" href="css/professional.css">
     <link rel="stylesheet" href="css/news.css">
     
+    <!-- Styles responsives -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/responsive-enhancements.css">
 </head>
 <body class="dark-theme">
     <div class="page-container">
-        <nav>
-            <button><a href="index.html">Accueil</a></button>
-            <div class="separator"></div>
-            <button><a href="news.html" class="active">Actualités</a></button>
-            <div class="separator"></div>
-            <button><a href="team.html">Notre Équipe</a></button>
-            <div class="separator"></div>
-            <button><a href="https://lounol72.github.io/ICPocket/html/index.html">Documentation</a></button>
-            <div class="separator"></div>
-            <button><a href="contact.html">Contact</a></button>
-            <div class="separator"></div>
-            <button><a href="https://github.com/Lounol72/ICPocket">GitHub</a></button>
-        </nav>
+        <div class="nav-container">
+            <button id="mobile-menu-toggle" class="mobile-only" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="main-nav">
+                <button><a href="index.html" >Accueil</a></button>
+                <div class="separator"></div>
+                <button><a href="news.html" class="active">Actualités</a></button>
+                <div class="separator"></div>
+                <button><a href="team.html">Notre Équipe</a></button>
+                <div class="separator"></div>
+                <button><a href="https://lounol72.github.io/ICPocket/html/index.html">Documentation</a></button>
+                <div class="separator"></div>
+                <button><a href="contact.html">Contact</a></button>
+                <div class="separator"></div>
+                <button><a href="https://github.com/Lounol72/ICPocket">GitHub</a></button>
+            </nav>
+        </div>
 
         <header class="page-header">
             <div class="header-content">
@@ -126,5 +136,6 @@
     <script src="js/github-data.js"></script>
     <script src="js/github-news.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/professional.js"></script>
 </body>
 </html> 

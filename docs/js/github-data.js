@@ -36,7 +36,6 @@ const EVENTS = {
 // Fonction principale pour charger toutes les données GitHub
 async function loadAllGitHubData() {
     try {
-        console.log('Chargement des données GitHub depuis les fichiers statiques...');
         
         // Récupérer les métadonnées pour afficher quand les données ont été mises à jour
         const metadataResponse = await fetchWithFallback(`${DATA_PATH}${DATA_FILES.metadata}`);
@@ -57,10 +56,7 @@ async function loadAllGitHubData() {
         gitHubData.releases = releasesData || [];
         gitHubData.commits = commitsData ? commitsData.slice(0, MAX_COMMITS) : [];
         
-        console.log('Données GitHub chargées avec succès:', 
-            `${gitHubData.contributors.length} contributeurs, ` +
-            `${gitHubData.releases.length} releases, ` +
-            `${gitHubData.commits.length} commits`);
+        
         
         // Notifier que toutes les données sont prêtes
         notifyAllDataReady();
@@ -97,7 +93,6 @@ async function loadCommitsData() {
 // Fetch avec gestion d'erreur et fallback
 async function fetchWithFallback(url) {
     try {
-        console.log(`Fetching: ${url}`);
         const response = await fetch(url);
         
         if (!response.ok) {

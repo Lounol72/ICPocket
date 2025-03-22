@@ -6,6 +6,8 @@
     <meta name="description" content="ICPocket - Jeu de poche innovant inspiré par les jeux rétro. Téléchargez et découvrez une aventure numérique captivante.">
     <meta name="keywords" content="ICPocket, jeu, rétro, téléchargement, game, indie">
     <meta name="author" content="Équipe ICPocket">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1b2838">
     
     <!-- Balises Open Graph pour le partage sur les réseaux sociaux -->
     <meta property="og:title" content="ICPocket - L'aventure numérique à portée de main">
@@ -33,8 +35,14 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/latest-release.css">
     <link rel="stylesheet" href="css/professional.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/responsive-enhancements.css">
+    <link rel="stylesheet" href="css/responsive-enhancements.css">
     
-
+    <!-- Styles responsives -->
+    
+    
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
           integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
           crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -43,20 +51,24 @@
     <meta name="keywords" content="ICPocket, jeu, pokemon, RPG, combat, tour par tour, pixel art">
 </head>
 <body>
-    <nav>
-        <button><a href="index.html" class="active">Accueil</a></button>
-        <div class="separator"></div>
-        <button><a href="news.html">Actualités</a></button>
-        <div class="separator"></div>
-        <button><a href="team.html">Notre Équipe</a></button>
-        <div class="separator"></div>
-        <button><a href="https://lounol72.github.io/ICPocket/html/index.html">Documentation</a></button>
-        <div class="separator"></div>
-        <button><a href="contact.html">Contact</a></button>
-        <div class="separator"></div>
-        <button><a href="https://github.com/Lounol72/ICPocket">GitHub</a></button>
-        
-    </nav>
+    <div class="nav-container">
+        <button id="mobile-menu-toggle" class="mobile-only" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav id="main-nav">
+            <button><a href="index.html" class="active">Accueil</a></button>
+            <div class="separator"></div>
+            <button><a href="news.html">Actualités</a></button>
+            <div class="separator"></div>
+            <button><a href="team.html">Notre Équipe</a></button>
+            <div class="separator"></div>
+            <button><a href="https://lounol72.github.io/ICPocket/html/index.html">Documentation</a></button>
+            <div class="separator"></div>
+            <button><a href="contact.html">Contact</a></button>
+            <div class="separator"></div>
+            <button><a href="https://github.com/Lounol72/ICPocket">GitHub</a></button>
+        </nav>
+    </div>
 
     <div id="top">
         <div class="header-background"></div>
@@ -71,24 +83,15 @@
         <div class="main-content">
             <!-- Section Screenshots avec titre -->
             <h2 class="section-title"><i class="fas fa-images"></i> Captures d'écran</h2>
-            <div class="screenshots-container">
-                <div class="main-screenshot">
-                    <button class="nav-button prev" onclick="prevImage()">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <img id="currentScreenshot" src="img/screenshots/screen1.png" alt="Screenshot 1">
-                    <button class="nav-button next" onclick="nextImage()">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
+            <div class="screenshots">
+                <div class="screenshot-item">
+                    <img src="img/screenshots/screen1.png" alt="Screenshot 1">
                 </div>
-                <div class="thumbnails-navigation">
-                    <div class="thumbnails-container">
-                        <div class="thumbnails">
-                            <img src="img/screenshots/screen1.png" alt="Screenshot 1" class="thumbnail active" onclick="changeImage(0)">
-                            <img src="img/screenshots/screen2.png" alt="Screenshot 2" class="thumbnail" onclick="changeImage(1)">
-                            <img src="img/screenshots/screen3.png" alt="Screenshot 3" class="thumbnail" onclick="changeImage(2)">
-                        </div>
-                    </div>
+                <div class="screenshot-item">
+                    <img src="img/screenshots/screen2.png" alt="Screenshot 2">
+                </div>
+                <div class="screenshot-item">
+                    <img src="img/screenshots/screen3.png" alt="Screenshot 3">
                 </div>
             </div>
 
@@ -349,26 +352,5 @@
     <script src="js/latest-release.js"></script>
     <script src="js/professional.js"></script>
 
-    <!-- Ajouter une section de résultats de recherche -->
-    <div id="searchResults" class="search-results" style="display: none;">
-        <h3>Résultats de recherche</h3>
-        <div class="results-container"></div>
-    </div>
-
-    <script>
-        // Rediriger les liens vers la documentation
-        document.addEventListener('DOMContentLoaded', function() {
-            const docLinks = document.querySelectorAll('a[href^="html/"]');
-            docLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const path = this.getAttribute('href').replace('html/', '');
-                    window.location.href = 'https://lounol72.github.io/ICPocket/html/' + path;
-                });
-            });
-        });
-    </script>
-
-    
 </body>
 </html>

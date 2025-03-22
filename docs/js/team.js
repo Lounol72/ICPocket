@@ -65,17 +65,13 @@ function createTeamMemberHTML(username, memberInfo, contributorData) {
 function displayTeamMembers(contributors) {
     // Utiliser les données de secours si aucun contributeur n'est fourni
     if (!contributors || !Array.isArray(contributors) || contributors.length === 0) {
-        console.warn('Aucun contributeur trouvé, utilisation des données de secours');
         contributors = FALLBACK_CONTRIBUTORS;
     }
     
     const teamGrid = document.querySelector('.team-grid');
     if (!teamGrid) {
-        console.error('Élément .team-grid non trouvé');
         return;
     }
-    
-    console.log(`Affichage de ${contributors.length} contributeurs`);
     
     // Créer un dictionnaire pour un accès rapide aux données des contributeurs
     const contributorsDict = {};
@@ -107,8 +103,6 @@ function displayTeamError(error) {
     const teamGrid = document.querySelector('.team-grid');
     if (!teamGrid) return;
     
-    console.error('Erreur équipe:', error);
-    
     teamGrid.innerHTML = `
         <div class="error-message" style="grid-column: 1 / -1;">
             <i class="fas fa-exclamation-triangle"></i>
@@ -120,11 +114,9 @@ function displayTeamError(error) {
 
 // Écouteurs d'événements pour les données GitHub
 document.addEventListener(window.GitHubData.EVENTS.CONTRIBUTORS_READY, function(e) {
-    console.log('Événement CONTRIBUTORS_READY reçu');
     displayTeamMembers(e.detail);
 });
 
 document.addEventListener(window.GitHubData.EVENTS.ERROR, function(e) {
-    console.log('Événement ERROR reçu');
     displayTeamError(e.detail);
 }); 

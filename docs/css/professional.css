@@ -503,7 +503,7 @@ nav button.current-page::before {
 .download-button {
     /* Animation d'apparition et effet de gradient */
     animation: fadeIn 0.5s ease-in forwards;
-    background: linear-gradient(90deg, var(--steam-hover), #6a14bb, #9b59b6, var(--steam-hover));
+    background: linear-gradient(90deg, var(--steam-hover), #6a14bb, #9b59b6, #6a14bb,var(--steam-hover));
     background-size: 300% 100%;
     animation: gradientShift 5s ease infinite;
     

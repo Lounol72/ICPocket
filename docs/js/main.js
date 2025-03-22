@@ -4,7 +4,6 @@ function handleSearch() {
     
     if (searchInput && searchInput.value.trim() !== '') {
         const query = searchInput.value.trim();
-        console.log('Recherche de:', query);
         
         // Code de recherche...
         // ...

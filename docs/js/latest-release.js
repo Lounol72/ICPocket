@@ -103,17 +103,14 @@ function formatFileSize(bytes) {
 
 // Écouter l'événement de chargement des releases
 document.addEventListener(window.GitHubData.EVENTS.RELEASES_READY, function(e) {
-    console.log('Événement RELEASES_READY reçu dans latest-release.js');
     displayLatestRelease(e.detail);
 });
 
 // Initialisation au chargement de la page si les données sont déjà disponibles
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM chargé pour latest-release.js');
     if (window.GitHubData && window.GitHubData.getData) {
         const data = window.GitHubData.getData();
         if (data && data.releases && data.releases.length > 0) {
-            console.log('Utilisation des releases déjà chargées');
             displayLatestRelease(data.releases);
         }
     }

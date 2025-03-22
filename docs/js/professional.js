@@ -240,6 +240,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialisation du mode A/B testing
     initABTesting();
+    
+    // Initialiser le menu mobile
+    initMobileMenu();
+    
+    // Ajout de classes pour les conteneurs flexibles
+    document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.add('responsive-container');
+    });
+    
+    // Gérer l'affichage de la sidebar sur mobile
+    initSidebarToggle();
+    
+    // Initialiser le diaporama d'images pour mobile
+    initMobileScreenshots();
 });
 
 // Ajout: Fonction pour A/B testing
@@ -251,4 +265,237 @@ function initABTesting() {
         downloadBtn.classList.add('download-button');
         downloadBtn.innerHTML = '<i class="fas fa-rocket"></i><span>Télécharger v0.9</span>';
     }
+}
+
+// Gestion du menu mobile
+function initMobileMenu() {
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+    
+    if (menuToggle && mainNav) {
+        // Bouton pour ouvrir/fermer le menu
+        menuToggle.addEventListener('click', function() {
+            if (mainNav) {
+                mainNav.classList.toggle('mobile-active');
+                
+                // Changer l'icône selon l'état du menu
+                const icon = this.querySelector('i');
+                if (icon) {
+                    if (mainNav.classList.contains('mobile-active')) {
+                        icon.className = 'fas fa-times';
+                        document.body.style.overflow = 'hidden'; // Bloquer le défilement
+                    } else {
+                        icon.className = 'fas fa-bars';
+                        document.body.style.overflow = '';
+                    }
+                }
+            }
+        });
+        
+        // Fermer le menu quand on clique sur un lien
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (mainNav) {
+                    mainNav.classList.remove('mobile-active');
+                    mainNav.style.display = 'flex';
+                    mainNav.style.justifyContent = 'center';
+                    mainNav.style.alignItems = 'center';
+                    menuToggle.querySelector('i').className = 'fas fa-bars';
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    }
+}
+
+// Gestion du redimensionnement pour les changements d'orientation
+window.addEventListener('resize', function() {
+    // Vérifier si on est passé en mode desktop
+    if (window.innerWidth >= 768) {
+        // Rétablir l'affichage normal des screenshots
+        const screenshotItems = document.querySelectorAll('.screenshot-item');
+        const indicators = document.querySelector('.screenshot-indicators');
+        const navButtons = document.querySelectorAll('.screenshot-nav');
+        
+        if (screenshotItems) {
+            screenshotItems.forEach(item => {
+                item.classList.remove('active');
+                item.style.display = 'flex';
+                item.style.opacity = '1';
+                item.style.position = 'static';
+            });
+        }
+        
+        // Supprimer les éléments de navigation mobile
+        if (indicators) indicators.remove();
+        if (navButtons) navButtons.forEach(btn => btn.remove());
+        
+        // Rétablir l'affichage normal pour le conteneur
+        const screenshotsContainer = document.querySelector('.screenshots');
+        if (screenshotsContainer) {
+            screenshotsContainer.style.height = 'auto';
+            screenshotsContainer.style.position = 'static';
+        }
+    }
+});
+
+// Gérer l'affichage de la sidebar sur mobile
+function initSidebarToggle() {
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    
+    if (sidebarToggle && sidebar) {
+        // Créer le backdrop s'il n'existe pas
+        let backdrop = document.querySelector('.sidebar-backdrop');
+        if (!backdrop) {
+            backdrop = document.createElement('div');
+            backdrop.className = 'sidebar-backdrop';
+            document.body.appendChild(backdrop);
+        }
+        
+        // Fonction pour toggler la sidebar
+        const toggleSidebar = () => {
+            if (sidebar) {
+                sidebar.classList.toggle('mobile-active');
+                backdrop.classList.toggle('active');
+                document.body.style.overflow = sidebar.classList.contains('mobile-active') ? 'hidden' : '';
+            }
+        };
+        
+        // Event listeners
+        sidebarToggle.addEventListener('click', toggleSidebar);
+        backdrop.addEventListener('click', toggleSidebar);
+    }
+}
+
+// Initialiser le diaporama d'images pour mobile
+function initMobileScreenshots() {
+    // Ne pas initialiser si notre autre gestionnaire est déjà activé
+    if (document.querySelector('.screenshots .screenshot-indicators')) return;
+    
+    // Exécuter seulement sur mobile
+    if (window.innerWidth >= 768) return;
+    
+    const screenshotItems = document.querySelectorAll('.screenshot-item');
+    
+    // S'il n'y a pas d'images, sortir
+    if (!screenshotItems.length) return;
+    
+    // Masquer tous les screenshots sauf le premier (preview)
+    screenshotItems.forEach((item, index) => {
+      if (index === 0) {
+        item.classList.add('active');
+        item.style.display = 'block';
+      } else {
+        item.classList.remove('active');
+        item.style.display = 'none';
+      }
+    });
+    
+    // Ajouter les indicateurs (points) seulement s'ils n'existent pas déjà
+    const screenshotsContainer = document.querySelector('.screenshots');
+    if (screenshotsContainer && !screenshotsContainer.querySelector('.screenshot-indicators')) {
+        // Créer le conteneur d'indicateurs
+        const indicators = document.createElement('div');
+        indicators.className = 'screenshot-indicators';
+        
+        // Ajouter un point pour chaque image
+        screenshotItems.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = index === 0 ? 'screenshot-dot active' : 'screenshot-dot';
+            indicators.appendChild(dot);
+        });
+        
+        // Ajouter les indicateurs au DOM
+        screenshotsContainer.appendChild(indicators);
+        
+        // Ajouter l'attribut data-count pour afficher le nombre d'images
+        screenshotsContainer.setAttribute('data-count', `1/${screenshotItems.length}`);
+    }
+    
+    // Supprimer les écouteurs de clic existants pour éviter les doublons
+    screenshotItems.forEach(item => {
+        const newItem = item.cloneNode(true);
+        item.parentNode.replaceChild(newItem, item);
+    });
+    
+    // Récupérer les nouveaux éléments sans écouteurs
+    const refreshedItems = document.querySelectorAll('.screenshot-item');
+    
+    // Ajouter l'écouteur de clic sur chaque image
+    refreshedItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Obtenir les coordonnées relatives du clic
+            const rect = this.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            
+            // Si le clic est sur la moitié droite de l'image, passer à la suivante
+            // Sinon, revenir à la précédente
+            if (clickX > rect.width / 2) {
+                // Trouver l'index de l'élément actif
+                let currentIndex = Array.from(refreshedItems).findIndex(item => 
+                    item.classList.contains('active')
+                );
+                
+                // Déterminer le prochain index
+                let nextIndex = (currentIndex + 1) % refreshedItems.length;
+                
+                // Mettre à jour les classes
+                refreshedItems[currentIndex].classList.remove('active');
+                refreshedItems[currentIndex].style.display = 'none';
+                refreshedItems[nextIndex].classList.add('active');
+                refreshedItems[nextIndex].style.display = 'block';
+                
+                // Mettre à jour les indicateurs
+                const dots = document.querySelectorAll('.screenshot-dot');
+                if (dots.length) {
+                    dots[currentIndex].classList.remove('active');
+                    dots[nextIndex].classList.add('active');
+                }
+                
+                // Mettre à jour le compteur
+                const container = document.querySelector('.screenshots');
+                if (container) {
+                    container.setAttribute('data-count', `${nextIndex + 1}/${refreshedItems.length}`);
+                }
+            } else {
+                // Trouver l'index de l'élément actif
+                let currentIndex = Array.from(refreshedItems).findIndex(item => 
+                    item.classList.contains('active')
+                );
+                
+                // Déterminer l'index précédent
+                let prevIndex = (currentIndex - 1 + refreshedItems.length) % refreshedItems.length;
+                
+                // Mettre à jour les classes
+                refreshedItems[currentIndex].classList.remove('active');
+                refreshedItems[currentIndex].style.display = 'none';
+                refreshedItems[prevIndex].classList.add('active');
+                refreshedItems[prevIndex].style.display = 'block';
+                
+                // Mettre à jour les indicateurs
+                const dots = document.querySelectorAll('.screenshot-dot');
+                if (dots.length) {
+                    dots[currentIndex].classList.remove('active');
+                    dots[prevIndex].classList.add('active');
+                }
+                
+                // Mettre à jour le compteur
+                const container = document.querySelector('.screenshots');
+                if (container) {
+                    container.setAttribute('data-count', `${prevIndex + 1}/${refreshedItems.length}`);
+                }
+            }
+        });
+    });
+}
+
+// S'exécute uniquement sur les pages avec galerie
+if (document.querySelector('.screenshots')) {
+    // Code de gestion de la galerie
+}
+
+// S'exécute uniquement sur les pages avec menu mobile
+if (document.querySelector('#mobile-menu')) {
+    // Code de gestion du menu mobile
 } 

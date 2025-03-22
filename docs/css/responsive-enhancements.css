@@ -1,0 +1,289 @@
+/* Amélioration des animations pour les appareils mobiles */
+@media (max-width: 767px) {
+    /* Animations plus légères pour les appareils moins puissants */
+    .loading-animation {
+        transform: scale(0.8);
+    }
+    
+    /* Ajustements des effets hover pour écrans tactiles */
+    .news-card, .download-asset, .btn-download, .btn-primary, .btn-secondary {
+        transition: transform 0.2s ease;
+    }
+    
+    .news-card:active, .download-asset:active, .btn-download:active, 
+    .btn-primary:active, .btn-secondary:active {
+        transform: scale(0.98);
+    }
+    
+    /* Amélioration du bouton de téléchargement pour les appareils tactiles */
+    .download-button {
+        padding: 16px 24px;
+        margin-bottom: 30px;
+    }
+    
+    /* Plus d'espace entre les éléments */
+    .section-card {
+        margin-bottom: 2rem;
+    }
+    
+    /* Optimisations pour la lecture */
+    p, .news-content p {
+        line-height: 1.6;
+    }
+    
+    /* Optimisation de la galerie tactile */
+    .screenshots {
+        touch-action: pan-y;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Feedback tactile pour les boutons de navigation */
+    .screenshot-nav:active {
+        transform: translateY(-50%) scale(0.95);
+        background-color: var(--steam-light);
+    }
+    
+    /* Amélioration du contraste des indicateurs */
+    .screenshot-indicators {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 15px;
+        padding: 6px 12px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        z-index: 100;
+    }
+    
+    .screenshot-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+    
+    .screenshot-dot.active {
+        background-color: white;
+        transform: scale(1.2);
+    }
+    
+    /* Assurer que les boutons sont suffisamment grands pour le tactile */
+    .screenshot-nav {
+        min-width: 44px;
+        min-height: 44px;
+        touch-action: manipulation;
+    }
+    
+    /* Optimiser le conteneur des screenshots */
+    .screenshots {
+        user-select: none;
+        -webkit-user-select: none;
+        overflow: hidden;
+    }
+    
+    /* Style pour l'overlay de l'image active */
+    .screenshot-item.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+        pointer-events: none;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+    
+    /* Style spécial pour le screenshot preview */
+    .screenshot-item:first-child,
+    .screenshot-item.active {
+        display: block;
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    /* Faire en sorte que l'image de preview soit bien visible */
+    .screenshot-item:first-child img,
+    .screenshot-item.active img {
+        width: 100%;
+        height: auto;
+        max-height: 50vh;
+        object-fit: contain;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    /* Assurer que les autres screenshots sont bien masqués */
+    .screenshot-item:not(:first-child):not(.active) {
+        display: none !important;
+    }
+    
+    /* Optimisation de l'affichage des images cliquables */
+    .screenshot-item {
+        position: relative;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent; /* Supprime la surbrillance au toucher */
+    }
+    
+    /* Ajouter un indice visuel pour montrer qu'on peut naviguer */
+    .screenshot-item.active::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        width: 20px;
+        height: 20px;
+        border-top: 2px solid rgba(255, 255, 255, 0.6);
+        border-right: 2px solid rgba(255, 255, 255, 0.6);
+        transform: translateY(-50%) rotate(45deg);
+        animation: pulseArrow 1.5s infinite;
+        pointer-events: none;
+        opacity: 0.7;
+    }
+    
+    @keyframes pulseArrow {
+        0% { opacity: 0.7; }
+        50% { opacity: 0.3; }
+        100% { opacity: 0.7; }
+    }
+    
+    /* Style pour le nombre d'images */
+    .screenshots::after {
+        content: attr(data-count);
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 3px 8px;
+        border-radius: 10px;
+        font-size: 0.8rem;
+        pointer-events: none;
+    }
+    
+    /* Centrer les indicateurs et les rendre plus visibles */
+    .screenshot-indicators {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        padding: 5px 10px;
+    }
+    
+    /* Assurer que les autres screenshots sont bien masqués */
+    .screenshot-item:not(:first-child):not(.active) {
+        display: none !important;
+    }
+    
+    /* Effet de flou autour de la Dynamic Island */
+    nav::after {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        z-index: -1;
+        border-radius: 30px;
+        background: transparent;
+        box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    nav.mobile-active::after {
+        opacity: 1;
+    }
+    
+    /* Effet de mise en évidence lors de l'interaction */
+    nav.mobile-active button:active {
+        background-color: rgba(102, 192, 244, 0.5);
+        transform: scale(0.98);
+    }
+    
+    /* Style des boutons avec ombre */
+    nav button {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Animation des boutons lors de l'ouverture */
+    nav.mobile-active button {
+        animation: fadeSlideIn 0.35s ease forwards;
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    
+    nav.mobile-active button:nth-child(2) { animation-delay: 0.1s; }
+    nav.mobile-active button:nth-child(3) { animation-delay: 0.15s; }
+    nav.mobile-active button:nth-child(4) { animation-delay: 0.2s; }
+    nav.mobile-active button:nth-child(5) { animation-delay: 0.25s; }
+    nav.mobile-active button:nth-child(6) { animation-delay: 0.3s; }
+    
+    @keyframes fadeSlideIn {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* Optimisations pour les appareils haute densité */
+/*
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    
+    .modern-card, .download-button, .release-details {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    }
+}
+*/
+/* Assurez-vous que les styles mobiles n'affectent que les mobiles */
+
+@media (min-width: 768px) {
+  
+  .screenshot-item {
+    animation: none !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .screenshot-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  
+  .screenshot-item {
+    display: block !important;
+  }
+  
+  
+  .screenshots {
+    display: grid !important;
+    position: static !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+  
+  
+  .screenshot-nav, .screenshot-indicators {
+    display: none !important;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .mobile-only-controls {
+    display: none !important;
+  }
+} 

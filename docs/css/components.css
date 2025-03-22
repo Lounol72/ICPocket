@@ -605,3 +605,23 @@ nav button {
 #nav-right {
     display: none; /* On masque complètement ce conteneur */
 }
+
+/* Ajustements pour le menu de navigation en mobile uniquement */
+@media (max-width: 767px) {
+  .nav-container {
+    text-align: center;
+    position: fixed; /* Fixer en haut de l'écran */
+    top: 10px;
+    left: 50%; /* Centrer horizontalement */
+    transform: translateX(-50%);
+    width: 140px; /* Taille initiale de la Dynamic Island */
+    margin: 0; /* Réinitialiser les marges */
+    z-index: 1000;
+  }
+  
+  /* Réinitialiser les marges qui causaient le décalage */
+  .nav-container > * {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

@@ -6,11 +6,13 @@
     <meta name="description" content="ICPocket - Jeu de poche innovant inspiré par les jeux rétro. Téléchargez et découvrez une aventure numérique captivante.">
     <meta name="keywords" content="ICPocket, jeu, rétro, téléchargement, game, indie">
     <meta name="author" content="Équipe ICPocket">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1b2838">
     
     <!-- Balises Open Graph pour le partage sur les réseaux sociaux -->
     <meta property="og:title" content="ICPocket - L'aventure numérique à portée de main">
     <meta property="og:description" content="Découvrez ICPocket, un jeu de poche innovant mélangeant nostalgie rétro et mécaniques modernes.">
-    <meta property="og:image" content="https://lounol72.github.io/ICPocket/img/og-image.jpg">
+
     <meta property="og:url" content="https://lounol72.github.io/ICPocket/">
     <meta property="og:type" content="website">
     
@@ -18,13 +20,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ICPocket - L'aventure numérique à portée de main">
     <meta name="twitter:description" content="Découvrez ICPocket, un jeu de poche innovant mélangeant nostalgie rétro et mécaniques modernes.">
-    <meta name="twitter:image" content="https://lounol72.github.io/ICPocket/img/og-image.jpg">
+
     
     <!-- Favicon amélioré avec différentes tailles -->
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
     <link rel="manifest" href="site.webmanifest">
     
     <!-- Préconnexion pour les ressources tierces -->
@@ -43,21 +42,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Notre Équipe - ICPocket</title>
     <meta name="description" content="Découvrez l'équipe de développement derrière ICPocket">
+    
+    <!-- Styles responsives -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/responsive-enhancements.css">
 </head>
 <body>
-    <nav>
-        <button><a href="index.html">Accueil</a></button>
-        <div class="separator"></div>
-        <button><a href="news.html">Actualités</a></button>
-        <div class="separator"></div>
-        <button><a href="team.html" class="active">Notre Équipe</a></button>
-        <div class="separator"></div>
-        <button><a href="html/index.html">Documentation</a></button>
-        <div class="separator"></div>
-        <button><a href="contact.html">Contact</a></button>
-        <div class="separator"></div>
-        <button><a href="https://github.com/Lounol72/ICPocket">GitHub</a></button>
-    </nav>
+    <div class="nav-container">
+        <button id="mobile-menu-toggle" class="mobile-only" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav id="main-nav">
+            <button><a href="index.html" >Accueil</a></button>
+            <div class="separator"></div>
+            <button><a href="news.html">Actualités</a></button>
+            <div class="separator"></div>
+            <button><a href="team.html" class="active">Notre Équipe</a></button>
+            <div class="separator"></div>
+            <button><a href="https://lounol72.github.io/ICPocket/html/index.html">Documentation</a></button>
+            <div class="separator"></div>
+            <button><a href="contact.html">Contact</a></button>
+            <div class="separator"></div>
+            <button><a href="https://github.com/Lounol72/ICPocket">GitHub</a></button>
+        </nav>
+    </div>
 
     <div class="container">
         <header>
@@ -138,5 +146,6 @@
     <script src="js/github-data.js"></script>
     <script src="js/main.js"></script>
     <script src="js/team.js"></script>
+    <script src="js/professional.js"></script>
 </body>
 </html> 
