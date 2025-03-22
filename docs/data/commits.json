@@ -1,5 +1,145 @@
 [
   {
+    "sha": "73f88d83",
+    "message": "✨ Add issue templates for bug reports and feature requests",
+    "date": "2025-03-22T17:03:15Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/73f88d8399d53d9e1075eed3add3792332198720"
+  },
+  {
+    "sha": "294cab99",
+    "message": "Create LICENSE",
+    "date": "2025-03-22T16:58:27Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/294cab99b455359d15a3c223c4b24a4732bcead5"
+  },
+  {
+    "sha": "12b1c003",
+    "message": "Create CODE_OF_CONDUCT.md",
+    "date": "2025-03-22T16:54:18Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/12b1c00366a68c9c81cb5e0ff312077717196547"
+  },
+  {
+    "sha": "df9e590a",
+    "message": "🔧 Update Linux build workflow to trigger on release events",
+    "date": "2025-03-22T16:29:31Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/df9e590a65bb0773113b6785d16413b293915115"
+  },
+  {
+    "sha": "236a28dc",
+    "message": "🔧 Update Windows build workflow to use PowerShell for dependency restoration",
+    "date": "2025-03-22T16:26:34Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/236a28dccf881e98f7dd5b5cd01b6f5fc3e0849d"
+  },
+  {
+    "sha": "0c5d3b9c",
+    "message": "🔧 Update Windows build workflow to support Git LFS and .NET 8.0",
+    "date": "2025-03-22T16:23:03Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/0c5d3b9c4fe08f3687b183736686c78687409d65"
+  },
+  {
+    "sha": "2a8526fb",
+    "message": "🔧 Remove scheduled triggers from Linux and Windows build workflows",
+    "date": "2025-03-22T16:11:31Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/2a8526fb7e1f1f0b698d1ff1a007ae7438a0be45"
+  },
+  {
+    "sha": "4b80ff37",
+    "message": "Update issue templates",
+    "date": "2025-03-22T16:05:27Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/4b80ff3705e2fd25eb3800751744364aa7030cf7"
+  },
+  {
+    "sha": "feec7e56",
+    "message": "🔧 Update Windows build workflow to use actions/checkout@v4 and improve packaging process",
+    "date": "2025-03-22T16:01:34Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/feec7e5695cf8e98f6f5f920677e19b02d9a2ce3"
+  },
+  {
+    "sha": "ac223fde",
+    "message": "🔧 Update Windows build workflow to use PowerShell for packaging and clean up Makefile",
+    "date": "2025-03-22T15:59:45Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/ac223fde6525faaee29d5e0335d3be67e9f5ef7f"
+  },
+  {
+    "sha": "50a0204d",
+    "message": "🔧 Update Windows build workflow",
+    "date": "2025-03-22T15:53:38Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/50a0204dc5c51d0ec0d4de5af1e2bbb815804861"
+  },
+  {
+    "sha": "1433b150",
+    "message": "🔧 Update GitHub Actions workflow and Doxygen CSS subproject commit",
+    "date": "2025-03-22T15:12:18Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/1433b1501990e1d274ebbac625a784803e175694"
+  },
+  {
+    "sha": "9155efc5",
+    "message": "📚 Update styles and remove console logs for cleaner code",
+    "date": "2025-03-22T15:10:39Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/9155efc5ffcef99f97e252aed96cfc1920218622"
+  },
+  {
+    "sha": "4cfe848a",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-22T12:11:52Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/4cfe848ada2f80c14d4aebc3b0c536de5f51661a"
+  },
+  {
     "sha": "0a99411e",
     "message": "📊 Update GitHub data",
     "date": "2025-03-22T06:09:44Z",
@@ -158,145 +298,5 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/921db232c6f6520d9b1f9f592bf2e56cbc1efc16"
-  },
-  {
-    "sha": "138254a3",
-    "message": "added starters selection screen + minor fixes",
-    "date": "2025-03-21T09:27:11Z",
-    "author": {
-      "name": "Natp24109",
-      "username": "Natp24109"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/138254a3e3df209c638dd38682d66b2583d83357"
-  },
-  {
-    "sha": "5a67b517",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-21T08:59:40Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/5a67b5174338660be1bf9f8f3766e573e410550e"
-  },
-  {
-    "sha": "9f9d1308",
-    "message": "📊 Fix null check for release assets in GitHub stats calculation",
-    "date": "2025-03-21T08:58:34Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/9f9d13084c3277d00f126532422eed2a8806a2f0"
-  },
-  {
-    "sha": "1ca1531a",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-21T08:50:57Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/1ca1531a1e8ba9f4a81f2a3128749e377c625326"
-  },
-  {
-    "sha": "0951ad3a",
-    "message": "📊 Enhance GitHub data workflow to include release assets and filter sensitive information; add no-assets message in UI",
-    "date": "2025-03-21T08:50:30Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/0951ad3a2bd7aff7c53904cfcc781abaa4c59794"
-  },
-  {
-    "sha": "8dd863fc",
-    "message": "📊 Refactor loading animation styles and enhance commit display logic",
-    "date": "2025-03-21T08:42:35Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/8dd863fc755ec8610cca3d6b47cc565665972a57"
-  },
-  {
-    "sha": "64d46a7b",
-    "message": "📊 Update GitHub data workflow to run every 6 hours",
-    "date": "2025-03-21T08:10:30Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/64d46a7bd055d2c18041d9f39b550e3a0bdf1ad4"
-  },
-  {
-    "sha": "8a511ddd",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-21T08:09:58Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/8a511ddd0abd8b51cb3ba1e0172a4c12620296c5"
-  },
-  {
-    "sha": "11da57aa",
-    "message": "📊 Enhance GitHub data workflow to filter sensitive information and install jq",
-    "date": "2025-03-21T08:09:27Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/11da57aa3c8944ede36382b0d814c04fffdee969"
-  },
-  {
-    "sha": "bf799b80",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-21T07:16:42Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/bf799b808060b928f3ecae73c1efbc98aaf11d7e"
-  },
-  {
-    "sha": "793c57a9",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-21T06:26:03Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/793c57a984a21afc8f122186823a73f2ac4d40e8"
-  },
-  {
-    "sha": "d1c50a31",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-21T05:16:27Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/d1c50a31db025a345140b2c833892e1e07a39f48"
-  },
-  {
-    "sha": "84f65b08",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-21T04:19:59Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/84f65b08a42daa92bb51632331b6dc4e4cce7e75"
-  },
-  {
-    "sha": "288ca44f",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-21T03:31:19Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/288ca44f52ced93a7021da9d8fa3e16be872b4b0"
   }
 ]
