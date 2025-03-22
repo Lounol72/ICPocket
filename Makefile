@@ -132,6 +132,7 @@ package-linux:
 	@tar -czf ICPocket.tar.gz run.sh $(BIN_DIR) assets data README.md >/dev/null 2>&1 || true
 	@echo "✅ Package linux créé : ICPocket.tar.gz"
 
+
 doxygen:
 	@echo "🧹 Nettoyage en cours..."
 	@rm -rf docs/html/*
