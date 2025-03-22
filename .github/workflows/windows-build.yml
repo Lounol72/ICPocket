@@ -17,20 +17,18 @@ jobs:
   build:
     runs-on: windows-latest
 
-
-    
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
-        lfs: false
+        fetch-depth: 0
+        lfs: true
 
     - name: Setup Git LFS
       run: |
         git lfs install
         git lfs track "*.zip"
         git add .gitattributes
-
     - name: Check for today's commits
       id: check_commits
       shell: bash
@@ -42,7 +40,6 @@ jobs:
         else
           echo "HAS_COMMITS=false" >> $GITHUB_ENV
         fi
-
     - name: Setup MSYS2
       if: env.HAS_COMMITS == 'true'
       uses: msys2/setup-msys2@v2
@@ -57,7 +54,6 @@ jobs:
           mingw-w64-x86_64-SDL2_ttf
           zip
           make
-
     - name: Build
       if: env.HAS_COMMITS == 'true'
       shell: msys2 {0}
@@ -76,14 +72,35 @@ jobs:
             -mwindows \
             -O2
         fi
-
-    - name: Package with PowerShell
+    - name: Package
       if: env.HAS_COMMITS == 'true'
-      shell: pwsh
+      shell: msys2 {0}
       run: |
-        # Créer le ZIP avec PowerShell
-        Compress-Archive -Path "bin\windows\*", "assets\*", "data\*", "README.md" -DestinationPath "${{ env.PROJECT_NAME }}-windows.zip" -Force
-
+        DLLS=(
+          "SDL2.dll"
+          "SDL2_image.dll"
+          "SDL2_mixer.dll"
+          "SDL2_ttf.dll"
+          "libpng16-16.dll"
+          "zlib1.dll"
+          "libjpeg-8.dll"
+          "libfreetype-6.dll"
+        )
+        
+        for dll in "${DLLS[@]}"; do
+          if [ -f "/mingw64/bin/$dll" ]; then
+            cp -v "/mingw64/bin/$dll" bin/windows/
+          fi
+        done
+        
+        echo "@echo off" > bin/windows/launch.bat
+        echo "cd %~dp0" >> bin/windows/launch.bat
+        echo "start ${{ env.PROJECT_NAME }}.exe %*" >> bin/windows/launch.bat
+        
+        # Créer une archive plus petite
+        cd bin
+        zip -9 -r ../${{ env.PROJECT_NAME }}-windows.zip windows/ ../assets/ ../data/ ../README.md
+        cd ..
     - name: Split ZIP if needed
       if: env.HAS_COMMITS == 'true'
       shell: bash
@@ -93,7 +110,6 @@ jobs:
           echo "Splitting ZIP file..."
           split -b 95m "${{ env.PROJECT_NAME }}-windows.zip" "${{ env.PROJECT_NAME }}-windows.zip.part"
         fi
-
     - name: Commit and Push
       if: env.HAS_COMMITS == 'true'
       shell: bash
@@ -115,7 +131,6 @@ jobs:
         git add .gitattributes
         git commit -m "📦 Windows build $(date -u +%Y-%m-%d)"
         git push origin main --force
-
     - name: Upload to Artifacts
       if: env.HAS_COMMITS == 'true'
       uses: actions/upload-artifact@v4
