@@ -1,6 +1,8 @@
 name: Windows Build
 
 on:
+  release:
+    types: [published]
   workflow_dispatch:
 
 permissions:
@@ -14,93 +16,66 @@ env:
 jobs:
   build:
     runs-on: windows-latest
-
+    
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
       with:
-        fetch-depth: 0
-        lfs: true
+        lfs: false
 
     - name: Setup Git LFS
       run: |
         git lfs install
         git lfs track "*.zip"
         git add .gitattributes
-    - name: Check for today's commits
-      id: check_commits
-      shell: bash
-      run: |
-        TODAY=$(date -u +%Y-%m-%d)
-        COMMITS_TODAY=$(git log --since="$TODAY 00:00:00" --until="$TODAY 23:59:59" --oneline)
-        if [ -n "$COMMITS_TODAY" ]; then
-          echo "HAS_COMMITS=true" >> $GITHUB_ENV
-        else
-          echo "HAS_COMMITS=false" >> $GITHUB_ENV
-        fi
-    - name: Setup MSYS2
-      if: env.HAS_COMMITS == 'true'
-      uses: msys2/setup-msys2@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
       with:
-        msystem: MINGW64
-        update: true
-        install: |
-          mingw-w64-x86_64-gcc
-          mingw-w64-x86_64-SDL2
-          mingw-w64-x86_64-SDL2_image
-          mingw-w64-x86_64-SDL2_mixer
-          mingw-w64-x86_64-SDL2_ttf
-          zip
-          make
+        dotnet-version: '8.0.x'
+
+    - name: Download Git LFS
+      run: |
+        Invoke-WebRequest -Uri "https://github.com/git-lfs/git-lfs/releases/download/v3.4.1/git-lfs-windows-amd64-v3.4.1.zip" -OutFile "git-lfs-windows.zip"
+        Expand-Archive -Path "git-lfs-windows.zip" -DestinationPath "bin/windows/git-lfs"
+
+    - name: Restore dependencies
+      run: dotnet restore
+
     - name: Build
-      if: env.HAS_COMMITS == 'true'
-      shell: msys2 {0}
       run: |
-        mkdir -p bin/windows
-        
-        if [ -f "Makefile" ]; then
-          make package-windows
-        else
-          gcc -o bin/windows/${{ env.PROJECT_NAME }}.exe \
-            main.c src/*.c \
-            -I./include \
-            -I/mingw64/include/SDL2 \
-            -L/mingw64/lib \
-            -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf \
-            -mwindows \
-            -O2
-        fi
+        dotnet build --configuration ${{ env.BUILD_TYPE }} --no-restore
+        dotnet publish --configuration ${{ env.BUILD_TYPE }} --runtime win-x64 --self-contained true -p:PublishSingleFile=true -o bin/windows
+
     - name: Package
-      if: env.HAS_COMMITS == 'true'
-      shell: msys2 {0}
+      shell: pwsh
       run: |
-        DLLS=(
-          "SDL2.dll"
-          "SDL2_image.dll"
-          "SDL2_mixer.dll"
-          "SDL2_ttf.dll"
-          "libpng16-16.dll"
-          "zlib1.dll"
-          "libjpeg-8.dll"
-          "libfreetype-6.dll"
-        )
+        # Créer un fichier d'instructions pour Git LFS
+        @"
+        # Installation de Git LFS
+
+        Pour utiliser Git LFS avec ce projet:
+
+        1. Exécutez git-lfs/install.bat
+        2. Dans votre dépôt Git, exécutez: git lfs install
+        3. Ajoutez les types de fichiers à suivre: git lfs track "*.zip"
+        4. Commit .gitattributes: git add .gitattributes
+        5. Puis utilisez git normalement
+
+        Plus d'infos: https://git-lfs.com
+        "@ | Out-File -FilePath bin/windows/git-lfs/README.md -Encoding utf8
         
-        for dll in "${DLLS[@]}"; do
-          if [ -f "/mingw64/bin/$dll" ]; then
-            cp -v "/mingw64/bin/$dll" bin/windows/
-          fi
-        done
+        # Créer un fichier batch de lancement
+        @"
+        @echo off
+        cd %~dp0
+        start ${{ env.PROJECT_NAME }}.exe %*
+        "@ | Out-File -FilePath bin/windows/launch.bat -Encoding utf8
         
-        echo "@echo off" > bin/windows/launch.bat
-        echo "cd %~dp0" >> bin/windows/launch.bat
-        echo "start ${{ env.PROJECT_NAME }}.exe %*" >> bin/windows/launch.bat
-        
-        # Créer une archive plus petite
-        cd bin
-        zip -9 -r ../${{ env.PROJECT_NAME }}-windows.zip windows/ ../assets/ ../data/ ../README.md
-        cd ..
+        # Créer l'archive ZIP
+        Compress-Archive -Path "bin/windows/*", "assets/*", "data/*", "README.md" -DestinationPath "${{ env.PROJECT_NAME }}-windows.zip" -Force
+
     - name: Split ZIP if needed
-      if: env.HAS_COMMITS == 'true'
       shell: bash
       run: |
         ZIP_SIZE=$(stat -f %z "${{ env.PROJECT_NAME }}-windows.zip" 2>/dev/null || stat -c %s "${{ env.PROJECT_NAME }}-windows.zip")
@@ -108,8 +83,8 @@ jobs:
           echo "Splitting ZIP file..."
           split -b 95m "${{ env.PROJECT_NAME }}-windows.zip" "${{ env.PROJECT_NAME }}-windows.zip.part"
         fi
+
     - name: Commit and Push
-      if: env.HAS_COMMITS == 'true'
       shell: bash
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -127,18 +102,46 @@ jobs:
         fi
         
         git add .gitattributes
-        git commit -m "📦 Windows build $(date -u +%Y-%m-%d)"
+        git commit -m "📦 Windows build $(date -u +%Y-%m-%d) avec Git LFS"
         git push origin main --force
+
     - name: Upload to Artifacts
-      if: env.HAS_COMMITS == 'true'
       uses: actions/upload-artifact@v4
       with:
         name: ${{ env.PROJECT_NAME }}-Windows
         path: ${{ env.PROJECT_NAME }}-windows.zip*
         retention-days: 5
 
+    - name: Update latest release
+      shell: pwsh
+      run: |
+        # Obtenir la dernière release
+        $apiUrl = "https://api.github.com/repos/${{ github.repository }}/releases"
+        $headers = @{
+          Authorization = "Bearer ${{ secrets.GITHUB_TOKEN }}"
+        }
+        $releases = Invoke-RestMethod -Uri $apiUrl -Headers $headers -Method Get
+        
+        if ($releases.Count -gt 0) {
+          $latestRelease = $releases[0]
+          $releaseId = $latestRelease.id
+          
+          # Télécharger le ZIP à la release
+          $uploadUrl = "https://uploads.github.com/repos/${{ github.repository }}/releases/$releaseId/assets?name=${{ env.PROJECT_NAME }}-windows.zip"
+          Invoke-RestMethod -Uri $uploadUrl -Headers $headers -Method Post -InFile "${{ env.PROJECT_NAME }}-windows.zip" -ContentType "application/octet-stream"
+          
+          # Mettre à jour la description de la release pour mentionner Git LFS
+          $updateUrl = "https://api.github.com/repos/${{ github.repository }}/releases/$releaseId"
+          $body = $latestRelease.body + "`n`n**Mise à jour Windows du $(Get-Date -Format 'yyyy-MM-dd'):**`n- Ajout du support Git LFS`n- Mise à jour de la build .NET"
+          
+          $updateData = @{
+            body = $body
+          } | ConvertTo-Json
+          
+          Invoke-RestMethod -Uri $updateUrl -Headers $headers -Method Patch -Body $updateData
+        }
+
     - name: Cleanup
-      if: always()
       shell: bash
       run: |
         rm -rf bin/
