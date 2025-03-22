@@ -1,5 +1,25 @@
 [
   {
+    "sha": "3ef8edf2",
+    "message": "📚 Documentation update 2025-03-21",
+    "date": "2025-03-21T22:14:37Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/3ef8edf2811d53aa2654b1950b816560f20af7ff"
+  },
+  {
+    "sha": "d06549c8",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-21T18:10:08Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/d06549c81215699d1192828ffd3d2a721c38002f"
+  },
+  {
     "sha": "8589cd46",
     "message": "📊 Update GitHub data",
     "date": "2025-03-21T12:13:26Z",
@@ -278,25 +298,5 @@
       "username": "github-actions[bot]"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/dd140f8626694b8bd491eec0fdbbf1fa07cb1d7d"
-  },
-  {
-    "sha": "b50008eb",
-    "message": "Update README.md to reflect new project structure and clarify source code organization; mark doxygen-awesome-css subproject as dirty",
-    "date": "2025-03-20T23:16:51Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/b50008eb728a54790a3973d5012043faa6d18a5f"
-  },
-  {
-    "sha": "60ddb792",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-20T23:15:48Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/60ddb7929e003760ab78084d4c00e3f66bc13ed3"
   }
 ]
