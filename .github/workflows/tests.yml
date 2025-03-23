@@ -21,10 +21,10 @@ jobs:
           context: .
           file: Dockerfile
           push: false
-          tags: ICPocket
+          tags: icpocket
 
       - name: Run unit tests
         run: |
-          docker run --rm ICPocket make test || (echo "Tests failed! Check logs." && exit 1)
+          docker run --rm icpocket make test || (echo "Tests failed! Check logs." && exit 1)
           
           
