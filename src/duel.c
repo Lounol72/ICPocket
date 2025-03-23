@@ -168,7 +168,7 @@ void initBlueTeam(t_Team *t,t_Team *joueur) {
 int calcDamage(t_Team * offender, t_Team * defender, t_Move * move){
 	/*cas des inefficacités de type*/
 	if(typeChart[move->type][defender->team[0].type[0]]<0.1 || typeChart[move->type][defender->team[0].type[1]]<0.1) {
-		printf("Ca n'a aucun effet...\n");
+		//printf("Ca n'a aucun effet...\n");
 		return 0;
 	}
 	/*cas des moves de status*/
@@ -201,7 +201,7 @@ int calcDamage(t_Team * offender, t_Team * defender, t_Move * move){
 
 	damage*=coupCritique?1.5:1;
 
-	if (coupCritique) printf("Coup Critique!\n");
+	//if (coupCritique) printf("Coup Critique!\n");
 	return damage>0?damage:1;
 }
 
@@ -292,14 +292,14 @@ int affectDamage(t_Team * offender, t_Team * defender, int indexMove){
 	//int targetedStatDef=targetedStatOff==ATT?DEF:SPD;
 
 	if(!accuracyCheck(moveToDo->accuracy)){
-		printf("%s rate son attaque (%d precision)\n",offender->team[0].name,moveToDo->accuracy);
+		//printf("%s rate son attaque (%d precision)\n",offender->team[0].name,moveToDo->accuracy);
 		if (!(indexMove<0)) (moveToDo->current_pp)--;
 		return FALSE;
 	}
 	//printf("Attaque subis d'une puissance de %d\n avec une attaque de %d\ncontre une defence de %d\n",moveToDo->power,(int)(calcStatFrom(&(offender->team[0]),targetedStatOff) * statVariations[offender->statChanges[targetedStatOff]])
 	//,(int)(calcStatFrom(&(defender->team[0]),targetedStatDef) * statVariations[defender->statChanges[targetedStatDef]]));
 	int damage=calcDamage(offender,defender,moveToDo);
-	if(isStruggling(indexMove)) printf("LUTTE\n");
+	//if(isStruggling(indexMove)) printf("LUTTE\n");
 	//printf("Dégats = %d\n",damage);
 	defender->team[0].current_pv=defender->team[0].current_pv>damage?(int)(defender->team[0].current_pv - damage):0;
 	if (!(indexMove<0)) (moveToDo->current_pp)--;
@@ -313,7 +313,7 @@ void swapActualAttacker(t_Team * t, int swapIndex){
 	t->team[swapIndex-10]=sauv;
 	t->effect=noEffect;
 	setDefaultStatChanges(t);
-	printf("Swapping Happened\n\n");
+	//printf("Swapping Happened\n\n");
 }
 
 int playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
@@ -337,20 +337,20 @@ int playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 		if (isAttacking(firstMove)) {
 			/*snap out confusion check*/
 			if(firstTeam->effect==confusion && rand()%100<20){
-				printf("Le poké se remet de sa confusion\n");
+				//printf("Le poké se remet de sa confusion\n");
 				firstTeam->effect=noEffect;
 			}
 			/*flinch check*/
 			if(firstTeam->effect==flinch){
-				printf("Le poke a peur! Il n'attaque pas!\n");
+				//printf("Le poke a peur! Il n'attaque pas!\n");
 			}
 			/*paralyze check*/
 			else if(firstTeam->team[0].main_effect==paralyze && rand()%100<25){
-				printf("Le poké est paralysé!\n");
+				//printf("Le poké est paralysé!\n");
 			}
 			/*confusion check*/
 			else if(firstTeam->effect==confusion && rand()%100<33){
-				printf("Il se blesse dans sa confusion!\n");
+				//printf("Il se blesse dans sa confusion!\n");
 				affectDamage(firstTeam, firstTeam, CONFUSED_MOVE);
 			}
 			else{
@@ -364,20 +364,20 @@ int playATurn(t_Team * t1, int move1, t_Team * t2, int move2){
 			if (isAttacking(secondMove)){
 				/*snap out confusion check*/
 				if(secondTeam->effect==confusion && rand()%100<20){
-					printf("Le poké se remet de sa confusion\n");
+					//printf("Le poké se remet de sa confusion\n");
 					secondTeam->effect=noEffect;
 				}
 				/*flinch check*/
 				if(secondTeam->effect==flinch){
-					printf("Le poke a peur! Il n'attaque pas!\n");
+					//printf("Le poke a peur! Il n'attaque pas!\n");
 				}
 				/*paralyze check*/
 				else if(secondTeam->team[0].main_effect==paralyze && rand()%100<25){
-					printf("Le poké est paralysé!\n");
+					//printf("Le poké est paralysé!\n");
 				}
 				/*confusion check*/
 				else if(secondTeam->effect==confusion && rand()%100<33){
-					printf("Il se blesse dans sa confusion!\n");
+					//printf("Il se blesse dans sa confusion!\n");
 					affectDamage(secondTeam, secondTeam, CONFUSED_MOVE);
 				}
 				else{
@@ -433,7 +433,7 @@ unsigned expCurve(int lvl){
 int reachedNextLvl(t_Poke * p){
 	if(p->exp>=expCurve(p->lvl+1)){
 		p->lvl++;
-		printf("%s monte au niveau %d\n",p->name,p->lvl);
+		//printf("%s monte au niveau %d\n",p->name,p->lvl);
 		/*TO ADD HERE : apprendre une nouvelle attaque si disponible*/
 		checkLearningMove(p);
 		return TRUE;
@@ -457,7 +457,7 @@ void gainExp(t_Team * target, t_Poke * source){
 			
 			exp_amount = (TRAINER_BONUS * EXP_BOOST * source->lvl * BASE_EXP_MULTIPLIER * (source->baseStats[PV])) / EXP_DIVISOR;
 			target->team[i].exp += (unsigned)exp_amount;
-			printf("%s gagne %d exp\n", target->team[i].name, exp_amount);
+			//printf("%s gagne %d exp\n", target->team[i].name, exp_amount);
 			
 			// Store initial HP before level up
 			pv_before_lvl_up = target->team[i].initial_pv;

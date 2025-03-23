@@ -53,6 +53,30 @@ Développé par une équipe d'étudiants passionnés de l'Université du Mans. D
 ## GANTT Prévisionnel
 [Lien vers le GANTT](https://docs.google.com/spreadsheets/d/1AqGpYmEBtP7KtYeO5m7FdebBRN59XQRUxrBPlVJ7CM0/edit?gid=1709744959#gid=1709744959)
 
+## Tester docker
+
+Allumer le serveur docker
+```sh
+  sudo service docker start
+```
+Build le docker de test
+```sh
+  docker build -t icpocket-app .
+```
+Run l'image docker
+```sh
+  docker run icpocket-app
+```
+Supprimer les images docker
+```sh
+  docker system prune -a
+  docker images
+```
+Stopper le serveur docker
+```sh
+  sudo service docker stop
+```
+
 
 ## 📄 Licence
 © 2024 ICPocket. Tous droits réservés.

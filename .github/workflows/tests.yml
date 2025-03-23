@@ -1,0 +1,30 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name : Checkout
+        uses: actions/checkout@v4
+        
+      - name : Build image Docker
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: Dockerfile
+          push: false
+          tags: icpocket
+
+      - name: Run unit tests
+        run: |
+          docker run --rm icpocket make test || (echo "Tests failed! Check logs." && exit 1)
+          
+          

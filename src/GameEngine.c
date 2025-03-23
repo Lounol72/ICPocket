@@ -1219,7 +1219,6 @@ void executeAction(t_Team *attacker, t_Team *defender, int move) {
     char msg[60] = "";
     // Si le Pokémon n'a plus de PP et qu'il attaque, forcer l'utilisation de Lutte.
     if (!hasMoveLeft(&(attacker->team[0])) && isAttacking(move)) {
-        printf("Lutte\n");
         move = STRUGGLE;
         sprintf(msg, "%s utilise Lutte !", attacker->team[0].name);
         resetScrollingText(game.battleState.text, msg);

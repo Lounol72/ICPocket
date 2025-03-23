@@ -15,26 +15,25 @@ float typeChart[typeNumber][typeNumber] = {
 	/*waifu*/	{1.,	0.5,		1.,		1.,		1.,			1.,		1.,		2.,			2.	}
 };
 
-/*A SUPPR UNE FOIS LE JEU FONCTIONNEL*/
+/*Fonction test*/
 void generatePoke(t_Poke *p)
 {
-		strcpy(p->name,"dummy");
-		p->gender = rand() % 2;
-		p->lvl = rand() % 100 + 1;
-		p->nature = rand() % 25;
-		p->type[0] = rand() % (typeNumber-1) + 1;
-		p->type[1] = rand() % typeNumber;
-		for (int i = 0; i < 6; i++)
-			p->baseStats[i] = rand() % 256;
-		for (int i = 0; i < 6; i++)
-			p->iv[i] = rand() % 32;
-		for (int i = 0; i < 4; i++)
-		{
-			p->moveList[i].power = -1;
-		}
+	strcpy(p->name,"dummy");
+	p->gender = rand() % 2;
+	p->lvl = rand() % 100 + 1;
+	p->nature = rand() % 25;
+	p->type[0] = rand() % (typeNumber-1) + 1;
+	p->type[1] = rand() % typeNumber;
+	for (int i = 0; i < 6; i++)
+		p->baseStats[i] = rand() % 256;
+	for (int i = 0; i < 6; i++)
+		p->iv[i] = rand() % 32;
+	for (int i = 0; i < 4; i++)
+	{
+		p->moveList[i].power = -1;
 	}
-	//fclose(dataPoke);
-
+}
+	
 /**
 *   @brief Genere un pokemon a partir d'un fichier.csv
 *   @param p structure poke
