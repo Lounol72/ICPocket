@@ -83,7 +83,7 @@ static void initCollisionMapFromCSV(Map *map, const char *path, int *spawnX, int
 }
 
 Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSizeH, int *spawnX, int *spawnY) {
-    printf("Initialisation de la map avec les dimensions: %d x %d\n", TileSizeW, TileSizeH);
+
 
     Map *map = (Map *)malloc(sizeof(Map));
     if (!map) {
@@ -161,9 +161,6 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
         destroyMap(map);
         return NULL;
     }
-
-    // Imprimer les dimensions de la map pour le débogage
-    printf("Map initialisée avec les dimensions: %d x %d\n", TileSizeW, TileSizeH);
 
     return map;
 }

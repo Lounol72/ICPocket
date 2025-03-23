@@ -3,92 +3,111 @@ SRC_DIR      = src
 OBJ_DIR      = obj
 BIN_DIR      = bin
 INCLUDE_DIR  = include
+TEST_DIR     = test
+TEST_BIN_DIR = test/bin
+TEST_OBJ_DIR = test/obj
 
 # Noms des exécutables
-MAIN_EXE  = main
-DUEL_EXE  = duel
-SAVE_EXE  = save
+MAIN_EXE     = main
+DUEL_EXE     = duel
+SAVE_EXE     = save
 
-# Fichiers source
-SRCS      = main.c $(filter-out $(SRC_DIR)/mainDuel.c $(SRC_DIR)/ministdlib.c, $(wildcard $(SRC_DIR)/*.c))
+# Fichiers source et objets
+SRCS         = main.c $(filter-out $(SRC_DIR)/mainDuel.c $(SRC_DIR)/ministdlib.c, $(wildcard $(SRC_DIR)/*.c))
+OBJS         = $(patsubst %.c,$(OBJ_DIR)/%.o,$(notdir $(SRCS)))
+DUEL_OBJS    = $(OBJ_DIR)/mainDuel.o $(OBJ_DIR)/structPoke.o $(OBJ_DIR)/duel.o $(OBJ_DIR)/trainerAI.o $(OBJ_DIR)/interDuel.o $(OBJ_DIR)/save.o
+SAVE_OBJS    = $(OBJ_DIR)/save.o $(OBJ_DIR)/structPoke.o $(OBJ_DIR)/duel.o $(OBJ_DIR)/trainerAI.o $(OBJ_DIR)/ministdlib.o
 
-# Fichiers objets généraux
-OBJS      = $(patsubst %.c,$(OBJ_DIR)/%.o,$(notdir $(SRCS)))
-
-# Fichiers objets spécifiques pour duel et save
-DUEL_OBJS = $(OBJ_DIR)/mainDuel.o $(OBJ_DIR)/structPoke.o $(OBJ_DIR)/duel.o $(OBJ_DIR)/trainerAI.o $(OBJ_DIR)/interDuel.o $(OBJ_DIR)/save.o
-SAVE_OBJS = $(OBJ_DIR)/save.o $(OBJ_DIR)/structPoke.o $(OBJ_DIR)/duel.o $(OBJ_DIR)/trainerAI.o $(OBJ_DIR)/ministdlib.o
+# Tests source et objets
+TEST_SRCS    = $(wildcard $(TEST_DIR)/*.c)
+TEST_OBJS    = $(patsubst $(TEST_DIR)/%.c,$(TEST_OBJ_DIR)/%.o,$(TEST_SRCS))
+TEST_BINS    = $(patsubst $(TEST_DIR)/%.c,$(TEST_BIN_DIR)/%,$(TEST_SRCS))
 
 # Compilateur et options
-CC        = gcc
-CFLAGS    = -Wall -Wextra -Werror -std=c11 -g `sdl2-config --cflags` -I/usr/include/SDL2 -D_POSIX_C_SOURCE=200809L
+CC          = gcc
+CFLAGS      = -Wall -Wextra -Werror -std=c11 -g `sdl2-config --cflags` -I/usr/include/SDL2 -D_POSIX_C_SOURCE=200809L
+LIBS        = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lpthread
 
-# -Wall : affiche tous les warnings
-# -Wextra : affiche des warnings supplémentaires
-# -Werror : transforme les warnings en erreurs
-# -std=c11 : utilise le standard C11
-# -g : ajoute des informations de débogage
-# `sdl2-config --cflags` : ajoute les flags de compilation pour SDL2
-# -I/usr/include/SDL2 : ajoute le répertoire d'inclusion de SDL2
+# Trouver les drapeaux de compilation pour Check
+CHECK_FLAGS := $(shell pkg-config --cflags check 2>/dev/null || echo "-I/usr/include")
+CHECK_LIBS  := $(shell pkg-config --libs check 2>/dev/null || echo "-lcheck -lsubunit -lm -lpthread -lrt")
 
-# Bibliothèques à lier
-LIBS      = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lpthread
+TEST_CFLAGS = $(CFLAGS) $(CHECK_FLAGS)
+TEST_LIBS   = $(LIBS) $(CHECK_LIBS)
 
-# Compilateur et options Windows
-WINCC     = x86_64-w64-mingw32-gcc
-WINCFLAGS = -Wall -Wextra -std=c11 -g \
-           -I$(INCLUDE_DIR) \
-           -I/usr/x86_64-w64-mingw32/include \
-           -I/usr/x86_64-w64-mingw32/include/SDL2 \
-           -D_REENTRANT \
-           -DSDL_MAIN_HANDLED
-
-WINLIBS   = -L/usr/x86_64-w64-mingw32/lib \
-            -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lpthread
-
-# Fichiers objets Windows
-WIN_OBJS  = $(patsubst %.c,$(OBJ_DIR)/%_win.o,$(notdir $(SRCS)))
+# Définition des cibles .PHONY
+.PHONY: all clean rebuild run testDuel test test-memory unit-tests package-linux doxygen check-deps
 
 # Cibles principales
-all: 
-	@clear
-	@mkdir -p $(BIN_DIR)
-	@$(MAKE) $(MAIN_EXE) $(DUEL_EXE) 
+all: check-deps $(BIN_DIR) $(TEST_BIN_DIR) $(TEST_OBJ_DIR) $(MAIN_EXE) $(DUEL_EXE) $(TEST_BINS)
 
-$(MAIN_EXE): $(OBJS)
+# Vérification des dépendances
+check-deps:
+	@echo "🔍 Vérification des dépendances..."
+	@if ! pkg-config --exists check; then \
+		echo "⚠️ La bibliothèque check n'est pas installée. Installation..."; \
+		if [ -x "$(command -v apt-get)" ]; then \
+			sudo apt-get update && sudo apt-get install -y check; \
+		elif [ -x "$(command -v dnf)" ]; then \
+			sudo dnf install -y check check-devel; \
+		elif [ -x "$(command -v yum)" ]; then \
+			sudo yum install -y check check-devel; \
+		else \
+			echo "❌ Impossible d'installer check automatiquement. Veuillez l'installer manuellement."; \
+			exit 1; \
+		fi; \
+	fi
+
+$(BIN_DIR) $(TEST_BIN_DIR) $(TEST_OBJ_DIR):
+	@mkdir -p $@
+
+$(MAIN_EXE): $(OBJS) | $(BIN_DIR)
 	@echo "🛠️ Compilation Linux en cours..."
 	@$(CC) -o $(BIN_DIR)/$@ $^ $(LIBS)
 	@echo "✅ Compilation terminée"
 
-$(DUEL_EXE): $(DUEL_OBJS)
+$(DUEL_EXE): $(DUEL_OBJS) | $(BIN_DIR)
 	@$(CC) $^ -o $(BIN_DIR)/$@
 	@echo "✅ Compilation duel terminée"
 
-$(SAVE_EXE): $(SAVE_OBJS)
+$(SAVE_EXE): $(SAVE_OBJS) | $(BIN_DIR)
 	@$(CC) $^ -o $(BIN_DIR)/$@
 	@echo "✅ Compilation save terminée"
 
-# Création des répertoires
+# Règles de compilation
 $(OBJ_DIR):
 	@mkdir -p $@
-	@mkdir -p $(BIN_DIR)
 
-# Règles de compilation Linux
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/main.o: main.c | $(OBJ_DIR)
-	@echo "🛠️ Compilation en cours..."
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-# Règles de compilation Windows
-$(OBJ_DIR)/%_win.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	@$(WINCC) $(WINCFLAGS) -c $< -o $@
+# Règles de compilation des tests
+$(TEST_OBJ_DIR)/%.o: $(TEST_DIR)/%.c | $(TEST_OBJ_DIR)
+	@echo "🧪 Compilation du test $<..."
+	@$(CC) $(TEST_CFLAGS) -I$(INCLUDE_DIR) -c $< -o $@
 
-$(OBJ_DIR)/main_win.o: main.c | $(OBJ_DIR)
-	@$(WINCC) $(WINCFLAGS) -c $< -o $@
+$(TEST_BIN_DIR)/%: $(TEST_OBJ_DIR)/%.o $(filter-out $(OBJ_DIR)/main.o, $(OBJS)) | $(TEST_BIN_DIR)
+	@echo "🔗 Liaison du test $@..."
+	@$(CC) -o $@ $^ $(TEST_LIBS)
+	@echo "✅ Compilation de $@ terminée"
 
 # Cibles de tests
+test: unit-tests
+
+unit-tests: $(TEST_BINS)
+	@echo "🧪 Exécution des tests unitaires..."
+	@for test in $(TEST_BINS); do \
+		echo "▶️ Exécution de $$test"; \
+		$$test; \
+	done
+
+test-memory: $(TEST_BINS)
+	@echo "🧪 Test mémoire avec Valgrind..."
+	@valgrind --leak-check=full $(BIN_DIR)/$(MAIN_EXE) -test-mode
+
 testDuel: $(DUEL_EXE)
 	@echo "🚀 Lancement du programme duel..."
 	@./$(BIN_DIR)/$(DUEL_EXE)
@@ -96,45 +115,33 @@ testDuel: $(DUEL_EXE)
 run: $(MAIN_EXE)
 	@echo "🚀 Lancement du programme main..."
 	@./$(BIN_DIR)/$(MAIN_EXE)
-	@echo "✅ Main terminé"
 
-testValgrind: $(MAIN_EXE)
-	@echo "🚀 Lancement de Valgrind..."
-	@valgrind --leak-check=full ./$(BIN_DIR)/$(MAIN_EXE)
+rebuild: clean all
 
-testMain-debug: $(MAIN_EXE)
-	@echo "🚀 Lancement de Valgrind..."
-	@./$(BIN_DIR)/$(MAIN_EXE) -debug
-
-rebuild: clean main
-	@clear
-	@$(MAKE) $(MAIN_EXE) $(DUEL_EXE) 
-
-# Cible de nettoyage
+# Nettoyage
 clean:
 	@echo "🧹 Nettoyage en cours..."
-	@rm -rf $(OBJ_DIR)/*.o $(BIN_DIR)/*
+	@rm -rf $(OBJ_DIR) $(BIN_DIR) $(TEST_BIN_DIR)
 	@echo "✅ Nettoyage terminé"
 
-package-linux:
+# Packaging
+package-linux: $(MAIN_EXE)
 	@echo "📦 Création du package linux..."
-	@mkdir -p $(BIN_DIR)/libs >/dev/null 2>&1
-	@ldd $(BIN_DIR)/$(MAIN_EXE) | awk '{print $$3}' | grep -v "ld-linux" | grep -v "linux-vdso.so" | xargs -I{} cp -v {} $(BIN_DIR)/libs/ >/dev/null 2>&1 || true
+	@mkdir -p $(BIN_DIR)/libs
+	@ldd $(BIN_DIR)/$(MAIN_EXE) | awk '{print $$3}' | grep -v "ld-linux" | grep -v "linux-vdso.so" | xargs -I{} cp -v {} $(BIN_DIR)/libs/ 2>/dev/null || true
 	@echo '#!/bin/bash' > run.sh
 	@echo 'cd "$(dirname "$$0")"' >> run.sh
 	@echo 'export LD_LIBRARY_PATH=$$(pwd)/$(BIN_DIR)/libs' >> run.sh
 	@echo "./$(BIN_DIR)/$(MAIN_EXE) \"$$@\"" >> run.sh
-	@chmod -R 775 $(BIN_DIR) >/dev/null 2>&1
-	@chmod -R 775 assets >/dev/null 2>&1
-	@chmod -R 777 data >/dev/null 2>&1
-	@chmod +x run.sh
-	@chmod +x $(BIN_DIR)/$(MAIN_EXE)
-	@tar -czf ICPocket.tar.gz run.sh $(BIN_DIR) assets data README.md >/dev/null 2>&1 || true
+	@chmod +x run.sh $(BIN_DIR)/$(MAIN_EXE)
+	@chmod -R 775 $(BIN_DIR) assets
+	@chmod -R 777 data
+	@tar -czf ICPocket.tar.gz run.sh $(BIN_DIR) assets data README.md
 	@echo "✅ Package linux créé : ICPocket.tar.gz"
 
-
+# Documentation
 doxygen:
-	@echo "🧹 Nettoyage en cours..."
+	@echo "🧹 Nettoyage de la documentation..."
 	@rm -rf docs/html/*
 	@doxygen Doxyfile 
 	@echo "✅ Documentation générée dans docs"
@@ -145,7 +152,4 @@ latex:
 	@cd rapport && pdflatex modele.tex
 	@cd rapport && makeglossaries modele
 	@cd rapport && pdflatex modele.tex
-	@echo "✅ Documentation générée dans docs/tpLatex/modele.pdf"
-
-
-.PHONY: all clean windows package-windows 
+	@echo "✅ Documentation générée dans docs/tpLatex/modele.pdf" 
