@@ -35,7 +35,8 @@ var NAVTREE =
     [ "Table RACI", "index.html#autotoc_md8", null ],
     [ "GANTT", "index.html#autotoc_md9", null ],
     [ "GANTT Prévisionnel", "index.html#autotoc_md10", null ],
-    [ "📄 Licence", "index.html#autotoc_md11", null ],
+    [ "Tester docker", "index.html#autotoc_md11", null ],
+    [ "📄 Licence", "index.html#autotoc_md12", null ],
     [ "Classes", "annotated.html", [
       [ "Liste des classes", "annotated.html", "annotated_dup" ],
       [ "Index des classes", "classes.html", null ],
