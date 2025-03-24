@@ -1,5 +1,35 @@
 [
   {
+    "sha": "7a991c59",
+    "message": "Ajout de l'environnement Docker et des tests unitaires (#12)",
+    "date": "2025-03-23T16:41:42Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/7a991c59dbbe12efc9661e6f9477d71e80fadbaa"
+  },
+  {
+    "sha": "fbcc83de",
+    "message": "🔧 Update cron schedules for documentation and GitHub data workflows",
+    "date": "2025-03-22T17:22:24Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/fbcc83de89c1884fe6617c13a635f8c023a3e1db"
+  },
+  {
+    "sha": "e7765b41",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-22T17:09:46Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/e7765b41ae0575aa11c1f21eb8e6ba6c4ebb2cc3"
+  },
+  {
     "sha": "73f88d83",
     "message": "✨ Add issue templates for bug reports and feature requests",
     "date": "2025-03-22T17:03:15Z",
@@ -268,35 +298,5 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/2fb0f8a9d9c22a32b531035792fdf651f7a282c7"
-  },
-  {
-    "sha": "b20ce1c0",
-    "message": "Save and movepool issues fixed",
-    "date": "2025-03-21T10:11:50Z",
-    "author": {
-      "name": "lOkaal1",
-      "username": "lOkaal1"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/b20ce1c0913be24e998a3d2215a67e499140b627"
-  },
-  {
-    "sha": "39b5ca59",
-    "message": "📊 Update download button styles for improved visibility and responsiveness",
-    "date": "2025-03-21T09:54:30Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/39b5ca5974f10c825fc117bbc7b4612f4634a7e6"
-  },
-  {
-    "sha": "921db232",
-    "message": "📊 Update DOCTYPE references to use HTTPS and modify search data for improved clarity",
-    "date": "2025-03-21T09:46:17Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/921db232c6f6520d9b1f9f592bf2e56cbc1efc16"
   }
 ]
