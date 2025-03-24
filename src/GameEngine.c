@@ -896,17 +896,19 @@ void initAllButtons(Window *win)
         selectOtherStarter, (void*)(intptr_t)-1, win->LargeFont,
         "assets/User Interface/Grey/arrow_basic_w.png"
     );
+    
     buttonsStarters[1] = createButton(
-        " ", win, (SDL_Rect){840, 600, 300, 100},
-        (SDL_Color){0, 0, 0, 0}, (SDL_Color){0, 0, 0, 0},
-        selectOtherStarter, (void*)(intptr_t)1, win->LargeFont,
-        "assets/User Interface/Grey/arrow_basic_e.png"
-    );
-    buttonsStarters[2] = createButton(
         "Choisir", win, (SDL_Rect){510, 600, 300, 100},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 0},
         validateStarterChoice, (void*)(intptr_t)0, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
+    );
+
+    buttonsStarters[2] = createButton(
+        " ", win, (SDL_Rect){840, 600, 300, 100},
+        (SDL_Color){0, 0, 0, 0}, (SDL_Color){0, 0, 0, 0},
+        selectOtherStarter, (void*)(intptr_t)1, win->LargeFont,
+        "assets/User Interface/Grey/arrow_basic_e.png"
     );
 
     /*Boutons Resume screen*/

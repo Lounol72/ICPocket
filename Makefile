@@ -39,7 +39,7 @@ TEST_LIBS   = $(LIBS) $(CHECK_LIBS)
 .PHONY: all clean rebuild run testDuel test test-memory unit-tests package-linux doxygen check-deps
 
 # Cibles principales
-all: check-deps $(BIN_DIR) $(TEST_BIN_DIR) $(TEST_OBJ_DIR) $(MAIN_EXE) $(DUEL_EXE) $(TEST_BINS)
+all:  $(BIN_DIR) $(TEST_BIN_DIR) $(TEST_OBJ_DIR) $(MAIN_EXE) $(DUEL_EXE) $(TEST_BINS)
 
 # Vérification des dépendances
 check-deps:
@@ -104,7 +104,7 @@ unit-tests: $(TEST_BINS)
 		$$test; \
 	done
 
-test-memory: $(TEST_BINS)
+test-memory:
 	@echo "🧪 Test mémoire avec Valgrind..."
 	@valgrind --leak-check=full $(BIN_DIR)/$(MAIN_EXE) -test-mode
 
