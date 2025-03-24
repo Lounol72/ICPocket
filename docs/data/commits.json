@@ -1,5 +1,15 @@
 [
   {
+    "sha": "38044834",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-24T06:25:05Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/38044834452a009ca2206f973e34f5c8c2f097e2"
+  },
+  {
     "sha": "e72c9044",
     "message": "📊 Update GitHub data",
     "date": "2025-03-24T01:21:03Z",
@@ -288,15 +298,5 @@
       "username": "AstroZr"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/020b4ab019f6f60e3144b66b246c8137d261d2ae"
-  },
-  {
-    "sha": "1cccbcd3",
-    "message": "update npc and test to fix the map",
-    "date": "2025-03-21T10:32:11Z",
-    "author": {
-      "name": "AstroZr",
-      "username": "AstroZr"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/1cccbcd3388a60e0ce096f0232be722b762c92a6"
   }
 ]
