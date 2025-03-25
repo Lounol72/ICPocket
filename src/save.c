@@ -6,7 +6,7 @@
 *   @param joueur Equipe du joueur
 *   @param adverse Dernier dresseur battu
 */
-void sauvegarder(t_Team * joueur,t_Team * adverse){
+/*void sauvegarder(t_Team * joueur,t_Team * adverse){
     char nomFichier[1024];
     printf("save : %d\n",joueur->id_save);
     snprintf(nomFichier, sizeof(nomFichier), "data/save/Save_%d.txt", joueur->id_save);
@@ -38,7 +38,33 @@ void sauvegarder(t_Team * joueur,t_Team * adverse){
         printf("Sauvegarde effectuée2\n");
         fclose(fichier);
     }
+}*/
+void sauvegarder(t_Team * joueur,t_Team * adverse){
+    char nomFichier[1024];
+    printf("save : %d\n",joueur->id_save);
+    snprintf(nomFichier, sizeof(nomFichier), "data/save/Save_%d.txt", joueur->id_save);
+    FILE *fichier = fopen(nomFichier, "w+");
+    if(fichier == NULL){
+        printf("Erreur : impossible d'ouvrir le fichier.\n");
+        exit(1);
+    } else {
+        fprintf(fichier,"%d;",joueur->nb_poke);
+        for(int i = 0; i < joueur->nb_poke; i++){
+            fprintf(fichier,"%d;%d;%d;%d;",joueur->team[i].id,joueur->team[i].lvl,joueur->team[i].nature,joueur->team[i].nb_move);
+            for(int j = 0 ; j < 6 ; j++)fprintf(fichier, "%d;", joueur->team[i].iv[j]);
+            for(int j = 0 ; j < 1 ; j++)fprintf(fichier, "%d;", joueur->team[i].type[j]);
+            for(int j = 0 ; j < joueur->team[i].nb_move ; j++)fprintf(fichier, "%d;", joueur->team[i].moveList[j].id);
+        }
+        
+        fprintf(fichier, "%s;%d;", adverse->trainerName, adverse->id);
+        fprintf(fichier,"fichier de save_%d\n",joueur->id_save);
+        fprintf(fichier,"check:1;");
+        printf("Sauvegarde effectuée2\n");
+        fclose(fichier);
+    }
 }
+
+
 /**
 *   @brief Fonction de chargement
 *   @param nomSave Nom de sauvegarde
@@ -99,6 +125,9 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur){
         fscanf(fichier, "Dernier dresseur battu : %s id: %d\n", temp, &(joueur->lastEnemiID));
         fclose(fichier);
         printf("Chargement effectué\n");
+        for(int i = 0;i<joueur->nb_poke;i++){
+            printPoke(&(joueur->team[i]));
+        }
         return 1;
     }
 }
