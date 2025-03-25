@@ -1,5 +1,15 @@
 [
   {
+    "sha": "46806d2d",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-25T12:34:26Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/46806d2da5d1fbd0f88b6d039be3e51cafc0b524"
+  },
+  {
     "sha": "ebb723d2",
     "message": "📊 Update GitHub data",
     "date": "2025-03-25T06:24:52Z",
@@ -288,15 +298,5 @@
       "username": "github-actions[bot]"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/8589cd4683826c70f37c7e90652a4a230c84d98d"
-  },
-  {
-    "sha": "d2dacc01",
-    "message": "Fix merge conflicts and update event handling logic",
-    "date": "2025-03-21T11:01:15Z",
-    "author": {
-      "name": "AstroZr",
-      "username": "AstroZr"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/d2dacc01fbd548f9bbd47b85f8a3c2e908b78088"
   }
 ]
