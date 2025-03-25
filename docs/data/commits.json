@@ -1,5 +1,15 @@
 [
   {
+    "sha": "e0c29add",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-25T01:19:46Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/e0c29add77f47ddc2b441dacb7613f452b0909b7"
+  },
+  {
     "sha": "8f89fa27",
     "message": "📚 Documentation update 2025-03-24",
     "date": "2025-03-24T22:08:12Z",
@@ -288,15 +298,5 @@
       "username": "Natp24109"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/21d69ac7b427791eaa8fb8e182edb3de3d8a189b"
-  },
-  {
-    "sha": "ae4848ed",
-    "message": "added basics for resume screen",
-    "date": "2025-03-21T10:57:57Z",
-    "author": {
-      "name": "Natp24109",
-      "username": "Natp24109"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/ae4848edf95b5f1ac33d12938387df9eb1e5f91c"
   }
 ]
