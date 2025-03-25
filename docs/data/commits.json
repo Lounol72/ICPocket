@@ -1,5 +1,25 @@
 [
   {
+    "sha": "8f89fa27",
+    "message": "📚 Documentation update 2025-03-24",
+    "date": "2025-03-24T22:08:12Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/8f89fa27abe2bad709e458a996f3af59969a0cec"
+  },
+  {
+    "sha": "5a164644",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-24T18:24:38Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/5a164644ee8e6921b10fcabc4aa9fe924dcb1399"
+  },
+  {
     "sha": "d3c757a1",
     "message": "📊 Update GitHub data",
     "date": "2025-03-24T12:35:21Z",
@@ -278,25 +298,5 @@
       "username": "Natp24109"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/ae4848edf95b5f1ac33d12938387df9eb1e5f91c"
-  },
-  {
-    "sha": "84826f24",
-    "message": "added basics for resume screen",
-    "date": "2025-03-21T10:57:42Z",
-    "author": {
-      "name": "Natp24109",
-      "username": "Natp24109"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/84826f246a7c3a9e811fc354388ec612f2d44d6c"
-  },
-  {
-    "sha": "dcedc500",
-    "message": "Update Moves and Poke",
-    "date": "2025-03-21T10:55:15Z",
-    "author": {
-      "name": "lOkaal1",
-      "username": "lOkaal1"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/dcedc5009e4eed8345ee563de4268015635e456d"
   }
 ]
