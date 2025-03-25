@@ -1,5 +1,15 @@
 [
   {
+    "sha": "ebb723d2",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-25T06:24:52Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/ebb723d26bbd17f894bc535830c4a6c552faacdb"
+  },
+  {
     "sha": "e0c29add",
     "message": "📊 Update GitHub data",
     "date": "2025-03-25T01:19:46Z",
@@ -288,15 +298,5 @@
       "username": "AstroZr"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/d2dacc01fbd548f9bbd47b85f8a3c2e908b78088"
-  },
-  {
-    "sha": "21d69ac7",
-    "message": "Merge branch 'main' of https://github.com/Lounol72/ICPocket into main",
-    "date": "2025-03-21T10:58:00Z",
-    "author": {
-      "name": "Natp24109",
-      "username": "Natp24109"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/21d69ac7b427791eaa8fb8e182edb3de3d8a189b"
   }
 ]
