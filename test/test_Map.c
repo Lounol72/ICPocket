@@ -41,7 +41,6 @@ Suite *map_suite(void) {
     
     tcase_add_checked_fixture(tc_core, setup, teardown);
     tcase_add_test(tc_core, test_generateMap);
-    
     // Add the test case to the suite
     suite_add_tcase(s, tc_core);
     
