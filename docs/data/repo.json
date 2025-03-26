@@ -1,6 +1,6 @@
 {
   "name": "ICPocket",
-  "description": "ICPocket est un jeu \"Pokemon-like\" développé par des étudiants passionnés de l'Université du Mans. Plongez dans un univers unique où la programmation rencontre l'aventure !",
+  "description": "ICPocket est un jeu \"Pokemon-like\" développé par des étudiants passionnés de cet univers. Nous venons de l'Université du Mans. Plongez dans un univers unique où la programmation rencontre l'aventure !",
   "html_url": "https://github.com/Lounol72/ICPocket",
   "homepage": "https://lounol72.github.io/ICPocket/",
   "language": "C",
@@ -10,7 +10,7 @@
   "open_issues_count": 5,
   "default_branch": "main",
   "created_at": "2024-12-09T13:59:50Z",
-  "updated_at": "2025-03-25T12:34:30Z",
+  "updated_at": "2025-03-25T20:57:23Z",
   "topics": [
     "c",
     "pokemon",
