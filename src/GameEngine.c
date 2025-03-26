@@ -388,6 +388,7 @@ void initStarters(Window *win, void *data){
     for(int i=0;i<4;i++){
         game.starters[i].main_effect=noEffect;
         generate_poke(&game.starters[i],ids[i]);
+        generateRandomMoveBetter(&game.starters[i]);
         game.starters[i].lvl=100;
         game.starters[i].exp = expCurve(game.starters[i].lvl);
         game.starters[i].current_pv=calcStatFrom(&(game.starters[i]),PV);
