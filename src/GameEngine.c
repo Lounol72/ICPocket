@@ -746,7 +746,8 @@ void initAllButtons(Window *win)
     buttonsInter[0] = createButton(
         "Next Duel", win, (SDL_Rect){500, 200, 300, 100},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
-        changeState, &game.stateHandlers[MAP].state, win->LargeFont,
+        nextDuel, NULL, win->LargeFont,
+        //changeState, &game.stateHandlers[MAP].state, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsInter[1] = createButton(
