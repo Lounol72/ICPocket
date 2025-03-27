@@ -26,7 +26,7 @@ var NAVTREE =
 [
   [ "ICPocket", "index.html", [
     [ "À propos du projet", "index.html#autotoc_md1", null ],
-    [ "🎮 Le jeu", "index.html#autotoc_md2", null ],
+    [ "Les membres", "index.html#autotoc_md2", null ],
     [ "🌐 Site web", "index.html#autotoc_md3", null ],
     [ "📁 Structure du projet", "index.html#autotoc_md4", null ],
     [ "🔧 Technologies utilisées", "index.html#autotoc_md5", null ],
