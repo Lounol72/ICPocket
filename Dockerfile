@@ -1,8 +1,13 @@
-FROM ubuntu:latest
+# Use a specific version tag for better reproducibility
+FROM ubuntu:22.04 
 
-# Installer les outils de compilation et les dépendances SDL
-RUN apt update && apt install -y \
+# Group RUN commands to reduce layers
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
     build-essential \
+    cmake \
+    make \
+    gcc \
     libsdl2-dev \
     libsdl2-ttf-dev \
     libsdl2-image-dev \
@@ -10,16 +15,28 @@ RUN apt update && apt install -y \
     check \
     valgrind \
     lcov \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Définir le répertoire de travail
+# Set working directory
 WORKDIR /app
 
-# Copier le code source dans le conteneur
-COPY . .
+# Copy only what's needed for building dependencies first
+COPY Makefile .
+COPY include/ include/
+COPY lib/ lib/
 
-# Compiler le projet
+# Set environment variables together
+ENV LANG=C.UTF-8 \
+    LC_ALL=C.UTF-8
+
+# Copy source code (changes more frequently)
+COPY src/ src/
+COPY test/ test/
+COPY assets/ assets/
+
+# Build the application
 RUN make
 
-# Compiler et exécuter les tests
-CMD make test
+# Define default command
+CMD ["./bin/main"]
