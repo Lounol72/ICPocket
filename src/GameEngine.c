@@ -481,7 +481,8 @@ void initResume(Window *win, void *data){
     }
 
     /* a rescale*/
-    game.windowText=createText(temp,game.win->renderer,(SDL_Rect){win->width * 0.68, game.win->height * 0.38 , 300, 135},(SDL_Color){0,0,0,255},game.win->SmallFont);
+    game.windowText=createText(temp,game.win->renderer,(SDL_Rect){win->width * 0.68, game.win->height * 0.38 , 300, 135},(SDL_Color){0,0,0,255},game.win->MediumFont);
+    StayScaled(game.windowText->font, game.windowText, &(game.windowText->rect), &(game.windowText->initialRect));
     changeState(win,&game.stateHandlers[RESUME].state);
 }
 
