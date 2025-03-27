@@ -1,5 +1,55 @@
 [
   {
+    "sha": "1e199afe",
+    "message": "Temporary - fixing map memory issues",
+    "date": "2025-03-24T15:33:53Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/1e199afe75c6e326d20e7e963f7169c738b170b7"
+  },
+  {
+    "sha": "c12c16de",
+    "message": "🔧 Update Windows build workflow: rename job, enhance Git LFS setup, and streamline packaging process",
+    "date": "2025-03-26T09:01:21Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/c12c16de1faedfd187cfe6dd58f31c7ab18d0d39"
+  },
+  {
+    "sha": "ff3a851d",
+    "message": "🔧 Update subproject commit, remove unnecessary whitespace in test_Map.c, and add favicon to documentation",
+    "date": "2025-03-25T11:14:36Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/ff3a851dad7e200dc0eda4c64a5bca1933d94226"
+  },
+  {
+    "sha": "6b0d723b",
+    "message": "Update README.md",
+    "date": "2025-03-27T09:15:16Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/6b0d723b601fd5bc7c8cd26d3139fd77f3e26047"
+  },
+  {
+    "sha": "3c3bab29",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-27T06:24:07Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/3c3bab2979b9b7eea378a62ac231ff98ddb22463"
+  },
+  {
     "sha": "689be1d5",
     "message": "📊 Update GitHub data",
     "date": "2025-03-27T01:18:51Z",
@@ -248,55 +298,5 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/4b80ff3705e2fd25eb3800751744364aa7030cf7"
-  },
-  {
-    "sha": "feec7e56",
-    "message": "🔧 Update Windows build workflow to use actions/checkout@v4 and improve packaging process",
-    "date": "2025-03-22T16:01:34Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/feec7e5695cf8e98f6f5f920677e19b02d9a2ce3"
-  },
-  {
-    "sha": "ac223fde",
-    "message": "🔧 Update Windows build workflow to use PowerShell for packaging and clean up Makefile",
-    "date": "2025-03-22T15:59:45Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/ac223fde6525faaee29d5e0335d3be67e9f5ef7f"
-  },
-  {
-    "sha": "50a0204d",
-    "message": "🔧 Update Windows build workflow",
-    "date": "2025-03-22T15:53:38Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/50a0204dc5c51d0ec0d4de5af1e2bbb815804861"
-  },
-  {
-    "sha": "1433b150",
-    "message": "🔧 Update GitHub Actions workflow and Doxygen CSS subproject commit",
-    "date": "2025-03-22T15:12:18Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/1433b1501990e1d274ebbac625a784803e175694"
-  },
-  {
-    "sha": "9155efc5",
-    "message": "📚 Update styles and remove console logs for cleaner code",
-    "date": "2025-03-22T15:10:39Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/9155efc5ffcef99f97e252aed96cfc1920218622"
   }
 ]
