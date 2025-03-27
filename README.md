@@ -1,12 +1,16 @@
 # ICPocket
 
-![ICPocket Logo](docs/img/favicon.png)
+![ICPocket Logo](docs/img/ICPocket.png)
 
 ## À propos du projet
 ICPocket est un jeu de combat et d'aventure inspiré de Pokémon, développé par des étudiants de l'Université du Mans. Dans cet univers unique où les créatures numériques et la technologie se mêlent harmonieusement, vous incarnez un jeune développeur qui doit relever le défi de devenir le meilleur dresseur d'ICPocket.
 
-## 🎮 Le jeu
-Explorez des environnements variés, des villes high-tech aux mystérieuses forêts de données corrompues, et affrontez d'autres dresseurs dans des combats stratégiques au tour par tour.
+## Les membres 
+
+Lounol72 (Subtil Louis)
+Natp24019 (Pasquier Nathan)
+AstroZr (Borde Alban)
+lOkaal1 (Littre William)
 
 **Version actuelle :** 0.9
 
