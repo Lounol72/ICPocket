@@ -97,6 +97,12 @@ typedef struct {
  * 
  * Cette structure regroupe tous les éléments du jeu, y compris l'interface utilisateur, les états du jeu, et les données de combat.
  */
+typedef struct Touche{
+    SDL_Rect rect;
+    SDL_Rect initialRect;
+    SDL_Texture *texture;
+} Touche;
+
 typedef struct Game {
     UI_Elements *ui;          /**< Éléments de l'interface utilisateur. */
     int nbMenu;               /**< Nombre de menus. */
@@ -120,7 +126,9 @@ typedef struct Game {
     Text * windowText;
     t_Poke starters[4];
     int startersIndex;
+    Touche **touche;
 } Game;
+
 
 #include "Game.h"
 #include "Events.h"
@@ -221,6 +229,9 @@ void changeState(Window *win, void *data);
  */
 void updateICButtons(Window *win, t_Team *team);
 
+Touche *initTouche(Window * win, const char *imagePath, SDL_Rect rect);
+
+void destroyTouche(Touche *touche);
 /**
  * @brief Passe au duel suivant.
  * 

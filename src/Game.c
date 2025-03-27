@@ -63,6 +63,11 @@ void initGame(Window *win) {
     game.stateHandlers[12]= (StateHandler){ STARTERS, handleStartersEvent };
     game.stateHandlers[13]= (StateHandler){ RESUME, handleResumeEvent };
 
+    game.touche = malloc(sizeof(Touche));
+    game.touche[0] = initTouche(win, "assets/User Interface/New/keyboard_arrows.png", (SDL_Rect){700, 450, 50, 50});
+    game.touche[1] = initTouche(win, "assets/User Interface/New/keyboard_e.png", (SDL_Rect){750, 450, 50, 50});
+    game.touche[2] = initTouche(win, "assets/User Interface/New/keyboard_c.png", (SDL_Rect){800, 450, 50, 50});
+
     /* Configuration de la fréquence d'images (FPS) */
     game.FPS = 60;
     game.frameDelay = 1000 / game.FPS;
@@ -151,6 +156,8 @@ void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char
     SDL_FreeSurface(surface);
 }
 
+
+
 void destroyGame() {
     /* 1) Libération de la musique */
     if (game.gameState.music) {
@@ -202,6 +209,16 @@ void destroyGame() {
         free(game.ui);
         game.ui = NULL;
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ UI libérée");
+    }
+
+    if(game.touche){
+        for(int i=0; i<3; i++){
+            if(game.touche[i]){
+                destroyTouche(game.touche[i]);
+            }
+        }
+        free(game.touche);
+        game.touche = NULL;
     }
 
     /* 3) Destruction des ICMons pour l'équipe rouge */

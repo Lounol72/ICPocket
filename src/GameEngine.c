@@ -108,6 +108,7 @@ static void updateICMonsButtonText(Window *win, t_Team *team, int endOfArray, Ap
     }
 }
 
+static void renderTouche(Window *win);
 //---------------------------------------------------------------------------------
 /* Fonctions de rendu et de gestion des états visuels */
 
@@ -140,8 +141,12 @@ void render(Window *win) {
         renderButtonList(game.ui[game.gameState.currentState].buttons);
     if (game.ui[game.gameState.currentState].sliders)
         renderSliderList(game.ui[game.gameState.currentState].sliders);
+    if (game.gameState.currentState == SETTINGS) {
+        renderTouche(win);
+    }
     if (game.gameState.currentState == MENU)
         renderText(win, &title);
+    
     else if (game.gameState.currentState == NEWGAME)
         renderText(win, &NewGameText);
     else if (game.gameState.currentState == SWAP){
@@ -176,6 +181,21 @@ static void renderMap(Window *win) {
     renderPlayerWithCamera(game.gameData.player, win->renderer, game.gameData.camera);
     pthread_mutex_unlock(&game.threadManager.physicsMutex);
     SDL_RenderPresent(game.win->renderer);
+}
+
+static void renderTouche(Window *win) {
+    if (!game.touche) {
+        SDL_Log("Erreur : Les touches ne sont pas initialisées.");
+        return;
+    }
+
+    for (int i = 0; i < 3; i++) {
+        if (game.touche[i] && game.touche[i]->texture) {
+            SDL_RenderCopy(win->renderer, game.touche[i]->texture, NULL, &game.touche[i]->rect);
+        } else {
+            SDL_Log("Erreur : Texture de la touche %d non initialisée.", i);
+        }
+    }
 }
 
 //---------------------------------------------------------------------------------
@@ -373,6 +393,7 @@ void validateStarterChoice(Window *win, void *data){
     changeState(win,&game.stateHandlers[GAME].state);
 }
 
+
 void initStarters(Window *win, void *data){
     (void)win;
     (void)data;
@@ -445,7 +466,12 @@ void initResume(Window *win, void *data){
     game.windowText=createText(temp,game.win->renderer,(SDL_Rect){(win->width / 2 -100)/ win->width, game.win->height /2 , 550, 300},(SDL_Color){0,0,0,255},game.win->SmallFont);
     changeState(win,&game.stateHandlers[RESUME].state);
 }
-
+/*
+void initSettings(Window *win, void *data){
+    (void)data;
+    char temp[200];
+    ;
+}*/
 void destroyResume(Window *win, void *data){
     (void)data;
     destroyText(game.windowText);
@@ -453,6 +479,49 @@ void destroyResume(Window *win, void *data){
     changeState(win,&game.stateHandlers[SWAP].state);
 }
 
+Touche * initTouche(Window * win, const char *imagePath, SDL_Rect rect) {
+    if (!win || !win->renderer || !imagePath) {
+        SDL_Log("Erreur : Paramètres invalides pour initTouche.");
+        return NULL;
+    }
+
+    Touche *touche = malloc(sizeof(Touche));
+    if (!touche) {
+        SDL_Log("Erreur : Impossible d'allouer la mémoire pour Touche.");
+        return NULL;
+    }
+
+    SDL_Surface *surface = IMG_Load(imagePath);
+    if (!surface) {
+        SDL_Log("Erreur : Impossible de charger l'image %s. SDL_Error: %s", imagePath, SDL_GetError());
+        free(touche);
+        return NULL;
+    }
+
+    touche->texture = SDL_CreateTextureFromSurface(win->renderer, surface);
+    SDL_FreeSurface(surface);
+
+    if (!touche->texture) {
+        SDL_Log("Erreur : Impossible de créer la texture pour Touche. SDL_Error: %s", SDL_GetError());
+        free(touche);
+        return NULL;
+    }
+
+    touche->rect = rect;
+    touche->initialRect = rect;
+    return touche;
+}
+
+void destroyTouche(Touche *touche) {
+    if (!touche) return;
+
+    if (touche->texture) {
+        SDL_DestroyTexture(touche->texture);
+        touche->texture = NULL;
+    }
+
+    free(touche);
+}
 /**
  * @brief Passe au duel suivant.
  *
@@ -555,7 +624,7 @@ void initAllButtons(Window *win)
     int nbButtonsLoad = 3;
     int nbButtonsMenu = 4;
     int nbSlidersSettings = 1;
-    int nbButtonsParam = 6;
+    int nbButtonsParam = 7;
     int nbButtonsGame = 5;
     int nbButtonsICMons = 7;
     int nbButtonsInter = 3;
@@ -633,6 +702,7 @@ void initAllButtons(Window *win)
         makeWindowWindowed, NULL, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
+
     buttonsParam[5] = createButton(
         "  Back  ", win, (SDL_Rect){100, 600, 300, 100},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
@@ -960,6 +1030,8 @@ void initAllButtons(Window *win)
     addListButton(game.ui[12].buttons, buttonsStarters, nbButtonsStarters);
     addListButton(game.ui[13].buttons, buttonsResume, nbButtonsResume);
 }
+
+
 
 /**
  * @brief Met à jour les textes des boutons d'attaque et des ICMons.
