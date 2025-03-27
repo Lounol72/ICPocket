@@ -1,5 +1,25 @@
 [
   {
+    "sha": "79d63178",
+    "message": "🔧 Enhance SEO and documentation: add meta tags, sitemap, and robots.txt (#23)",
+    "date": "2025-03-27T17:33:10Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/79d63178ca9f9f65972faa55d7a30464a21df0eb"
+  },
+  {
+    "sha": "70518b3f",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-27T12:34:56Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/70518b3fd9a9d9531bac2215f540d0e02d44c2fe"
+  },
+  {
     "sha": "1e199afe",
     "message": "Temporary - fixing map memory issues",
     "date": "2025-03-24T15:33:53Z",
@@ -278,25 +298,5 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/0c5d3b9c4fe08f3687b183736686c78687409d65"
-  },
-  {
-    "sha": "2a8526fb",
-    "message": "🔧 Remove scheduled triggers from Linux and Windows build workflows",
-    "date": "2025-03-22T16:11:31Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/2a8526fb7e1f1f0b698d1ff1a007ae7438a0be45"
-  },
-  {
-    "sha": "4b80ff37",
-    "message": "Update issue templates",
-    "date": "2025-03-22T16:05:27Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/4b80ff3705e2fd25eb3800751744364aa7030cf7"
   }
 ]
