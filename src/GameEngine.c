@@ -194,7 +194,15 @@ void changeState(Window *win, void *data) {
     win->state = newState;
     game.gameState.currentState = newState;
     game.currentButton = 0;
+    gettimeofday(&game.gameState.time_in_state,NULL);
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Changement d'état : %d", newState);
+}
+
+int gameStateTimerValidate(int nb_mili){
+    struct timeval time_now;
+    gettimeofday(&time_now,NULL);
+    long elapsed = (time_now.tv_sec - game.gameState.time_in_state.tv_sec) * 1000000 + (time_now.tv_usec - game.gameState.time_in_state.tv_usec);
+    return elapsed>=nb_mili;
 }
 
 /**
@@ -239,7 +247,7 @@ void makeWindowWindowed(Window *win, void *data) {
  */
 void attqButtonClicked(Window *win, void *data) {
     (void)win; // Pour éviter le warning
-    
+    if(!gameStateTimerValidate(2000)) return;
     if (game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
         int moveIndex = (int)(intptr_t)data;
         if (moveIndex < 0 || moveIndex >= game.battleState.rouge.team[0].nb_move) {
@@ -324,6 +332,7 @@ void changeIndexSwap(Window *win, void *data) {
 }
 
 void validateSwap(Window *win, void *data) {
+    if(!gameStateTimerValidate(2000)) return;
     if(game.swappingIndex[0]<game.battleState.bleu.nb_poke){
         if(game.swappingIndex[1]<game.battleState.rouge.nb_poke){
             destroyICMonsSprite(&game.battleState.rouge.team[game.swappingIndex[1]]);
@@ -370,12 +379,15 @@ void validateStarterChoice(Window *win, void *data){
     setDefaultStatChanges(&game.battleState.rouge);
         
     game.gameState.initialized = 1;
-    changeState(win,&game.stateHandlers[GAME].state);
+    changeState(win,&game.stateHandlers[MAP].state);
 }
 
 void initStarters(Window *win, void *data){
-    (void)win;
     (void)data;
+    if(game.gameState.initialized){
+        changeState(win,&game.stateHandlers[MAP].state);
+        return;
+    }
     initData();
     srand(time(NULL));
     int ids[4]={29,17,12,7};
@@ -388,7 +400,7 @@ void initStarters(Window *win, void *data){
     for(int i=0;i<4;i++){
         game.starters[i].main_effect=noEffect;
         generate_poke(&game.starters[i],ids[i]);
-        game.starters[i].lvl=100;
+        game.starters[i].lvl=5;
         game.starters[i].exp = expCurve(game.starters[i].lvl);
         game.starters[i].current_pv=calcStatFrom(&(game.starters[i]),PV);
 		game.starters[i].initial_pv = game.starters[i].current_pv;
@@ -418,7 +430,7 @@ void initStarters(Window *win, void *data){
             return;
         }
     }
-    changeState(game.win,&game.stateHandlers[STARTERS].state);
+    changeState(win,&game.stateHandlers[STARTERS].state);
 }
 
 void initResume(Window *win, void *data){
@@ -441,8 +453,35 @@ void initResume(Window *win, void *data){
         calcStatFrom(&game.battleState.bleu.team[game.swappingIndex[0]],SPD),
         calcStatFrom(&game.battleState.bleu.team[game.swappingIndex[0]],SPE)
     );
+
+    SDL_Rect spriteRect = {
+        .x = (int)(game.win->width * RED_SPRITE_X_RATIO * 0.8),
+        .y = (int)(game.win->height * RED_SPRITE_Y_RATIO * 0.6),
+        .w = (int)(game.win->width * SPRITE_WIDTH_RATIO),
+        .h = (int)(game.win->height * SPRITE_HEIGHT_RATIO)
+    };
+    SDL_Rect nameRect = {
+        .x = 0,
+        .y = 0,
+        .w = 0,
+        .h = 0
+    };
+    SDL_Rect pvRect = {
+        .x = spriteRect.x,
+        .y = spriteRect.y + spriteRect.h + PV_Y_OFFSET,
+        .w = spriteRect.w / 3,
+        .h = PV_BAR_HEIGHT
+    };
+    if(game.battleState.bleu.team[game.swappingIndex[0]].img) destroyICMonsSprite(&game.battleState.bleu.team[game.swappingIndex[0]]);
+    game.battleState.bleu.team[game.swappingIndex[0]].img = initICMonSprite(win->renderer, spriteRect, nameRect, pvRect, &game.battleState.bleu.team[game.swappingIndex[0]], win->LargeFont, 0);
+    if (!game.battleState.bleu.team[game.swappingIndex[0]].img || !game.battleState.bleu.team[game.swappingIndex[0]].img->ICMonTexture) {
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
+            "❌ Failed to initialize sprite\n");
+        return;
+    }
+
     /* a rescale*/
-    game.windowText=createText(temp,game.win->renderer,(SDL_Rect){(win->width / 2 -100)/ win->width, game.win->height /2 , 550, 300},(SDL_Color){0,0,0,255},game.win->SmallFont);
+    game.windowText=createText(temp,game.win->renderer,(SDL_Rect){win->width * 0.68, game.win->height * 0.38 , 300, 135},(SDL_Color){0,0,0,255},game.win->SmallFont);
     changeState(win,&game.stateHandlers[RESUME].state);
 }
 
@@ -450,6 +489,7 @@ void destroyResume(Window *win, void *data){
     (void)data;
     destroyText(game.windowText);
     game.windowText=NULL;
+    initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1);
     changeState(win,&game.stateHandlers[SWAP].state);
 }
 
@@ -910,7 +950,8 @@ void initAllButtons(Window *win)
     );
 
     /*Boutons Resume screen*/
-
+    startX+=60;
+    startY-=45;
     buttonsResume[0] = createButton(
         "Attack 1", win, (SDL_Rect){startX, startY, buttonWidth, buttonHeight},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
@@ -937,7 +978,7 @@ void initAllButtons(Window *win)
     );
 
     buttonsResume[4] = createButton(
-        "Retour", win, (SDL_Rect){950, startY, 300, 180},
+        "Retour", win, (SDL_Rect){950, startY, 250, 180},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         destroyResume, (void*)(intptr_t)0, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"

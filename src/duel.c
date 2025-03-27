@@ -41,7 +41,8 @@ int applyEffect(t_Team * target, int probability, int effect, int bool_main_effe
 
 int recoilDamage(t_Team * target, int probability, int percentage_of_val, int indexPoke){
 	if(rand()%100<probability) {
-		target->team[0].current_pv-=calcStatFrom(&(target->team[indexPoke]),PV)*percentage_of_val/100>target->team[indexPoke].current_pv?0:calcStatFrom(&(target->team[indexPoke]),PV)*percentage_of_val/100;
+		target->team[0].current_pv-=calcStatFrom(&(target->team[indexPoke]),PV)*percentage_of_val/100;
+		if(target->team[0].current_pv<0) target->team[0].current_pv=0;
 		return TRUE;
 	}
 	return FALSE;

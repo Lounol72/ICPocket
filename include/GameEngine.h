@@ -13,6 +13,8 @@
 
 #include "ThreadManager.h"
 
+#include <sys/time.h>
+
 /**
  * @file GameEngine.h
  * @brief Définition et gestion du moteur de jeu.
@@ -69,6 +71,7 @@ typedef struct {
     Mix_Music *music_inter;        /**< Musique de fond. */
     int playerTurn;                /**< Indicateur du tour du joueur. */
     int initialized;               /**< Indicateur d'initialisation du jeu. */
+    struct timeval time_in_state;  /**< Temps anti double clic entre deux gameStates */
     AppState currentState;         /**< État actuel de l'application. */
 } GameState;
 
