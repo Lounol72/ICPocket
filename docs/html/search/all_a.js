@@ -7,7 +7,7 @@ var searchData=
   ['le_20jeu_4',['🎮 Le jeu',['../index.html#autotoc_md2',1,'']]],
   ['learningmovechoice_5',['learningmovechoice',['../d5/d81/GameEngine_8c.html#a5ed19d39baab73ab804232213baf91b2',1,'learningMoveChoice(Window *win, void *data):&#160;GameEngine.c'],['../d7/d1f/GameEngine_8h.html#a5ed19d39baab73ab804232213baf91b2',1,'learningMoveChoice(Window *win, void *data):&#160;GameEngine.c']]],
   ['learnmove_6',['learnmove',['../d3/dfe/structPoke_8c.html#a7015b1513a0fee88f04ded20913866ba',1,'learnMove(t_Poke *p, t_Move *m, int ind):&#160;structPoke.c'],['../da/d71/structPoke_8h.html#aa6e57a0e7270157be9d895337f9dea6c',1,'learnMove(t_Poke *, t_Move *, int):&#160;structPoke.c'],['../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea4605012625a370679a770354448167cb',1,'LEARNMOVE:&#160;Window.h']]],
-  ['licence_7',['📄 Licence',['../index.html#autotoc_md11',1,'']]],
+  ['licence_7',['📄 Licence',['../index.html#autotoc_md12',1,'']]],
   ['loadbackground_8',['loadbackground',['../d3/d5f/Game_8h.html#a4a3c981367992b6dd0045e0eb5f75aa0',1,'loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath):&#160;Game.c'],['../dc/d22/Game_8c.html#a4a3c981367992b6dd0045e0eb5f75aa0',1,'loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath):&#160;Game.c']]],
   ['loadfile_9',['loadfile',['../d7/d9f/Events_8c.html#a2da64eddce0620bfe4f48287730a9ce8',1,'loadFile(Window *win, void *event):&#160;Events.c'],['../d0/dbb/Events_8h.html#a2da64eddce0620bfe4f48287730a9ce8',1,'loadFile(Window *win, void *event):&#160;Events.c']]],
   ['loadgame_10',['LOADGAME',['../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea8ea08ca82a0d1952666e6b27cc459795',1,'Window.h']]],
