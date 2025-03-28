@@ -6,11 +6,9 @@ Image *initImage(struct Window *win, const char *imagePath, SDL_Rect rect, const
     SDL_Surface *surface = IMG_Load(imagePath);
     image->texture = SDL_CreateTextureFromSurface(win->renderer, surface);
     SDL_FreeSurface(surface);
-    image->rect = rect;
     image->initialRect = rect;
+    image->rect = rect;
     SDL_Color color = {255, 255, 255, 255};
-    image->textRect = textRect;
-    image->initialTextRect = textRect;
     image->text = createText(text, win->renderer, textRect, color, font);
     return image;
 }
@@ -26,16 +24,21 @@ void renderImage(struct Window *win, Image *image) {
     renderText(win, image->text);
 }
 
-void updateImageSize(Image *image, int scaleX, int scaleY) {
-    image->rect.x = image->initialRect.x * scaleX;
-    image->rect.y = image->initialRect.y * scaleY;
-    image->rect.w = image->initialRect.w * scaleX;
-    image->rect.h = image->initialRect.h * scaleY;
-
-    image->text->rect.x = image->text->initialRect.x * scaleX;
-    image->text->rect.y = image->text->initialRect.y * scaleY;
-    image->text->rect.w = image->text->initialRect.w * scaleX;
-    image->text->rect.h = image->text->initialRect.h * scaleY;
+void updateImageSize(Image *image, float scaleX, float scaleY) {
+    if (!image) return;
+    
+    // Sauvegarder les valeurs initiales si ce n'est pas déjà fait
+    if (image->initialRect.w == 0) {
+        image->initialRect = image->rect;
+    }
+    // Mettre à jour en fonction des dimensions initiales
+    image->rect.x = (int)(image->initialRect.x * scaleX);
+    image->rect.y = (int)(image->initialRect.y * scaleY);
+    image->rect.w = (int)(image->initialRect.w * scaleX);
+    image->rect.h = (int)(image->initialRect.h * scaleY);
+    
+    // Mettre à jour le rectangle du texte s'il existe
+    updateTextPosition(image->text, scaleX, scaleY);
 }
 
 

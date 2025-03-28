@@ -172,7 +172,6 @@ void handleWindowSizeChange(Window *win) {
     SDL_GetWindowSize(win->window, &win->width, &win->height);
     float scaleX = (float)win->width / win->InitialWidth;
     float scaleY = (float)win->height / win->InitialHeight;
-    
     for (int i = 1; i < game.nbMenu; i++) {
         if (game.ui[i].buttons) updateButtonPosition(game.ui[i].buttons, scaleX, scaleY);
         if (game.ui[i].sliders) updateSliderPosition(game.ui[i].sliders, scaleX, scaleY);
@@ -180,16 +179,29 @@ void handleWindowSizeChange(Window *win) {
     updateTextPosition(&NewGameText, scaleX, scaleY);
     updateTextPosition(&title, scaleX, scaleY);
     updateTextPosition(game.windowText, scaleX, scaleY);
-    
+
+    for (int i = 0; i < 3; i++) {
+         if (game.touche[i]) {
+            printf("Before resize - touche[%d]: x=%d,y=%d,w=%d,h=%d\n", 
+                i, game.touche[i]->rect.x, game.touche[i]->rect.y, 
+                game.touche[i]->rect.w, game.touche[i]->rect.h);
+            
+            updateImageSize(game.touche[i], scaleX, scaleY);
+            
+            printf("After resize - touche[%d]: x=%d,y=%d,w=%d,h=%d\n", 
+                i, game.touche[i]->rect.x, game.touche[i]->rect.y, 
+                game.touche[i]->rect.w, game.touche[i]->rect.h);
+        } else {
+            printf("Warning: game.touche[%d] is NULL\n", i);
+        }
+    }
     for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
         updateICMonsSprite(&(game.battleState.rouge.team[i]), scaleX, scaleY);
     }
     for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
         updateICMonsSprite(&(game.battleState.bleu.team[i]), scaleX, scaleY);
     }
-    for (int i = 0; i < 3; i++) {
-        updateImageSize(game.touche[i], scaleX, scaleY);
-    }
+    
 }
 
 /**
@@ -323,6 +335,7 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
  * @param event Pointeur sur l'événement SDL.
  */
 void handleGameEvent(Window *win, SDL_Event *event) {
+    
     if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
         /* Réinitialisation de l'état du jeu */
         //game.gameState.initialized = 0;
@@ -341,7 +354,7 @@ void handleGameEvent(Window *win, SDL_Event *event) {
         }
         game.gameState.playerTurn = 1;
     }
-    
+    if (game.battleState.turnState != TURN_NONE) return;
     if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
         changeState(win, &game.stateHandlers[2].state);
     }

@@ -652,7 +652,7 @@ void initAllButtons(Window *win)
     buttonsParam[0] = createButton(
         "  0.5  ", win, (SDL_Rect){100, 200, 200, 50},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, (void*)(intptr_t)25, win->LargeFont,
+        changeTextSpeed, (void*)(intptr_t)100, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsParam[1] = createButton(
@@ -664,7 +664,7 @@ void initAllButtons(Window *win)
     buttonsParam[2] = createButton(
         "  1.5  ", win, (SDL_Rect){700, 200, 200, 50},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, (void*)(intptr_t)100, win->LargeFont,
+        changeTextSpeed, (void*)(intptr_t)25, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsParam[3] = createButton(
