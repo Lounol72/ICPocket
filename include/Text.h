@@ -136,6 +136,9 @@ void changeTextSpeed(Window *win, void *data);
  */
 void cleanupText();
 
+
+void StayScaled(TTF_Font *font, Text *text, SDL_Rect *rect, SDL_Rect *initialRect);
+
 /**
  * @brief Crée un nouvel objet de texte défilant.
  * 

@@ -322,7 +322,7 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
 void handleGameEvent(Window *win, SDL_Event *event) {
     if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
         /* Réinitialisation de l'état du jeu */
-        game.gameState.initialized = 0;
+        //game.gameState.initialized = 0;
         game.gameState.playerTurn = 0;
         AppState newState = isTeamAlive(&game.battleState.rouge) ? INTER : MENU;
         win->state = newState;

@@ -1,113 +1,21 @@
 User name : SAVE1
-nb:4
-nb:4
-id:1
-lvl:56
-nature:0
-nbmove:4
-iv:29
-iv:25
-iv:10
-iv:8
-iv:13
-iv:27
-type:7
-move:27
-move:2
-move:23
-move:13
-fichier de save_1
-
-
-id:2
-lvl:75
-nature:0
-nbmove:4
-iv:12
-iv:29
-iv:10
-iv:2
-iv:17
-iv:13
-type:4
-move:12
-move:21
-move:4
-move:11
-fichier de save_1
-
-
-id:7
-lvl:23
-nature:0
-nbmove:4
-iv:13
-iv:20
-iv:18
-iv:17
-iv:15
-iv:23
-type:2
-move:32
-move:29
-move:24
-move:6
-fichier de save_1
-
-
-id:1
-lvl:13
-nature:0
-nbmove:4
-iv:10
-iv:8
-iv:26
-iv:12
-iv:2
-iv:9
-type:7
-move:12
-move:40
-move:12
-move:18
-fichier de save_1
-
-
-id:18
+nb:1
+id:29
 lvl:5
 nature:0
 nbmove:4
-iv:20
-iv:7
-iv:20
-iv:9
-iv:11
+iv:13
 iv:30
-type:6
-move:26
-move:6
-move:38
+iv:27
+iv:24
+iv:20
+iv:10
+type:7
+move:17
+move:1
+move:12
 move:15
 fichier de save_1
 
 
-<<<<<<< Updated upstream
-=======
-id:17
-lvl:23
-nature:0
-nbmove:2
-iv:26
-iv:19
-iv:28
-iv:2
-iv:22
-iv:14
-type:7
-move:22
-move:30
-fichier de save_1
-
-
->>>>>>> Stashed changes
-Dernier dresseur battu : Willy boy id: 6
+Dernier dresseur battu : Quarzazate id: 3
