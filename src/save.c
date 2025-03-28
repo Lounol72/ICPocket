@@ -112,10 +112,6 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur){
             return -1;
         }
         fclose(fichier);
-        printf("Chargement effectué\n");
-        for(int i = 0;i<joueur->nb_poke;i++){
-            printPoke(&(joueur->team[i]));
-        }
         return 1;
     }
 }
