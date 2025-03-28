@@ -159,6 +159,11 @@ void render(Window *win) {
         renderICMonsSprite(win, &(game.battleState.bleu.team[game.swappingIndex[0]]));
         renderText(win,game.windowText);
     }
+    else if (game.gameState.currentState == SETTINGS){
+        renderImage(win, game.touche[0]);
+        renderImage(win, game.touche[1]);
+        renderImage(win, game.touche[2]);
+    }
 }
 
 /**

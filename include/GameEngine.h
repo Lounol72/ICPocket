@@ -7,7 +7,7 @@
 #include "interDuel.h"
 
 
-#include "Text.h"
+#include "Images.h"
 
 #include "Player.h"
 
@@ -123,6 +123,7 @@ typedef struct Game {
     Text * windowText;
     t_Poke starters[4];
     int startersIndex;
+    Image **touche;
 } Game;
 
 #include "Game.h"

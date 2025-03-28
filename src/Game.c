@@ -62,6 +62,11 @@ void initGame(Window *win) {
     game.stateHandlers[11]= (StateHandler){ LEARNMOVE, handleLearningEvent };
     game.stateHandlers[12]= (StateHandler){ STARTERS, handleStartersEvent };
     game.stateHandlers[13]= (StateHandler){ RESUME, handleResumeEvent };
+    game.touche = NULL;
+    game.touche = malloc(3 * sizeof(Image*));
+    game.touche[0] = initImage(win, "assets/User Interface/keyboard_e.png", (SDL_Rect){win->width * 0.55, win->height * 0.60, win->width * 0.075, win->width * 0.075}, "Intéragir",(SDL_Rect){600, 500, 100, 100} ,game.win->LargeFont);
+    game.touche[1] = initImage(win, "assets/User Interface/keyboard_c.png", (SDL_Rect){win->width * 0.70, win->height * 0.60, win->width * 0.075, win->width * 0.075}, "Déplacements", (SDL_Rect){win->width * 0.70, win->height * 0.60, win->width * 0.2, win->width * 0.075}, game.win->LargeFont);
+    game.touche[2] = initImage(win, "assets/User Interface/keyboard_arrows.png", (SDL_Rect){win->width * 0.85, win->height * 0.60, win->width * 0.075, win->width * 0.075}, "Déplacements", (SDL_Rect){win->width * 0.85, win->height * 0.60, win->width * 0.2, win->width * 0.075}, game.win->LargeFont);
 
     /* Configuration de la fréquence d'images (FPS) */
     game.FPS = 60;
@@ -162,6 +167,15 @@ void destroyGame() {
         Mix_FreeMusic(game.gameState.music_inter);
         game.gameState.music_inter = NULL;
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Musique inter libérée");
+    }
+
+    if (game.touche != NULL){
+        for (int i = 0; i < 3; i++) {
+            destroyImage(game.touche[i]);
+        }
+        free(game.touche);
+        game.touche = NULL;
+        
     }
 
     if (game.battleState.text) {

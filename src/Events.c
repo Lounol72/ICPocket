@@ -187,6 +187,9 @@ void handleWindowSizeChange(Window *win) {
     for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
         updateICMonsSprite(&(game.battleState.bleu.team[i]), scaleX, scaleY);
     }
+    for (int i = 0; i < 3; i++) {
+        updateImageSize(game.touche[i], scaleX, scaleY);
+    }
 }
 
 /**
@@ -408,6 +411,7 @@ void handleNewGameEvent(Window *win, SDL_Event *event) {
         initData();
         srand(time(NULL));
         initTeam(&game.battleState.rouge, 3);
+        strcpy(game.battleState.rouge.trainerName, "GoofyStudent");
         initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
         game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
         
