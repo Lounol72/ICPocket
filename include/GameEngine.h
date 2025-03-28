@@ -194,25 +194,103 @@ void changeState(Window *win, void *data);
  * @param data Données supplémentaires pour le changement d'état.
  */
 
- void initLearningMove(void);
 
- void initSwapTeam(Window *win, void *data);
+/**
+ * @brief Initialise l'apprentissage d'une nouvelle capacité.
+ * 
+ * Cette fonction prépare l'état pour l'apprentissage d'une nouvelle capacité par un ICmon.
+ */
+void initLearningMove(void);
 
- void changeIndexSwap(Window *win, void *data);
+/**
+ * @brief Initialise l'échange d'équipe.
+ * 
+ * Cette fonction configure l'état pour permettre l'échange de membres de l'équipe.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour l'échange.
+ */
+void initSwapTeam(Window *win, void *data);
 
- void validateSwap(Window *win, void *data);
+/**
+ * @brief Change l'index de l'échange.
+ * 
+ * Cette fonction met à jour l'index des membres de l'équipe à échanger.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour l'échange.
+ */
+void changeIndexSwap(Window *win, void *data);
 
- void learningMoveChoice(Window *win, void *data);
+/**
+ * @brief Valide l'échange d'équipe.
+ * 
+ * Cette fonction applique les changements d'équipe après validation.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour l'échange.
+ */
+void validateSwap(Window *win, void *data);
 
- void selectOtherStarter(Window *win, void *data);
+/**
+ * @brief Gère le choix d'une nouvelle capacité.
+ * 
+ * Cette fonction permet au joueur de choisir une nouvelle capacité à apprendre.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour le choix.
+ */
+void learningMoveChoice(Window *win, void *data);
 
- void validateStarterChoice(Window *win, void *data);
+/**
+ * @brief Sélectionne un autre starter.
+ * 
+ * Cette fonction permet au joueur de sélectionner un autre ICmon starter.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour la sélection.
+ */
+void selectOtherStarter(Window *win, void *data);
 
- void initStarters(Window *win, void * data);
+/**
+ * @brief Valide le choix du starter.
+ * 
+ * Cette fonction confirme le choix du starter par le joueur.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour la validation.
+ */
+void validateStarterChoice(Window *win, void *data);
 
- void initResume(Window *win, void *data);
+/**
+ * @brief Initialise les starters.
+ * 
+ * Cette fonction configure l'état pour permettre au joueur de choisir un starter.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour l'initialisation.
+ */
+void initStarters(Window *win, void *data);
 
- void destroyResume(Window *win, void *data);
+/**
+ * @brief Initialise l'état de reprise.
+ * 
+ * Cette fonction configure l'état pour reprendre une partie sauvegardée.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour l'initialisation.
+ */
+void initResume(Window *win, void *data);
+
+/**
+ * @brief Détruit l'état de reprise.
+ * 
+ * Cette fonction nettoie les ressources utilisées pour l'état de reprise.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour la destruction.
+ */
+void destroyResume(Window *win, void *data);
 
 /* Text-related updates for attacks */
 /**
@@ -262,6 +340,9 @@ void manageFrameRate(int frameStart);
  * @brief Démarre le tour de combat.
  * 
  * Cette fonction démarre le tour de combat.
+ * 
+ * @param moveRouge Le mouvement de l'équipe rouge.
+ * @param moveBleu Le mouvement de l'équipe bleue.
  */
 void startBattleTurn(int moveRouge, int moveBleu);
 
@@ -269,6 +350,10 @@ void startBattleTurn(int moveRouge, int moveBleu);
  * @brief Exécute une action de combat.
  * 
  * Cette fonction exécute une action de combat pour l'équipe spécifiée.
+ * 
+ * @param attacker l'équipe attaquante.
+ * @param defender l'équipe défensive.
+ * @param move le mouvement à exécuter.
  */
 void executeAction(t_Team *attacker, t_Team *defender, int move);
 
@@ -279,6 +364,11 @@ void executeAction(t_Team *attacker, t_Team *defender, int move);
  */
 void updateBattleTurn();
 
+/**
+ * @brief appllique les effets brulûre et poison
+ * 
+ * cette fonction permet d'appliquer les effets jusqu'à fin d'application de ce dernier
+ */
 void finishApplyEffectDamage();
 
 
