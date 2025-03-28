@@ -166,11 +166,7 @@ void initBlueTeam(t_Team *t,t_Team *joueur) {
     }
 }
 
-int lvlTrainer(t_Team * t){
-	if(t->nb_enemiBeat<3) return (rand() %14+1) ;
-	else return 666;
-	
-}
+
 int calcDamage(t_Team * offender, t_Team * defender, t_Move * move){
 	/*cas des inefficacités de type*/
 	if(typeChart[move->type][defender->team[0].type[0]]<0.1 || typeChart[move->type][defender->team[0].type[1]]<0.1) {
