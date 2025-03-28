@@ -310,6 +310,7 @@ int  affectDamage(t_Team * offender, t_Team * defender, int indexMove);
  * @param swapIndex L'indice entier du ICmon cible de l'échange, généralement compris entre 1 et 5.
 */
 void swapActualAttacker(t_Team * target, int swapIndex);
+
 /**
  * @fn int playATurn(t_Team * t1, int move1, t_Team * t2, int move2);
  * @brief La fonction playATurn permet de jouer un tour d'un duel ICmon classique, pour deux équipes au préalable générées et initialisées.

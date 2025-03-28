@@ -9,6 +9,7 @@
 #define WINDOWS_H 720
 
 /**
+ * @fn void initGame(Window *win);
  * @brief Initialise le jeu et charge l'ensemble des ressources nécessaires.
  *
  * Cette fonction initialise la structure globale du jeu en définissant :
@@ -130,6 +131,7 @@ void initGame(Window *win) {
 }
 
 /**
+ * @fn void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath);
  * @brief Charge une image de fond et crée une texture associée.
  *
  * Cette fonction charge une image depuis le chemin spécifié, crée une texture à partir de cette image
@@ -156,6 +158,11 @@ void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char
     SDL_FreeSurface(surface);
 }
 
+/**
+ * @fn void destroyGame();
+ * @brief detruit le jeu.
+ * 
+ */
 void destroyGame() {
     /* 1) Libération de la musique */
     if (game.gameState.music) {

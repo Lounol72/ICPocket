@@ -133,6 +133,7 @@ typedef struct Game {
 /* ------------- Function Prototypes ------------- */
 
 /**
+ * @fn initAllButtons(Window *win);
  * @brief Initialise tous les boutons.
  * 
  * Cette fonction initialise tous les boutons de l'interface utilisateur.
@@ -143,6 +144,7 @@ void initAllButtons(Window *win);
 
 /* Render */
 /**
+ * @fn void render(Window *win);
  * @brief Rend le contenu de la fenêtre.
  * 
  * Cette fonction gère le rendu de tous les éléments de la fenêtre.
@@ -153,6 +155,7 @@ void render(Window *win);
 
 /* Main loop */
 /**
+ * @fn void mainLoop(Window *win);
  * @brief Boucle principale du jeu.
  * 
  * Cette fonction gère la boucle principale du jeu, y compris la gestion des événements et le rendu.
@@ -164,6 +167,7 @@ void mainLoop(Window *win);
 
 /* Attack button */
 /**
+ * @fn void attqButtonClicked(Window *win, void *data);
  * @brief Gestionnaire de clic pour le bouton d'attaque.
  * 
  * Cette fonction est appelée lorsque le bouton d'attaque est cliqué.
@@ -175,6 +179,7 @@ void attqButtonClicked(Window *win, void *data);
 
 /* Generic state change button callback */
 /**
+ * @fn changeState(Window *win, void *data);
  * @brief Callback générique pour le changement d'état.
  * 
  * Cette fonction change l'état actuel de l'application.
@@ -184,18 +189,8 @@ void attqButtonClicked(Window *win, void *data);
  */
 void changeState(Window *win, void *data);
 
-/* Initialize basics for a Team Swap*/
 /**
- * @brief Callback pour le gameState SWAP.
- * 
- * Cette fonction prépare le changement de state pour l'échange de ICmons.
- * 
- * @param win Un pointeur vers la structure Window.
- * @param data Données supplémentaires pour le changement d'état.
- */
-
-
-/**
+ * @fn void initLearningMove(void);
  * @brief Initialise l'apprentissage d'une nouvelle capacité.
  * 
  * Cette fonction prépare l'état pour l'apprentissage d'une nouvelle capacité par un ICmon.
@@ -203,6 +198,7 @@ void changeState(Window *win, void *data);
 void initLearningMove(void);
 
 /**
+ * @fn initSwapTeam(Window *win, void *data);
  * @brief Initialise l'échange d'équipe.
  * 
  * Cette fonction configure l'état pour permettre l'échange de membres de l'équipe.
@@ -213,6 +209,7 @@ void initLearningMove(void);
 void initSwapTeam(Window *win, void *data);
 
 /**
+ * @fn changeIndexSwap(Window *win, void *data);
  * @brief Change l'index de l'échange.
  * 
  * Cette fonction met à jour l'index des membres de l'équipe à échanger.
@@ -223,6 +220,7 @@ void initSwapTeam(Window *win, void *data);
 void changeIndexSwap(Window *win, void *data);
 
 /**
+ * @fn validateSwap(Window *win, void *data);
  * @brief Valide l'échange d'équipe.
  * 
  * Cette fonction applique les changements d'équipe après validation.
@@ -233,6 +231,7 @@ void changeIndexSwap(Window *win, void *data);
 void validateSwap(Window *win, void *data);
 
 /**
+ * @fn learningMoveChoice(Window *win, void *data);
  * @brief Gère le choix d'une nouvelle capacité.
  * 
  * Cette fonction permet au joueur de choisir une nouvelle capacité à apprendre.
@@ -243,6 +242,7 @@ void validateSwap(Window *win, void *data);
 void learningMoveChoice(Window *win, void *data);
 
 /**
+ * @fn void selectOtherStarter(Window *win, void *data);
  * @brief Sélectionne un autre starter.
  * 
  * Cette fonction permet au joueur de sélectionner un autre ICmon starter.
@@ -253,6 +253,7 @@ void learningMoveChoice(Window *win, void *data);
 void selectOtherStarter(Window *win, void *data);
 
 /**
+ * @fn void validateStarterChoice(Window *win, void *data);
  * @brief Valide le choix du starter.
  * 
  * Cette fonction confirme le choix du starter par le joueur.
@@ -263,6 +264,7 @@ void selectOtherStarter(Window *win, void *data);
 void validateStarterChoice(Window *win, void *data);
 
 /**
+ * @fn void initStarters(Window *win, void *data);
  * @brief Initialise les starters.
  * 
  * Cette fonction configure l'état pour permettre au joueur de choisir un starter.
@@ -273,6 +275,7 @@ void validateStarterChoice(Window *win, void *data);
 void initStarters(Window *win, void *data);
 
 /**
+ * @fn void initResume(Window *win, void *data);
  * @brief Initialise l'état de reprise.
  * 
  * Cette fonction configure l'état pour reprendre une partie sauvegardée.
@@ -283,6 +286,7 @@ void initStarters(Window *win, void *data);
 void initResume(Window *win, void *data);
 
 /**
+ * @fn void destroyResume(Window *win, void *data);
  * @brief Détruit l'état de reprise.
  * 
  * Cette fonction nettoie les ressources utilisées pour l'état de reprise.
@@ -294,6 +298,7 @@ void destroyResume(Window *win, void *data);
 
 /* Text-related updates for attacks */
 /**
+ * @fn void updateICButtons(Window *win, t_Team *team);
  * @brief Met à jour les boutons d'attaque.
  * 
  * Cette fonction met à jour les boutons d'attaque pour l'équipe spécifiée.
@@ -304,6 +309,7 @@ void destroyResume(Window *win, void *data);
 void updateICButtons(Window *win, t_Team *team);
 
 /**
+ * @fn void nextDuel(Window *win, void *data);
  * @brief Passe au duel suivant.
  * 
  * Cette fonction gère la transition vers le duel suivant.
@@ -314,6 +320,7 @@ void updateICButtons(Window *win, t_Team *team);
 void nextDuel(Window* win, void *data);
 
 /**
+ * @fn void updateCurrentButton()
  * @brief Met à jour le bouton actuel.
  * 
  * Cette fonction met à jour le bouton actuellement sélectionné.
@@ -321,6 +328,7 @@ void nextDuel(Window* win, void *data);
 void updateCurrentButton();
 
 /**
+ * @fn void updateMusic();
  * @brief Met à jour la musique.
  * 
  * Cette fonction gère la mise à jour de la musique de fond.
@@ -328,6 +336,7 @@ void updateCurrentButton();
 void updateMusic();
 
 /**
+ * @fn void manageFrameRate(int frameStart);
  * @brief Gère le taux de rafraîchissement.
  * 
  * Cette fonction gère le taux de rafraîchissement des images pour maintenir une performance stable.
@@ -337,6 +346,7 @@ void updateMusic();
 void manageFrameRate(int frameStart);
 
 /**
+ * @fn void startBattleTurn(int moveRouge, int moveBleu); 
  * @brief Démarre le tour de combat.
  * 
  * Cette fonction démarre le tour de combat.
@@ -347,6 +357,7 @@ void manageFrameRate(int frameStart);
 void startBattleTurn(int moveRouge, int moveBleu);
 
 /**
+ * @fn void executeAction(t_Team *attacker, t_Team *defender, int move);
  * @brief Exécute une action de combat.
  * 
  * Cette fonction exécute une action de combat pour l'équipe spécifiée.
@@ -358,6 +369,7 @@ void startBattleTurn(int moveRouge, int moveBleu);
 void executeAction(t_Team *attacker, t_Team *defender, int move);
 
 /**
+ * @fn void updateBattleTurn();
  * @brief Met à jour le tour de combat.
  * 
  * Cette fonction met à jour le tour de combat.
@@ -365,6 +377,7 @@ void executeAction(t_Team *attacker, t_Team *defender, int move);
 void updateBattleTurn();
 
 /**
+ * @fn void finishApplyEffectDamage();
  * @brief appllique les effets brulûre et poison
  * 
  * cette fonction permet d'appliquer les effets jusqu'à fin d'application de ce dernier

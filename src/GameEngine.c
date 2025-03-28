@@ -15,6 +15,7 @@ int marginBottom = 200;  /**< Marge en bas en pixels */
 int marginRight = 0;     /**< Marge à droite en pixels */
 
 /**
+ * @fn SDL_GameController* initializeController(void);
  * @brief Initialise la première manette détectée.
  *
  * Parcourt les joysticks connectés et ouvre la première manette reconnue.
@@ -41,6 +42,7 @@ static SDL_GameController* initializeController(void) {
 }
 
 /**
+ * @fn void manageFrameRate(int frameStart);
  * @brief Gère la synchronisation de la fréquence d'images.
  *
  * Attend si le rendu de la frame s'est terminé trop rapidement afin d'obtenir
@@ -66,6 +68,7 @@ void manageFrameRate(int frameStart) {
 }
 
 /**
+ * @fn void cleanupResources(Window *win, SDL_GameController *controller);
  * @brief Libère les ressources allouées par le moteur.
  *
  * Détruit les textes, ferme la manette, et libère la carte, le joueur et la caméra.
@@ -90,6 +93,7 @@ static void cleanupResources(Window *win, SDL_GameController *controller) {
 }
 
 /**
+ * @fn void updateICMonsButtonText(Window *win, t_Team *team, int endOfArray, AppState state);
  * @brief Met à jour le texte des boutons ICMons.
  *
  * Pour chaque pokémon de l'équipe passée en paramètre, met à jour le texte du bouton
@@ -112,6 +116,7 @@ static void updateICMonsButtonText(Window *win, t_Team *team, int endOfArray, Ap
 /* Fonctions de rendu et de gestion des états visuels */
 
 /**
+ * @fn void render(Window *win);
  * @brief Affiche le contenu de l'écran en fonction de l'état actuel du jeu.
  *
  * Affiche le fond, les boutons, les sliders et les textes associés en fonction
@@ -167,6 +172,7 @@ void render(Window *win) {
 }
 
 /**
+ * @fn void renderMap(Window *win);
  * @brief Affiche la carte et le joueur à l'aide de la caméra.
  *
  * La fonction verrouille le mutex de la physique, nettoie le rendu, affiche la carte et le joueur,
@@ -187,6 +193,7 @@ static void renderMap(Window *win) {
 /* Fonctions de gestion des boutons et des états */
 
 /**
+ * @fn void changeState(Window *win, void *data);
  * @brief Change l'état actuel du jeu.
  *
  * Met à jour l'état de la fenêtre et de la structure globale du jeu.
@@ -211,6 +218,7 @@ int gameStateTimerValidate(int nb_mili){
 }
 
 /**
+ * @fn void makeWindowFullScreen(Window *win, void *data);
  * @brief Passe la fenêtre en mode plein écran.
  *
  * Change le mode d'affichage de la fenêtre en plein écran (mode desktop).
@@ -225,6 +233,7 @@ void makeWindowFullScreen(Window *win, void *data) {
 }
 
 /**
+ * @fn void makeWindowWindowed(Window *win, void *data);
  * @brief Repasse la fenêtre en mode fenêtré.
  *
  * Si la fenêtre est actuellement en plein écran, la repasse en mode fenêtré et ajuste sa taille.
@@ -242,6 +251,7 @@ void makeWindowWindowed(Window *win, void *data) {
 }
 
 /**
+ * @fn void attqButtonClicked(Window *win, void *data);
  * @brief Gère l'appui sur un bouton d'attaque.
  *
  * Valide l'indice du mouvement et, si possible, exécute le tour du joueur ou effectue un échange
@@ -274,6 +284,7 @@ void changeTextSpeed(Window *win, void *data) {
 }
 
 /**
+ * @fn void changePokemon(Window *win, void *data);
  * @brief Change le pokémon actif lors d'un échange.
  *
  * Exécute un tour d'attaque ou échange l'attaquant actif selon la validité de l'action,
@@ -303,6 +314,12 @@ void initSwapTeam(Window *win, void *data) {
     changeState(win,data);
 }
 
+/**
+ * @fn void initLearningMove(void);
+ * @brief Initialise l'apprentissage d'une nouvelle capacité.
+ * 
+ * Cette fonction prépare l'état pour l'apprentissage d'une nouvelle capacité par un ICmon.
+ */
 void initLearningMove(void){
     char temp[200];
     for(int i=0; i<4; i++){
@@ -501,6 +518,7 @@ void destroyResume(Window *win, void *data){
 }
 
 /**
+ * @fn void nextDuel(Window *win, void *data)
  * @brief Passe au duel suivant.
  *
  * Sauvegarde l'état de la partie, soigne l'équipe du joueur, réinitialise l'équipe adverse,
@@ -541,6 +559,7 @@ void nextDuel(Window *win, void *data) {
 }
 
 /**
+ * @fn void mainLoop(Window *win)
  * @brief Boucle principale du jeu.
  *
  * Initialise le jeu, les boutons, le contrôleur, le gestionnaire de threads,
