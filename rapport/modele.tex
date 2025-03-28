@@ -38,6 +38,7 @@
     \end{center}
 \end{titlepage}
 
+\newpage
 \tableofcontents
 \newpage
 \abstract{
@@ -62,19 +63,40 @@ Et enfin nous mettre en évidence la rendu du jeu , les sprites que nous avons c
 \lfoot\fancyfoot{\footnotesize *Pokemon:le jeu sera présenter dans la suite du rapport\\*Sprite: image 2D utilisé dans les jeux vidéos\\*ICmon: contraction de l'expression "Institut Claude chappe " et "Monstre"\\*Lore: histoire d'un jeu vidéo\\*deadline: date limite\\}
 \newpage
 \section{Conception}
-    Dans cette première partie nous allons présenter .... . La figure 1 illustre .....
+    \subsection{Présentation du jeu}
+        ICPocket est un jeu de rôle basé sur l'univers des jeux vidéos "Pokémon" développés par GAME FREAK et publiés par Nintendo.
+        Le jeu met le joueur dans la peau d'un étudiant de la faculté d'informatique du Mans et d'un dresseur de petites créatures nommées les \emph{ICMons}.
+        Cet étudiant, qui vient tout juste d'arriver au sein de l'institut Claude Chappe pour sa première année de license, choisit son premier partenaire parmi quatre ICmons offerts par Louis, Nathan, Alban et William.
+        \paragraph{}L'objectif du joueur est de devenir le maître de l'IC2 en remportant le tournoi annuel de la faculté : "le tournoi de l'IC2", puis en faisant tombé son conseil des quatres et son champion. Pour cela, il devra se confronter à ses camarades et ses professeurs dans des duels d'ICMons : 
+        des combats de type joueur contre ordinateur en tour par tour dans lequelles chaque partie envoit un ICMons parmi un maximum de six se battre contre l'autre, jusqu'à ce que l'un des combattants n'est plus aucun ICMons apte à se battre.
+        Ces affrontements tactiques et imprévisibles pousseront le joueur à découvrir les forces et faiblesses de son équipe et à mettre en place la meilleure stratégie pour parvenir à la victoire.
+        Toutefois, cela ne sera pas une tâche aisée, puisque la moindre défaite signifie que le joueur sera éliminé du tournoi et devra donc recommencer du début.
 
-    L’instruction \/begin figure [!h] force l’image à se positionner comme on le désire. Le positionnement de l’image dépend également de ses dimensions, si elle est située en bas de page, et qu’elle est trop grande, elle va se positionner sur la page suivante et le texte qui suit se retrouvera donc avant l’image. Il faudra réduire la taille. Ceci peut se faire avec l’option scale de includegraphics.
+    \subsection{Direction artistique}
+        En hommage aux jeux vidéos originaux de la série "Pokémon", nous avons fait le choix de nous inspirer de la direction artistique de la troisième génération de ces jeux : "Pokémon Rubis et Saphir".
+        Cette direction artistique est basée sur la 2D, avec des sprites pixelisées. \paragraph{} Pour la réalisation de la carte, nous avons utilisé les assets libre de droit disponible sur le site \href{https://kenney.nl/assets}{kenney.nl}. La carte a ensuite été assemblé par Alban et Louis. La plupart des sprites des ICMons ont été dessiné par William, Loup Picault (le goat), et Nathan. Les sprites restants ont été dessiné par intelligence artificielle.
+        \paragraph{} Afin de limiter le nombre de sprites que nous avions à réaliser pour ce projet, nous nous sommes inspirés de la méthode d'affichage des sprites du fangame \href{https://infinitefusion.fandom.com/wiki/Pok%C3%A9mon_Infinite_Fusion_Wiki}{"Pokemon Infinite Fusion"}, dans lequelle durant un combat, les sprites de l'équipe du joueur sont retournés par symétrie axiale verticale, ce qui donne l'illusion d'un sprite \emph{de dos} tout en ayant qu'un seul sprite à utiliser.
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.22\textwidth]{../assets/Monsters/New Versions/A-ski.png}
+            \label{fig:ICMon}
+            \caption{Exemple de sprite pour un ICMon}
+        \end{figure} 
+
+    \subsection{Fonctionnalités}
+        \emph{Dans cette partie, nous présenterons toutes les fonctionnalités disponibles dans le jeu} \\
+        \paragraph{} Au lancement du jeu, le joueur peut personnaliser ses paramètres selon ses souhaits : les dimensions de la fenêtre d'écran, la vitesse du texte en jeu et le volume sonore. Après cela, il peut charger une partie déjà entamée, à condition qu'une telle partie existe dans les fichiers du jeu, ou bien débuter une nouvelle aventure. \paragraph{}
+        Dans le cas d'une nouvelle partie, le joueur se vera alors proposé quatre ICMons et choisira celui qu'il préfère, puis arrivera sur la carte, à l'entrée du bâtiment IC2. Le joueur peut alors explorer la carte comme il le souhaite : hall d'accueil, salle de TD et amphitéâtre. Le joueur trouvera également en bas de l'escalier principal un drôle de personnage nommé <Insérer nom ici>.
+        Le joueur peut discuter avec lui : <Insérer nom ici> proposera notamment au joueur de changer d'endroit pour commencer son prochain match du tournoi de l'IC2.
+        \paragraph{} Puis l'affrontement commence. Le joueur et son opposant, controlé par l'ordinateur, envoient au combat l'ICMons se trouvant en tête de leurs équipes respectives. Chaque tour, les deux protagonistes choisissent une action parmi les deux suivantes : utiliser l'une des quatres attaques connues de leur ICMon, ou bien remplacer le combattant actuel par un autre encore apte dans leur équipe.
+        Durant ce duel, différentes afflictions peuvent modifiées le cours de la partie. En effet, certaines attaques possèdent une chance plus ou moins grande d'empoisonner, de brûler, de rendre confus, d'apeurer ou d'altérer les forces du lanceur de la capacité et de l'adversaire. \paragraph{}
+        Le combat continue jusqu'à ce que les ICMons d'un des dresseurs soient tous hors d'état de se battre. Si le joueur perd son duel, sa sauvegarde est supprimée et il doit recommencer une nouvelle partie pour tenter de battre son meilleur score, c'est-à-dire son nombre de victoire.
+        Dans le cas contraire, le joueur peut, si il le souhaite, récupérer l'un des ICMons que son adversaire avait dans son équipe et l'ajouter à la sienne. Enfin, le joueur retourne dans le hall du bâtiment IC2 pour se préparer au prochain affrontement.
+        La partie en cours est sauvegardée à la fin de chaque duel, en cas de victoire du joueur, afin qu'il puisse mettre en pause son aventure et la reprendre plus tard. \paragraph{}
+        Au bout de quinze victoires consécutives, les cinqs derniers combats proposés au joueur seront contre le conseil des quatres, composé des quatres créateurs du jeu : Louis, Nathan, Alban et William, et l'affrontement ultime contre Mme Py, professeur à l'université du Mans en informatique et dans le cadre du jeu mâitresse de l'IC2.
+        Si le joueur parvient à faire chûter Mme Py de son trône, il remporte la partie. 
 
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{image.png}
-    \label{fig:logo}
-\end{figure}
-\subsection{Présentation du jeu}
-\subsection{Direction artistique}
-\subsection{Fonctionnalités}
 \newpage
 \section{Organisation}
 Notre projet de jeu 2D a été développé selon une architecture modulaire rigoureuse, permettant une séparation claire des responsabilités entre les différents composants. Nous avons adopté un modèle de développement itératif, en commençant par implémenter les fonctionnalités essentielles du moteur de jeu avant d'ajouter progressivement des mécanismes plus complexes. L'organisation s'est articulée autour de trois axes principaux : la gestion du rendu graphique avec SDL, la logique de jeu et les structures de données, et enfin la synchronisation entre ces éléments via un gestionnaire de threads. Cette approche nous a permis de maintenir un code propre et maintenable, tout en facilitant le débogage et l'extension des fonctionnalités au cours du développement. Notre système de maps interconnectées avec mémorisation des positions du joueur illustre parfaitement cette approche modulaire, où chaque composant (Map, Player, Camera) remplit un rôle spécifique mais communique efficacement avec les autres.
@@ -111,7 +133,7 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
     Les algorithmes de \LaTeX pour mettre en forme les tableaux ont quelques imperfections. L'une d'entre elles est qu'il n'affiche pas automatiquement le texte sur plusieurs lignes dans les cellules, même si celui-ci déborde de la largeur de la page. Pour les colonnes qui contiendront une certaine quantité de texte, il est recommandé d'employer l'attribut p et d'indiquer la largeur désirée de la colonne (bien que cela puisse obliger à effectuer quelques ajustements avant d'obtenir le résultat souhaité) (figure2etfigure3oufigure 4)[3] [3]. ...
 
     Afin de mener à bien ce projet, nous avons suivi un planning prévisionnel qui nous a permis de nous organiser et de nous assurer que nous respections les dates limites. Nous avons donc dû faire un diagramme de Gantt pour nous aider à planifier nos tâches.
-    
+\subsection{Planning Prévisionnel}
 \begin{table}[h]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -130,7 +152,8 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
     \label{tab:test}
 \end{table}
 
-
+\subsection{Répartition des tâches}
+\subsection{Outils}
 \newpage
 \begin{center}
 \begin{tabular}{|c|p{8cm}|}
@@ -140,7 +163,7 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
 \end{tabular}
 \end{center}
 
-
+\section{Developpement}
 \subsection{Gestions des ICMons}
     \subsubsection{structures de données}
     \subsubsection{systèmes de combats}
@@ -153,7 +176,7 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
     \subsubsection{chargement de la map}
     \subsubsection{caméra}
     \subsubsection{deplacement}
-\newpage
+
 \subsection{rendu du jeu}
 Le système de rendu graphique constitue l'un des piliers fondamentaux de notre jeu, devant concilier performances optimales et cohérence visuelle.
 
