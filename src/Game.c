@@ -158,6 +158,35 @@ void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char
     SDL_FreeSurface(surface);
 }
 
+void loadPhrase(void){
+    FILE *file = fopen("data/dataText.csv", "r");
+    if (file == NULL) {
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Failed to open data/dataText.csv");
+        return;
+    }
+    char buffer[256];
+    char temp[256];
+    for (int i = 1; i < game.battleState.bleu.id; i++){
+        if (fgets(buffer, sizeof(buffer), file) == NULL){
+            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Failed to read line %d from data/dataText.csv",i);
+            fclose(file);
+            return;
+        }
+    }
+    
+    fscanf(file, "%d,%[^\n]\n",&(game.battleState.bleu.id), temp);
+    fclose(file);
+    printf("id : %d\nphrase : %s fin\n", game.battleState.bleu.id, temp);
+    game.scrollingTextIntro = createScrollingText(
+                    temp,
+                    game.win->LargeFont,
+                    (SDL_Color){255, 255, 255, 255},
+                    game.speed,     // Délai entre les caractères en ms
+                    (SDL_Rect){game.win->width * 0.014, game.win->height *0.736, game.win->width * 0.7, game.win->height * 0.27}, // Fond du texte
+                    "assets/User Interface/Grey/button_rectangle_depth_flat.png", // Chemin de l'image de fond
+                    game.win->renderer);
+}
+
 /**
  * @fn void destroyGame();
  * @brief detruit le jeu.
@@ -302,6 +331,10 @@ void destroyGame() {
     if (game.battleState.text) {
         destroyScrollingText(game.battleState.text);
         game.battleState.text = NULL;
+    }
+    if (game.scrollingTextIntro){
+        destroyScrollingText(game.scrollingTextIntro);
+        game.scrollingTextIntro = NULL;
     }
 
     cleanupText();

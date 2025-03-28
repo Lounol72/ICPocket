@@ -9,20 +9,20 @@
 Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * map, int spawnX, int spawnY) {
     Player *player = malloc(sizeof(Player));
     if (!player) {
-        printf("Erreur allocation player\n");
+        SDL_Log("Erreur allocation player\n");
         return NULL;
     }
 
     SDL_Surface *surface = IMG_Load(spritesheetPath);
     if (!surface) {
-        printf("Erreur chargement spritesheet: %s\n", IMG_GetError());
+        SDL_Log("Erreur chargement spritesheet: %s\n", IMG_GetError());
         free(player);
         return NULL;
     }
 
     player->spriteSheet = SDL_CreateTextureFromSurface(renderer, surface);
     if (!player->spriteSheet) {
-        printf("Erreur création texture: %s\n", SDL_GetError());
+        SDL_Log("Erreur création texture: %s\n", SDL_GetError());
         SDL_FreeSurface(surface);
         free(player);
         return NULL;
@@ -41,10 +41,6 @@ Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * 
     player->position.x = player->matrixX * map->tileSizeW;
     player->position.y = player->matrixY * map->tileSizeH;
 
-    printf("Position initiale du joueur: [%d,%d] en matrice, [%d,%d] en pixels\n", 
-           player->matrixX, player->matrixY, 
-           player->position.x, player->position.y);
-
     player->currentFrame.w = FRAME_WIDTH;
     player->currentFrame.h = FRAME_HEIGHT;
     player->currentFrame.x = 0;
@@ -59,7 +55,7 @@ Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * 
 
     player->mat = (int **)malloc(sizeof(int *) * map->height);
     if (!player->mat) {
-        printf("Erreur allocation mémoire pour player->mat\n");
+        SDL_Log("Erreur allocation mémoire pour player->mat\n");
         SDL_DestroyTexture(player->spriteSheet);
         free(player);
         return NULL;
@@ -68,7 +64,7 @@ Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * 
     for (int i = 0; i < map->height; i++) {
         player->mat[i] = (int *)malloc(sizeof(int) * map->width);
         if (!player->mat[i]) {
-            printf("Erreur allocation mémoire pour player->mat[%d]\n", i);
+            SDL_Log("Erreur allocation mémoire pour player->mat[%d]\n", i);
             for (int j = 0; j < i; j++) {
                 free(player->mat[j]);
             }
@@ -164,11 +160,11 @@ void updatePlayerAnimation(Player *player, float deltaTime) {
 
 void renderPlayer(SDL_Renderer *renderer, Player *player) {
     if (!player || !player->spriteSheet) {
-        printf("Erreur: player ou spritesheet NULL\n");
+        SDL_Log("Erreur: player ou spritesheet NULL\n");
         return;
     }
     if (SDL_RenderCopy(renderer, player->spriteSheet, &player->currentFrame, &player->position) != 0) {
-        printf("Erreur rendu: %s\n", SDL_GetError());
+        SDL_Log("Erreur rendu: %s\n", SDL_GetError());
     }
 }
 

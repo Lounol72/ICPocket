@@ -594,7 +594,6 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
     }
     else if (keyState[SDL_SCANCODE_E] && game.gameData.map->mat[newMatrixY-1][newMatrixX] == 6 && game.gameState.currentState == MAP) {
             nextDuel(game.win, NULL);
-            printf("%d\n", game.gameState.initialized);
     }
     
     if (shouldMove && game.gameData.map->mat[newMatrixY][newMatrixX] != COLLISION && game.gameData.map->mat[newMatrixY][newMatrixX] != 6) {
@@ -610,3 +609,17 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
     }
     
 }
+
+void handleBattleIntroEvent(Window *win, SDL_Event *event){
+    if (game.scrollingTextIntro->isComplete) {
+        changeState(win, &game.stateHandlers[GAME].state);
+        return;
+    }
+    
+    updateScrollingText(game.scrollingTextIntro, win->renderer);
+    if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
+        changeState(win, &game.stateHandlers[2].state);
+    }
+    handleEvent(win, event);
+}
+

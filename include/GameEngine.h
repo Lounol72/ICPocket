@@ -124,6 +124,7 @@ typedef struct Game {
     t_Poke starters[4];
     int startersIndex;
     Image **touche;
+    ScrollingText *scrollingTextIntro;
 } Game;
 
 #include "Game.h"

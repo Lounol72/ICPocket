@@ -553,6 +553,11 @@ void nextDuel(Window *win, void *data) {
     
     // Mettre à jour l'interface
     updateICButtons(win, &game.battleState.rouge);
+    if (game.scrollingTextIntro) {
+        destroyScrollingText(game.scrollingTextIntro);
+        game.scrollingTextIntro = NULL;
+    }
+    loadPhrase();
     
     // Changer d'état
     changeState(win, &game.stateHandlers[GAME].state);

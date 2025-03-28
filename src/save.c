@@ -8,7 +8,7 @@
 */
 void sauvegarder(t_Team * joueur,t_Team * adverse){
     char nomFichier[1024];
-    printf("save : %d\n",joueur->id_save);
+
     snprintf(nomFichier, sizeof(nomFichier), "data/save/Save_%d.txt", joueur->id_save);
     FILE *fichier = fopen(nomFichier, "w+");
     if(fichier == NULL){
@@ -35,7 +35,6 @@ void sauvegarder(t_Team * joueur,t_Team * adverse){
         
         fprintf(fichier, "Dernier dresseur battu : %s id: %d\n", adverse->trainerName, adverse->id);
         joueur->lastEnemiID = adverse->id;
-        printf("Sauvegarde effectuée2\n");
         fclose(fichier);
     }
 }
@@ -98,7 +97,7 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur){
         strcpy(temp,dresseur->trainerName);
         fscanf(fichier, "Dernier dresseur battu : %s id: %d\n", temp, &(joueur->lastEnemiID));
         fclose(fichier);
-        printf("Chargement effectué\n");
+
         return 1;
     }
 }
