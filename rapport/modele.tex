@@ -38,7 +38,6 @@
     \end{center}
 \end{titlepage}
 
-\newpage
 \tableofcontents
 \newpage
 \abstract{
@@ -76,21 +75,43 @@ Et enfin nous mettre en évidence la rendu du jeu , les sprites que nous avons c
 \subsection{Présentation du jeu}
 \subsection{Direction artistique}
 \subsection{Fonctionnalités}
+\newpage
 \section{Organisation}
-\subsection{}
-\subsection{Sous partie 2}
-\section{Partie 2-Les tableaux en Latex}
+Notre projet de jeu 2D a été développé selon une architecture modulaire rigoureuse, permettant une séparation claire des responsabilités entre les différents composants. Nous avons adopté un modèle de développement itératif, en commençant par implémenter les fonctionnalités essentielles du moteur de jeu avant d'ajouter progressivement des mécanismes plus complexes. L'organisation s'est articulée autour de trois axes principaux : la gestion du rendu graphique avec SDL, la logique de jeu et les structures de données, et enfin la synchronisation entre ces éléments via un gestionnaire de threads. Cette approche nous a permis de maintenir un code propre et maintenable, tout en facilitant le débogage et l'extension des fonctionnalités au cours du développement. Notre système de maps interconnectées avec mémorisation des positions du joueur illustre parfaitement cette approche modulaire, où chaque composant (Map, Player, Camera) remplit un rôle spécifique mais communique efficacement avec les autres.
 
-    Les algorithmes de \LaTeX pour mettre en forme les tableaux ont quelques imperfections. L’une d’entre elles est qu’il n’affiche pas automatiquement le texte sur plusieurs lignes dans les cellules, même si celui-ci déborde de la largeur de la page. Pour les colonnes qui contiendront une certaine quantité de texte, il est recommandé d’employer l’attribut p et d’indiquer la largeur désirée de la colonne (bien que cela puisse obliger à effectuer quelques ajustements avant d’obtenir le résultat souhaité) (figure2etfigure3oufigure 4)[3] [3]. ...
+\subsection{Planning Prévisionnel}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{GANTT.png}
+    \label{fig:GANTT}
+    \caption{Diagramme de Gantt}
+\end{figure}
+
+Notre planning prévisionnel a été établi dès le début du projet pour garantir une progression cohérente et le respect des délais. Nous avons divisé le développement en plusieurs phases distinctes, chacune avec des objectifs spécifiques et des livrables clairement définis. Cette approche structurée nous a permis d'identifier rapidement les tâches critiques et d'allouer les ressources nécessaires en conséquence. Grâce à des points de contrôle réguliers, nous avons pu ajuster notre planification en fonction des difficultés rencontrées et des avancées réalisées, assurant ainsi une gestion efficace du temps disponible jusqu'à l'échéance finale.
+
+L'élaboration de notre planning prévisionnel s'est appuyée sur une méthode d'estimation collaborative où chaque membre de l'équipe a évalué le temps nécessaire pour les tâches relevant de son domaine d'expertise. Pour les composants interdépendants comme le système de transition entre maps et la gestion des déplacements du joueur, nous avons organisé des sessions de planification poker où les estimations individuelles étaient discutées pour atteindre un consensus. Cette méthode nous a permis d'identifier dès le départ les zones de risque potentiel, comme la synchronisation des threads ou la gestion des collisions, qui ont bénéficié d'une marge temporelle supplémentaire dans notre planning.
+
+Notre diagramme de Gantt identifie clairement quatre jalons principaux : la finalisation de l'architecture de base (semaine 4), l'implémentation du système de combat (semaine 8), l'intégration complète des maps et des transitions (semaine 12), et les tests d'intégration finaux (semaine 15). Ces jalons ont servi de points d'ancrage pour nos réunions d'avancement et nous ont permis de mesurer objectivement notre progression par rapport aux objectifs initiaux. Une caractéristique importante de notre approche a été l'inclusion délibérée de périodes tampons après chaque jalon majeur, offrant la flexibilité nécessaire pour gérer les imprévus techniques inévitables dans le développement d'un jeu.
+
+\subsection{Répartition des tâches}
+La répartition des tâches s'est effectuée en fonction des compétences et des intérêts de chaque membre de l'équipe. Pour structurer notre travail et définir clairement les responsabilités, nous avons mis en place une matrice RACI complète. Cette matrice a permis d'identifier pour chaque tâche du projet qui était Responsable de son exécution, qui était tenu de rendre des comptes (Accountable), qui devait être Consulté et qui devait être simplement Informé des avancées. Par exemple, Louis a été désigné responsable des composants techniques comme la gestion de la caméra, le multi-threading et l'affichage des sprites, tandis que Nathan s'est chargé principalement de la logique de jeu avec les systèmes de combat et les effets secondaires. William a pris en charge les aspects liés à la gestion des données, notamment les bases de données des dresseurs et des attaques, tandis qu'Alban s'est concentré sur les interfaces utilisateur et les éléments graphiques.
+
+Notre planification temporelle s'est appuyée sur deux diagrammes de GANTT complémentaires. Le diagramme prévisionnel, établi en janvier, décomposait le projet en quatre phases principales : conception et mise en route, définition et planification, lancement et exécution, et enfin tests et rédaction. Nous avions initialement alloué deux semaines pour la mise en place du système de transition entre maps et l'implémentation de la caméra, mais ce calendrier s'est révélé optimiste. Le diagramme de GANTT actualisé, que nous avons maintenu tout au long du projet, montre que ces tâches ont finalement nécessité près de trois semaines, principalement en raison des problèmes de gestion de mémoire lors des changements de map qui ont causé des erreurs de segmentation.
+
+En revanche, certaines fonctionnalités ont été implémentées plus rapidement que prévu : l'interface des combats et le système de textes dynamiques, initialement prévus pour mi-mars, ont été terminés fin février. Cette avance nous a permis d'allouer plus de temps aux tests et à l'optimisation du système multi-thread, élément critique pour la fluidité du jeu. La comparaison entre nos deux diagrammes met en évidence l'importance d'une planification flexible et d'une communication constante entre les membres de l'équipe. Nos réunions hebdomadaires, documentées dans notre matrice RACI, nous ont permis d'ajuster en permanence nos priorités et d'optimiser l'allocation des ressources humaines en fonction des difficultés rencontrées et des avancées réalisées.
+
+\subsection{Outils}
+Pour mener à bien notre projet, nous avons utilisé plusieurs outils essentiels qui ont considérablement facilité notre développement. GitHub\footnote{Voir Annexe \ref{annexe:github}} a constitué le pilier central de notre collaboration, nous permettant de gérer efficacement le versionnage du code source, de suivre les modifications et de travailler simultanément sur différentes fonctionnalités sans conflits majeurs. Grâce aux pull requests et aux issues, nous avons pu organiser notre développement de manière transparente et documenter nos choix techniques. Stack Overflow\footnote{Voir Annexe \ref{annexe:stackoverflow}} s'est révélé être une ressource inestimable pour résoudre les problèmes techniques spécifiques à SDL et à la gestion de mémoire en C, notamment pour l'implémentation de notre système de transition entre maps.
+
+Pour la conception des mécaniques de jeu inspirées de Pokémon, nous nous sommes appuyés sur plusieurs ressources spécialisées. Bulbapedia\footnote{Voir Annexe \ref{annexe:bulbapedia}} a servi de référence encyclopédique pour comprendre les systèmes de combat et l'équilibrage des créatures, tandis que PokemonShowdown Calc\footnote{Voir Annexe \ref{annexe:showdown}} nous a permis d'affiner les formules de calcul des dégâts et statistiques pour nos ICMons. Le forum Developpez.net\footnote{Voir Annexe \ref{annexe:developpez}} a également été consulté régulièrement pour des questions spécifiques liées au développement en C et à l'optimisation des performances.
+
+En complément de ces ressources en ligne, nous avons tiré parti des outils d'intelligence artificielle comme GitHub Copilot\footnote{Voir Annexe \ref{annexe:copilot}} pour accélérer certaines phases de débogage et pour suggérer des optimisations dans notre code. Cette assistance a été particulièrement utile pour résoudre les problèmes complexes de gestion de mémoire qui causaient des erreurs de segmentation lors des transitions entre maps. L'ensemble de ces outils complémentaires nous a permis de maintenir une progression constante tout en assurant la qualité technique du projet final.
+\newpage
+\section{Développement}
+    Les algorithmes de \LaTeX pour mettre en forme les tableaux ont quelques imperfections. L'une d'entre elles est qu'il n'affiche pas automatiquement le texte sur plusieurs lignes dans les cellules, même si celui-ci déborde de la largeur de la page. Pour les colonnes qui contiendront une certaine quantité de texte, il est recommandé d'employer l'attribut p et d'indiquer la largeur désirée de la colonne (bien que cela puisse obliger à effectuer quelques ajustements avant d'obtenir le résultat souhaité) (figure2etfigure3oufigure 4)[3] [3]. ...
 
     Afin de mener à bien ce projet, nous avons suivi un planning prévisionnel qui nous a permis de nous organiser et de nous assurer que nous respections les dates limites. Nous avons donc dû faire un diagramme de Gantt pour nous aider à planifier nos tâches.
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=0.8\textwidth]{../../assets/Title Screen/BG.jpg}
-        \label{fig:GANTT}
-        \caption{Diagramme de Gantt}
-    \end{figure}
-\subsection{Planning Prévisionnel}
+    
 \begin{table}[h]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -101,7 +122,7 @@ Et enfin nous mettre en évidence la rendu du jeu , les sprites que nous avons c
         \hline
         d & au centre & à droite \\
         \hline
-        Si j’écris plus de texte je dépasse la taille de la page & texte & texte \\
+        Si j'écris plus de texte je dépasse la taille de la page & texte & texte \\
         \hline
     \end{tabular}
     \vspace{1cm}
@@ -109,8 +130,7 @@ Et enfin nous mettre en évidence la rendu du jeu , les sprites que nous avons c
     \label{tab:test}
 \end{table}
 
-\subsection{Répartition des tâches}
-\subsection{Outils}
+
 \newpage
 \begin{center}
 \begin{tabular}{|c|p{8cm}|}
@@ -120,7 +140,7 @@ Et enfin nous mettre en évidence la rendu du jeu , les sprites que nous avons c
 \end{tabular}
 \end{center}
 
-\section{Developpement}
+
 \subsection{Gestions des ICMons}
     \subsubsection{structures de données}
     \subsubsection{systèmes de combats}
@@ -133,13 +153,75 @@ Et enfin nous mettre en évidence la rendu du jeu , les sprites que nous avons c
     \subsubsection{chargement de la map}
     \subsubsection{caméra}
     \subsubsection{deplacement}
-
+\newpage
 \subsection{rendu du jeu}
-    \subsubsection{gestion de l'interface}
-    \subsubsection{gestion des combats avec SDL}
+Le système de rendu graphique constitue l'un des piliers fondamentaux de notre jeu, devant concilier performances optimales et cohérence visuelle.
 
+\paragraph{Architecture de base} Notre implémentation repose sur la bibliothèque SDL (Simple DirectMedia Layer) qui offre une couche d'abstraction multiplateforme pour l'accès au matériel graphique. Pour garantir une expérience fluide malgré la richesse visuelle du jeu, nous avons développé une architecture de rendu multi-niveaux qui sépare les différentes composantes graphiques.
 
+\paragraph{Gestion des threads} Une caractéristique notable de notre moteur de rendu est son intégration avec un système multi-thread. Notre gestionnaire de threads initialise plusieurs verrous mutex dédiés aux ressources partagées : l'audioMutex pour les opérations sonores, le physicsMutex pour les calculs de déplacement et collisions, et initialement un renderMutex pour les opérations graphiques (désactivé dans la version finale pour des raisons d'optimisation).
+
+Cette approche multi-thread permet d'exécuter simultanément la logique du jeu et le rendu graphique, optimisant ainsi l'utilisation des ressources système. Le rendu spécifique de la carte du monde est effectué dans une fonction dédiée (renderMap) qui synchronise l'accès aux données partagées à l'aide de mutex. Cette fonction verrouille d'abord le mutex physique, effectue les opérations de rendu de la carte et du joueur avec la caméra, puis déverrouille le mutex avant de présenter le résultat à l'écran.
+
+La gestion des images par seconde (FPS) est assurée par un mécanisme sophistiqué (manageFrameRate) qui ajuste dynamiquement le timing du rendu pour maintenir une cadence constante. Notre système vise un objectif de 60 FPS en calculant le temps écoulé depuis le début de la frame et en introduisant un délai approprié si nécessaire. Ce mécanisme garantit une expérience fluide tout en calculant précisément le deltaTime, une variable critique pour la synchronisation des animations et des mouvements indépendamment de la puissance de calcul disponible.
+
+\subsubsection{gestion de l'interface}
+\paragraph{Système d'états} Notre interface utilisateur est gérée par un système d'états (définis dans l'énumération AppState) qui détermine quels éléments doivent être affichés à chaque instant. La fonction render orchestre l'affichage des différents composants en fonction de l'état actuel du jeu. Cette fonction conditionne le rendu selon des valeurs telles que MENU, NEWGAME, SWAP, LEARNMOVE ou STARTERS, appelant les fonctions de rendu appropriées pour chaque situation.
+
+\paragraph{Transitions et mises à jour} Les transitions entre ces différents états sont gérées par une fonction changeState qui assure la cohérence des données et prépare les ressources nécessaires au nouvel état. Cette fonction prend en compte à la fois l'état actuel et l'état cible pour effectuer les actions de transition appropriées, comme l'initialisation d'un combat lorsque l'on passe de l'exploration à un affrontement.
+
+\paragraph{Mise à jour des textes des boutons} La fonction updateICMonsButtonText parcourt l'équipe spécifiée et met à jour les textes des boutons correspondants dans l'interface utilisateur. Si un emplacement est vide, le bouton affiche un espace, sinon il affiche le nom de l'ICMon. Ce système permet de maintenir une cohérence visuelle même lorsque les données sous-jacentes changent, comme lors d'un échange d'ICMons ou de l'apprentissage de nouvelles capacités.
+
+\paragraph{Gestion des événements} La gestion des événements utilisateur est assurée par un ensemble de fonctions spécialisées pour chaque état du jeu, comme handleLoadGameEvent ou handlePauseEvent, qui interprètent les interactions et déclenchent les actions appropriées. Par exemple, la fonction de gestion des pauses vérifie si la touche Échap a été pressée et change l'état du jeu en conséquence.
+
+\subsubsection{gestion des combats avec SDL}
+\paragraph{Machine à états} Le système de combat repose sur une machine à états finie représentée par l'énumération BattleTurnState, qui définit les différentes phases d'un tour : initialisation (TURN\_INIT), attente des instructions du joueur (TURN\_WAIT\_TEXT), exécution des actions (TURN\_ACTION1 et TURN\_ACTION2), et finalisation (TURN\_FINISHED).
+
+\paragraph{Rendu des sprites} Le rendu des sprites des ICMons est géré par des fonctions spécialisées comme renderICMonsSprite, qui s'occupe de positionner et d'animer correctement les créatures à l'écran. L'initialisation des sprites est effectuée lors du chargement d'une partie par la fonction initTeamSprites, qui prend en compte le positionnement relatif des sprites sur l'écran, avec des ratios différents selon qu'il s'agit de l'équipe du joueur (BLUE SPRITE X RATIO, BLUE SPRITE Y RATIO) ou de l'adversaire (RED SPRITE X RATIO, RED SPRITE Y RATIO).
+
+\subsubsection{Optimisation des performances}
+\paragraph{Gestion des ressources} Notre moteur de rendu inclut plusieurs mécanismes d'optimisation pour garantir des performances fluides. L'un des plus importants est la gestion des ressources lors des transitions entre états. Lorsqu'un joueur passe de l'exploration à un combat, ou lors d'un changement de map, nous devons libérer certaines ressources et en charger d'autres. Cette gestion est centralisée dans la fonction cleanupResources qui libère méthodiquement les textures, les textes, les contrôleurs et les structures de données comme la carte, le joueur et la caméra.
+
+\paragraph{Orchestration des threads} Un autre aspect critique de l'optimisation est l'orchestration des threads. En séparant la logique audio, la physique et le rendu dans des threads distincts, nous exploitons efficacement les architectures multi-cœurs modernes.
+
+La fonction principale du jeu (mainLoop) coordonne l'ensemble du processus de rendu en gérant les événements, en appelant les fonctions de rendu appropriées selon l'état du jeu, et en maintenant une cadence constante grâce à manageFrameRate. Cette boucle distingue le cas spécial de l'état MAP, où elle utilise renderMap, des autres états où elle effectue un rendu standard avec gestion des boutons et mise à jour du tour de combat si nécessaire.
+
+En conclusion, notre système de rendu combine une architecture multi-thread sophistiquée, une gestion d'états flexible et des mécanismes d'optimisation ciblés pour offrir une expérience visuelle riche tout en maintenant des performances fluides sur une variété de configurations matérielles. Ce système démontre l'efficacité de notre approche modulaire et la pertinence de nos choix techniques, notamment l'utilisation de SDL et la parallélisation des traitements.
+
+\subsubsection{Technologies graphiques et défis techniques}
+\paragraph{Synchronisation} L'implémentation de notre système de rendu a nécessité de relever plusieurs défis techniques spécifiques. L'un des plus complexes concernait la synchronisation entre le système de rendu et le système de physique, particulièrement critique lors des transitions entre maps. Nous avons conçu un mécanisme de verrouillage sélectif qui permet au thread physique de continuer à calculer les collisions et les déplacements pendant que le thread principal s'occupe du rendu, tout en évitant les problèmes de concurrence.
+
+\paragraph{Effets visuels} Le rendu des effets visuels dynamiques, comme les animations d'attaque ou les transitions entre états du jeu, a également posé des défis techniques significatifs. Nous avons implémenté un système de timers et de séquences qui permet de coordonner précisément les animations avec la logique du jeu. Ce système utilise le deltaTime calculé par notre gestionnaire de fréquence d'images pour garantir une vitesse d'animation cohérente quelle que soit la puissance de calcul disponible.
+
+\paragraph{Adaptabilité} Un autre aspect innovant de notre système graphique est la gestion adaptative de la qualité visuelle. Sur les configurations matérielles moins puissantes, notre moteur peut automatiquement réduire certains effets visuels pour maintenir une fréquence d'images acceptable. Cette adaptation dynamique est particulièrement importante pour notre jeu qui vise une large compatibilité matérielle.
+
+Le rendu des textes a également bénéficié d'une attention particulière, avec un système de mise en cache des textures de texte pour éviter de régénérer constamment les mêmes chaînes de caractères. Cette optimisation s'est révélée particulièrement efficace dans les écrans de combat où les mêmes messages peuvent apparaître à plusieurs reprises.
+
+Notre approche du rendu multi-couches, particulièrement visible dans les écrans de combat, permet de composer des scènes visuellement riches en combinant différents éléments (arrière-plans, sprites des créatures, interface utilisateur) avec un contrôle précis sur l'ordre de dessin. Cette technique garantit que les éléments sont toujours affichés dans le bon ordre, évitant les problèmes de superposition incorrecte.
+
+Pour conclure, l'architecture de notre système de rendu, bien que développée avec des technologies relativement simples comme SDL, démontre qu'une conception réfléchie et une implémentation soignée peuvent conduire à des résultats visuellement impressionnants et techniquement efficaces. Notre approche modulaire facilite également l'extension future du moteur avec de nouvelles fonctionnalités visuelles sans nécessiter de refonte majeure du système existant.
+\newpage
 \section{Bilan et résultats}
 \section{Références}
 \section{Annexes}
+
+\subsection{Outils de développement}
+\label{annexe:github}
+\textbf{GitHub :} \href{https://github.com/Lounol72/ICPocket}{github.com}
+
+\label{annexe:stackoverflow}
+\textbf{Stack Overflow :} \href{https://stackoverflow.com/questions/tagged/sdl}{stackoverflow.com}
+
+\label{annexe:bulbapedia}
+\textbf{Bulbapedia :} \href{https://bulbapedia.bulbagarden.net/wiki}{bulbapedia.bulbagarden.net}
+
+\label{annexe:showdown}
+\textbf{PokemonShowdown Calc :} \href{https://calc.pokemonshowdown.com}{calc.pokemonshowdown.com}
+
+\label{annexe:developpez}
+\textbf{Developpez.net :} \href{https://forum.developpez.com}{forum.developpez.com}
+
+\label{annexe:copilot}
+\textbf{GitHub Copilot :} \href{https://copilot.github.com/}{copilot.github.com}
+
 \end{document}
