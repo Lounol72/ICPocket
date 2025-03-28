@@ -382,7 +382,8 @@ void initStarters(Window *win, void *data){
 
     game.battleState.rouge.nb_poke=1;
 	game.battleState.rouge.effect=noEffect;
-	game.battleState.rouge.id_save=1;
+
+	if(!game.battleState.rouge.id_save)game.battleState.rouge.id_save=1;
     game.battleState.rouge.nb_enemiBeat=0;
 
     for(int i=0;i<4;i++){

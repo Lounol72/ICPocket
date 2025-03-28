@@ -1,5 +1,4 @@
 #include "../include/save.h"
-
 /**
 *   @brief Fonction de sauvegarde
 *   @param nomSave Nom de sauvegarde
@@ -9,7 +8,6 @@
 
 void sauvegarder(t_Team * joueur,t_Team * adverse){
     char nomFichier[1024];
-    printf("save : %d\n",joueur->id_save);
     snprintf(nomFichier, sizeof(nomFichier), "data/save/Save_%d.txt", joueur->id_save);
     FILE *fichier = fopen(nomFichier, "w+");
     if(fichier == NULL){
@@ -50,6 +48,8 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur){
         printf("Creation d'un fichier sauvegarde\n");
         fichier = fopen(filePath, "w+");
         sauver(joueur,save,nomSave);
+        printf("sauvegarde noumero %d" , joueur->id_save);
+        fclose(fichier);
         return -1;
 
     } else {
@@ -57,32 +57,31 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur){
         if(ftell(fichier)==0){
             printf("Sauvegarde vide\n");
             sauver(joueur,save,nomSave);
+            fclose(fichier);
             return -1;
         }
         fseek(fichier, 0, SEEK_SET);
         fscanf(fichier, "%d\n", &(joueur->nb_poke));
         joueur->effect = noEffect;
-        for (int i = 0; i < joueur->nb_poke; i++) {
+        for (int i = 0,nbmove; i < joueur->nb_poke; i++) {
 
             joueur->team[i].main_effect = noEffect;
             fscanf(fichier, "%d;%d;%d;%d;", &(joueur->team[i].id), &(joueur->team[i].lvl), &(joueur->team[i].nature), &(joueur->team[i].nb_move));
             printf("poke id : %d , lvl : %d ,nature: %d , nb move: %d \n",joueur->team[i].id,joueur->team[i].lvl,joueur->team[i].nature,joueur->team[i].nb_move);
+            nbmove = joueur->team[i].nb_move;
             generate_poke(&(joueur->team[i]), joueur->team[i].id);
             joueur->team[i].exp=expCurve(joueur->team[i].lvl);
             
             for (int j = 0; j < 6; j++) {
                 fscanf(fichier, "%d;", &(joueur->team[i].iv[j]));
-                printf("iv[%d] : %d\n",j,joueur->team[i].iv[j]);
             }
             for (int j = 0; j < 2; j++) {
                 fscanf(fichier, "%d;", (int *)&(joueur->team[i].type[j]));
-                printf("type[%d] : %d\n",j,joueur->team[i].type[j]);
             }
             printf("nb_move 222: %d\n",joueur->team[i].nb_move);
-            for (int j = 0; j < joueur->team[i].nb_move; j++) {
+            for (int j = 0; j < nbmove; j++) {
                 fscanf(fichier, "%d;", &(joueur->team[i].moveList[j].id));
                 joueur->team[i].moveList[j] = generateMove(joueur->team[i].moveList[j].id);
-                printf("move[%d] : %d\n",j,joueur->team[i].moveList[j].id);
             }
 
             for(int j=0;j<6;j++) joueur->statChanges[j]=NEUTRAL_STAT_CHANGE;
@@ -95,16 +94,16 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur){
 		    }
             fscanf(fichier, "\n");
         }
-        fscanf(fichier, "%s;%d;", dresseur->trainerName, &(dresseur->id));
+        fscanf(fichier, "%[^\n];%d;", dresseur->trainerName, &(dresseur->id));
         fscanf(fichier,"%d\n",&(joueur->id_save));
         char check[10];
-        fscanf(fichier,"%s",check);
-        printf("check : %s\n",check);
-        for(int i=0;i<joueur->nb_poke;i++){
-            printPoke(&(joueur->team[i]));
-        }
+        fscanf(fichier, "%s;", check);
+        printf("%s\n",check);
+
+        //Si le parcours a bien été éffectué
         if(strcmp(check,"check:1;")==0){
             printf("Chargement valide\n");
+            sauver(joueur,save,nomSave);
         }
         else{
             printf("Chargement echoué\n");
@@ -116,7 +115,14 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur){
     }
 }
 
+/**
+*   @brief Fonction qui sauvegarde le nom de la sauvegarde
+*   @param joueur struct joueur
+*   @param save id de la sauvegarde
+*   @param nomsave nom de la sauvegarde
+*/
 void sauver(t_Team * joueur,int save,char * nomsave){
             save = atoi(nomsave);
             joueur->id_save = save;
+            printf("sauvegarde noumero %d\n" , joueur->id_save);
 }

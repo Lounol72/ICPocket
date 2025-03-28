@@ -446,13 +446,10 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
     srand(time(NULL));
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
-        int clickedButtonIndex = -1;
-        int clickedButtonIndex = -1;
         SDL_GetMouseState(&x, &y);
         for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
             ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
-            clickedButtonIndex = i; 
-            clickedButtonIndex = i; 
+
         }
     } 
     handleEvent(win, event);
@@ -465,8 +462,8 @@ void loadFile(Window *win, void *event){
         snprintf(data,50,"%s",(char*)event);
         printf("data %s\n",data);
         if((charger(data, &game.battleState.rouge, &game.battleState.bleu))==-1){
-            handleNewGameEvent(win, event);
-            handleEvent(win, event);
+            initStarters(win, event);
+            return;
         }
 
         initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
