@@ -1,5 +1,25 @@
 [
   {
+    "sha": "63d89bfe",
+    "message": "📚 Documentation update 2025-03-27",
+    "date": "2025-03-27T22:08:27Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/63d89bfefb08f78cabb38d68cfd22c24847d8250"
+  },
+  {
+    "sha": "98f959f0",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-27T18:23:45Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/98f959f03f2b6c2a1af115ccb1bd8b3202487129"
+  },
+  {
     "sha": "79d63178",
     "message": "🔧 Enhance SEO and documentation: add meta tags, sitemap, and robots.txt (#23)",
     "date": "2025-03-27T17:33:10Z",
@@ -278,25 +298,5 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/df9e590a65bb0773113b6785d16413b293915115"
-  },
-  {
-    "sha": "236a28dc",
-    "message": "🔧 Update Windows build workflow to use PowerShell for dependency restoration",
-    "date": "2025-03-22T16:26:34Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/236a28dccf881e98f7dd5b5cd01b6f5fc3e0849d"
-  },
-  {
-    "sha": "0c5d3b9c",
-    "message": "🔧 Update Windows build workflow to support Git LFS and .NET 8.0",
-    "date": "2025-03-22T16:23:03Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/0c5d3b9c4fe08f3687b183736686c78687409d65"
   }
 ]
