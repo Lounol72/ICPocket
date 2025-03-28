@@ -390,7 +390,7 @@ void initStarters(Window *win, void *data){
     }
     initData();
     srand(time(NULL));
-    int ids[4]={29,17,12,7};
+    int ids[4]={29,30,31,32};
 
     game.battleState.rouge.nb_poke=1;
 	game.battleState.rouge.effect=noEffect;
@@ -1332,7 +1332,7 @@ void executeAction(t_Team *attacker, t_Team *defender, int move) {
     // Si l'action est un échange
     else if (isSwitching(move)) {
         swapActualAttacker(attacker, move);
-        sprintf(msg, "%s change de pokémon !", attacker->team[0].name);
+        sprintf(msg, "%s envoie %s !", attacker->trainerName ,attacker->team[0].name);
         resetScrollingText(game.battleState.text, msg);
     }
 }

@@ -64,7 +64,7 @@ void printTeam(t_Team * t){
 	for(int i=0;i<t->nb_poke;i++){
 		if (!(t->team[i].current_pv==POKE_IS_ABSCENT)){
 			printPoke(&(t->team[i]));
-			getchar();
+			//getchar();
 			//system("clear");
 		}
 	}
