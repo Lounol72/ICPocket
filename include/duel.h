@@ -34,6 +34,9 @@ extern t_Move struggle;
  */
 extern t_Move confusedMove;
 
+extern float moveEffectivenessFlag;
+extern short int secondaryEffectHappenedFlag;
+extern short int criticalHitFlag;
 
 
 #include "trainerAI.h"

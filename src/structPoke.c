@@ -64,6 +64,7 @@ void generate_poke(t_Poke *p, int line)
 
 		p->lvl = rand() % 100 + 1;
 		p->exp = expCurve(p->lvl); /*This is to match the start of a random generated level*/
+		p->nature = rand() % 25;
 		/*IV et Moves*/
 		for (int i = 0; i < 6; i++)
 			p->iv[i] = rand() % 32;
@@ -121,6 +122,7 @@ void generate_poke_enemi(t_Poke *p, int line,t_Team * joueur)
 		
 		
 		p->lvl = generatelvl(joueur);
+		p->nature = rand() % 25;
 		//IV et Moves
 		for (int i = 0; i < 6; i++)
 			p->iv[i] = rand() % 32;

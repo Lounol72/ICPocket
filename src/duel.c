@@ -10,6 +10,10 @@ t_Move struggle={-1,"lutte",50,noType,physical,200,1,1,0,1,2,100,25,0};
 
 t_Move confusedMove={-2,"Confus",40,noType,physical,200,1,1,0,1,-1,0,0,0};
 
+float moveEffectivenessFlag=0;
+short int secondaryEffectHappenedFlag=FALSE;
+short int criticalHitFlag=FALSE;
+
 Lvl_Up_Buffer lvl_up_buffer[12];
 int lvl_up_buffer_size=0;
 
@@ -51,12 +55,19 @@ int recoilDamage(t_Team * target, int probability, int percentage_of_val, int in
 void launchSecEffect(t_Team * offender, t_Team * defender, t_Move * action){
 	if(action->ind_secEffect>=0){
 		if(action->target){
-			SecEffectTab[action->ind_secEffect](offender,action->probability,action->value_effect,action->effect_modifier);
+			if(SecEffectTab[action->ind_secEffect](offender,action->probability,action->value_effect,action->effect_modifier)){
+				secondaryEffectHappenedFlag=TRUE;
+				return;
+			}
 		}
 		else{
-			SecEffectTab[action->ind_secEffect](defender,action->probability,action->value_effect,action->effect_modifier);
+			if(SecEffectTab[action->ind_secEffect](defender,action->probability,action->value_effect,action->effect_modifier)){
+				secondaryEffectHappenedFlag=TRUE;
+				return;
+			}
 		}
 	}
+	secondaryEffectHappenedFlag=FALSE;
 }
 
 void printTeam(t_Team * t){
@@ -168,8 +179,10 @@ void initBlueTeam(t_Team *t,t_Team *joueur) {
 
 int calcDamage(t_Team * offender, t_Team * defender, t_Move * move){
 	/*cas des inefficacités de type*/
+	criticalHitFlag=FALSE;
 	if(typeChart[move->type][defender->team[0].type[0]]<0.1 || typeChart[move->type][defender->team[0].type[1]]<0.1) {
 		//printf("Ca n'a aucun effet...\n");
+		moveEffectivenessFlag=0;
 		return 0;
 	}
 	/*cas des moves de status*/
@@ -202,7 +215,9 @@ int calcDamage(t_Team * offender, t_Team * defender, t_Move * move){
 
 	damage*=coupCritique?1.5:1;
 
+	moveEffectivenessFlag=typeChart[move->type][defender->team[0].type[0]]*typeChart[move->type][defender->team[0].type[1]];
 	//if (coupCritique) printf("Coup Critique!\n");
+	if (coupCritique) criticalHitFlag=TRUE;
 	return damage>0?damage:1;
 }
 
@@ -295,6 +310,9 @@ int affectDamage(t_Team * offender, t_Team * defender, int indexMove){
 	if(!accuracyCheck(moveToDo->accuracy)){
 		//printf("%s rate son attaque (%d precision)\n",offender->team[0].name,moveToDo->accuracy);
 		if (!(indexMove<0)) (moveToDo->current_pp)--;
+		moveEffectivenessFlag=-2;
+		criticalHitFlag=0;
+		secondaryEffectHappenedFlag=0;
 		return FALSE;
 	}
 	//printf("Attaque subis d'une puissance de %d\n avec une attaque de %d\ncontre une defence de %d\n",moveToDo->power,(int)(calcStatFrom(&(offender->team[0]),targetedStatOff) * statVariations[offender->statChanges[targetedStatOff]])
