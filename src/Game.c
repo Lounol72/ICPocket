@@ -64,9 +64,9 @@ void initGame(Window *win) {
     game.stateHandlers[13]= (StateHandler){ RESUME, handleResumeEvent };
     game.touche = NULL;
     game.touche = malloc(3 * sizeof(Image*));
-    game.touche[0] = initImage(win, "assets/User Interface/keyboard_e.png", (SDL_Rect){win->width * 0.55, win->height * 0.60, win->width * 0.075, win->width * 0.075}, "Intéragir",(SDL_Rect){600, 500, 100, 100} ,game.win->LargeFont);
-    game.touche[1] = initImage(win, "assets/User Interface/keyboard_c.png", (SDL_Rect){win->width * 0.70, win->height * 0.60, win->width * 0.075, win->width * 0.075}, "Déplacements", (SDL_Rect){win->width * 0.70, win->height * 0.60, win->width * 0.2, win->width * 0.075}, game.win->LargeFont);
-    game.touche[2] = initImage(win, "assets/User Interface/keyboard_arrows.png", (SDL_Rect){win->width * 0.85, win->height * 0.60, win->width * 0.075, win->width * 0.075}, "Déplacements", (SDL_Rect){win->width * 0.85, win->height * 0.60, win->width * 0.2, win->width * 0.075}, game.win->LargeFont);
+    game.touche[0] = initImage(win, "assets/User Interface/keyboard_e.png", (SDL_Rect){win->width * 0.85, win->height * 0.55, win->width * 0.075, win->width * 0.075}, "Interact",(SDL_Rect){win->width * 0.60, win->height * 0.58, win->width * 0.1725, win->width * 0.050} ,game.win->LargeFont);
+    game.touche[1] = initImage(win, "assets/User Interface/keyboard_c.png", (SDL_Rect){win->width * 0.85, win->height * 0.70, win->width * 0.075, win->width * 0.075}, "Confirm", (SDL_Rect){win->width * 0.60, win->height * 0.730, win->width * 0.1725, win->width * 0.050}, game.win->LargeFont);
+    game.touche[2] = initImage(win, "assets/User Interface/keyboard_arrows.png", (SDL_Rect){win->width * 0.85, win->height * 0.85, win->width * 0.075, win->width * 0.075}, "Movements", (SDL_Rect){win->width * 0.60, win->height * 0.880, win->width * 0.175, win->width * 0.050}, game.win->LargeFont);
 
     /* Configuration de la fréquence d'images (FPS) */
     game.FPS = 60;
