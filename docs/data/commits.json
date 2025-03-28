@@ -1,5 +1,15 @@
 [
   {
+    "sha": "c14ecff1",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-28T01:19:05Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/c14ecff13f6c312b16bf373c0b7473fb5bbf1123"
+  },
+  {
     "sha": "63d89bfe",
     "message": "📚 Documentation update 2025-03-27",
     "date": "2025-03-27T22:08:27Z",
@@ -288,15 +298,5 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/12b1c00366a68c9c81cb5e0ff312077717196547"
-  },
-  {
-    "sha": "df9e590a",
-    "message": "🔧 Update Linux build workflow to trigger on release events",
-    "date": "2025-03-22T16:29:31Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/df9e590a65bb0773113b6785d16413b293915115"
   }
 ]
