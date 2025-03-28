@@ -1,5 +1,15 @@
 [
   {
+    "sha": "da60c74c",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-28T12:33:37Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/da60c74c925d3939a139e24f1f750da16359bb5f"
+  },
+  {
     "sha": "252d11ca",
     "message": "📊 Update GitHub data",
     "date": "2025-03-28T06:24:29Z",
@@ -288,15 +298,5 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/73f88d8399d53d9e1075eed3add3792332198720"
-  },
-  {
-    "sha": "294cab99",
-    "message": "Create LICENSE",
-    "date": "2025-03-22T16:58:27Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/294cab99b455359d15a3c223c4b24a4732bcead5"
   }
 ]
