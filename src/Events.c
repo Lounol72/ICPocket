@@ -425,6 +425,7 @@ void handleNewGameEvent(Window *win, SDL_Event *event) {
 }
 
 
+
 /**
  * @brief Gère le chargement d'une partie sauvegardée.
  *
@@ -439,13 +440,19 @@ void handleNewGameEvent(Window *win, SDL_Event *event) {
 
 }*/
 void handleLoadGameEvent(Window *win, SDL_Event *event) {
+    
+    
     if (!win || !event) return;
     srand(time(NULL));
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
+        int clickedButtonIndex = -1;
+        int clickedButtonIndex = -1;
         SDL_GetMouseState(&x, &y);
         for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
             ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
+            clickedButtonIndex = i; 
+            clickedButtonIndex = i; 
         }
     } 
     handleEvent(win, event);
@@ -477,6 +484,7 @@ void loadFile(Window *win, void *event){
         handleEvent(win, event);
 
     }
+    handleEvent(win, event);
 }
 
 
