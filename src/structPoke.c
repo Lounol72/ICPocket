@@ -61,16 +61,18 @@ void generate_poke(t_Poke *p, int line)
 		/*Load Base stats*/
 		fscanf(dataPoke, "%d,%[^,],%d,%d,%d,%d,%d,%d,%d,%d\n", &(p->id), p->name, &(p->baseStats[PV]), &(p->baseStats[ATT]), &(p->baseStats[DEF]), &(p->baseStats[SPA]), &(p->baseStats[SPD]), &(p->baseStats[SPE]),(int*)&(p->type[0]),(int*)&(p->type[1]));
 		
+
+		p->lvl = rand() % 100 + 1;
 		p->exp = expCurve(p->lvl); /*This is to match the start of a random generated level*/
 		/*IV et Moves*/
+		for (int i = 0; i < 6; i++)
+			p->iv[i] = rand() % 32;
 		p->nb_move = rand() % 4 + 1;
 		for (int i = 0; i < p->nb_move; i++)
 		{
 			p->moveList[i] = generateRandomMoveBetter(p);
 			p->moveList[i].current_pp = p->moveList[i].max_pp;
 		}
-		for (int i = 0; i < 6; i++)
-			p->iv[i] = rand() % 32;
 		fclose(dataPoke);
 	}
 }

@@ -122,7 +122,6 @@ void initTeam(t_Team * t, int nb_poke){
 		t->team[i].nb_move=rand()%3+1;
 		t->team[i].main_effect=noEffect;
 		generate_poke(&(t->team[i]),((i * 12335634 )%16)); // temporaire
-		generateRandomMoveBetter(&(t->team[i]));
 		//generate_poke(&(t->team[i]),rand()%16+1); 
 		for(int j=0;j<6;j++) t->statChanges[j]=NEUTRAL_STAT_CHANGE;
 		t->team[i].current_pv=calcStatFrom(&(t->team[i]),PV);
@@ -143,7 +142,7 @@ void initBlueTeam(t_Team *t,t_Team *joueur) {
     } else {
         char buffer[256];
 		//nombre random entre 1 et 8
-		int id = 1+2*joueur->nb_enemiBeat+rand()%2;
+        int id = rand() % 8+1; //Changer ici avec ID PNJ
         for (int i = 1; i < id; i++) {
             if (fgets(buffer, sizeof(buffer), fichierTrainer) == NULL) {
                 printf("Erreur : ligne %d introuvable dans le fichier.\n", id);
@@ -165,7 +164,6 @@ void initBlueTeam(t_Team *t,t_Team *joueur) {
         fclose(fichierTrainer);
     }
 }
-
 
 int calcDamage(t_Team * offender, t_Team * defender, t_Move * move){
 	/*cas des inefficacités de type*/
