@@ -382,14 +382,12 @@ void initStarters(Window *win, void *data){
 
     game.battleState.rouge.nb_poke=1;
 	game.battleState.rouge.effect=noEffect;
-
-	if(!game.battleState.rouge.id_save)game.battleState.rouge.id_save=1;
+	game.battleState.rouge.id_save=1;
     game.battleState.rouge.nb_enemiBeat=0;
 
     for(int i=0;i<4;i++){
         game.starters[i].main_effect=noEffect;
         generate_poke(&game.starters[i],ids[i]);
-        generateRandomMoveBetter(&game.starters[i]);
         game.starters[i].lvl=100;
         game.starters[i].exp = expCurve(game.starters[i].lvl);
         game.starters[i].current_pv=calcStatFrom(&(game.starters[i]),PV);
@@ -748,8 +746,7 @@ void initAllButtons(Window *win)
     buttonsInter[0] = createButton(
         "Next Duel", win, (SDL_Rect){500, 200, 300, 100},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
-        nextDuel, NULL, win->LargeFont,
-        //changeState, &game.stateHandlers[MAP].state, win->LargeFont,
+        changeState, &game.stateHandlers[MAP].state, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsInter[1] = createButton(
