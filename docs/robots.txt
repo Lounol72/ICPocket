@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lounol72.github.io/ICPocket/sitemap.xml

@@ -26,7 +26,7 @@ var NAVTREE =
 [
   [ "ICPocket", "index.html", [
     [ "À propos du projet", "index.html#autotoc_md1", null ],
-    [ "🎮 Le jeu", "index.html#autotoc_md2", null ],
+    [ "Les membres", "index.html#autotoc_md2", null ],
     [ "🌐 Site web", "index.html#autotoc_md3", null ],
     [ "📁 Structure du projet", "index.html#autotoc_md4", null ],
     [ "🔧 Technologies utilisées", "index.html#autotoc_md5", null ],
@@ -35,7 +35,8 @@ var NAVTREE =
     [ "Table RACI", "index.html#autotoc_md8", null ],
     [ "GANTT", "index.html#autotoc_md9", null ],
     [ "GANTT Prévisionnel", "index.html#autotoc_md10", null ],
-    [ "📄 Licence", "index.html#autotoc_md11", null ],
+    [ "Tester docker", "index.html#autotoc_md11", null ],
+    [ "📄 Licence", "index.html#autotoc_md12", null ],
     [ "Classes", "annotated.html", [
       [ "Liste des classes", "annotated.html", "annotated_dup" ],
       [ "Index des classes", "classes.html", null ],

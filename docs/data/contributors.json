@@ -3,7 +3,7 @@
     "login": "Lounol72",
     "avatar_url": "https://avatars.githubusercontent.com/u/104394576?v=4",
     "html_url": "https://github.com/Lounol72",
-    "contributions": 390
+    "contributions": 395
   },
   {
     "login": "Natp24109",
@@ -18,15 +18,15 @@
     "contributions": 69
   },
   {
+    "login": "github-actions[bot]",
+    "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+    "html_url": "https://github.com/apps/github-actions",
+    "contributions": 49
+  },
+  {
     "login": "AstroZr",
     "avatar_url": "https://avatars.githubusercontent.com/u/166394902?v=4",
     "html_url": "https://github.com/AstroZr",
     "contributions": 49
-  },
-  {
-    "login": "github-actions[bot]",
-    "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
-    "html_url": "https://github.com/apps/github-actions",
-    "contributions": 30
   }
 ]

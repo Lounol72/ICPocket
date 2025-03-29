@@ -172,7 +172,8 @@ void renderPlayerWithCamera(Player* player, SDL_Renderer* renderer, Camera* came
     SDL_Rect worldRect = player->position;
     SDL_Rect screenRect = getWorldToScreenRect(camera, worldRect);
 
-    SDL_RenderCopy(renderer, player->spriteSheet, &player->currentFrame, &screenRect);
+    if (renderer && player->spriteSheet)
+        SDL_RenderCopy(renderer, player->spriteSheet, &player->currentFrame, &screenRect);
 }
 
 void destroyPlayer(Player *player) {

@@ -207,7 +207,7 @@ void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera) {
     SDL_Rect screenRect = getWorldToScreenRect(camera, worldRect);
     
     // Rendre la texture de la map
-    if (map->texture) {
+    if (map->texture != NULL) {
         SDL_RenderCopy(renderer, map->texture, NULL, &screenRect);
     }
 
