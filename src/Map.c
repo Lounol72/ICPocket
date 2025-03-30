@@ -18,7 +18,6 @@ static void initCollisionMap(Map *map) {
 //temporaire
 
 void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY) {
-    printf("Chargement de la nouvelle map: %s\n", newMapPath);
 
     // Détruire l'ancienne map
     destroyMap(*map);
@@ -26,7 +25,7 @@ void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, 
     // Initialiser la nouvelle map
     *map = initMap((*map)->renderer, newMapPath, mapWidth, mapHeight, spawnX, spawnY);
     if (!*map) {
-        printf("Erreur chargement nouvelle map\n");
+        SDL_Log("Erreur chargement nouvelle map\n");
         return;
     }
 
@@ -36,13 +35,13 @@ void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, 
             if ((*map)->mat[i][j] == -1) {
                 *spawnX = j;
                 *spawnY = i;
-                printf("Coordonnées de spawn trouvées: [%d, %d]\n", *spawnX, *spawnY);
+                
                 return;
             }
         }
     }
 
-    printf("Aucune case -1 trouvée, les coordonnées de spawn restent inchangées.\n");
+    
 }
 
 static void initCollisionMapFromCSV(Map *map, const char *path, int *spawnX, int *spawnY) {
@@ -87,7 +86,7 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
 
     Map *map = (Map *)malloc(sizeof(Map));
     if (!map) {
-        printf("Erreur allocation mémoire pour map\n");
+        SDL_Log("Erreur allocation mémoire pour map\n");
         return NULL;
     }
     
@@ -99,7 +98,7 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
     // Allouer la matrice
     map->mat = (int **)malloc(TileSizeH * sizeof(int *));
     if (!map->mat) {
-        printf("Erreur allocation mémoire pour map->mat\n");
+        SDL_Log("Erreur allocation mémoire pour map->mat\n");
         free(map);
         return NULL;
     }
@@ -107,7 +106,7 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
     for (int i = 0; i < TileSizeH; i++) {
         map->mat[i] = (int *)calloc(TileSizeW, sizeof(int));  // Utiliser calloc pour initialiser à 0
         if (!map->mat[i]) {
-            printf("Erreur allocation mémoire pour map->mat[%d]\n", i);
+            SDL_Log("Erreur allocation mémoire pour map->mat[%d]\n", i);
             for (int j = 0; j < i; j++) {
                 free(map->mat[j]);
             }
@@ -132,7 +131,7 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
     // Charger le fichier CSV
     char *csvPath = (char *)malloc(strlen(path) + 1);
     if (!csvPath) {
-        printf("Erreur allocation mémoire pour csvPath\n");
+        SDL_Log("Erreur allocation mémoire pour csvPath\n");
         destroyMap(map);
         return NULL;
     }
@@ -140,7 +139,6 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
     char *dot = strrchr(csvPath, '.');
     if (dot) {
         strcpy(dot, ".csv");
-        printf("Chargement du fichier CSV: %s\n", csvPath);
         initCollisionMapFromCSV(map, csvPath, spawnX, spawnY);
     }
     free(csvPath);
@@ -148,7 +146,7 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
     // Charger la texture
     SDL_Surface *surface = IMG_Load(path);
     if (!surface) {
-        printf("Erreur chargement texture map: %s\n", IMG_GetError());
+        SDL_Log("Erreur chargement texture map: %s\n", IMG_GetError());
         destroyMap(map);
         return NULL;
     }
@@ -157,7 +155,7 @@ Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSi
     SDL_FreeSurface(surface);
 
     if (!map->texture) {
-        printf("Erreur création texture map: %s\n", SDL_GetError());
+        SDL_Log("Erreur création texture map: %s\n", SDL_GetError());
         destroyMap(map);
         return NULL;
     }
@@ -179,7 +177,7 @@ void DEBUG_printMap(Map *map) {
 
 void renderMapDebug(Map *map) {
     if (!map->texture) {
-        printf("Erreur: Texture de la map non initialisée\n");
+
         return;
     }
     SDL_RenderCopy(map->renderer, map->texture, NULL, &map->rect);

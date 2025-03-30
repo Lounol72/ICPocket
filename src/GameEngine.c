@@ -15,6 +15,7 @@ int marginBottom = 200;  /**< Marge en bas en pixels */
 int marginRight = 0;     /**< Marge à droite en pixels */
 
 /**
+ * @fn SDL_GameController* initializeController(void);
  * @brief Initialise la première manette détectée.
  *
  * Parcourt les joysticks connectés et ouvre la première manette reconnue.
@@ -41,6 +42,7 @@ static SDL_GameController* initializeController(void) {
 }
 
 /**
+ * @fn void manageFrameRate(int frameStart);
  * @brief Gère la synchronisation de la fréquence d'images.
  *
  * Attend si le rendu de la frame s'est terminé trop rapidement afin d'obtenir
@@ -66,6 +68,7 @@ void manageFrameRate(int frameStart) {
 }
 
 /**
+ * @fn void cleanupResources(Window *win, SDL_GameController *controller);
  * @brief Libère les ressources allouées par le moteur.
  *
  * Détruit les textes, ferme la manette, et libère la carte, le joueur et la caméra.
@@ -90,6 +93,7 @@ static void cleanupResources(Window *win, SDL_GameController *controller) {
 }
 
 /**
+ * @fn void updateICMonsButtonText(Window *win, t_Team *team, int endOfArray, AppState state);
  * @brief Met à jour le texte des boutons ICMons.
  *
  * Pour chaque pokémon de l'équipe passée en paramètre, met à jour le texte du bouton
@@ -112,6 +116,7 @@ static void updateICMonsButtonText(Window *win, t_Team *team, int endOfArray, Ap
 /* Fonctions de rendu et de gestion des états visuels */
 
 /**
+ * @fn void render(Window *win);
  * @brief Affiche le contenu de l'écran en fonction de l'état actuel du jeu.
  *
  * Affiche le fond, les boutons, les sliders et les textes associés en fonction
@@ -159,9 +164,15 @@ void render(Window *win) {
         renderICMonsSprite(win, &(game.battleState.bleu.team[game.swappingIndex[0]]));
         renderText(win,game.windowText);
     }
+    else if (game.gameState.currentState == SETTINGS){
+        renderImage(win, game.touche[0]);
+        renderImage(win, game.touche[1]);
+        renderImage(win, game.touche[2]);
+    }
 }
 
 /**
+ * @fn void renderMap(Window *win);
  * @brief Affiche la carte et le joueur à l'aide de la caméra.
  *
  * La fonction verrouille le mutex de la physique, nettoie le rendu, affiche la carte et le joueur,
@@ -182,6 +193,7 @@ static void renderMap(Window *win) {
 /* Fonctions de gestion des boutons et des états */
 
 /**
+ * @fn void changeState(Window *win, void *data);
  * @brief Change l'état actuel du jeu.
  *
  * Met à jour l'état de la fenêtre et de la structure globale du jeu.
@@ -194,10 +206,19 @@ void changeState(Window *win, void *data) {
     win->state = newState;
     game.gameState.currentState = newState;
     game.currentButton = 0;
+    gettimeofday(&game.gameState.time_in_state,NULL);
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Changement d'état : %d", newState);
 }
 
+int gameStateTimerValidate(int nb_mili){
+    struct timeval time_now;
+    gettimeofday(&time_now,NULL);
+    long elapsed = (time_now.tv_sec - game.gameState.time_in_state.tv_sec) * 1000000 + (time_now.tv_usec - game.gameState.time_in_state.tv_usec);
+    return elapsed>=nb_mili;
+}
+
 /**
+ * @fn void makeWindowFullScreen(Window *win, void *data);
  * @brief Passe la fenêtre en mode plein écran.
  *
  * Change le mode d'affichage de la fenêtre en plein écran (mode desktop).
@@ -212,6 +233,7 @@ void makeWindowFullScreen(Window *win, void *data) {
 }
 
 /**
+ * @fn void makeWindowWindowed(Window *win, void *data);
  * @brief Repasse la fenêtre en mode fenêtré.
  *
  * Si la fenêtre est actuellement en plein écran, la repasse en mode fenêtré et ajuste sa taille.
@@ -229,6 +251,7 @@ void makeWindowWindowed(Window *win, void *data) {
 }
 
 /**
+ * @fn void attqButtonClicked(Window *win, void *data);
  * @brief Gère l'appui sur un bouton d'attaque.
  *
  * Valide l'indice du mouvement et, si possible, exécute le tour du joueur ou effectue un échange
@@ -239,7 +262,7 @@ void makeWindowWindowed(Window *win, void *data) {
  */
 void attqButtonClicked(Window *win, void *data) {
     (void)win; // Pour éviter le warning
-    
+    if(!gameStateTimerValidate(2000)) return;
     if (game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
         int moveIndex = (int)(intptr_t)data;
         if (moveIndex < 0 || moveIndex >= game.battleState.rouge.team[0].nb_move) {
@@ -261,6 +284,7 @@ void changeTextSpeed(Window *win, void *data) {
 }
 
 /**
+ * @fn void changePokemon(Window *win, void *data);
  * @brief Change le pokémon actif lors d'un échange.
  *
  * Exécute un tour d'attaque ou échange l'attaquant actif selon la validité de l'action,
@@ -290,6 +314,12 @@ void initSwapTeam(Window *win, void *data) {
     changeState(win,data);
 }
 
+/**
+ * @fn void initLearningMove(void);
+ * @brief Initialise l'apprentissage d'une nouvelle capacité.
+ * 
+ * Cette fonction prépare l'état pour l'apprentissage d'une nouvelle capacité par un ICmon.
+ */
 void initLearningMove(void){
     char temp[200];
     for(int i=0; i<4; i++){
@@ -324,6 +354,7 @@ void changeIndexSwap(Window *win, void *data) {
 }
 
 void validateSwap(Window *win, void *data) {
+    if(!gameStateTimerValidate(2000)) return;
     if(game.swappingIndex[0]<game.battleState.bleu.nb_poke){
         if(game.swappingIndex[1]<game.battleState.rouge.nb_poke){
             destroyICMonsSprite(&game.battleState.rouge.team[game.swappingIndex[1]]);
@@ -370,27 +401,28 @@ void validateStarterChoice(Window *win, void *data){
     setDefaultStatChanges(&game.battleState.rouge);
         
     game.gameState.initialized = 1;
-    changeState(win,&game.stateHandlers[GAME].state);
+    changeState(win,&game.stateHandlers[MAP].state);
 }
 
 void initStarters(Window *win, void *data){
-    (void)win;
     (void)data;
+    if(game.gameState.initialized){
+        changeState(win,&game.stateHandlers[MAP].state);
+        return;
+    }
     initData();
     srand(time(NULL));
-    int ids[4]={29,17,12,7};
+    int ids[4]={29,30,31,32};
 
     game.battleState.rouge.nb_poke=1;
 	game.battleState.rouge.effect=noEffect;
-
-	if(!game.battleState.rouge.id_save)game.battleState.rouge.id_save=1;
+	game.battleState.rouge.id_save=1;
     game.battleState.rouge.nb_enemiBeat=0;
 
     for(int i=0;i<4;i++){
         game.starters[i].main_effect=noEffect;
         generate_poke(&game.starters[i],ids[i]);
-        generateRandomMoveBetter(&game.starters[i]);
-        game.starters[i].lvl=100;
+        game.starters[i].lvl=5;
         game.starters[i].exp = expCurve(game.starters[i].lvl);
         game.starters[i].current_pv=calcStatFrom(&(game.starters[i]),PV);
 		game.starters[i].initial_pv = game.starters[i].current_pv;
@@ -420,7 +452,7 @@ void initStarters(Window *win, void *data){
             return;
         }
     }
-    changeState(game.win,&game.stateHandlers[STARTERS].state);
+    changeState(win,&game.stateHandlers[STARTERS].state);
 }
 
 void initResume(Window *win, void *data){
@@ -436,15 +468,44 @@ void initResume(Window *win, void *data){
         }
         else setButtonText(game.ui[RESUME].buttons->buttons[i], "  ", win->renderer);
     }
-    snprintf(temp, sizeof(temp), "%d-%d-%d-%d-%d",
+    snprintf(temp, sizeof(temp), "nature : %s\nstats : %d-%d-%d-%d-%d",
+        tabNature[game.battleState.bleu.team[game.swappingIndex[0]].nature].nature,
         calcStatFrom(&game.battleState.bleu.team[game.swappingIndex[0]],ATT),
         calcStatFrom(&game.battleState.bleu.team[game.swappingIndex[0]],DEF),
         calcStatFrom(&game.battleState.bleu.team[game.swappingIndex[0]],SPA),
         calcStatFrom(&game.battleState.bleu.team[game.swappingIndex[0]],SPD),
         calcStatFrom(&game.battleState.bleu.team[game.swappingIndex[0]],SPE)
     );
+
+    SDL_Rect spriteRect = {
+        .x = (int)(game.win->width * RED_SPRITE_X_RATIO * 0.8),
+        .y = (int)(game.win->height * RED_SPRITE_Y_RATIO * 0.6),
+        .w = (int)(game.win->width * SPRITE_WIDTH_RATIO),
+        .h = (int)(game.win->height * SPRITE_HEIGHT_RATIO)
+    };
+    SDL_Rect nameRect = {
+        .x = 0,
+        .y = 0,
+        .w = 0,
+        .h = 0
+    };
+    SDL_Rect pvRect = {
+        .x = spriteRect.x,
+        .y = spriteRect.y + spriteRect.h + PV_Y_OFFSET,
+        .w = spriteRect.w / 3,
+        .h = PV_BAR_HEIGHT
+    };
+    if(game.battleState.bleu.team[game.swappingIndex[0]].img) destroyICMonsSprite(&game.battleState.bleu.team[game.swappingIndex[0]]);
+    game.battleState.bleu.team[game.swappingIndex[0]].img = initICMonSprite(win->renderer, spriteRect, nameRect, pvRect, &game.battleState.bleu.team[game.swappingIndex[0]], win->LargeFont, 0);
+    if (!game.battleState.bleu.team[game.swappingIndex[0]].img || !game.battleState.bleu.team[game.swappingIndex[0]].img->ICMonTexture) {
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
+            "❌ Failed to initialize sprite\n");
+        return;
+    }
+
     /* a rescale*/
-    game.windowText=createText(temp,game.win->renderer,(SDL_Rect){(win->width / 2 -100)/ win->width, game.win->height /2 , 550, 300},(SDL_Color){0,0,0,255},game.win->SmallFont);
+    game.windowText=createText(temp,game.win->renderer,(SDL_Rect){win->width * 0.58, game.win->height * 0.3 , win->width*0.703125, win->height*0.465},(SDL_Color){0,0,0,255},game.win->MediumFont);
+    StayScaled(game.windowText->font, game.windowText, &(game.windowText->rect), &(game.windowText->initialRect));
     changeState(win,&game.stateHandlers[RESUME].state);
 }
 
@@ -452,10 +513,12 @@ void destroyResume(Window *win, void *data){
     (void)data;
     destroyText(game.windowText);
     game.windowText=NULL;
+    initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1);
     changeState(win,&game.stateHandlers[SWAP].state);
 }
 
 /**
+ * @fn void nextDuel(Window *win, void *data)
  * @brief Passe au duel suivant.
  *
  * Sauvegarde l'état de la partie, soigne l'équipe du joueur, réinitialise l'équipe adverse,
@@ -490,12 +553,18 @@ void nextDuel(Window *win, void *data) {
     
     // Mettre à jour l'interface
     updateICButtons(win, &game.battleState.rouge);
+    if (game.scrollingTextIntro) {
+        destroyScrollingText(game.scrollingTextIntro);
+        game.scrollingTextIntro = NULL;
+    }
+    loadPhrase();
     
     // Changer d'état
     changeState(win, &game.stateHandlers[GAME].state);
 }
 
 /**
+ * @fn void mainLoop(Window *win)
  * @brief Boucle principale du jeu.
  *
  * Initialise le jeu, les boutons, le contrôleur, le gestionnaire de threads,
@@ -608,7 +677,7 @@ void initAllButtons(Window *win)
     buttonsParam[0] = createButton(
         "  0.5  ", win, (SDL_Rect){100, 200, 200, 50},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, (void*)(intptr_t)25, win->LargeFont,
+        changeTextSpeed, (void*)(intptr_t)100, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsParam[1] = createButton(
@@ -620,7 +689,7 @@ void initAllButtons(Window *win)
     buttonsParam[2] = createButton(
         "  1.5  ", win, (SDL_Rect){700, 200, 200, 50},
         (SDL_Color){0, 255, 255, 255}, (SDL_Color){128, 128, 128, 255},
-        changeTextSpeed, (void*)(intptr_t)100, win->LargeFont,
+        changeTextSpeed, (void*)(intptr_t)25, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsParam[3] = createButton(
@@ -748,8 +817,7 @@ void initAllButtons(Window *win)
     buttonsInter[0] = createButton(
         "Next Duel", win, (SDL_Rect){500, 200, 300, 100},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
-        nextDuel, NULL, win->LargeFont,
-        //changeState, &game.stateHandlers[MAP].state, win->LargeFont,
+        changeState, &game.stateHandlers[MAP].state, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsInter[1] = createButton(
@@ -894,7 +962,7 @@ void initAllButtons(Window *win)
     /*Boutons Starters screen*/
 
     buttonsStarters[0] = createButton(
-        " ", win, (SDL_Rect){180, 600, 300, 100},
+        " ", win, (SDL_Rect){280, 600, 200, 100},
         (SDL_Color){0, 0, 0, 0}, (SDL_Color){0, 0, 0, 255},
         selectOtherStarter, (void*)(intptr_t)-1, win->LargeFont,
         "assets/User Interface/Grey/arrow_basic_w.png"
@@ -906,16 +974,16 @@ void initAllButtons(Window *win)
         validateStarterChoice, (void*)(intptr_t)0, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
-
     buttonsStarters[2] = createButton(
-        " ", win, (SDL_Rect){840, 600, 300, 100},
+        " ", win, (SDL_Rect){840, 600, 200, 100},
         (SDL_Color){0, 0, 0, 0}, (SDL_Color){0, 0, 0, 0},
         selectOtherStarter, (void*)(intptr_t)1, win->LargeFont,
         "assets/User Interface/Grey/arrow_basic_e.png"
     );
 
     /*Boutons Resume screen*/
-
+    startX+=60;
+    startY-=45;
     buttonsResume[0] = createButton(
         "Attack 1", win, (SDL_Rect){startX, startY, buttonWidth, buttonHeight},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
@@ -942,7 +1010,7 @@ void initAllButtons(Window *win)
     );
 
     buttonsResume[4] = createButton(
-        "Retour", win, (SDL_Rect){950, startY, 300, 180},
+        "Retour", win, (SDL_Rect){950, startY, 250, 180},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
         destroyResume, (void*)(intptr_t)0, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
@@ -1129,6 +1197,20 @@ void updateBattleTurn() {
                 }
                 game.battleState.hasAttacked = true;
             }
+            if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
+                char msg[60];
+                sprintf(msg,"Coup critique !");
+                criticalHitFlag=0;
+                resetScrollingText(game.battleState.text, msg);
+            }
+            if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
+                char msg[60]="\0";
+                if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
+                else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
+                else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
+                moveEffectivenessFlag=-2;
+                if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
+            }
             if (game.battleState.text->isComplete) {
                 game.battleState.text->isComplete = false;
                 game.battleState.turnState = TURN_ACTION2;
@@ -1165,6 +1247,20 @@ void updateBattleTurn() {
                     }
                 }
                 game.battleState.hasAttacked = true;
+            }
+            if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
+                char msg[60];
+                sprintf(msg,"Coup critique !");
+                criticalHitFlag=0;
+                resetScrollingText(game.battleState.text, msg);
+            }
+            if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
+                char msg[60]="\0";
+                if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
+                else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
+                else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
+                moveEffectivenessFlag=-2;
+                if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
             }
             if (game.battleState.text->isComplete) {
                 game.battleState.text->isComplete = false;
@@ -1294,7 +1390,7 @@ void executeAction(t_Team *attacker, t_Team *defender, int move) {
     // Si l'action est un échange
     else if (isSwitching(move)) {
         swapActualAttacker(attacker, move);
-        sprintf(msg, "%s change de pokémon !", attacker->team[0].name);
+        sprintf(msg, "%s envoie %s !", attacker->trainerName ,attacker->team[0].name);
         resetScrollingText(game.battleState.text, msg);
     }
 }

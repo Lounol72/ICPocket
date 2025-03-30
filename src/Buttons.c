@@ -279,12 +279,12 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
     slider->initialBar = slider->rect;
     int cursorW = 25;
     slider->cursor.w = cursorW;
-    slider->cursor = (SDL_Rect){slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2), y, cursorW, h+2};
+    slider->cursor = (SDL_Rect){slider->rect.x + (slider->value * slider->rect.w) - (slider->cursor.w / 2), y-2, cursorW+3, h+2};
     slider->initialCursor = slider->cursor;
     slider->color = color;
     slider->cursorColor = cursorColor;
     slider->renderer = renderer;
-    slider->dragging = 0; // Initialiser le champ 'dragging'
+    slider->dragging = 0;
 
     SDL_Surface *surface = IMG_Load("assets/User Interface/Grey/slide_horizontal_grey.png");
     if (!surface) {
@@ -365,12 +365,8 @@ void renderSlider(Slider *slider) {
     }
 }
 
-// Supposez que la structure Slider contient un champ 'int dragging;' (0 ou 1).
 
-// Optionnel : fonction inline pour clamp une valeur float
-static inline float clampf(float v, float min, float max) {
-    return (v < min) ? min : (v > max ? max : v);
-}
+static inline float clampf(float v, float min, float max) {return (v < min) ? min : (v > max ? max : v);} //
 
 int handleSliderEvent(Slider *slider, SDL_Event *event) {
     if (!slider)
@@ -414,9 +410,9 @@ void updateSliderPosition(SliderList *sliders, float Scalex, float Scaley) {
         sliders->sliders[i]->rect.h = sliders->sliders[i]->initialBar.h * Scaley;
         sliders->sliders[i]->rect.x = sliders->sliders[i]->initialBar.x * Scalex;
         sliders->sliders[i]->rect.y = sliders->sliders[i]->initialBar.y * Scaley;
-        sliders->sliders[i]->cursor.w = 10;
-        sliders->sliders[i]->cursor.h = sliders->sliders[i]->initialBar.h + (sliders->sliders[i]->initialCursor.h * Scaley) * 0.4;
-        sliders->sliders[i]->cursor.x = sliders->sliders[i]->rect.x + (sliders->sliders[i]->value * sliders->sliders[i]->rect.w) - (sliders->sliders[i]->cursor.w / 2);
-        sliders->sliders[i]->cursor.y = sliders->sliders[i]->rect.y - 5;
+        sliders->sliders[i]->cursor.w = sliders->sliders[i]->initialCursor.w * Scalex;
+        sliders->sliders[i]->cursor.h = sliders->sliders[i]->initialCursor.h * Scaley;
+        sliders->sliders[i]->cursor.x = sliders->sliders[i]->initialCursor.x * Scalex;
+        sliders->sliders[i]->cursor.y = sliders->sliders[i]->initialCursor.y * Scaley;
     }
 }

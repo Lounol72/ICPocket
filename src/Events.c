@@ -172,7 +172,6 @@ void handleWindowSizeChange(Window *win) {
     SDL_GetWindowSize(win->window, &win->width, &win->height);
     float scaleX = (float)win->width / win->InitialWidth;
     float scaleY = (float)win->height / win->InitialHeight;
-    
     for (int i = 1; i < game.nbMenu; i++) {
         if (game.ui[i].buttons) updateButtonPosition(game.ui[i].buttons, scaleX, scaleY);
         if (game.ui[i].sliders) updateSliderPosition(game.ui[i].sliders, scaleX, scaleY);
@@ -180,13 +179,29 @@ void handleWindowSizeChange(Window *win) {
     updateTextPosition(&NewGameText, scaleX, scaleY);
     updateTextPosition(&title, scaleX, scaleY);
     updateTextPosition(game.windowText, scaleX, scaleY);
-    
+
+    for (int i = 0; i < 3; i++) {
+         if (game.touche[i]) {
+            printf("Before resize - touche[%d]: x=%d,y=%d,w=%d,h=%d\n", 
+                i, game.touche[i]->rect.x, game.touche[i]->rect.y, 
+                game.touche[i]->rect.w, game.touche[i]->rect.h);
+            
+            updateImageSize(game.touche[i], scaleX, scaleY);
+            
+            printf("After resize - touche[%d]: x=%d,y=%d,w=%d,h=%d\n", 
+                i, game.touche[i]->rect.x, game.touche[i]->rect.y, 
+                game.touche[i]->rect.w, game.touche[i]->rect.h);
+        } else {
+            printf("Warning: game.touche[%d] is NULL\n", i);
+        }
+    }
     for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
         updateICMonsSprite(&(game.battleState.rouge.team[i]), scaleX, scaleY);
     }
     for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
         updateICMonsSprite(&(game.battleState.bleu.team[i]), scaleX, scaleY);
     }
+    
 }
 
 /**
@@ -320,9 +335,10 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
  * @param event Pointeur sur l'événement SDL.
  */
 void handleGameEvent(Window *win, SDL_Event *event) {
+    
     if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
         /* Réinitialisation de l'état du jeu */
-        game.gameState.initialized = 0;
+        //game.gameState.initialized = 0;
         game.gameState.playerTurn = 0;
         AppState newState = isTeamAlive(&game.battleState.rouge) ? INTER : MENU;
         win->state = newState;
@@ -338,7 +354,7 @@ void handleGameEvent(Window *win, SDL_Event *event) {
         }
         game.gameState.playerTurn = 1;
     }
-    
+    if (game.battleState.turnState != TURN_NONE) return;
     if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
         changeState(win, &game.stateHandlers[2].state);
     }
@@ -408,6 +424,7 @@ void handleNewGameEvent(Window *win, SDL_Event *event) {
         initData();
         srand(time(NULL));
         initTeam(&game.battleState.rouge, 3);
+        strcpy(game.battleState.rouge.trainerName, "GoofyStudent");
         initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
         game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
         
@@ -425,7 +442,6 @@ void handleNewGameEvent(Window *win, SDL_Event *event) {
 }
 
 
-
 /**
  * @brief Gère le chargement d'une partie sauvegardée.
  *
@@ -436,12 +452,35 @@ void handleNewGameEvent(Window *win, SDL_Event *event) {
  */
 
  /*
-
-
-}*/
 void handleLoadGameEvent(Window *win, SDL_Event *event) {
     
-    
+    if (!win || !event) return;
+    srand(time(NULL));
+    if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
+        int x, y;
+        int clickedButtonIndex = -1;
+        SDL_GetMouseState(&x, &y);
+        for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
+            ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
+            clickedButtonIndex = i; 
+        }
+        initData();
+        if(clickedButtonIndex == 0)charger("Save_1", &game.battleState.rouge, &game.battleState.bleu);  
+        else if(clickedButtonIndex == 1)charger("Save_2", &game.battleState.rouge, &game.battleState.bleu);  
+        initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
+        game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
+        if (initTeamSprites(win, &game.battleState.rouge, RED_SPRITE_X_RATIO, RED_SPRITE_Y_RATIO, 0) != 0)return;
+        if (initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1) != 0)return;
+        updateICButtons(win, &game.battleState.rouge);
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, 
+        "Red team PV: %d, Blue team PV: %d", 
+        game.battleState.rouge.team[0].current_pv,
+        game.battleState.bleu.team[0].current_pv);        
+        game.gameState.initialized = 1; 
+    }
+    handleEvent(win, event);
+}*/
+void handleLoadGameEvent(Window *win, SDL_Event *event) {
     if (!win || !event) return;
     srand(time(NULL));
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
@@ -449,7 +488,6 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
         SDL_GetMouseState(&x, &y);
         for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
             ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
-
         }
     } 
     handleEvent(win, event);
@@ -462,8 +500,8 @@ void loadFile(Window *win, void *event){
         snprintf(data,50,"%s",(char*)event);
         printf("data %s\n",data);
         if((charger(data, &game.battleState.rouge, &game.battleState.bleu))==-1){
-            initStarters(win, event);
-            return;
+            handleNewGameEvent(win, event);
+            handleEvent(win, event);
         }
 
         initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
@@ -477,11 +515,10 @@ void loadFile(Window *win, void *event){
         updateICButtons(win, &game.battleState.rouge);
         
         game.gameState.initialized = 1;
-        changeState(win, &game.stateHandlers[GAME].state);
+        changeState(win, &game.stateHandlers[MAP].state);
         handleEvent(win, event);
 
     }
-    handleEvent(win, event);
 }
 
 
@@ -557,7 +594,6 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
     }
     else if (keyState[SDL_SCANCODE_E] && game.gameData.map->mat[newMatrixY-1][newMatrixX] == 6 && game.gameState.currentState == MAP) {
             nextDuel(game.win, NULL);
-            printf("%d\n", game.gameState.initialized);
     }
     
     if (shouldMove && game.gameData.map->mat[newMatrixY][newMatrixX] != COLLISION && game.gameData.map->mat[newMatrixY][newMatrixX] != 6) {
@@ -573,3 +609,17 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
     }
     
 }
+
+void handleBattleIntroEvent(Window *win, SDL_Event *event){
+    if (game.scrollingTextIntro->isComplete) {
+        changeState(win, &game.stateHandlers[GAME].state);
+        return;
+    }
+    
+    updateScrollingText(game.scrollingTextIntro, win->renderer);
+    if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
+        changeState(win, &game.stateHandlers[2].state);
+    }
+    handleEvent(win, event);
+}
+

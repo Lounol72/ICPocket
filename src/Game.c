@@ -9,6 +9,7 @@
 #define WINDOWS_H 720
 
 /**
+ * @fn void initGame(Window *win);
  * @brief Initialise le jeu et charge l'ensemble des ressources nécessaires.
  *
  * Cette fonction initialise la structure globale du jeu en définissant :
@@ -62,6 +63,11 @@ void initGame(Window *win) {
     game.stateHandlers[11]= (StateHandler){ LEARNMOVE, handleLearningEvent };
     game.stateHandlers[12]= (StateHandler){ STARTERS, handleStartersEvent };
     game.stateHandlers[13]= (StateHandler){ RESUME, handleResumeEvent };
+    game.touche = NULL;
+    game.touche = malloc(3 * sizeof(Image*));
+    game.touche[0] = initImage(win, "assets/User Interface/keyboard_e.png", (SDL_Rect){win->width * 0.85, win->height * 0.55, win->width * 0.075, win->width * 0.075}, "Interact",(SDL_Rect){win->width * 0.60, win->height * 0.58, win->width * 0.1725, win->width * 0.050} ,game.win->LargeFont);
+    game.touche[1] = initImage(win, "assets/User Interface/keyboard_c.png", (SDL_Rect){win->width * 0.85, win->height * 0.70, win->width * 0.075, win->width * 0.075}, "Confirm", (SDL_Rect){win->width * 0.60, win->height * 0.730, win->width * 0.1725, win->width * 0.050}, game.win->LargeFont);
+    game.touche[2] = initImage(win, "assets/User Interface/keyboard_arrows.png", (SDL_Rect){win->width * 0.85, win->height * 0.85, win->width * 0.075, win->width * 0.075}, "Movements", (SDL_Rect){win->width * 0.60, win->height * 0.880, win->width * 0.175, win->width * 0.050}, game.win->LargeFont);
 
     /* Configuration de la fréquence d'images (FPS) */
     game.FPS = 60;
@@ -125,6 +131,7 @@ void initGame(Window *win) {
 }
 
 /**
+ * @fn void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath);
  * @brief Charge une image de fond et crée une texture associée.
  *
  * Cette fonction charge une image depuis le chemin spécifié, crée une texture à partir de cette image
@@ -151,6 +158,40 @@ void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char
     SDL_FreeSurface(surface);
 }
 
+void loadPhrase(void){
+    FILE *file = fopen("data/dataText.csv", "r");
+    if (file == NULL) {
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Failed to open data/dataText.csv");
+        return;
+    }
+    char buffer[256];
+    char temp[256];
+    for (int i = 1; i < game.battleState.bleu.id; i++){
+        if (fgets(buffer, sizeof(buffer), file) == NULL){
+            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Failed to read line %d from data/dataText.csv",i);
+            fclose(file);
+            return;
+        }
+    }
+    
+    fscanf(file, "%d,%[^\n]\n",&(game.battleState.bleu.id), temp);
+    fclose(file);
+    printf("id : %d\nphrase : %s fin\n", game.battleState.bleu.id, temp);
+    game.scrollingTextIntro = createScrollingText(
+                    temp,
+                    game.win->LargeFont,
+                    (SDL_Color){255, 255, 255, 255},
+                    game.speed,     // Délai entre les caractères en ms
+                    (SDL_Rect){game.win->width * 0.014, game.win->height *0.736, game.win->width * 0.7, game.win->height * 0.27}, // Fond du texte
+                    "assets/User Interface/Grey/button_rectangle_depth_flat.png", // Chemin de l'image de fond
+                    game.win->renderer);
+}
+
+/**
+ * @fn void destroyGame();
+ * @brief detruit le jeu.
+ * 
+ */
 void destroyGame() {
     /* 1) Libération de la musique */
     if (game.gameState.music) {
@@ -162,6 +203,15 @@ void destroyGame() {
         Mix_FreeMusic(game.gameState.music_inter);
         game.gameState.music_inter = NULL;
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Musique inter libérée");
+    }
+
+    if (game.touche != NULL){
+        for (int i = 0; i < 3; i++) {
+            destroyImage(game.touche[i]);
+        }
+        free(game.touche);
+        game.touche = NULL;
+        
     }
 
     if (game.battleState.text) {
@@ -281,6 +331,10 @@ void destroyGame() {
     if (game.battleState.text) {
         destroyScrollingText(game.battleState.text);
         game.battleState.text = NULL;
+    }
+    if (game.scrollingTextIntro){
+        destroyScrollingText(game.scrollingTextIntro);
+        game.scrollingTextIntro = NULL;
     }
 
     cleanupText();

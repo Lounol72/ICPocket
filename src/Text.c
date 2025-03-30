@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-static void StayScaled(TTF_Font *font, Text *text, SDL_Rect *rect, SDL_Rect *initialRect) {
+void StayScaled(TTF_Font *font, Text *text, SDL_Rect *rect, SDL_Rect *initialRect) {
     if (!text || !font || !rect || !initialRect) return;
 
     int textWidth, textHeight;
