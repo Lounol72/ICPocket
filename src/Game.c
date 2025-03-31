@@ -326,7 +326,7 @@ void destroyGame() {
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ audio libéré");
 
     /* 10) Quitter les sous-systèmes SDL, IMG et TTF */
-    if (game.battleState.text) {
+    if (game.battleState.text!= NULL) {
         destroyScrollingText(game.battleState.text);
         game.battleState.text = NULL;
     }

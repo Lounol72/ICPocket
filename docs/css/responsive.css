@@ -480,10 +480,12 @@ html {
     max-width: 600px;
   }
   
+  
   /* Ajustements pour très grands écrans */
   @media (min-width: 1600px) {
     .content-container {
       max-width: 1400px;
+      
     }
     
     html {

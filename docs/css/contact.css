@@ -98,6 +98,7 @@
 
 .contrib-card p {
     margin-bottom: 1.5rem;
+    
     color: #e9eaeb;
 }
 
@@ -171,6 +172,7 @@
 
 .contact-card p {
     margin-bottom: 1.5rem;
+    height: 30px;
     color: #e9eaeb;
 }
 
