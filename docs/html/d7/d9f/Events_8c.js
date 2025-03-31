@@ -1,5 +1,6 @@
 var Events_8c =
 [
+    [ "handleBattleIntroEvent", "d7/d9f/Events_8c.html#a5a1b396a2c64aecc236c8ad719b40bba", null ],
     [ "handleEvent", "d7/d9f/Events_8c.html#a6f17bb9492dd6a4e5ace526c8686679f", null ],
     [ "handleGameEvent", "d7/d9f/Events_8c.html#a7e807113e014d5725e945ee30180483c", null ],
     [ "handleICMonsEvent", "d7/d9f/Events_8c.html#abb1d99ee132734d10ca7f03286da3b18", null ],

@@ -16,7 +16,7 @@ var searchData=
   ['initialheight_13',['InitialHeight',['../d6/d08/structWindow.html#ac6e5a576bc47bd10a1785af5ef4147d2',1,'Window']]],
   ['initialized_14',['initialized',['../d2/d3d/structGameState.html#a2c4f9e46c2e120ee9e7245ece5a3bf44',1,'GameState']]],
   ['initialposition_15',['initialPosition',['../d2/db3/structScrollingText.html#a3ff77f63369aba917bae4d7ccdc3c7d4',1,'ScrollingText']]],
-  ['initialrect_16',['initialrect',['../d2/dda/structText.html#a91cd916c0252115269b4676134d0fc0a',1,'Text::initialRect'],['../dd/d1a/structIMG__ICMons.html#a59ff78849260d7a61cbc9bed404134f7',1,'IMG_ICMons::initialRect'],['../d7/d19/structButton.html#a9dc90f55a2045928b0ae372a1ef50620',1,'Button::initialRect']]],
+  ['initialrect_16',['initialrect',['../d2/dda/structText.html#a91cd916c0252115269b4676134d0fc0a',1,'Text::initialRect'],['../d7/d19/structButton.html#a9dc90f55a2045928b0ae372a1ef50620',1,'Button::initialRect'],['../db/d58/structImage.html#ac51f568ce95af5956c0b9056b678047b',1,'Image::initialRect'],['../dd/d1a/structIMG__ICMons.html#a59ff78849260d7a61cbc9bed404134f7',1,'IMG_ICMons::initialRect']]],
   ['initialtextrect_17',['initialTextRect',['../d7/d19/structButton.html#a77671e561daa9db4c9745aa37e8b546a',1,'Button']]],
   ['initialtexture_18',['initialTexture',['../d7/d19/structButton.html#a9501a11ea4bf0ecd333c44408afe715e',1,'Button']]],
   ['initialwidth_19',['InitialWidth',['../d6/d08/structWindow.html#a3b3cd24de4f91b4688550ab88b9fed39',1,'Window']]],

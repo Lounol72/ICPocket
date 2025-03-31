@@ -1,5 +1,5 @@
 <map id="include/duel.h" name="include/duel.h">
-<area shape="rect" id="Node000001" title="Gestion des duels dans le style de &quot;Pokémon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="249,5,362,31"/>
+<area shape="rect" id="Node000001" title="Gestion des duels dans le style de &quot;ICmon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="249,5,362,31"/>
 <area shape="rect" id="Node000002" href="$da/d71/structPoke_8h.html" title=" " alt="" coords="82,79,185,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="272,33,168,75,166,70,270,28"/>
 <area shape="rect" id="Node000003" href="$dd/da3/structures_8h.html" title=" " alt="" coords="128,152,227,177"/>

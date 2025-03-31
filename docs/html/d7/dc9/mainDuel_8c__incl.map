@@ -1,6 +1,6 @@
 <map id="src/mainDuel.c" name="src/mainDuel.c">
 <area shape="rect" id="Node000001" title=" " alt="" coords="246,5,365,31"/>
-<area shape="rect" id="Node000002" href="$d6/d8e/duel_8h.html" title="Gestion des duels dans le style de &quot;Pokémon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="243,79,368,104"/>
+<area shape="rect" id="Node000002" href="$d6/d8e/duel_8h.html" title="Gestion des duels dans le style de &quot;ICmon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="243,79,368,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="308,31,308,65,303,65,303,31"/>
 <area shape="rect" id="Node000003" href="$da/d71/structPoke_8h.html" title=" " alt="" coords="82,152,185,177"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="272,106,168,149,166,144,270,102"/>

@@ -1,12 +1,14 @@
 <map id="include/Window.h" name="include/Window.h">
-<area shape="rect" id="Node000001" title="Définition et gestion de la fenêtre principale de l&#39;application." alt="" coords="181,5,317,31"/>
+<area shape="rect" id="Node000001" title="Définition et gestion de la fenêtre principale de l&#39;application." alt="" coords="253,5,389,31"/>
 <area shape="rect" id="Node000002" href="$d9/ded/Utils_8h.html" title=" " alt="" coords="131,79,245,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,42,193,80,189,77,221,39"/>
-<area shape="rect" id="Node000016" href="$dc/dae/Text_8c.html" title=" " alt="" coords="269,79,352,104"/>
-<area shape="poly" id="edge20_Node000001_Node000016" title=" " alt="" coords="270,40,303,77,299,80,266,43"/>
-<area shape="rect" id="Node000017" href="$d4/d41/Window_8c.html" title=" " alt="" coords="376,79,483,104"/>
-<area shape="poly" id="edge21_Node000001_Node000017" title=" " alt="" coords="292,33,401,76,399,81,290,38"/>
-<area shape="poly" id="edge19_Node000002_Node000001" title=" " alt="" coords="213,67,244,29,248,33,217,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="282,39,204,81,202,76,279,34"/>
+<area shape="rect" id="Node000016" href="$da/d3f/Images_8c.html" title=" " alt="" coords="269,79,373,104"/>
+<area shape="poly" id="edge20_Node000001_Node000016" title=" " alt="" coords="324,44,324,79,319,79,319,44"/>
+<area shape="rect" id="Node000017" href="$dc/dae/Text_8c.html" title=" " alt="" coords="397,79,480,104"/>
+<area shape="poly" id="edge21_Node000001_Node000017" title=" " alt="" coords="353,35,421,76,418,81,351,40"/>
+<area shape="rect" id="Node000018" href="$d4/d41/Window_8c.html" title=" " alt="" coords="504,79,611,104"/>
+<area shape="poly" id="edge22_Node000001_Node000018" title=" " alt="" coords="373,32,520,76,518,81,372,37"/>
+<area shape="poly" id="edge19_Node000002_Node000001" title=" " alt="" coords="227,70,305,28,308,33,230,75"/>
 <area shape="rect" id="Node000003" href="$d3/d70/Buttons_8h.html" title="Gestion des boutons et curseurs pour l&#39;application." alt="" coords="121,152,255,177"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="182,118,184,152,178,152,177,118"/>
 <area shape="rect" id="Node000005" href="$d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="339,152,507,177"/>

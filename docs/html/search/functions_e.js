@@ -11,6 +11,6 @@ var searchData=
   ['startbattleturn_8',['startbattleturn',['../d5/d81/GameEngine_8c.html#adabbbc541f65101aca7e21be011712ae',1,'startBattleTurn(int moveRouge, int moveBleu):&#160;GameEngine.c'],['../d7/d1f/GameEngine_8h.html#adabbbc541f65101aca7e21be011712ae',1,'startBattleTurn(int moveRouge, int moveBleu):&#160;GameEngine.c']]],
   ['startnpcbattle_9',['startNPCBattle',['../d4/d62/NPC_8h.html#acf2059eeff1393caaa6af3ad04e013aa',1,'NPC.h']]],
   ['statvarchange_10',['statvarchange',['../d1/d18/duel_8c.html#a135734ce30fed1100fd7e060f672f018',1,'statVarChange(t_Team *target, int probability, int modifier, int targetedStat):&#160;duel.c'],['../d6/d8e/duel_8h.html#a135734ce30fed1100fd7e060f672f018',1,'statVarChange(t_Team *target, int probability, int modifier, int targetedStat):&#160;duel.c']]],
-  ['stayscaled_11',['StayScaled',['../dc/dae/Text_8c.html#a9f75714d36cb1868d83e9c7b7914ad07',1,'Text.c']]],
+  ['stayscaled_11',['stayscaled',['../dc/dae/Text_8c.html#a892f92e6aa8390e303f3c03acd1a9068',1,'StayScaled(TTF_Font *font, Text *text, SDL_Rect *rect, SDL_Rect *initialRect):&#160;Text.c'],['../d6/d35/Text_8h.html#a892f92e6aa8390e303f3c03acd1a9068',1,'StayScaled(TTF_Font *font, Text *text, SDL_Rect *rect, SDL_Rect *initialRect):&#160;Text.c']]],
   ['swapactualattacker_12',['swapactualattacker',['../d1/d18/duel_8c.html#a785cf59b04b080c32b51ca8300b62507',1,'swapActualAttacker(t_Team *t, int swapIndex):&#160;duel.c'],['../d6/d8e/duel_8h.html#ad567a4aec068790f989fb9ef909fcebb',1,'swapActualAttacker(t_Team *target, int swapIndex):&#160;duel.c']]]
 ];

@@ -1,0 +1,11 @@
+<map id="include/Images.h" name="include/Images.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="117,5,251,31"/>
+<area shape="rect" id="Node000002" href="$d6/d35/Text_8h.html" title="Définition et gestion des éléments de texte." alt="" coords="153,79,215,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,31,187,65,181,65,181,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,101,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="164,106,88,148,85,143,162,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="125,152,243,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="187,104,187,138,181,138,181,104"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="266,152,337,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="204,102,272,142,269,147,201,106"/>
+</map>

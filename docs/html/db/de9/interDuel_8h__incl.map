@@ -1,6 +1,6 @@
 <map id="include/interDuel.h" name="include/interDuel.h">
 <area shape="rect" id="Node000001" title="Définition et gestion des combats entre équipes." alt="" coords="233,5,378,31"/>
-<area shape="rect" id="Node000002" href="$d6/d8e/duel_8h.html" title="Gestion des duels dans le style de &quot;Pokémon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="274,79,337,104"/>
+<area shape="rect" id="Node000002" href="$d6/d8e/duel_8h.html" title="Gestion des duels dans le style de &quot;ICmon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="274,79,337,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="301,31,299,65,294,65,296,31"/>
 <area shape="poly" id="edge14_Node000002_Node000001" title=" " alt="" coords="310,78,311,44,317,45,315,79"/>
 <area shape="rect" id="Node000003" href="$da/d71/structPoke_8h.html" title=" " alt="" coords="82,152,185,177"/>

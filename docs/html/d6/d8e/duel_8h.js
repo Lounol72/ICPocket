@@ -45,10 +45,13 @@ var duel_8h =
     [ "testSwitch", "d6/d8e/duel_8h.html#aae3304431eebf95aac22ed64a644d398", null ],
     [ "bleu", "d6/d8e/duel_8h.html#a2318bae80db59839bf744d39a02a2931", null ],
     [ "confusedMove", "d6/d8e/duel_8h.html#acde9cb2f6b18119fde97bf6be55639c9", null ],
+    [ "criticalHitFlag", "d6/d8e/duel_8h.html#a4b371174b1f62280fea832cc220b820f", null ],
     [ "lvl_up_buffer", "d6/d8e/duel_8h.html#a4793ece8efa3c418cf46daa244e783c7", null ],
     [ "lvl_up_buffer_size", "d6/d8e/duel_8h.html#a5fa7c71ee69bf53efd73ff3978602ab6", null ],
+    [ "moveEffectivenessFlag", "d6/d8e/duel_8h.html#acd6675ea59f1fb16c1674a87fce6a718", null ],
     [ "rouge", "d6/d8e/duel_8h.html#a549b747fa4f6f9c153b959c84c2d5ffa", null ],
     [ "SecEffectTab", "d6/d8e/duel_8h.html#adc50e7669e9a8b080c36aff121cf7836", null ],
+    [ "secondaryEffectHappenedFlag", "d6/d8e/duel_8h.html#a12c2547ce5a06c4ac79b5e0066f8f8e4", null ],
     [ "statVariations", "d6/d8e/duel_8h.html#affbbdc8741a394a968366d77c640f1ff", null ],
     [ "struggle", "d6/d8e/duel_8h.html#a69f8229a1c94eb0a11e091d8b54570f3", null ]
 ];

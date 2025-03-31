@@ -1,6 +1,6 @@
 <map id="include/save.h" name="include/save.h">
 <area shape="rect" id="Node000001" title="Save the player&#39;s data in a file." alt="" coords="716,5,832,31"/>
-<area shape="rect" id="Node000002" href="$d6/d8e/duel_8h.html" title="Gestion des duels dans le style de &quot;Pokémon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="717,79,831,104"/>
+<area shape="rect" id="Node000002" href="$d6/d8e/duel_8h.html" title="Gestion des duels dans le style de &quot;ICmon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="717,79,831,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="768,44,770,78,764,79,763,45"/>
 <area shape="rect" id="Node000022" href="$df/dcf/save_8c.html" title=" " alt="" coords="855,79,941,104"/>
 <area shape="poly" id="edge28_Node000001_Node000022" title=" " alt="" coords="807,35,879,76,876,81,804,40"/>

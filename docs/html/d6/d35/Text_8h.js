@@ -16,6 +16,7 @@ var Text_8h =
     [ "renderText", "d6/d35/Text_8h.html#aa3e6ed3d92366b3bd8523a5d991cfb49", null ],
     [ "resetScrollingText", "d6/d35/Text_8h.html#a0a8e528a34a830bd97a8f89252c02d91", null ],
     [ "skipScrollingText", "d6/d35/Text_8h.html#a0bc289fcd1d02a1ab742f93c882b5370", null ],
+    [ "StayScaled", "d6/d35/Text_8h.html#a892f92e6aa8390e303f3c03acd1a9068", null ],
     [ "updateScrollingText", "d6/d35/Text_8h.html#a70b0c8ad2591d026ed13498d2f5b51e5", null ],
     [ "updateText", "d6/d35/Text_8h.html#aa873f47f05aa894283bed1c93b836b09", null ],
     [ "updateTextPosition", "d6/d35/Text_8h.html#a015ae8ec886baef9970798a86f682b27", null ],

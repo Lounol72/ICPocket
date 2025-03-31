@@ -1,6 +1,6 @@
 <map id="include/trainerAI.h" name="include/trainerAI.h">
 <area shape="rect" id="Node000001" title=" " alt="" coords="678,5,819,31"/>
-<area shape="rect" id="Node000002" href="$d6/d8e/duel_8h.html" title="Gestion des duels dans le style de &quot;Pokémon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="692,79,805,104"/>
+<area shape="rect" id="Node000002" href="$d6/d8e/duel_8h.html" title="Gestion des duels dans le style de &quot;ICmon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="692,79,805,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="743,44,744,78,739,79,737,45"/>
 <area shape="rect" id="Node000022" href="$de/d53/trainerAI_8c.html" title=" " alt="" coords="830,79,942,104"/>
 <area shape="poly" id="edge28_Node000001_Node000022" title=" " alt="" coords="784,34,865,76,862,81,781,39"/>
