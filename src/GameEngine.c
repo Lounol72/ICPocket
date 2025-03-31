@@ -586,18 +586,15 @@ void mainLoop(Window *win) {
     
     while (!win->quit) {
         frameStart = SDL_GetTicks();
-        
         while (SDL_PollEvent(&event)) game.stateHandlers[win->state].handleEvent(win, &event);
         if (game.gameState.currentState == MAP) renderMap(win);
         else {
             SDL_RenderClear(win->renderer);
             render(win);
             updateCurrentButton();
-            if (game.battleState.turnState != TURN_NONE) updateBattleTurn();
+            if (game.battleState.turnState != TURN_NONE && game.scrollingTextIntro->isComplete && game.gameState.currentState == GAME) updateBattleTurn();
+            if (game.gameState.currentState == GAME) { if (!game.scrollingTextIntro->isComplete) {updateScrollingText(game.scrollingTextIntro, win->renderer);renderScrollingText(game.scrollingTextIntro, game.win->renderer);}}
             SDL_RenderPresent(win->renderer);
-        }
-        while (SDL_PollEvent(&event)) {
-            game.stateHandlers[win->state].handleEvent(win, &event);
         }
 
         game.deltaTime = (SDL_GetTicks() - frameStart) / 1000.0f;
@@ -608,6 +605,7 @@ void mainLoop(Window *win) {
     cleanupThreads(&game);
     cleanupResources(win, controller);
 }
+
 
 //---------------------------------------------------------------------------------
 /* Fonctions de gestion et d'initialisation des boutons et sliders */
@@ -1098,10 +1096,6 @@ void updateMusic() {
         case GAME:
         case ICMONS:
             desiredMusic = game.gameState.music;
-            break;
-        case MAP:
-        case INTER:
-            desiredMusic = game.gameState.music_inter;
             break;
         default:
             desiredMusic = NULL;

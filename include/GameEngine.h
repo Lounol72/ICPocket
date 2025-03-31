@@ -125,6 +125,7 @@ typedef struct Game {
     int startersIndex;
     Image **touche;
     ScrollingText *scrollingTextIntro;
+    
 } Game;
 
 #include "Game.h"

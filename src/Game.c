@@ -89,11 +89,12 @@ void initGame(Window *win) {
     loadBackground(&game.ui[11].background,win->renderer, "assets/Battle Backgrounds/Other/zoonami_battle_backpack_background.png");
     loadBackground(&game.ui[12].background,win->renderer, "assets/Title Screen/starters.png");
     loadBackground(&game.ui[13].background,win->renderer, "assets/Title Screen/pokedex.png");
+    game.scrollingTextIntro = NULL;
 
     /* Initialisation de l'audio et chargement de la musique */
     initAudio();
     loadMusic(&game.gameState.music, "assets/audio/Battle.mp3");
-    loadMusic(&game.gameState.music_inter, "assets/audio/Ciel.mp3");
+    game.gameState.music_inter = NULL;
 
     /* Initialisation de la carte et de la caméra */
     int spawnX, spawnY;
@@ -176,7 +177,10 @@ void loadPhrase(void){
     
     fscanf(file, "%d,%[^\n]\n",&(game.battleState.bleu.id), temp);
     fclose(file);
-    printf("id : %d\nphrase : %s fin\n", game.battleState.bleu.id, temp);
+    if (game.scrollingTextIntro != NULL) {
+        destroyScrollingText(game.scrollingTextIntro);
+        game.scrollingTextIntro = NULL;
+    }
     game.scrollingTextIntro = createScrollingText(
                     temp,
                     game.win->LargeFont,
@@ -199,12 +203,6 @@ void destroyGame() {
         game.gameState.music = NULL;
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Musique libérée");
     }
-    if (game.gameState.music_inter) {
-        Mix_FreeMusic(game.gameState.music_inter);
-        game.gameState.music_inter = NULL;
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Musique inter libérée");
-    }
-
     if (game.touche != NULL){
         for (int i = 0; i < 3; i++) {
             destroyImage(game.touche[i]);
@@ -332,7 +330,7 @@ void destroyGame() {
         destroyScrollingText(game.battleState.text);
         game.battleState.text = NULL;
     }
-    if (game.scrollingTextIntro){
+    if (game.scrollingTextIntro != NULL){
         destroyScrollingText(game.scrollingTextIntro);
         game.scrollingTextIntro = NULL;
     }
