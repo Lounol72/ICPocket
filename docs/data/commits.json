@@ -1,5 +1,45 @@
 [
   {
+    "sha": "485d8706",
+    "message": "📚 Documentation update 2025-03-31",
+    "date": "2025-03-31T22:10:01Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/485d87064ebd52be779a645ca0403effb2c94cec"
+  },
+  {
+    "sha": "73b3b434",
+    "message": "📊 Update CSS styles and improve game text handling",
+    "date": "2025-03-31T21:49:29Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/73b3b434cd0b327a450593a64670510850e809aa"
+  },
+  {
+    "sha": "6aee0345",
+    "message": "📊 Update game data and improve event handling",
+    "date": "2025-03-31T21:14:56Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/6aee03451f37c20d38c36467a5a038eb05ad42b4"
+  },
+  {
+    "sha": "db3382fc",
+    "message": "📊 Update GitHub data",
+    "date": "2025-03-31T18:24:16Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/db3382fc4b43babef026afa6f474e2a272916c0e"
+  },
+  {
     "sha": "5d19bac4",
     "message": "📊 Update GitHub data",
     "date": "2025-03-31T12:34:54Z",
@@ -258,45 +298,5 @@
       "username": "github-actions[bot]"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/ebb723d26bbd17f894bc535830c4a6c552faacdb"
-  },
-  {
-    "sha": "e0c29add",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-25T01:19:46Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/e0c29add77f47ddc2b441dacb7613f452b0909b7"
-  },
-  {
-    "sha": "8f89fa27",
-    "message": "📚 Documentation update 2025-03-24",
-    "date": "2025-03-24T22:08:12Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/8f89fa27abe2bad709e458a996f3af59969a0cec"
-  },
-  {
-    "sha": "5a164644",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-24T18:24:38Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/5a164644ee8e6921b10fcabc4aa9fe924dcb1399"
-  },
-  {
-    "sha": "d3c757a1",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-24T12:35:21Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/d3c757a12992c2754d35d55f175c96ee167bce6a"
   }
 ]
