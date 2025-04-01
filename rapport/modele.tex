@@ -167,11 +167,33 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
 \subsection{Gestions des ICMons}
     \subsubsection{structures de données}
     \subsubsection{systèmes de combats}
-
+\newpage
 \subsection{Gestion des bases de données}
-    \subsubsection{sauvegarde}
+    \subsubsection{sauvegardes}
+    Dans un jeu vidéo, la gestion des données est primordiale, il faut que le joueur puisse sauvegarder sa progression et la reprendre ultérieurement sans perte d'informations.
+     Pour cela, nous avons utilisé un fichier de sauvegarde au format CSV, contenant toutes les informations nécessaires au joueur et au bon déroulement de la partie. 
+     Ces fichiers contiennent une liste de tous les ICmons du joueur, ainsi que leurs caractéristiques : points de vie, attaques, défenses, etc.
+     Si un fichier de sauvegarde est invalide, c'est-à-dire inexistant, corrompu, vide ou contenant un mauvais format, une nouvelle partie se lance et un nouveau fichier de sauvegarde est créé. 
+     \begin{figure}[h!]
+        \centering
+        \begin{minipage}[t]{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{menuicmonp.png}
+            \caption{Menu principal du jeu ICPocket}
+            \label{fig:menuicmonp}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[t]{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{menuload.png}
+            \caption{Menu de chargement du jeu ICPocket}
+            \label{fig:menuload}
+        \end{minipage}
+    \end{figure}
+    Dans le code, les fonctions de sauvegarde et de chargement se situent dans le fichier \texttt{save.c}. La fonction \texttt{sauvegarder} prend comme paramètres des structures d'équipes , respectivements celui du joueur et celui de l'adversaire,
+    et cherche le fichier correspondant au numéro du bouton de sauvegarde appuyé. Ensuite , grave seulement les numéros d'identification des ICMons et leurs niveaux,nature,leurs IV ,nombre et types d'attaques.
     \subsubsection{base de données des icmons}
-
+\newpage
 \subsection{Gestion de la map}
     \subsubsection{chargement de la map}
     \subsubsection{caméra}
