@@ -1,4 +1,5 @@
 #include "../include/save.h"
+#include "../include/Game.h"
 /**
 *   @brief Fonction de sauvegarde
 *   @param nomSave Nom de sauvegarde
@@ -23,7 +24,8 @@ void sauvegarder(t_Team * joueur,t_Team * adverse){
             for(int j = 0 ; j < joueur->team[i].nb_move ; j++)fprintf(fichier, "%d;", joueur->team[i].moveList[j].id);
             fprintf(fichier,"\n");
         }
-        
+        fprintf(fichier, "%d;",joueur->nb_enemiBeat);
+        fprintf(fichier, "%d;",game.speed);
         fprintf(fichier, "%s;%d;", adverse->trainerName, adverse->id);
         fprintf(fichier,"%d\n",joueur->id_save);
         fprintf(fichier,"check:1;");
@@ -95,6 +97,8 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur){
 		    }
             fscanf(fichier, "\n");
         }
+        fprintf(fichier, "%d;",&(joueur->nb_enemiBeat));
+        fscanf(fichier, "%d;",&game.speed);
         fscanf(fichier, "%[^\n];%d;", dresseur->trainerName, &(dresseur->id));
         fscanf(fichier,"%d\n",&(joueur->id_save));
         char check[10];
@@ -117,6 +121,20 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur){
     }
 }
 
+void saveDestroy(t_Team * joueur, t_Team *dresseur){
+    char nomFichier[1024];
+
+    snprintf(nomFichier, sizeof(nomFichier), "data/save/Save_%d.txt", joueur->id_save);
+    FILE *fichier = fopen(nomFichier, "w+");
+    if(fichier == NULL){
+        printf("Erreur : impossible d'ouvrir le fichier.\n");
+        exit(1);
+    } else {
+        fprintf(fichier,"Gros loseur\n");
+        sauvegarder(joueur,dresseur);
+        fclose(fichier);
+    }
+}
 /**
 *   @brief Fonction qui sauvegarde le nom de la sauvegarde
 *   @param joueur struct joueur

@@ -478,7 +478,8 @@ void loadFile(Window *win, void *event){
         snprintf(data,50,"%s",(char*)event);
         printf("data %s\n",data);
         if((charger(data, &game.battleState.rouge, &game.battleState.bleu))==-1){
-            initStarters(win, event);
+            initTeam(&game.battleState.rouge, 3);
+            nextDuel(game.win, NULL);
             return;
         }
 
@@ -493,7 +494,7 @@ void loadFile(Window *win, void *event){
         updateICButtons(win, &game.battleState.rouge);
         
         game.gameState.initialized = 1;
-        changeState(win, &game.stateHandlers[GAME].state);
+        changeState(win, &game.stateHandlers[LOADGAME].state);
         handleEvent(win, event);
 
     }
