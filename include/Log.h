@@ -14,7 +14,6 @@
  * @fn void LogToFile(void *userdata, int category, SDL_LogPriority priority, const char *message)
  * @brief cette fonction permet d'écrire les logs dans un fichier
  * 
-/**
  * @param userdata Un pointeur vers des données définies par l'utilisateur qui peuvent être passées à la fonction.
  *                 Ce paramètre permet à l'utilisateur de fournir un contexte ou des informations supplémentaires
  *                 dont la fonction pourrait avoir besoin pendant son exécution.
