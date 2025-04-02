@@ -561,6 +561,16 @@ void nextDuel(Window *win, void *data) {
     }
     loadPhrase();
     
+    // Changer la musique si conseil 4
+    if(game.battleState.rouge.nb_enemiBeat>=15){
+        if (game.gameState.music) {
+            Mix_FreeMusic(game.gameState.music);
+            game.gameState.music = NULL;
+            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Musique libérée");
+        }
+        loadMusic(&game.gameState.music, "assets/audio/conseil_4.mp3");
+    }
+    
     // Changer d'état
     changeState(win, &game.stateHandlers[GAME].state);
 }
