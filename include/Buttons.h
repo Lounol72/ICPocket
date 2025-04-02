@@ -97,6 +97,8 @@ typedef struct SliderList {
 } SliderList;
 
 /**
+ * @fn Button *createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SDL_Color textcolor,
+ *                         void (*onClick)(Window *win, void *data), void *data, TTF_Font *font, const char *imagePath)
  * @brief Crée et retourne un nouvel objet Button.
  *
  * @param text Le texte affiché sur le bouton.
@@ -115,6 +117,7 @@ Button *createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SD
                      const char *imagePath);
 
 /**
+ * @fn void addListButton(ButtonList *list, Button **buttons, int count)
  * @brief Ajoute une liste de boutons à la liste de boutons.
  *
  * @param list Pointeur vers la structure qui accumule les états des boutons.
@@ -124,6 +127,7 @@ Button *createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SD
 void addListButton(ButtonList *list, Button **buttons, int count);
 
 /**
+ * @fn void destroyButtonList(ButtonList *list)
  * @brief Détruit la liste de boutons.
  *
  * @param list Pointeur vers la liste de boutons à détruire.
@@ -131,6 +135,7 @@ void addListButton(ButtonList *list, Button **buttons, int count);
 void destroyButtonList(ButtonList *list);
 
 /**
+ * @fn void renderButtonList(ButtonList *B)
  * @brief Rend la liste de boutons.
  *
  * @param B Pointeur vers la liste de boutons à rendre.
@@ -138,6 +143,7 @@ void destroyButtonList(ButtonList *list);
 void renderButtonList(ButtonList *B);
 
 /**
+ * @fn void ButtonClicked(Button *button, int mouseX, int mouseY, Window *win)
  * @brief Gère l'interaction avec le bouton en fonction de la position actuelle de la souris et du contexte de la fenêtre.
  *
  * @param button Pointeur vers le bouton avec lequel interagir.
@@ -149,6 +155,7 @@ void renderButtonList(ButtonList *B);
 void ButtonClicked(Button *button, int mouseX, int mouseY, Window *win);
 
 /**
+ * @fn uptadeButtonPosition(ButtonList *buttons, float Scalex, float Scaley)
  * @brief Met à jour les états des boutons et applique des facteurs de mise à l'échelle aux éléments de l'interface utilisateur.
  *
  * @param buttons Structure ou collection représentant les boutons à gérer ou à mettre à jour.
@@ -158,6 +165,7 @@ void ButtonClicked(Button *button, int mouseX, int mouseY, Window *win);
 void updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley);
 
 /**
+ * @fn void setButtonText(Button *button, const char *text, SDL_Renderer *renderer)
  * @brief Définit le texte d'un bouton.
  *
  * @param button Le bouton à modifier.
@@ -167,6 +175,8 @@ void updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley);
 void setButtonText(Button *button, const char *text, SDL_Renderer *renderer);
 
 /**
+ * @fn Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Color color,
+ *                         SDL_Color cursorColor)
  * @brief Crée un objet Slider.
  *
  * Cette fonction initialise un nouvel objet Slider avec les paramètres spécifiés.
@@ -184,6 +194,7 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
                      SDL_Color cursorColor);
 
 /**
+ * @fn void DragCursor(Slider *slider, int mouseX)
  * @brief Déplace le curseur du slider en fonction de la coordonnée X de la souris.
  *
  * @param slider Pointeur vers l'objet slider à mettre à jour.
@@ -192,6 +203,7 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
 void DragCursor(Slider *slider, int mouseX);
 
 /**
+ * @fn void renderSlider(Slider *slider)
  * @brief Rend un curseur.
  *
  * @param slider Pointeur vers le curseur à rendre.
@@ -199,6 +211,7 @@ void DragCursor(Slider *slider, int mouseX);
 void renderSlider(Slider *slider);
 
 /**
+ * @fn void destroySlider(Slider *slider)
  * @brief Détruit un curseur.
  *
  * @param slider Pointeur vers le curseur à détruire.
@@ -206,6 +219,7 @@ void renderSlider(Slider *slider);
 void destroySlider(Slider *slider);
 
 /**
+ * @fn void destroySliderList(SliderList *list)
  * @brief Détruit la liste de curseurs.
  *
  * @param list Pointeur vers la liste de curseurs à détruire.
@@ -213,6 +227,7 @@ void destroySlider(Slider *slider);
 void destroySliderList(SliderList *list);
 
 /**
+ * @fn void addListSlider(SliderList *S, Slider *sliders[], int size)
  * @brief Ajoute une liste de curseurs à la liste de curseurs.
  *
  * @param S Pointeur vers la structure contenant les curseurs à ajouter.
@@ -222,6 +237,7 @@ void destroySliderList(SliderList *list);
 void addListSlider(SliderList *S, Slider *sliders[], int size);
 
 /**
+ * @fn void renderSliderList(SliderList *S)
  * @brief Rend la liste de curseurs.
  *
  * @param S Pointeur vers la liste de curseurs à rendre.
@@ -229,6 +245,7 @@ void addListSlider(SliderList *S, Slider *sliders[], int size);
 void renderSliderList(SliderList *S);
 
 /**
+ * @fn int handleSliderEvent(Slider *slider, SDL_Event *event)
  * @brief Gère l'événement de curseur.
  *
  * Cette fonction traite l'événement de curseur en fonction du curseur et des coordonnées donnés.
@@ -240,6 +257,7 @@ void renderSliderList(SliderList *S);
 int handleSliderEvent(Slider *slider, SDL_Event *event);
 
 /**
+ * @fn void updateSliderPosition(SliderList *sliders, float Scalex, float Scaley)
  * @brief Met à jour la position des curseurs en fonction des coordonnées X et Y de la souris.
  *
  * @param sliders Pointeur vers la structure contenant les curseurs à mettre à jour.

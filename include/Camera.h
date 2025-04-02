@@ -35,6 +35,7 @@ typedef struct {
 } Camera;
 
 /**
+ * @fn Camera* createCamera(int windowWidth, int windowHeight)
  * @brief Crée une nouvelle instance de caméra.
  * 
  * Initialise une nouvelle caméra avec les dimensions de fenêtre spécifiées.
@@ -46,6 +47,7 @@ typedef struct {
 Camera* createCamera(int windowWidth, int windowHeight);
 
 /**
+ * @fn void updateCamera(Camera* camera, int playerX, int playerY, float deltaTime)
  * @brief Met à jour la position de la caméra.
  * 
  * Actualise la position de la caméra en fonction de la position du joueur
@@ -59,6 +61,7 @@ Camera* createCamera(int windowWidth, int windowHeight);
 void updateCamera(Camera* camera, int playerX, int playerY, float deltaTime);
 
 /**
+ * @fn SDL_Rect getWorldToScreenRect(Camera* camera, SDL_Rect worldRect);
  * @brief Convertit les coordonnées du monde en coordonnées écran.
  * 
  * Transforme un rectangle dans les coordonnées du monde en coordonnées écran
@@ -71,6 +74,7 @@ void updateCamera(Camera* camera, int playerX, int playerY, float deltaTime);
 SDL_Rect getWorldToScreenRect(Camera* camera, SDL_Rect worldRect);
 
 /**
+ * @fn void updateCameraViewport(Camera* camera, int windowWidth, int windowHeight);
  * @brief Met à jour la taille de la zone visible de la caméra.
  * 
  * Actualise la taille de la zone visible de la caméra en fonction des dimensions de la fenêtre.
@@ -82,6 +86,7 @@ SDL_Rect getWorldToScreenRect(Camera* camera, SDL_Rect worldRect);
 void updateCameraViewport(Camera* camera, int windowWidth, int windowHeight);
 
 /**
+ * @fn void destroyCamera(Camera* camera);
  * @brief Libère les ressources utilisées par la caméra.
  * 
  * Détruit l'instance de la caméra et libère la mémoire associée.

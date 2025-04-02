@@ -46,6 +46,7 @@ typedef struct ThreadManager {
 } ThreadManager;
 
 /**
+ * @fn void initThreadManager(struct Game* game)
  * @brief Initialise le gestionnaire de threads
  * 
  * @param game Pointeur vers la structure Game
@@ -55,6 +56,7 @@ typedef struct ThreadManager {
 void initThreadManager(struct Game* game);
 
 /**
+ * @fn void cleanupThreads(struct Game* game)
  * @brief Nettoie et termine les threads
  * 
  * Cette fonction arrête tous les threads en cours d'exécution, attend leur terminaison
@@ -65,6 +67,7 @@ void initThreadManager(struct Game* game);
 void cleanupThreads(struct Game* game);
 
 /**
+ * @fn void* audioThreadFunction(void* arg)
  * @brief Fonction du thread audio
  * 
  * Cette fonction est exécutée par le thread audio. Elle gère le traitement audio
@@ -76,6 +79,7 @@ void cleanupThreads(struct Game* game);
 void* audioThreadFunction(void* arg);
 
 /**
+ * @fn void* physicsThreadFunction(void* arg)
  * @brief Fonction du thread de physique
  * 
  * Cette fonction est exécutée par le thread de physique. Elle gère les calculs physiques
@@ -87,6 +91,7 @@ void* audioThreadFunction(void* arg);
 void* physicsThreadFunction(void* arg);
 
 /**
+ * @fn void* renderThreadFunction(void* arg)
  * @brief Fonction du thread de rendu
  * 
  * Cette fonction est exécutée par le thread de rendu. Elle gère le rendu graphique
