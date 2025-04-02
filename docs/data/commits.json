@@ -1,5 +1,15 @@
 [
   {
+    "sha": "0fa2c37a",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-02T12:35:19Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/0fa2c37a2c77ba1b274ad0ae8b1564441dd7e85f"
+  },
+  {
     "sha": "0036a7f4",
     "message": "Merge pull request #43 from Lounol72/41-swapping-gamestate-is-pure-chaos",
     "date": "2025-04-02T09:32:03Z",
@@ -288,15 +298,5 @@
       "username": "lOkaal1"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/199db67c7f950785a7394ca6aca5c9fd93f593be"
-  },
-  {
-    "sha": "79754215",
-    "message": "Move pull finish",
-    "date": "2025-03-28T14:10:11Z",
-    "author": {
-      "name": "lOkaal1",
-      "username": "lOkaal1"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/797542153c138e7a264a4058e7c4da41a1ba52ed"
   }
 ]
