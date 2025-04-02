@@ -119,10 +119,11 @@ typedef struct Game {
     ThreadManager threadManager; /**< Gestionnaire de threads. */
     SDL_Surface *cursor;       /**< Surface du curseur. */
     SDL_Surface *cursor_hover; /**< Surface du curseur au survol. */
-    int swappingIndex[2];
-    Text * windowText;
-    t_Poke starters[4];
-    int startersIndex;
+    int swappingIndex[2];       /**< Indices des ICMons cible de l'échange */
+    int hasExchanged;           /**< Booleen "si echange disponible" */
+    Text * windowText;          /**< Conteneur de texte pour une fenêtre quelconque*/
+    t_Poke starters[4];         /**< Les quatres ICMon disponibles au début du jeu */
+    int startersIndex;          /**< Indice du starter choisi*/
     Image **touche;
     ScrollingText *scrollingTextIntro;
     
