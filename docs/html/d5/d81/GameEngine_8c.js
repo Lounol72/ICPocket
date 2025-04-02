@@ -9,7 +9,7 @@ var GameEngine_8c =
     [ "destroyResume", "d5/d81/GameEngine_8c.html#a6463b9064f9e10f6685b361b0af24944", null ],
     [ "executeAction", "d5/d81/GameEngine_8c.html#a0f30ad9309996b75a4472a6235a17bd1", null ],
     [ "finishApplyEffectDamage", "d5/d81/GameEngine_8c.html#a92fe84f3bff1d7d0ea2beffea618654a", null ],
-    [ "gameStateTimerValidate", "d5/d81/GameEngine_8c.html#a63804dcfee5d0830acb8770e63014b70", null ],
+    [ "gameStateTimerValidate", "d5/d81/GameEngine_8c.html#a5b072d1be486826df07a6a3054b1ff1a", null ],
     [ "initAllButtons", "d5/d81/GameEngine_8c.html#adf02be418d9f561d2656d81cea9651f0", null ],
     [ "initializeController", "d5/d81/GameEngine_8c.html#a02c5658a2f8840fb7110336de48f74e2", null ],
     [ "initLearningMove", "d5/d81/GameEngine_8c.html#a9669132b31ee4c108472d7f46c3b3499", null ],
