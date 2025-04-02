@@ -258,7 +258,7 @@ void initBlueTeam(t_Team *t,t_Team *joueur) {
     } else {
         char buffer[256];
 		//nombre random entre 1 et 8
-		int id = 1+2*joueur->nb_enemiBeat+rand()%2;
+		int id = 2*joueur->nb_enemiBeat+rand()%2+1;
         for (int i = 1; i < id; i++) {
             if (fgets(buffer, sizeof(buffer), fichierTrainer) == NULL) {
                 printf("Erreur : ligne %d introuvable dans le fichier.\n", id);
