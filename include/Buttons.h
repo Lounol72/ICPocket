@@ -194,7 +194,7 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
                      SDL_Color cursorColor);
 
 /**
- * @fn void DragCursor(Slider *slider, int mouseX)
+ * @fn void DragCursor(Slider *slider, int mouseX) #feature
  * @brief Déplace le curseur du slider en fonction de la coordonnée X de la souris.
  *
  * @param slider Pointeur vers l'objet slider à mettre à jour.
