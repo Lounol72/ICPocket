@@ -49,6 +49,11 @@ int initTeamSprites(Window *win, t_Team *teamSprite, float x_ratio, float y_rati
                 "❌ Failed to initialize sprite for %s team pokemon %d", (teamFlag == 0 ? "red" : "blue"), i);
             return -1;
         }
+        
+        // Start entrance animation only for the first Pokemon of each team
+        if (i == 0) {
+            startICMonEntranceAnimation(poke);
+        }
     }
     return 0;
 }
