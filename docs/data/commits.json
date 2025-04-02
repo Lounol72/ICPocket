@@ -1,5 +1,95 @@
 [
   {
+    "sha": "0036a7f4",
+    "message": "Merge pull request #43 from Lounol72/41-swapping-gamestate-is-pure-chaos",
+    "date": "2025-04-02T09:32:03Z",
+    "author": {
+      "name": "Natp24109",
+      "username": "Natp24109"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/0036a7f43cc8d7d9ad5a5ea324b8051b272e57f4"
+  },
+  {
+    "sha": "38c2f09c",
+    "message": "undo button change that prevented going into the map",
+    "date": "2025-04-02T09:25:09Z",
+    "author": {
+      "name": "Natp24109",
+      "username": "Natp24109"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/38c2f09c1581be5cb45e41a735b518574a1d2593"
+  },
+  {
+    "sha": "a71a427c",
+    "message": "removed debug printf",
+    "date": "2025-04-02T09:12:20Z",
+    "author": {
+      "name": "Natp24109",
+      "username": "Natp24109"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/a71a427c11e522db884f1a2563a9048b4d72213f"
+  },
+  {
+    "sha": "f3e8747c",
+    "message": "fixed chaos with swapping State + wrong trainer being loaded",
+    "date": "2025-04-02T09:11:03Z",
+    "author": {
+      "name": "Natp24109",
+      "username": "Natp24109"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/f3e8747cfed25750f4dcd3a0e238f0bdf4c51576"
+  },
+  {
+    "sha": "f96aeb21",
+    "message": "Merge pull request #39 from Lounol72/37-elite-4-music",
+    "date": "2025-04-02T08:04:21Z",
+    "author": {
+      "name": "Natp24109",
+      "username": "Natp24109"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/f96aeb2180c64f9966992bc371cbbe0d31d0c99a"
+  },
+  {
+    "sha": "fbb21344",
+    "message": "modified music during Elite 4",
+    "date": "2025-04-02T07:55:33Z",
+    "author": {
+      "name": "Natp24109",
+      "username": "Natp24109"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/fbb2134488aca2923a0648c9b74fcaf2c58eb39e"
+  },
+  {
+    "sha": "96e829ad",
+    "message": "Fix duplicate entry for Mme.Py in dataTrainer.csv",
+    "date": "2025-04-02T07:47:50Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/96e829adab0f19ac5869814f7459865e5774d4ba"
+  },
+  {
+    "sha": "7ab91c3f",
+    "message": "Merge branch '17-Fix-load-map'",
+    "date": "2025-04-02T07:47:40Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/7ab91c3f8f365c46086bf35df12998b4757be1f2"
+  },
+  {
+    "sha": "9517c347",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-02T06:24:48Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/9517c3470789db271e5e34dee1c5884a8ec11dea"
+  },
+  {
     "sha": "9eb3243f",
     "message": "📊 Update GitHub data",
     "date": "2025-04-02T01:20:56Z",
@@ -140,6 +230,16 @@
     "url": "https://github.com/Lounol72/ICPocket/commit/a783a32ae482bd4a2d835b237b97f4dfbde03e1d"
   },
   {
+    "sha": "468c7440",
+    "message": "Commit sans ms",
+    "date": "2025-03-29T08:09:49Z",
+    "author": {
+      "name": "lOkaal11",
+      "username": "lOkaal1"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/468c744050df389dfdea272639e5a6d4ed7d743e"
+  },
+  {
     "sha": "3736a871",
     "message": "📊 Update GitHub data",
     "date": "2025-03-28T18:23:36Z",
@@ -150,153 +250,53 @@
     "url": "https://github.com/Lounol72/ICPocket/commit/3736a871f55d2fd294779a00847ebd8574acad7c"
   },
   {
-    "sha": "da60c74c",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-28T12:33:37Z",
+    "sha": "50508b5d",
+    "message": "deleted unwanted function",
+    "date": "2025-03-28T17:10:44Z",
     "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
+      "name": "lOkaal11",
+      "username": "lOkaal1"
     },
-    "url": "https://github.com/Lounol72/ICPocket/commit/da60c74c925d3939a139e24f1f750da16359bb5f"
+    "url": "https://github.com/Lounol72/ICPocket/commit/50508b5d97cdc14e4d56e7d8d4cd79d41d688554"
   },
   {
-    "sha": "252d11ca",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-28T06:24:29Z",
+    "sha": "169caa49",
+    "message": "Save fix",
+    "date": "2025-03-28T17:00:19Z",
     "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
+      "name": "lOkaal11",
+      "username": "lOkaal1"
     },
-    "url": "https://github.com/Lounol72/ICPocket/commit/252d11ca300db877b2a9446ba3c0772e37c2bf22"
+    "url": "https://github.com/Lounol72/ICPocket/commit/169caa492baef8b8c7d7efa2403cdf9dc2effd58"
   },
   {
-    "sha": "c14ecff1",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-28T01:19:05Z",
+    "sha": "0d8eb062",
+    "message": "merge",
+    "date": "2025-03-28T15:32:05Z",
     "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
+      "name": "lOkaal11",
+      "username": "lOkaal1"
     },
-    "url": "https://github.com/Lounol72/ICPocket/commit/c14ecff13f6c312b16bf373c0b7473fb5bbf1123"
+    "url": "https://github.com/Lounol72/ICPocket/commit/0d8eb0624a50e62f57af26e0865405824605bd1e"
   },
   {
-    "sha": "63d89bfe",
-    "message": "📚 Documentation update 2025-03-27",
-    "date": "2025-03-27T22:08:27Z",
+    "sha": "199db67c",
+    "message": "merge fix",
+    "date": "2025-03-28T15:27:36Z",
     "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
+      "name": "lOkaal11",
+      "username": "lOkaal1"
     },
-    "url": "https://github.com/Lounol72/ICPocket/commit/63d89bfefb08f78cabb38d68cfd22c24847d8250"
+    "url": "https://github.com/Lounol72/ICPocket/commit/199db67c7f950785a7394ca6aca5c9fd93f593be"
   },
   {
-    "sha": "98f959f0",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-27T18:23:45Z",
+    "sha": "79754215",
+    "message": "Move pull finish",
+    "date": "2025-03-28T14:10:11Z",
     "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
+      "name": "lOkaal1",
+      "username": "lOkaal1"
     },
-    "url": "https://github.com/Lounol72/ICPocket/commit/98f959f03f2b6c2a1af115ccb1bd8b3202487129"
-  },
-  {
-    "sha": "79d63178",
-    "message": "🔧 Enhance SEO and documentation: add meta tags, sitemap, and robots.txt (#23)",
-    "date": "2025-03-27T17:33:10Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/79d63178ca9f9f65972faa55d7a30464a21df0eb"
-  },
-  {
-    "sha": "70518b3f",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-27T12:34:56Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/70518b3fd9a9d9531bac2215f540d0e02d44c2fe"
-  },
-  {
-    "sha": "1e199afe",
-    "message": "Temporary - fixing map memory issues",
-    "date": "2025-03-24T15:33:53Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/1e199afe75c6e326d20e7e963f7169c738b170b7"
-  },
-  {
-    "sha": "c12c16de",
-    "message": "🔧 Update Windows build workflow: rename job, enhance Git LFS setup, and streamline packaging process",
-    "date": "2025-03-26T09:01:21Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/c12c16de1faedfd187cfe6dd58f31c7ab18d0d39"
-  },
-  {
-    "sha": "ff3a851d",
-    "message": "🔧 Update subproject commit, remove unnecessary whitespace in test_Map.c, and add favicon to documentation",
-    "date": "2025-03-25T11:14:36Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/ff3a851dad7e200dc0eda4c64a5bca1933d94226"
-  },
-  {
-    "sha": "6b0d723b",
-    "message": "Update README.md",
-    "date": "2025-03-27T09:15:16Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/6b0d723b601fd5bc7c8cd26d3139fd77f3e26047"
-  },
-  {
-    "sha": "3c3bab29",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-27T06:24:07Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/3c3bab2979b9b7eea378a62ac231ff98ddb22463"
-  },
-  {
-    "sha": "689be1d5",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-27T01:18:51Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/689be1d52b42b66b8538ad6b581aa898ace67601"
-  },
-  {
-    "sha": "a7b50a03",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-26T18:24:17Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/a7b50a03e691094dbf153c818fcf021a7a6007ba"
-  },
-  {
-    "sha": "c8699556",
-    "message": "📊 Update GitHub data",
-    "date": "2025-03-26T12:34:29Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/c8699556c5987df4fcf4411a3a6659c20ffef950"
+    "url": "https://github.com/Lounol72/ICPocket/commit/797542153c138e7a264a4058e7c4da41a1ba52ed"
   }
 ]
