@@ -19,12 +19,10 @@ void teardown(void) {
 START_TEST(test_generateMap) {
     setenv("SDL_VIDEODRIVER", "dummy", 1);
     
-    int spawnX = 0;
-    int spawnY = 0;
-    Map *map = initMap(renderer, "assets/Tileset/Map/2.png", 16, 16, &spawnX, &spawnY);
+    Map *map = initMap(renderer, "assets/Tileset/Map/2.png");
     if (map != NULL) {
-        ck_assert_int_eq(map->width, 16);
-        ck_assert_int_eq(map->height, 16);
+        ck_assert_int_eq(map->taille[0], 16);
+        ck_assert_int_eq(map->taille[1], 16);
         destroyMap(map);
     }else{
         ck_assert_msg(map != NULL, "Map initialization failed");

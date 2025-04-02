@@ -188,11 +188,13 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
     for (int i = 0; i < poke->nb_move; i++) {
         char soundPath[128];
         snprintf(soundPath, sizeof(soundPath), "assets/audio/soundEffects/%d.mp3",(int) (poke->moveList[i].type));
-        Mix_Chunk *ICMonSound = Mix_LoadWAV(soundPath);
-        if (!ICMonSound) {
-            SDL_Log("❌ Failed to load ICMonSound: %s", Mix_GetError());
+        if (strlen(soundPath) > 0) {
+            Mix_Chunk *ICMonSound = Mix_LoadWAV(soundPath);
+            if (!ICMonSound) {
+                SDL_Log("❌ Failed to load ICMonSound: %s", Mix_GetError());
+            }
+            img->ICMonSound[i] = ICMonSound;
         }
-        img->ICMonSound[i] = ICMonSound;
     }
 
     return img;
@@ -345,10 +347,16 @@ void destroyICMonsSprite(t_Poke *poke) {
         destroyText(poke->img->LvlText);
     if (poke->img->PVText)
         destroyText(poke->img->PVText);
-    
+    poke->img->ICMonTexture = NULL;
+    poke->img->PVbarTexture = NULL;
+    poke->img->PVbarTextureBack = NULL;
+    poke->img->nameTexture = NULL;
+    poke->img->LvlText = NULL;
+    poke->img->PVText = NULL;
         
     for (int i = 0; i < poke->nb_move; i++) {
         Mix_FreeChunk(poke->img->ICMonSound[i]);
+        poke->img->ICMonSound[i] = NULL;
     }
     free(poke->img);
     poke->img = NULL;

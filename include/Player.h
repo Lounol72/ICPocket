@@ -53,17 +53,19 @@ typedef struct {
     bool isMovingToTarget;
     int sizeMapW;
     int sizeMapH;
-    
+    int mapIndex;
 } Player;
 
 
-Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * map, int spawnX, int spawnY);
+Player* createPlayer(SDL_Renderer *renderer, char *spritesheetPath, Map * map, int mapIndex);
 void updatePlayerAnimation(Player *player, float deltaTime);
 void updatePlayerPosition(Player *player, float deltaTime);
 void renderPlayer(SDL_Renderer *renderer, Player *player);
 void movePlayer(Player *player);
 void destroyPlayer(Player *player);
 void renderPlayerWithCamera(Player* player, SDL_Renderer* renderer, Camera* camera);
+void updatePlayerSpawn(Player *player, Map *map, int spawnX, int spawnY);
+void forceUpdatePlayerAndCamera(Player *player, Camera *camera, Map *map);
 
 
 // ! DEBUG

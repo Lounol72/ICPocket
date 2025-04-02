@@ -1,42 +1,240 @@
-
 #include "../include/GameEngine.h"
-static void checkAndLoadNewMap(Map **map, int *playerX, int *playerY) {
-    if (!map || !*map || !(*map)->mat) {
-        printf("Erreur: map ou map->mat est NULL\n");
+#include "../include/Player.h"
+
+// Variables globales pour la gestion des transitions de carte
+volatile int forceRender = 0;
+volatile int forcePlayerMove = 0;
+volatile int forcePlayerMoveX = 0;
+volatile int forcePlayerMoveY = 0;
+
+/**
+ * @brief Met à jour les aspects physiques du jeu (mouvements, collisions, etc.)
+ * 
+ * @param player Pointeur vers le joueur
+ * @param camera Pointeur vers la caméra
+ * @param deltaTime Temps écoulé depuis la dernière mise à jour
+ */
+static void updatePhysics(Player *player, Camera* camera, float deltaTime) {
+    if (!player || !camera) {
+        SDL_Log("ERROR: Pointeurs invalides dans updatePhysics");
         return;
     }
-
-    if (*playerX < 0 || *playerX >= (*map)->tileSizeW || *playerY < 0 || *playerY >= (*map)->tileSizeH) {
-        printf("Indices de joueur invalides: playerX=%d, playerY=%d\n", *playerX, *playerY);
-        return;
-    }
-
-    int spawnX = *playerX;
-    int spawnY = *playerY;
-
-    if ((*map)->mat[*playerY][*playerX] == 2) {
-        const char *newMapPath = "assets/Tileset/Map/2.png";
-        loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
-    } else if ((*map)->mat[*playerY][*playerX] == 3) {
-        const char *newMapPath = "assets/Tileset/Map/3.png";
-        loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
-    } else if ((*map)->mat[*playerY][*playerX] == 9) {
-        const char *newMapPath = "assets/Tileset/Map/hall.png";
-        loadNewMap(map, newMapPath, 32, 20, &spawnX, &spawnY);
-    }
-    // Mettre à jour les coordonnées du joueur avec les nouvelles coordonnées de spawn
-    *playerX = spawnX;
-    *playerY = spawnY;
-}
-
-static void updatePhysics(Player *player, Camera* camera, Map *map, float deltaTime) {
+    
+    // Effectuer les mises à jour standard
     updatePlayerPosition(player, deltaTime);
     updateCamera(camera, player->position.x, player->position.y, deltaTime);
+    
+    // Vérifier si le joueur a terminé son mouvement et s'il est sur une case de transition
+    if (!player->isMovingToTarget) {
+        // Vérifier l'état actuel du jeu
+        if (game.gameState.currentState != MAP) {
+            SDL_Log("DEBUG: Pas de vérification de transition - État du jeu non MAP (%d)", game.gameState.currentState);
+            updatePlayerAnimation(player, deltaTime);
+            return;
+        }
+        
+        Map *currentMap = game.gameData.maps[player->mapIndex];
+        if (!currentMap) {
+            SDL_Log("ERROR: Carte actuelle NULL dans updatePhysics");
+            updatePlayerAnimation(player, deltaTime);
+            return;
+        }
+        
+        // Vérifier que les coordonnées du joueur sont valides par rapport à la carte
+        if (player->matrixX < 0 || player->matrixX >= currentMap->taille[0] ||
+            player->matrixY < 0 || player->matrixY >= currentMap->taille[1]) {
+            SDL_Log("WARNING: Coordonnées du joueur hors limites [%d,%d] - limites: [%d,%d]", 
+                    player->matrixX, player->matrixY, currentMap->taille[0], currentMap->taille[1]);
+            updatePlayerAnimation(player, deltaTime);
+            return;
+        }
+        
+        // Afficher la valeur de la case sous le joueur pour le débogage
+        SDL_Log("DEBUG: Joueur en position [%d,%d] sur case valeur %d (map %d)",
+                player->matrixX, player->matrixY, 
+                currentMap->mat[player->matrixY][player->matrixX], 
+                player->mapIndex);
+        
+        // Si checkAndLoadNewMap retourne 1, une transition a eu lieu
+        if (checkAndLoadNewMap(player, currentMap, camera, game.win->renderer)) {
+            SDL_Log("INFO: Transition de carte effectuée");
+            return;
+        }
+    }
+    
     // Mettre à jour l'animation indépendamment du mouvement
     updatePlayerAnimation(player, deltaTime);
-    checkAndLoadNewMap(&map, &player->matrixX, &player->matrixY);
-    
 }
+
+/**
+ * @brief Gère la transition d'une carte à une autre avec un effet de fondu
+ * 
+ * @param mapId ID de la map à charger (0, 1, 2)
+ * @param player Pointeur vers le joueur
+ * @param camera Pointeur vers la caméra
+ * @param renderer Renderer pour les effets visuels
+ * @return int 1 si une transition a été effectuée, 0 sinon
+ */
+int handleMapTransition(int mapId, Player *player, Camera *camera, SDL_Renderer *renderer) {
+    if (!player || !camera || !renderer || mapId < 0 || mapId >= 3) {
+        SDL_Log("ERROR: Paramètres invalides pour handleMapTransition (mapId=%d)", mapId);
+        return 0;
+    }
+    
+    // Sauvegarder la position actuelle du joueur dans la carte courante
+    Map *currentMap = game.gameData.maps[player->mapIndex];
+    if (!currentMap) {
+        SDL_Log("ERROR: Carte actuelle NULL dans handleMapTransition");
+        return 0;
+    }
+    
+    Map *newMap = game.gameData.maps[mapId];
+    if (!newMap) {
+        SDL_Log("ERROR: Nouvelle carte NULL (mapId=%d)", mapId);
+        return 0;
+    }
+
+    
+    // Chercher le 0 le plus proche de ses 4 voisins
+    int x = player->matrixX;
+    int y = player->matrixY;
+    int i = 1;
+    while (x == player->matrixX && y == player->matrixY) {
+        if (x+i < currentMap->taille[0] ) {
+            if (currentMap->mat[y][x+i] == 0) {
+                x += i;
+            }
+        }
+        if (x-i >= 0) {
+            if (currentMap->mat[y][x-i] == 0) {
+                x -= i;
+            }
+        }
+        if (y+i < currentMap->taille[1]) {
+            if (currentMap->mat[y+i][x] == 0) {
+                y += i;
+            }
+        }
+        if (y-i >= 0) {
+            if (currentMap->mat[y-i][x] == 0) {
+                y -= i;
+            }
+        }
+        i++;
+    }
+    
+    currentMap->positions[0] = x;
+    currentMap->positions[1] = y;
+    player->mapIndex = mapId;
+
+    
+    // Effet de fondu au noir
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+    
+    for (int i = 0; i < TRANSITION_FRAMES; i++) {
+        // Calculer l'opacité pour cette frame
+        Uint8 alpha = (Uint8)(255.0f * i / TRANSITION_FRAMES);
+        
+        // Rendre la carte et le joueur
+        SDL_RenderClear(renderer);
+        renderMapWithCamera(currentMap, renderer, camera);
+        renderPlayerWithCamera(player, renderer, camera);
+        
+        // Superposer un rectangle noir avec l'opacité croissante
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, alpha);
+        SDL_Rect fullScreen = {0, 0, game.win->width, game.win->height};
+        SDL_RenderFillRect(renderer, &fullScreen);
+        
+        SDL_RenderPresent(renderer);
+        SDL_Delay(16); // ~60 FPS
+    }
+    
+    // Changer de carte
+    int oldMapIndex = player->mapIndex;
+    
+    
+    // Mettre à jour la position du joueur sur la nouvelle carte
+    updatePlayerSpawn(player, newMap, newMap->positions[0], newMap->positions[1]);
+    
+    
+    forceUpdatePlayerAndCamera(player, camera, newMap);
+    
+    // Forcer la mise à jour des flags globaux pour que les autres threads sachent qu'une transition a eu lieu
+    forceRender = 1;
+    forcePlayerMove = 1;
+    forcePlayerMoveX = newMap->positions[0];
+    forcePlayerMoveY = newMap->positions[1];
+    
+    // Effet de fondu depuis le noir
+    for (int i = TRANSITION_FRAMES; i >= 0; i--) {
+        // Calculer l'opacité pour cette frame
+        Uint8 alpha = (Uint8)(255.0f * i / TRANSITION_FRAMES);
+        
+        // Rendre la nouvelle carte et le joueur
+        SDL_RenderClear(renderer);
+        renderMapWithCamera(newMap, renderer, camera);
+        renderPlayerWithCamera(player, renderer, camera);
+        
+        // Superposer un rectangle noir avec l'opacité décroissante
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, alpha);
+        SDL_Rect fullScreen = {0, 0, game.win->width, game.win->height};
+        SDL_RenderFillRect(renderer, &fullScreen);
+        
+        SDL_RenderPresent(renderer);
+        SDL_Delay(16); // ~60 FPS
+    }
+    
+    SDL_Log("Transition de la carte %d à la carte %d réussie", oldMapIndex, mapId);
+    return 1;
+}
+
+/**
+ * @brief Vérifie si le joueur est sur une case de transition et charge la nouvelle carte si nécessaire
+ * 
+ * @param player Pointeur vers le joueur
+ * @param map Pointeur vers la carte actuelle
+ * @param camera Pointeur vers la caméra
+ * @param renderer Renderer pour les effets visuels
+ * @return int 1 si une transition a été effectuée, 0 sinon
+ */
+int checkAndLoadNewMap(Player *player, Map *map, Camera *camera, SDL_Renderer *renderer) {
+    if (!player || !map || !camera || !renderer) {
+        SDL_Log("Erreur: paramètres invalides pour checkAndLoadNewMap");
+        return 0;
+    }
+    
+    // Vérifier si les coordonnées du joueur sont valides
+    if (player->matrixX < 0 || player->matrixX >= map->taille[0] ||
+        player->matrixY < 0 || player->matrixY >= map->taille[1]) {
+        return 0;
+    }
+    
+    // Vérifier si le joueur est sur une case de transition
+    int tileValue = map->mat[player->matrixY][player->matrixX];
+    int mapId = -1;
+    
+    // Déterminer quelle carte charger en fonction de la valeur de la case
+    switch (tileValue) {
+        case MAP_TRANSITION_ID_1: // Case avec ID 2
+            mapId = 1;
+            
+            break;
+        case MAP_TRANSITION_ID_2: // Case avec ID 3
+            mapId = 2;
+            
+            break;
+        case MAP_TRANSITION_ID_3: // Case avec ID 9
+            mapId = 0;
+            break;
+    }
+    
+    // Si une carte valide est trouvée et différente de la carte actuelle, effectuer la transition
+    if (mapId >= 0 && mapId < 3 && mapId != player->mapIndex) {
+        return handleMapTransition(mapId, player, camera, renderer);
+    }
+    return 0;
+}
+
 /**
  * @brief Initialise le gestionnaire de threads
  * 
@@ -110,7 +308,7 @@ void* physicsThreadFunction(void* arg) {
         
         pthread_mutex_lock(&game->threadManager.physicsMutex);
         //if(game->gameState.currentState == MAP)
-        updatePhysics(game->gameData.player, game->gameData.camera, game->gameData.map, deltaTime);
+        updatePhysics(game->gameData.player, game->gameData.camera, deltaTime);
         pthread_mutex_unlock(&game->threadManager.physicsMutex);
         
         manageFrameRate(currentTime);
