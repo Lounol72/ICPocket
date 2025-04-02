@@ -1,5 +1,4 @@
 #include "../include/save.h"
-#include "../include/Game.h"
 /**
 *   @brief Fonction de sauvegarde
 *   @param nomSave Nom de sauvegarde
@@ -25,7 +24,6 @@ void sauvegarder(t_Team * joueur,t_Team * adverse){
             fprintf(fichier,"\n");
         }
         fprintf(fichier, "%d;",joueur->nb_enemiBeat);
-        fprintf(fichier, "%d;",game.speed);
         fprintf(fichier, "%s;%d;", adverse->trainerName, adverse->id);
         fprintf(fichier,"%d\n",joueur->id_save);
         fprintf(fichier,"check:1;");
@@ -47,11 +45,11 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur){
     snprintf(filePath, sizeof(filePath), "data/save/Save_%s.txt", nomSave);
     FILE *fichier = fopen(filePath, "r");
     if (fichier == NULL) {
-        printf("Erreur : impossible d'ouvrir le fichier de sauvegarde.\n");
-        printf("Creation d'un fichier sauvegarde\n");
+        //printf("Erreur : impossible d'ouvrir le fichier de sauvegarde.\n");
+        //printf("Creation d'un fichier sauvegarde\n");
         fichier = fopen(filePath, "w+");
         sauver(joueur,save,nomSave);
-        printf("sauvegarde noumero %d" , joueur->id_save);
+        //printf("sauvegarde noumero %d" , joueur->id_save);
         fclose(fichier);
         return -1;
 
@@ -70,21 +68,25 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur){
 
             joueur->team[i].main_effect = noEffect;
             fscanf(fichier, "%d;%d;%d;%d;", &(joueur->team[i].id), &(joueur->team[i].lvl), &(joueur->team[i].nature), &(joueur->team[i].nb_move));
-            printf("poke id : %d , lvl : %d ,nature: %d , nb move: %d \n",joueur->team[i].id,joueur->team[i].lvl,joueur->team[i].nature,joueur->team[i].nb_move);
+            //printf("poke id : %d , lvl : %d ,nature: %d , nb move: %d \n",joueur->team[i].id,joueur->team[i].lvl,joueur->team[i].nature,joueur->team[i].nb_move);
             nbmove = joueur->team[i].nb_move;
             generate_poke(&(joueur->team[i]), joueur->team[i].id);
             joueur->team[i].exp=expCurve(joueur->team[i].lvl);
             
             for (int j = 0; j < 6; j++) {
                 fscanf(fichier, "%d;", &(joueur->team[i].iv[j]));
+                //printf("iv %d : %d\n",j,joueur->team[i].iv[j]);
             }
             for (int j = 0; j < 2; j++) {
                 fscanf(fichier, "%d;", (int *)&(joueur->team[i].type[j]));
+                //printf("type %d : %d\n",j,joueur->team[i].type[j]);
             }
-            printf("nb_move 222: %d\n",joueur->team[i].nb_move);
+            //printf("nb_move 222: %d\n",joueur->team[i].nb_move);
+            //printf("nb_move 333: %d\n",nbmove);
             for (int j = 0; j < nbmove; j++) {
                 fscanf(fichier, "%d;", &(joueur->team[i].moveList[j].id));
                 joueur->team[i].moveList[j] = generateMove(joueur->team[i].moveList[j].id);
+                //printf("move id : %d\n",joueur->team[i].moveList[j].id);
             }
 
             for(int j=0;j<6;j++) joueur->statChanges[j]=NEUTRAL_STAT_CHANGE;
@@ -97,8 +99,7 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur){
 		    }
             fscanf(fichier, "\n");
         }
-        fprintf(fichier, "%d;",&(joueur->nb_enemiBeat));
-        fscanf(fichier, "%d;",&game.speed);
+        fscanf(fichier, "%d;",&(joueur->nb_enemiBeat));
         fscanf(fichier, "%[^\n];%d;", dresseur->trainerName, &(dresseur->id));
         fscanf(fichier,"%d\n",&(joueur->id_save));
         char check[10];
@@ -107,31 +108,30 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur){
 
         //Si le parcours a bien été éffectué
         if(strcmp(check,"check:1;")==0){
-            printf("Chargement valide\n");
+            //printf("Chargement valide\n");
             sauver(joueur,save,nomSave);
         }
         else{
-            printf("Chargement echoué\n");
+            //printf("Chargement echoué\n");
             sauver(joueur,save,nomSave);  
             return -1;
         }
         fclose(fichier);
-        printf("Chargement effectué\n");
+        //printf("Chargement effectué\n");
         return 1;
     }
 }
-
-void saveDestroy(t_Team * joueur, t_Team *dresseur){
+void saveDestroy(t_Team * joueur){
     char nomFichier[1024];
 
     snprintf(nomFichier, sizeof(nomFichier), "data/save/Save_%d.txt", joueur->id_save);
     FILE *fichier = fopen(nomFichier, "w+");
     if(fichier == NULL){
-        printf("Erreur : impossible d'ouvrir le fichier.\n");
         exit(1);
     } else {
-        fprintf(fichier,"Gros loseur\n");
-        sauvegarder(joueur,dresseur);
+        //Fonction pour retirer les fichiers
+        remove(nomFichier);
+        //printf("Fichier de sauvegarde supprimé\n");
         fclose(fichier);
     }
 }
@@ -144,5 +144,5 @@ void saveDestroy(t_Team * joueur, t_Team *dresseur){
 void sauver(t_Team * joueur,int save,char * nomsave){
             save = atoi(nomsave);
             joueur->id_save = save;
-            printf("sauvegarde noumero %d\n" , joueur->id_save);
+            //printf("sauvegarde noumero %d\n" , joueur->id_save);
 }

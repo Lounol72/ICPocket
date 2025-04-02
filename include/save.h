@@ -19,5 +19,5 @@ void sauvegarder(t_Team * teamJ1,t_Team * dresseur);
  */
 int charger(char * name,t_Team * teamJ1,t_Team * dresseur);
 void sauver(t_Team * teamJ1,int save,char * nomSave);
-void saveDestroy(t_Team * joueur, t_Team *dresseur);
+void saveDestroy(t_Team * joueur);
 #endif // SAVE_H

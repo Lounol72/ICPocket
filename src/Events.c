@@ -337,6 +337,9 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
 void handleGameEvent(Window *win, SDL_Event *event) {
     if (!game.scrollingTextIntro->isComplete) return;
     if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
+        if(!isTeamAlive(&game.battleState.rouge)){
+            saveDestroy(&game.battleState.rouge);
+        }
         /* Réinitialisation de l'état du jeu */
         game.gameState.playerTurn = 0;
         AppState newState = isTeamAlive(&game.battleState.rouge) ? INTER : MENU;
@@ -479,7 +482,6 @@ void loadFile(Window *win, void *event){
         printf("data %s\n",data);
         if((charger(data, &game.battleState.rouge, &game.battleState.bleu))==-1){
             initTeam(&game.battleState.rouge, 3);
-            nextDuel(game.win, NULL);
             return;
         }
 
@@ -494,7 +496,7 @@ void loadFile(Window *win, void *event){
         updateICButtons(win, &game.battleState.rouge);
         
         game.gameState.initialized = 1;
-        changeState(win, &game.stateHandlers[LOADGAME].state);
+        changeState(win, &game.stateHandlers[MAP].state);
         handleEvent(win, event);
 
     }
