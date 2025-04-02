@@ -547,7 +547,6 @@ void nextDuel(Window *win, void *data) {
     healTeam(&game.battleState.rouge);
     initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
     game.battleState.rouge.nb_enemiBeat++;
-    printf("%d\n",game.battleState.rouge.nb_enemiBeat);
     
     // Réinitialiser l'IA
     game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
