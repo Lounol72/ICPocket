@@ -179,7 +179,9 @@ void loadPhrase(void){
     fscanf(file, "%d,%[^\n]\n",&(game.battleState.bleu.id), temp);
     fclose(file);
     char phrase[256];
-    snprintf(phrase, sizeof(phrase), "%s veut se battre ! %s", game.battleState.bleu.trainerName, temp);
+    strcpy(phrase, game.battleState.bleu.trainerName);
+    strcat(phrase, " veut se battre ! ");
+    strcat(phrase, temp);
     if (game.scrollingTextIntro != NULL) {
         destroyScrollingText(game.scrollingTextIntro);
         game.scrollingTextIntro = NULL;

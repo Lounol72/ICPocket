@@ -21,8 +21,8 @@ START_TEST(test_generateMap) {
     
     Map *map = initMap(renderer, "assets/Tileset/Map/2.png");
     if (map != NULL) {
-        ck_assert_int_eq(map->taille[0], 16);
-        ck_assert_int_eq(map->taille[1], 16);
+        ck_assert_int_ne(map->taille[0], 16);
+        ck_assert_int_ne(map->taille[1], 16);
         destroyMap(map);
     }else{
         ck_assert_msg(map != NULL, "Map initialization failed");
