@@ -197,12 +197,13 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
     La fonction \texttt{charger}
     \subsubsection{base de données des icmons}
     Toutes la gestion de base de données ont été fais dans des fichiers CSV situés dans le dossier \texttt{data/}
-    Les ICMon sont générés grâce a leurs ID leurs numéro d'identification, avec la fonction \texttt{generate_poke} et \texttt{generate_poke_enemy} qui prennent donc en paramètres les ID.
+    Les ICMons sont générés grâce a leurs ID leurs numéro d'identification, avec la fonction \texttt{generate\_poke} et \texttt{generate\_poke\_ennemie} qui prennent donc en paramètres les ID.
 
       
 \newpage
 \subsection{Gestion de la map}
-    \subsubsection{chargement de la map}
+
+    \subsubsection{Chargement de la map}
     \includegraphics[width=0.8\textwidth]{../docs/img/screenshots/screen2.png}
     \newline
     \paragraph{Analyse : }
@@ -225,34 +226,34 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
     
     Les fonctions implémentées afin de rendre le rendu de la carte possible sont `initMap`, qui permet d'initialiser la carte en utilisant les autres fonctions du fichier `Map.c`, telles que `initCollisionFromCSV`,
     qui permet de gérer les collisions grâce aux CSV. Nous avons créé la fonction `checkAndLoadNewMap`, qui permet de vérifier si, dans un fichier CSV, le personnage se situe sur une case qui correspond au chargement d'une nouvelle zone. Dans ce cas, 
-    la fonction 'loadNewMap' est appelée pour mettre à jour le point d'apparition du joueur par rapport à la nouvelle carte et lorsque le joueur revient sur la carte précédente, il est renvoyé a l'endroit ou il etait avant de changer de zone.
-    Pour ce faire le programme regarde dans ses plus proches voisins si il y'a une case 0, si oui le joueur est directement placé a cet endroit
+    la fonction 'loadNewMap' est appelée pour mettre à jour le point d'apparition du joueur par rapport à la nouvelle carte et lorsque le joueur revient sur la carte précédente, il est renvoyé à l'endroit où il était avant de changer de zone.
+    Pour ce faire, le programme regarde dans ses plus proches voisins s'il y a une case 0, si oui le joueur est directement placé à cet endroit.
 
     Pour rendre cela possible, nous avons utilisé le logiciel de création de carte Tiled, puis Aseprite pour rendre la carte plus jolie en retirant les impuretés, afin de gérer tout cela avec des fichiers CSV.
     Tiled permet de créer des cartes facilement et de les exporter au format CSV, ce qui simplifie leur intégration dans le jeu.
-    \subsubsection{caméra}
+    \subsubsection{Caméra}
     La gestion de la caméra est un élément essentiel pour offrir une expérience utilisateur fluide et immersive dans notre jeu. La caméra permet de suivre les déplacements du joueur tout en affichant une partie de la map grâce au zoom, ce qui est particulièrement utile pour les grandes cartes en 2D. Cela évite d'afficher l'intégralité de la map à l'écran, ce qui pourrait surcharger visuellement le joueur et réduire les performances.
     \paragraph{Utilité de la caméra :} La caméra a été implémentée pour plusieurs raisons :
     Suivi du joueur : La caméra suit dynamiquement la position du joueur, garantissant que ce dernier reste toujours visible à l'écran.
-    la map est render en entier puis fait un zoom sur le joueur afin de le suivre uniquement est cacher l'affichage des endroits inutiles
+    La map est rendue en entier puis fait un zoom sur le joueur afin de le suivre uniquement et cacher l'affichage des endroits inutiles.
 
     Immersion : En limitant la vue du joueur à une zone spécifique, la caméra renforce l'immersion en simulant une perspective réaliste.
 
     \paragraph{Pourquoi l'avoir implémentée ?}
 
     L'implémentation de la caméra était nécessaire pour gérer efficacement les grandes maps et offrir une meilleure expérience utilisateur. Sans caméra, il aurait été impossible de naviguer correctement sur des cartes de grande taille, car tout serait affiché en même temps, rendant le jeu confus et peu ergonomique. De plus, la caméra permet de centrer l'attention du joueur sur son personnage et les zones importantes, tout en masquant les parties inutiles de la map.
-    Nous avons donc utilisé le système d'interpolation linéaire pour avoir un rendu pixels par pixels.
+    Nous avons donc utilisé le système d'interpolation linéaire pour avoir un rendu pixel par pixel.
     La caméra a été conçue pour être flexible et s'adapter à différentes tailles de fenêtres.
 
     En résumé, la caméra joue un rôle crucial dans la navigation et le rendu du jeu, en améliorant à la fois les performances et l'expérience utilisateur.
-    Tout cela a été possible grâce au différents outils utilisé tel-que stackoverflow, Developpez.net, wikipedia afin d'utiliser l'interpolation linéaire
+    Tout cela a été possible grâce aux différents outils utilisés tels que Stack Overflow, Developpez.net, Wikipedia afin d'utiliser l'interpolation linéaire.
     \paragraph{Réalisation : }
-    L'uitilisation de fonctions étaient obligatoire pour bien gérer la caméra. Pour cela la fonction getWorldToScreenRect qui permet de convertir les coordonnées du monde en coordonnées écran.
-    updateCameraViewport qui permet de mettre à jour la taille visible de la carte par rapport a la caméra et updateCamera qui fait en sorte d'actualiser la position de la caméra grâce a l'utilisation de l'interpolation linéaire
+    L'utilisation de fonctions était obligatoire pour bien gérer la caméra. Pour cela, la fonction `getWorldToScreenRect` permet de convertir les coordonnées du monde en coordonnées écran.
+    `updateCameraViewport` permet de mettre à jour la taille visible de la carte par rapport à la caméra et `updateCamera` fait en sorte d'actualiser la position de la caméra grâce à l'utilisation de l'interpolation linéaire,
     ce qui permet un rendu plus fluide des déplacements du joueur.
 
     \newpage
-    \subsubsection{deplacement}
+    \subsubsection{Déplacement}
 
     Dans un jeu, les déplacements sont les choses les plus importantes puisque sans ça, on ne peut rien faire sur une carte.
 
@@ -323,9 +324,33 @@ Notre approche du rendu multi-couches, particulièrement visible dans les écran
 Pour conclure, l'architecture de notre système de rendu, bien que développée avec des technologies relativement simples comme SDL, démontre qu'une conception réfléchie et une implémentation soignée peuvent conduire à des résultats visuellement impressionnants et techniquement efficaces. Notre approche modulaire facilite également l'extension future du moteur avec de nouvelles fonctionnalités visuelles sans nécessiter de refonte majeure du système existant.
 \newpage
 \section{Bilan et résultats}
-\section{Références}
-\section{Annexes}
 
+\subsection{Bilan}
+Le projet a été un succès, tant sur le plan technique que sur le plan de l'expérience utilisateur. Nous avons réussi à créer un jeu 2D fonctionnel et agréable à jouer, avec une interface intuitive et des mécaniques de jeu inspirées de l'univers Pokémon. La gestion des ICMons, des combats et des déplacements a été bien intégrée, offrant une expérience fluide et immersive.
+La répartition des tâches a été efficace, chaque membre de l'équipe ayant pu contribuer selon ses compétences et ses intérêts. La communication constante entre les membres a permis d'identifier rapidement les problèmes et de trouver des solutions adaptées.
+Nous avons également appris à travailler avec des outils de développement modernes, tels que GitHub pour la gestion de version, et à utiliser des ressources en ligne pour résoudre des problèmes techniques. L'utilisation de GitHub Copilot a été un atout précieux pour accélérer le développement et améliorer la qualité du code.
+
+\subsection{Résultats}
+Les résultats obtenus sont plus que satisfaisants grâce aux différents ajouts et améliorations apportés au projet. Nous avons ajouté de la liberté grâce à la carte et aux PNJ. Toutes les modifications apportées et l'avancement plus rapide du projet ont donc modifié notre Gantt prévisionnel pour en arriver au Gantt final ci-dessous.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{gantt finale.png}
+    \label{fig:GANTT}
+    \caption{Diagramme de Gantt}
+\end{figure}
+\subsection{Avis des membres de l'équipe sur le projet}
+Avis des membres de l'équipe :
+\begin{itemize}
+    \item \textbf{Alban :} «J'ai énormément apprécié réaliser ce projet avec mon groupe car nous avons eu une très bonne entente directement, que ce soit la répartition des tâches ou la communication entre nous. Nous avons tous su nous entraider et nous conseiller sur les différentes parties du projet. De plus, j'ai beaucoup appris sur le développement de jeux vidéo, notamment sur le fait d'approfondir mes capacités en C et de découvrir la bibliothèque SDL. J'ai également appris à utiliser GitHub. Je suis très satisfait du résultat final et j'espère que nous pourrons continuer à développer d'autres projets ensemble.»
+    \newline
+    \item \textbf{Louis :}
+    \newline
+    \item \textbf{Nathan :}
+    \newline
+    \item \textbf{William :} 
+    
+\end{itemize}
+\section{Références}
 \subsection{Outils de développement}
 \label{annexe:github}
 \textbf{GitHub :} \href{https://github.com/Lounol72/ICPocket}{github.com}
@@ -344,5 +369,18 @@ Pour conclure, l'architecture de notre système de rendu, bien que développée 
 
 \label{annexe:copilot}
 \textbf{GitHub Copilot :} \href{https://copilot.github.com/}{copilot.github.com}
+
+\label{annexe:aseprite}
+\textbf{Aseprite :} \href{https://www.aseprite.org/}{aseprite.org}
+
+\label{annexe:tiled}
+\textbf{Tiled :} \href{https://www.mapeditor.org/}{mapeditor.org}
+
+\label{annexe:pokepedia}
+\textbf{Poképédia :} \href{https://www.pokepedia.fr/}{pokepedia.fr}
+
+\section{Annexes}
+
+
 
 \end{document}
