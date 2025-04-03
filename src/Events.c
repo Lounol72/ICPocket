@@ -252,7 +252,7 @@ void handleIntermediateEvent(Window *win, SDL_Event *event) {
     }
     // Si le joueur appuie sur Échap, annuler l'interaction
     else if (keyState[SDL_SCANCODE_ESCAPE]) {
-        game.gameState.currentState = MAP; // Retourner à l'état de la carte
+        changeState(win, &game.stateHandlers[MAP].state);
     }
     handleEvent(win, event);
 }
@@ -364,7 +364,7 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
  */
 void handleGameEvent(Window *win, SDL_Event *event) {
     if (!game.scrollingTextIntro->isComplete) return;
-    if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
+    if ((!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) && game.battleState.turnState == TURN_NONE) {
         /* Réinitialisation de l'état du jeu */
         game.gameState.playerTurn = 0;
         AppState newState = isTeamAlive(&game.battleState.rouge) ? INTER : QUIT;

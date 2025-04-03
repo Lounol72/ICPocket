@@ -816,34 +816,6 @@ void startBattleTurn(int moveRouge, int moveBleu) {
 }
 
 /**
- * @fn void endBattleTurn();
- * @brief Termine le tour de combat et met à jour l'affichage.
- *
- * Cette fonction met à jour les boutons d'attaque et gère les échanges de Pokémon
- * en cas de perte d'un Pokémon. Elle nettoie le texte défilant et met à jour l'état
- */
-
-static void endBattleTurn() {
-    updateICButtons(game.win, &game.battleState.rouge);
-    if(!isAlive(&game.battleState.rouge.team[0]) && isTeamAlive(&game.battleState.rouge)) changeState(game.win, &game.stateHandlers[ICMONS].state);
-    if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {
-        int nb_valide = 0;
-        int liste_valide[game.battleState.bleu.nb_poke];
-        for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
-            if (isAlive(&game.battleState.bleu.team[i]))
-                liste_valide[nb_valide++] = i + 10;
-        }
-        int x = rand() % nb_valide;
-        swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
-    }
-    if(!isAlive(&game.battleState.bleu.team[0]) &&  !isTeamAlive(&game.battleState.bleu)) changeState(game.win, &game.stateHandlers[INTER].state);
-    destroyScrollingText(game.battleState.text);
-    game.battleState.text = NULL;
-    game.battleState.turnState = TURN_NONE;
-}
-
-
-/**
  * @fn void updateBattleTurn();
  * @brief Met à jour l'état du tour de combat.
  *
@@ -916,12 +888,13 @@ void updateBattleTurn() {
                     criticalHitFlag=0;
                     resetScrollingText(game.battleState.text, msg);
                 }
+                
                 if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
                     char msg[60]="\0";
                     if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
                     else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
                     else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
-                    moveEffectivenessFlag=-2;
+                    moveEffectivenessFlag = -2;
                     if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
                 }
             }
@@ -969,12 +942,14 @@ void updateBattleTurn() {
                     criticalHitFlag=0;
                     resetScrollingText(game.battleState.text, msg);
                 }
+                
                 if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
+                    
                     char msg[60]="\0";
                     if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
                     else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
                     else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
-                    moveEffectivenessFlag=-2;
+                    moveEffectivenessFlag = -2;
                     if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
                 }
             }
@@ -999,7 +974,25 @@ void updateBattleTurn() {
             if(lvl_up_buffer_size!=0 && game.gameState.currentState != LEARNMOVE) {
                 initLearningMove();
             }
-            else if (lvl_up_buffer_size==0  && game.battleState.text->isComplete) endBattleTurn();
+            else if (lvl_up_buffer_size==0  && game.battleState.text->isComplete){
+                updateICButtons(game.win, &game.battleState.rouge);
+                if(!isAlive(&game.battleState.rouge.team[0]) && isTeamAlive(&game.battleState.rouge)) changeState(game.win, &game.stateHandlers[6].state);
+                if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {
+                    int nb_valide = 0;
+                    int liste_valide[game.battleState.bleu.nb_poke];
+                    for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+                        if (isAlive(&game.battleState.bleu.team[i]))
+                            liste_valide[nb_valide++] = i + 10;
+                    }
+                    int x = rand() % nb_valide;
+                    swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
+                }
+                if(!isAlive(&game.battleState.bleu.team[0]) &&  !isTeamAlive(&game.battleState.bleu)) changeState(game.win, &game.stateHandlers[7].state);
+                destroyScrollingText(game.battleState.text);
+                game.battleState.text = NULL;
+                
+                game.battleState.turnState = TURN_NONE;
+            }
             
             break;
         }
@@ -1104,12 +1097,6 @@ void executeAction(t_Team *attacker, t_Team *defender, int move) {
     }
 }
 
-/**
- * @fn void finishApplyEffectDamage();
- * @brief appllique les effets brulûre et poison
- * 
- * cette fonction permet d'appliquer les effets jusqu'à fin d'application de ce dernier
- */
 void finishApplyEffectDamage(){
     char msg[60] = "";
     if (isAlive(&(game.battleState.rouge.team[0])) && game.battleState.rouge.team[0].main_effect==burn){
