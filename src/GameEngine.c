@@ -185,7 +185,12 @@ void render(Window *win) {
 static void renderMap(Window *win) {
     pthread_mutex_lock(&game.threadManager.physicsMutex);
     SDL_RenderClear(win->renderer);
-    renderMapWithCamera(game.gameData.maps[game.gameData.player->mapIndex], win->renderer, game.gameData.camera);
+    int mapIndex = game.gameData.player->mapIndex;
+    if (mapIndex < 0 || mapIndex >= 3) {
+        // Fallback to a safe default index if out-of-range
+        mapIndex = 0;
+    }
+    renderMapWithCamera(game.gameData.maps[mapIndex], win->renderer, game.gameData.camera);
     renderPlayerWithCamera(game.gameData.player, win->renderer, game.gameData.camera);
     pthread_mutex_unlock(&game.threadManager.physicsMutex);
     SDL_RenderPresent(game.win->renderer);
