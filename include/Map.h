@@ -117,8 +117,7 @@ void loadMapIMG(Map *map, const char *path);
  * @param renderer Pointeur vers le renderer SDL utilisé pour dessiner la carte.
  * @param camera Pointeur vers la structure Camera utilisée pour le rendu.
  */
-void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera
-
+void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera);
 
 /**
  * @fn void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY)
