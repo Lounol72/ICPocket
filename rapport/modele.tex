@@ -140,8 +140,85 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
 
 \section{Developpement}
 \subsection{Gestions des ICMons}
+\paragraph{} \emph{Dans cette partie, nous décrivons les concepts et l'implémentation du gameplay d'ICPocket}
     \subsubsection{structures de données}
+        \paragraph{} L'objectif étant de réaliser un jeu vidéo de type \emph{Pokémon}, il est nécessaire de faire le point sur toutes les données qui doivent être implémentées dans le jeu.\\
+        Les ICMons, c'est-à-dire notre version des petits monstres, sont composés de diverses informations. \\
+        \begin{itemize}
+            \item son nom
+            \item ses statistiques de bases
+            \item ses IVs
+            \item son niveau et ses points d'expériences
+            \item sa nature
+            \item son double type
+            \item son sprite (image)
+            \item ses attaques
+        \end{itemize}
+        \emph{Détaillons point par point ces attributs.}
+        \paragraph{Nom} Le nom attribué à l'ICMon stocké sous forme de chaine de caractère statique. Ce dernier est choisi par nos soins.
+        \paragraph{Statistiques de bases} Il s'agit d'un tableau de six entiers représentant les forces et faiblesses des ICMons dans chacune des statistiques de combats (Point de vie, attaque, défense, attaque spéciale, défense spéciale, vitesse. Ces statistiques seront expliquées dans la sous partie \emph{systèmes des combats}).
+        Plus un des entiers est grand, plus la statistique associée à cette valeur sera grande.
+        \paragraph{IVs} IVs est la contraction de \emph{Individual Values}. Ce tableau de 6 valeurs, toutes comprises entre 0 et 31, défini pour chacune des statistiques de combats son écart de force avec les ICMons de son espèce. Une valeur à 0 dans une statistique signifie que cette statistique sera la plus basse possible pour cette espèce d'ICMon, et vice et versa pour une valeur à 31.
+        \paragraph{Niveau et expérience} Le niveau d'un ICMon est un entier entre 1 et 100 qui modifie chaque statistique sous forme de coefficient multiplicateur. Plus le niveau est élevé, plus les statistiques le sont. L'expérience quand à elle est un entier non signé qui détermine si le niveau d'un ICMon doit augmenter (voir \emph{systèmes des combats}).
+        \paragraph{Nature} Tout ICMon possède une nature, choisie aléatoirement lors de sa première rencontre. Il y a vingt cinq natures différentes. Chaque nature augmente une statistique de combats de dix pour cent mais en diminue une de dix pour cent également. Les natures sont également toutes nommées (par exemple, la nature \emph{rigide} augmente l'attaque mais baisse l'attaque spéciale).\\
+        \paragraph{} Les quatres derniers attributs permettent de calculer les statistiques réelles de n'importe qu'elle ICMon grâce aux formules suivantes :
+        \begin{equation}
+            \displaystyle{  Statistiques = \left \lfloor \left\lfloor \frac{(2 \times BaseStat + IV )\times Niveau }{100} +5 \right\rfloor \times Nature \right\rfloor  }
+        \end{equation}
+        \begin{equation}
+            \displaystyle{  PointsDeVie = \left\lfloor \frac{(2 \times BaseStat + IV )\times Niveau}{100} \right\rfloor + Niveau + 10  }
+        \end{equation}
+        \paragraph{Double type} Chaque ICMon possède un double type, une caractéristique le rendant plus ou moins puissant face aux différentes espèces d'ICMons. Par exemple, Surcadex est de type feu/malware. Les relations entre les types sont définies dans la table des types \emph{typeChart}, où un coefficient \emph{ligne/colonne} donne le bonus (ou malus) de dégats infligé par le type \emph{ligne} sur le type \emph{colonne}.
+        \paragraph{Sprite} Les images sont gérées par SDL, l'utilisation de la bibliothèque SDL est détaillé dans la partie \emph{Rendu du jeu}. Ces images sont sauvegardées dans le dossier /assets/Monsters/New Version/ et chargées grâce aux noms des fichiers images, qui sont les mêmes que les noms des ICMons.
+        \paragraph{Attaques} Les attaques utilisables en combats sont implémentées par un tableau de quatres structures \emph{t\_Move}. Un ICMon dispose à tout instant de une à quatres attaques maximum.\\
+        La structure t\_Move contient les attributs suivants :
+        \begin{itemize}
+            \item son nom, implémenté de manière similaire à celui des ICMon.
+            \item sa puissance, un entier caractérisant la force de base d'une attaque
+            \item son type, reprenant le même fonctionnement que celui de la structure ICMon.
+            \item sa précision, donnant le pourcentage de chance qu'une attaque touche sa cible.
+            \item ses points de pouvoir (PP), un entier donnant le nombre maximal d'utilisation d'une attaque pour un combat.
+            \item sa priorité, entier entre -7 et 8 qui détermine si une certaine attaque doit être effectuée avant une autre. Le zéro représente la priorité par défaut.
+            \item son eventuel effet secondaire, qui à une probabilité variable de s'activer après l'attaque.
+        \end{itemize}  
     \subsubsection{systèmes de combats}
+        \emph{Dans cette section, l'implémentation des combats sera détaillé.}
+        \paragraph{} Maintenant que les structures nécessaires ont été explicitées, il faut désormais mettre en place le système de combat tour par tour à la \emph{Pokémon}. L'algorithme utilisé dans ces jeux vidéos est complexe, mais peut se résumer au suivant :\\
+        \begin{enumerate}
+            \item Le joueur et l'ordinateur choisissent l'action qu'ils souhaitent effectuée, qui sont soit une de leurs attaques disponibles, soit de remplacer l'ICMon courant par un de leur équipe (si celui ci est toujours en vie).
+            \item L'ordre de passage des actions est déterminé.
+            \item L'action numéro une est réalisée.
+            \item L'action numéro deux est réalisée seulement si son auteur est toujours en vie.
+            \item Les effets secondaires en cours sont traités.
+            \item L'équipe du joueur gagne de l'expérience si l'ICMon adverse n'est plus apte à se battre.
+            \item Si un des participants n'a plus de tête d'équipe en vie, il la remplace si possible.
+            \item On répète l'étape une jusqu'à ce que l'un des participants ne puisse plus réaliser l'étape sept.
+        \end{enumerate}
+        \paragraph{Utilisation des statistiques} Les dégats infligés par une attaque sont calculés grâce à la formule suivante :
+        \begin{equation}
+            \displaystyle{  PV_{perdus} = \left \lfloor \left(\left\lfloor\frac{\left\lfloor\frac{\left\lfloor Niveau \times 0.4 +2 \right\rfloor \times StatOffense \times PuissanceAttaque}{StatDefense}\right\rfloor}{50} \right\rfloor +2 \right) \times CM \right \rfloor  }
+        \end{equation}
+        \begin{description}
+        \item[StatOffense]{est la statistique \emph{attaque} ou \emph{attaque spéciale} de l'attaquant. La différenciation attaque et attaque spéciale est déterminé grâce à la capacité choisie.}
+        \item[StatDefense]{idem pour la défense et la défense spéciale.}
+        \item[CM]{Le coefficient multiplicateur de la capacité est le produit des quatres valeurs suivantes :\\
+            \begin{itemize}
+                \item Un nombre aléatoire entre 0,85 et 1, qui donne les dégats infligés parmi une fourchette de valeurs possibles
+                \item Le coefficient de la relation de type \emph{typeAttaque/typesDéfenseur}
+                \item Un bonus STAB (Same Type Attack Damage) qui augmente de cinquante pour cent les dégats si le type de l'attaque est aussi l'un des types du lanceur.
+                \item Un bonus coup critique qui à une chance sur vingt quatre d'augmenter les dégats de cinquante pour cent.
+            \end{itemize}
+        }
+        \end{description}
+        \paragraph{Gain d'expérience} Lorsque l'ICMon de tête du joueur parvient à éliminer celui de l'ordinateur, touts les membres de son équipe gagne une quantité de points d'expérience qui s'ajoute à ceux que les ICMons possédaient.
+        \begin{equation}
+            \displaystyle{ EXP = \dfrac {1.5 ^ 2 \times 2 \times BaseStatPV}{7} }
+        \end{equation}
+        Ensuite, la fonction \emph{ReachedNextLvl} vérifie en boucle jusqu'au premier échec si les points d'expérience d'un ICMon dépasse la quantité d'expérience renvoyée par l'appel \emph{expCurve(niveauICmon + 1)}. Dans ce cas, le niveau de l'ICMon progresse de un.\\
+        La courbe d'expérience utilisée pour \emph{expCurve} est :
+        \begin{equation}
+            \displaystyle{ Seuil = Niveau ^ 3}
+        \end{equation}
 \newpage
 \subsection{Gestion des bases de données}
     \subsubsection{sauvegardes}
@@ -251,6 +328,7 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
 
     Enfin, les déplacements sont également liés à la gestion des collisions. Le joueur ne peut se déplacer que sur des cases libres (valeurs spécifiques dans la matrice de la carte). Cela est vérifié dans les fonctions de gestion des événements, comme `handlePlayerEvent`, qui détecte les entrées clavier et met à jour l'état du joueur en conséquence.
 
+\newpage
 \subsection{rendu du jeu}
 Le système de rendu graphique constitue l'un des piliers fondamentaux de notre jeu, devant concilier performances optimales et cohérence visuelle.
 
