@@ -119,7 +119,6 @@ void loadMapIMG(Map *map, const char *path);
  */
 void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera);
 
-
 /**
  * @fn void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY)
  * @brief Charge une nouvelle carte à partir d'un fichier.

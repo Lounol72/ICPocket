@@ -365,6 +365,9 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
 void handleGameEvent(Window *win, SDL_Event *event) {
     if (!game.scrollingTextIntro->isComplete) return;
     if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
+        if(!isTeamAlive(&game.battleState.rouge)){
+            saveDestroy(&game.battleState.rouge);
+        }
         /* Réinitialisation de l'état du jeu */
         game.gameState.playerTurn = 0;
         AppState newState = isTeamAlive(&game.battleState.rouge) ? INTER : MENU;
@@ -472,6 +475,7 @@ void handleNewGameEvent(Window *win, SDL_Event *event) {
 }
 
 
+
 /**
  * @fn void handleLoadGameEvent(Window *win, SDL_Event *event)
  * @brief Gère le chargement d'une partie sauvegardée.
@@ -481,7 +485,6 @@ void handleNewGameEvent(Window *win, SDL_Event *event) {
  * @param win Pointeur sur la fenêtre.
  * @param event Pointeur sur l'événement SDL.
  */
-
  /* 
 void handleLoadGameEvent(Window *win, SDL_Event *event) {
     
@@ -512,6 +515,8 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
     handleEvent(win, event);
 }*/
 void handleLoadGameEvent(Window *win, SDL_Event *event) {
+    
+    
     if (!win || !event) return;
     srand(time(NULL));
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
@@ -519,6 +524,7 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
         SDL_GetMouseState(&x, &y);
         for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
             ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
+
         }
     } 
     handleEvent(win, event);
@@ -537,8 +543,8 @@ void loadFile(Window *win, void *event){
         char data[50];
         snprintf(data,50,"%s",(char*)event);
         if((charger(data, &game.battleState.rouge, &game.battleState.bleu))==-1){
-            handleNewGameEvent(win, event);
-            handleEvent(win, event);
+            initTeam(&game.battleState.rouge, 3);
+            return;
         }
 
         initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
@@ -556,6 +562,7 @@ void loadFile(Window *win, void *event){
         handleEvent(win, event);
 
     }
+    handleEvent(win, event);
 }
 
 

@@ -11,7 +11,7 @@
  * @struct Image
  * @brief Représente une image avec un texte associé.
  * 
- * Cete structure contient des informations sur une image, y compris sa texture, sa position, et le texte associé.
+ * Cette structure contient des informations sur une image, y compris sa texture, sa position, et le texte associé.
  */
 typedef struct {
     SDL_Texture *texture; /**< Texture de l'image. */

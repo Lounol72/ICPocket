@@ -185,7 +185,12 @@ void render(Window *win) {
 static void renderMap(Window *win) {
     pthread_mutex_lock(&game.threadManager.physicsMutex);
     SDL_RenderClear(win->renderer);
-    renderMapWithCamera(game.gameData.maps[game.gameData.player->mapIndex], win->renderer, game.gameData.camera);
+    int mapIndex = game.gameData.player->mapIndex;
+    if (mapIndex < 0 || mapIndex >= 3) {
+        // Fallback to a safe default index if out-of-range
+        mapIndex = 0;
+    }
+    renderMapWithCamera(game.gameData.maps[mapIndex], win->renderer, game.gameData.camera);
     renderPlayerWithCamera(game.gameData.player, win->renderer, game.gameData.camera);
     pthread_mutex_unlock(&game.threadManager.physicsMutex);
     SDL_RenderPresent(game.win->renderer);
@@ -212,11 +217,11 @@ void changeState(Window *win, void *data) {
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Changement d'état : %d", newState);
 }
 
-int gameStateTimerValidate(int nb_mili){
+int gameStateTimerValidate(int nb_micro){
     struct timeval time_now;
     gettimeofday(&time_now,NULL);
     long elapsed = (time_now.tv_sec - game.gameState.time_in_state.tv_sec) * 1000000 + (time_now.tv_usec - game.gameState.time_in_state.tv_usec);
-    return elapsed>=nb_mili;
+    return elapsed>=nb_micro;
 }
 
 /**
@@ -326,12 +331,14 @@ void changePokemon(Window *win, void *data) {
  * @param data Données supplémentaires pour l'échange.
  */
 void initSwapTeam(Window *win, void *data) {
-    game.swappingIndex[0]=0;
-    game.swappingIndex[1]=game.battleState.rouge.nb_poke%6;
-    updateICMonsButtonText(win, &game.battleState.bleu, 6 ,10);
-    updateICMonsButtonText(win, &game.battleState.rouge, 12 ,10);
+    if(!game.hasExchanged){
+        game.swappingIndex[0]=0;
+        game.swappingIndex[1]=game.battleState.rouge.nb_poke%6;
+        updateICMonsButtonText(win, &game.battleState.bleu, 6 ,10);
+        updateICMonsButtonText(win, &game.battleState.rouge, 12 ,10);
 
-    changeState(win,data);
+        changeState(win,data);
+    }
 }
 
 /**
@@ -402,6 +409,8 @@ void validateSwap(Window *win, void *data) {
         initTeamSprites(win, &game.battleState.rouge,RED_SPRITE_X_RATIO, RED_SPRITE_Y_RATIO, 0);
         updateICButtons(win, &game.battleState.rouge);
         updateICMonsButtonText(win, &game.battleState.rouge, 6, 6);
+        sauvegarder(&game.battleState.rouge, &game.battleState.bleu);
+        game.hasExchanged=1;
         changeState(win,data);
     }
 }
@@ -464,6 +473,10 @@ void validateStarterChoice(Window *win, void *data){
         
     updateICButtons(win, &game.battleState.rouge);
     setDefaultStatChanges(&game.battleState.rouge);
+
+    for(int i=0;i<4;i++){
+        if(i!=game.startersIndex && game.starters[i].img) destroyICMonsSprite(&game.starters[i]);
+    }
         
     game.gameState.initialized = 1;
     changeState(win,&game.stateHandlers[MAP].state);
@@ -490,12 +503,14 @@ void initStarters(Window *win, void *data){
 
     game.battleState.rouge.nb_poke=1;
 	game.battleState.rouge.effect=noEffect;
-	game.battleState.rouge.id_save=1;
+
+	if(!game.battleState.rouge.id_save)game.battleState.rouge.id_save=1;
     game.battleState.rouge.nb_enemiBeat=0;
 
     for(int i=0;i<4;i++){
         game.starters[i].main_effect=noEffect;
         generate_poke(&game.starters[i],ids[i]);
+        generateRandomMoveBetter(&game.starters[i]);
         game.starters[i].lvl=5;
         game.starters[i].exp = expCurve(game.starters[i].lvl);
         game.starters[i].current_pv=calcStatFrom(&(game.starters[i]),PV);
@@ -631,12 +646,15 @@ void nextDuel(Window *win, void *data) {
     
     // Soigner et réinitialiser
     healTeam(&game.battleState.rouge);
-    game.battleState.rouge.nb_enemiBeat++;
     initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
     
     // Réinitialiser l'IA
-    game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
+    //game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
+    game.battleState.ia.AI_lvl = 1 + game.battleState.rouge.nb_enemiBeat;
+    game.battleState.ia.type = 2 + rand()%2;
+    if(game.battleState.rouge.nb_enemiBeat>=15) game.battleState.ia.type = boss;
     
+    game.battleState.rouge.nb_enemiBeat++;
     // Initialiser les sprites avec vérification d'erreur
     if (initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1) != 0) {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur lors de l'initialisation des sprites");
@@ -650,6 +668,19 @@ void nextDuel(Window *win, void *data) {
         game.scrollingTextIntro = NULL;
     }
     loadPhrase();
+    
+    // Changer la musique si conseil 4
+    if(game.battleState.rouge.nb_enemiBeat>=15){
+        if (game.gameState.music) {
+            Mix_FreeMusic(game.gameState.music);
+            game.gameState.music = NULL;
+            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ Musique libérée");
+        }
+        loadMusic(&game.gameState.music, "assets/audio/conseil_4.mp3");
+    }
+
+    // Rendre disponible un échange
+    game.hasExchanged=0;
     
     // Changer d'état
     changeState(win, &game.stateHandlers[GAME].state);
@@ -1305,19 +1336,21 @@ void updateBattleTurn() {
                 }
                 game.battleState.hasAttacked = true;
             }
-            if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
-                char msg[60];
-                sprintf(msg,"Coup critique !");
-                criticalHitFlag=0;
-                resetScrollingText(game.battleState.text, msg);
-            }
-            if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
-                char msg[60]="\0";
-                if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
-                else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
-                else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
-                moveEffectivenessFlag=-2;
-                if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
+            if((game.battleState.first && isAttacking(game.battleState.moveRouge)) || (!game.battleState.first && isAttacking(game.battleState.moveBleu))){
+                if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
+                    char msg[60];
+                    sprintf(msg,"Coup critique !");
+                    criticalHitFlag=0;
+                    resetScrollingText(game.battleState.text, msg);
+                }
+                if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
+                    char msg[60]="\0";
+                    if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
+                    else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
+                    else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
+                    moveEffectivenessFlag=-2;
+                    if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
+                }
             }
             if (game.battleState.text->isComplete) {
                 game.battleState.text->isComplete = false;
@@ -1356,19 +1389,21 @@ void updateBattleTurn() {
                 }
                 game.battleState.hasAttacked = true;
             }
-            if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
-                char msg[60];
-                sprintf(msg,"Coup critique !");
-                criticalHitFlag=0;
-                resetScrollingText(game.battleState.text, msg);
-            }
-            if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
-                char msg[60]="\0";
-                if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
-                else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
-                else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
-                moveEffectivenessFlag=-2;
-                if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
+            if((game.battleState.first && isAttacking(game.battleState.moveBleu)) || (!game.battleState.first && isAttacking(game.battleState.moveRouge))){
+                if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
+                    char msg[60];
+                    sprintf(msg,"Coup critique !");
+                    criticalHitFlag=0;
+                    resetScrollingText(game.battleState.text, msg);
+                }
+                if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
+                    char msg[60]="\0";
+                    if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
+                    else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
+                    else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
+                    moveEffectivenessFlag=-2;
+                    if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
+                }
             }
             if (game.battleState.text->isComplete) {
                 game.battleState.text->isComplete = false;

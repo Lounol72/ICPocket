@@ -120,12 +120,12 @@ typedef struct Game {
     SDL_Surface *cursor;       /**< Surface du curseur. */
     SDL_Surface *cursor_hover; /**< Surface du curseur au survol. */
     int swappingIndex[2];      /**< Index d'échange. */
+    int hasExchanged;           /**< Booleen "si echange disponible" */
     Text * windowText;         /**< Texte de la fenêtre. */
     t_Poke starters[4];        /**< Liste des starters. */
     int startersIndex;        /**< Index des starters. */
     Image **touche;         /**< Images des touches. */
     ScrollingText *scrollingTextIntro;  /**< Texte défilant d'introduction. */
-    
 } Game;
 
 #include "Game.h"

@@ -155,7 +155,7 @@ void renderButtonList(ButtonList *B);
 void ButtonClicked(Button *button, int mouseX, int mouseY, Window *win);
 
 /**
- * @fn uptadeButtonPosition(ButtonList *buttons, float Scalex, float Scaley)
+ * @fn updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley)
  * @brief Met à jour les états des boutons et applique des facteurs de mise à l'échelle aux éléments de l'interface utilisateur.
  *
  * @param buttons Structure ou collection représentant les boutons à gérer ou à mettre à jour.
