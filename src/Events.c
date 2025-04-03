@@ -186,18 +186,8 @@ void handleWindowSizeChange(Window *win) {
     updateTextPosition(game.windowText, scaleX, scaleY);
 
     for (int i = 0; i < 3; i++) {
-         if (game.touche[i]) {
-            printf("Before resize - touche[%d]: x=%d,y=%d,w=%d,h=%d\n", 
-                i, game.touche[i]->rect.x, game.touche[i]->rect.y, 
-                game.touche[i]->rect.w, game.touche[i]->rect.h);
-            
+         if (game.touche[i]) {            
             updateImageSize(game.touche[i], scaleX, scaleY);
-            
-            printf("After resize - touche[%d]: x=%d,y=%d,w=%d,h=%d\n", 
-                i, game.touche[i]->rect.x, game.touche[i]->rect.y, 
-                game.touche[i]->rect.w, game.touche[i]->rect.h);
-        } else {
-            printf("Warning: game.touche[%d] is NULL\n", i);
         }
     }
     for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
@@ -253,12 +243,10 @@ void handleIntermediateEvent(Window *win, SDL_Event *event) {
 
     // Si le joueur appuie sur E, lancer le combat
     if (keyState[SDL_SCANCODE_E]) {
-        printf("Lancement du combat...\n");
         changeState(win, &game.stateHandlers[GAME].state); // Passer à l'état de combat
     }
     // Si le joueur appuie sur Échap, annuler l'interaction
     else if (keyState[SDL_SCANCODE_ESCAPE]) {
-        printf("Interaction annulée. Retour à la carte.\n");
         game.gameState.currentState = MAP; // Retourner à l'état de la carte
     }
     handleEvent(win, event);
@@ -502,7 +490,6 @@ void loadFile(Window *win, void *event){
         initData();
         char data[50];
         snprintf(data,50,"%s",(char*)event);
-        printf("data %s\n",data);
         if((charger(data, &game.battleState.rouge, &game.battleState.bleu))==-1){
             handleNewGameEvent(win, event);
             handleEvent(win, event);

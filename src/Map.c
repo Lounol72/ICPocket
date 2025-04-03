@@ -44,7 +44,7 @@ void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, 
 static void initCollisionMapFromCSV(Map *map, const char *path, int *spawnX, int *spawnY) {
     FILE *file = fopen(path, "r");
     if (!file) {
-        printf("Erreur ouverture fichier CSV: %s\n", path);
+        SDL_Log("Erreur ouverture fichier CSV: %s\n", path);
         return;
     }
     

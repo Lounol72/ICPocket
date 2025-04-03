@@ -93,7 +93,6 @@ Player* createPlayer(SDL_Renderer *renderer, char *spritesheetPath, Map * map, i
     player->sizeMapW = map->taille[0];
     initPlayerMat(player);
     SDL_FreeSurface(surface);
-    printf("[%d] Player created at %d, %d\n", player->mapIndex, player->matrixX, player->matrixY);
     return player;
 }
 
