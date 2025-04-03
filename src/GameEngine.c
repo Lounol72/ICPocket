@@ -630,7 +630,7 @@ void nextDuel(Window *win, void *data) {
     // Rendre disponible un échange
     game.hasExchanged=0;
     // Changer d'état
-    changeState(win, &game.stateHandlers[MAP].state);
+    changeState(win, &game.stateHandlers[GAME].state);
 }
 
 /**
