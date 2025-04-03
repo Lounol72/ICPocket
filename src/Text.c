@@ -158,7 +158,7 @@ void destroyText(Text *text) {
     if (!text) return;
 
     // Libérer la texture SDL
-        if (text->texture) {
+        if (text->texture != NULL) {
             SDL_DestroyTexture(text->texture);
             text->texture = NULL;
         }

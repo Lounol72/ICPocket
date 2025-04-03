@@ -203,6 +203,26 @@ void loadPhrase(void){
  * 
  */
 void destroyGame() {
+
+    if (game.battleState.rouge.nb_poke != 0) {
+        for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
+            if (game.battleState.rouge.team[i].img) {
+                destroyICMonsSprite(&game.battleState.rouge.team[i]);
+            }
+        }
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ ICMons rouges libérés");
+    }
+    
+    /* Destruction des ICMons pour l'équipe bleue */
+    if (game.battleState.bleu.nb_poke != 0) {
+        for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+            if (game.battleState.bleu.team[i].img) {
+                destroyICMonsSprite(&game.battleState.bleu.team[i]);
+            }
+        }
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ ICMons bleus libérés");
+    }
+
     /* 1) Libération de la musique */
     if (game.gameState.music) {
         Mix_FreeMusic(game.gameState.music);
@@ -313,25 +333,6 @@ void destroyGame() {
     if (game.scrollingTextIntro != NULL){
         destroyScrollingText(game.scrollingTextIntro);
         game.scrollingTextIntro = NULL;
-    }
-
-    if (game.battleState.rouge.nb_poke != 0) {
-        for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
-            if (game.battleState.rouge.team[i].img) {
-                destroyICMonsSprite(&game.battleState.rouge.team[i]);
-            }
-        }
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ ICMons rouges libérés");
-    }
-    
-    /* 4) Destruction des ICMons pour l'équipe bleue */
-    if (game.battleState.bleu.nb_poke != 0) {
-        for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
-            if (game.battleState.bleu.team[i].img) {
-                destroyICMonsSprite(&game.battleState.bleu.team[i]);
-            }
-        }
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ ICMons bleus libérés");
     }
     
     cleanupText();

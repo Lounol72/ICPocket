@@ -468,8 +468,6 @@ void validateStarterChoice(Window *win, void *data){
         
     if (initTeamSprites(win, &game.battleState.rouge, RED_SPRITE_X_RATIO, RED_SPRITE_Y_RATIO, 0) != 0)
         return;
-    if (initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1) != 0)
-        return;
         
     updateICButtons(win, &game.battleState.rouge);
     setDefaultStatChanges(&game.battleState.rouge);
@@ -477,6 +475,7 @@ void validateStarterChoice(Window *win, void *data){
     for(int i=0;i<4;i++){
         if(i!=game.startersIndex && game.starters[i].img) destroyICMonsSprite(&game.starters[i]);
     }
+    
         
     game.gameState.initialized = 1;
     changeState(win,&game.stateHandlers[MAP].state);

@@ -161,6 +161,7 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
     // Ajout affichage lvl
     char lvlTextBuffer[32];
     snprintf(lvlTextBuffer, sizeof(lvlTextBuffer), "N.%d", poke->lvl);
+    img->LvlText = NULL;
     img->LvlText = createText(lvlTextBuffer, renderer, (SDL_Rect){spriteRect.x + spriteRect.h - 25, nameRect.y, nameRect.w-5, nameRect.h}, (SDL_Color){255,255,255,255}, font);
     
     
@@ -376,8 +377,10 @@ void destroyICMonsSprite(t_Poke *poke) {
     }
         
     for (int i = 0; i < poke->nb_move; i++) {
-        Mix_FreeChunk(poke->img->ICMonSound[i]);
-        poke->img->ICMonSound[i] = NULL;
+        if (poke->img->ICMonSound[i]){
+            Mix_FreeChunk(poke->img->ICMonSound[i]);
+            poke->img->ICMonSound[i] = NULL;
+        }
     }
     free(poke->img);
     poke->img = NULL;
