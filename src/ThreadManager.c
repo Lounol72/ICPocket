@@ -8,6 +8,7 @@ volatile int forcePlayerMoveX = 0;
 volatile int forcePlayerMoveY = 0;
 
 /**
+ * @fn void updatePhysics(Player *player, Camera *camera, float deltaTime)
  * @brief Met à jour les aspects physiques du jeu (mouvements, collisions, etc.)
  * 
  * @param player Pointeur vers le joueur
@@ -179,6 +180,7 @@ int handleMapTransition(int mapId, Player *player, Camera *camera, SDL_Renderer 
 }
 
 /**
+ * @fn int checkAndLoadNewMap(Player *player, Map *map, Camera *camera, SDL_Renderer *renderer)
  * @brief Vérifie si le joueur est sur une case de transition et charge la nouvelle carte si nécessaire
  * 
  * @param player Pointeur vers le joueur
@@ -226,6 +228,7 @@ int checkAndLoadNewMap(Player *player, Map *map, Camera *camera, SDL_Renderer *r
 }
 
 /**
+ * @fn void initThreadManager(Game* game)
  * @brief Initialise le gestionnaire de threads
  * 
  * @param game Pointeur vers la structure Game
@@ -257,6 +260,16 @@ void initThreadManager(Game* game) {
     //pthread_create(&game->threadManager.renderThread, NULL, renderThreadFunction, game);
 }
 
+/**
+ * @fn void* audioThreadFunction(void* arg)
+ * @brief Fonction du thread audio
+ * 
+ * Cette fonction est exécutée par le thread audio. Elle gère le traitement audio
+ * en boucle tant que le jeu est en cours d'exécution.
+ * 
+ * @param arg Pointeur vers la structure Game
+ * @return NULL
+ */
 void* audioThreadFunction(void* arg) {
     Game* game = (Game*)arg;
     while (game->threadManager.isRunning) {
@@ -286,6 +299,16 @@ void* renderThreadFunction(void* arg) {
     return NULL;
 }*/
 
+/**
+ * @fn void* physicsThreadFunction(void* arg)
+ * @brief Fonction du thread de physique
+ * 
+ * Cette fonction est exécutée par le thread de physique. Elle gère les calculs physiques
+ * en boucle tant que le jeu est en cours d'exécution.
+ * 
+ * @param arg Pointeur vers la structure Game
+ * @return NULL
+ */
 void* physicsThreadFunction(void* arg) {
     Game* game = (Game*)arg;
     Uint32 lastTime = SDL_GetTicks();
@@ -306,6 +329,15 @@ void* physicsThreadFunction(void* arg) {
     return NULL;
 }
 
+/**
+ * @fn void cleanupThreads(struct Game* game)
+ * @brief Nettoie et termine les threads
+ * 
+ * Cette fonction arrête tous les threads en cours d'exécution, attend leur terminaison
+ * et détruit les mutex associés.
+ * 
+ * @param game Pointeur vers la structure Game
+ */
 void cleanupThreads(Game* game) {
     if (!game) return;
     

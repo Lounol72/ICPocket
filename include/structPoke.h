@@ -36,9 +36,9 @@
 * @brief Génère un Pokémon avec des caractéristiques aléatoires.
 *
 * @param p Pointeur vers la structure t_Poke à remplir.
-* @param id ID du Pokémon à générer.
+* @param line ID du Pokémon à générer.
 */
-void generate_poke(t_Poke *p,int id);
+void generate_poke(t_Poke *p,int line);
 
 /**
 * @fn void generate_poke_enemi(t_Poke *p, int line,t_Team * joueur)
@@ -69,9 +69,9 @@ void generatePoke(t_Poke *);
  
 /**
  * @brief génere une attaque non aléatoirement, selon une id donnée, utiliser
- * @param id : l'id
+ * @param line : l'id
  */
-t_Move generateMove(int id);
+t_Move generateMove(int line);
 
 /**
  * @fn t_Move generateRandomMove()

@@ -1,7 +1,11 @@
 
 #include "../include/duel.h"
 
-
+/**
+ * @brief Cette fonction initialise les données du jeu.
+ * 
+ * @return int 
+ */
 int main(){
 	initData();
 	char choix;

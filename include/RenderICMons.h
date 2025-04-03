@@ -45,18 +45,20 @@ typedef struct IMG_ICMons {
 
 /**
  * @fn IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rect nameRect, SDL_Rect pvRect, t_Poke *poke, TTF_Font *font, int team)
- * @brief Initialise un sprite ICMons.
- * 
- * Cette fonction initialise un sprite ICMons avec les paramètres spécifiés.
- * 
+ * @brief Initialise le sprite d'un ICMon.
+ *
+ * Cette fonction crée et initialise le sprite associé à un poke, incluant le chargement
+ * de l'image, le retournement horizontal si nécessaire, la création des textures, ainsi que
+ * la configuration des textes et barres de points de vie.
+ *
  * @param renderer Le renderer SDL.
- * @param spriteRect Le rectangle définissant la position et la taille du sprite.
- * @param nameRect Le rectangle pour l'affichage du nom.
- * @param pvRect Le rectangle pour la barre de PV.
- * @param poke Un pointeur vers la structure t_Poke représentant l'ICMons.
- * @param font La police utilisée pour le rendu du texte.
- * @param team L'identifiant de l'équipe pour l'ICMons.
- * @return Un pointeur vers la structure IMG_ICMons initialisée.
+ * @param spriteRect Le rectangle du sprite.
+ * @param nameRect Le rectangle pour le nom.
+ * @param pvRect Le rectangle pour la barre de points de vie.
+ * @param poke Le pointeur vers la structure t_Poke contenant les informations du poke.
+ * @param font La police TTF utilisée pour le texte.
+ * @param team L'équipe (si 1, l'image est retournée horizontalement).
+ * @return IMG_ICMons* Le pointeur vers le sprite initialisé, ou NULL en cas d'erreur.
  */
 IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rect nameRect, SDL_Rect pvRect, t_Poke *poke, TTF_Font *font, int team);
 
@@ -104,22 +106,24 @@ void updateICMonText(t_Poke *poke);
 void destroyICMonsSprite(t_Poke *poke);
 
 /**
- * @brief Start the entrance animation for an ICMon.
- * 
- * This function initializes the entrance animation parameters for an ICMon.
- * The animation will make the ICMon slide in from either the left or right side.
- * 
- * @param poke A pointer to the t_Poke structure representing the ICMon.
+ * @fn void startICMonEntranceAnimation(t_Poke *poke)
+ * @brief Démarre l'animation d'entrée pour un ICMon.
+ *
+ * Cette fonction initialise les paramètres de l'animation d'entrée pour un ICMon.
+ * L'animation fera glisser l'ICMon depuis le côté gauche ou droit.
+ *
+ * @param poke L'ICMon à animer.
  */
 void startICMonEntranceAnimation(t_Poke *poke);
 
 /**
- * @brief Update the entrance animation for an ICMon.
- * 
- * This function updates the position of the ICMon during its entrance animation.
- * The ICMon will slide in from either the left or right side.
- * 
- * @param poke A pointer to the t_Poke structure representing the ICMon.
+ * @fn void updateICMonEntranceAnimation(t_Poke *poke)
+ * @brief Met à jour l'animation d'entrée pour un ICMon.
+ *
+ * Cette fonction met à jour la position de l'ICMon pendant son animation d'entrée.
+ * L'ICMon glissera depuis le côté gauche ou droit.
+ *
+ * @param poke L'ICMon en cours d'animation.
  */
 void updateICMonEntranceAnimation(t_Poke *poke);
 

@@ -62,10 +62,10 @@ typedef struct {
     float startY;             /**< Position de départ Y en pixels. */
     float targetX;            /**< Position cible X en pixels. */
     float targetY;            /**< Position cible Y en pixels. */
-    bool isMovingToTarget;
-    int sizeMapW;
-    int sizeMapH;
-    int mapIndex;
+    bool isMovingToTarget;      /**< Indicateur de mouvement vers la cible. */
+    int sizeMapW;       /**< Largeur de la matrice de collision. */ 
+    int sizeMapH;      /**< Hauteur de la matrice de collision. */
+    
 } Player;
 
 /**
@@ -147,7 +147,30 @@ void destroyPlayer(Player *player);
  * @param camera Pointeur vers la caméra à utiliser pour le rendu.
  */
 void renderPlayerWithCamera(Player* player, SDL_Renderer* renderer, Camera* camera);
+
+/**
+ * @fn void updatePlayerSpawn(Player *player, Map *map, int spawnX, int spawnY)
+ * @brief Met à jour la position de départ du joueur dans la matrice de collision.
+ * 
+ * Cette fonction met à jour la position de départ du joueur dans la matrice de collision et réinitialise les variables de mouvement.
+ * 
+ * @param player Pointeur vers le joueur à mettre à jour.
+ * @param map Pointeur vers la carte du jeu.
+ * @param spawnX Position de départ X du joueur.
+ * @param spawnY Position de départ Y du joueur. 
+ */
 void updatePlayerSpawn(Player *player, Map *map, int spawnX, int spawnY);
+
+/**
+ * @fn void forceUpdatePlayerAndCamera(Player *player, Camera *camera, Map *map)
+ * @brief Force la mise à jour de la position du joueur et de la caméra.
+ * 
+ * Cette fonction met à jour la position du joueur et de la caméra en forçant les valeurs cibles.
+ * 
+ * @param player Pointeur vers le joueur à mettre à jour.
+ * @param camera Pointeur vers la caméra à mettre à jour.
+ * @param map Pointeur vers la carte du jeu.
+ */
 void forceUpdatePlayerAndCamera(Player *player, Camera *camera, Map *map);
 
 

@@ -15,6 +15,22 @@ static void initCollisionMap(Map *map) {
         }
     }
 }*/
+
+/**
+ * @fn void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY)
+ * @brief Charge une nouvelle carte à partir d'un fichier.
+ * 
+ * Cette fonction libère la mémoire de la carte actuelle et charge une nouvelle carte à partir d'un fichier.
+ * 
+ * @param map Pointeur vers un pointeur vers la structure Map à charger.
+ * @param newMapPath Chemin du fichier de la nouvelle carte à charger.
+ * @param mapWidth Largeur de la nouvelle carte.
+ * @param mapHeight Hauteur de la nouvelle carte.
+ * @param spawnX Pointeur vers la position X de spawn du joueur.
+ * @param spawnY Pointeur vers la position Y de spawn du joueur.
+ * @param playerX Position actuelle du joueur en X.
+ * @param playerY Position actuelle du joueur en Y.
+ */
 //temporaire
 /*
 void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY, int playerX, int playerY) {
@@ -91,6 +107,17 @@ static inline void initMapMat(Map *map) {
         }
     }
 }
+
+/**
+ * @fn Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSizeH, int *spawnX, int *spawnY)
+ * @brief Initialise une carte à partir d'un fichier.
+ * 
+ * Cette fonction charge une carte à partir d'un fichier et initialise les paramètres de la carte.
+ * 
+ * @param renderer Pointeur vers le renderer SDL utilisé pour dessiner la carte.
+ * @param path Chemin du fichier de la carte à charger.
+ * @return Un pointeur vers la structure Map initialisée.
+ */
 Map *initMap(SDL_Renderer *renderer, const char *path) {
     int spawnX = -1;
     int spawnY = -1;
@@ -156,9 +183,6 @@ Map *initMap(SDL_Renderer *renderer, const char *path) {
     return map;
 }
 
-
-
-
 void DEBUG_printMap(Map *map) {
     for (int i = 0; i < MAP_HEIGHT; i++) {
         for (int j = 0; j < MAP_WIDTH; j++) {
@@ -168,6 +192,12 @@ void DEBUG_printMap(Map *map) {
     }
 }
 
+/**
+ * @fn renderMapDebug(Map *map)
+ * @brief cette fonction permet de rendre la carte en mode debug.
+ * 
+ * @param map 
+ */
 void renderMapDebug(Map *map) {
     if (!map->texture) {
 
@@ -187,6 +217,16 @@ void renderMapDebug(Map *map) {
     
 }
 
+/**
+ * @fn void renderMapWithCamera(Map *map, SDL_Renderer *renderer, Camera *camera)
+ * @brief Rendu de la carte avec la caméra.
+ * 
+ * Cette fonction dessine la carte sur le renderer SDL en tenant compte de la position de la caméra.
+ * 
+ * @param map Pointeur vers la structure Map à dessiner.
+ * @param renderer Pointeur vers le renderer SDL utilisé pour dessiner la carte.
+ * @param camera Pointeur vers la structure Camera utilisée pour le rendu.
+ */
 void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera) {
     // D'abord, rendre la texture de la map complète avec la caméra
     SDL_Rect worldRect = {
@@ -243,6 +283,14 @@ void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera) {
     */
 }
 
+/**
+ * @fn void destroyMap(Map *map)
+ * @brief Détruit la carte et libère la mémoire associée.
+ * 
+ * Cette fonction libère la mémoire allouée pour la carte et ses ressources.
+ * 
+ * @param map Pointeur vers la structure Map à détruire.
+ */
 void destroyMap(Map *map) {
     if (map) {
         if (map->mat) {
