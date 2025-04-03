@@ -225,7 +225,8 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
     
     Les fonctions implémentées afin de rendre le rendu de la carte possible sont `initMap`, qui permet d'initialiser la carte en utilisant les autres fonctions du fichier `Map.c`, telles que `initCollisionFromCSV`,
     qui permet de gérer les collisions grâce aux CSV. Nous avons créé la fonction `checkAndLoadNewMap`, qui permet de vérifier si, dans un fichier CSV, le personnage se situe sur une case qui correspond au chargement d'une nouvelle zone. Dans ce cas, 
-    la fonction `loadNewMap` intervient et génère la nouvelle zone et son CSV.
+    la fonction 'loadNewMap' est appelée pour mettre à jour le point d'apparition du joueur par rapport à la nouvelle carte et lorsque le joueur revient sur la carte précédente, il est renvoyé a l'endroit ou il etait avant de changer de zone.
+    Pour ce faire le programme regarde dans ses plus proches voisins si il y'a une case 0, si oui le joueur est directement placé a cet endroit
 
     Pour rendre cela possible, nous avons utilisé le logiciel de création de carte Tiled, puis Aseprite pour rendre la carte plus jolie en retirant les impuretés, afin de gérer tout cela avec des fichiers CSV.
     Tiled permet de créer des cartes facilement et de les exporter au format CSV, ce qui simplifie leur intégration dans le jeu.
