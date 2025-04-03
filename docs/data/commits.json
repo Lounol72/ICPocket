@@ -1,5 +1,155 @@
 [
   {
+    "sha": "2623a656",
+    "message": "Implement saveDestroy function and add unit test for save destruction",
+    "date": "2025-04-03T17:48:01Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/2623a6565047207728b582a71cf077244f586cde"
+  },
+  {
+    "sha": "c4b2af99",
+    "message": "Refactor render function for improved clarity and structure; add unit tests for save functionality",
+    "date": "2025-04-03T17:45:57Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/c4b2af9993c552c0a98867dec1b43396a7737d8e"
+  },
+  {
+    "sha": "e5628191",
+    "message": "Merge pull request #51 from Lounol72/test-windows-build",
+    "date": "2025-04-03T17:03:15Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/e5628191cce77bd5effa0903fa2bcf03e009fafe"
+  },
+  {
+    "sha": "de83fc4d",
+    "message": "📦 Windows build 2025-04-03",
+    "date": "2025-04-03T15:06:16Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/de83fc4dbd92d7ccd597101c7956f110cfc7854c"
+  },
+  {
+    "sha": "82612cbd",
+    "message": "Update Windows build workflow to simplify git push command",
+    "date": "2025-04-03T15:03:40Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/82612cbd40ae3ea788635df57c70febffb9f5335"
+  },
+  {
+    "sha": "b815df20",
+    "message": "Fix team initialization loop and add platform-specific directory creation for saves",
+    "date": "2025-04-03T14:59:57Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/b815df20cce2be5b0c3d9adbdf0c6e62529e3c82"
+  },
+  {
+    "sha": "0093853a",
+    "message": "removed scheduled Windows build",
+    "date": "2025-04-03T14:54:07Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/0093853a7121146983b7ef318d45e82800c4a77e"
+  },
+  {
+    "sha": "e41dbe6a",
+    "message": "Add scheduled Windows build and conditional execution based on today's commits",
+    "date": "2025-04-03T14:53:28Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/e41dbe6adea92f19089d88b82b310dcd44717f3e"
+  },
+  {
+    "sha": "69118aa9",
+    "message": "Fix state transition in nextDuel function to use MAP state instead of GAME state",
+    "date": "2025-04-03T14:49:03Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/69118aa9b7848a487edc73d691f7262d69eb4cfb"
+  },
+  {
+    "sha": "b04a3edf",
+    "message": "📦 Linux build 2025-04-03",
+    "date": "2025-04-03T13:45:10Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/b04a3edf60a33a7d90057839ca1d04cc711fb529"
+  },
+  {
+    "sha": "bf3df2e7",
+    "message": "Fix state transition in nextDuel function to use MAP state instead of GAME state",
+    "date": "2025-04-03T13:38:57Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/bf3df2e7da443dc3368a5735bcdaa4dd1ade2967"
+  },
+  {
+    "sha": "73dac9bd",
+    "message": "Merge pull request #50 from Lounol72/17-new-save-feature",
+    "date": "2025-04-03T13:34:05Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/73dac9bdee269852882c2568f8377d7ebafbd15a"
+  },
+  {
+    "sha": "9bd4ff9b",
+    "message": "Merge branch 'main' into 17-new-save-feature",
+    "date": "2025-04-03T13:31:31Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/9bd4ff9b71c859d049e4770aaa0124bf758b419f"
+  },
+  {
+    "sha": "925b4304",
+    "message": "Add button initialization and update function; manage game state during events",
+    "date": "2025-04-03T13:27:30Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/925b430499f7ac8885c022036533b9b57ae517ba"
+  },
+  {
+    "sha": "87759c2f",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-03T12:34:52Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/87759c2fa55c303f2a0868317d9447b398db6d56"
+  },
+  {
     "sha": "0fa84cbc",
     "message": "🐛 Fix memory management issues in text and sprite destruction",
     "date": "2025-04-03T09:40:51Z",
@@ -8,6 +158,16 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/0fa84cbc214c8717176c67e1ed7c5eda66f65edc"
+  },
+  {
+    "sha": "fee07b94",
+    "message": "mkdir on save and quit window when lose",
+    "date": "2025-04-03T09:08:26Z",
+    "author": {
+      "name": "lOkaal1",
+      "username": "lOkaal1"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/fee07b946772607c802f6bf440fb40920e1a8243"
   },
   {
     "sha": "35f785cc",
@@ -138,165 +298,5 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/ea3070c4c26fffa42ee2267cc06627c134af6e21"
-  },
-  {
-    "sha": "64210646",
-    "message": "Merge pull request #47 from Lounol72/44-battle-bugs",
-    "date": "2025-04-03T07:54:47Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/64210646395237e221c253dc60c85f5ce24b5a05"
-  },
-  {
-    "sha": "e2eedafd",
-    "message": "Merge branch 'main' into 17-new-save-feature",
-    "date": "2025-04-03T07:47:42Z",
-    "author": {
-      "name": "lOkaal1",
-      "username": "lOkaal1"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/e2eedafd368b97e2b5315624c5d9fb5cc1d35234"
-  },
-  {
-    "sha": "e98c8531",
-    "message": "Merge pull request #46 from Lounol72/36-attack-animations",
-    "date": "2025-04-03T07:45:28Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/e98c8531a8183b040cd327f332e0759d5866ce38"
-  },
-  {
-    "sha": "fbae722c",
-    "message": "Merge branch '34-adding-animation' into 36-attack-animations",
-    "date": "2025-04-03T07:41:06Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/fbae722c15e82eb1c0d29fa7a975b4b4325506d4"
-  },
-  {
-    "sha": "b4c528c5",
-    "message": "fixed text boxes not being played in the right time, effects launching when they shouldn't and improved AI",
-    "date": "2025-04-03T07:35:07Z",
-    "author": {
-      "name": "Natp24109",
-      "username": "Natp24109"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/b4c528c521ffd2ec0ec4779a026b97e0cb4547b7"
-  },
-  {
-    "sha": "5762128d",
-    "message": "Refactor event handling and logging; replace printf with SDL_Log for error messages",
-    "date": "2025-04-03T07:32:17Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/5762128dbfe7e79b09425824e721b19e5142c8b1"
-  },
-  {
-    "sha": "def8c905",
-    "message": "📊 Clean up debug logs and improve texture management in event handling and rendering",
-    "date": "2025-04-03T07:20:53Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/def8c905f45879f61d1d4f178e035846ff3389b9"
-  },
-  {
-    "sha": "7c6e5d58",
-    "message": "📊 Update GitHub data",
-    "date": "2025-04-03T06:25:18Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/7c6e5d5871c05324f80dd29a75a694bd61e2aefa"
-  },
-  {
-    "sha": "9d66aba9",
-    "message": "📊 Update GitHub data",
-    "date": "2025-04-03T01:19:38Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/9d66aba909975428c0b13ed61cfde3eaffc47852"
-  },
-  {
-    "sha": "1d8f6157",
-    "message": "Save destroyed after defeat",
-    "date": "2025-04-02T22:34:12Z",
-    "author": {
-      "name": "lOkaal11",
-      "username": "lOkaal1"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/1d8f6157ca5a7d26a455db723096df2c71bcb272"
-  },
-  {
-    "sha": "070826da",
-    "message": "📚 Documentation update 2025-04-02",
-    "date": "2025-04-02T22:08:14Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/070826da08bc5747789c662f1d913a408a1c6207"
-  },
-  {
-    "sha": "f1756a00",
-    "message": "📊 Refactor map handling and player transitions; update player creation and save data",
-    "date": "2025-04-02T21:50:02Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/f1756a004b75ff2160898f787b2a4bfd965b00b1"
-  },
-  {
-    "sha": "11093483",
-    "message": "📊 Update GitHub data",
-    "date": "2025-04-02T18:24:24Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/11093483febd267057e1bb2dc3874309e0f51b9c"
-  },
-  {
-    "sha": "0fa2c37a",
-    "message": "📊 Update GitHub data",
-    "date": "2025-04-02T12:35:19Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/0fa2c37a2c77ba1b274ad0ae8b1564441dd7e85f"
-  },
-  {
-    "sha": "af51735b",
-    "message": "fix bug",
-    "date": "2025-04-02T10:01:28Z",
-    "author": {
-      "name": "AstroZr",
-      "username": "AstroZr"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/af51735b6098518f4d9e8f620ec24e16b0f122bc"
-  },
-  {
-    "sha": "7c13a6b5",
-    "message": "📚 Update function documentation for Slider and Audio initialization",
-    "date": "2025-04-02T09:59:01Z",
-    "author": {
-      "name": "AstroZr",
-      "username": "AstroZr"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/7c13a6b57f0985aba584805328f510505e2aef6d"
   }
 ]
