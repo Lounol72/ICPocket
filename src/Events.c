@@ -568,7 +568,6 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
                    
             // Vérifier si une transition doit être effectuée
             if (checkAndLoadNewMap(game.gameData.player, currentMap, game.gameData.camera, game.win->renderer)) {
-                SDL_Log("handlePlayerEvent: Transition de carte effectuée");
                 return;
             }
         }

@@ -1140,7 +1140,7 @@ void updateBattleTurn() {
         case TURN_INIT: {
             // Création et affichage d'un texte annonçant le début du tour
             if (!game.battleState.text) {
-                char *msg ="Début du tour de combat";
+                char *msg =" ";
                 if (!msg) return;
                 game.battleState.text = createScrollingText(
                     msg,

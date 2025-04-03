@@ -14,7 +14,7 @@ volatile int forcePlayerMoveY = 0;
  * @param camera Pointeur vers la caméra
  * @param deltaTime Temps écoulé depuis la dernière mise à jour
  */
-static void updatePhysics(Player *player, Camera* camera, float deltaTime) {
+static inline void updatePhysics(Player *player, Camera* camera, float deltaTime) {
     if (!player || !camera) {
         SDL_Log("ERROR: Pointeurs invalides dans updatePhysics");
         return;
@@ -28,7 +28,6 @@ static void updatePhysics(Player *player, Camera* camera, float deltaTime) {
     if (!player->isMovingToTarget) {
         // Vérifier l'état actuel du jeu
         if (game.gameState.currentState != MAP) {
-            SDL_Log("DEBUG: Pas de vérification de transition - État du jeu non MAP (%d)", game.gameState.currentState);
             updatePlayerAnimation(player, deltaTime);
             return;
         }
@@ -49,17 +48,8 @@ static void updatePhysics(Player *player, Camera* camera, float deltaTime) {
             return;
         }
         
-        // Afficher la valeur de la case sous le joueur pour le débogage
-        SDL_Log("DEBUG: Joueur en position [%d,%d] sur case valeur %d (map %d)",
-                player->matrixX, player->matrixY, 
-                currentMap->mat[player->matrixY][player->matrixX], 
-                player->mapIndex);
-        
         // Si checkAndLoadNewMap retourne 1, une transition a eu lieu
-        if (checkAndLoadNewMap(player, currentMap, camera, game.win->renderer)) {
-            SDL_Log("INFO: Transition de carte effectuée");
-            return;
-        }
+        if (checkAndLoadNewMap(player, currentMap, camera, game.win->renderer)) return;
     }
     
     // Mettre à jour l'animation indépendamment du mouvement
@@ -67,6 +57,7 @@ static void updatePhysics(Player *player, Camera* camera, float deltaTime) {
 }
 
 /**
+ * @fn int handleMapTransition(int mapId, Player *player, Camera *camera, SDL_Renderer *renderer)
  * @brief Gère la transition d'une carte à une autre avec un effet de fondu
  * 
  * @param mapId ID de la map à charger (0, 1, 2)
@@ -155,7 +146,6 @@ int handleMapTransition(int mapId, Player *player, Camera *camera, SDL_Renderer 
     
     // Mettre à jour la position du joueur sur la nouvelle carte
     updatePlayerSpawn(player, newMap, newMap->positions[0], newMap->positions[1]);
-    
     
     forceUpdatePlayerAndCamera(player, camera, newMap);
     
