@@ -522,7 +522,7 @@ int affectDamage(t_Team * offender, t_Team * defender, int indexMove){
 	//printf("Dégats = %d\n",damage);
 	defender->team[0].current_pv=defender->team[0].current_pv>damage?(int)(defender->team[0].current_pv - damage):0;
 	if (!(indexMove<0)) (moveToDo->current_pp)--;
-	launchSecEffect(offender,defender,moveToDo);
+	if (moveEffectivenessFlag!=0) launchSecEffect(offender,defender,moveToDo);
 	return TRUE;
 }
 
