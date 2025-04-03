@@ -210,11 +210,11 @@ void changeState(Window *win, void *data) {
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Changement d'état : %d", newState);
 }
 
-int gameStateTimerValidate(int nb_mili){
+int gameStateTimerValidate(int nb_micro){
     struct timeval time_now;
     gettimeofday(&time_now,NULL);
     long elapsed = (time_now.tv_sec - game.gameState.time_in_state.tv_sec) * 1000000 + (time_now.tv_usec - game.gameState.time_in_state.tv_usec);
-    return elapsed>=nb_mili;
+    return elapsed>=nb_micro;
 }
 
 /**
@@ -306,12 +306,14 @@ void changePokemon(Window *win, void *data) {
 }
 
 void initSwapTeam(Window *win, void *data) {
-    game.swappingIndex[0]=0;
-    game.swappingIndex[1]=game.battleState.rouge.nb_poke%6;
-    updateICMonsButtonText(win, &game.battleState.bleu, 6 ,10);
-    updateICMonsButtonText(win, &game.battleState.rouge, 12 ,10);
+    if(!game.hasExchanged){
+        game.swappingIndex[0]=0;
+        game.swappingIndex[1]=game.battleState.rouge.nb_poke%6;
+        updateICMonsButtonText(win, &game.battleState.bleu, 6 ,10);
+        updateICMonsButtonText(win, &game.battleState.rouge, 12 ,10);
 
-    changeState(win,data);
+        changeState(win,data);
+    }
 }
 
 /**
@@ -364,6 +366,8 @@ void validateSwap(Window *win, void *data) {
         initTeamSprites(win, &game.battleState.rouge,RED_SPRITE_X_RATIO, RED_SPRITE_Y_RATIO, 0);
         updateICButtons(win, &game.battleState.rouge);
         updateICMonsButtonText(win, &game.battleState.rouge, 6, 6);
+        sauvegarder(&game.battleState.rouge, &game.battleState.bleu);
+        game.hasExchanged=1;
         changeState(win,data);
     }
 }
@@ -541,8 +545,8 @@ void nextDuel(Window *win, void *data) {
     
     // Soigner et réinitialiser
     healTeam(&game.battleState.rouge);
-    game.battleState.rouge.nb_enemiBeat++;
     initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
+    game.battleState.rouge.nb_enemiBeat++;
     
     // Réinitialiser l'IA
     game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
@@ -570,6 +574,9 @@ void nextDuel(Window *win, void *data) {
         }
         loadMusic(&game.gameState.music, "assets/audio/conseil_4.mp3");
     }
+
+    // Rendre disponible un échange
+    game.hasExchanged=0;
     
     // Changer d'état
     changeState(win, &game.stateHandlers[GAME].state);
@@ -827,8 +834,7 @@ void initAllButtons(Window *win)
     buttonsInter[0] = createButton(
         "Next Duel", win, (SDL_Rect){500, 200, 300, 100},
         (SDL_Color){128, 128, 128, 255}, (SDL_Color){0, 0, 0, 255},
-        nextDuel, NULL, win->LargeFont,
-        //changeState, &game.stateHandlers[MAP].state, win->LargeFont,
+        changeState, &game.stateHandlers[MAP].state, win->LargeFont,
         "assets/User Interface/Grey/button_rectangle_depth_gloss.png"
     );
     buttonsInter[1] = createButton(
