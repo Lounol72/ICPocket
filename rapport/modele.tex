@@ -50,7 +50,7 @@
 Dans le cadre d'un projet de notre fin d'année de L2 informatique, le type de jeu vidéo créer est un jeu de rôle qui se joue en tour par tour en faisant affronter des créatures fantastiques a l’instar du jeu phare de Nintendo nommé « Pokemon ».\\
 Ce projet a été réaliser en langage C avec la librairie SDL et contrairement a son inspiration , le jeu ne se passe pas dans un pays tous droit sorti de l’imaginaire d’une personne mais bel et bien au sein du bâtiment de l’Institut Claude Chappe, Vous incarnerez un nouvel étudiant rentrant en première année et affronterez d'autres étudiants et enseignants chercheurs déjà installés dans le bâtiment a travers des duels de ICmon.\\ 
 
-En première partie, nous allons expliquer comment nous avons conçu le jeu, une présentation général et détaillé de l’univers dans lequel il se situe, son histoire ainsi que celui du joueur communément appeler dans le jargon son « lore » .
+En première partie, nous allons expliquer comment nous avons conçu le jeu, une présentation général et détaillé de l’univers dans lequel il se situe, son histoire ainsi que celui du joueur communément appeler son « lore » .
 Ensuite sa direction artistique c’est a dire tous l’aspect graphique seront expliciter , avec quels logiciels les sprites des Icmons, du joueur et des niveaux ont été esquisser et enfin toutes les possibilités offertes au joueur pendant son aventure.\\
 
 Puis nous parlerons de l’organisation, quelles missions a été confié pour chaque personne du groupe et sous quels deadline devaient-elles être rendu ,tous ceci a été planifié grâce a un diagramme de Gantt que nous avons réalisé.\\
@@ -60,22 +60,22 @@ En troisième partie nous expliquerons la gestion des Icmons , comment ils ont �
 Puis nous aborderons la gestion de la carte, comment le joueur se déplace dans l'espace et comment la caméra le suit. et lorsqu'il rencontre un obstacle, une collision doit se produire.\\
 
 Et enfin nous mettre en évidence la rendu du jeu , les sprites que nous avons créer doivent être implémenté directement dans le code, le système de combat c’est a dire les points de vie décrémenter lorsqu’une attaque est subie ,devrait être cohérent avec ce que le joueur voit sur l’écran et pour finir l’interface par quel moyen l’interface du jeu a été conçu, de quelle façon le joueur change de fenêtre lorsque tel bouton est appuyé\\\\
-\lfoot\fancyfoot{\footnotesize *Pokemon:le jeu sera présenter dans la suite du rapport\\*Sprite: image 2D utilisé dans les jeux vidéos\\*ICmon: contraction de l'expression "Institut Claude chappe " et "Monstre"\\*Lore: histoire d'un jeu vidéo\\*deadline: date limite\\}
+\lfoot\fancyfoot{\footnotesize *Pokemon:le jeu sera présenter dans la suite du rapport\\*Sprite: image 2D utilisé dans les jeux vidéos\\*ICmon: contraction de l'expression « Institut Claude chappe » et « Monstre »\\*Lore: histoire d'un jeu vidéo\\*deadline: date limite\\}
 \newpage
 \section{Conception}
     \subsection{Présentation du jeu}
-        ICPocket est un jeu de rôle basé sur l'univers des jeux vidéos "Pokémon" développés par GAME FREAK et publiés par Nintendo.
+        ICPocket est un jeu de rôle basé sur l'univers des jeux vidéos « Pokémon » développés par GAME FREAK et publiés par Nintendo.
         Le jeu met le joueur dans la peau d'un étudiant de la faculté d'informatique du Mans et d'un dresseur de petites créatures nommées les \emph{ICMons}.
         Cet étudiant, qui vient tout juste d'arriver au sein de l'institut Claude Chappe pour sa première année de license, choisit son premier partenaire parmi quatre ICmons offerts par Louis, Nathan, Alban et William.
-        \paragraph{}L'objectif du joueur est de devenir le maître de l'IC2 en remportant le tournoi annuel de la faculté : "le tournoi de l'IC2", puis en faisant tombé son conseil des quatres et son champion. Pour cela, il devra se confronter à ses camarades et ses professeurs dans des duels d'ICMons : 
+        \paragraph{}L'objectif du joueur est de devenir le maître de l'IC2 en remportant le tournoi annuel de la faculté : « le tournoi de l'IC2 », puis en faisant tombé son conseil des quatres et son champion. Pour cela, il devra se confronter à ses camarades et ses professeurs dans des duels d'ICMons : 
         des combats de type joueur contre ordinateur en tour par tour dans lequelles chaque partie envoit un ICMons parmi un maximum de six se battre contre l'autre, jusqu'à ce que l'un des combattants n'est plus aucun ICMons apte à se battre.
         Ces affrontements tactiques et imprévisibles pousseront le joueur à découvrir les forces et faiblesses de son équipe et à mettre en place la meilleure stratégie pour parvenir à la victoire.
         Toutefois, cela ne sera pas une tâche aisée, puisque la moindre défaite signifie que le joueur sera éliminé du tournoi et devra donc recommencer du début.
 
     \subsection{Direction artistique}
-        En hommage aux jeux vidéos originaux de la série "Pokémon", nous avons fait le choix de nous inspirer de la direction artistique de la troisième génération de ces jeux : "Pokémon Rubis et Saphir".
+        En hommage aux jeux vidéos originaux de la série « Pokémon », nous avons fait le choix de nous inspirer de la direction artistique de la troisième génération de ces jeux : « Pokémon Rubis et Saphir ».
         Cette direction artistique est basée sur la 2D, avec des sprites pixelisées. \paragraph{} Pour la réalisation de la carte, nous avons utilisé les assets libre de droit disponible sur le site \href{https://kenney.nl/assets}{kenney.nl}. La carte a ensuite été assemblé par Alban et Louis. La plupart des sprites des ICMons ont été dessiné par William, Loup Picault (le goat), et Nathan. Les sprites restants ont été dessiné par intelligence artificielle.
-        \paragraph{} Afin de limiter le nombre de sprites que nous avions à réaliser pour ce projet, nous nous sommes inspirés de la méthode d'affichage des sprites du fangame \href{https://infinitefusion.fandom.com/wiki/Pok%C3%A9mon_Infinite_Fusion_Wiki}{"Pokemon Infinite Fusion"}, dans lequelle durant un combat, les sprites de l'équipe du joueur sont retournés par symétrie axiale verticale, ce qui donne l'illusion d'un sprite \emph{de dos} tout en ayant qu'un seul sprite à utiliser.
+        \paragraph{} Afin de limiter le nombre de sprites que nous avions à réaliser pour ce projet, nous nous sommes inspirés de la méthode d'affichage des sprites du fangame \href{https://infinitefusion.fandom.com/wiki/Pok%C3%A9mon_Infinite_Fusion_Wiki}{« Pokemon Infinite Fusion »}, dans lequelle durant un combat, les sprites de l'équipe du joueur sont retournés par symétrie axiale verticale, ce qui donne l'illusion d'un sprite \emph{de dos} tout en ayant qu'un seul sprite à utiliser.
         \begin{figure}[h!]
             \centering
             \includegraphics[width=0.22\textwidth]{../assets/Monsters/New Versions/A-ski.png}
