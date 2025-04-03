@@ -65,6 +65,7 @@ typedef struct {
     bool isMovingToTarget;      /**< Indicateur de mouvement vers la cible. */
     int sizeMapW;       /**< Largeur de la matrice de collision. */ 
     int sizeMapH;      /**< Hauteur de la matrice de collision. */
+    int mapIndex;      /**< Index de la carte actuelle. */
     
 } Player;
 
