@@ -403,6 +403,10 @@ void validateStarterChoice(Window *win, void *data){
         
     updateICButtons(win, &game.battleState.rouge);
     setDefaultStatChanges(&game.battleState.rouge);
+
+    for(int i=0;i<4;i++){
+        if(i!=game.startersIndex && game.starters[i].img) destroyICMonsSprite(&game.starters[i]);
+    }
         
     game.gameState.initialized = 1;
     changeState(win,&game.stateHandlers[MAP].state);
@@ -546,11 +550,14 @@ void nextDuel(Window *win, void *data) {
     // Soigner et réinitialiser
     healTeam(&game.battleState.rouge);
     initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
-    game.battleState.rouge.nb_enemiBeat++;
     
     // Réinitialiser l'IA
-    game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
+    //game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
+    game.battleState.ia.AI_lvl = 1 + game.battleState.rouge.nb_enemiBeat;
+    game.battleState.ia.type = 2 + rand()%2;
+    if(game.battleState.rouge.nb_enemiBeat>=15) game.battleState.ia.type = boss;
     
+    game.battleState.rouge.nb_enemiBeat++;
     // Initialiser les sprites avec vérification d'erreur
     if (initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1) != 0) {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur lors de l'initialisation des sprites");
@@ -1210,19 +1217,21 @@ void updateBattleTurn() {
                 }
                 game.battleState.hasAttacked = true;
             }
-            if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
-                char msg[60];
-                sprintf(msg,"Coup critique !");
-                criticalHitFlag=0;
-                resetScrollingText(game.battleState.text, msg);
-            }
-            if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
-                char msg[60]="\0";
-                if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
-                else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
-                else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
-                moveEffectivenessFlag=-2;
-                if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
+            if((game.battleState.first && isAttacking(game.battleState.moveRouge)) || (!game.battleState.first && isAttacking(game.battleState.moveBleu))){
+                if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
+                    char msg[60];
+                    sprintf(msg,"Coup critique !");
+                    criticalHitFlag=0;
+                    resetScrollingText(game.battleState.text, msg);
+                }
+                if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
+                    char msg[60]="\0";
+                    if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
+                    else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
+                    else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
+                    moveEffectivenessFlag=-2;
+                    if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
+                }
             }
             if (game.battleState.text->isComplete) {
                 game.battleState.text->isComplete = false;
@@ -1261,19 +1270,21 @@ void updateBattleTurn() {
                 }
                 game.battleState.hasAttacked = true;
             }
-            if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
-                char msg[60];
-                sprintf(msg,"Coup critique !");
-                criticalHitFlag=0;
-                resetScrollingText(game.battleState.text, msg);
-            }
-            if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
-                char msg[60]="\0";
-                if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
-                else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
-                else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
-                moveEffectivenessFlag=-2;
-                if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
+            if((game.battleState.first && isAttacking(game.battleState.moveBleu)) || (!game.battleState.first && isAttacking(game.battleState.moveRouge))){
+                if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
+                    char msg[60];
+                    sprintf(msg,"Coup critique !");
+                    criticalHitFlag=0;
+                    resetScrollingText(game.battleState.text, msg);
+                }
+                if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
+                    char msg[60]="\0";
+                    if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
+                    else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
+                    else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
+                    moveEffectivenessFlag=-2;
+                    if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
+                }
             }
             if (game.battleState.text->isComplete) {
                 game.battleState.text->isComplete = false;
