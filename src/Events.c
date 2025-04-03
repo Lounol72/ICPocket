@@ -339,6 +339,8 @@ void handleGameEvent(Window *win, SDL_Event *event) {
     if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
         if(!isTeamAlive(&game.battleState.rouge)){
             saveDestroy(&game.battleState.rouge);
+            win->quit = 1;
+            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Quit");
         }
         /* Réinitialisation de l'état du jeu */
         game.gameState.playerTurn = 0;
