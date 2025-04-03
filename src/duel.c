@@ -172,7 +172,7 @@ void teamTest(t_Team * t, int nb_poke){
 		t->team[i].lvl=50;
 		t->team[i].nature=0;
 		t->team[i].type[0]=plante;
-		for(int j=0;j<7;j++){
+		for(int j=0;j<6;j++){
 			t->team[i].baseStats[j]=100;
 		}
 		for(int j=0;j<6;j++){

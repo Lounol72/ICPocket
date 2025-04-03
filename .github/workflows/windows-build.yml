@@ -27,8 +27,21 @@ jobs:
         git lfs install
         git lfs track "*.zip"
         git add .gitattributes
-    - name: Setup MSYS2
 
+    - name: Check for today's commits
+      id: check_commits
+      shell: bash
+      run: |
+        TODAY=$(date -u +%Y-%m-%d)
+        COMMITS_TODAY=$(git log --since="$TODAY 00:00:00" --until="$TODAY 23:59:59" --oneline)
+        if [ -n "$COMMITS_TODAY" ]; then
+          echo "HAS_COMMITS=true" >> $GITHUB_ENV
+        else
+          echo "HAS_COMMITS=false" >> $GITHUB_ENV
+        fi
+
+    - name: Setup MSYS2
+      if: env.HAS_COMMITS == 'true'
       uses: msys2/setup-msys2@v2
       with:
         msystem: MINGW64
@@ -41,15 +54,14 @@ jobs:
           mingw-w64-x86_64-SDL2_ttf
           zip
           make
+
     - name: Build
+      if: env.HAS_COMMITS == 'true'
       shell: msys2 {0}
       run: |
         mkdir -p bin/windows
-        
-        if [ -f "Makefile" ]; then
-          make package-windows
-        else
-          gcc -o bin/windows/${{ env.PROJECT_NAME }}.exe \
+
+        gcc -o bin/windows/${{ env.PROJECT_NAME }}.exe \
             main.c src/*.c \
             -I./include \
             -I/mingw64/include/SDL2 \
@@ -57,8 +69,9 @@ jobs:
             -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf \
             -mwindows \
             -O2
-        fi
+
     - name: Package
+      if: env.HAS_COMMITS == 'true'
       shell: msys2 {0}
       run: |
         DLLS=(
@@ -86,7 +99,9 @@ jobs:
         cd bin
         zip -9 -r ../${{ env.PROJECT_NAME }}-windows.zip windows/ ../assets/ ../data/ ../README.md
         cd ..
+
     - name: Split ZIP if needed
+      if: env.HAS_COMMITS == 'true'
       shell: bash
       run: |
         ZIP_SIZE=$(stat -f %z "${{ env.PROJECT_NAME }}-windows.zip" 2>/dev/null || stat -c %s "${{ env.PROJECT_NAME }}-windows.zip")
@@ -94,7 +109,9 @@ jobs:
           echo "Splitting ZIP file..."
           split -b 95m "${{ env.PROJECT_NAME }}-windows.zip" "${{ env.PROJECT_NAME }}-windows.zip.part"
         fi
+
     - name: Commit and Push
+      if: env.HAS_COMMITS == 'true'
       shell: bash
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -113,8 +130,10 @@ jobs:
         
         git add .gitattributes
         git commit -m "📦 Windows build $(date -u +%Y-%m-%d)"
-        git push origin main --force
+        git push --force
+
     - name: Upload to Artifacts
+      if: env.HAS_COMMITS == 'true'
       uses: actions/upload-artifact@v4
       with:
         name: ${{ env.PROJECT_NAME }}-Windows
@@ -122,6 +141,7 @@ jobs:
         retention-days: 5
 
     - name: Cleanup
+      if: always()
       shell: bash
       run: |
         rm -rf bin/

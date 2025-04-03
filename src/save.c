@@ -18,7 +18,11 @@ void sauvegarder(t_Team * joueur,t_Team * adverse){
     FILE *fichier = fopen(nomFichier, "w+");
     if(fichier == NULL){
         char * path = "data/save";
-        mkdir(path, 0777);
+        #ifdef _WIN32
+            mkdir(path);
+        #else
+            mkdir(path, 0777);
+        #endif
         fichier = fopen(nomFichier, "w+");
         sauver(joueur,1,nomFichier);
     } else {
