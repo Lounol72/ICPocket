@@ -127,49 +127,68 @@ void updateICMonsButtonText(Window *win, t_Team *team, int endOfArray, AppState 
  * @param win Pointeur sur la fenêtre.
  */
 void render(Window *win) {
+    // Remplissage de l'écran avec une couleur de fond (blanc ici)
+    SDL_Rect rect = {0, 0, win->width, win->height};
+    SDL_SetRenderDrawColor(win->renderer, 255, 255, 255, 255);
+    SDL_RenderFillRect(win->renderer, &rect);
+
+    // Rendu du fond d'écran
     if (game.gameState.currentState == GAME) {
-        SDL_Rect rect = {0, 0, win->width, win->height};
-        SDL_SetRenderDrawColor(win->renderer, 255, 255, 255, 255);
-        SDL_RenderFillRect(win->renderer, &rect);
-        
         SDL_Rect renderQuad = {0, 0, win->width, (int)(win->height * 0.722)};
         SDL_RenderCopy(win->renderer, game.ui[3].background, NULL, &renderQuad);
-        if (strlen(game.battleState.rouge.team[0].name) > 0)
-            renderICMonsSprite(win, &(game.battleState.rouge.team[0]));
-        if (strlen(game.battleState.bleu.team[0].name) > 0)
-            renderICMonsSprite(win, &(game.battleState.bleu.team[0]));
-    }
+    } 
     else if (game.ui[game.gameState.currentState].background) {
         SDL_RenderCopy(win->renderer, game.ui[game.gameState.currentState].background, NULL, NULL);
     }
 
+    // Rendu des éléments interactifs (boutons, sliders)
     if (game.ui[game.gameState.currentState].buttons)
         renderButtonList(game.ui[game.gameState.currentState].buttons);
     if (game.ui[game.gameState.currentState].sliders)
         renderSliderList(game.ui[game.gameState.currentState].sliders);
-    if (game.gameState.currentState == MENU)
-        renderText(win, &title);
-    else if (game.gameState.currentState == NEWGAME)
-        renderText(win, &NewGameText);
-    else if (game.gameState.currentState == SWAP){
-        renderICMonsSprite(win, &(game.battleState.bleu.team[game.swappingIndex[0]]));
-        renderICMonsSprite(win, &(game.battleState.rouge.team[game.swappingIndex[1]]));
-    }
-    else if (game.gameState.currentState == LEARNMOVE){
-        renderText(win,game.windowText);
-        renderICMonsSprite(win, lvl_up_buffer[lvl_up_buffer_size-1].target);
-    }
-    else if (game.gameState.currentState == STARTERS){
-        renderICMonsSprite(win, &game.starters[game.startersIndex]);
-    }
-    else if (game.gameState.currentState == RESUME){
-        renderICMonsSprite(win, &(game.battleState.bleu.team[game.swappingIndex[0]]));
-        renderText(win,game.windowText);
-    }
-    else if (game.gameState.currentState == SETTINGS){
-        renderImage(win, game.touche[0]);
-        renderImage(win, game.touche[1]);
-        renderImage(win, game.touche[2]);
+
+    // Rendu spécifique à chaque état
+    switch (game.gameState.currentState) {
+        case GAME:
+            if (strlen(game.battleState.rouge.team[0].name) > 0)
+                renderICMonsSprite(win, &(game.battleState.rouge.team[0]));
+            if (strlen(game.battleState.bleu.team[0].name) > 0)
+                renderICMonsSprite(win, &(game.battleState.bleu.team[0]));
+            break;
+        
+        case MENU:
+            renderText(win, &title);
+            break;
+
+        case NEWGAME:
+            renderText(win, &NewGameText);
+            break;
+
+        case SWAP:
+        case RESUME:
+            renderICMonsSprite(win, &(game.battleState.bleu.team[game.swappingIndex[0]]));
+            if (game.gameState.currentState == SWAP)
+                renderICMonsSprite(win, &(game.battleState.rouge.team[game.swappingIndex[1]]));
+            else
+                renderText(win, game.windowText);
+            break;
+
+        case LEARNMOVE:
+            renderText(win, game.windowText);
+            renderICMonsSprite(win, lvl_up_buffer[lvl_up_buffer_size-1].target);
+            break;
+
+        case STARTERS:
+            renderICMonsSprite(win, &game.starters[game.startersIndex]);
+            break;
+
+        case SETTINGS:
+            for (int i = 0; i < 3; i++)
+                renderImage(win, game.touche[i]);
+            break;
+
+        default:
+            break;
     }
 }
 
@@ -185,6 +204,8 @@ void render(Window *win) {
 static void renderMap(Window *win) {
     pthread_mutex_lock(&game.threadManager.physicsMutex);
     SDL_RenderClear(win->renderer);
+    SDL_SetRenderDrawColor(win->renderer, 0, 0, 0, 255);
+    SDL_RenderFillRect(win->renderer, NULL);
     int mapIndex = game.gameData.player->mapIndex;
     if (mapIndex < 0 || mapIndex >= 3) {
         // Fallback to a safe default index if out-of-range
