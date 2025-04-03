@@ -7,6 +7,7 @@
 #include <math.h>
 
 /**
+ * @fn SDL_Surface *flipSurfaceHorizontal(SDL_Surface *surface)
  * @brief Retourne horizontalement une surface.
  *
  * Cette fonction crée une nouvelle surface en retournant les pixels de la surface d'origine horizontalement.
@@ -45,6 +46,7 @@ static SDL_Surface *flipSurfaceHorizontal(SDL_Surface *surface) {
 }
 
 /**
+ * @fn Mix_Chunk *loadFromLine(int line)
  * @brief Charge un fichier audio à partir d'une ligne spécifique.
  *
  * Cette fonction charge un fichier audio WAV à partir d'une ligne spécifique d'un fichier CSV.
@@ -88,6 +90,7 @@ static Mix_Chunk *loadFromLine(int line) {
 }*/
 
 /**
+ * @fn IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rect nameRect, SDL_Rect pvRect, t_Poke *poke, TTF_Font *font, int team)
  * @brief Initialise le sprite d'un ICMon.
  *
  * Cette fonction crée et initialise le sprite associé à un poke, incluant le chargement
@@ -200,6 +203,14 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
     return img;
 }
 
+/**
+ * @fn void updatePVBar(t_Poke *poke)
+ * @brief Met à jour la barre de points de vie (PV) d'un ICMon.
+ * 
+ * Cette fonction met à jour la barre de PV d'un ICMon en fonction de ses points de vie actuels.
+ * 
+ * @param poke Le pointeur vers la structure t_Poke représentant l'ICMon.
+ */
 static void updatePVBar(t_Poke *poke) {
     if (!poke || !poke->img) return;
     
@@ -230,12 +241,13 @@ static void updatePVBar(t_Poke *poke) {
 }
 
 /**
- * @brief Start the entrance animation for an ICMon.
+ * @fn void startICMonEntranceAnimation(t_Poke *poke)
+ * @brief Démarre l'animation d'entrée pour un ICMon.
  *
- * This function initializes the entrance animation parameters for an ICMon.
- * The animation will make the ICMon slide in from either the left or right side.
+ * Cette fonction initialise les paramètres de l'animation d'entrée pour un ICMon.
+ * L'animation fera glisser l'ICMon depuis le côté gauche ou droit.
  *
- * @param poke The ICMon to animate.
+ * @param poke L'ICMon à animer.
  */
 void startICMonEntranceAnimation(t_Poke *poke) {
     if (!poke || !poke->img) return;
@@ -245,12 +257,13 @@ void startICMonEntranceAnimation(t_Poke *poke) {
 }
 
 /**
- * @brief Update the entrance animation for an ICMon.
+ * @fn void updateICMonEntranceAnimation(t_Poke *poke)
+ * @brief Met à jour l'animation d'entrée pour un ICMon.
  *
- * This function updates the position of the ICMon during its entrance animation.
- * The ICMon will slide in from either the left or right side.
+ * Cette fonction met à jour la position de l'ICMon pendant son animation d'entrée.
+ * L'ICMon glissera depuis le côté gauche ou droit.
  *
- * @param poke The ICMon being animated.
+ * @param poke L'ICMon en cours d'animation.
  */
 void updateICMonEntranceAnimation(t_Poke *poke) {
     if (!poke || !poke->img || !poke->img->isEntranceAnimating) return;
@@ -277,6 +290,7 @@ void updateICMonEntranceAnimation(t_Poke *poke) {
 }
 
 /**
+ * @fn void renderICMonsSprite(Window *win, t_Poke *poke)
  * @brief Rendu du sprite ICMon sur la fenêtre.
  *
  * Cette fonction met à jour et affiche le sprite du poke, incluant le sprite principal,
@@ -325,6 +339,7 @@ void renderICMonsSprite(Window *win, t_Poke *poke) {
 }
 
 /**
+ * @fn void destroyICMonsSprite(t_Poke *poke)
  * @brief Détruit et libère les ressources associées au sprite d'un ICMon.
  *
  * Cette fonction détruit les textures, libère la mémoire allouée pour le sprite et réinitialise
@@ -369,6 +384,7 @@ void destroyICMonsSprite(t_Poke *poke) {
 }
 
 /**
+ * @fn void updateICMonText(t_Poke *poke)
  * @brief Met à jour le texte des ICMons.
  * 
  * Cette fonction met à jour le texte des ICMons en fonction des paramètres donnés.
@@ -384,6 +400,7 @@ void updateICMonText(t_Poke *poke) {
     updateText(poke->img->LvlText, lvlBuffer, poke->img->renderer);
 }
 /**
+ * @fn void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY)
  * @brief Met à jour le sprite ICMon en appliquant une échelle sur les dimensions et positions.
  *
  * Cette fonction met à jour la taille et la position du sprite, du nom et de la barre de PV

@@ -82,15 +82,4 @@ typedef struct Window {
  * @param FontPath Le chemin du fichier de police à utiliser.
  */
 void initWindow(Window *win, int width, int height, const char *FontPath);
-
-
-/**
- * @fn void destroyGame()
- * @brief Détruit la fenêtre principale de l'application.
- * 
- * Cette fonction libère les ressources associées à la fenêtre principale de l'application,
- * y compris le renderer, la fenêtre et les polices.
- */
-void destroyGame();
-
 #endif /* WINDOW_H */

@@ -141,8 +141,38 @@ void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, 
 void DEBUG_printMap(Map *map);
 
 // Fonctions pour la gestion des positions sauvegardées
+/**
+ * @fn void saveMapPosition(Map* map, int playerX, int playerY, const char* mapPath)
+ * @brief Sauvegarde la position du joueur sur la carte.
+ * 
+ * Cette fonction enregistre la position actuelle du joueur sur la carte dans un fichier.
+ * 
+ * @param map Pointeur vers la structure Map contenant les informations de la carte.
+ * @param playerX Position X du joueur.
+ * @param playerY Position Y du joueur.
+ * @param mapPath Chemin du fichier de la carte.
+ */
 void saveMapPosition(Map* map, int playerX, int playerY, const char* mapPath);
+
+/**
+ * @fn MapPosition* loadMapPosition(const char* mapPath)
+ * @brief Charge la position du joueur à partir d'un fichier.
+ * 
+ * Cette fonction lit la position sauvegardée du joueur à partir d'un fichier.
+ * 
+ * @param mapPath Chemin du fichier de la carte.
+ * @return Pointeur vers une structure MapPosition contenant les informations de position.
+ */
 MapPosition* loadMapPosition(const char* mapPath);
+
+/**
+ * @fn void freeMapPosition(MapPosition* position)
+ * @brief Libère la mémoire allouée pour une position de carte.
+ * 
+ * Cette fonction libère la mémoire allouée pour une structure MapPosition.
+ * 
+ * @param position Pointeur vers la structure MapPosition à libérer.
+ */
 void freeMapPosition(MapPosition* position);
 
 #endif

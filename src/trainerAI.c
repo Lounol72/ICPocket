@@ -4,6 +4,16 @@
 t_AI iaTest={10,damageOnly,&bleu};
 t_AI iaTest2={10,damageOnly,&rouge};
 
+/**
+ * @fn void insertionSort(int tabDegats[], int tabMove[], int n)
+ * @brief Trie les attaques par ordre décroissant de dégâts
+ * 
+ * Cette fonction trie les attaques d'un Pokémon par ordre décroissant de dégâts
+ * 
+ * @param tabDegats Tableau contenant les dégâts des attaques
+ * @param tabMove Tableau contenant les indices des attaques
+ * @param n Taille des tableaux
+ */
 void insertionSort(int tabDegats[], int tabMove[], int n) {
     int i, keyDeg, keyMove, j;
     for (i = 1; i < n; i++) {
@@ -22,6 +32,16 @@ void insertionSort(int tabDegats[], int tabMove[], int n) {
     }
 }
 
+/**
+ * @fn int AI_move_choice(t_AI * ai_team, t_Team * player_team)
+ * @brief Choisit le mouvement de l'IA
+ *
+ * Cette fonction choisit le mouvement de l'IA en fonction de son type et de l'équipe adverse.
+ * 
+ * @param ai_team Pointeur vers la structure de l'IA
+ * @param player_team Pointeur vers la structure de l'équipe du joueur
+ * @return int Indice du mouvement choisi
+ */
 int AI_move_choice(t_AI *ai, t_Team *opponent) {
     int tab_damage[4] = { -1, -1, -1, -1 };
     int tab_move[4]   = { -1, -1, -1, -1 };  // Initialisés à -1 pour éviter des choix invalides

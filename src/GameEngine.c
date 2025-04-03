@@ -285,6 +285,15 @@ void attqButtonClicked(Window *win, void *data) {
     }
 }
 
+/**
+ * @fn void changeTextSpeed(Window *win, void *data);
+ * @brief Change la vitesse d'affichage du texte.
+ * 
+ * Cette fonction modifie la vitesse d'affichage du texte dans le jeu.
+ * 
+ * @param win Pointeur sur la fenêtre.
+ * @param data Pointeur vers la nouvelle vitesse (int casté en void*).
+ */
 void changeTextSpeed(Window *win, void *data) {
     (void)win;
     game.speed = (int)(intptr_t)data;
@@ -312,6 +321,15 @@ void changePokemon(Window *win, void *data) {
     updateICMonsButtonText(win, &game.battleState.rouge, 6 , 6);
 }
 
+/**
+ * @fn initSwapTeam(Window *win, void *data);
+ * @brief Initialise l'échange d'équipe.
+ * 
+ * Cette fonction configure l'état pour permettre l'échange de membres de l'équipe.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour l'échange.
+ */
 void initSwapTeam(Window *win, void *data) {
     if(!game.hasExchanged){
         game.swappingIndex[0]=0;
@@ -354,6 +372,15 @@ void initLearningMove(void){
     changeState(game.win,&game.stateHandlers[11].state);
 }
 
+/**
+ * @fn changeIndexSwap(Window *win, void *data);
+ * @brief Change l'index de l'échange.
+ * 
+ * Cette fonction met à jour l'index des membres de l'équipe à échanger.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour l'échange.
+ */
 void changeIndexSwap(Window *win, void *data) {
     (void)win;
     int value=(int)(intptr_t)data;
@@ -362,6 +389,15 @@ void changeIndexSwap(Window *win, void *data) {
     game.swappingIndex[teamIndex]=value%6;
 }
 
+/**
+ * @fn validateSwap(Window *win, void *data);
+ * @brief Valide l'échange d'équipe.
+ * 
+ * Cette fonction applique les changements d'équipe après validation.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour l'échange.
+ */
 void validateSwap(Window *win, void *data) {
     if(!gameStateTimerValidate(2000)) return;
     if(game.swappingIndex[0]<game.battleState.bleu.nb_poke){
@@ -379,6 +415,15 @@ void validateSwap(Window *win, void *data) {
     }
 }
 
+/**
+ * @fn learningMoveChoice(Window *win, void *data);
+ * @brief Gère le choix d'une nouvelle capacité.
+ * 
+ * Cette fonction permet au joueur de choisir une nouvelle capacité à apprendre.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour le choix.
+ */
 void learningMoveChoice(Window *win, void *data){
     int value=(int)(intptr_t)data;
     if(value!=4){
@@ -390,6 +435,15 @@ void learningMoveChoice(Window *win, void *data){
     changeState(win,&game.stateHandlers[3].state);
 }
 
+/**
+ * @fn void selectOtherStarter(Window *win, void *data);
+ * @brief Sélectionne un autre starter.
+ * 
+ * Cette fonction permet au joueur de sélectionner un autre ICmon starter.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour la sélection.
+ */
 void selectOtherStarter(Window *win, void *data){
     (void)win;
     int value=(int)(intptr_t)data;
@@ -397,6 +451,15 @@ void selectOtherStarter(Window *win, void *data){
     if(game.startersIndex<0) game.startersIndex=3;
 }
 
+/**
+ * @fn void validateStarterChoice(Window *win, void *data);
+ * @brief Valide le choix du starter.
+ * 
+ * Cette fonction confirme le choix du starter par le joueur.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour la validation.
+ */
 void validateStarterChoice(Window *win, void *data){
     (void)data;
     game.battleState.rouge.team[0]=game.starters[game.startersIndex];
@@ -419,6 +482,15 @@ void validateStarterChoice(Window *win, void *data){
     changeState(win,&game.stateHandlers[MAP].state);
 }
 
+/**
+ * @fn void initStarters(Window *win, void *data);
+ * @brief Initialise les starters.
+ * 
+ * Cette fonction configure l'état pour permettre au joueur de choisir un starter.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour l'initialisation.
+ */
 void initStarters(Window *win, void *data){
     (void)data;
     if(game.gameState.initialized){
@@ -472,6 +544,15 @@ void initStarters(Window *win, void *data){
     changeState(win,&game.stateHandlers[STARTERS].state);
 }
 
+/**
+ * @fn void initResume(Window *win, void *data);
+ * @brief Initialise l'état de reprise.
+ *
+ * Cette fonction configure l'état pour permettre la reprise du jeu après un échange.
+ *
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour l'initialisation.
+ */
 void initResume(Window *win, void *data){
     (void)data;
     char temp[200];
@@ -526,6 +607,15 @@ void initResume(Window *win, void *data){
     changeState(win,&game.stateHandlers[RESUME].state);
 }
 
+/**
+ * @fn void destroyResume(Window *win, void *data);
+ * @brief Détruit l'état de reprise.
+ *
+ * Libère les ressources associées à l'état de reprise et change l'état du jeu.
+ *
+ * @param win Pointeur sur la fenêtre.
+ * @param data Paramètre non utilisé.
+ */
 void destroyResume(Window *win, void *data){
     (void)data;
     destroyText(game.windowText);
@@ -644,6 +734,7 @@ void mainLoop(Window *win) {
 /* Fonctions de gestion et d'initialisation des boutons et sliders */
 
 /**
+ * @fn void initAllButtons(Window *win);
  * @brief Initialise tous les boutons et sliders de l'interface.
  *
  * Crée et configure les boutons pour les différents états (menu, paramètres, load game,
@@ -1066,6 +1157,7 @@ void initAllButtons(Window *win)
 }
 
 /**
+ * @fn void updateICButtons(Window *win, t_Team *team);
  * @brief Met à jour les textes des boutons d'attaque et des ICMons.
  *
  * Pour les quatre premiers boutons du jeu, met à jour le texte affiché en fonction des mouvements
@@ -1093,6 +1185,7 @@ void updateICButtons(Window *win, t_Team *team) {
 }
 
 /**
+ * @fn void updateCurrentButton(); 
  * @brief Met à jour l'apparence du bouton actuellement sélectionné.
  *
  * Parcourt la liste des boutons de l'état courant et met à jour leur texture pour
@@ -1112,6 +1205,7 @@ void updateCurrentButton() {
 }
 
 /**
+ * @fn void updateMusic();
  * @brief Met à jour la musique en fonction de l'état du jeu.
  *
  * Si l'état du jeu est GAME ou ICMONS et qu'aucune musique n'est en lecture, démarre la musique.
@@ -1150,6 +1244,17 @@ void updateMusic() {
     }
 }
 
+/**
+ * @fn void startBattleTurn(int moveRouge, int moveBleu);
+ * @brief Initialise le tour de combat avec les mouvements des Pokémon.
+ *
+ * Cette fonction initialise le tour de combat en définissant les mouvements des Pokémon
+ * rouge et bleu. Elle gère également la création d'un texte défilant pour annoncer le début
+ * du tour et nettoie tout texte défilant précédent.
+ *
+ * @param moveRouge Le mouvement choisi par le Pokémon rouge.
+ * @param moveBleu  Le mouvement choisi par le Pokémon bleu.
+ */
 void startBattleTurn(int moveRouge, int moveBleu) {
     game.battleState.moveRouge = moveRouge;
     game.battleState.moveBleu  = moveBleu;
@@ -1165,6 +1270,13 @@ void startBattleTurn(int moveRouge, int moveBleu) {
     game.battleState.turnState = TURN_INIT;
 }
 
+/**
+ * @fn void updateBattleTurn();
+ * @brief Met à jour l'état du tour de combat.
+ *
+ * Cette fonction gère les différentes étapes du tour de combat, y compris l'initialisation,
+ * l'exécution des actions des Pokémon et la mise à jour de l'affichage.
+ */
 void updateBattleTurn() {
     
     switch (game.battleState.turnState) {
@@ -1347,6 +1459,17 @@ void updateBattleTurn() {
     }
 }
 
+/**
+ * @fn void executeAction(t_Team *attacker, t_Team *defender, int move);
+ * @brief Exécute l'action d'un Pokémon pendant un tour de combat.
+ *
+ * Cette fonction gère l'exécution de l'action choisie par le Pokémon attaquant
+ * (attaque ou échange) et applique les effets correspondants sur le Pokémon défenseur.
+ *
+ * @param attacker Pointeur sur l'équipe du Pokémon attaquant.
+ * @param defender Pointeur sur l'équipe du Pokémon défenseur.
+ * @param move L'action choisie par le Pokémon attaquant.
+ */
 void executeAction(t_Team *attacker, t_Team *defender, int move) {
     char msg[60] = "";
     // Si le Pokémon n'a plus de PP et qu'il attaque, forcer l'utilisation de Lutte.
@@ -1426,6 +1549,12 @@ void executeAction(t_Team *attacker, t_Team *defender, int move) {
     }
 }
 
+/**
+ * @fn void finishApplyEffectDamage();
+ * @brief appllique les effets brulûre et poison
+ * 
+ * cette fonction permet d'appliquer les effets jusqu'à fin d'application de ce dernier
+ */
 void finishApplyEffectDamage(){
     char msg[60] = "";
     if (isAlive(&(game.battleState.rouge.team[0])) && game.battleState.rouge.team[0].main_effect==burn){

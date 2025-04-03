@@ -7,6 +7,7 @@
 
 
 /**
+ * @fn int initTeamSprites(Window *win, t_Team *teamSprite, float x_ratio, float y_ratio, int teamFlag)
  * @brief Initialise les sprites pour tous les pokémons d'une équipe.
  *
  * Cette fonction initialise le sprite de chaque pokémon dans une équipe en définissant les rectangles
@@ -59,6 +60,7 @@ int initTeamSprites(Window *win, t_Team *teamSprite, float x_ratio, float y_rati
 }
 
 /**
+ * @fn void handleEvent(Window *win, SDL_Event *event)
  * @brief Gère un événement générique.
  *
  * Cette fonction traite les événements SDL généraux (clavier, manette, souris et fenêtre).
@@ -167,6 +169,7 @@ void handleEvent(Window *win, SDL_Event *event) {
 }
 
 /**
+ * @fn void handleWindowSizeChange(Window *win)
  * @brief Gère le redimensionnement de la fenêtre.
  *
  * Met à jour les dimensions de la fenêtre et réajuste les positions et tailles des éléments de l'interface.
@@ -200,6 +203,7 @@ void handleWindowSizeChange(Window *win) {
 }
 
 /**
+ * @fn void handleICMonsEvent(Window *win, SDL_Event *event)
  * @brief Gère les événements spécifiques à la sélection des ICMons.
  *
  * Traite les clics souris et la touche Échap lors de la sélection.
@@ -223,6 +227,7 @@ void handleICMonsEvent(Window *win, SDL_Event *event) {
 }
 
 /**
+ * @fn void handleIntermediateEvent(Window *win, SDL_Event *event)
  * @brief Gère les événements dans l'état intermédiaire.
  *
  * Traite notamment les clics sur les boutons et délègue le reste au gestionnaire générique.
@@ -252,6 +257,13 @@ void handleIntermediateEvent(Window *win, SDL_Event *event) {
     handleEvent(win, event);
 }
 
+/** 
+ * @fn void handleSwapEvent(Window *win, SDL_Event *event)
+ * @brief Gère les événements d'échange entre un ICmon du joueur et de l'IA.
+ * 
+ * @param win Pointeur vers la structure Window contenant l'état du jeu.
+ * @param event Pointeur vers l'événement SDL à traiter.
+ */
 void handleSwapEvent(Window *win, SDL_Event *event) {
     if (!win || !event) return;
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
@@ -264,6 +276,13 @@ void handleSwapEvent(Window *win, SDL_Event *event) {
     handleEvent(win, event);
 }
 
+/**
+ * @fn void handleStartersEvent(Window *win, SDL_Event *event)
+ * @brief Gère les événements liés au choix des starters.
+ * 
+ * @param win Pointeur vers la structure Window contenant l'état du jeu.
+ * @param event Pointeur vers l'événement SDL à traiter.
+ */
 void handleStartersEvent(Window *win, SDL_Event *event) {
     if (!win || !event) return;
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
@@ -276,6 +295,13 @@ void handleStartersEvent(Window *win, SDL_Event *event) {
     handleEvent(win, event);
 }
 
+/** 
+ * @fn void handleLearningEvent(Window *win, SDL_Event *event)
+ * @brief Gère les événements lorsque le joueur apprend une nouvelle capacité.
+ * 
+ * @param win Pointeur vers la structure Window contenant l'état du jeu.
+ * @param event Pointeur vers l'événement SDL à traiter.
+ */
 void handleLearningEvent(Window *win, SDL_Event *event){
     if (!win || !event) return;
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
@@ -288,6 +314,13 @@ void handleLearningEvent(Window *win, SDL_Event *event){
     handleEvent(win, event);
 }
 
+/**
+ * @fn void handleResumeEvent(Window *win, SDL_Event *event)
+ * @brief Gère les événements liés à la reprise d'une partie.
+ * 
+ * @param win Pointeur vers la structure Window contenant l'état du jeu.
+ * @param event Pointeur vers l'événement SDL à traiter.
+ */
 void handleResumeEvent(Window *win, SDL_Event *event){
     if (!win || !event) return;
     if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
@@ -301,6 +334,7 @@ void handleResumeEvent(Window *win, SDL_Event *event){
 }
 
 /**
+ * @fn void handleMenuEvent(Window *win, SDL_Event *event)
  * @brief Gère les événements du menu.
  *
  * Traite les clics sur les boutons et délègue le reste au gestionnaire générique.
@@ -320,6 +354,7 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
 }
 
 /**
+ * @fn void handleGameEvent(Window *win, SDL_Event *event)
  * @brief Gère les événements durant le jeu.
  *
  * Contrôle la transition d'état en fonction de la vie des équipes et gère la navigation (clavier/souris).
@@ -366,6 +401,7 @@ void handleGameEvent(Window *win, SDL_Event *event) {
 }
 
 /**
+ * @fn void handleSettingsEvent(Window *win, SDL_Event *event)
  * @brief Gère les événements dans les paramètres.
  *
  * Traite les événements liés aux sliders et aux boutons de l'écran de réglages.
@@ -391,6 +427,7 @@ void handleSettingsEvent(Window *win, SDL_Event *event) {
 }
 
 /**
+ * @fn void handleQuitEvent(Window *win, SDL_Event *event)
  * @brief Gère l'événement de fermeture de l'application.
  *
  * Marque la fenêtre pour la fermeture et délègue le traitement générique.
@@ -404,6 +441,7 @@ void handleQuitEvent(Window *win, SDL_Event *event) {
 }
 
 /**
+ * @fn void handleNewGameEvent(Window *win, SDL_Event *event)
  * @brief Gère le démarrage d'une nouvelle partie.
  *
  * Initialise les données, les équipes et les sprites correspondants si le jeu n'est pas déjà initialisé.
@@ -439,6 +477,7 @@ void handleNewGameEvent(Window *win, SDL_Event *event) {
 
 
 /**
+ * @fn void handleLoadGameEvent(Window *win, SDL_Event *event)
  * @brief Gère le chargement d'une partie sauvegardée.
  *
  * Charge les données sauvegardées, initialise les équipes et leurs sprites, puis met à jour l'interface.
@@ -446,10 +485,34 @@ void handleNewGameEvent(Window *win, SDL_Event *event) {
  * @param win Pointeur sur la fenêtre.
  * @param event Pointeur sur l'événement SDL.
  */
-
- /*
-
-
+ /* 
+void handleLoadGameEvent(Window *win, SDL_Event *event) {
+    
+    if (!win || !event) return;
+    srand(time(NULL));
+    if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
+        int x, y;
+        int clickedButtonIndex = -1;
+        SDL_GetMouseState(&x, &y);
+        for (int i = 0; i < game.ui[game.gameState.currentState].buttons->size; i++) {
+            ButtonClicked(game.ui[game.gameState.currentState].buttons->buttons[i], x, y, win);
+            clickedButtonIndex = i; 
+        }
+        initData();
+        if(clickedButtonIndex == 0)charger("Save_1", &game.battleState.rouge, &game.battleState.bleu);  
+        else if(clickedButtonIndex == 1)charger("Save_2", &game.battleState.rouge, &game.battleState.bleu);  
+        initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
+        game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
+        if (initTeamSprites(win, &game.battleState.rouge, RED_SPRITE_X_RATIO, RED_SPRITE_Y_RATIO, 0) != 0)return;
+        if (initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1) != 0)return;
+        updateICButtons(win, &game.battleState.rouge);
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, 
+        "Red team PV: %d, Blue team PV: %d", 
+        game.battleState.rouge.team[0].current_pv,
+        game.battleState.bleu.team[0].current_pv);        
+        game.gameState.initialized = 1; 
+    }
+    handleEvent(win, event);
 }*/
 void handleLoadGameEvent(Window *win, SDL_Event *event) {
     
@@ -467,6 +530,13 @@ void handleLoadGameEvent(Window *win, SDL_Event *event) {
     handleEvent(win, event);
 }
 
+/** 
+ * @fn void loadFile(Window *win, void *event)
+ * @brief Gère les événements liés au chargement d'une partie sauvegardée.
+ * 
+ * @param win Pointeur vers la structure Window contenant l'état du jeu.
+ * @param event Pointeur vers l'événement SDL à traiter.
+ */
 void loadFile(Window *win, void *event){
     if(!game.gameState.initialized){
         initData();
@@ -498,6 +568,7 @@ void loadFile(Window *win, void *event){
 
 
 /**
+ * @fn void handlePauseEvent(Window *win, SDL_Event *event)
  * @brief Gère les événements de pause.
  *
  * Permet de quitter le mode pause en appuyant sur la touche Échap.
@@ -513,6 +584,7 @@ void handlePauseEvent(Window *win, SDL_Event *event) {
 }
 
 /**
+ * @fn void handlePlayerEvent(Window *win, SDL_Event *event)
  * @brief Gère les déplacements et actions du joueur.
  *
  * Cette fonction vérifie les touches fléchées pour déplacer le joueur si le déplacement est autorisé,

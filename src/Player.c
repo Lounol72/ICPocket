@@ -5,7 +5,14 @@
 
 #define ANIMATION_SPEED 0.10f // Temps entre chaque frame
 #define FRAMES_PER_ANIMATION 4 // Nombre de frames par animation
-
+/**
+ * @fn void initPlayerMat(Player *player)
+ * @brief Initialise la matrice de collision du joueur.
+ * 
+ * Cette fonction alloue de la mémoire pour la matrice de collision du joueur et initialise toutes les valeurs à 0.
+ * 
+ * @param player Pointeur vers le joueur à initialiser. 
+ */
 static inline void initPlayerMat(Player *player){
     player->mat = NULL;
     player->mat = (int **)malloc(sizeof(int *) * player->sizeMapH);
@@ -34,6 +41,19 @@ static inline void initPlayerMat(Player *player){
     }
 }
 
+/**
+ * @fn Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * map, int spawnX, int spawnY)
+ * @brief Crée un joueur avec une spritesheet, une position de départ et une matrice de collision.
+ * 
+ * Cette fonction initialise un joueur avec une spritesheet, une position de départ et une matrice de collision.
+ * 
+ * @param renderer Pointeur vers le rendu SDL.
+ * @param spritesheetPath Chemin vers la spritesheet du joueur.
+ * @param map Pointeur vers la carte du jeu.
+ * @param spawnX Position de départ X du joueur.
+ * @param spawnY Position de départ Y du joueur.
+ * @return Pointeur vers le joueur créé.
+ */
 Player* createPlayer(SDL_Renderer *renderer, char *spritesheetPath, Map * map, int mapIndex) {
     Player *player = malloc(sizeof(Player));
     if (!player) {
@@ -106,6 +126,15 @@ void DEBUG_printPlayerMat(Player *player) {
     }
 }
 
+/**
+ * @fn void updatePlayerAnimation(Player *player, float deltaTime)
+ * @brief Met à jour l'animation du joueur en fonction du temps écoulé.
+ * 
+ * Cette fonction met à jour l'animation du joueur en fonction du temps écoulé depuis la dernière mise à jour.
+ * 
+ * @param player Pointeur vers le joueur à mettre à jour.
+ * @param deltaTime Temps écoulé depuis la dernière mise à jour.
+ */
 void updatePlayerAnimation(Player *player, float deltaTime) {
     if (player->isMovingToTarget) {
         // Mettre à jour le timer d'animation pendant le déplacement
@@ -157,6 +186,15 @@ void updatePlayerAnimation(Player *player, float deltaTime) {
     player->currentFrame.h = FRAME_HEIGHT;
 }
 
+/**
+ * @fn void renderPlayer(SDL_Renderer *renderer, Player *player)
+ * @brief Rendu du joueur sur l'écran.
+ * 
+ * Cette fonction dessine le joueur sur l'écran en utilisant le rendu SDL.
+ * 
+ * @param renderer Pointeur vers le rendu SDL.
+ * @param player Pointeur vers le joueur à dessiner.
+ */
 void renderPlayer(SDL_Renderer *renderer, Player *player) {
     if (!player || !player->spriteSheet) {
         SDL_Log("Erreur: player ou spritesheet NULL\n");
@@ -171,6 +209,16 @@ void renderPlayer(SDL_Renderer *renderer, Player *player) {
     }
 }
 
+/**
+ * @fn void renderPlayerWithCamera(Player* player, SDL_Renderer* renderer, Camera* camera)
+ * @brief Rendu du joueur avec la caméra.
+ * 
+ * Cette fonction dessine le joueur sur l'écran en tenant compte de la position de la caméra.
+ * 
+ * @param player Pointeur vers le joueur à dessiner.
+ * @param renderer Pointeur vers le rendu SDL.
+ * @param camera Pointeur vers la caméra à utiliser pour le rendu.
+ */
 void renderPlayerWithCamera(Player* player, SDL_Renderer* renderer, Camera* camera) {
     // Récupérer le rectangle du monde pour le joueur
     SDL_Rect worldRect = player->position;
@@ -182,6 +230,14 @@ void renderPlayerWithCamera(Player* player, SDL_Renderer* renderer, Camera* came
         SDL_RenderCopy(renderer, player->spriteSheet, &player->currentFrame, &screenRect);
 }
 
+/**
+ * @fn void destroyPlayer(Player *player)
+ * @brief Détruit le joueur et libère les ressources associées.
+ * 
+ * Cette fonction libère la mémoire associée au joueur et à sa spritesheet.
+ * 
+ * @param player Pointeur vers le joueur à détruire.
+ */
 void destroyPlayer(Player *player) {
     if (!player) return;
     if (!player->spriteSheet) return;
@@ -202,6 +258,15 @@ void destroyPlayer(Player *player) {
     
 }
 
+/**
+ * @fn void updatePlayerPosition(Player *player, float deltaTime)
+ * @brief Met à jour la position du joueur en fonction de son état et du temps écoulé.
+ * 
+ * Cette fonction met à jour la position du joueur en fonction de son état (déplacement ou non) et du temps écoulé.
+ * 
+ * @param player Pointeur vers le joueur à mettre à jour.
+ * @param deltaTime Temps écoulé depuis la dernière mise à jour.
+ */
 void updatePlayerPosition(Player *player, float deltaTime) {
     if (player->isMovingToTarget) {
         player->interpolationTime += deltaTime;
@@ -233,6 +298,17 @@ void updatePlayerPosition(Player *player, float deltaTime) {
     }
 }
 
+/**
+ * @fn void updatePlayerSpawn(Player *player, Map *map, int spawnX, int spawnY)
+ * @brief Met à jour la position de départ du joueur dans la matrice de collision.
+ * 
+ * Cette fonction met à jour la position de départ du joueur dans la matrice de collision et réinitialise les variables de mouvement.
+ * 
+ * @param player Pointeur vers le joueur à mettre à jour.
+ * @param map Pointeur vers la carte du jeu.
+ * @param spawnX Position de départ X du joueur.
+ * @param spawnY Position de départ Y du joueur. 
+ */
 void updatePlayerSpawn(Player *player, Map *map, int spawnX, int spawnY) {
     if (!player || !map) return;
 
@@ -266,6 +342,16 @@ void updatePlayerSpawn(Player *player, Map *map, int spawnX, int spawnY) {
     }
 }
 
+/**
+ * @fn void forceUpdatePlayerAndCamera(Player *player, Camera *camera, Map *map)
+ * @brief Force la mise à jour de la position du joueur et de la caméra.
+ * 
+ * Cette fonction met à jour la position du joueur et de la caméra en forçant les valeurs cibles.
+ * 
+ * @param player Pointeur vers le joueur à mettre à jour.
+ * @param camera Pointeur vers la caméra à mettre à jour.
+ * @param map Pointeur vers la carte du jeu.
+ */
 void forceUpdatePlayerAndCamera(Player *player, Camera *camera, Map *map) {
     if (!player || !camera || !map) return;
     

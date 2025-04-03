@@ -3,6 +3,17 @@
 #include <string.h>
 #include <stdlib.h>
 
+/**
+ * @fn void StayScaled(TTF_Font *font, Text *text, SDL_Rect *rect, SDL_Rect *initialRect)
+ * @brief Met à jour la taille d'un objet texte en fonction de la mise à l'échelle.
+ * 
+ * Cette fonction met à jour la taille de l'objet texte spécifié en fonction de la mise à l'échelle.
+ * 
+ * @param font La police utilisée pour rendre le texte.
+ * @param text Un pointeur vers l'objet Text.
+ * @param rect Le rectangle définissant la position et la taille du texte.
+ * @param initialRect Le rectangle initial pour les besoins de mise à l'échelle.
+ */
 void StayScaled(TTF_Font *font, Text *text, SDL_Rect *rect, SDL_Rect *initialRect) {
     if (!text || !font || !rect || !initialRect) return;
 
@@ -23,6 +34,15 @@ void StayScaled(TTF_Font *font, Text *text, SDL_Rect *rect, SDL_Rect *initialRec
     rect->h = scaledHeight;
     return;
 }
+
+/**
+ * @fn void initText(Window *win)
+ * @brief Initialise les objets texte.
+ * 
+ * Cette fonction initialise les objets texte utilisés dans l'application. C'est une fonction temporaire.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ */
 void initText(struct Window *win) {
     const char * const texts[] = {"Lancement de la Nouvelle Partie...", "ICPocket"};
     Text *textObjects[] = {&NewGameText, &title};
@@ -62,6 +82,19 @@ void initText(struct Window *win) {
     }
 }
 
+/**
+ * @fn Text *createText(const char *text, SDL_Renderer *renderer, SDL_Rect rect, SDL_Color color, TTF_Font *font)
+ * @brief Crée un nouvel objet texte.
+ * 
+ * Cette fonction crée un nouvel objet texte avec les paramètres spécifiés.
+ * 
+ * @param text Le contenu textuel.
+ * @param renderer Le renderer SDL.
+ * @param rect Le rectangle définissant la position et la taille du texte.
+ * @param color La couleur du texte.
+ * @param font La police utilisée pour rendre le texte.
+ * @return Un pointeur vers l'objet Text créé.
+ */
 Text *createText(const char *text, SDL_Renderer *renderer, SDL_Rect rect, SDL_Color color, TTF_Font *font) {
     if (!text || !renderer || !font) {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "❌ Paramètres invalides pour createText");
@@ -113,6 +146,14 @@ Text *createText(const char *text, SDL_Renderer *renderer, SDL_Rect rect, SDL_Co
     return newText;
 }
 
+/**
+ * @fn void destroyText(Text *text)
+ * @brief Détruit un objet texte.
+ * 
+ * Cette fonction libère les ressources associées à l'objet texte spécifié.
+ * 
+ * @param text Un pointeur vers l'objet Text à détruire.
+ */
 void destroyText(Text *text) {
     if (!text) return;
 
@@ -132,6 +173,13 @@ void destroyText(Text *text) {
             text = NULL;
     }
 }
+
+/**
+ * @fn void cleanupText()
+ * @brief Nettoie les objets texte.
+ * 
+ * Cette fonction nettoie les objets texte utilisés dans l'application.
+ */
 // Assurez-vous que cette fonction est appelée dans votre cleanup
 void cleanupText() {
     // Nettoyer NewGameText
@@ -147,11 +195,30 @@ void cleanupText() {
     }
 }
 
+/**
+ * @fn void renderText(Window *win, Text *text)
+ * @brief Rend un objet texte.
+ * 
+ * Cette fonction rend l'objet texte spécifié à l'écran.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param text Un pointeur vers l'objet Text à rendre.
+ */
 void renderText(struct Window * win, Text * text){
     if(!text || !text->texture) return;
     SDL_RenderCopy(win->renderer, text->texture, NULL, &text->rect);
 }
 
+/**
+ * @fn void updateText(Text *text, const char *newText, SDL_Renderer *renderer)
+ * @brief Met à jour le contenu d'un objet texte.
+ * 
+ * Cette fonction met à jour le contenu textuel de l'objet texte spécifié et le rend à nouveau.
+ * 
+ * @param text Un pointeur vers l'objet Text.
+ * @param newText Le nouveau contenu textuel.
+ * @param renderer Le renderer SDL.
+ */
 void updateText(Text *text, const char *newText, SDL_Renderer *renderer) {
     if (!text || !newText || !renderer) return;
 
@@ -179,6 +246,16 @@ void updateText(Text *text, const char *newText, SDL_Renderer *renderer) {
     }
 }
 
+/**
+ * @fn void updateTextPosition(Text *text, float scaleX, float scaleY)
+ * @brief Met à jour la position d'un objet texte.
+ * 
+ * Cette fonction met à jour la position de l'objet texte spécifié en fonction des facteurs de mise à l'échelle donnés.
+ * 
+ * @param text Un pointeur vers l'objet Text.
+ * @param scaleX Le facteur de mise à l'échelle horizontal.
+ * @param scaleY Le facteur de mise à l'échelle vertical.
+ */
 void updateTextPosition(Text *text, float scaleX, float scaleY) {
     if (text && text->texture) {
         SDL_Rect rect = text->rect;
@@ -190,6 +267,20 @@ void updateTextPosition(Text *text, float scaleX, float scaleY) {
     }
 }
 
+/**
+ * @fn ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int charDelay, SDL_Rect backgroundPosition, const char* backgroundPath, SDL_Renderer* renderer)
+ * @brief Crée un nouvel objet de texte défilant.
+ * 
+ * Cette fonction crée un nouvel objet de texte défilant avec les paramètres spécifiés.
+ * 
+ * @param text Le contenu textuel.
+ * @param font La police utilisée pour rendre le texte.
+ * @param color La couleur du texte.
+ * @param x La position horizontale du texte.
+ * @param y La position verticale du texte.
+ * @param charDelay Le délai entre chaque caractère (en ms).
+ * @return Un pointeur vers l'objet ScrollingText créé.
+ */
 ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int charDelay, SDL_Rect backgroundPosition, const char* backgroundPath, SDL_Renderer* renderer) {
     if (!text || !font || !renderer) {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Invalid parameters for createScrollingText");
@@ -268,6 +359,16 @@ ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, 
     return scrollText;
 }
 
+/**
+ * @fn void updateScrollingTextPosition(ScrollingText* text, float scaleX, float scaleY)
+ * @brief Met à jour la position d'un objet de texte défilant.
+ * 
+ * Cette fonction met à jour la position de l'objet de texte défilant spécifié en fonction des facteurs de mise à l'échelle donnés.
+ * 
+ * @param text Un pointeur vers l'objet ScrollingText.
+ * @param scaleX Le facteur de mise à l'échelle horizontal.
+ * @param scaleY Le facteur de mise à l'échelle vertical. 
+ */
 void updateScrollingTextPosition(ScrollingText* text, float scaleX, float scaleY) {
     if (!text) return;
     text->position.x = text->initialPosition.x * scaleX;
@@ -280,6 +381,15 @@ void updateScrollingTextPosition(ScrollingText* text, float scaleX, float scaleY
     text->backgroundPosition.h = text->initialBackgroundPosition.h * scaleY;
 }
 
+/**
+ * @fn void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer)
+ * @brief Met à jour un objet de texte défilant.
+ * 
+ * Cette fonction met à jour un objet de texte défilant avec les paramètres spécifiés.
+ * 
+ * @param text Un pointeur vers l'objet ScrollingText.
+ * @param renderer Le renderer SDL.
+ */
 void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
     if (!text || !renderer || text->isComplete) return;
 
@@ -321,6 +431,15 @@ void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
     }
 }
 
+/**
+ * @fn void renderScrollingText(ScrollingText* text, SDL_Renderer* renderer)
+ * @brief Rend un objet de texte défilant.
+ * 
+ * Cette fonction rend un objet de texte défilant avec les paramètres spécifiés.
+ * 
+ * @param text Un pointeur vers l'objet ScrollingText.
+ * @param renderer Le renderer SDL.
+ */
 void renderScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
     if (!text || !renderer) return;
     // Render background first
@@ -334,6 +453,15 @@ void renderScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
     }
 }
 
+/**
+ * @fn void skipScrollingText(ScrollingText* text, SDL_Renderer* renderer)
+ * @brief Passe à la suite un objet de texte défilant.
+ * 
+ * Cette fonction passe à la suite un objet de texte défilant avec les paramètres spécifiés.
+ * 
+ * @param text Un pointeur vers l'objet ScrollingText.
+ * @param renderer Le renderer SDL.
+ */
 void skipScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
     if (!text || !text->isValid || text->isComplete) return;
 
@@ -368,7 +496,15 @@ void skipScrollingText(ScrollingText* text, SDL_Renderer* renderer) {
     text->isComplete = true;
 }
 
-
+/**
+ * @fn void resetScrollingText(ScrollingText* text, const char* newText)
+ * @brief Réinitialise un objet de texte défilant.
+ * 
+ * Cette fonction réinitialise un objet de texte défilant avec les paramètres spécifiés.
+ * 
+ * @param text Un pointeur vers l'objet ScrollingText.
+ * @param newText Le nouveau texte à afficher.
+ */
 void resetScrollingText(ScrollingText* text, const char* newText) {
     if (!text || !newText) return;
 
@@ -414,6 +550,14 @@ void resetScrollingText(ScrollingText* text, const char* newText) {
     text->lastCharTime = SDL_GetTicks();
 }
 
+/**
+ * @fn void destroyScrollingText(ScrollingText* text)
+ * @brief Détruit un objet de texte défilant.
+ * 
+ * Cette fonction détruit un objet de texte défilant avec les paramètres spécifiés.
+ * 
+ * @param text Un pointeur vers l'objet ScrollingText.
+ */
 void destroyScrollingText(ScrollingText* text) {
     if (!text) return;
 
@@ -444,6 +588,14 @@ void destroyScrollingText(ScrollingText* text) {
     text = NULL;
 }
 
+/**
+ * @fn void cleanupScrollingText(ScrollingText** text)
+ * @brief Nettoie un objet de texte défilant.
+ * 
+ * Cette fonction nettoie un objet de texte défilant avec les paramètres spécifiés.
+ * 
+ * @param text Un pointeur vers l'objet ScrollingText.
+ */
 void cleanupScrollingText(ScrollingText** text) {
     if (!text || !*text) return;
     
