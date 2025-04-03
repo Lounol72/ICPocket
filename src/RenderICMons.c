@@ -188,11 +188,13 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
     for (int i = 0; i < poke->nb_move; i++) {
         char soundPath[128];
         snprintf(soundPath, sizeof(soundPath), "assets/audio/soundEffects/%d.mp3",(int) (poke->moveList[i].type));
-        Mix_Chunk *ICMonSound = Mix_LoadWAV(soundPath);
-        if (!ICMonSound) {
-            SDL_Log("❌ Failed to load ICMonSound: %s", Mix_GetError());
+        if (strlen(soundPath) > 0) {
+            Mix_Chunk *ICMonSound = Mix_LoadWAV(soundPath);
+            if (!ICMonSound) {
+                SDL_Log("❌ Failed to load ICMonSound: %s", Mix_GetError());
+            }
+            img->ICMonSound[i] = ICMonSound;
         }
-        img->ICMonSound[i] = ICMonSound;
     }
 
     return img;
@@ -333,22 +335,34 @@ void renderICMonsSprite(Window *win, t_Poke *poke) {
 void destroyICMonsSprite(t_Poke *poke) {
     if (!poke->img) return;
     
-    if (poke->img->ICMonTexture)
+    if (poke->img->ICMonTexture){
         SDL_DestroyTexture(poke->img->ICMonTexture);
-    if (poke->img->PVbarTexture)
+        poke->img->ICMonTexture = NULL;
+    }
+    if (poke->img->PVbarTexture){
         SDL_DestroyTexture(poke->img->PVbarTexture);
-    if (poke->img->PVbarTextureBack)
+        poke->img->PVbarTexture = NULL;
+    }
+    if (poke->img->PVbarTextureBack){
         SDL_DestroyTexture(poke->img->PVbarTextureBack);
-    if (poke->img->nameTexture)
+        poke->img->PVbarTextureBack = NULL;
+    }
+    if (poke->img->nameTexture){
         SDL_DestroyTexture(poke->img->nameTexture);
-    if (poke->img->LvlText)
+        poke->img->nameTexture = NULL;
+    }
+    if (poke->img->LvlText){
         destroyText(poke->img->LvlText);
-    if (poke->img->PVText)
+        poke->img->LvlText = NULL;
+    }
+    if (poke->img->PVText){
         destroyText(poke->img->PVText);
-    
+        poke->img->PVText = NULL;
+    }
         
     for (int i = 0; i < poke->nb_move; i++) {
         Mix_FreeChunk(poke->img->ICMonSound[i]);
+        poke->img->ICMonSound[i] = NULL;
     }
     free(poke->img);
     poke->img = NULL;

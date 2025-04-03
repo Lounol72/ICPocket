@@ -87,7 +87,9 @@ static void cleanupResources(Window *win, SDL_GameController *controller) {
     if (controller) {
         SDL_GameControllerClose(controller);
     }
-    destroyMap(game.gameData.map);
+    for (int i = 0; i < 3; i++){
+        destroyMap(game.gameData.maps[i]);
+    }
     destroyPlayer(game.gameData.player);
     destroyCamera(game.gameData.camera);
 }
@@ -183,7 +185,7 @@ void render(Window *win) {
 static void renderMap(Window *win) {
     pthread_mutex_lock(&game.threadManager.physicsMutex);
     SDL_RenderClear(win->renderer);
-    renderMapWithCamera(game.gameData.map, win->renderer, game.gameData.camera);
+    renderMapWithCamera(game.gameData.maps[game.gameData.player->mapIndex], win->renderer, game.gameData.camera);
     renderPlayerWithCamera(game.gameData.player, win->renderer, game.gameData.camera);
     pthread_mutex_unlock(&game.threadManager.physicsMutex);
     SDL_RenderPresent(game.win->renderer);
@@ -1138,7 +1140,7 @@ void updateBattleTurn() {
         case TURN_INIT: {
             // Création et affichage d'un texte annonçant le début du tour
             if (!game.battleState.text) {
-                char *msg ="Début du tour de combat";
+                char *msg =" ";
                 if (!msg) return;
                 game.battleState.text = createScrollingText(
                     msg,

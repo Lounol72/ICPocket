@@ -97,19 +97,20 @@ void initGame(Window *win) {
     game.gameState.music_inter = NULL;
 
     /* Initialisation de la carte et de la caméra */
-    int spawnX, spawnY;
-    game.gameData.map = initMap(win->renderer, "assets/Tileset/Map/hall.png", MAP_WIDTH, MAP_HEIGHT, &spawnX, &spawnY);
+    game.gameData.maps[0] = initMap(win->renderer, "assets/Tileset/Map/hall.png");
+    game.gameData.maps[1] = initMap(win->renderer, "assets/Tileset/Map/2.png");
+    game.gameData.maps[2] = initMap(win->renderer, "assets/Tileset/Map/3.png");
     game.gameData.camera = createCamera(WINDOWS_W, WINDOWS_H);
 
     /* Création et configuration du joueur */
-    game.gameData.player = createPlayer(win->renderer, "assets/Characters/Character 10.png", game.gameData.map, spawnX, spawnY);
+    game.gameData.player = createPlayer(win->renderer, "assets/Characters/Character 10.png", game.gameData.maps[0], 0);
     if (!game.gameData.player) {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, 
                          "❌ Erreur : Impossible de créer le joueur");
         return;
     }
-    game.gameData.player->position.x = spawnX * TILE_SIZE_W_SCALE;
-    game.gameData.player->position.y = spawnY * TILE_SIZE_H_SCALE;
+    game.gameData.player->position.x = game.gameData.maps[0]->positions[0] * TILE_SIZE_W_SCALE;
+    game.gameData.player->position.y = game.gameData.maps[0]->positions[1] * TILE_SIZE_H_SCALE;
         
     /* Initialisation du système de texte */
     initText(win);
@@ -177,18 +178,23 @@ void loadPhrase(void){
     
     fscanf(file, "%d,%[^\n]\n",&(game.battleState.bleu.id), temp);
     fclose(file);
+    char phrase[256];
+    strcpy(phrase, game.battleState.bleu.trainerName);
+    strcat(phrase, " veut se battre ! ");
+    strcat(phrase, temp);
     if (game.scrollingTextIntro != NULL) {
         destroyScrollingText(game.scrollingTextIntro);
         game.scrollingTextIntro = NULL;
     }
     game.scrollingTextIntro = createScrollingText(
-                    temp,
+                    phrase,
                     game.win->LargeFont,
                     (SDL_Color){255, 255, 255, 255},
                     game.speed,     // Délai entre les caractères en ms
                     (SDL_Rect){game.win->width * 0.014, game.win->height *0.736, game.win->width * 0.7, game.win->height * 0.27}, // Fond du texte
                     "assets/User Interface/Grey/button_rectangle_depth_flat.png", // Chemin de l'image de fond
                     game.win->renderer);
+
 }
 
 /**
@@ -216,18 +222,7 @@ void destroyGame() {
         cleanupScrollingText(&game.battleState.text);
         game.battleState.text = NULL;
     }
-
-    if (game.battleState.bleu.team[0].img) {
-        for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
-            destroyICMonsSprite(&game.battleState.bleu.team[i]);
-        }
-    }
-    if (game.battleState.rouge.team[0].img) {
-        for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
-            destroyICMonsSprite(&game.battleState.rouge.team[i]);
-        }
-        
-    }
+    
 
     /* 2) Destruction des éléments de l'interface (UI) */
     if (game.ui) {
@@ -252,23 +247,8 @@ void destroyGame() {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ UI libérée");
     }
 
-    /* 3) Destruction des ICMons pour l'équipe rouge */
-    if (game.battleState.rouge.nb_poke != 0) {
-        for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
-            destroyICMonsSprite(&game.battleState.rouge.team[i]);
-        }
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ ICMons rouges libérés");
-    }
-    
-    /* 4) Destruction des ICMons pour l'équipe bleue */
-    if (game.battleState.bleu.nb_poke != 0) {
-        for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
-            destroyICMonsSprite(&game.battleState.bleu.team[i]);
-        }
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ ICMons bleus libérés");
-    }
 
-    /* 5) Libération des state handlers */
+    /* 3) Libération des state handlers */
     if (game.stateHandlers) {
         free(game.stateHandlers);
         game.stateHandlers = NULL;
@@ -335,6 +315,25 @@ void destroyGame() {
         game.scrollingTextIntro = NULL;
     }
 
+    if (game.battleState.rouge.nb_poke != 0) {
+        for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
+            if (game.battleState.rouge.team[i].img) {
+                destroyICMonsSprite(&game.battleState.rouge.team[i]);
+            }
+        }
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ ICMons rouges libérés");
+    }
+    
+    /* 4) Destruction des ICMons pour l'équipe bleue */
+    if (game.battleState.bleu.nb_poke != 0) {
+        for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+            if (game.battleState.bleu.team[i].img) {
+                destroyICMonsSprite(&game.battleState.bleu.team[i]);
+            }
+        }
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "✅ ICMons bleus libérés");
+    }
+    
     cleanupText();
     TTF_Quit();
     IMG_Quit();

@@ -65,7 +65,7 @@ typedef struct {
     bool isMovingToTarget;
     int sizeMapW;
     int sizeMapH;
-    
+    int mapIndex;
 } Player;
 
 /**
@@ -81,7 +81,7 @@ typedef struct {
  * @param spawnY Position de départ Y du joueur.
  * @return Pointeur vers le joueur créé.
  */
-Player* createPlayer(SDL_Renderer *renderer, const char *spritesheetPath, Map * map, int spawnX, int spawnY);
+Player* createPlayer(SDL_Renderer *renderer, char *spritesheetPath, Map * map, int mapIndex);
 
 /**
  * @fn void updatePlayerAnimation(Player *player, float deltaTime)
@@ -147,6 +147,8 @@ void destroyPlayer(Player *player);
  * @param camera Pointeur vers la caméra à utiliser pour le rendu.
  */
 void renderPlayerWithCamera(Player* player, SDL_Renderer* renderer, Camera* camera);
+void updatePlayerSpawn(Player *player, Map *map, int spawnX, int spawnY);
+void forceUpdatePlayerAndCamera(Player *player, Camera *camera, Map *map);
 
 
 // ! DEBUG

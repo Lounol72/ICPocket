@@ -8,14 +8,17 @@
 #define TILE_SIZE_W 80
 #define TILE_SIZE_H 72
 
-
+// Définitions des types de cases
 #define AIR 0
 #define COLLISION 1
+#define DUEL 6
+#define MAP_TRANSITION_ID_1 2  // ID pour la première map alternative
+#define MAP_TRANSITION_ID_2 3  // ID pour la deuxième map alternative
+#define MAP_TRANSITION_ID_3 9  // ID pour la troisième map alternative
 
 #include <SDL2/SDL_image.h>
 
 #include "Camera.h"
-
 
 /**
  * @file Map.h
@@ -23,23 +26,21 @@
  * @date 25/02/2025
  */
 
-/**
- * @struct Map
- * @brief Représente une carte dans le jeu. 
- * 
- */
-typedef struct Map {
-	SDL_Rect rect; /**< taille de la carte. */
-	SDL_Rect nameRect; /**< taille du nom de la carte. */
-	SDL_Rect pvRect; /**< taille de la barre de vie. */
-	SDL_Renderer *renderer; /**< affichage de la carte. */
-	int **mat; /**< matrice de la carte. */
-	SDL_Texture *texture; /**< texture de la carte. */
-	int width; /**< largeur de la carte. */ 
-	int height; /**< hauteur de la carte. */
-	int tileSizeW; /**< largeur des tuiles. */
-	int tileSizeH; /**< hauteur des tuiles. */
+typedef struct Map{
+	int **mat;
+	int positions[2];
+	int taille[2];
+	char texturePath[256];
+	SDL_Renderer *renderer;
+	SDL_Texture *texture;
+	SDL_Rect rect;
 } Map;
+
+typedef struct MapPosition {
+	char mapPath[256];  // Chemin de la map
+	int x;             // Position X du joueur
+	int y;             // Position Y du joueur
+} MapPosition;
 
 /**
  * @fn Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSizeH, int *spawnX, int *spawnY)
@@ -49,13 +50,9 @@ typedef struct Map {
  * 
  * @param renderer Pointeur vers le renderer SDL utilisé pour dessiner la carte.
  * @param path Chemin du fichier de la carte à charger.
- * @param TileSizeW Largeur d'une tuile en pixels.
- * @param TileSizeH Hauteur d'une tuile en pixels.
- * @param spawnX Pointeur vers la position X de spawn du joueur.
- * @param spawnY Pointeur vers la position Y de spawn du joueur.
  * @return Un pointeur vers la structure Map initialisée.
  */
-Map *initMap(SDL_Renderer *renderer, const char *path, int TileSizeW, int TileSizeH, int *spawnX, int *spawnY);
+Map *initMap(SDL_Renderer *renderer, const char *path);
 
 /**
  * @fn void scaleMap(Map *map, int originalWidth, int originalHeight, int newWidth, int newHeight)
@@ -120,7 +117,8 @@ void loadMapIMG(Map *map, const char *path);
  * @param renderer Pointeur vers le renderer SDL utilisé pour dessiner la carte.
  * @param camera Pointeur vers la structure Camera utilisée pour le rendu.
  */
-void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera);
+void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera
+
 
 /**
  * @fn void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY)
@@ -134,10 +132,18 @@ void renderMapWithCamera(Map* map, SDL_Renderer* renderer, Camera* camera);
  * @param mapHeight Hauteur de la nouvelle carte.
  * @param spawnX Pointeur vers la position X de spawn du joueur.
  * @param spawnY Pointeur vers la position Y de spawn du joueur.
+ * @param playerX Position actuelle du joueur en X.
+ * @param playerY Position actuelle du joueur en Y.
  */
-void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY);
+void loadNewMap(Map **map, const char *newMapPath, int mapWidth, int mapHeight, int *spawnX, int *spawnY, int playerX, int playerY);
+
 
 // ! DEBUG
 void DEBUG_printMap(Map *map);
+
+// Fonctions pour la gestion des positions sauvegardées
+void saveMapPosition(Map* map, int playerX, int playerY, const char* mapPath);
+MapPosition* loadMapPosition(const char* mapPath);
+void freeMapPosition(MapPosition* position);
 
 #endif

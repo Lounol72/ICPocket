@@ -2,16 +2,28 @@
 #define THREAD_MANAGER_H
 
 #include <pthread.h>
+#include "Player.h"
+#include "Map.h"
+#include "Camera.h"
 
 /**
  * @file TheadManager.h
  * @brief Gestionnaire de threads pour le traitement parallèle
  * @author Louis
  * Ce module gère les threads parallèles pour le traitement audio, de rendu et de physique.
- * Il initialise les threads, gère leur exécution et leur terminaison.
- * 
+ * Il initialise les threads, gère leur exécution et leur terminaison, et gère également 
+ * les transitions entre cartes.
  * 
  */
+
+// Nombre de frames pour la transition entre cartes
+#define TRANSITION_FRAMES 30
+
+// Variables globales pour la gestion des transitions de carte
+extern volatile int forceRender;
+extern volatile int forcePlayerMove;
+extern volatile int forcePlayerMoveX;
+extern volatile int forcePlayerMoveY;
 
 struct Game;
 
@@ -99,4 +111,27 @@ void* physicsThreadFunction(void* arg);
  * 
  */
 void* renderThreadFunction(void* arg);
+
+/**
+ * @brief Gère la transition d'une carte à une autre avec un effet de fondu
+ * 
+ * @param mapId ID de la map à charger (0, 1, 2)
+ * @param player Pointeur vers le joueur
+ * @param camera Pointeur vers la caméra
+ * @param renderer Renderer pour les effets visuels
+ * @return int 1 si une transition a été effectuée, 0 sinon
+ */
+int handleMapTransition(int mapId, Player *player, Camera *camera, SDL_Renderer *renderer);
+
+/**
+ * @brief Vérifie si le joueur est sur une case de transition et charge la nouvelle carte si nécessaire
+ * 
+ * @param player Pointeur vers le joueur
+ * @param map Pointeur vers la carte actuelle
+ * @param camera Pointeur vers la caméra
+ * @param renderer Renderer pour les effets visuels 
+ * @return int 1 si une transition a été effectuée, 0 sinon
+ */
+int checkAndLoadNewMap(Player *player, Map *map, Camera *camera, SDL_Renderer *renderer);
+
 #endif /* THREAD_MANAGER_H */ 

@@ -89,7 +89,7 @@ typedef struct StateHandler {
 
 typedef struct {
     Player *player;
-    Map *map;
+    Map *maps[3];
     Camera *camera;
 } GameData;
 
