@@ -43,4 +43,5 @@ int charger(char * name,t_Team * teamJ1,t_Team * dresseur);
  * @param nomSave Nom du fichier de sauvegarde.
  */
 void sauver(t_Team * teamJ1,int save,char * nomSave);
+void saveDestroy(t_Team * joueur);
 #endif // SAVE_H
