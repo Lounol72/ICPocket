@@ -213,11 +213,12 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
         \end{equation}
 \newpage
 \subsection{Gestion des bases de données}
+\paragraph{} \emph{Dans cette partie, nous expliquons comment les progressions du jeu sont stockées et comment les ICMons sont générés.}
     \subsubsection{sauvegardes}
-    Dans un jeu vidéo, la gestion des données est primordiale, il faut que le joueur puisse sauvegarder sa progression et la reprendre ultérieurement sans perte d'informations.
+     La gestion des données est primordiale: le joueur doit pouvoir sauvegarder sa progression et la reprendre ultérieurement sans perte d'informations.
      Pour cela, nous avons utilisé un fichier de sauvegarde au format CSV, contenant toutes les informations nécessaires au joueur et au bon déroulement de la partie.\\
      Ces fichiers contiennent une liste de tous les ICmons du joueur, ainsi que leurs caractéristiques : points de vie, attaques, défenses, etc.
-     Si un fichier de sauvegarde est invalide, c'est-à-dire inexistant, corrompu, vide ou contenant un mauvais format, une nouvelle partie se lance et un nouveau fichier de sauvegarde est créé.\\
+     Si un fichier de sauvegarde est invalide, c'est-à-dire inexistant, corrompu, vide ou mal formaté, une nouvelle partie se lance et un nouveau fichier de sauvegarde est créé.\\
      \subsubsection{Menus de sauvegarde}
      \begin{figure}[h!]
         \centering
@@ -235,10 +236,13 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
             \label{fig:menuload}
         \end{minipage}
     \end{figure}
-    Dans le code, les fonctions de sauvegarde et de chargement se situent dans le fichier \texttt{save.c}. La fonction \texttt{sauvegarder} prend comme paramètres des structures d'équipes , respectivements celui du joueur et celui de l'adversaire,
-    et cherche le fichier correspondant au numéro du bouton de sauvegarde appuyé. Ensuite , grave seulement les numéros d'identification des ICMons et leurs charactéristiques générés aléatoirement ou choisis par le joueur, tel que les IVs,niveaux de ICmon , le nombre et type d'attaque, et finalement les données propres a la progression
-    comme le nombre et le pseudo des joueurs battus.
-    La fonction \texttt{charger}
+    \paragraph{} \emph{Dans le code, les fonctions de sauvegarde et de chargement se situent dans le fichier \texttt{save.c}.}
+    \paragraph{} \textbf{sauvegarder} prend comme paramètres des structures d'équipes , respectivement celui du joueur et celui de l'adversaire,
+    et cherche le fichier correspondant au numéro du bouton de sauvegarde appuyé. Ensuite , enregistre seulement les numéros d'identification des ICMons et leurs caractéristiques générés aléatoirement ou choisis par le joueur, telles que les IVs,niveaux de ICmon , le nombre et type d'attaque. Enfin,elle sauvegarde les données liées a la progression
+    comme le nombre de joueurs battus et leurs pseudo.
+    \paragraph{} \textbf{charger} prend comme paramètres le numéro de sauvegarde et la structure d'équipe du joueur. Elle ouvre le fichier CSV
+    correspondant et lit les données ligne par ligne en suivant le format défini par la fonction précédente. si 
+
     \subsubsection{base de données des icmons}
     Toutes la gestion de base de données ont été fais dans des fichiers CSV situés dans le dossier \texttt{data/}
     Les ICMons sont générés grâce a leurs ID leurs numéro d'identification, avec la fonction \texttt{generate\_poke} et \texttt{generate\_poke\_ennemie} qui prennent donc en paramètres les ID.
