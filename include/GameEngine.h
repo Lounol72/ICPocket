@@ -51,8 +51,8 @@ typedef struct {
     t_AI ia;                    /**< Intelligence artificielle du dresseur. */
     
     BattleTurnState turnState;  /**< État du tour de combat. */
-    int moveRouge;              /**< Mouvement rouge. */;
-    int moveBleu;               /**< Mouvement bleu. */;
+    int moveRouge;              /**< Mouvement rouge. */
+    int moveBleu;               /**< Mouvement bleu. */
     ScrollingText *text;        /**< Texte en cours de lecture. */
     int first;                  /**< Indicateur de priorité. */
     int hasAttacked;            /**< Indicateur d'attaque. */
@@ -89,7 +89,7 @@ typedef struct StateHandler {
 
 typedef struct {
     Player *player;
-    Map *map;
+    Map *maps[3];
     Camera *camera;
 } GameData;
 
@@ -109,7 +109,7 @@ typedef struct Game {
     StateHandler *stateHandlers; /**< Gestionnaires d'état. */
     int nbStates;             /**< Nombre d'états. */
     Window *win;               /**< Pointeur vers la fenêtre du jeu. */
-    int speed;
+    int speed;              /**< Vitesse de l'animation. */
     int FPS;                   /**< Images par seconde. */
     int frameDelay;            /**< Délai entre les images. */
     int frameStart;            /**< Début de la trame. */
@@ -119,12 +119,13 @@ typedef struct Game {
     ThreadManager threadManager; /**< Gestionnaire de threads. */
     SDL_Surface *cursor;       /**< Surface du curseur. */
     SDL_Surface *cursor_hover; /**< Surface du curseur au survol. */
-    int swappingIndex[2];
-    Text * windowText;
-    t_Poke starters[4];
-    int startersIndex;
-    Image **touche;
-    ScrollingText *scrollingTextIntro;
+    int swappingIndex[2];      /**< Index d'échange. */
+    int hasExchanged;           /**< Booleen "si echange disponible" */
+    Text * windowText;         /**< Texte de la fenêtre. */
+    t_Poke starters[4];        /**< Liste des starters. */
+    int startersIndex;        /**< Index des starters. */
+    Image **touche;         /**< Images des touches. */
+    ScrollingText *scrollingTextIntro;  /**< Texte défilant d'introduction. */
     bool isInDuel;
 } Game;
 

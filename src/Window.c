@@ -1,6 +1,7 @@
 #include "../include/Window.h"
 
 /**
+ * @fn void cleanupAndExit(Window *win, const char *errorMsg)
  * @brief Fonction utilitaire pour nettoyer et quitter en cas d'erreur.
  *
  * @param win Pointeur sur la structure Window.
@@ -14,6 +15,17 @@ static void cleanupAndExit(Window *win, const char *errorMsg) {
     exit(EXIT_FAILURE);
 }
 
+/**
+ * @fn void initWindow(Window *win, int width, int height, const char *FontPath)
+ * @brief Initialise la fenêtre principale de l'application.
+ * 
+ * Cette fonction initialise la fenêtre principale de l'application avec les dimensions et le chemin de police spécifiés.
+ * 
+ * @param win Un pointeur vers la structure Window à initialiser.
+ * @param width La largeur initiale de la fenêtre.
+ * @param height La hauteur initiale de la fenêtre.
+ * @param FontPath Le chemin du fichier de police à utiliser.
+ */
 void initWindow(Window *win, int width, int height, const char *FontPath) {
     InitLogFile();
     SDL_LogSetAllPriority(SDL_LOG_PRIORITY_VERBOSE);

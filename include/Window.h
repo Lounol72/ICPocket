@@ -71,6 +71,7 @@ typedef struct Window {
 } Window;
 
 /**
+ * @fn void initWindow(Window *win, int width, int height, const char *FontPath)
  * @brief Initialise la fenêtre principale de l'application.
  * 
  * Cette fonction initialise la fenêtre principale de l'application avec les dimensions et le chemin de police spécifiés.
@@ -81,7 +82,4 @@ typedef struct Window {
  * @param FontPath Le chemin du fichier de police à utiliser.
  */
 void initWindow(Window *win, int width, int height, const char *FontPath);
-
-void destroyGame();
-
 #endif /* WINDOW_H */

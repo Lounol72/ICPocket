@@ -87,7 +87,9 @@ static void cleanupResources(Window *win, SDL_GameController *controller) {
     if (controller) {
         SDL_GameControllerClose(controller);
     }
-    destroyMap(game.gameData.map);
+    for (int i = 0; i < 3; i++){
+        destroyMap(game.gameData.maps[i]);
+    }
     destroyPlayer(game.gameData.player);
     destroyCamera(game.gameData.camera);
 }
@@ -183,7 +185,12 @@ void render(Window *win) {
 static void renderMap(Window *win) {
     pthread_mutex_lock(&game.threadManager.physicsMutex);
     SDL_RenderClear(win->renderer);
-    renderMapWithCamera(game.gameData.map, win->renderer, game.gameData.camera);
+    int mapIndex = game.gameData.player->mapIndex;
+    if (mapIndex < 0 || mapIndex >= 3) {
+        // Fallback to a safe default index if out-of-range
+        mapIndex = 0;
+    }
+    renderMapWithCamera(game.gameData.maps[mapIndex], win->renderer, game.gameData.camera);
     renderPlayerWithCamera(game.gameData.player, win->renderer, game.gameData.camera);
     pthread_mutex_unlock(&game.threadManager.physicsMutex);
     SDL_RenderPresent(game.win->renderer);
@@ -210,11 +217,11 @@ void changeState(Window *win, void *data) {
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Changement d'état : %d", newState);
 }
 
-int gameStateTimerValidate(int nb_mili){
+int gameStateTimerValidate(int nb_micro){
     struct timeval time_now;
     gettimeofday(&time_now,NULL);
     long elapsed = (time_now.tv_sec - game.gameState.time_in_state.tv_sec) * 1000000 + (time_now.tv_usec - game.gameState.time_in_state.tv_usec);
-    return elapsed>=nb_mili;
+    return elapsed>=nb_micro;
 }
 
 
@@ -249,19 +256,39 @@ void attqButtonClicked(Window *win, void *data) {
     }
 }
 
+/**
+ * @fn void changeTextSpeed(Window *win, void *data);
+ * @brief Change la vitesse d'affichage du texte.
+ * 
+ * Cette fonction modifie la vitesse d'affichage du texte dans le jeu.
+ * 
+ * @param win Pointeur sur la fenêtre.
+ * @param data Pointeur vers la nouvelle vitesse (int casté en void*).
+ */
 void changeTextSpeed(Window *win, void *data) {
     (void)win;
     game.speed = (int)(intptr_t)data;
 }
 
 
+/**
+ * @fn initSwapTeam(Window *win, void *data);
+ * @brief Initialise l'échange d'équipe.
+ * 
+ * Cette fonction configure l'état pour permettre l'échange de membres de l'équipe.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour l'échange.
+ */
 void initSwapTeam(Window *win, void *data) {
-    game.swappingIndex[0]=0;
-    game.swappingIndex[1]=game.battleState.rouge.nb_poke%6;
-    updateICMonsButtonText(win, &game.battleState.bleu, 6 ,10);
-    updateICMonsButtonText(win, &game.battleState.rouge, 12 ,10);
+    if(!game.hasExchanged){
+        game.swappingIndex[0]=0;
+        game.swappingIndex[1]=game.battleState.rouge.nb_poke%6;
+        updateICMonsButtonText(win, &game.battleState.bleu, 6 ,10);
+        updateICMonsButtonText(win, &game.battleState.rouge, 12 ,10);
 
-    changeState(win,data);
+        changeState(win,data);
+    }
 }
 
 /**
@@ -295,6 +322,15 @@ void initLearningMove(void){
     changeState(game.win,&game.stateHandlers[11].state);
 }
 
+/**
+ * @fn changeIndexSwap(Window *win, void *data);
+ * @brief Change l'index de l'échange.
+ * 
+ * Cette fonction met à jour l'index des membres de l'équipe à échanger.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour l'échange.
+ */
 void changeIndexSwap(Window *win, void *data) {
     (void)win;
     int value=(int)(intptr_t)data;
@@ -303,6 +339,15 @@ void changeIndexSwap(Window *win, void *data) {
     game.swappingIndex[teamIndex]=value%6;
 }
 
+/**
+ * @fn validateSwap(Window *win, void *data);
+ * @brief Valide l'échange d'équipe.
+ * 
+ * Cette fonction applique les changements d'équipe après validation.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour l'échange.
+ */
 void validateSwap(Window *win, void *data) {
     if(!gameStateTimerValidate(2000)) return;
     if(game.swappingIndex[0]<game.battleState.bleu.nb_poke){
@@ -314,10 +359,21 @@ void validateSwap(Window *win, void *data) {
         initTeamSprites(win, &game.battleState.rouge,RED_SPRITE_X_RATIO, RED_SPRITE_Y_RATIO, 0);
         updateICButtons(win, &game.battleState.rouge);
         updateICMonsButtonText(win, &game.battleState.rouge, 6, 6);
+        sauvegarder(&game.battleState.rouge, &game.battleState.bleu);
+        game.hasExchanged=1;
         changeState(win,data);
     }
 }
 
+/**
+ * @fn learningMoveChoice(Window *win, void *data);
+ * @brief Gère le choix d'une nouvelle capacité.
+ * 
+ * Cette fonction permet au joueur de choisir une nouvelle capacité à apprendre.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour le choix.
+ */
 void learningMoveChoice(Window *win, void *data){
     int value=(int)(intptr_t)data;
     if(value!=4){
@@ -329,6 +385,15 @@ void learningMoveChoice(Window *win, void *data){
     changeState(win,&game.stateHandlers[3].state);
 }
 
+/**
+ * @fn void selectOtherStarter(Window *win, void *data);
+ * @brief Sélectionne un autre starter.
+ * 
+ * Cette fonction permet au joueur de sélectionner un autre ICmon starter.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour la sélection.
+ */
 void selectOtherStarter(Window *win, void *data){
     (void)win;
     int value=(int)(intptr_t)data;
@@ -336,6 +401,15 @@ void selectOtherStarter(Window *win, void *data){
     if(game.startersIndex<0) game.startersIndex=3;
 }
 
+/**
+ * @fn void validateStarterChoice(Window *win, void *data);
+ * @brief Valide le choix du starter.
+ * 
+ * Cette fonction confirme le choix du starter par le joueur.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour la validation.
+ */
 void validateStarterChoice(Window *win, void *data){
     (void)data;
     game.battleState.rouge.team[0]=game.starters[game.startersIndex];
@@ -344,16 +418,28 @@ void validateStarterChoice(Window *win, void *data){
         
     if (initTeamSprites(win, &game.battleState.rouge, RED_SPRITE_X_RATIO, RED_SPRITE_Y_RATIO, 0) != 0)
         return;
-    if (initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1) != 0)
-        return;
         
     updateICButtons(win, &game.battleState.rouge);
     setDefaultStatChanges(&game.battleState.rouge);
+
+    for(int i=0;i<4;i++){
+        if(i!=game.startersIndex && game.starters[i].img) destroyICMonsSprite(&game.starters[i]);
+    }
+    
         
     game.gameState.initialized = 1;
     changeState(win,&game.stateHandlers[MAP].state);
 }
 
+/**
+ * @fn void initStarters(Window *win, void *data);
+ * @brief Initialise les starters.
+ * 
+ * Cette fonction configure l'état pour permettre au joueur de choisir un starter.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour l'initialisation.
+ */
 void initStarters(Window *win, void *data){
     (void)data;
     if(game.gameState.initialized){
@@ -407,6 +493,15 @@ void initStarters(Window *win, void *data){
     changeState(win,&game.stateHandlers[STARTERS].state);
 }
 
+/**
+ * @fn void initResume(Window *win, void *data);
+ * @brief Initialise l'état de reprise.
+ *
+ * Cette fonction configure l'état pour permettre la reprise du jeu après un échange.
+ *
+ * @param win Un pointeur vers la structure Window.
+ * @param data Données supplémentaires pour l'initialisation.
+ */
 void initResume(Window *win, void *data){
     (void)data;
     char temp[200];
@@ -461,6 +556,15 @@ void initResume(Window *win, void *data){
     changeState(win,&game.stateHandlers[RESUME].state);
 }
 
+/**
+ * @fn void destroyResume(Window *win, void *data);
+ * @brief Détruit l'état de reprise.
+ *
+ * Libère les ressources associées à l'état de reprise et change l'état du jeu.
+ *
+ * @param win Pointeur sur la fenêtre.
+ * @param data Paramètre non utilisé.
+ */
 void destroyResume(Window *win, void *data){
     (void)data;
     destroyText(game.windowText);
@@ -491,12 +595,15 @@ void nextDuel(Window *win, void *data) {
     
     // Soigner et réinitialiser
     healTeam(&game.battleState.rouge);
-    game.battleState.rouge.nb_enemiBeat++;
     initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
     
     // Réinitialiser l'IA
-    game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
+    //game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
+    game.battleState.ia.AI_lvl = 1 + game.battleState.rouge.nb_enemiBeat;
+    game.battleState.ia.type = 2 + rand()%2;
+    if(game.battleState.rouge.nb_enemiBeat>=15) game.battleState.ia.type = boss;
     
+    game.battleState.rouge.nb_enemiBeat++;
     // Initialiser les sprites avec vérification d'erreur
     if (initTeamSprites(win, &game.battleState.bleu, BLUE_SPRITE_X_RATIO, BLUE_SPRITE_Y_RATIO, 1) != 0) {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur lors de l'initialisation des sprites");
@@ -520,6 +627,8 @@ void nextDuel(Window *win, void *data) {
         }
         loadMusic(&game.gameState.music, "assets/audio/conseil_4.mp3");
     }
+    // Rendre disponible un échange
+    game.hasExchanged=0;
     // Changer d'état
     changeState(win, &game.stateHandlers[GAME].state);
 }
@@ -571,8 +680,8 @@ void mainLoop(Window *win) {
 //---------------------------------------------------------------------------------
 /* Fonctions de gestion et d'initialisation des boutons et sliders */
 
-
 /**
+ * @fn void updateICButtons(Window *win, t_Team *team);
  * @brief Met à jour les textes des boutons d'attaque et des ICMons.
  *
  * Pour les quatre premiers boutons du jeu, met à jour le texte affiché en fonction des mouvements
@@ -600,6 +709,7 @@ void updateICButtons(Window *win, t_Team *team) {
 }
 
 /**
+ * @fn void updateCurrentButton(); 
  * @brief Met à jour l'apparence du bouton actuellement sélectionné.
  *
  * Parcourt la liste des boutons de l'état courant et met à jour leur texture pour
@@ -619,6 +729,7 @@ void updateCurrentButton() {
 }
 
 /**
+ * @fn void updateMusic();
  * @brief Met à jour la musique en fonction de l'état du jeu.
  *
  * Si l'état du jeu est GAME ou ICMONS et qu'aucune musique n'est en lecture, démarre la musique.
@@ -657,6 +768,17 @@ void updateMusic() {
     }
 }
 
+/**
+ * @fn void startBattleTurn(int moveRouge, int moveBleu);
+ * @brief Initialise le tour de combat avec les mouvements des Pokémon.
+ *
+ * Cette fonction initialise le tour de combat en définissant les mouvements des Pokémon
+ * rouge et bleu. Elle gère également la création d'un texte défilant pour annoncer le début
+ * du tour et nettoie tout texte défilant précédent.
+ *
+ * @param moveRouge Le mouvement choisi par le Pokémon rouge.
+ * @param moveBleu  Le mouvement choisi par le Pokémon bleu.
+ */
 void startBattleTurn(int moveRouge, int moveBleu) {
     game.battleState.moveRouge = moveRouge;
     game.battleState.moveBleu  = moveBleu;
@@ -689,13 +811,21 @@ static inline void endBattleTurn(){
     game.battleState.turnState = TURN_NONE;
 }
 
+
+/**
+ * @fn void updateBattleTurn();
+ * @brief Met à jour l'état du tour de combat.
+ *
+ * Cette fonction gère les différentes étapes du tour de combat, y compris l'initialisation,
+ * l'exécution des actions des Pokémon et la mise à jour de l'affichage.
+ */
 void updateBattleTurn() {
     
     switch (game.battleState.turnState) {
         case TURN_INIT: {
             // Création et affichage d'un texte annonçant le début du tour
             if (!game.battleState.text) {
-                char *msg ="Début du tour de combat";
+                char *msg =" ";
                 if (!msg) return;
                 game.battleState.text = createScrollingText(
                     msg,
@@ -748,19 +878,21 @@ void updateBattleTurn() {
                 }
                 game.battleState.hasAttacked = true;
             }
-            if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
-                char msg[60];
-                sprintf(msg,"Coup critique !");
-                criticalHitFlag=0;
-                resetScrollingText(game.battleState.text, msg);
-            }
-            if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
-                char msg[60]="\0";
-                if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
-                else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
-                else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
-                moveEffectivenessFlag=-2;
-                if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
+            if((game.battleState.first && isAttacking(game.battleState.moveRouge)) || (!game.battleState.first && isAttacking(game.battleState.moveBleu))){
+                if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
+                    char msg[60];
+                    sprintf(msg,"Coup critique !");
+                    criticalHitFlag=0;
+                    resetScrollingText(game.battleState.text, msg);
+                }
+                if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
+                    char msg[60]="\0";
+                    if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
+                    else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
+                    else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
+                    moveEffectivenessFlag=-2;
+                    if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
+                }
             }
             if (game.battleState.text->isComplete) {
                 game.battleState.text->isComplete = false;
@@ -799,19 +931,21 @@ void updateBattleTurn() {
                 }
                 game.battleState.hasAttacked = true;
             }
-            if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
-                char msg[60];
-                sprintf(msg,"Coup critique !");
-                criticalHitFlag=0;
-                resetScrollingText(game.battleState.text, msg);
-            }
-            if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
-                char msg[60]="\0";
-                if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
-                else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
-                else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
-                moveEffectivenessFlag=-2;
-                if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
+            if((game.battleState.first && isAttacking(game.battleState.moveBleu)) || (!game.battleState.first && isAttacking(game.battleState.moveRouge))){
+                if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
+                    char msg[60];
+                    sprintf(msg,"Coup critique !");
+                    criticalHitFlag=0;
+                    resetScrollingText(game.battleState.text, msg);
+                }
+                if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
+                    char msg[60]="\0";
+                    if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
+                    else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
+                    else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
+                    moveEffectivenessFlag=-2;
+                    if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
+                }
             }
             if (game.battleState.text->isComplete) {
                 game.battleState.text->isComplete = false;
@@ -841,6 +975,17 @@ void updateBattleTurn() {
     }
 }
 
+/**
+ * @fn void executeAction(t_Team *attacker, t_Team *defender, int move);
+ * @brief Exécute l'action d'un Pokémon pendant un tour de combat.
+ *
+ * Cette fonction gère l'exécution de l'action choisie par le Pokémon attaquant
+ * (attaque ou échange) et applique les effets correspondants sur le Pokémon défenseur.
+ *
+ * @param attacker Pointeur sur l'équipe du Pokémon attaquant.
+ * @param defender Pointeur sur l'équipe du Pokémon défenseur.
+ * @param move L'action choisie par le Pokémon attaquant.
+ */
 void executeAction(t_Team *attacker, t_Team *defender, int move) {
     char msg[60] = "";
     // Si le Pokémon n'a plus de PP et qu'il attaque, forcer l'utilisation de Lutte.
@@ -920,6 +1065,12 @@ void executeAction(t_Team *attacker, t_Team *defender, int move) {
     }
 }
 
+/**
+ * @fn void finishApplyEffectDamage();
+ * @brief appllique les effets brulûre et poison
+ * 
+ * cette fonction permet d'appliquer les effets jusqu'à fin d'application de ce dernier
+ */
 void finishApplyEffectDamage(){
     char msg[60] = "";
     if (isAlive(&(game.battleState.rouge.team[0])) && game.battleState.rouge.team[0].main_effect==burn){

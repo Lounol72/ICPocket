@@ -37,25 +37,33 @@ typedef struct IMG_ICMons {
     SDL_Texture *nameTexture;        /**< Texture pour le nom de l'ICMons. */
     SDL_Rect nameRect;               /**< Rectangle pour l'affichage du nom. */
     SDL_Rect nameInitialRect;        /**< Rectangle initial pour l'affichage du nom pour les besoins de mise à l'échelle. */
+    // New fields for entrance animation
+    float entranceProgress;  // 0.0 to 1.0
+    int isEntranceAnimating;
+    int isFromRight;  // 1 if entering from right, 0 if from left
 } IMG_ICMons;
 
 /**
- * @brief Initialise un sprite ICMons.
- * 
- * Cette fonction initialise un sprite ICMons avec les paramètres spécifiés.
- * 
+ * @fn IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rect nameRect, SDL_Rect pvRect, t_Poke *poke, TTF_Font *font, int team)
+ * @brief Initialise le sprite d'un ICMon.
+ *
+ * Cette fonction crée et initialise le sprite associé à un poke, incluant le chargement
+ * de l'image, le retournement horizontal si nécessaire, la création des textures, ainsi que
+ * la configuration des textes et barres de points de vie.
+ *
  * @param renderer Le renderer SDL.
- * @param spriteRect Le rectangle définissant la position et la taille du sprite.
- * @param nameRect Le rectangle pour l'affichage du nom.
- * @param pvRect Le rectangle pour la barre de PV.
- * @param poke Un pointeur vers la structure t_Poke représentant l'ICMons.
- * @param font La police utilisée pour le rendu du texte.
- * @param team L'identifiant de l'équipe pour l'ICMons.
- * @return Un pointeur vers la structure IMG_ICMons initialisée.
+ * @param spriteRect Le rectangle du sprite.
+ * @param nameRect Le rectangle pour le nom.
+ * @param pvRect Le rectangle pour la barre de points de vie.
+ * @param poke Le pointeur vers la structure t_Poke contenant les informations du poke.
+ * @param font La police TTF utilisée pour le texte.
+ * @param team L'équipe (si 1, l'image est retournée horizontalement).
+ * @return IMG_ICMons* Le pointeur vers le sprite initialisé, ou NULL en cas d'erreur.
  */
 IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rect nameRect, SDL_Rect pvRect, t_Poke *poke, TTF_Font *font, int team);
 
 /**
+ * @fn void updateICMonsSprite(IMG_ICMons *icmons, float scaleX, float scaleY)
  * @brief Met à jour la position et la taille d'un sprite ICMons.
  * 
  * Cette fonction met à jour la position et la taille d'un sprite ICMons en fonction des facteurs de mise à l'échelle donnés.
@@ -67,6 +75,7 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
 void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
 
 /**
+ * @fn void renderICMonsSprite(Window *win, t_Poke *poke)
  * @brief Rend un sprite ICMons.
  * 
  * Cette fonction rend le sprite ICMons spécifié à l'écran.
@@ -77,6 +86,7 @@ void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
 void renderICMonsSprite(Window *win, t_Poke *poke);
 
 /**
+ * @fn void updateICMonText(t_Poke *poke)
  * @brief Met à jour le texte des ICMons.
  * 
  * Cette fonction met à jour le texte des ICMons en fonction des paramètres donnés.
@@ -86,6 +96,7 @@ void renderICMonsSprite(Window *win, t_Poke *poke);
 void updateICMonText(t_Poke *poke);
 
 /**
+ * @fn void destroyICMonsSprite(t_Poke *poke)
  * @brief Détruit un sprite ICMons.
  * 
  * Cette fonction libère les ressources associées au sprite ICMons spécifié.
@@ -93,5 +104,27 @@ void updateICMonText(t_Poke *poke);
  * @param poke Un pointeur vers la structure t_Poke représentant l'ICMons.
  */
 void destroyICMonsSprite(t_Poke *poke);
+
+/**
+ * @fn void startICMonEntranceAnimation(t_Poke *poke)
+ * @brief Démarre l'animation d'entrée pour un ICMon.
+ *
+ * Cette fonction initialise les paramètres de l'animation d'entrée pour un ICMon.
+ * L'animation fera glisser l'ICMon depuis le côté gauche ou droit.
+ *
+ * @param poke L'ICMon à animer.
+ */
+void startICMonEntranceAnimation(t_Poke *poke);
+
+/**
+ * @fn void updateICMonEntranceAnimation(t_Poke *poke)
+ * @brief Met à jour l'animation d'entrée pour un ICMon.
+ *
+ * Cette fonction met à jour la position de l'ICMon pendant son animation d'entrée.
+ * L'ICMon glissera depuis le côté gauche ou droit.
+ *
+ * @param poke L'ICMon en cours d'animation.
+ */
+void updateICMonEntranceAnimation(t_Poke *poke);
 
 #endif

@@ -8,7 +8,10 @@
 
 
 /**
- * @brief Initialise l'audio
+ * @fn void initAudio()
+ * @brief Initialise le système audio.
+ * 
+ * Cette fonction initialise le système audio en configurant SDL_mixer avec les paramètres appropriés.
  */
 void initAudio() {
     SDL_LogMessage(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_INFO, "🔊 Initialisation de l'audio ...");
@@ -29,10 +32,13 @@ void initAudio() {
 }
 
 /**
- * @brief Charge la musique
+ * @fn void loadMusic(Mix_Music **music, const char *musicPath)
+ * @brief Charge un fichier de musique.
  * 
- * @param music Pointeur vers la musique à charger
- * @param musicPath Chemin de la musique à charger
+ * Cette fonction charge un fichier de musique spécifié et l'associe à un pointeur Mix_Music.
+ * 
+ * @param music Un pointeur vers un pointeur Mix_Music où la musique chargée sera stockée.
+ * @param musicPath Le chemin du fichier de musique à charger.
  */
 void loadMusic(Mix_Music **music, const char *musicPath) {
     *music = Mix_LoadMUS(musicPath);

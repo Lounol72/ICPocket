@@ -257,7 +257,8 @@ void initBlueTeam(t_Team *t,t_Team *joueur) {
         exit(1);
     } else {
         char buffer[256];
-		int id = 1+2*joueur->nb_enemiBeat+rand()%2;
+		//nombre random entre 1 et 8
+		int id = 2*joueur->nb_enemiBeat+rand()%2+1;
         for (int i = 1; i < id; i++) {
             if (fgets(buffer, sizeof(buffer), fichierTrainer) == NULL) {
                 printf("Erreur : ligne %d introuvable dans le fichier.\n", id);
@@ -521,7 +522,7 @@ int affectDamage(t_Team * offender, t_Team * defender, int indexMove){
 	//printf("Dégats = %d\n",damage);
 	defender->team[0].current_pv=defender->team[0].current_pv>damage?(int)(defender->team[0].current_pv - damage):0;
 	if (!(indexMove<0)) (moveToDo->current_pp)--;
-	launchSecEffect(offender,defender,moveToDo);
+	if (moveEffectivenessFlag!=0) launchSecEffect(offender,defender,moveToDo);
 	return TRUE;
 }
 

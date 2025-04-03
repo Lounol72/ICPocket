@@ -38,6 +38,12 @@ void initGame(Window *win);
  */
 void loadBackground(SDL_Texture **Background, SDL_Renderer *renderer, const char *imagePath) ;
 
+/**
+ * @fn void loadPhrase(void);
+ * @brief charge les phrases.
+ * 
+ * Cette fonction charge les phrases à partir d'un fichier texte et les stocke dans un tableau de chaînes de caractères.
+ */
 void loadPhrase(void);
 
 /**

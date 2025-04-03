@@ -2,16 +2,28 @@
 #define THREAD_MANAGER_H
 
 #include <pthread.h>
+#include "Player.h"
+#include "Map.h"
+#include "Camera.h"
 
 /**
  * @file TheadManager.h
  * @brief Gestionnaire de threads pour le traitement parallèle
  * @author Louis
  * Ce module gère les threads parallèles pour le traitement audio, de rendu et de physique.
- * Il initialise les threads, gère leur exécution et leur terminaison.
- * 
+ * Il initialise les threads, gère leur exécution et leur terminaison, et gère également 
+ * les transitions entre cartes.
  * 
  */
+
+// Nombre de frames pour la transition entre cartes
+#define TRANSITION_FRAMES 30
+
+// Variables globales pour la gestion des transitions de carte
+extern volatile int forceRender;
+extern volatile int forcePlayerMove;
+extern volatile int forcePlayerMoveX;
+extern volatile int forcePlayerMoveY;
 
 struct Game;
 
@@ -46,6 +58,7 @@ typedef struct ThreadManager {
 } ThreadManager;
 
 /**
+ * @fn void initThreadManager(struct Game* game)
  * @brief Initialise le gestionnaire de threads
  * 
  * @param game Pointeur vers la structure Game
@@ -55,6 +68,7 @@ typedef struct ThreadManager {
 void initThreadManager(struct Game* game);
 
 /**
+ * @fn void cleanupThreads(struct Game* game)
  * @brief Nettoie et termine les threads
  * 
  * Cette fonction arrête tous les threads en cours d'exécution, attend leur terminaison
@@ -65,6 +79,7 @@ void initThreadManager(struct Game* game);
 void cleanupThreads(struct Game* game);
 
 /**
+ * @fn void* audioThreadFunction(void* arg)
  * @brief Fonction du thread audio
  * 
  * Cette fonction est exécutée par le thread audio. Elle gère le traitement audio
@@ -76,6 +91,7 @@ void cleanupThreads(struct Game* game);
 void* audioThreadFunction(void* arg);
 
 /**
+ * @fn void* physicsThreadFunction(void* arg)
  * @brief Fonction du thread de physique
  * 
  * Cette fonction est exécutée par le thread de physique. Elle gère les calculs physiques
@@ -87,6 +103,7 @@ void* audioThreadFunction(void* arg);
 void* physicsThreadFunction(void* arg);
 
 /**
+ * @fn void* renderThreadFunction(void* arg)
  * @brief Fonction du thread de rendu
  * 
  * Cette fonction est exécutée par le thread de rendu. Elle gère le rendu graphique
@@ -94,4 +111,27 @@ void* physicsThreadFunction(void* arg);
  * 
  */
 void* renderThreadFunction(void* arg);
+
+/**
+ * @brief Gère la transition d'une carte à une autre avec un effet de fondu
+ * 
+ * @param mapId ID de la map à charger (0, 1, 2)
+ * @param player Pointeur vers le joueur
+ * @param camera Pointeur vers la caméra
+ * @param renderer Renderer pour les effets visuels
+ * @return int 1 si une transition a été effectuée, 0 sinon
+ */
+int handleMapTransition(int mapId, Player *player, Camera *camera, SDL_Renderer *renderer);
+
+/**
+ * @brief Vérifie si le joueur est sur une case de transition et charge la nouvelle carte si nécessaire
+ * 
+ * @param player Pointeur vers le joueur
+ * @param map Pointeur vers la carte actuelle
+ * @param camera Pointeur vers la caméra
+ * @param renderer Renderer pour les effets visuels 
+ * @return int 1 si une transition a été effectuée, 0 sinon
+ */
+int checkAndLoadNewMap(Player *player, Map *map, Camera *camera, SDL_Renderer *renderer);
+
 #endif /* THREAD_MANAGER_H */ 

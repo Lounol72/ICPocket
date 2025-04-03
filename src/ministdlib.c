@@ -1,5 +1,14 @@
 #include "../include/ministdlib.h"
 
+/**
+ * @fn char* iitoa(int value, char* str, int base)
+ * @brief Convertit un entier en chaîne de caractères.
+ * 
+ * @param value L'entier à convertir.
+ * @param str Pointeur vers la chaîne de caractères où le résultat sera stocké.
+ * @param base La base de conversion (par exemple, 10 pour décimal, 16 pour hexadécimal).
+ * @return char* 
+ */
 char* iitoa(int value, char* str, int base){
     if (base < 2 || base > 36) {
         *str = '\0';
