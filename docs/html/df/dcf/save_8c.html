@@ -128,22 +128,28 @@ $(document).ready(function(){initNavTree('df/dcf/save_8c.html','../../'); initRe
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d5/d5e/save_8h_source.html">../include/save.h</a>&quot;</code><br />
+<code>#include &lt;sys/stat.h&gt;</code><br />
+<code>#include &lt;sys/types.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de save.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d0/d30/save_8c__incl.png" border="0" usemap="#asrc_2save_8c" alt=""/></div>
 <map name="asrc_2save_8c" id="asrc_2save_8c">
-<area shape="rect" title=" " alt="" coords="262,5,349,31"/>
-<area shape="rect" href="../../d5/d5e/save_8h.html" title="Save the player&#39;s data in a file." alt="" coords="241,79,369,104"/>
-<area shape="poly" title=" " alt="" coords="308,31,308,65,303,65,303,31"/>
+<area shape="rect" title=" " alt="" coords="393,5,479,31"/>
+<area shape="rect" href="../../d5/d5e/save_8h.html" title=" " alt="" coords="241,79,369,104"/>
+<area shape="poly" title=" " alt="" coords="416,33,340,74,337,70,414,28"/>
+<area shape="rect" title=" " alt="" coords="393,79,479,104"/>
+<area shape="poly" title=" " alt="" coords="439,31,439,65,433,65,433,31"/>
+<area shape="rect" title=" " alt="" coords="503,79,599,104"/>
+<area shape="poly" title=" " alt="" coords="456,28,522,69,519,74,453,33"/>
 <area shape="rect" href="../../d6/d8e/duel_8h.html" title="Gestion des duels dans le style de &quot;ICmon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="274,152,337,177"/>
 <area shape="poly" title=" " alt="" coords="301,104,299,139,294,138,296,104"/>
 <area shape="poly" title=" " alt="" coords="310,152,311,118,317,118,315,152"/>
 <area shape="rect" href="../../da/d71/structPoke_8h.html" title=" " alt="" coords="82,225,185,251"/>
 <area shape="poly" title=" " alt="" coords="275,179,168,222,166,217,273,174"/>
-<area shape="rect" href="../../dd/da3/structures_8h.html" title=" " alt="" coords="128,299,227,324"/>
+<area shape="rect" href="../../dd/da3/structures_8h.html" title="Définition des structures de données utilisées dans le jeu." alt="" coords="128,299,227,324"/>
 <area shape="poly" title=" " alt="" coords="296,179,250,227,197,289,193,286,246,224,292,176"/>
-<area shape="rect" href="../../df/d27/trainerAI_8h.html" title=" " alt="" coords="260,225,351,251"/>
+<area shape="rect" href="../../df/d27/trainerAI_8h.html" title="Gestion de l&#39;IA des dresseurs." alt="" coords="260,225,351,251"/>
 <area shape="poly" title=" " alt="" coords="301,178,299,212,294,212,296,178"/>
 <area shape="rect" href="../../da/d1d/interDuel_8h.html" title="Définition et gestion des combats entre équipes." alt="" coords="375,225,470,251"/>
 <area shape="poly" title=" " alt="" coords="319,175,386,216,383,221,316,180"/>
@@ -165,11 +171,13 @@ Graphe des dépendances par inclusion de save.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a5be3a5d4e61b65a3dfe3585529f90276" id="r_a5be3a5d4e61b65a3dfe3585529f90276"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcf/save_8c.html#a5be3a5d4e61b65a3dfe3585529f90276">sauvegarder</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *joueur, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *adverse)</td></tr>
-<tr class="memdesc:a5be3a5d4e61b65a3dfe3585529f90276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de sauvegarde.  <br /></td></tr>
+<tr class="memdesc:a5be3a5d4e61b65a3dfe3585529f90276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde l'état du jeu dans un fichier.  <br /></td></tr>
 <tr class="separator:a5be3a5d4e61b65a3dfe3585529f90276"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6429ac59affd6447b50962bdef55f1a0" id="r_a6429ac59affd6447b50962bdef55f1a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcf/save_8c.html#a6429ac59affd6447b50962bdef55f1a0">charger</a> (char *nomSave, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *joueur, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *dresseur)</td></tr>
-<tr class="memdesc:a6429ac59affd6447b50962bdef55f1a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de chargement.  <br /></td></tr>
+<tr class="memdesc:a6429ac59affd6447b50962bdef55f1a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge l'état du jeu à partir d'un fichier de sauvegarde.  <br /></td></tr>
 <tr class="separator:a6429ac59affd6447b50962bdef55f1a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45f3589aac562a00bc8c7aa52cd84f09" id="r_a45f3589aac562a00bc8c7aa52cd84f09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcf/save_8c.html#a45f3589aac562a00bc8c7aa52cd84f09">saveDestroy</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *joueur)</td></tr>
+<tr class="separator:a45f3589aac562a00bc8c7aa52cd84f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba99819eb2e2771b7d6cc5f4faa2d30a" id="r_aba99819eb2e2771b7d6cc5f4faa2d30a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcf/save_8c.html#aba99819eb2e2771b7d6cc5f4faa2d30a">sauver</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *joueur, int save, char *nomsave)</td></tr>
 <tr class="memdesc:aba99819eb2e2771b7d6cc5f4faa2d30a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui sauvegarde le nom de la sauvegarde.  <br /></td></tr>
 <tr class="separator:aba99819eb2e2771b7d6cc5f4faa2d30a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -185,13 +193,13 @@ Fonctions</h2></td></tr>
           <td class="memname">int charger </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>nomSave</em>, </td>
+          <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *&#160;</td>
-          <td class="paramname"><em>joueur</em>, </td>
+          <td class="paramname"><em>teamJ1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -207,16 +215,17 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Fonction de chargement. </p>
-<p>Load the player's data from a file.</p>
+<p>Charge l'état du jeu à partir d'un fichier de sauvegarde. </p>
+<p>Cette fonction lit un fichier de sauvegarde et restaure l'état du jeu, y compris les informations sur les équipes et les Pokémon.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">nomSave</td><td>Nom de sauvegarde </td></tr>
-    <tr><td class="paramname">joueur</td><td>Equipe du joueur </td></tr>
-    <tr><td class="paramname">dresseur</td><td>Dernier dresseur battu </td></tr>
+    <tr><td class="paramname">name</td><td>Nom du fichier de sauvegarde à charger. </td></tr>
+    <tr><td class="paramname">teamJ1</td><td>Pointeur vers l'équipe du joueur 1. </td></tr>
+    <tr><td class="paramname">dresseur</td><td>Pointeur vers l'équipe du dresseur. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si le chargement a réussi, -1 sinon. </dd></dl>
 
 </div>
 </div>
@@ -230,13 +239,13 @@ Fonctions</h2></td></tr>
           <td class="memname">void sauvegarder </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *&#160;</td>
-          <td class="paramname"><em>joueur</em>, </td>
+          <td class="paramname"><em>teamJ1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *&#160;</td>
-          <td class="paramname"><em>adverse</em>&#160;</td>
+          <td class="paramname"><em>dresseur</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -246,12 +255,12 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Fonction de sauvegarde. </p>
+<p>Sauvegarde l'état du jeu dans un fichier. </p>
+<p>Cette fonction enregistre l'état du jeu, y compris les informations sur les équipes et les Pokémon, dans un fichier de sauvegarde.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">nomSave</td><td>Nom de sauvegarde </td></tr>
-    <tr><td class="paramname">joueur</td><td>Equipe du joueur </td></tr>
-    <tr><td class="paramname">adverse</td><td>Dernier dresseur battu </td></tr>
+    <tr><td class="paramname">teamJ1</td><td>Pointeur vers l'équipe du joueur 1. </td></tr>
+    <tr><td class="paramname">dresseur</td><td>Pointeur vers l'équipe du dresseur. </td></tr>
   </table>
   </dd>
 </dl>
@@ -268,7 +277,7 @@ Fonctions</h2></td></tr>
           <td class="memname">void sauver </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *&#160;</td>
-          <td class="paramname"><em>joueur</em>, </td>
+          <td class="paramname"><em>teamJ1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -280,7 +289,7 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>nomsave</em>&#160;</td>
+          <td class="paramname"><em>nomSave</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -291,14 +300,42 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Fonction qui sauvegarde le nom de la sauvegarde. </p>
+<p>Sauvegarde l'état du jeu dans un fichier.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">joueur</td><td>struct joueur </td></tr>
     <tr><td class="paramname">save</td><td>id de la sauvegarde </td></tr>
-    <tr><td class="paramname">nomsave</td><td>nom de la sauvegarde </td></tr>
+    <tr><td class="paramname">nomsave</td><td>nom de la sauvegarde</td></tr>
   </table>
   </dd>
 </dl>
+<p>Cette fonction enregistre l'état du jeu, y compris les informations sur les équipes et les Pokémon, dans un fichier de sauvegarde.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">teamJ1</td><td>Pointeur vers l'équipe du joueur 1. </td></tr>
+    <tr><td class="paramname">save</td><td>Indicateur de sauvegarde (0 pour une nouvelle sauvegarde, 1 pour écraser une sauvegarde existante). </td></tr>
+    <tr><td class="paramname">nomSave</td><td>Nom du fichier de sauvegarde. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a45f3589aac562a00bc8c7aa52cd84f09" name="a45f3589aac562a00bc8c7aa52cd84f09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45f3589aac562a00bc8c7aa52cd84f09">&#9670;&#160;</a></span>saveDestroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void saveDestroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *&#160;</td>
+          <td class="paramname"><em>joueur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

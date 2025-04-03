@@ -129,23 +129,34 @@ $(document).ready(function(){initNavTree('d7/dfe/structNPC.html','../../'); init
 </div><!--header-->
 <div class="contents">
 
+<p>Représente un personnage non joueur (PNJ) dans le jeu.  
+ <a href="../../d7/dfe/structNPC.html#details">Plus de détails...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d4/d62/NPC_8h_source.html">NPC.h</a>&gt;</code></p>
 <div class="dynheader">
 Graphe de collaboration de NPC:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../de/d22/structNPC__coll__graph.png" border="0" usemap="#aNPC_coll__map" alt="Collaboration graph"/></div>
 <map name="aNPC_coll__map" id="aNPC_coll__map">
-<area shape="rect" title=" " alt="" coords="49,1312,195,1497"/>
-<area shape="rect" href="../../da/d63/structt__Team.html" title="La structure t_Team contient tout les attributs nécessaire à la génération et à l&#39;utilisation d&#39;une é..." alt="" coords="61,1044,183,1249"/>
-<area shape="poly" title=" " alt="" coords="125,1250,125,1296,119,1296,119,1250"/>
-<area shape="rect" href="../../d7/d09/structt__Poke.html" title=" " alt="" coords="69,676,175,981"/>
-<area shape="poly" title=" " alt="" coords="125,982,125,1028,119,1028,119,982"/>
-<area shape="rect" href="../../d1/d68/structt__Move.html" title=" " alt="" coords="5,288,132,613"/>
-<area shape="poly" title=" " alt="" coords="94,613,99,652,100,659,95,660,94,652,89,614"/>
-<area shape="rect" href="../../dd/d1a/structIMG__ICMons.html" title="Représente un sprite ICMons dans l&#39;application." alt="" coords="157,298,303,603"/>
-<area shape="poly" title=" " alt="" coords="189,605,175,653,173,661,168,659,170,651,184,603"/>
-<area shape="rect" href="../../d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application." alt="" coords="179,5,281,211"/>
-<area shape="poly" title=" " alt="" coords="233,211,233,281,227,281,227,211"/>
+<area shape="rect" title="Représente un personnage non joueur (PNJ) dans le jeu." alt="" coords="293,1212,438,1397"/>
+<area shape="rect" href="../../da/d63/structt__Team.html" title=" " alt="" coords="304,964,427,1149"/>
+<area shape="poly" title=" " alt="" coords="368,1149,368,1196,363,1196,363,1149"/>
+<area shape="rect" href="../../d7/d09/structt__Poke.html" title="Représente un ICMon." alt="" coords="223,636,321,901"/>
+<area shape="poly" title=" " alt="" coords="318,901,333,947,328,949,312,902"/>
+<area shape="rect" href="../../de/df3/structt__Type.html" title="Représente les types des ICmons." alt="" coords="125,75,181,141"/>
+<area shape="poly" title=" " alt="" coords="159,140,169,234,176,330,177,405,183,479,200,573,220,640,215,642,195,574,178,480,172,405,170,330,164,235,154,141"/>
+<area shape="rect" href="../../d1/d68/structt__Move.html" title="Représente une attaque d&#39;un ICMon." alt="" coords="10,288,137,573"/>
+<area shape="poly" title=" " alt="" coords="148,141,124,235,115,273,109,272,119,234,143,140"/>
+<area shape="poly" title=" " alt="" coords="79,573,93,611,117,647,146,679,179,707,211,729,208,734,176,711,143,683,113,650,88,613,74,575"/>
+<area shape="rect" href="../../df/d0d/structt__Categ.html" title="Représente la catégorie d&#39;une attaque." alt="" coords="5,75,69,141"/>
+<area shape="poly" title=" " alt="" coords="38,141,38,198,41,264,42,271,37,272,36,264,32,198,33,141"/>
+<area shape="rect" href="../../d9/d39/structt__Effect.html" title="Représente les effets d&#39;état d&#39;un ICMon." alt="" coords="426,398,489,463"/>
+<area shape="poly" title=" " alt="" coords="457,464,441,612,415,790,388,948,382,947,409,789,436,612,452,464"/>
+<area shape="poly" title=" " alt="" coords="458,464,446,520,434,549,415,575,398,586,380,588,364,590,347,599,326,624,322,621,344,595,362,585,379,583,396,581,412,571,429,547,441,518,453,463"/>
+<area shape="rect" href="../../dd/d1a/structIMG__ICMons.html" title="Représente un sprite ICMons dans l&#39;application." alt="" coords="255,298,401,563"/>
+<area shape="poly" title=" " alt="" coords="283,564,276,598,273,620,268,619,271,597,278,563"/>
+<area shape="rect" href="../../d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application." alt="" coords="277,5,379,211"/>
+<area shape="poly" title=" " alt="" coords="331,211,331,281,325,281,325,211"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -168,7 +179,10 @@ Attributs publics</h2></td></tr>
 <tr class="memitem:abf5f75167466405b97e2f14367dc3091" id="r_abf5f75167466405b97e2f14367dc3091"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfe/structNPC.html#abf5f75167466405b97e2f14367dc3091">direction</a></td></tr>
 <tr class="separator:abf5f75167466405b97e2f14367dc3091"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des données membres</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Représente un personnage non joueur (PNJ) dans le jeu. </p>
+<p>Cette structure contient des informations sur la position, le sprite, l'équipe, le message avant le combat, l'état de défaite, et la direction du PNJ. </p>
+</div><h2 class="groupheader">Documentation des données membres</h2>
 <a id="abf5f75167466405b97e2f14367dc3091" name="abf5f75167466405b97e2f14367dc3091"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf5f75167466405b97e2f14367dc3091">&#9670;&#160;</a></span>direction</h2>
 
@@ -180,6 +194,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Direction du regard (0: bas, 1: gauche, 2: droite, 3: haut). </p>
 
 </div>
 </div>
@@ -194,6 +209,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Si le PNJ a déjà été battu. </p>
 
 </div>
 </div>
@@ -208,6 +224,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Message avant le combat. </p>
 
 </div>
 </div>
@@ -222,6 +239,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>rectangle de position. </p>
 
 </div>
 </div>
@@ -236,6 +254,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sprite du PNJ. </p>
 
 </div>
 </div>
@@ -250,6 +269,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Équipe du PNJ. </p>
 
 </div>
 </div>
@@ -278,6 +298,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>position du PNJ sur la map. </p>
 
 </div>
 </div>

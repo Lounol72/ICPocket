@@ -1,52 +1,62 @@
 <map id="Game" name="Game">
-<area shape="rect" id="Node000001" title="Structure principale du jeu." alt="" coords="972,2159,1099,2484"/>
-<area shape="rect" id="Node000002" href="$d8/de4/structUI__Elements.html" title="Conteneur pour les éléments de l&#39;interface utilisateur." alt="" coords="156,1911,261,1976"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="260,1974,353,2031,463,2094,596,2158,731,2214,856,2259,957,2293,956,2298,854,2265,729,2219,593,2163,461,2098,351,2036,257,1979"/>
-<area shape="rect" id="Node000003" href="$da/db4/structButtonList.html" title="Liste de boutons." alt="" coords="55,1563,135,1628"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="105,1628,120,1692,141,1766,190,1894,185,1896,135,1768,114,1693,99,1629"/>
-<area shape="rect" id="Node000004" href="$d7/d19/structButton.html" title="Représente un bouton dans l&#39;application." alt="" coords="5,1135,137,1400"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="84,1400,94,1545,89,1546,78,1400"/>
-<area shape="rect" id="Node000005" href="$db/d53/structSliderList.html" title="Liste de curseurs." alt="" coords="171,1563,246,1628"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="211,1629,211,1894,206,1894,206,1629"/>
-<area shape="rect" id="Node000006" href="$df/dd7/structSlider.html" title="Représente un curseur dans l&#39;application." alt="" coords="162,1135,279,1400"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="218,1400,213,1546,208,1546,213,1400"/>
-<area shape="rect" id="Node000007" href="$d4/d6e/structGameData.html" title=" " alt="" coords="475,1911,559,1976"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="523,1976,530,2011,542,2053,561,2096,588,2133,628,2169,674,2201,722,2228,773,2251,871,2284,957,2305,955,2310,870,2289,771,2256,720,2233,671,2206,625,2174,584,2136,556,2098,537,2055,525,2013,518,1977"/>
-<area shape="rect" id="Node000008" href="$dc/d7b/structPlayer.html" title=" " alt="" coords="270,1463,422,1728"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="413,1727,496,1895,492,1897,409,1729"/>
-<area shape="rect" id="Node000009" href="$da/ddc/structMap.html" title=" " alt="" coords="447,1473,541,1718"/>
-<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="505,1718,516,1894,511,1895,499,1719"/>
-<area shape="rect" id="Node000010" href="$d7/d7e/structCamera.html" title="Structure représentant la caméra du jeu." alt="" coords="566,1513,651,1678"/>
-<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="590,1679,532,1896,527,1894,584,1677"/>
-<area shape="rect" id="Node000011" href="$d2/d52/structBattleState.html" title="Données de combat." alt="" coords="870,1871,979,2016"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="921,2016,921,2074,931,2134,946,2176,966,2216,961,2218,941,2178,926,2135,916,2075,915,2016"/>
-<area shape="rect" id="Node000012" href="$da/d63/structt__Team.html" title="La structure t_Team contient tout les attributs nécessaire à la génération et à l&#39;utilisation d&#39;une é..." alt="" coords="857,1165,979,1370"/>
-<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="906,1370,897,1463,891,1595,897,1728,912,1854,907,1855,891,1728,885,1595,891,1462,900,1370"/>
-<area shape="rect" id="Node000017" href="$d5/d48/structAI.html" title=" " alt="" coords="955,1553,1020,1638"/>
-<area shape="poly" id="edge17_Node000017_Node000012" title=" " alt="" coords="942,1370,978,1536,972,1537,937,1371"/>
-<area shape="rect" id="Node000013" href="$d7/d09/structt__Poke.html" title=" " alt="" coords="845,767,951,1072"/>
-<area shape="poly" id="edge24_Node000001_Node000013" title=" " alt="" coords="857,1073,835,1169,814,1282,796,1407,784,1542,782,1682,793,1823,803,1893,818,1962,837,2030,860,2095,881,2137,906,2176,963,2246,959,2250,902,2179,876,2139,856,2097,832,2031,812,1963,798,1894,787,1824,777,1682,779,1542,790,1407,808,1281,830,1168,852,1072"/>
-<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="909,1072,914,1148,909,1148,904,1072"/>
-<area shape="rect" id="Node000014" href="$d1/d68/structt__Move.html" title=" " alt="" coords="737,288,864,613"/>
-<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="821,613,845,742,846,750,841,751,839,743,816,614"/>
-<area shape="rect" id="Node000015" href="$dd/d1a/structIMG__ICMons.html" title="Représente un sprite ICMons dans l&#39;application." alt="" coords="889,298,1035,603"/>
-<area shape="poly" id="edge14_Node000013_Node000015" title=" " alt="" coords="944,604,924,751,918,750,938,604"/>
-<area shape="rect" id="Node000016" href="$d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application." alt="" coords="911,5,1013,211"/>
-<area shape="poly" id="edge23_Node000001_Node000016" title=" " alt="" coords="912,136,866,163,816,197,767,240,727,289,705,330,694,365,691,402,691,449,691,1944,699,2001,719,2054,749,2103,787,2148,829,2188,874,2223,959,2278,956,2283,871,2228,826,2192,783,2151,745,2106,714,2057,693,2003,686,1945,686,449,686,402,689,364,700,328,722,287,763,236,813,193,863,158,909,132"/>
-<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="965,211,965,281,959,281,959,211"/>
-<area shape="rect" id="Node000023" href="$db/d58/structImage.html" title=" " alt="" coords="1121,637,1216,743"/>
-<area shape="poly" id="edge26_Node000023_Node000016" title=" " alt="" coords="1016,201,1031,234,1072,337,1107,443,1156,621,1150,622,1102,445,1067,339,1026,236,1011,203"/>
-<area shape="poly" id="edge16_Node000011_Node000017" title=" " alt="" coords="973,1639,929,1753,922,1804,921,1855,916,1854,917,1803,923,1751,968,1637"/>
-<area shape="rect" id="Node000018" href="$d2/db3/structScrollingText.html" title=" " alt="" coords="1044,1463,1163,1728"/>
-<area shape="poly" id="edge27_Node000001_Node000018" title=" " alt="" coords="1068,1729,1057,1791,1046,1880,1040,1971,1035,2142,1030,2142,1034,1971,1041,1880,1051,1790,1063,1728"/>
-<area shape="poly" id="edge18_Node000011_Node000018" title=" " alt="" coords="1046,1718,1034,1730,1021,1739,1009,1742,998,1745,987,1754,970,1777,957,1802,940,1855,934,1854,952,1800,966,1774,983,1750,995,1741,1007,1737,1019,1734,1031,1726,1042,1714"/>
-<area shape="rect" id="Node000019" href="$d2/d3d/structGameState.html" title="Informations générales sur l&#39;état du jeu." alt="" coords="1238,1861,1355,2026"/>
-<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="1274,2027,1251,2082,1222,2136,1170,2202,1113,2259,1109,2255,1166,2198,1217,2133,1246,2080,1269,2025"/>
-<area shape="rect" id="Node000020" href="$d3/daf/structStateHandler.html" title="Gestionnaire d&#39;état." alt="" coords="1379,1901,1489,1986"/>
-<area shape="poly" id="edge20_Node000001_Node000020" title=" " alt="" coords="1424,1987,1402,2042,1370,2098,1342,2130,1312,2159,1245,2212,1177,2255,1115,2288,1112,2283,1174,2251,1242,2208,1308,2155,1338,2126,1365,2094,1398,2039,1419,1985"/>
-<area shape="rect" id="Node000021" href="$d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application." alt="" coords="1513,1791,1622,2096"/>
-<area shape="poly" id="edge21_Node000001_Node000021" title=" " alt="" coords="1515,2080,1503,2098,1484,2120,1459,2137,1371,2188,1278,2232,1190,2269,1115,2297,1113,2292,1188,2264,1276,2228,1368,2183,1457,2132,1480,2116,1499,2094,1510,2077"/>
-<area shape="rect" id="Node000022" href="$d5/d64/structThreadManager.html" title="Structure de gestion des threads." alt="" coords="1646,1851,1769,2036"/>
-<area shape="poly" id="edge22_Node000001_Node000022" title=" " alt="" coords="1679,2038,1660,2070,1636,2098,1575,2146,1508,2187,1437,2221,1366,2249,1295,2272,1228,2289,1115,2312,1114,2307,1227,2284,1294,2267,1364,2244,1435,2216,1506,2182,1572,2142,1632,2094,1656,2067,1674,2035"/>
-<area shape="poly" id="edge25_Node000001_Node000023" title=" " alt="" coords="1178,743,1194,903,1201,1002,1203,1102,1203,1945,1203,2022,1197,2056,1184,2097,1151,2167,1111,2230,1106,2228,1147,2164,1180,2095,1192,2054,1197,2022,1198,1945,1198,1102,1195,1002,1189,903,1173,743"/>
+<area shape="rect" id="Node000001" title="Structure principale du jeu." alt="" coords="1077,2079,1204,2424"/>
+<area shape="rect" id="Node000002" href="$d8/de4/structUI__Elements.html" title="Conteneur pour les éléments de l&#39;interface utilisateur." alt="" coords="156,1831,261,1896"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="260,1894,357,1952,471,2014,631,2085,795,2145,944,2193,1062,2227,1061,2232,943,2198,793,2150,629,2090,469,2018,354,1956,257,1898"/>
+<area shape="rect" id="Node000003" href="$da/db4/structButtonList.html" title="Liste de boutons." alt="" coords="55,1483,135,1548"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="105,1548,120,1612,141,1686,190,1814,185,1816,135,1688,114,1613,99,1549"/>
+<area shape="rect" id="Node000004" href="$d7/d19/structButton.html" title="Représente un bouton dans l&#39;application." alt="" coords="5,1055,137,1320"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="84,1320,94,1465,89,1466,78,1320"/>
+<area shape="rect" id="Node000005" href="$db/d53/structSliderList.html" title="Liste de curseurs." alt="" coords="171,1483,246,1548"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="211,1549,211,1814,206,1814,206,1549"/>
+<area shape="rect" id="Node000006" href="$df/dd7/structSlider.html" title="Représente un curseur dans l&#39;application." alt="" coords="162,1055,279,1320"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="218,1320,213,1466,208,1466,213,1320"/>
+<area shape="rect" id="Node000007" href="$d4/d6e/structGameData.html" title=" " alt="" coords="483,1831,567,1896"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="532,1895,541,1932,556,1974,577,2016,607,2053,658,2095,716,2131,777,2161,839,2185,960,2220,1062,2238,1061,2244,959,2225,838,2190,775,2166,713,2136,655,2099,603,2057,573,2019,551,1976,536,1933,527,1897"/>
+<area shape="rect" id="Node000008" href="$dc/d7b/structPlayer.html" title="Représente le joueur dans le jeu." alt="" coords="270,1383,422,1648"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="416,1647,503,1815,498,1817,412,1649"/>
+<area shape="rect" id="Node000009" href="$da/ddc/structMap.html" title=" " alt="" coords="446,1423,550,1608"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="508,1608,524,1814,518,1814,502,1609"/>
+<area shape="rect" id="Node000010" href="$d7/d7e/structCamera.html" title="Structure représentant la caméra du jeu." alt="" coords="574,1433,659,1598"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="598,1599,540,1816,535,1814,592,1597"/>
+<area shape="rect" id="Node000011" href="$d2/d52/structBattleState.html" title="Données de combat." alt="" coords="810,1791,919,1936"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="854,1936,854,1996,860,2026,871,2053,888,2081,909,2107,958,2152,1012,2188,1064,2216,1061,2220,1009,2193,955,2156,905,2111,884,2084,866,2056,855,2027,849,1996,849,1936"/>
+<area shape="rect" id="Node000012" href="$da/d63/structt__Team.html" title=" " alt="" coords="777,1095,899,1280"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="838,1280,837,1383,833,1515,837,1648,852,1774,847,1775,831,1648,828,1515,831,1383,833,1280"/>
+<area shape="rect" id="Node000020" href="$d5/d48/structAI.html" title=" " alt="" coords="895,1483,960,1548"/>
+<area shape="poly" id="edge23_Node000020_Node000012" title=" " alt="" coords="850,1280,867,1358,878,1382,912,1466,907,1468,873,1384,862,1359,845,1281"/>
+<area shape="rect" id="Node000013" href="$d7/d09/structt__Poke.html" title="Représente un ICMon." alt="" coords="704,727,801,992"/>
+<area shape="poly" id="edge30_Node000001_Node000013" title=" " alt="" coords="729,993,716,1087,710,1186,710,1865,713,1899,720,1931,732,1962,747,1991,789,2045,840,2093,896,2134,955,2169,1063,2219,1061,2224,953,2173,894,2138,836,2097,785,2049,743,1994,727,1964,715,1933,707,1899,705,1865,705,1186,710,1087,723,992"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="790,991,813,1078,807,1080,785,993"/>
+<area shape="rect" id="Node000014" href="$de/df3/structt__Type.html" title="Représente les types des ICmons." alt="" coords="578,75,634,141"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="602,141,588,219,577,327,575,387,577,450,583,512,595,573,614,629,639,683,697,779,692,782,635,686,609,631,590,574,578,513,571,450,570,387,572,326,583,218,596,141"/>
+<area shape="rect" id="Node000015" href="$d1/d68/structt__Move.html" title="Représente une attaque d&#39;un ICMon." alt="" coords="651,288,777,573"/>
+<area shape="poly" id="edge15_Node000015_Node000014" title=" " alt="" coords="619,140,664,272,659,273,614,142"/>
+<area shape="poly" id="edge14_Node000013_Node000015" title=" " alt="" coords="710,574,711,638,717,702,718,710,712,711,711,703,706,638,705,574"/>
+<area shape="rect" id="Node000016" href="$df/d0d/structt__Categ.html" title="Représente la catégorie d&#39;une attaque." alt="" coords="682,75,746,141"/>
+<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="717,141,717,272,711,272,711,141"/>
+<area shape="rect" id="Node000017" href="$d9/d39/structt__Effect.html" title="Représente les effets d&#39;état d&#39;un ICMon." alt="" coords="973,398,1036,463"/>
+<area shape="poly" id="edge20_Node000012_Node000017" title=" " alt="" coords="1007,464,1004,570,998,637,989,703,966,804,939,905,881,1080,876,1079,933,904,961,803,983,702,993,636,999,570,1002,463"/>
+<area shape="poly" id="edge17_Node000013_Node000017" title=" " alt="" coords="1005,464,994,520,981,549,962,575,945,586,927,588,910,590,895,599,879,624,875,647,874,673,864,704,841,747,813,787,809,784,836,744,860,702,868,672,870,647,874,622,891,595,909,584,926,583,943,581,959,571,977,547,989,518,1000,463"/>
+<area shape="rect" id="Node000018" href="$dd/d1a/structIMG__ICMons.html" title="Représente un sprite ICMons dans l&#39;application." alt="" coords="802,298,949,563"/>
+<area shape="poly" id="edge18_Node000013_Node000018" title=" " alt="" coords="834,564,823,598,792,712,787,710,818,597,828,563"/>
+<area shape="rect" id="Node000019" href="$d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application." alt="" coords="1089,5,1192,211"/>
+<area shape="poly" id="edge29_Node000001_Node000019" title=" " alt="" coords="1143,211,1143,429,1143,1865,1143,2062,1138,2062,1138,1865,1138,429,1138,211"/>
+<area shape="poly" id="edge19_Node000018_Node000019" title=" " alt="" coords="1091,157,1028,218,964,290,961,294,957,291,960,286,1024,214,1087,153"/>
+<area shape="rect" id="Node000027" href="$db/d58/structImage.html" title="Représente une image avec un texte associé." alt="" coords="1560,597,1655,703"/>
+<area shape="poly" id="edge32_Node000027_Node000019" title=" " alt="" coords="1194,167,1554,583,1550,586,1190,171"/>
+<area shape="poly" id="edge21_Node000011_Node000020" title=" " alt="" coords="917,1549,869,1673,862,1724,861,1775,856,1774,857,1723,863,1671,912,1547"/>
+<area shape="rect" id="Node000021" href="$d3/d1f/structt__AI__type.html" title="Types d&#39;IA." alt="" coords="941,1155,1015,1220"/>
+<area shape="poly" id="edge22_Node000020_Node000021" title=" " alt="" coords="976,1221,937,1467,932,1466,970,1220"/>
+<area shape="rect" id="Node000022" href="$d2/db3/structScrollingText.html" title=" " alt="" coords="984,1383,1103,1648"/>
+<area shape="poly" id="edge33_Node000001_Node000022" title=" " alt="" coords="1006,1649,990,1732,979,1825,980,1922,986,1969,997,2015,1010,2053,1028,2091,1070,2159,1065,2161,1023,2093,1005,2055,991,2017,981,1970,975,1922,974,1825,985,1731,1001,1648"/>
+<area shape="poly" id="edge24_Node000011_Node000022" title=" " alt="" coords="986,1638,974,1650,961,1659,949,1662,938,1665,927,1674,910,1697,897,1722,880,1775,874,1774,892,1720,906,1694,923,1670,935,1661,947,1657,959,1654,971,1646,982,1634"/>
+<area shape="rect" id="Node000023" href="$d2/d3d/structGameState.html" title="Informations générales sur l&#39;état du jeu." alt="" coords="1178,1781,1295,1946"/>
+<area shape="poly" id="edge25_Node000001_Node000023" title=" " alt="" coords="1219,1947,1190,2063,1185,2062,1214,1946"/>
+<area shape="rect" id="Node000024" href="$d3/daf/structStateHandler.html" title="Gestionnaire d&#39;état." alt="" coords="1319,1821,1429,1906"/>
+<area shape="poly" id="edge26_Node000001_Node000024" title=" " alt="" coords="1360,1908,1310,2017,1265,2092,1216,2161,1212,2157,1260,2089,1305,2015,1355,1905"/>
+<area shape="rect" id="Node000025" href="$d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application." alt="" coords="1453,1711,1562,2016"/>
+<area shape="poly" id="edge27_Node000001_Node000025" title=" " alt="" coords="1455,1998,1443,2018,1394,2078,1336,2131,1276,2175,1220,2211,1217,2206,1273,2171,1332,2127,1390,2074,1438,2014,1450,1996"/>
+<area shape="rect" id="Node000026" href="$d5/d64/structThreadManager.html" title="Structure de gestion des threads." alt="" coords="1586,1771,1709,1956"/>
+<area shape="poly" id="edge28_Node000001_Node000026" title=" " alt="" coords="1617,1958,1599,1989,1576,2018,1535,2056,1491,2090,1396,2149,1302,2195,1220,2227,1218,2222,1299,2190,1393,2145,1488,2086,1532,2052,1572,2014,1594,1986,1612,1955"/>
+<area shape="poly" id="edge31_Node000001_Node000027" title=" " alt="" coords="1643,702,1676,764,1711,843,1738,931,1746,976,1749,1022,1749,1865,1750,1945,1743,1979,1723,2017,1701,2048,1675,2076,1617,2125,1551,2163,1480,2193,1409,2215,1340,2231,1221,2248,1220,2243,1339,2226,1407,2210,1478,2188,1548,2158,1614,2120,1671,2073,1696,2045,1718,2015,1738,1977,1744,1944,1743,1865,1743,1022,1740,977,1733,932,1706,844,1672,767,1638,704"/>
 </map>

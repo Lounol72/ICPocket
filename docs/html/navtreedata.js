@@ -63,9 +63,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d3/dfe/structPoke_8c.html#a69afa9b406c2e19b2821261e7bc00bac",
-"d7/d1f/GameEngine_8h.html#ae30f21d07d1066ecda7ed1097d584e6b",
-"dd/d1a/structIMG__ICMons.html#a6ae164e8baad59442d65fd29d087e1e5"
+"d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea883a94174463c7de6eef745a4122c7d9",
+"d7/d1f/GameEngine_8h.html#a4f4fd64e6dbdcdcd83fd46f43c35d9bf",
+"dc/dae/Text_8c.html#a0bc289fcd1d02a1ab742f93c882b5370",
+"globals_func_l.html"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';

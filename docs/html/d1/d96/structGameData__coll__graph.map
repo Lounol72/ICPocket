@@ -1,9 +1,9 @@
 <map id="GameData" name="GameData">
-<area shape="rect" id="Node000001" title=" " alt="" coords="187,333,271,399"/>
-<area shape="rect" id="Node000002" href="$dc/d7b/structPlayer.html" title=" " alt="" coords="5,5,157,271"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,270,169,308,179,320,175,323,165,311,139,272"/>
-<area shape="rect" id="Node000003" href="$da/ddc/structMap.html" title=" " alt="" coords="182,15,277,261"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="232,261,232,317,227,317,227,261"/>
-<area shape="rect" id="Node000004" href="$d7/d7e/structCamera.html" title="Structure représentant la caméra du jeu." alt="" coords="301,55,387,221"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="323,222,305,267,282,311,275,322,270,319,278,308,300,265,318,220"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="191,333,275,399"/>
+<area shape="rect" id="Node000002" href="$dc/d7b/structPlayer.html" title="Représente le joueur dans le jeu." alt="" coords="5,5,157,271"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,269,173,308,183,320,179,323,169,311,142,272"/>
+<area shape="rect" id="Node000003" href="$da/ddc/structMap.html" title=" " alt="" coords="181,45,285,231"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="236,231,236,317,231,317,231,231"/>
+<area shape="rect" id="Node000004" href="$d7/d7e/structCamera.html" title="Structure représentant la caméra du jeu." alt="" coords="309,55,395,221"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="333,222,316,267,293,311,284,322,280,319,288,308,311,265,329,220"/>
 </map>

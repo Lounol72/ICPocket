@@ -124,20 +124,39 @@ $(document).ready(function(){initNavTree('d0/daa/ThreadManager_8h.html','../../'
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Définitions de type</a> &#124;
-<a href="#func-members">Fonctions</a>  </div>
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Référence du fichier ThreadManager.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;pthread.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dbf/Player_8h_source.html">Player.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d79/Map_8h_source.html">Map.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/de4/Camera_8h_source.html">Camera.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de ThreadManager.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d5/d4d/ThreadManager_8h__incl.png" border="0" usemap="#ainclude_2ThreadManager_8h" alt=""/></div>
 <map name="ainclude_2ThreadManager_8h" id="ainclude_2ThreadManager_8h">
-<area shape="rect" title=" " alt="" coords="5,5,192,31"/>
-<area shape="rect" title=" " alt="" coords="57,79,141,104"/>
-<area shape="poly" title=" " alt="" coords="101,31,101,65,96,65,96,31"/>
+<area shape="rect" title=" " alt="" coords="71,5,258,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,89,104"/>
+<area shape="poly" title=" " alt="" coords="147,33,80,74,77,69,144,28"/>
+<area shape="rect" href="../../da/dbf/Player_8h.html" title=" " alt="" coords="165,79,239,104"/>
+<area shape="poly" title=" " alt="" coords="173,30,192,65,187,68,168,32"/>
+<area shape="rect" href="../../df/d79/Map_8h.html" title=" " alt="" coords="85,152,148,177"/>
+<area shape="poly" title=" " alt="" coords="163,32,127,140,122,138,158,30"/>
+<area shape="rect" href="../../dd/de4/Camera_8h.html" title="Gestion de la caméra pour le défilement de la vue du jeu." alt="" coords="231,225,317,251"/>
+<area shape="poly" title=" " alt="" coords="192,28,225,48,254,77,270,111,278,147,279,211,274,212,272,148,265,113,249,80,221,52,190,33"/>
+<area shape="poly" title=" " alt="" coords="190,106,143,145,139,141,187,102"/>
+<area shape="rect" title=" " alt="" coords="173,152,255,177"/>
+<area shape="poly" title=" " alt="" coords="207,104,212,138,207,139,201,105"/>
+<area shape="rect" title=" " alt="" coords="45,225,189,251"/>
+<area shape="poly" title=" " alt="" coords="119,178,119,212,114,212,114,178"/>
+<area shape="poly" title=" " alt="" coords="143,175,237,217,235,222,141,180"/>
+<area shape="rect" title=" " alt="" coords="226,299,322,324"/>
+<area shape="poly" title=" " alt="" coords="277,251,277,285,271,285,271,251"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -148,11 +167,11 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <area shape="rect" title=" " alt="" coords="270,5,457,31"/>
 <area shape="rect" href="../../d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="279,79,447,104"/>
 <area shape="poly" title=" " alt="" coords="366,44,366,79,361,79,361,44"/>
-<area shape="rect" href="../../d0/dbb/Events_8h.html" title="Gestion des Events SDL." alt="" coords="5,152,135,177"/>
+<area shape="rect" href="../../d0/dbb/Events_8h.html" title="Gestion des événements SDL pour le jeu." alt="" coords="5,152,135,177"/>
 <area shape="poly" title=" " alt="" coords="297,110,111,154,110,149,295,104"/>
 <area shape="rect" href="../../d3/d5f/Game_8h.html" title="Gestion des backgrounds, Initialisation de la structure globale." alt="" coords="159,152,283,177"/>
 <area shape="poly" title=" " alt="" coords="322,112,238,154,236,149,320,107"/>
-<area shape="rect" href="../../d4/d62/NPC_8h.html" title=" " alt="" coords="307,152,419,177"/>
+<area shape="rect" href="../../d4/d62/NPC_8h.html" title="Gestion des PNJ (Personnages Non Joueurs)" alt="" coords="307,152,419,177"/>
 <area shape="poly" title=" " alt="" coords="366,118,366,152,361,152,361,118"/>
 <area shape="rect" href="../../d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="443,152,622,177"/>
 <area shape="poly" title=" " alt="" coords="397,107,499,149,497,154,395,112"/>
@@ -182,6 +201,11 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de gestion des threads.  <a href="../../d5/d64/structThreadManager.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a6d21b1dc5ccee4f3754504e3c85281c5" id="r_a6d21b1dc5ccee4f3754504e3c85281c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#a6d21b1dc5ccee4f3754504e3c85281c5">TRANSITION_FRAMES</a>&#160;&#160;&#160;30</td></tr>
+<tr class="separator:a6d21b1dc5ccee4f3754504e3c85281c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Définitions de type</h2></td></tr>
 <tr class="memitem:a9a6bb720b545cd20bb13c0a0947dc050" id="r_a9a6bb720b545cd20bb13c0a0947dc050"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="../../d5/d64/structThreadManager.html">ThreadManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#a9a6bb720b545cd20bb13c0a0947dc050">ThreadManager</a></td></tr>
@@ -205,7 +229,39 @@ Fonctions</h2></td></tr>
 <tr class="memitem:aaff54a9d240b3e5d945861bc3d16e7d3" id="r_aaff54a9d240b3e5d945861bc3d16e7d3"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#aaff54a9d240b3e5d945861bc3d16e7d3">renderThreadFunction</a> (void *arg)</td></tr>
 <tr class="memdesc:aaff54a9d240b3e5d945861bc3d16e7d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction du thread de rendu.  <br /></td></tr>
 <tr class="separator:aaff54a9d240b3e5d945861bc3d16e7d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97b23ecf14ddf06558c074b8ba383463" id="r_a97b23ecf14ddf06558c074b8ba383463"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#a97b23ecf14ddf06558c074b8ba383463">handleMapTransition</a> (int mapId, <a class="el" href="../../dc/d7b/structPlayer.html">Player</a> *player, <a class="el" href="../../d7/d7e/structCamera.html">Camera</a> *camera, SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:a97b23ecf14ddf06558c074b8ba383463"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère la transition d'une carte à une autre avec un effet de fondu.  <br /></td></tr>
+<tr class="separator:a97b23ecf14ddf06558c074b8ba383463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e2a2c02f3b3942fb2701879a3ba7df7" id="r_a5e2a2c02f3b3942fb2701879a3ba7df7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#a5e2a2c02f3b3942fb2701879a3ba7df7">checkAndLoadNewMap</a> (<a class="el" href="../../dc/d7b/structPlayer.html">Player</a> *player, <a class="el" href="../../da/ddc/structMap.html">Map</a> *map, <a class="el" href="../../d7/d7e/structCamera.html">Camera</a> *camera, SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:a5e2a2c02f3b3942fb2701879a3ba7df7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si le joueur est sur une case de transition et charge la nouvelle carte si nécessaire.  <br /></td></tr>
+<tr class="separator:a5e2a2c02f3b3942fb2701879a3ba7df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a13c2ac9cc150e458c50792454131f5f9" id="r_a13c2ac9cc150e458c50792454131f5f9"><td class="memItemLeft" align="right" valign="top">volatile int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#a13c2ac9cc150e458c50792454131f5f9">forceRender</a></td></tr>
+<tr class="separator:a13c2ac9cc150e458c50792454131f5f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b1f975fd7fdd97d3f9fc49aa6d158d4" id="r_a5b1f975fd7fdd97d3f9fc49aa6d158d4"><td class="memItemLeft" align="right" valign="top">volatile int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#a5b1f975fd7fdd97d3f9fc49aa6d158d4">forcePlayerMove</a></td></tr>
+<tr class="separator:a5b1f975fd7fdd97d3f9fc49aa6d158d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca49b5d9a543c2083d85641acba93398" id="r_aca49b5d9a543c2083d85641acba93398"><td class="memItemLeft" align="right" valign="top">volatile int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#aca49b5d9a543c2083d85641acba93398">forcePlayerMoveX</a></td></tr>
+<tr class="separator:aca49b5d9a543c2083d85641acba93398"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc23abd160b2bd667b17322814c2645b" id="r_abc23abd160b2bd667b17322814c2645b"><td class="memItemLeft" align="right" valign="top">volatile int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/daa/ThreadManager_8h.html#abc23abd160b2bd667b17322814c2645b">forcePlayerMoveY</a></td></tr>
+<tr class="separator:abc23abd160b2bd667b17322814c2645b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a id="a6d21b1dc5ccee4f3754504e3c85281c5" name="a6d21b1dc5ccee4f3754504e3c85281c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d21b1dc5ccee4f3754504e3c85281c5">&#9670;&#160;</a></span>TRANSITION_FRAMES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TRANSITION_FRAMES&#160;&#160;&#160;30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Documentation des définitions de type</h2>
 <a id="a9a6bb720b545cd20bb13c0a0947dc050" name="a9a6bb720b545cd20bb13c0a0947dc050"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9a6bb720b545cd20bb13c0a0947dc050">&#9670;&#160;</a></span>ThreadManager</h2>
@@ -270,6 +326,58 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
+<a id="a5e2a2c02f3b3942fb2701879a3ba7df7" name="a5e2a2c02f3b3942fb2701879a3ba7df7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e2a2c02f3b3942fb2701879a3ba7df7">&#9670;&#160;</a></span>checkAndLoadNewMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int checkAndLoadNewMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/d7b/structPlayer.html">Player</a> *&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/ddc/structMap.html">Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d7e/structCamera.html">Camera</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifie si le joueur est sur une case de transition et charge la nouvelle carte si nécessaire. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player</td><td>Pointeur vers le joueur </td></tr>
+    <tr><td class="paramname">map</td><td>Pointeur vers la carte actuelle </td></tr>
+    <tr><td class="paramname">camera</td><td>Pointeur vers la caméra </td></tr>
+    <tr><td class="paramname">renderer</td><td>Renderer pour les effets visuels </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int 1 si une transition a été effectuée, 0 sinon </dd></dl>
+
+</div>
+</div>
 <a id="ad734831476cb021f3c4b0e5ba8a20ab0" name="ad734831476cb021f3c4b0e5ba8a20ab0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad734831476cb021f3c4b0e5ba8a20ab0">&#9670;&#160;</a></span>cleanupThreads()</h2>
 
@@ -279,7 +387,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void cleanupThreads </td>
           <td>(</td>
-          <td class="paramtype">struct <a class="el" href="../../de/de9/structGame.html">Game</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="../../de/de9/structGame.html">Game</a> *&#160;</td>
           <td class="paramname"><em>game</em></td><td>)</td>
           <td></td>
         </tr>
@@ -294,6 +402,58 @@ Fonctions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a97b23ecf14ddf06558c074b8ba383463" name="a97b23ecf14ddf06558c074b8ba383463"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97b23ecf14ddf06558c074b8ba383463">&#9670;&#160;</a></span>handleMapTransition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int handleMapTransition </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mapId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/d7b/structPlayer.html">Player</a> *&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d7e/structCamera.html">Camera</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gère la transition d'une carte à une autre avec un effet de fondu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mapId</td><td>ID de la map à charger (0, 1, 2) </td></tr>
+    <tr><td class="paramname">player</td><td>Pointeur vers le joueur </td></tr>
+    <tr><td class="paramname">camera</td><td>Pointeur vers la caméra </td></tr>
+    <tr><td class="paramname">renderer</td><td>Renderer pour les effets visuels </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int 1 si une transition a été effectuée, 0 sinon </dd></dl>
 
 </div>
 </div>
@@ -369,6 +529,95 @@ Fonctions</h2></td></tr>
 
 <p>Fonction du thread de rendu. </p>
 <p>Cette fonction est exécutée par le thread de rendu. Elle gère le rendu graphique en boucle tant que le jeu est en cours d'exécution. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a5b1f975fd7fdd97d3f9fc49aa6d158d4" name="a5b1f975fd7fdd97d3f9fc49aa6d158d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b1f975fd7fdd97d3f9fc49aa6d158d4">&#9670;&#160;</a></span>forcePlayerMove</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int forcePlayerMove</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aca49b5d9a543c2083d85641acba93398" name="aca49b5d9a543c2083d85641acba93398"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca49b5d9a543c2083d85641acba93398">&#9670;&#160;</a></span>forcePlayerMoveX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int forcePlayerMoveX</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc23abd160b2bd667b17322814c2645b" name="abc23abd160b2bd667b17322814c2645b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc23abd160b2bd667b17322814c2645b">&#9670;&#160;</a></span>forcePlayerMoveY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int forcePlayerMoveY</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a13c2ac9cc150e458c50792454131f5f9" name="a13c2ac9cc150e458c50792454131f5f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13c2ac9cc150e458c50792454131f5f9">&#9670;&#160;</a></span>forceRender</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int forceRender</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

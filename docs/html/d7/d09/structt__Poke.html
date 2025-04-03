@@ -129,19 +129,29 @@ $(document).ready(function(){initNavTree('d7/d09/structt__Poke.html','../../'); 
 </div><!--header-->
 <div class="contents">
 
+<p>Représente un ICMon.  
+ <a href="../../d7/d09/structt__Poke.html#details">Plus de détails...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../dd/da3/structures_8h_source.html">structures.h</a>&gt;</code></p>
 <div class="dynheader">
 Graphe de collaboration de t_Poke:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dc/d78/structt__Poke__coll__graph.png" border="0" usemap="#at__Poke_coll__map" alt="Collaboration graph"/></div>
 <map name="at__Poke_coll__map" id="at__Poke_coll__map">
-<area shape="rect" title=" " alt="" coords="69,676,175,981"/>
-<area shape="rect" href="../../d1/d68/structt__Move.html" title=" " alt="" coords="5,288,132,613"/>
-<area shape="poly" title=" " alt="" coords="94,613,99,652,100,659,95,660,94,652,89,614"/>
-<area shape="rect" href="../../dd/d1a/structIMG__ICMons.html" title="Représente un sprite ICMons dans l&#39;application." alt="" coords="157,298,303,603"/>
-<area shape="poly" title=" " alt="" coords="189,605,175,653,173,661,168,659,170,651,184,603"/>
-<area shape="rect" href="../../d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application." alt="" coords="179,5,281,211"/>
-<area shape="poly" title=" " alt="" coords="233,211,233,281,227,281,227,211"/>
+<area shape="rect" title="Représente un ICMon." alt="" coords="173,636,270,901"/>
+<area shape="rect" href="../../de/df3/structt__Type.html" title="Représente les types des ICmons." alt="" coords="22,75,78,141"/>
+<area shape="poly" title=" " alt="" coords="43,141,25,220,10,329,8,390,11,452,21,514,39,572,62,616,93,657,127,692,161,721,158,725,123,696,89,660,58,619,34,574,16,515,6,453,3,390,5,329,20,219,38,140"/>
+<area shape="rect" href="../../d1/d68/structt__Move.html" title="Représente une attaque d&#39;un ICMon." alt="" coords="94,288,221,573"/>
+<area shape="poly" title=" " alt="" coords="63,140,107,272,102,273,58,142"/>
+<area shape="poly" title=" " alt="" coords="164,573,170,612,172,621,166,622,164,612,159,574"/>
+<area shape="rect" href="../../df/d0d/structt__Categ.html" title="Représente la catégorie d&#39;une attaque." alt="" coords="126,75,190,141"/>
+<area shape="poly" title=" " alt="" coords="160,141,160,272,155,272,155,141"/>
+<area shape="rect" href="../../d9/d39/structt__Effect.html" title="Représente les effets d&#39;état d&#39;un ICMon." alt="" coords="245,398,308,463"/>
+<area shape="poly" title=" " alt="" coords="274,464,248,620,243,620,269,463"/>
+<area shape="rect" href="../../dd/d1a/structIMG__ICMons.html" title="Représente un sprite ICMons dans l&#39;application." alt="" coords="332,298,479,563"/>
+<area shape="poly" title=" " alt="" coords="373,565,351,613,319,663,283,707,279,704,315,660,346,611,368,563"/>
+<area shape="rect" href="../../d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application." alt="" coords="354,5,457,211"/>
+<area shape="poly" title=" " alt="" coords="408,211,408,281,403,281,403,211"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -179,7 +189,9 @@ Attributs publics</h2></td></tr>
 <tr class="separator:a89656996ef0abcdf7b17733e7d7afb3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Structures d'un ICMon </p>
+<div class="textblock"><p>Représente un ICMon. </p>
+<p>Structures d'un ICMon</p>
+<p>Cette structure contient des informations sur un ICMon, y compris son nom, son genre, son type, son niveau, ses points de vie (PV), ses statistiques de base, ses IV (valeurs individuelles), sa liste de mouvements et ses effets principaux. </p>
 </div><h2 class="groupheader">Documentation des données membres</h2>
 <a id="a5eab66f5898bafac3d52cef3aca5cb95" name="a5eab66f5898bafac3d52cef3aca5cb95"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5eab66f5898bafac3d52cef3aca5cb95">&#9670;&#160;</a></span>baseStats</h2>
@@ -192,6 +204,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>statistiques de base du ICmon. </p>
 
 </div>
 </div>
@@ -206,6 +219,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>points de vie actuel du ICmon. </p>
 
 </div>
 </div>
@@ -220,6 +234,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>experience du ICmon. </p>
 
 </div>
 </div>
@@ -234,6 +249,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>genre du ICmon. </p>
 
 </div>
 </div>
@@ -248,6 +264,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>id de l'ICmon. </p>
 
 </div>
 </div>
@@ -262,6 +279,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>image du ICmon. </p>
 
 </div>
 </div>
@@ -276,6 +294,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>points de vie initial du ICmon. </p>
 
 </div>
 </div>
@@ -290,6 +309,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>valeurs iv du ICmon. </p>
 
 </div>
 </div>
@@ -304,6 +324,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>niveau du ICmon. </p>
 
 </div>
 </div>
@@ -318,6 +339,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>effet principal du ICmon. </p>
 
 </div>
 </div>
@@ -332,6 +354,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>liste des attaques du ICmon. </p>
 
 </div>
 </div>
@@ -346,6 +369,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>nom du ICmon. </p>
 
 </div>
 </div>
@@ -360,6 +384,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>nature du ICmon. </p>
 
 </div>
 </div>
@@ -374,6 +399,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>nombre d'attaques du ICmon. </p>
 
 </div>
 </div>
@@ -388,6 +414,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>type du ICmon. </p>
 
 </div>
 </div>

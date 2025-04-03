@@ -15,12 +15,14 @@ var Player_8h =
       [ "WALK_LEFT", "da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1a06b5239b641a996e789d91a981fbc817", null ],
       [ "WALK_RIGHT", "da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1a2fbeac521c5adf9280370533098f6891", null ]
     ] ],
-    [ "createPlayer", "da/dbf/Player_8h.html#aeb7c20d506502a44774496786d574b53", null ],
+    [ "createPlayer", "da/dbf/Player_8h.html#a740d07b9a657c00b70b2fcf1507ddc9e", null ],
     [ "DEBUG_printPlayerMat", "da/dbf/Player_8h.html#ac51a136d8106379440e8e12fe95d3999", null ],
     [ "destroyPlayer", "da/dbf/Player_8h.html#aeaca5c627e5599b60cc71af248c0f98e", null ],
+    [ "forceUpdatePlayerAndCamera", "da/dbf/Player_8h.html#ab08cb3dfd8b98e90a697e6fec701154b", null ],
     [ "movePlayer", "da/dbf/Player_8h.html#a4b4cb0bbe11f3ac2217b842eefb84846", null ],
     [ "renderPlayer", "da/dbf/Player_8h.html#a70c274fd4a9307435d4c483cec371711", null ],
     [ "renderPlayerWithCamera", "da/dbf/Player_8h.html#a8c37aaa7c00bdf19f095649c9f46e55e", null ],
     [ "updatePlayerAnimation", "da/dbf/Player_8h.html#afd90f424179051138eeeb7cb8cc0667e", null ],
-    [ "updatePlayerPosition", "da/dbf/Player_8h.html#a40da9b0e713099872485ca1866f1ee6c", null ]
+    [ "updatePlayerPosition", "da/dbf/Player_8h.html#a40da9b0e713099872485ca1866f1ee6c", null ],
+    [ "updatePlayerSpawn", "da/dbf/Player_8h.html#a6a57e22dea167f56668cab0b01acc7ee", null ]
 ];

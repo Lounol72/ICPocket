@@ -11,6 +11,7 @@ var structGame =
     [ "gameData", "de/de9/structGame.html#abd03c2e680627cef2ddda2c5f804049a", null ],
     [ "gameState", "de/de9/structGame.html#a4573dd85e0711a78cc27eb0b51c79f44", null ],
     [ "hasExchanged", "de/de9/structGame.html#a44c222d0a193ca798d55833fbdc9e048", null ],
+    [ "isInDuel", "de/de9/structGame.html#a828268ca7a9721d11e13722c3d5924ea", null ],
     [ "nbMenu", "de/de9/structGame.html#a911428bfef2d00d5ece40210d3488fdb", null ],
     [ "nbStates", "de/de9/structGame.html#ad6d4967c8a2102963029b9db9dbc1b91", null ],
     [ "saved", "de/de9/structGame.html#ae4bd951ed7cce7f1c9424f816e765b73", null ],

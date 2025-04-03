@@ -141,11 +141,11 @@ Graphe des dépendances par inclusion de interDuel.c:</div>
 <area shape="poly" title=" " alt="" coords="310,152,311,118,317,118,315,152"/>
 <area shape="rect" href="../../da/d71/structPoke_8h.html" title=" " alt="" coords="82,225,185,251"/>
 <area shape="poly" title=" " alt="" coords="275,179,168,222,166,217,273,174"/>
-<area shape="rect" href="../../dd/da3/structures_8h.html" title=" " alt="" coords="128,299,227,324"/>
+<area shape="rect" href="../../dd/da3/structures_8h.html" title="Définition des structures de données utilisées dans le jeu." alt="" coords="128,299,227,324"/>
 <area shape="poly" title=" " alt="" coords="296,179,250,227,197,289,193,286,246,224,292,176"/>
-<area shape="rect" href="../../df/d27/trainerAI_8h.html" title=" " alt="" coords="260,225,351,251"/>
+<area shape="rect" href="../../df/d27/trainerAI_8h.html" title="Gestion de l&#39;IA des dresseurs." alt="" coords="260,225,351,251"/>
 <area shape="poly" title=" " alt="" coords="301,178,299,212,294,212,296,178"/>
-<area shape="rect" href="../../d5/d5e/save_8h.html" title="Save the player&#39;s data in a file." alt="" coords="375,225,441,251"/>
+<area shape="rect" href="../../d5/d5e/save_8h.html" title=" " alt="" coords="375,225,441,251"/>
 <area shape="poly" title=" " alt="" coords="317,175,374,216,371,220,313,180"/>
 <area shape="poly" title=" " alt="" coords="167,223,271,180,273,185,169,228"/>
 <area shape="poly" title=" " alt="" coords="143,250,165,286,161,288,138,252"/>
@@ -165,8 +165,10 @@ Graphe des dépendances par inclusion de interDuel.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a3532787b7580dfc29209480fb8cba1d7" id="r_a3532787b7580dfc29209480fb8cba1d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/da6/interDuel_8c.html#a3532787b7580dfc29209480fb8cba1d7">healTeam</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *t)</td></tr>
+<tr class="memdesc:a3532787b7580dfc29209480fb8cba1d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">cette fonction permet de soigner une équipe.  <br /></td></tr>
 <tr class="separator:a3532787b7580dfc29209480fb8cba1d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aa3d8a4933a4b00a717a3e8406b8c2f" id="r_a9aa3d8a4933a4b00a717a3e8406b8c2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/da6/interDuel_8c.html#a9aa3d8a4933a4b00a717a3e8406b8c2f">getPokeFromTeam</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *player, int index1, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *adv, int index2)</td></tr>
+<tr class="memdesc:a9aa3d8a4933a4b00a717a3e8406b8c2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">cette fonction permet de récupérer un pokémon d'une équipe.  <br /></td></tr>
 <tr class="separator:a9aa3d8a4933a4b00a717a3e8406b8c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des fonctions</h2>
@@ -208,6 +210,17 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>cette fonction permet de récupérer un pokémon d'une équipe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player</td><td>Pointeur vers la structure de l'équipe du joueur. </td></tr>
+    <tr><td class="paramname">index1</td><td>Index du pokémon à récupérer dans l'équipe du joueur. </td></tr>
+    <tr><td class="paramname">adv</td><td>Pointeur vers la structure de l'équipe adverse. </td></tr>
+    <tr><td class="paramname">index2</td><td>Index du pokémon à remplacer dans l'équipe adverse. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a3532787b7580dfc29209480fb8cba1d7" name="a3532787b7580dfc29209480fb8cba1d7"></a>
@@ -225,6 +238,14 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>cette fonction permet de soigner une équipe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Pointeur vers la structure de l'équipe à soigner. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

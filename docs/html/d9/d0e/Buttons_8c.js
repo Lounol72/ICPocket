@@ -20,6 +20,6 @@ var Buttons_8c =
     [ "renderSliderList", "d9/d0e/Buttons_8c.html#a160b73f6e05ac0b81b4fd57a404393f0", null ],
     [ "Scaling", "d9/d0e/Buttons_8c.html#ac247a252c6404835cb67d0950ee1a102", null ],
     [ "setButtonText", "d9/d0e/Buttons_8c.html#a46d3f067fb44669bc3438b8030823799", null ],
-    [ "updateButtonPosition", "d9/d0e/Buttons_8c.html#a604a2e476e66033908fc016c70138aac", null ],
+    [ "updateButtonPosition", "d9/d0e/Buttons_8c.html#af06770d8140fbfb60b2eae31572721c2", null ],
     [ "updateSliderPosition", "d9/d0e/Buttons_8c.html#a109411bd394d38718374d0b1fde9a020", null ]
 ];

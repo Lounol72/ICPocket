@@ -1,14 +1,14 @@
 <map id="include/Images.h" name="include/Images.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="377,5,510,31"/>
+<area shape="rect" id="Node000001" title="Gestion des images et du texte associé." alt="" coords="377,5,510,31"/>
 <area shape="rect" id="Node000002" href="$d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="279,79,447,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="422,42,378,80,375,76,419,38"/>
 <area shape="rect" id="Node000013" href="$da/d3f/Images_8c.html" title=" " alt="" coords="471,79,575,104"/>
 <area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="468,38,512,76,508,80,464,42"/>
-<area shape="rect" id="Node000003" href="$d0/dbb/Events_8h.html" title="Gestion des Events SDL." alt="" coords="5,152,135,177"/>
+<area shape="rect" id="Node000003" href="$d0/dbb/Events_8h.html" title="Gestion des événements SDL pour le jeu." alt="" coords="5,152,135,177"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="297,110,111,154,110,149,295,104"/>
 <area shape="rect" id="Node000005" href="$d3/d5f/Game_8h.html" title="Gestion des backgrounds, Initialisation de la structure globale." alt="" coords="159,152,283,177"/>
 <area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="322,112,238,154,236,149,320,107"/>
-<area shape="rect" id="Node000007" href="$d4/d62/NPC_8h.html" title=" " alt="" coords="307,152,419,177"/>
+<area shape="rect" id="Node000007" href="$d4/d62/NPC_8h.html" title="Gestion des PNJ (Personnages Non Joueurs)" alt="" coords="307,152,419,177"/>
 <area shape="poly" id="edge8_Node000002_Node000007" title=" " alt="" coords="366,118,366,152,361,152,361,118"/>
 <area shape="rect" id="Node000009" href="$d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="443,152,622,177"/>
 <area shape="poly" id="edge10_Node000002_Node000009" title=" " alt="" coords="397,107,499,149,497,154,395,112"/>

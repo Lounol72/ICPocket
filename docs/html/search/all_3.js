@@ -9,7 +9,7 @@ var searchData=
   ['destroybutton_6',['destroyButton',['../d9/d0e/Buttons_8c.html#a822282014b98bb6a68abfceb44a35640',1,'Buttons.c']]],
   ['destroybuttonlist_7',['destroybuttonlist',['../d3/d70/Buttons_8h.html#a6f2d10aaa75aec651d944a49824dfaca',1,'destroyButtonList(ButtonList *list):&#160;Buttons.c'],['../d9/d0e/Buttons_8c.html#a6f2d10aaa75aec651d944a49824dfaca',1,'destroyButtonList(ButtonList *list):&#160;Buttons.c']]],
   ['destroycamera_8',['destroycamera',['../dd/de4/Camera_8h.html#a30b237a47aec83d888c3d194d1a03209',1,'destroyCamera(Camera *camera):&#160;Camera.c'],['../d5/d18/Camera_8c.html#a30b237a47aec83d888c3d194d1a03209',1,'destroyCamera(Camera *camera):&#160;Camera.c']]],
-  ['destroygame_9',['destroygame',['../dc/d22/Game_8c.html#ab7c9ee132f977dd2efd33ab66509d650',1,'destroyGame():&#160;Game.c'],['../d3/d5f/Game_8h.html#ab7c9ee132f977dd2efd33ab66509d650',1,'destroyGame():&#160;Game.c'],['../d3/ded/Window_8h.html#ab7c9ee132f977dd2efd33ab66509d650',1,'destroyGame():&#160;Game.c']]],
+  ['destroygame_9',['destroygame',['../dc/d22/Game_8c.html#ab7c9ee132f977dd2efd33ab66509d650',1,'destroyGame():&#160;Game.c'],['../d3/d5f/Game_8h.html#ab7c9ee132f977dd2efd33ab66509d650',1,'destroyGame():&#160;Game.c']]],
   ['destroyicmonssprite_10',['destroyicmonssprite',['../d9/d0c/RenderICMons_8c.html#ad5893493e984d32da31956aa3cb09ca8',1,'destroyICMonsSprite(t_Poke *poke):&#160;RenderICMons.c'],['../d2/d98/RenderICMons_8h.html#ad5893493e984d32da31956aa3cb09ca8',1,'destroyICMonsSprite(t_Poke *poke):&#160;RenderICMons.c']]],
   ['destroyimage_11',['destroyimage',['../da/d3f/Images_8c.html#afac650c01cf1fdc985e41e1979d563f4',1,'destroyImage(Image *image):&#160;Images.c'],['../da/d41/Images_8h.html#afac650c01cf1fdc985e41e1979d563f4',1,'destroyImage(Image *image):&#160;Images.c']]],
   ['destroymap_12',['destroymap',['../dc/df2/Map_8c.html#a64df896c814cef549bef88fcd20d9a67',1,'destroyMap(Map *map):&#160;Map.c'],['../df/d79/Map_8h.html#a64df896c814cef549bef88fcd20d9a67',1,'destroyMap(Map *map):&#160;Map.c']]],
@@ -26,6 +26,7 @@ var searchData=
   ['dragcursor_23',['DragCursor',['../d3/d70/Buttons_8h.html#ac397d132d59d67574bd320918402f5a2',1,'Buttons.h']]],
   ['dragging_24',['dragging',['../df/dd7/structSlider.html#aea0d11495677602ea0c0b35d25088c5f',1,'Slider']]],
   ['du_20projet_25',['du projet',['../index.html#autotoc_md1',1,'À propos du projet'],['../index.html#autotoc_md4',1,'📁 Structure du projet']]],
-  ['duel_2ec_26',['duel.c',['../d1/d18/duel_8c.html',1,'']]],
-  ['duel_2eh_27',['duel.h',['../d6/d8e/duel_8h.html',1,'']]]
+  ['duel_26',['DUEL',['../df/d79/Map_8h.html#a6b4311b8073f18e9da80482eb8803485',1,'Map.h']]],
+  ['duel_2ec_27',['duel.c',['../d1/d18/duel_8c.html',1,'']]],
+  ['duel_2eh_28',['duel.h',['../d6/d8e/duel_8h.html',1,'']]]
 ];

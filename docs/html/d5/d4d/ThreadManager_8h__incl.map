@@ -1,5 +1,19 @@
 <map id="include/ThreadManager.h" name="include/ThreadManager.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,192,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="57,79,141,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,31,101,65,96,65,96,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="71,5,258,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,89,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,33,80,74,77,69,144,28"/>
+<area shape="rect" id="Node000003" href="$da/dbf/Player_8h.html" title=" " alt="" coords="165,79,239,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="173,30,192,65,187,68,168,32"/>
+<area shape="rect" id="Node000004" href="$df/d79/Map_8h.html" title=" " alt="" coords="85,152,148,177"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="163,32,127,140,122,138,158,30"/>
+<area shape="rect" id="Node000006" href="$dd/de4/Camera_8h.html" title="Gestion de la caméra pour le défilement de la vue du jeu." alt="" coords="231,225,317,251"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="192,28,225,48,254,77,270,111,278,147,279,211,274,212,272,148,265,113,249,80,221,52,190,33"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="190,106,143,145,139,141,187,102"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="173,152,255,177"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="207,104,212,138,207,139,201,105"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="45,225,189,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="119,178,119,212,114,212,114,178"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="143,175,237,217,235,222,141,180"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="226,299,322,324"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="277,251,277,285,271,285,271,251"/>
 </map>

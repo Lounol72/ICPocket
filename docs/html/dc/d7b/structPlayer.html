@@ -129,13 +129,16 @@ $(document).ready(function(){initNavTree('dc/d7b/structPlayer.html','../../'); i
 </div><!--header-->
 <div class="contents">
 
+<p>Représente le joueur dans le jeu.  
+ <a href="../../dc/d7b/structPlayer.html#details">Plus de détails...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../da/dbf/Player_8h_source.html">Player.h</a>&gt;</code></p>
 <div class="dynheader">
 Graphe de collaboration de Player:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d8/d92/structPlayer__coll__graph.png" border="0" usemap="#aPlayer_coll__map" alt="Collaboration graph"/></div>
 <map name="aPlayer_coll__map" id="aPlayer_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,157,271"/>
+<area shape="rect" title="Représente le joueur dans le jeu." alt="" coords="5,5,157,271"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -191,8 +194,13 @@ Attributs publics</h2></td></tr>
 <tr class="separator:abeabc4a723f99e6784898f16b2c04818"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa491cdeee4ad65fc13e956fb6b57641d" id="r_aa491cdeee4ad65fc13e956fb6b57641d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d7b/structPlayer.html#aa491cdeee4ad65fc13e956fb6b57641d">sizeMapH</a></td></tr>
 <tr class="separator:aa491cdeee4ad65fc13e956fb6b57641d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f4b315451a5f0a93e8b1df6623a833f" id="r_a5f4b315451a5f0a93e8b1df6623a833f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d7b/structPlayer.html#a5f4b315451a5f0a93e8b1df6623a833f">mapIndex</a></td></tr>
+<tr class="separator:a5f4b315451a5f0a93e8b1df6623a833f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des données membres</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Représente le joueur dans le jeu. </p>
+<p>Cette structure contient des informations sur la position, l'état, l'animation et les mouvements du joueur. </p>
+</div><h2 class="groupheader">Documentation des données membres</h2>
 <a id="a1bc59107f6c4bb4bc46121ddcde2780a" name="a1bc59107f6c4bb4bc46121ddcde2780a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1bc59107f6c4bb4bc46121ddcde2780a">&#9670;&#160;</a></span>animationSpeed</h2>
 
@@ -218,6 +226,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Timer pour gérer l'animation. </p>
 
 </div>
 </div>
@@ -232,6 +241,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Frame actuelle de l'animation. </p>
 
 </div>
 </div>
@@ -246,6 +256,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Index de la frame actuelle. </p>
 
 </div>
 </div>
@@ -260,6 +271,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Nombre total de frames dans la spritesheet. </p>
 
 </div>
 </div>
@@ -274,6 +286,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Temps écoulé pendant l'interpolation. </p>
 
 </div>
 </div>
@@ -288,6 +301,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Vitesse de l'animation. Indicateur de mouvement du joueur. </p>
 
 </div>
 </div>
@@ -302,6 +316,22 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Indicateur de mouvement vers la cible. </p>
+
+</div>
+</div>
+<a id="a5f4b315451a5f0a93e8b1df6623a833f" name="a5f4b315451a5f0a93e8b1df6623a833f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f4b315451a5f0a93e8b1df6623a833f">&#9670;&#160;</a></span>mapIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Player::mapIndex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Index de la carte actuelle. </p>
 
 </div>
 </div>
@@ -316,6 +346,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Matrice de collision du joueur. </p>
 
 </div>
 </div>
@@ -330,6 +361,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Position actuelle X dans la matrice. </p>
 
 </div>
 </div>
@@ -344,6 +376,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Position actuelle Y dans la matrice. </p>
 
 </div>
 </div>
@@ -358,6 +391,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Vitesse de déplacement (en secondes). </p>
 
 </div>
 </div>
@@ -372,6 +406,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Position actuelle du joueur. </p>
 
 </div>
 </div>
@@ -386,6 +421,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Hauteur de la matrice de collision. </p>
 
 </div>
 </div>
@@ -400,6 +436,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Largeur de la matrice de collision. </p>
 
 </div>
 </div>
@@ -414,6 +451,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Texture de la spritesheet du joueur. </p>
 
 </div>
 </div>
@@ -428,6 +466,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Position de départ X en pixels. </p>
 
 </div>
 </div>
@@ -442,6 +481,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Position de départ Y en pixels. </p>
 
 </div>
 </div>
@@ -456,6 +496,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>État actuel du joueur. </p>
 
 </div>
 </div>
@@ -470,6 +511,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Position cible X dans la matrice. </p>
 
 </div>
 </div>
@@ -484,6 +526,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Position cible Y dans la matrice. </p>
 
 </div>
 </div>
@@ -498,6 +541,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Position cible X en pixels. </p>
 
 </div>
 </div>
@@ -512,6 +556,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Position cible Y en pixels. </p>
 
 </div>
 </div>
@@ -526,6 +571,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Vitesse de déplacement en X. </p>
 
 </div>
 </div>
@@ -540,6 +586,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Vitesse de déplacement en Y. </p>
 
 </div>
 </div>

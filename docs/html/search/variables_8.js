@@ -23,9 +23,12 @@ var searchData=
   ['interpolationtime_20',['interpolationTime',['../dc/d7b/structPlayer.html#a8d3d1b15e29794460fb737dfebbd0be5',1,'Player']]],
   ['is_5fdynamic_21',['is_dynamic',['../d2/dda/structText.html#af3b5cd8831bae56013cf3acb84fbf903',1,'Text']]],
   ['iscomplete_22',['isComplete',['../d2/db3/structScrollingText.html#a57cafba670a7328cba62aa072909c5b1',1,'ScrollingText']]],
-  ['ismoving_23',['isMoving',['../dc/d7b/structPlayer.html#af0b9c632e6cccce66bc4256a8a472703',1,'Player']]],
-  ['ismovingtotarget_24',['isMovingToTarget',['../dc/d7b/structPlayer.html#ab60da680497ca6ce13a4b56159b0ba14',1,'Player']]],
-  ['isrunning_25',['isRunning',['../d5/d64/structThreadManager.html#a4f9008ea31202fda3bc2d5629827eb2b',1,'ThreadManager']]],
-  ['isvalid_26',['isValid',['../d2/db3/structScrollingText.html#a4dd1e280afd139057d8df1ba25b8702d',1,'ScrollingText']]],
-  ['iv_27',['iv',['../d7/d09/structt__Poke.html#a41f39b9149000b74eefdd7841c18f4fd',1,'t_Poke']]]
+  ['isentranceanimating_23',['isEntranceAnimating',['../dd/d1a/structIMG__ICMons.html#a038c00499ace2436e24c1f6367016d8d',1,'IMG_ICMons']]],
+  ['isfromright_24',['isFromRight',['../dd/d1a/structIMG__ICMons.html#aadec4f715ce7d1b6fb4d305254629053',1,'IMG_ICMons']]],
+  ['isinduel_25',['isInDuel',['../de/de9/structGame.html#a828268ca7a9721d11e13722c3d5924ea',1,'Game']]],
+  ['ismoving_26',['isMoving',['../dc/d7b/structPlayer.html#af0b9c632e6cccce66bc4256a8a472703',1,'Player']]],
+  ['ismovingtotarget_27',['isMovingToTarget',['../dc/d7b/structPlayer.html#ab60da680497ca6ce13a4b56159b0ba14',1,'Player']]],
+  ['isrunning_28',['isRunning',['../d5/d64/structThreadManager.html#a4f9008ea31202fda3bc2d5629827eb2b',1,'ThreadManager']]],
+  ['isvalid_29',['isValid',['../d2/db3/structScrollingText.html#a4dd1e280afd139057d8df1ba25b8702d',1,'ScrollingText']]],
+  ['iv_30',['iv',['../d7/d09/structt__Poke.html#a41f39b9149000b74eefdd7841c18f4fd',1,'t_Poke']]]
 ];

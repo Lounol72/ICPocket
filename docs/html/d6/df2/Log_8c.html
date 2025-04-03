@@ -147,8 +147,10 @@ Graphe des dépendances par inclusion de Log.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:ae88f95aa62b4c94a4eaef06593bb5820" id="r_ae88f95aa62b4c94a4eaef06593bb5820"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/df2/Log_8c.html#ae88f95aa62b4c94a4eaef06593bb5820">LogToFile</a> (void *userdata, int category, SDL_LogPriority priority, const char *message)</td></tr>
+<tr class="memdesc:ae88f95aa62b4c94a4eaef06593bb5820"><td class="mdescLeft">&#160;</td><td class="mdescRight">cette fonction permet d'écrire les logs dans un fichier  <br /></td></tr>
 <tr class="separator:ae88f95aa62b4c94a4eaef06593bb5820"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf625f6723a3cbba30cfb901dd3ed5a5" id="r_acf625f6723a3cbba30cfb901dd3ed5a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/df2/Log_8c.html#acf625f6723a3cbba30cfb901dd3ed5a5">InitLogFile</a> ()</td></tr>
+<tr class="memdesc:acf625f6723a3cbba30cfb901dd3ed5a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">cette fonction permet d'initialiser le fichier de log  <br /></td></tr>
 <tr class="separator:acf625f6723a3cbba30cfb901dd3ed5a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des fonctions</h2>
@@ -166,6 +168,9 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>cette fonction permet d'initialiser le fichier de log </p>
+<p>Cette fonction crée un fichier de log et configure SDL pour écrire les messages de log dans ce fichier. </p>
 
 </div>
 </div>
@@ -206,6 +211,17 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>cette fonction permet d'écrire les logs dans un fichier </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userdata</td><td>Un pointeur vers des données définies par l'utilisateur qui peuvent être passées à la fonction. Ce paramètre permet à l'utilisateur de fournir un contexte ou des informations supplémentaires dont la fonction pourrait avoir besoin pendant son exécution.</td></tr>
+    <tr><td class="paramname">category</td><td>La catégorie du log, utilisée pour organiser les messages de log. </td></tr>
+    <tr><td class="paramname">priority</td><td>La priorité du log, indiquant le niveau d'importance du message. </td></tr>
+    <tr><td class="paramname">message</td><td>Le message de log à écrire dans le fichier. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

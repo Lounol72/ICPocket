@@ -1,3 +1,7 @@
 <map id="t_Move" name="t_Move">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,132,331"/>
+<area shape="rect" id="Node000001" title="Représente une attaque d&#39;un ICMon." alt="" coords="11,133,138,419"/>
+<area shape="rect" id="Node000002" href="$de/df3/structt__Type.html" title="Représente les types des ICmons." alt="" coords="5,5,61,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="40,70,45,109,47,117,41,117,40,110,34,71"/>
+<area shape="rect" id="Node000003" href="$df/d0d/structt__Categ.html" title="Représente la catégorie d&#39;une attaque." alt="" coords="85,5,149,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="114,72,106,117,101,117,109,71"/>
 </map>

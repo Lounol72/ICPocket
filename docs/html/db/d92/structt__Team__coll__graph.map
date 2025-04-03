@@ -1,11 +1,19 @@
 <map id="t_Team" name="t_Team">
-<area shape="rect" id="Node000001" title="La structure t_Team contient tout les attributs nécessaire à la génération et à l&#39;utilisation d&#39;une é..." alt="" coords="61,1044,183,1249"/>
-<area shape="rect" id="Node000002" href="$d7/d09/structt__Poke.html" title=" " alt="" coords="69,676,175,981"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,982,125,1028,119,1028,119,982"/>
-<area shape="rect" id="Node000003" href="$d1/d68/structt__Move.html" title=" " alt="" coords="5,288,132,613"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,613,99,652,100,659,95,660,94,652,89,614"/>
-<area shape="rect" id="Node000004" href="$dd/d1a/structIMG__ICMons.html" title="Représente un sprite ICMons dans l&#39;application." alt="" coords="157,298,303,603"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="189,605,175,653,173,661,168,659,170,651,184,603"/>
-<area shape="rect" id="Node000005" href="$d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application." alt="" coords="179,5,281,211"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="233,211,233,281,227,281,227,211"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="304,964,427,1149"/>
+<area shape="rect" id="Node000002" href="$d7/d09/structt__Poke.html" title="Représente un ICMon." alt="" coords="223,636,321,901"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="318,901,333,947,328,949,312,902"/>
+<area shape="rect" id="Node000003" href="$de/df3/structt__Type.html" title="Représente les types des ICmons." alt="" coords="125,75,181,141"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="159,140,169,234,176,330,177,405,183,479,200,573,220,640,215,642,195,574,178,480,172,405,170,330,164,235,154,141"/>
+<area shape="rect" id="Node000004" href="$d1/d68/structt__Move.html" title="Représente une attaque d&#39;un ICMon." alt="" coords="10,288,137,573"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="148,141,124,235,115,273,109,272,119,234,143,140"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="79,573,93,611,117,647,146,679,179,707,211,729,208,734,176,711,143,683,113,650,88,613,74,575"/>
+<area shape="rect" id="Node000005" href="$df/d0d/structt__Categ.html" title="Représente la catégorie d&#39;une attaque." alt="" coords="5,75,69,141"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="38,141,38,198,41,264,42,271,37,272,36,264,32,198,33,141"/>
+<area shape="rect" id="Node000006" href="$d9/d39/structt__Effect.html" title="Représente les effets d&#39;état d&#39;un ICMon." alt="" coords="426,398,489,463"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="457,464,441,612,415,790,388,948,382,947,409,789,436,612,452,464"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="458,464,446,520,434,549,415,575,398,586,380,588,364,590,347,599,326,624,322,621,344,595,362,585,379,583,396,581,412,571,429,547,441,518,453,463"/>
+<area shape="rect" id="Node000007" href="$dd/d1a/structIMG__ICMons.html" title="Représente un sprite ICMons dans l&#39;application." alt="" coords="255,298,401,563"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="283,564,276,598,273,620,268,619,271,597,278,563"/>
+<area shape="rect" id="Node000008" href="$d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application." alt="" coords="277,5,379,211"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="331,211,331,281,325,281,325,211"/>
 </map>

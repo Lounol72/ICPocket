@@ -162,9 +162,9 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <area shape="rect" href="../../dc/d22/Game_8c.html" title="Initialisation du jeu, de ses interfaces et ressources." alt="" coords="181,225,276,251"/>
 <area shape="poly" title=" " alt="" coords="348,185,255,228,253,223,346,181"/>
 <area shape="poly" title=" " alt="" coords="391,212,389,178,394,178,396,212"/>
-<area shape="rect" href="../../d0/dbb/Events_8h.html" title="Gestion des Events SDL." alt="" coords="5,299,135,324"/>
+<area shape="rect" href="../../d0/dbb/Events_8h.html" title="Gestion des événements SDL pour le jeu." alt="" coords="5,299,135,324"/>
 <area shape="poly" title=" " alt="" coords="315,256,115,301,114,296,314,251"/>
-<area shape="rect" href="../../d4/d62/NPC_8h.html" title=" " alt="" coords="159,299,271,324"/>
+<area shape="rect" href="../../d4/d62/NPC_8h.html" title="Gestion des PNJ (Personnages Non Joueurs)" alt="" coords="159,299,271,324"/>
 <area shape="poly" title=" " alt="" coords="346,258,244,301,242,296,344,254"/>
 <area shape="rect" href="../../d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="295,299,474,324"/>
 <area shape="poly" title=" " alt="" coords="379,264,380,298,375,299,373,265"/>
@@ -203,8 +203,10 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:ae88f95aa62b4c94a4eaef06593bb5820" id="r_ae88f95aa62b4c94a4eaef06593bb5820"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d45/Log_8h.html#ae88f95aa62b4c94a4eaef06593bb5820">LogToFile</a> (void *userdata, int category, SDL_LogPriority priority, const char *message)</td></tr>
+<tr class="memdesc:ae88f95aa62b4c94a4eaef06593bb5820"><td class="mdescLeft">&#160;</td><td class="mdescRight">cette fonction permet d'écrire les logs dans un fichier  <br /></td></tr>
 <tr class="separator:ae88f95aa62b4c94a4eaef06593bb5820"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf625f6723a3cbba30cfb901dd3ed5a5" id="r_acf625f6723a3cbba30cfb901dd3ed5a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d45/Log_8h.html#acf625f6723a3cbba30cfb901dd3ed5a5">InitLogFile</a> ()</td></tr>
+<tr class="memdesc:acf625f6723a3cbba30cfb901dd3ed5a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">cette fonction permet d'initialiser le fichier de log  <br /></td></tr>
 <tr class="separator:acf625f6723a3cbba30cfb901dd3ed5a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -226,6 +228,9 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>cette fonction permet d'initialiser le fichier de log </p>
+<p>Cette fonction crée un fichier de log et configure SDL pour écrire les messages de log dans ce fichier. </p>
 
 </div>
 </div>
@@ -266,6 +271,17 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>cette fonction permet d'écrire les logs dans un fichier </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userdata</td><td>Un pointeur vers des données définies par l'utilisateur qui peuvent être passées à la fonction. Ce paramètre permet à l'utilisateur de fournir un contexte ou des informations supplémentaires dont la fonction pourrait avoir besoin pendant son exécution.</td></tr>
+    <tr><td class="paramname">category</td><td>La catégorie du log, utilisée pour organiser les messages de log. </td></tr>
+    <tr><td class="paramname">priority</td><td>La priorité du log, indiquant le niveau d'importance du message. </td></tr>
+    <tr><td class="paramname">message</td><td>Le message de log à écrire dans le fichier. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

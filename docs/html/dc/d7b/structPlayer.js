@@ -8,6 +8,7 @@ var structPlayer =
     [ "interpolationTime", "dc/d7b/structPlayer.html#a8d3d1b15e29794460fb737dfebbd0be5", null ],
     [ "isMoving", "dc/d7b/structPlayer.html#af0b9c632e6cccce66bc4256a8a472703", null ],
     [ "isMovingToTarget", "dc/d7b/structPlayer.html#ab60da680497ca6ce13a4b56159b0ba14", null ],
+    [ "mapIndex", "dc/d7b/structPlayer.html#a5f4b315451a5f0a93e8b1df6623a833f", null ],
     [ "mat", "dc/d7b/structPlayer.html#a8138ba18395194ab3d8888c7b9137a9a", null ],
     [ "matrixX", "dc/d7b/structPlayer.html#aa9dc33873c9e864d0bd4f2416ffcde32", null ],
     [ "matrixY", "dc/d7b/structPlayer.html#a253309b22a6a6f4a2bd562affe853cea", null ],

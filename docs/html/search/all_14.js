@@ -6,7 +6,7 @@ var searchData=
   ['walk_5fright_3',['WALK_RIGHT',['../da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1a2fbeac521c5adf9280370533098f6891',1,'Player.h']]],
   ['walk_5fup_4',['WALK_UP',['../da/dbf/Player_8h.html#a3c730f37b1b3a893159bada67637fdb1af8f695fa11815dfec90d7814fab19681',1,'Player.h']]],
   ['web_5',['🌐 Site web',['../index.html#autotoc_md3',1,'']]],
-  ['width_6',['width',['../d6/d08/structWindow.html#af5b1c436782cc9752d386493fbc5dc8c',1,'Window::width'],['../d2/db3/structScrollingText.html#a83505dffbc6ef744e9db6d0d9333bf11',1,'ScrollingText::width'],['../da/ddc/structMap.html#a9ecfe932ad2d2bc22492416033bdacfd',1,'Map::width']]],
+  ['width_6',['width',['../d6/d08/structWindow.html#af5b1c436782cc9752d386493fbc5dc8c',1,'Window::width'],['../d2/db3/structScrollingText.html#a83505dffbc6ef744e9db6d0d9333bf11',1,'ScrollingText::width']]],
   ['win_7',['win',['../de/de9/structGame.html#a1ab9219c52f831df72ec2bb42c56aa2b',1,'Game']]],
   ['window_8',['window',['../d6/d08/structWindow.html#ae39a7755a5a6ab74bcbdbe3e2e206820',1,'Window::window'],['../d3/d70/Buttons_8h.html#adb2a551453af16dd3214a23b16e67544',1,'Window:&#160;Buttons.h'],['../d6/d35/Text_8h.html#adb2a551453af16dd3214a23b16e67544',1,'Window:&#160;Text.h'],['../d3/ded/Window_8h.html#adb2a551453af16dd3214a23b16e67544',1,'Window:&#160;Window.h'],['../d6/d08/structWindow.html',1,'Window']]],
   ['window_2ec_9',['Window.c',['../d4/d41/Window_8c.html',1,'']]],

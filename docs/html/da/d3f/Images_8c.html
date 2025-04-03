@@ -135,7 +135,7 @@ Graphe des dépendances par inclusion de Images.c:</div>
 <div class="center"><img src="../../d9/df2/Images_8c__incl.png" border="0" usemap="#asrc_2Images_8c" alt=""/></div>
 <map name="asrc_2Images_8c" id="asrc_2Images_8c">
 <area shape="rect" title=" " alt="" coords="177,5,281,31"/>
-<area shape="rect" href="../../da/d41/Images_8h.html" title=" " alt="" coords="71,79,216,104"/>
+<area shape="rect" href="../../da/d41/Images_8h.html" title="Gestion des images et du texte associé." alt="" coords="71,79,216,104"/>
 <area shape="poly" title=" " alt="" coords="217,33,169,72,166,68,213,29"/>
 <area shape="rect" href="../../d3/ded/Window_8h.html" title="Définition et gestion de la fenêtre principale de l&#39;application." alt="" coords="309,79,457,104"/>
 <area shape="poly" title=" " alt="" coords="255,28,347,70,345,75,252,33"/>
@@ -172,12 +172,16 @@ Graphe des dépendances par inclusion de Images.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:adf9eb4c7f93c97d8e8f040ce92872e69" id="r_adf9eb4c7f93c97d8e8f040ce92872e69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d58/structImage.html">Image</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d3f/Images_8c.html#adf9eb4c7f93c97d8e8f040ce92872e69">initImage</a> (struct <a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, const char *imagePath, SDL_Rect rect, const char *text, SDL_Rect textRect, TTF_Font *font)</td></tr>
+<tr class="memdesc:adf9eb4c7f93c97d8e8f040ce92872e69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise une image avec un texte associé.  <br /></td></tr>
 <tr class="separator:adf9eb4c7f93c97d8e8f040ce92872e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afac650c01cf1fdc985e41e1979d563f4" id="r_afac650c01cf1fdc985e41e1979d563f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d3f/Images_8c.html#afac650c01cf1fdc985e41e1979d563f4">destroyImage</a> (<a class="el" href="../../db/d58/structImage.html">Image</a> *image)</td></tr>
+<tr class="memdesc:afac650c01cf1fdc985e41e1979d563f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une image.  <br /></td></tr>
 <tr class="separator:afac650c01cf1fdc985e41e1979d563f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9983bda4bc424607051df6eabf79e9d6" id="r_a9983bda4bc424607051df6eabf79e9d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d3f/Images_8c.html#a9983bda4bc424607051df6eabf79e9d6">renderImage</a> (struct <a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, <a class="el" href="../../db/d58/structImage.html">Image</a> *image)</td></tr>
+<tr class="memdesc:a9983bda4bc424607051df6eabf79e9d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rend une image avec son texte associé.  <br /></td></tr>
 <tr class="separator:a9983bda4bc424607051df6eabf79e9d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7d910d3fb0663d2d19cbb1423fe09d1" id="r_af7d910d3fb0663d2d19cbb1423fe09d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d3f/Images_8c.html#af7d910d3fb0663d2d19cbb1423fe09d1">updateImageSize</a> (<a class="el" href="../../db/d58/structImage.html">Image</a> *image, float scaleX, float scaleY)</td></tr>
+<tr class="memdesc:af7d910d3fb0663d2d19cbb1423fe09d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">met à jour la taille d'une image.  <br /></td></tr>
 <tr class="separator:af7d910d3fb0663d2d19cbb1423fe09d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des fonctions</h2>
@@ -196,6 +200,15 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Détruit une image. </p>
+<p>Cette fonction libère la mémoire associée à une image et à son texte.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Pointeur vers l'objet <a class="el" href="../../db/d58/structImage.html" title="Représente une image avec un texte associé.">Image</a> à détruire. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -249,6 +262,21 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialise une image avec un texte associé. </p>
+<p>Cette fonction charge une image à partir d'un fichier et crée un objet <a class="el" href="../../db/d58/structImage.html" title="Représente une image avec un texte associé.">Image</a> avec le texte associé.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Pointeur vers la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> contenant l'état du jeu. </td></tr>
+    <tr><td class="paramname">imagePath</td><td>Chemin du fichier image à charger. </td></tr>
+    <tr><td class="paramname">rect</td><td>Rectangle définissant la position et la taille de l'image. </td></tr>
+    <tr><td class="paramname">text</td><td>Le texte à afficher sur l'image. </td></tr>
+    <tr><td class="paramname">textRect</td><td>Rectangle définissant la position et la taille du texte. </td></tr>
+    <tr><td class="paramname">font</td><td>La police utilisée pour dessiner le texte. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un pointeur vers l'objet <a class="el" href="../../db/d58/structImage.html" title="Représente une image avec un texte associé.">Image</a> créé. </dd></dl>
+
 </div>
 </div>
 <a id="a9983bda4bc424607051df6eabf79e9d6" name="a9983bda4bc424607051df6eabf79e9d6"></a>
@@ -276,6 +304,16 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Rend une image avec son texte associé. </p>
+<p>Cette fonction dessine l'image et le texte sur la fenêtre spécifiée.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Pointeur vers la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> contenant l'état du jeu. </td></tr>
+    <tr><td class="paramname">image</td><td>Pointeur vers l'objet <a class="el" href="../../db/d58/structImage.html" title="Représente une image avec un texte associé.">Image</a> à rendre. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -310,6 +348,16 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>met à jour la taille d'une image. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Pointeur vers l'objet <a class="el" href="../../db/d58/structImage.html" title="Représente une image avec un texte associé.">Image</a> à mettre à jour. </td></tr>
+    <tr><td class="paramname">scaleX</td><td>dimension de l'image sur l'axe X </td></tr>
+    <tr><td class="paramname">scaleY</td><td>dimension de l'image sur l'axe Y </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -129,24 +129,29 @@ $(document).ready(function(){initNavTree('da/d63/structt__Team.html','../../'); 
 </div><!--header-->
 <div class="contents">
 
-<p>La structure <a class="el" href="../../da/d63/structt__Team.html" title="La structure t_Team contient tout les attributs nécessaire à la génération et à l&#39;utilisation d&#39;une é...">t_Team</a> contient tout les attributs nécessaire à la génération et à l'utilisation d'une équipe lors d'un combat.  
- <a href="../../da/d63/structt__Team.html#details">Plus de détails...</a></p>
-
 <p><code>#include &lt;<a class="el" href="../../dd/da3/structures_8h_source.html">structures.h</a>&gt;</code></p>
 <div class="dynheader">
 Graphe de collaboration de t_Team:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../db/d92/structt__Team__coll__graph.png" border="0" usemap="#at__Team_coll__map" alt="Collaboration graph"/></div>
 <map name="at__Team_coll__map" id="at__Team_coll__map">
-<area shape="rect" title="La structure t_Team contient tout les attributs nécessaire à la génération et à l&#39;utilisation d&#39;une é..." alt="" coords="61,1044,183,1249"/>
-<area shape="rect" href="../../d7/d09/structt__Poke.html" title=" " alt="" coords="69,676,175,981"/>
-<area shape="poly" title=" " alt="" coords="125,982,125,1028,119,1028,119,982"/>
-<area shape="rect" href="../../d1/d68/structt__Move.html" title=" " alt="" coords="5,288,132,613"/>
-<area shape="poly" title=" " alt="" coords="94,613,99,652,100,659,95,660,94,652,89,614"/>
-<area shape="rect" href="../../dd/d1a/structIMG__ICMons.html" title="Représente un sprite ICMons dans l&#39;application." alt="" coords="157,298,303,603"/>
-<area shape="poly" title=" " alt="" coords="189,605,175,653,173,661,168,659,170,651,184,603"/>
-<area shape="rect" href="../../d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application." alt="" coords="179,5,281,211"/>
-<area shape="poly" title=" " alt="" coords="233,211,233,281,227,281,227,211"/>
+<area shape="rect" title=" " alt="" coords="304,964,427,1149"/>
+<area shape="rect" href="../../d7/d09/structt__Poke.html" title="Représente un ICMon." alt="" coords="223,636,321,901"/>
+<area shape="poly" title=" " alt="" coords="318,901,333,947,328,949,312,902"/>
+<area shape="rect" href="../../de/df3/structt__Type.html" title="Représente les types des ICmons." alt="" coords="125,75,181,141"/>
+<area shape="poly" title=" " alt="" coords="159,140,169,234,176,330,177,405,183,479,200,573,220,640,215,642,195,574,178,480,172,405,170,330,164,235,154,141"/>
+<area shape="rect" href="../../d1/d68/structt__Move.html" title="Représente une attaque d&#39;un ICMon." alt="" coords="10,288,137,573"/>
+<area shape="poly" title=" " alt="" coords="148,141,124,235,115,273,109,272,119,234,143,140"/>
+<area shape="poly" title=" " alt="" coords="79,573,93,611,117,647,146,679,179,707,211,729,208,734,176,711,143,683,113,650,88,613,74,575"/>
+<area shape="rect" href="../../df/d0d/structt__Categ.html" title="Représente la catégorie d&#39;une attaque." alt="" coords="5,75,69,141"/>
+<area shape="poly" title=" " alt="" coords="38,141,38,198,41,264,42,271,37,272,36,264,32,198,33,141"/>
+<area shape="rect" href="../../d9/d39/structt__Effect.html" title="Représente les effets d&#39;état d&#39;un ICMon." alt="" coords="426,398,489,463"/>
+<area shape="poly" title=" " alt="" coords="457,464,441,612,415,790,388,948,382,947,409,789,436,612,452,464"/>
+<area shape="poly" title=" " alt="" coords="458,464,446,520,434,549,415,575,398,586,380,588,364,590,347,599,326,624,322,621,344,595,362,585,379,583,396,581,412,571,429,547,441,518,453,463"/>
+<area shape="rect" href="../../dd/d1a/structIMG__ICMons.html" title="Représente un sprite ICMons dans l&#39;application." alt="" coords="255,298,401,563"/>
+<area shape="poly" title=" " alt="" coords="283,564,276,598,273,620,268,619,271,597,278,563"/>
+<area shape="rect" href="../../d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application." alt="" coords="277,5,379,211"/>
+<area shape="poly" title=" " alt="" coords="331,211,331,281,325,281,325,211"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -171,20 +176,7 @@ Attributs publics</h2></td></tr>
 <tr class="memitem:ae21a4bbb17783a23eb4f94f5ca720c70" id="r_ae21a4bbb17783a23eb4f94f5ca720c70"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d63/structt__Team.html#ae21a4bbb17783a23eb4f94f5ca720c70">id_save</a></td></tr>
 <tr class="separator:ae21a4bbb17783a23eb4f94f5ca720c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>La structure <a class="el" href="../../da/d63/structt__Team.html" title="La structure t_Team contient tout les attributs nécessaire à la génération et à l&#39;utilisation d&#39;une é...">t_Team</a> contient tout les attributs nécessaire à la génération et à l'utilisation d'une équipe lors d'un combat. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>l'identifiant de l'équipe, principalement utilisé pour charger une équipe d'une base de données externe. </td></tr>
-    <tr><td class="paramname">trainerName</td><td>Le nom du dresseur de l'équipe. </td></tr>
-    <tr><td class="paramname">team</td><td>Une liste de <a class="el" href="../../d7/d09/structt__Poke.html">t_Poke</a>, contenant au maximum 6 pokémons. </td></tr>
-    <tr><td class="paramname">nb_poke</td><td>le nombre de pokémon actuellement dans l'équipe. </td></tr>
-    <tr><td class="paramname">statChanges</td><td>Les coefficients de variations de chaque statistiques du pokémon en tête d'équipe, sous force d'indice vers le coefficient réel stocké dans la variable globale statVariations. </td></tr>
-    <tr><td class="paramname">effect</td><td>Un type enuméré représentant l'effet temporaire subit par le pokémon en tête d'équipe. </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><h2 class="groupheader">Documentation des données membres</h2>
+<h2 class="groupheader">Documentation des données membres</h2>
 <a id="a37dd491f0b97ebaf7332f67e7553ee39" name="a37dd491f0b97ebaf7332f67e7553ee39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a37dd491f0b97ebaf7332f67e7553ee39">&#9670;&#160;</a></span>effect</h2>
 
@@ -196,6 +188,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>effet temporaire du ICmon en tête d'équipe. </p>
 
 </div>
 </div>
@@ -210,6 +203,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>id de l'équipe. </p>
 
 </div>
 </div>
@@ -224,6 +218,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>id de sauvegarde du ICmon. </p>
 
 </div>
 </div>
@@ -238,6 +233,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>id du dernier ICmon ennemi. </p>
 
 </div>
 </div>
@@ -252,6 +248,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>nombre de ICmons ennemis battus. </p>
 
 </div>
 </div>
@@ -266,6 +263,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>nombre de ICmons dans l'équipe. </p>
 
 </div>
 </div>
@@ -280,6 +278,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>liste des indices des coefficients de variations des statistiques du ICmon en tête d'équipe. </p>
 
 </div>
 </div>
@@ -294,6 +293,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>liste des ICmons de l'équipe. </p>
 
 </div>
 </div>
@@ -308,6 +308,7 @@ Attributs publics</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>nom du dresseur. </p>
 
 </div>
 </div>

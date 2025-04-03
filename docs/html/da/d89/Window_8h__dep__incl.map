@@ -16,11 +16,11 @@
 <area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="194,139,192,104,198,104,199,138"/>
 <area shape="rect" id="Node000004" href="$d9/d0e/Buttons_8c.html" title=" " alt="" coords="5,225,112,251"/>
 <area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="156,186,81,227,79,223,154,182"/>
-<area shape="rect" id="Node000006" href="$d0/dbb/Events_8h.html" title="Gestion des Events SDL." alt="" coords="137,225,266,251"/>
+<area shape="rect" id="Node000006" href="$d0/dbb/Events_8h.html" title="Gestion des événements SDL pour le jeu." alt="" coords="137,225,266,251"/>
 <area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="368,184,231,228,230,223,366,179"/>
 <area shape="rect" id="Node000008" href="$d3/d5f/Game_8h.html" title="Gestion des backgrounds, Initialisation de la structure globale." alt="" coords="290,225,414,251"/>
 <area shape="poly" id="edge9_Node000005_Node000008" title=" " alt="" coords="396,188,359,227,355,223,392,184"/>
-<area shape="rect" id="Node000010" href="$d4/d62/NPC_8h.html" title=" " alt="" coords="439,225,551,251"/>
+<area shape="rect" id="Node000010" href="$d4/d62/NPC_8h.html" title="Gestion des PNJ (Personnages Non Joueurs)" alt="" coords="439,225,551,251"/>
 <area shape="poly" id="edge12_Node000005_Node000010" title=" " alt="" coords="446,185,485,223,481,227,443,189"/>
 <area shape="rect" id="Node000012" href="$d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="575,225,753,251"/>
 <area shape="poly" id="edge14_Node000005_Node000012" title=" " alt="" coords="469,179,619,223,617,228,467,184"/>

@@ -1,9 +1,12 @@
 var structIMG__ICMons =
 [
     [ "currentHPWidth", "dd/d1a/structIMG__ICMons.html#ab0a6b034b9d690faf5f190d50d929df4", null ],
+    [ "entranceProgress", "dd/d1a/structIMG__ICMons.html#a97947bd8c8d467248c383e926e53c785", null ],
     [ "ICMonSound", "dd/d1a/structIMG__ICMons.html#a441e0f2a2e2deb340bfe05932b4f8405", null ],
     [ "ICMonTexture", "dd/d1a/structIMG__ICMons.html#aca5f72f238f579cbf502c1f323a4d3ba", null ],
     [ "initialRect", "dd/d1a/structIMG__ICMons.html#a59ff78849260d7a61cbc9bed404134f7", null ],
+    [ "isEntranceAnimating", "dd/d1a/structIMG__ICMons.html#a038c00499ace2436e24c1f6367016d8d", null ],
+    [ "isFromRight", "dd/d1a/structIMG__ICMons.html#aadec4f715ce7d1b6fb4d305254629053", null ],
     [ "LvlText", "dd/d1a/structIMG__ICMons.html#ac2130247567c14b271c24a17f26db2e5", null ],
     [ "nameInitialRect", "dd/d1a/structIMG__ICMons.html#a2686bcf03f4286886383b8cd5f33415b", null ],
     [ "nameRect", "dd/d1a/structIMG__ICMons.html#a6ae164e8baad59442d65fd29d087e1e5", null ],

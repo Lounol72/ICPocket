@@ -2,11 +2,11 @@
 <area shape="rect" id="Node000001" title="Gestion des duels dans le style de &quot;ICmon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="249,5,362,31"/>
 <area shape="rect" id="Node000002" href="$da/d71/structPoke_8h.html" title=" " alt="" coords="82,79,185,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="272,33,168,75,166,70,270,28"/>
-<area shape="rect" id="Node000003" href="$dd/da3/structures_8h.html" title=" " alt="" coords="128,152,227,177"/>
+<area shape="rect" id="Node000003" href="$dd/da3/structures_8h.html" title="Définition des structures de données utilisées dans le jeu." alt="" coords="128,152,227,177"/>
 <area shape="poly" id="edge8_Node000001_Node000003" title=" " alt="" coords="296,33,250,80,197,143,193,139,246,77,292,29"/>
-<area shape="rect" id="Node000008" href="$df/d27/trainerAI_8h.html" title=" " alt="" coords="260,79,351,104"/>
+<area shape="rect" id="Node000008" href="$df/d27/trainerAI_8h.html" title="Gestion de l&#39;IA des dresseurs." alt="" coords="260,79,351,104"/>
 <area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="301,31,299,65,294,65,296,31"/>
-<area shape="rect" id="Node000009" href="$d5/d5e/save_8h.html" title="Save the player&#39;s data in a file." alt="" coords="375,79,441,104"/>
+<area shape="rect" id="Node000009" href="$d5/d5e/save_8h.html" title=" " alt="" coords="375,79,441,104"/>
 <area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="317,29,374,69,371,74,313,33"/>
 <area shape="rect" id="Node000010" href="$da/d1d/interDuel_8h.html" title="Définition et gestion des combats entre équipes." alt="" coords="465,79,559,104"/>
 <area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="333,28,460,72,458,77,331,33"/>

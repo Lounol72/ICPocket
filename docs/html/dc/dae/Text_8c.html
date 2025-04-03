@@ -175,6 +175,7 @@ Graphe des dépendances par inclusion de Text.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a892f92e6aa8390e303f3c03acd1a9068" id="r_a892f92e6aa8390e303f3c03acd1a9068"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dae/Text_8c.html#a892f92e6aa8390e303f3c03acd1a9068">StayScaled</a> (TTF_Font *font, <a class="el" href="../../d2/dda/structText.html">Text</a> *text, SDL_Rect *rect, SDL_Rect *initialRect)</td></tr>
+<tr class="memdesc:a892f92e6aa8390e303f3c03acd1a9068"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour la taille d'un objet texte en fonction de la mise à l'échelle.  <br /></td></tr>
 <tr class="separator:a892f92e6aa8390e303f3c03acd1a9068"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5e6443549548b45c6ea809665001cd0" id="r_af5e6443549548b45c6ea809665001cd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dae/Text_8c.html#af5e6443549548b45c6ea809665001cd0">initText</a> (struct <a class="el" href="../../d6/d08/structWindow.html">Window</a> *win)</td></tr>
 <tr class="memdesc:af5e6443549548b45c6ea809665001cd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les objets texte.  <br /></td></tr>
@@ -201,6 +202,7 @@ Fonctions</h2></td></tr>
 <tr class="memdesc:ad496f949929781a8b018234536b6978a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un nouvel objet de texte défilant.  <br /></td></tr>
 <tr class="separator:ad496f949929781a8b018234536b6978a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a768cf1c99dfc678b1aebc603e2f2c9eb" id="r_a768cf1c99dfc678b1aebc603e2f2c9eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dae/Text_8c.html#a768cf1c99dfc678b1aebc603e2f2c9eb">updateScrollingTextPosition</a> (<a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> *text, float scaleX, float scaleY)</td></tr>
+<tr class="memdesc:a768cf1c99dfc678b1aebc603e2f2c9eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour la position d'un objet de texte défilant.  <br /></td></tr>
 <tr class="separator:a768cf1c99dfc678b1aebc603e2f2c9eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70b0c8ad2591d026ed13498d2f5b51e5" id="r_a70b0c8ad2591d026ed13498d2f5b51e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dae/Text_8c.html#a70b0c8ad2591d026ed13498d2f5b51e5">updateScrollingText</a> (<a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a> *text, SDL_Renderer *renderer)</td></tr>
 <tr class="memdesc:a70b0c8ad2591d026ed13498d2f5b51e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour un objet de texte défilant.  <br /></td></tr>
@@ -465,7 +467,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void initText </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d6/d08/structWindow.html">Window</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d08/structWindow.html">Window</a> *&#160;</td>
           <td class="paramname"><em>win</em></td><td>)</td>
           <td></td>
         </tr>
@@ -530,7 +532,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void renderText </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d6/d08/structWindow.html">Window</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d08/structWindow.html">Window</a> *&#160;</td>
           <td class="paramname"><em>win</em>, </td>
         </tr>
         <tr>
@@ -673,6 +675,18 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Met à jour la taille d'un objet texte en fonction de la mise à l'échelle. </p>
+<p>Cette fonction met à jour la taille de l'objet texte spécifié en fonction de la mise à l'échelle.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">font</td><td>La police utilisée pour rendre le texte. </td></tr>
+    <tr><td class="paramname">text</td><td>Un pointeur vers l'objet <a class="el" href="../../d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application.">Text</a>. </td></tr>
+    <tr><td class="paramname">rect</td><td>Le rectangle définissant la position et la taille du texte. </td></tr>
+    <tr><td class="paramname">initialRect</td><td>Le rectangle initial pour les besoins de mise à l'échelle. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a70b0c8ad2591d026ed13498d2f5b51e5" name="a70b0c8ad2591d026ed13498d2f5b51e5"></a>
@@ -744,6 +758,17 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Met à jour la position d'un objet de texte défilant. </p>
+<p>Cette fonction met à jour la position de l'objet de texte défilant spécifié en fonction des facteurs de mise à l'échelle donnés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Un pointeur vers l'objet <a class="el" href="../../d2/db3/structScrollingText.html">ScrollingText</a>. </td></tr>
+    <tr><td class="paramname">scaleX</td><td>Le facteur de mise à l'échelle horizontal. </td></tr>
+    <tr><td class="paramname">scaleY</td><td>Le facteur de mise à l'échelle vertical. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

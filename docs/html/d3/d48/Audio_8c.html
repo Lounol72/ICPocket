@@ -151,10 +151,10 @@ Graphe des dépendances par inclusion de Audio.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:ab74d84d6d4c90b2b18669590af038a07" id="r_ab74d84d6d4c90b2b18669590af038a07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d48/Audio_8c.html#ab74d84d6d4c90b2b18669590af038a07">initAudio</a> ()</td></tr>
-<tr class="memdesc:ab74d84d6d4c90b2b18669590af038a07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise l'audio.  <br /></td></tr>
+<tr class="memdesc:ab74d84d6d4c90b2b18669590af038a07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le système audio.  <br /></td></tr>
 <tr class="separator:ab74d84d6d4c90b2b18669590af038a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a442ac79688294b67c76dbe10c87e1383" id="r_a442ac79688294b67c76dbe10c87e1383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d48/Audio_8c.html#a442ac79688294b67c76dbe10c87e1383">loadMusic</a> (Mix_Music **music, const char *musicPath)</td></tr>
-<tr class="memdesc:a442ac79688294b67c76dbe10c87e1383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge la musique.  <br /></td></tr>
+<tr class="memdesc:a442ac79688294b67c76dbe10c87e1383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge un fichier de musique.  <br /></td></tr>
 <tr class="separator:a442ac79688294b67c76dbe10c87e1383"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -176,8 +176,8 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialise l'audio. </p>
 <p>Initialise le système audio. </p>
+<p>Cette fonction initialise le système audio en configurant SDL_mixer avec les paramètres appropriés. </p>
 
 </div>
 </div>
@@ -207,12 +207,12 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Charge la musique. </p>
-<p>Charge un fichier de musique.</p>
+<p>Charge un fichier de musique. </p>
+<p>Cette fonction charge un fichier de musique spécifié et l'associe à un pointeur Mix_Music.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">music</td><td>Pointeur vers la musique à charger </td></tr>
-    <tr><td class="paramname">musicPath</td><td>Chemin de la musique à charger </td></tr>
+    <tr><td class="paramname">music</td><td>Un pointeur vers un pointeur Mix_Music où la musique chargée sera stockée. </td></tr>
+    <tr><td class="paramname">musicPath</td><td>Le chemin du fichier de musique à charger. </td></tr>
   </table>
   </dd>
 </dl>

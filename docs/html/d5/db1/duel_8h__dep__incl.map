@@ -2,11 +2,11 @@
 <area shape="rect" id="Node000001" title="Gestion des duels dans le style de &quot;ICmon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="772,5,885,31"/>
 <area shape="rect" id="Node000002" href="$da/d1d/interDuel_8h.html" title="Définition et gestion des combats entre équipes." alt="" coords="443,79,588,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="759,36,559,81,558,76,758,31"/>
-<area shape="rect" id="Node000015" href="$d5/d5e/save_8h.html" title="Save the player&#39;s data in a file." alt="" coords="612,79,728,104"/>
+<area shape="rect" id="Node000015" href="$d5/d5e/save_8h.html" title=" " alt="" coords="612,79,728,104"/>
 <area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="785,38,690,81,688,76,783,33"/>
 <area shape="rect" id="Node000017" href="$da/d71/structPoke_8h.html" title=" " alt="" coords="752,79,905,104"/>
 <area shape="poly" id="edge21_Node000001_Node000017" title=" " alt="" coords="823,44,824,78,819,79,817,45"/>
-<area shape="rect" id="Node000019" href="$df/d27/trainerAI_8h.html" title=" " alt="" coords="930,79,1071,104"/>
+<area shape="rect" id="Node000019" href="$df/d27/trainerAI_8h.html" title="Gestion de l&#39;IA des dresseurs." alt="" coords="930,79,1071,104"/>
 <area shape="poly" id="edge24_Node000001_Node000019" title=" " alt="" coords="863,34,967,76,965,81,861,39"/>
 <area shape="rect" id="Node000021" href="$d1/d18/duel_8c.html" title=" " alt="" coords="1096,79,1180,104"/>
 <area shape="poly" id="edge27_Node000001_Node000021" title=" " alt="" coords="892,31,1096,78,1095,83,891,36"/>
@@ -17,11 +17,11 @@
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="480,112,389,154,387,149,478,107"/>
 <area shape="rect" id="Node000014" href="$d6/da6/interDuel_8c.html" title=" " alt="" coords="472,152,588,177"/>
 <area shape="poly" id="edge17_Node000002_Node000014" title=" " alt="" coords="523,117,530,151,525,152,518,118"/>
-<area shape="rect" id="Node000004" href="$d0/dbb/Events_8h.html" title="Gestion des Events SDL." alt="" coords="5,225,135,251"/>
+<area shape="rect" id="Node000004" href="$d0/dbb/Events_8h.html" title="Gestion des événements SDL pour le jeu." alt="" coords="5,225,135,251"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="297,183,111,228,110,223,295,178"/>
 <area shape="rect" id="Node000006" href="$d3/d5f/Game_8h.html" title="Gestion des backgrounds, Initialisation de la structure globale." alt="" coords="159,225,283,251"/>
 <area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="322,185,238,227,236,223,320,181"/>
-<area shape="rect" id="Node000008" href="$d4/d62/NPC_8h.html" title=" " alt="" coords="307,225,419,251"/>
+<area shape="rect" id="Node000008" href="$d4/d62/NPC_8h.html" title="Gestion des PNJ (Personnages Non Joueurs)" alt="" coords="307,225,419,251"/>
 <area shape="poly" id="edge9_Node000003_Node000008" title=" " alt="" coords="366,191,366,225,361,225,361,191"/>
 <area shape="rect" id="Node000010" href="$d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="443,225,622,251"/>
 <area shape="poly" id="edge11_Node000003_Node000010" title=" " alt="" coords="397,181,499,223,497,228,395,185"/>

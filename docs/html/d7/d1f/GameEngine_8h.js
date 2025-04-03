@@ -21,7 +21,6 @@ var GameEngine_8h =
     [ "destroyResume", "d7/d1f/GameEngine_8h.html#a6463b9064f9e10f6685b361b0af24944", null ],
     [ "executeAction", "d7/d1f/GameEngine_8h.html#a0f30ad9309996b75a4472a6235a17bd1", null ],
     [ "finishApplyEffectDamage", "d7/d1f/GameEngine_8h.html#a92fe84f3bff1d7d0ea2beffea618654a", null ],
-    [ "initAllButtons", "d7/d1f/GameEngine_8h.html#ac7a261e0d935ffeeca4d7a0713913bd2", null ],
     [ "initLearningMove", "d7/d1f/GameEngine_8h.html#a9669132b31ee4c108472d7f46c3b3499", null ],
     [ "initResume", "d7/d1f/GameEngine_8h.html#a854b3713a6e5c8b4e55d139da8224b0d", null ],
     [ "initStarters", "d7/d1f/GameEngine_8h.html#a667dc19e127ad8fe1e34627f5ff7ceda", null ],
@@ -36,6 +35,7 @@ var GameEngine_8h =
     [ "updateBattleTurn", "d7/d1f/GameEngine_8h.html#aeffafb56f1266491593b4e3e0fd3fb28", null ],
     [ "updateCurrentButton", "d7/d1f/GameEngine_8h.html#aa35dc6fb12b09280f097e5781e5892e1", null ],
     [ "updateICButtons", "d7/d1f/GameEngine_8h.html#aa9e620870df635719d54d19fd83bb423", null ],
+    [ "updateICMonsButtonText", "d7/d1f/GameEngine_8h.html#a1f47fe2d88d488c18037561013cca5b9", null ],
     [ "updateMusic", "d7/d1f/GameEngine_8h.html#ae728be2d7ae42605618aa49e1a837466", null ],
     [ "validateStarterChoice", "d7/d1f/GameEngine_8h.html#a9a57cdd858098378939b21a57157252e", null ],
     [ "validateSwap", "d7/d1f/GameEngine_8h.html#a4f4fd64e6dbdcdcd83fd46f43c35d9bf", null ]

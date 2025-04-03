@@ -21,7 +21,6 @@ var Window_8h =
       [ "STARTERS", "d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea883a94174463c7de6eef745a4122c7d9", null ],
       [ "RESUME", "d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea401283aaa98a76b506f2198465bd7009", null ]
     ] ],
-    [ "destroyGame", "d3/ded/Window_8h.html#ab7c9ee132f977dd2efd33ab66509d650", null ],
     [ "initWindow", "d3/ded/Window_8h.html#ab072fc478679f5b8fb5ffae288d1e7f2", null ],
     [ "game", "d3/ded/Window_8h.html#ac6a5ed6191fcf3a5bf0445921feb4f48", null ]
 ];

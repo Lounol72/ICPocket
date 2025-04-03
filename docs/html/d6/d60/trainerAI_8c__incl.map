@@ -1,15 +1,15 @@
 <map id="src/trainerAI.c" name="src/trainerAI.c">
 <area shape="rect" id="Node000001" title=" " alt="" coords="237,5,349,31"/>
-<area shape="rect" id="Node000002" href="$df/d27/trainerAI_8h.html" title=" " alt="" coords="217,79,370,104"/>
+<area shape="rect" id="Node000002" href="$df/d27/trainerAI_8h.html" title="Gestion de l&#39;IA des dresseurs." alt="" coords="217,79,370,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="296,31,296,65,291,65,291,31"/>
 <area shape="rect" id="Node000003" href="$d6/d8e/duel_8h.html" title="Gestion des duels dans le style de &quot;ICmon&quot; : système de tour par tour avec 2 équipes opposées." alt="" coords="262,152,325,177"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="289,104,287,139,282,138,284,104"/>
 <area shape="poly" id="edge11_Node000003_Node000002" title=" " alt="" coords="298,152,299,118,305,118,303,152"/>
 <area shape="rect" id="Node000004" href="$da/d71/structPoke_8h.html" title=" " alt="" coords="82,225,185,251"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="263,179,166,222,164,217,261,174"/>
-<area shape="rect" id="Node000005" href="$dd/da3/structures_8h.html" title=" " alt="" coords="128,299,227,324"/>
+<area shape="rect" id="Node000005" href="$dd/da3/structures_8h.html" title="Définition des structures de données utilisées dans le jeu." alt="" coords="128,299,227,324"/>
 <area shape="poly" id="edge10_Node000003_Node000005" title=" " alt="" coords="286,179,197,290,193,286,282,176"/>
-<area shape="rect" id="Node000010" href="$d5/d5e/save_8h.html" title="Save the player&#39;s data in a file." alt="" coords="261,225,326,251"/>
+<area shape="rect" id="Node000010" href="$d5/d5e/save_8h.html" title=" " alt="" coords="261,225,326,251"/>
 <area shape="poly" id="edge12_Node000003_Node000010" title=" " alt="" coords="289,178,287,212,282,212,284,178"/>
 <area shape="rect" id="Node000011" href="$da/d1d/interDuel_8h.html" title="Définition et gestion des combats entre équipes." alt="" coords="350,225,445,251"/>
 <area shape="poly" id="edge14_Node000003_Node000011" title=" " alt="" coords="305,175,363,216,360,220,302,180"/>

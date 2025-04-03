@@ -128,13 +128,16 @@ $(document).ready(function(){initNavTree('da/d41/Images_8h.html','../../'); init
   <div class="headertitle"><div class="title">Référence du fichier Images.h</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Gestion des images et du texte associé.  
+<a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d6/d35/Text_8h_source.html">Text.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de Images.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d0/dc2/Images_8h__incl.png" border="0" usemap="#ainclude_2Images_8h" alt=""/></div>
 <map name="ainclude_2Images_8h" id="ainclude_2Images_8h">
-<area shape="rect" title=" " alt="" coords="117,5,251,31"/>
+<area shape="rect" title="Gestion des images et du texte associé." alt="" coords="117,5,251,31"/>
 <area shape="rect" href="../../d6/d35/Text_8h.html" title="Définition et gestion des éléments de texte." alt="" coords="153,79,215,104"/>
 <area shape="poly" title=" " alt="" coords="187,31,187,65,181,65,181,31"/>
 <area shape="rect" title=" " alt="" coords="5,152,101,177"/>
@@ -150,16 +153,16 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <div class="dyncontent">
 <div class="center"><img src="../../df/dbf/Images_8h__dep__incl.png" border="0" usemap="#ainclude_2Images_8hdep" alt=""/></div>
 <map name="ainclude_2Images_8hdep" id="ainclude_2Images_8hdep">
-<area shape="rect" title=" " alt="" coords="377,5,510,31"/>
+<area shape="rect" title="Gestion des images et du texte associé." alt="" coords="377,5,510,31"/>
 <area shape="rect" href="../../d7/d1f/GameEngine_8h.html" title="Définition et gestion du moteur de jeu." alt="" coords="279,79,447,104"/>
 <area shape="poly" title=" " alt="" coords="422,42,378,80,375,76,419,38"/>
 <area shape="rect" href="../../da/d3f/Images_8c.html" title=" " alt="" coords="471,79,575,104"/>
 <area shape="poly" title=" " alt="" coords="468,38,512,76,508,80,464,42"/>
-<area shape="rect" href="../../d0/dbb/Events_8h.html" title="Gestion des Events SDL." alt="" coords="5,152,135,177"/>
+<area shape="rect" href="../../d0/dbb/Events_8h.html" title="Gestion des événements SDL pour le jeu." alt="" coords="5,152,135,177"/>
 <area shape="poly" title=" " alt="" coords="297,110,111,154,110,149,295,104"/>
 <area shape="rect" href="../../d3/d5f/Game_8h.html" title="Gestion des backgrounds, Initialisation de la structure globale." alt="" coords="159,152,283,177"/>
 <area shape="poly" title=" " alt="" coords="322,112,238,154,236,149,320,107"/>
-<area shape="rect" href="../../d4/d62/NPC_8h.html" title=" " alt="" coords="307,152,419,177"/>
+<area shape="rect" href="../../d4/d62/NPC_8h.html" title="Gestion des PNJ (Personnages Non Joueurs)" alt="" coords="307,152,419,177"/>
 <area shape="poly" title=" " alt="" coords="366,118,366,152,361,152,361,118"/>
 <area shape="rect" href="../../d2/d98/RenderICMons_8h.html" title="Définition et gestion du rendu des ICMons." alt="" coords="443,152,622,177"/>
 <area shape="poly" title=" " alt="" coords="397,107,499,149,497,154,395,112"/>
@@ -186,20 +189,29 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d58/structImage.html">Image</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente une image avec un texte associé.  <a href="../../db/d58/structImage.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:adf9eb4c7f93c97d8e8f040ce92872e69" id="r_adf9eb4c7f93c97d8e8f040ce92872e69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d58/structImage.html">Image</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d41/Images_8h.html#adf9eb4c7f93c97d8e8f040ce92872e69">initImage</a> (struct <a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, const char *imagePath, SDL_Rect rect, const char *text, SDL_Rect textRect, TTF_Font *font)</td></tr>
+<tr class="memdesc:adf9eb4c7f93c97d8e8f040ce92872e69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise une image avec un texte associé.  <br /></td></tr>
 <tr class="separator:adf9eb4c7f93c97d8e8f040ce92872e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afac650c01cf1fdc985e41e1979d563f4" id="r_afac650c01cf1fdc985e41e1979d563f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d41/Images_8h.html#afac650c01cf1fdc985e41e1979d563f4">destroyImage</a> (<a class="el" href="../../db/d58/structImage.html">Image</a> *image)</td></tr>
+<tr class="memdesc:afac650c01cf1fdc985e41e1979d563f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une image.  <br /></td></tr>
 <tr class="separator:afac650c01cf1fdc985e41e1979d563f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9983bda4bc424607051df6eabf79e9d6" id="r_a9983bda4bc424607051df6eabf79e9d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d41/Images_8h.html#a9983bda4bc424607051df6eabf79e9d6">renderImage</a> (struct <a class="el" href="../../d6/d08/structWindow.html">Window</a> *win, <a class="el" href="../../db/d58/structImage.html">Image</a> *image)</td></tr>
+<tr class="memdesc:a9983bda4bc424607051df6eabf79e9d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rend une image avec son texte associé.  <br /></td></tr>
 <tr class="separator:a9983bda4bc424607051df6eabf79e9d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7d910d3fb0663d2d19cbb1423fe09d1" id="r_af7d910d3fb0663d2d19cbb1423fe09d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d41/Images_8h.html#af7d910d3fb0663d2d19cbb1423fe09d1">updateImageSize</a> (<a class="el" href="../../db/d58/structImage.html">Image</a> *image, float scaleX, float scaleY)</td></tr>
+<tr class="memdesc:af7d910d3fb0663d2d19cbb1423fe09d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">met à jour la taille d'une image.  <br /></td></tr>
 <tr class="separator:af7d910d3fb0663d2d19cbb1423fe09d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des fonctions</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Gestion des images et du texte associé. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Louis Alban </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>17/02/2025 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="afac650c01cf1fdc985e41e1979d563f4" name="afac650c01cf1fdc985e41e1979d563f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afac650c01cf1fdc985e41e1979d563f4">&#9670;&#160;</a></span>destroyImage()</h2>
 
@@ -215,6 +227,15 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Détruit une image. </p>
+<p>Cette fonction libère la mémoire associée à une image et à son texte.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Pointeur vers l'objet <a class="el" href="../../db/d58/structImage.html" title="Représente une image avec un texte associé.">Image</a> à détruire. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -268,6 +289,21 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialise une image avec un texte associé. </p>
+<p>Cette fonction charge une image à partir d'un fichier et crée un objet <a class="el" href="../../db/d58/structImage.html" title="Représente une image avec un texte associé.">Image</a> avec le texte associé.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Pointeur vers la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> contenant l'état du jeu. </td></tr>
+    <tr><td class="paramname">imagePath</td><td>Chemin du fichier image à charger. </td></tr>
+    <tr><td class="paramname">rect</td><td>Rectangle définissant la position et la taille de l'image. </td></tr>
+    <tr><td class="paramname">text</td><td>Le texte à afficher sur l'image. </td></tr>
+    <tr><td class="paramname">textRect</td><td>Rectangle définissant la position et la taille du texte. </td></tr>
+    <tr><td class="paramname">font</td><td>La police utilisée pour dessiner le texte. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un pointeur vers l'objet <a class="el" href="../../db/d58/structImage.html" title="Représente une image avec un texte associé.">Image</a> créé. </dd></dl>
+
 </div>
 </div>
 <a id="a9983bda4bc424607051df6eabf79e9d6" name="a9983bda4bc424607051df6eabf79e9d6"></a>
@@ -295,6 +331,16 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Rend une image avec son texte associé. </p>
+<p>Cette fonction dessine l'image et le texte sur la fenêtre spécifiée.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Pointeur vers la structure <a class="el" href="../../d6/d08/structWindow.html" title="Représente la fenêtre principale de l&#39;application.">Window</a> contenant l'état du jeu. </td></tr>
+    <tr><td class="paramname">image</td><td>Pointeur vers l'objet <a class="el" href="../../db/d58/structImage.html" title="Représente une image avec un texte associé.">Image</a> à rendre. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -329,6 +375,16 @@ Fonctions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>met à jour la taille d'une image. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Pointeur vers l'objet <a class="el" href="../../db/d58/structImage.html" title="Représente une image avec un texte associé.">Image</a> à mettre à jour. </td></tr>
+    <tr><td class="paramname">scaleX</td><td>dimension de l'image sur l'axe X </td></tr>
+    <tr><td class="paramname">scaleY</td><td>dimension de l'image sur l'axe Y </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

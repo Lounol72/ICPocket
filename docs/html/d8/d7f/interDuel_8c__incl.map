@@ -7,11 +7,11 @@
 <area shape="poly" id="edge15_Node000003_Node000002" title=" " alt="" coords="310,152,311,118,317,118,315,152"/>
 <area shape="rect" id="Node000004" href="$da/d71/structPoke_8h.html" title=" " alt="" coords="82,225,185,251"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="275,179,168,222,166,217,273,174"/>
-<area shape="rect" id="Node000005" href="$dd/da3/structures_8h.html" title=" " alt="" coords="128,299,227,324"/>
+<area shape="rect" id="Node000005" href="$dd/da3/structures_8h.html" title="Définition des structures de données utilisées dans le jeu." alt="" coords="128,299,227,324"/>
 <area shape="poly" id="edge10_Node000003_Node000005" title=" " alt="" coords="296,179,250,227,197,289,193,286,246,224,292,176"/>
-<area shape="rect" id="Node000010" href="$df/d27/trainerAI_8h.html" title=" " alt="" coords="260,225,351,251"/>
+<area shape="rect" id="Node000010" href="$df/d27/trainerAI_8h.html" title="Gestion de l&#39;IA des dresseurs." alt="" coords="260,225,351,251"/>
 <area shape="poly" id="edge11_Node000003_Node000010" title=" " alt="" coords="301,178,299,212,294,212,296,178"/>
-<area shape="rect" id="Node000011" href="$d5/d5e/save_8h.html" title="Save the player&#39;s data in a file." alt="" coords="375,225,441,251"/>
+<area shape="rect" id="Node000011" href="$d5/d5e/save_8h.html" title=" " alt="" coords="375,225,441,251"/>
 <area shape="poly" id="edge13_Node000003_Node000011" title=" " alt="" coords="317,175,374,216,371,220,313,180"/>
 <area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="167,223,271,180,273,185,169,228"/>
 <area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="143,250,165,286,161,288,138,252"/>

@@ -138,7 +138,7 @@ Graphe de collaboration de IMG_ICMons:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dd/dd9/structIMG__ICMons__coll__graph.png" border="0" usemap="#aIMG__ICMons_coll__map" alt="Collaboration graph"/></div>
 <map name="aIMG__ICMons_coll__map" id="aIMG__ICMons_coll__map">
-<area shape="rect" title="Représente un sprite ICMons dans l&#39;application." alt="" coords="5,288,152,593"/>
+<area shape="rect" title="Représente un sprite ICMons dans l&#39;application." alt="" coords="5,288,152,553"/>
 <area shape="rect" href="../../d2/dda/structText.html" title="Représente un élément de texte dans l&#39;application." alt="" coords="27,5,130,211"/>
 <area shape="poly" title=" " alt="" coords="81,211,81,271,76,271,76,211"/>
 </map>
@@ -176,10 +176,18 @@ Attributs publics</h2></td></tr>
 <tr class="separator:a6ae164e8baad59442d65fd29d087e1e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2686bcf03f4286886383b8cd5f33415b" id="r_a2686bcf03f4286886383b8cd5f33415b"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1a/structIMG__ICMons.html#a2686bcf03f4286886383b8cd5f33415b">nameInitialRect</a></td></tr>
 <tr class="separator:a2686bcf03f4286886383b8cd5f33415b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97947bd8c8d467248c383e926e53c785" id="r_a97947bd8c8d467248c383e926e53c785"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1a/structIMG__ICMons.html#a97947bd8c8d467248c383e926e53c785">entranceProgress</a></td></tr>
+<tr class="separator:a97947bd8c8d467248c383e926e53c785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a038c00499ace2436e24c1f6367016d8d" id="r_a038c00499ace2436e24c1f6367016d8d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1a/structIMG__ICMons.html#a038c00499ace2436e24c1f6367016d8d">isEntranceAnimating</a></td></tr>
+<tr class="separator:a038c00499ace2436e24c1f6367016d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadec4f715ce7d1b6fb4d305254629053" id="r_aadec4f715ce7d1b6fb4d305254629053"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1a/structIMG__ICMons.html#aadec4f715ce7d1b6fb4d305254629053">isFromRight</a></td></tr>
+<tr class="separator:aadec4f715ce7d1b6fb4d305254629053"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Représente un sprite ICMons dans l'application. </p>
-<p>Cette structure contient des informations sur un sprite ICMons, y compris ses textures, sa position et les éléments de texte associés. </p>
+<p>Représente un sprite d'un ICMon.</p>
+<p>Cette structure contient des informations sur un sprite ICMons, y compris ses textures, sa position et les éléments de texte associés.</p>
+<p>Cette structure contient des informations sur le sprite, la barre de vie, le nom et les sons associés à un ICMon. </p>
 </div><h2 class="groupheader">Documentation des données membres</h2>
 <a id="ab0a6b034b9d690faf5f190d50d929df4" name="ab0a6b034b9d690faf5f190d50d929df4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab0a6b034b9d690faf5f190d50d929df4">&#9670;&#160;</a></span>currentHPWidth</h2>
@@ -193,6 +201,20 @@ Attributs publics</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Pourcentage de vie de l'ICMons. </p>
+
+</div>
+</div>
+<a id="a97947bd8c8d467248c383e926e53c785" name="a97947bd8c8d467248c383e926e53c785"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97947bd8c8d467248c383e926e53c785">&#9670;&#160;</a></span>entranceProgress</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float IMG_ICMons::entranceProgress</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -238,6 +260,34 @@ Attributs publics</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Rectangle initial pour les besoins de mise à l'échelle. </p>
+
+</div>
+</div>
+<a id="a038c00499ace2436e24c1f6367016d8d" name="a038c00499ace2436e24c1f6367016d8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a038c00499ace2436e24c1f6367016d8d">&#9670;&#160;</a></span>isEntranceAnimating</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int IMG_ICMons::isEntranceAnimating</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aadec4f715ce7d1b6fb4d305254629053" name="aadec4f715ce7d1b6fb4d305254629053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadec4f715ce7d1b6fb4d305254629053">&#9670;&#160;</a></span>isFromRight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int IMG_ICMons::isFromRight</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
