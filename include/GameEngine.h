@@ -126,7 +126,7 @@ typedef struct Game {
     int startersIndex;        /**< Index des starters. */
     Image **touche;         /**< Images des touches. */
     ScrollingText *scrollingTextIntro;  /**< Texte défilant d'introduction. */
-    bool isInDuel;
+    bool isInDuel;                      /**< Indicateur de duel. */
 } Game;
 
 #include "Game.h"

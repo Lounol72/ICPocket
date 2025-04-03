@@ -815,20 +815,30 @@ void startBattleTurn(int moveRouge, int moveBleu) {
     game.battleState.turnState = TURN_INIT;
 }
 
-static inline void endBattleTurn(){
+/**
+ * @fn void endBattleTurn();
+ * @brief Termine le tour de combat et met à jour l'affichage.
+ *
+ * Cette fonction met à jour les boutons d'attaque et gère les échanges de Pokémon
+ * en cas de perte d'un Pokémon. Elle nettoie le texte défilant et met à jour l'état
+ */
+
+static void endBattleTurn() {
     updateICButtons(game.win, &game.battleState.rouge);
     if(!isAlive(&game.battleState.rouge.team[0]) && isTeamAlive(&game.battleState.rouge)) changeState(game.win, &game.stateHandlers[ICMONS].state);
     if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {
         int nb_valide = 0;
         int liste_valide[game.battleState.bleu.nb_poke];
-        for (int i = 0; i < game.battleState.bleu.nb_poke; i++) if (isAlive(&game.battleState.bleu.team[i])) liste_valide[nb_valide++] = i + 10;
+        for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+            if (isAlive(&game.battleState.bleu.team[i]))
+                liste_valide[nb_valide++] = i + 10;
+        }
         int x = rand() % nb_valide;
         swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
     }
     if(!isAlive(&game.battleState.bleu.team[0]) &&  !isTeamAlive(&game.battleState.bleu)) changeState(game.win, &game.stateHandlers[INTER].state);
     destroyScrollingText(game.battleState.text);
     game.battleState.text = NULL;
-    
     game.battleState.turnState = TURN_NONE;
 }
 
@@ -977,12 +987,20 @@ void updateBattleTurn() {
         }
         case TURN_FINISHED: {
             // Le tour est terminé
-            if (game.battleState.hasAttacked == false){finishApplyEffectDamage();game.battleState.hasAttacked = true;}
+            if (game.battleState.hasAttacked == false)
+            {finishApplyEffectDamage();game.battleState.hasAttacked = true;}
 
-            for (int i = 0; i < game.battleState.bleu.nb_poke; i++) updateICMonText(&game.battleState.bleu.team[i]);
-            for (int i = 0; i < game.battleState.rouge.nb_poke; i++) updateICMonText(&game.battleState.rouge.team[i]);
-            if(lvl_up_buffer_size!=0 && game.gameState.currentState != LEARNMOVE) initLearningMove();
+            for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+                updateICMonText(&game.battleState.bleu.team[i]);
+            }
+            for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
+                updateICMonText(&game.battleState.rouge.team[i]);
+            }
+            if(lvl_up_buffer_size!=0 && game.gameState.currentState != LEARNMOVE) {
+                initLearningMove();
+            }
             else if (lvl_up_buffer_size==0  && game.battleState.text->isComplete) endBattleTurn();
+            
             break;
         }
         case TURN_NONE:

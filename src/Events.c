@@ -369,9 +369,9 @@ void handleGameEvent(Window *win, SDL_Event *event) {
         game.gameState.playerTurn = 0;
         AppState newState = isTeamAlive(&game.battleState.rouge) ? INTER : QUIT;
         if (newState == QUIT) saveDestroy(&game.battleState.rouge);
-        changeState(win, &game.stateHandlers[newState].state);
-        game.isInDuel = false;
-        return;
+        win->state = newState;
+        game.gameState.currentState = newState;
+        //game.isInDuel = false;
     }
 
     if (!game.gameState.playerTurn && isTeamAlive(&game.battleState.rouge) && isTeamAlive(&game.battleState.bleu)) {
@@ -384,7 +384,7 @@ void handleGameEvent(Window *win, SDL_Event *event) {
     }
     if (game.battleState.turnState != TURN_NONE) return;
     if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
-        changeState(win, &game.stateHandlers[2].state);
+        changeState(win, &game.stateHandlers[SETTINGS].state);
     }
     else if (event->type == SDL_MOUSEBUTTONDOWN && event->button.button == SDL_BUTTON_LEFT) {
         int x, y;
@@ -670,17 +670,3 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
         game.gameData.player->interpolationTime = 0.0f;
     }
 }
-
-void handleBattleIntroEvent(Window *win, SDL_Event *event){
-    if (game.scrollingTextIntro->isComplete) {
-        changeState(win, &game.stateHandlers[GAME].state);
-        return;
-    }
-    
-    updateScrollingText(game.scrollingTextIntro, win->renderer);
-    if (event->type == SDL_KEYDOWN && event->key.keysym.sym == SDLK_ESCAPE) {
-        changeState(win, &game.stateHandlers[2].state);
-    }
-    handleEvent(win, event);
-}
-

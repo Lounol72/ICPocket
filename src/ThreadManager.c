@@ -91,24 +91,24 @@ int handleMapTransition(int mapId, Player *player, Camera *camera, SDL_Renderer 
     int x = player->matrixX;
     int y = player->matrixY;
     int i = 1;
-    while (x == player->matrixX && y == player->matrixY) {
+    while ((x == player->matrixX && y == player->matrixY) && currentMap->mat[y][x] > 0) {
         if (x+i < currentMap->taille[0] ) {
-            if (currentMap->mat[y][x+i] == 0) {
+            if (currentMap->mat[y][x+i] <= 0) {
                 x += i;
             }
         }
         if (x-i >= 0) {
-            if (currentMap->mat[y][x-i] == 0) {
+            if (currentMap->mat[y][x-i] <= 0) {
                 x -= i;
             }
         }
         if (y+i < currentMap->taille[1]) {
-            if (currentMap->mat[y+i][x] == 0) {
+            if (currentMap->mat[y+i][x] <= 0) {
                 y += i;
             }
         }
         if (y-i >= 0) {
-            if (currentMap->mat[y-i][x] == 0) {
+            if (currentMap->mat[y-i][x] <= 0) {
                 y -= i;
             }
         }
