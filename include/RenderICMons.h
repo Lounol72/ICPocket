@@ -44,6 +44,7 @@ typedef struct IMG_ICMons {
 } IMG_ICMons;
 
 /**
+ * @fn IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rect nameRect, SDL_Rect pvRect, t_Poke *poke, TTF_Font *font, int team)
  * @brief Initialise un sprite ICMons.
  * 
  * Cette fonction initialise un sprite ICMons avec les paramètres spécifiés.
@@ -60,6 +61,7 @@ typedef struct IMG_ICMons {
 IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rect nameRect, SDL_Rect pvRect, t_Poke *poke, TTF_Font *font, int team);
 
 /**
+ * @fn void updateICMonsSprite(IMG_ICMons *icmons, float scaleX, float scaleY)
  * @brief Met à jour la position et la taille d'un sprite ICMons.
  * 
  * Cette fonction met à jour la position et la taille d'un sprite ICMons en fonction des facteurs de mise à l'échelle donnés.
@@ -71,6 +73,7 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
 void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
 
 /**
+ * @fn void renderICMonsSprite(Window *win, t_Poke *poke)
  * @brief Rend un sprite ICMons.
  * 
  * Cette fonction rend le sprite ICMons spécifié à l'écran.
@@ -81,6 +84,7 @@ void updateICMonsSprite(t_Poke *poke, float scaleX, float scaleY);
 void renderICMonsSprite(Window *win, t_Poke *poke);
 
 /**
+ * @fn void updateICMonText(t_Poke *poke)
  * @brief Met à jour le texte des ICMons.
  * 
  * Cette fonction met à jour le texte des ICMons en fonction des paramètres donnés.
@@ -90,6 +94,7 @@ void renderICMonsSprite(Window *win, t_Poke *poke);
 void updateICMonText(t_Poke *poke);
 
 /**
+ * @fn void destroyICMonsSprite(t_Poke *poke)
  * @brief Détruit un sprite ICMons.
  * 
  * Cette fonction libère les ressources associées au sprite ICMons spécifié.

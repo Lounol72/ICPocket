@@ -25,6 +25,7 @@
 #include <SDL2/SDL_mixer.h>
 
 /**
+ * @fn void initAudio()
  * @brief Initialise le système audio.
  * 
  * Cette fonction initialise le système audio en configurant SDL_mixer avec les paramètres appropriés.
@@ -32,6 +33,7 @@
 void initAudio();
 
 /**
+ * @fn void loadMusic(Mix_Music **music, const char *musicPath)
  * @brief Charge un fichier de musique.
  * 
  * Cette fonction charge un fichier de musique spécifié et l'associe à un pointeur Mix_Music.

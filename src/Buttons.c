@@ -1,9 +1,27 @@
 #include "../include/Buttons.h"
 #include <stdlib.h>
 
+/**
+ * @file Buttons.h
+ * @brief Gestion des boutons et curseurs pour l'application.
+ *
+ * Ce fichier contient les définitions et les fonctions nécessaires pour créer, gérer et rendre les boutons et curseurs dans l'application SDL.
+ *
+ * @author Alban Louis
+ * @date 27/12/2024
+ */
 
-
-
+/**
+ * @fn static void Scaling(const char *text, TTF_Font *font, SDL_Rect *rect, const SDL_Rect *initialRect)
+ * @brief Met à l'échelle le texte pour qu'il s'adapte au rectangle spécifié.
+ * 
+ * Cette fonction calcule l'échelle du texte en fonction de la taille du rectangle initial et ajuste la position et la taille du rectangle de texte.
+ * 
+ * @param text Le texte à afficher.
+ * @param font La police utilisée pour le texte.
+ * @param rect Le rectangle dans lequel le texte sera affiché.
+ * @param initialRect Le rectangle initial pour le texte.
+ */
 static void Scaling(const char *text, TTF_Font *font, SDL_Rect *rect, const SDL_Rect *initialRect) {
     if (!text || !font || !rect || !initialRect) return;
 
@@ -28,6 +46,13 @@ static void Scaling(const char *text, TTF_Font *font, SDL_Rect *rect, const SDL_
     return;
 }
 
+/**
+ * @fn static bool createTextTexture(Button *button)
+ * @brief Crée une texture de texte pour le bouton.
+ *
+ * @param button Le bouton pour lequel créer la texture de texte.
+ * @return true si la création de la texture a réussi, false sinon.
+ */
 static bool createTextTexture(Button *button) {
     SDL_Surface *textSurface = TTF_RenderText_Solid(button->font, 
         button->text && button->text[0] ? button->text : " ", button->textcolor);
@@ -46,6 +71,14 @@ static bool createTextTexture(Button *button) {
     return true;
 }
 
+/**
+ * @fn static bool createButtonTexture(Button *button, const char *imagePath)
+ * @brief Crée une texture pour le bouton à partir d'une image.
+ *
+ * @param button Le bouton pour lequel créer la texture.
+ * @param imagePath Le chemin de l'image à utiliser pour la texture.
+ * @return true si la création de la texture a réussi, false sinon.
+ */
 static bool createButtonTexture(Button *button, const char *imagePath) {
     
     SDL_Surface *surface = IMG_Load(imagePath);
@@ -77,6 +110,14 @@ static bool createButtonTexture(Button *button, const char *imagePath) {
     return true;
 }
 
+/**
+ * @fn static bool createSelectedTexture(Button *button, const char *imagePath)
+ * @brief Crée une texture pour le bouton sélectionné à partir d'une image.
+ *
+ * @param button Le bouton pour lequel créer la texture sélectionnée.
+ * @param imagePath Le chemin de l'image à utiliser pour la texture sélectionnée.
+ * @return true si la création de la texture a réussi, false sinon.
+ */
 static bool createSelectedTexture(Button *button, const char *imagePath) {
     SDL_Surface *surface = IMG_Load(imagePath);
     if (!surface) {
@@ -93,6 +134,13 @@ static bool createSelectedTexture(Button *button, const char *imagePath) {
     }
     return true;
 }
+
+/**
+ * @fn static void destroyButton(Button *button)
+ * @brief Détruit un bouton et libère la mémoire associée.
+ *
+ * @param button Le bouton à détruire.
+ */
 static void destroyButton(Button *button) {
     if (!button) return;
 
@@ -114,7 +162,22 @@ static void destroyButton(Button *button) {
     return;
 }
 
-
+/**
+ * @fn Button *createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SDL_Color textcolor,
+ *                         void (*onClick)(Window *win, void *data), void *data, TTF_Font *font, const char *imagePath)
+ * @brief Crée et retourne un nouvel objet Button.
+ *
+ * @param text Le texte affiché sur le bouton.
+ * @param win La fenêtre où le bouton apparaîtra.
+ * @param rect La position du bouton.
+ * @param color La couleur de fond du bouton.
+ * @param textcolor La couleur du texte du bouton.
+ * @param onClick La fonction de rappel appelée lors du clic sur le bouton.
+ * @param data Les données utilisateur passées à la fonction de rappel.
+ * @param font La police utilisée pour dessiner le texte du bouton.
+ * @param imagePath Chemin du fichier image pour le bouton.
+ * @return Un pointeur vers le nouvel objet Button créé.
+ */
 Button *createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SDL_Color textcolor, void (*onClick)(Window *, void *), void *data, TTF_Font *font, const char *imagePath){
     Button *button = calloc(1, sizeof(Button));
     if (!button) {
@@ -149,6 +212,14 @@ Button *createButton(char *text, Window *win, SDL_Rect rect, SDL_Color color, SD
     return button;
 }
 
+/**
+ * @fn void addListButton(ButtonList *list, Button **buttons, int count)
+ * @brief Ajoute une liste de boutons à la liste de boutons.
+ *
+ * @param list Pointeur vers la structure qui accumule les états des boutons.
+ * @param buttons Pointeur vers le tableau d'informations des boutons à traiter.
+ * @param count Nombre de boutons dans le tableau fourni....
+ */
 void addListButton(ButtonList *list, Button **buttons, int count) {
     if (list->buttons) {
         for (int i = 0; i < list->size; i++) destroyButton(list->buttons[i]);
@@ -163,7 +234,12 @@ void addListButton(ButtonList *list, Button **buttons, int count) {
     list->size = count;
 }
 
-
+/**
+ * @fn void destroyButtonList(ButtonList *list)
+ * @brief Détruit la liste de boutons.
+ *
+ * @param list Pointeur vers la liste de boutons à détruire.
+ */
 void destroyButtonList(ButtonList *list) {
     if (list->buttons) {
         for (int i = 0; i < list->size; i++) {
@@ -181,12 +257,25 @@ void destroyButtonList(ButtonList *list) {
 //----------------------------------------------------------------------------------------
 
 // Rendering functions
+
+/**
+ * @fn static void renderButton(Button *button)
+ * @brief Rend un bouton.
+ *
+ * @param button Pointeur vers le bouton à rendre.
+ */
 static void renderButton(Button *button) {
     if (!button) return;
     if (button->texture) SDL_RenderCopy(button->renderer, button->texture, NULL, &button->rect);
     if (button->textTexture)SDL_RenderCopy(button->renderer, button->textTexture, NULL, &button->textRect);
 }
 
+/**
+ * @fn void renderButtonList(ButtonList *B)
+ * @brief Rend la liste de boutons.
+ *
+ * @param B Pointeur vers la liste de boutons à rendre.
+ */
 void renderButtonList(ButtonList *B)
 {
     if (!B) return;
@@ -202,14 +291,30 @@ void renderButtonList(ButtonList *B)
 
 // Button handling functions
 
-
+/**
+ * @fn void ButtonClicked(Button *button, int mouseX, int mouseY, Window *win)
+ * @brief Gère l'interaction avec le bouton en fonction de la position actuelle de la souris et du contexte de la fenêtre.
+ *
+ * @param button Pointeur vers le bouton avec lequel interagir.
+ * @param mouseX La coordonnée x du pointeur de la souris.
+ * @param mouseY La coordonnée y du pointeur de la souris.
+ * @param win La fenêtre ou le contexte graphique dans lequel l'interaction se produit.
+ * @return Un statut ou un booléen indiquant si l'interaction a été traitée avec succès.
+ */
 void ButtonClicked(Button *button, int mouseX, int mouseY, Window *win) {
     if (button && (SDL_PointInRect(&(SDL_Point){mouseX, mouseY}, &button->rect)|| (mouseX == -1 && mouseY == -1) )&& button->onClick) {
         button->onClick(win, button->data);
     }
 }
 
-
+/**
+ * @fn uptadeButtonPosition(ButtonList *buttons, float Scalex, float Scaley)
+ * @brief Met à jour les états des boutons et applique des facteurs de mise à l'échelle aux éléments de l'interface utilisateur.
+ *
+ * @param buttons Structure ou collection représentant les boutons à gérer ou à mettre à jour.
+ * @param Scalex Le facteur de mise à l'échelle horizontal à appliquer.
+ * @param Scaley Le facteur de mise à l'échelle vertical à appliquer.
+ */
 void updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley)
 {
     for (int i = 0; i < buttons->size; i++)
@@ -230,6 +335,14 @@ void updateButtonPosition(ButtonList *buttons, float Scalex, float Scaley)
     }
 }
 
+/**
+ * @fn void setButtonText(Button *button, const char *text, SDL_Renderer *renderer)
+ * @brief Définit le texte d'un bouton.
+ *
+ * @param button Le bouton à modifier.
+ * @param text Le texte à afficher sur le bouton.
+ * @param renderer Le renderer à utiliser pour dessiner le bouton.
+ */
 void setButtonText(Button *button, const char *text, SDL_Renderer *renderer) {
     if (!button || !text || !renderer) {
         SDL_Log("❌ Erreur : Paramètre NULL dans setButtonText");
@@ -267,7 +380,22 @@ void setButtonText(Button *button, const char *text, SDL_Renderer *renderer) {
 //-----------------------------------------------
 
 // Slider functions
-
+/**
+ * @fn Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Color color,
+ *                         SDL_Color cursorColor)
+ * @brief Crée un objet Slider.
+ *
+ * Cette fonction initialise un nouvel objet Slider avec les paramètres spécifiés.
+ *
+ * @param renderer Le SDL_Renderer à utiliser pour le rendu du curseur.
+ * @param x La coordonnée x de la position du curseur.
+ * @param y La coordonnée y de la position du curseur.
+ * @param w La largeur du curseur.
+ * @param h La hauteur du curseur.
+ * @param color La couleur du curseur.
+ * @param cursorColor La couleur du curseur.
+ * @return Slider* Un pointeur vers le nouvel objet Slider créé.
+ */
 Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Color color, SDL_Color cursorColor) {
     Slider *slider = malloc(sizeof(Slider));
     if (!slider) {
@@ -308,7 +436,12 @@ Slider *createSlider(SDL_Renderer *renderer, int x, int y, int w, int h, SDL_Col
     return slider;
 }
 
-
+/**
+ * @fn void destroySlider(Slider *slider)
+ * @brief Détruit un curseur.
+ *
+ * @param slider Pointeur vers le curseur à détruire.
+ */
 void destroySlider(Slider *slider) {
     if (slider) {
         if (slider->textureBar) SDL_DestroyTexture(slider->textureBar);
@@ -317,6 +450,12 @@ void destroySlider(Slider *slider) {
     }
 }
 
+/**
+ * @fn void destroySliderList(SliderList *list)
+ * @brief Détruit la liste de curseurs.
+ *
+ * @param list Pointeur vers la liste de curseurs à détruire.
+ */
 void destroySliderList(SliderList *list) {
     if (list->sliders) {
         for (int i = 0; i < list->size; i++) {
@@ -328,6 +467,14 @@ void destroySliderList(SliderList *list) {
     list->size = 0;
 }
 
+/**
+ * @fn void addListSlider(SliderList *S, Slider *sliders[], int size)
+ * @brief Ajoute une liste de curseurs à la liste de curseurs.
+ *
+ * @param S Pointeur vers la structure contenant les curseurs à ajouter.
+ * @param sliders Tableau de curseurs à ajouter.
+ * @param size Nombre de curseurs dans le tableau.
+ */
 void addListSlider(SliderList *S, Slider *sliders[], int size) {
     if (!S || !sliders) return;
     Slider **newSliders = (Slider **)realloc(S->sliders, (S->size + size) * sizeof(Slider *));
@@ -337,12 +484,24 @@ void addListSlider(SliderList *S, Slider *sliders[], int size) {
     S->size += size;
 }
 
+/**
+ * @fn void renderSliderList(SliderList *S)
+ * @brief Rend la liste de curseurs.
+ *
+ * @param S Pointeur vers la liste de curseurs à rendre.
+ */
 void renderSliderList(SliderList *S) {
     if (!S) return;
     for (int i = 0; i < S->size; i++)
         renderSlider(S->sliders[i]);
 }
 
+/**
+ * @fn void renderSlider(Slider *slider)
+ * @brief Rend un curseur.
+ *
+ * @param slider Pointeur vers le curseur à rendre.
+ */
 void renderSlider(Slider *slider) {
     if (!slider) return;
     if (slider->textureBar && slider->textureCursor) {
@@ -365,9 +524,18 @@ void renderSlider(Slider *slider) {
     }
 }
 
-
 static inline float clampf(float v, float min, float max) {return (v < min) ? min : (v > max ? max : v);} //
 
+/**
+ * @fn int handleSliderEvent(Slider *slider, SDL_Event *event)
+ * @brief Gère l'événement de curseur.
+ *
+ * Cette fonction traite l'événement de curseur en fonction du curseur et des coordonnées donnés.
+ *
+ * @param slider Le curseur associé à l'événement.
+ * @param event L'événement SDL.
+ * @return int Retourne 0 en cas de succès, ou un code d'erreur en cas d'échec.
+ */
 int handleSliderEvent(Slider *slider, SDL_Event *event) {
     if (!slider)
         return 0;
@@ -399,6 +567,14 @@ int handleSliderEvent(Slider *slider, SDL_Event *event) {
     return 1;
 }
 
+/**
+ * @fn void updateSliderPosition(SliderList *sliders, float Scalex, float Scaley)
+ * @brief Met à jour la position des curseurs en fonction des coordonnées X et Y de la souris.
+ *
+ * @param sliders Pointeur vers la structure contenant les curseurs à mettre à jour.
+ * @param Scalex Facteur de mise à l'échelle pour l'axe horizontal.
+ * @param Scaley Facteur de mise à l'échelle pour l'axe vertical.
+ */
 void updateSliderPosition(SliderList *sliders, float Scalex, float Scaley) {
     if (!sliders) return;
     for (int i = 0; i < sliders->size; i++) {
