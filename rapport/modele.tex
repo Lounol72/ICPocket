@@ -199,8 +199,76 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
 \newpage
 \subsection{Gestion de la map}
     \subsubsection{chargement de la map}
+    \includegraphics[width=0.8\textwidth]{../docs/img/screenshots/screen2.png}
+    \newline
+    \paragraph{Analyse : }
+   
+    Pour améliorer la qualité de notre gameplay et la qualité visuelle de notre jeu, nous avons décidé de créer une carte en 2D qui reconstitue le rez-de-chaussée de l'IC2, où nous pouvons retrouver des
+    zones existantes du bâtiment telles que l'amphithéâtre, comme l'image ci-dessus. L'utilisation de fichiers CSV a permis de gérer les collisions. Dans les fichiers, les numéros 1 correspondent 
+    aux collisions, les 0 aux zones libres où le personnage peut marcher, et d'autres numéros servent à passer d'une carte à l'autre, comme du hall à l'amphithéâtre, grâce à une lecture de fichier qui permet
+    de reconnaître l'endroit où l'on va. La carte apporte une plus grande liberté dans le jeu puisqu'il y a la possibilité de se déplacer partout dans le bâtiment. Il y a également l'ajout d'un PNJ
+    (personnage non joueur) qui permet à l'utilisateur de lancer les combats dans l'ordre donné. 
+    \newline
+    \paragraph{Réalisation : }
+    Pour finir sur le chargement de la carte, il y a eu la création de points de spawn qui sont accordés au chiffre -1, les collisions aux chiffres 1 et les zones libres aux 0 dans nos fichiers CSV. 
+    Voici un exemple de CSV correspondant à l'amphithéâtre :
+    \begin{center}
+    \includegraphics[width=0.5\textwidth]{hall.png}
+    \end{center}
+    \begin{center}
+        \small{-1=spawn 0=Air 1=collision 9=retour dans le hall.}
+    \end{center}
+    
+    Les fonctions implémentées afin de rendre le rendu de la carte possible sont `initMap`, qui permet d'initialiser la carte en utilisant les autres fonctions du fichier `Map.c`, telles que `initCollisionFromCSV`,
+    qui permet de gérer les collisions grâce aux CSV. Nous avons créé la fonction `checkAndLoadNewMap`, qui permet de vérifier si, dans un fichier CSV, le personnage se situe sur une case qui correspond au chargement d'une nouvelle zone. Dans ce cas, 
+    la fonction `loadNewMap` intervient et génère la nouvelle zone et son CSV.
+
+    Pour rendre cela possible, nous avons utilisé le logiciel de création de carte Tiled, puis Aseprite pour rendre la carte plus jolie en retirant les impuretés, afin de gérer tout cela avec des fichiers CSV.
+    Tiled permet de créer des cartes facilement et de les exporter au format CSV, ce qui simplifie leur intégration dans le jeu.
     \subsubsection{caméra}
+    La gestion de la caméra est un élément essentiel pour offrir une expérience utilisateur fluide et immersive dans notre jeu. La caméra permet de suivre les déplacements du joueur tout en affichant une partie de la map grâce au zoom, ce qui est particulièrement utile pour les grandes cartes en 2D. Cela évite d'afficher l'intégralité de la map à l'écran, ce qui pourrait surcharger visuellement le joueur et réduire les performances.
+    \paragraph{Utilité de la caméra :} La caméra a été implémentée pour plusieurs raisons :
+    Suivi du joueur : La caméra suit dynamiquement la position du joueur, garantissant que ce dernier reste toujours visible à l'écran.
+    la map est render en entier puis fait un zoom sur le joueur afin de le suivre uniquement est cacher l'affichage des endroits inutiles
+
+    Immersion : En limitant la vue du joueur à une zone spécifique, la caméra renforce l'immersion en simulant une perspective réaliste.
+
+    \paragraph{Pourquoi l'avoir implémentée ?}
+
+    L'implémentation de la caméra était nécessaire pour gérer efficacement les grandes maps et offrir une meilleure expérience utilisateur. Sans caméra, il aurait été impossible de naviguer correctement sur des cartes de grande taille, car tout serait affiché en même temps, rendant le jeu confus et peu ergonomique. De plus, la caméra permet de centrer l'attention du joueur sur son personnage et les zones importantes, tout en masquant les parties inutiles de la map.
+    Nous avons donc utilisé le système d'interpolation linéaire pour avoir un rendu pixels par pixels.
+    La caméra a été conçue pour être flexible et s'adapter à différentes tailles de fenêtres.
+
+    En résumé, la caméra joue un rôle crucial dans la navigation et le rendu du jeu, en améliorant à la fois les performances et l'expérience utilisateur.
+    Tout cela a été possible grâce au différents outils utilisé tel-que stackoverflow, Developpez.net, wikipedia afin d'utiliser l'interpolation linéaire
+    \paragraph{Réalisation : }
+    L'uitilisation de fonctions étaient obligatoire pour bien gérer la caméra. Pour cela la fonction getWorldToScreenRect qui permet de convertir les coordonnées du monde en coordonnées écran.
+    updateCameraViewport qui permet de mettre à jour la taille visible de la carte par rapport a la caméra et updateCamera qui fait en sorte d'actualiser la position de la caméra grâce a l'utilisation de l'interpolation linéaire
+    ce qui permet un rendu plus fluide des déplacements du joueur.
+
+    \newpage
     \subsubsection{deplacement}
+
+    Dans un jeu, les déplacements sont les choses les plus importantes puisque sans ça, on ne peut rien faire sur une carte.
+
+    \paragraph{Implémentation des fonctions : }
+
+    Pour gérer les déplacements du joueur, nous utilisons la fonction `createPlayer`, qui a pour but de créer le joueur et son sprite (image) ainsi que de définir comment il va se déplacer. Dans cette fonction, les déplacements se font par des calculs de coordonnées afin de déplacer le joueur du point de spawn jusqu'à la prochaine case, que ce soit en haut, en bas, à gauche ou à droite, à condition de ne pas rencontrer de collision.
+    \newline
+
+    Pour déplacer le joueur ainsi que gérer les animations du sprite, il faut utiliser les fonctions `updatePlayerPosition` et `updatePlayerAnimation`. La fonction `updatePlayerPosition` met à jour la position du joueur sur la carte en utilisant un système d'interpolation linéaire pour rendre les déplacements fluides. Elle calcule la position intermédiaire entre la position actuelle et la position cible en fonction du temps écoulé (`deltaTime`).
+    \newline
+
+    La fonction `updatePlayerAnimation` permet de changer le sprite du joueur en fonction de son état (marche vers le haut, le bas, la gauche ou la droite). Elle utilise un système de frames pour donner un style d'animation réaliste, en alternant entre différentes images de la spritesheet.
+    \newline
+
+    L'ajout des déplacements donne une sorte de liberté au jeu, où le personnage peut se déplacer où il veut sur la carte. Grâce aux animations du personnage, cela rend les déplacements encore plus immersifs et réalistes.
+    \newline
+
+    De plus, la fonction `renderPlayerWithCamera` est utilisée pour afficher le joueur à l'écran en tenant compte de la position de la caméra. Cela permet de s'assurer que le joueur reste visible même lorsque la carte est plus grande que la fenêtre d'affichage.
+    \newline
+
+    Enfin, les déplacements sont également liés à la gestion des collisions. Le joueur ne peut se déplacer que sur des cases libres (valeurs spécifiques dans la matrice de la carte). Cela est vérifié dans les fonctions de gestion des événements, comme `handlePlayerEvent`, qui détecte les entrées clavier et met à jour l'état du joueur en conséquence.
 
 \subsection{rendu du jeu}
 Le système de rendu graphique constitue l'un des piliers fondamentaux de notre jeu, devant concilier performances optimales et cohérence visuelle.

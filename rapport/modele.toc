@@ -27,29 +27,35 @@
 \contentsline {subsection}{\numberline {5.2}Gestion des bases de données}{10}{subsection.5.2}%
 \contentsline {subsubsection}{\numberline {5.2.1}sauvegarde}{10}{subsubsection.5.2.1}%
 \contentsline {subsubsection}{\numberline {5.2.2}base de données des icmons}{10}{subsubsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.3}Gestion de la map}{10}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}chargement de la map}{10}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}caméra}{10}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}deplacement}{10}{subsubsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.4}rendu du jeu}{10}{subsection.5.4}%
-\contentsline {paragraph}{Architecture de base}{10}{section*.10}%
-\contentsline {paragraph}{Gestion des threads}{10}{section*.11}%
-\contentsline {subsubsection}{\numberline {5.4.1}gestion de l'interface}{11}{subsubsection.5.4.1}%
-\contentsline {paragraph}{Système d'états}{11}{section*.12}%
-\contentsline {paragraph}{Transitions et mises à jour}{11}{section*.13}%
-\contentsline {paragraph}{Mise à jour des textes des boutons}{11}{section*.14}%
-\contentsline {paragraph}{Gestion des événements}{11}{section*.15}%
-\contentsline {subsubsection}{\numberline {5.4.2}gestion des combats avec SDL}{11}{subsubsection.5.4.2}%
-\contentsline {paragraph}{Machine à états}{11}{section*.16}%
-\contentsline {paragraph}{Rendu des sprites}{11}{section*.17}%
-\contentsline {subsubsection}{\numberline {5.4.3}Optimisation des performances}{11}{subsubsection.5.4.3}%
-\contentsline {paragraph}{Gestion des ressources}{11}{section*.18}%
-\contentsline {paragraph}{Orchestration des threads}{12}{section*.19}%
-\contentsline {subsubsection}{\numberline {5.4.4}Technologies graphiques et défis techniques}{12}{subsubsection.5.4.4}%
-\contentsline {paragraph}{Synchronisation}{12}{section*.20}%
-\contentsline {paragraph}{Effets visuels}{12}{section*.21}%
-\contentsline {paragraph}{Adaptabilité}{12}{section*.22}%
-\contentsline {section}{\numberline {6}Bilan et résultats}{14}{section.6}%
-\contentsline {section}{\numberline {7}Références}{14}{section.7}%
-\contentsline {section}{\numberline {8}Annexes}{14}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Outils de développement}{14}{subsection.8.1}%
+\contentsline {subsection}{\numberline {5.3}Gestion de la map}{11}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}chargement de la map}{11}{subsubsection.5.3.1}%
+\contentsline {paragraph}{Analyse : }{11}{section*.10}%
+\contentsline {paragraph}{Réalisation : }{11}{section*.11}%
+\contentsline {subsubsection}{\numberline {5.3.2}caméra}{12}{subsubsection.5.3.2}%
+\contentsline {paragraph}{Utilité de la caméra :}{12}{section*.12}%
+\contentsline {paragraph}{Pourquoi l'avoir implémentée ?}{12}{section*.13}%
+\contentsline {paragraph}{Réalisation : }{12}{section*.14}%
+\contentsline {subsubsection}{\numberline {5.3.3}deplacement}{13}{subsubsection.5.3.3}%
+\contentsline {paragraph}{Implémentation des fonctions : }{13}{section*.15}%
+\contentsline {subsection}{\numberline {5.4}rendu du jeu}{13}{subsection.5.4}%
+\contentsline {paragraph}{Architecture de base}{13}{section*.16}%
+\contentsline {paragraph}{Gestion des threads}{13}{section*.17}%
+\contentsline {subsubsection}{\numberline {5.4.1}gestion de l'interface}{14}{subsubsection.5.4.1}%
+\contentsline {paragraph}{Système d'états}{14}{section*.18}%
+\contentsline {paragraph}{Transitions et mises à jour}{14}{section*.19}%
+\contentsline {paragraph}{Mise à jour des textes des boutons}{14}{section*.20}%
+\contentsline {paragraph}{Gestion des événements}{14}{section*.21}%
+\contentsline {subsubsection}{\numberline {5.4.2}gestion des combats avec SDL}{14}{subsubsection.5.4.2}%
+\contentsline {paragraph}{Machine à états}{14}{section*.22}%
+\contentsline {paragraph}{Rendu des sprites}{15}{section*.23}%
+\contentsline {subsubsection}{\numberline {5.4.3}Optimisation des performances}{15}{subsubsection.5.4.3}%
+\contentsline {paragraph}{Gestion des ressources}{15}{section*.24}%
+\contentsline {paragraph}{Orchestration des threads}{15}{section*.25}%
+\contentsline {subsubsection}{\numberline {5.4.4}Technologies graphiques et défis techniques}{15}{subsubsection.5.4.4}%
+\contentsline {paragraph}{Synchronisation}{15}{section*.26}%
+\contentsline {paragraph}{Effets visuels}{15}{section*.27}%
+\contentsline {paragraph}{Adaptabilité}{16}{section*.28}%
+\contentsline {section}{\numberline {6}Bilan et résultats}{17}{section.6}%
+\contentsline {section}{\numberline {7}Références}{17}{section.7}%
+\contentsline {section}{\numberline {8}Annexes}{17}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Outils de développement}{17}{subsection.8.1}%
