@@ -53,4 +53,14 @@ void loadPhrase(void);
  */
 void destroyGame();
 
+/**
+ * @fn initAllButtons(Window *win);
+ * @brief Initialise tous les boutons.
+ * 
+ * Cette fonction initialise tous les boutons de l'interface utilisateur.
+ * 
+ * @param win Un pointeur vers la structure Window.
+ */
+void initAllButtons(Window *win);
+
 #endif /* GAME_H */

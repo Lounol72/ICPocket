@@ -126,6 +126,7 @@ typedef struct Game {
     int startersIndex;        /**< Index des starters. */
     Image **touche;         /**< Images des touches. */
     ScrollingText *scrollingTextIntro;  /**< Texte défilant d'introduction. */
+    bool isInDuel;
 } Game;
 
 #include "Game.h"
@@ -135,14 +136,16 @@ typedef struct Game {
 /* ------------- Function Prototypes ------------- */
 
 /**
- * @fn initAllButtons(Window *win);
- * @brief Initialise tous les boutons.
- * 
- * Cette fonction initialise tous les boutons de l'interface utilisateur.
- * 
- * @param win Un pointeur vers la structure Window.
+ * @fn void updateICMonsButtonText(Window *win, t_Team *team, int endOfArray, AppState state);
+ * @brief Met à jour le texte des boutons ICMons.
+ *
+ * Pour chaque pokémon de l'équipe passée en paramètre, met à jour le texte du bouton
+ * associé dans l'interface.
+ *
+ * @param win Pointeur sur la fenêtre.
+ * @param team Pointeur sur l'équipe (t_Team) dont on met à jour l'affichage.
  */
-void initAllButtons(Window *win);
+void updateICMonsButtonText(Window *win, t_Team *team, int endOfArray, AppState state);
 
 /* Render */
 /**

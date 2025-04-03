@@ -365,14 +365,12 @@ void handleMenuEvent(Window *win, SDL_Event *event) {
 void handleGameEvent(Window *win, SDL_Event *event) {
     if (!game.scrollingTextIntro->isComplete) return;
     if (!isTeamAlive(&game.battleState.rouge) || !isTeamAlive(&game.battleState.bleu)) {
-        if(!isTeamAlive(&game.battleState.rouge)){
-            saveDestroy(&game.battleState.rouge);
-        }
         /* Réinitialisation de l'état du jeu */
         game.gameState.playerTurn = 0;
-        AppState newState = isTeamAlive(&game.battleState.rouge) ? INTER : MENU;
-        win->state = newState;
-        game.gameState.currentState = newState;
+        AppState newState = isTeamAlive(&game.battleState.rouge) ? INTER : QUIT;
+        if (newState == QUIT) saveDestroy(&game.battleState.rouge);
+        changeState(win, &game.stateHandlers[newState].state);
+        game.isInDuel = false;
         return;
     }
 
@@ -657,6 +655,7 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
     }
     else if (keyState[SDL_SCANCODE_E] && game.gameData.maps[game.gameData.player->mapIndex]->mat[newMatrixY-1][newMatrixX] == 6 && game.gameState.currentState == MAP) {
             nextDuel(game.win, NULL);
+            game.isInDuel = true;
     }
     
     if (shouldMove && game.gameData.maps[game.gameData.player->mapIndex]->mat[newMatrixY][newMatrixX] != COLLISION && game.gameData.maps[game.gameData.player->mapIndex]->mat[newMatrixY][newMatrixX] != DUEL) {

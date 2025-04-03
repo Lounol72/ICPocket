@@ -1,4 +1,6 @@
 #include "../include/save.h"
+#include <sys/stat.h>
+#include <sys/types.h>
 /**
  * @fn void sauvegarder(t_Team * teamJ1,t_Team * dresseur)
  * @brief Sauvegarde l'état du jeu dans un fichier.
@@ -15,8 +17,10 @@ void sauvegarder(t_Team * joueur,t_Team * adverse){
     snprintf(nomFichier, sizeof(nomFichier), "data/save/Save_%d.txt", joueur->id_save);
     FILE *fichier = fopen(nomFichier, "w+");
     if(fichier == NULL){
-        printf("Erreur : impossible d'ouvrir le fichier.\n");
-        exit(1);
+        char * path = "data/save";
+        mkdir(path, 0777);
+        fichier = fopen(nomFichier, "w+");
+        sauver(joueur,1,nomFichier);
     } else {
         fprintf(fichier,"%d\n",joueur->nb_poke);
         for(int i = 0; i < joueur->nb_poke; i++){
