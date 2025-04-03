@@ -32,23 +32,23 @@ typedef struct Text {
 } Text;
 
 typedef struct {
-    char* fullText;           // Texte complet à afficher
-    char* currentText;        // Texte actuellement affiché
-    int currentLength;        // Longueur actuelle du texte affiché
-    int fullLength;          // Longueur totale du texte
-    int isComplete;         // Si le texte est entièrement affiché
-    Uint32 lastCharTime;     // Temps du dernier caractère affiché
-    Uint32 charDelay;        // Délai entre chaque caractère (en ms)
-    SDL_Texture* texture;    // Texture du texte
-    SDL_Texture* background; // Texture du fond
-    SDL_Rect position;       // Position du texte
-    SDL_Rect initialPosition; // Position initiale du texte
-    SDL_Rect backgroundPosition; // Position du fond
-    SDL_Rect initialBackgroundPosition; // Position initiale du fond
-    TTF_Font* font;          // Police utilisée
-    SDL_Color color;         // Couleur du texte
-    int width;               // Largeur du texte
-    int isValid;
+    char* fullText;           /**< Texte complet à afficher*/
+    char* currentText;        /**< Texte actuellement affiché*/
+    int currentLength;       /**< Longueur actuelle du texte affiché*/
+    int fullLength;          /**< Longueur totale du texte complet*/
+    int isComplete;          /**< Indique si le texte est complètement affiché*/
+    Uint32 lastCharTime;     /**< Temps écoulé depuis le dernier caractère affiché*/
+    Uint32 charDelay;        /**< Délai entre chaque caractère (en ms)*/
+    SDL_Texture* texture;    /**< Texture du texte*/
+    SDL_Texture* background; /**< Texture de fond*/
+    SDL_Rect position;       /**< Position du texte*/
+    SDL_Rect initialPosition; /**< Position initiale du texte*/
+    SDL_Rect backgroundPosition; /**< Position de fond*/
+    SDL_Rect initialBackgroundPosition; /**< Position initiale de fond*/
+    TTF_Font* font;          /**< Police utilisée pour le texte*/
+    SDL_Color color;         /**< Couleur du texte*/
+    int width;               /**< Largeur du texte*/
+    int isValid;       /**< Indique si le texte est valide*/
 } ScrollingText;
 
 /** Éléments de texte globaux utilisés dans l'application. */
@@ -56,6 +56,7 @@ extern Text title;           /**< L'élément de texte pour le titre. */
 extern Text NewGameText;     /**< L'élément de texte pour le nouveau jeu. */
 
 /**
+ * @fn void initText(Window *win)
  * @brief Initialise les objets texte.
  * 
  * Cette fonction initialise les objets texte utilisés dans l'application. C'est une fonction temporaire.
@@ -65,6 +66,7 @@ extern Text NewGameText;     /**< L'élément de texte pour le nouveau jeu. */
 void initText( Window *win);
 
 /**
+ * @fn Text *createText(const char *text, SDL_Renderer *renderer, SDL_Rect rect, SDL_Color color, TTF_Font *font)
  * @brief Crée un nouvel objet texte.
  * 
  * Cette fonction crée un nouvel objet texte avec les paramètres spécifiés.
@@ -79,6 +81,7 @@ void initText( Window *win);
 Text *createText(const char *text, SDL_Renderer *renderer, SDL_Rect rect, SDL_Color color, TTF_Font *font);
 
 /**
+ * @fn void renderText(Window *win, Text *text)
  * @brief Rend un objet texte.
  * 
  * Cette fonction rend l'objet texte spécifié à l'écran.
@@ -89,6 +92,7 @@ Text *createText(const char *text, SDL_Renderer *renderer, SDL_Rect rect, SDL_Co
 void renderText( Window *win, Text *text);
 
 /**
+ * @fn void updateTextPosition(Text *text, float scaleX, float scaleY)
  * @brief Met à jour la position d'un objet texte.
  * 
  * Cette fonction met à jour la position de l'objet texte spécifié en fonction des facteurs de mise à l'échelle donnés.
@@ -100,6 +104,7 @@ void renderText( Window *win, Text *text);
 void updateTextPosition(Text *text, float scaleX, float scaleY);
 
 /**
+ * @fn void destroyText(Text *text)
  * @brief Détruit un objet texte.
  * 
  * Cette fonction libère les ressources associées à l'objet texte spécifié.
@@ -109,6 +114,7 @@ void updateTextPosition(Text *text, float scaleX, float scaleY);
 void destroyText(Text *text);
 
 /**
+ * @fn void updateText(Text *text, const char *newText, SDL_Renderer *renderer)
  * @brief Met à jour le contenu d'un objet texte.
  * 
  * Cette fonction met à jour le contenu textuel de l'objet texte spécifié et le rend à nouveau.
@@ -120,6 +126,7 @@ void destroyText(Text *text);
 void updateText(Text *text, const char *newText, SDL_Renderer *renderer);
 
 /**
+ * @fn void changeTextSpeed(Window *win, void *data)
  * @brief Change la vitesse du texte.
  * 
  * Cette fonction change la vitesse à laquelle le texte est affiché. C'est une fonction temporaire.
@@ -130,16 +137,28 @@ void updateText(Text *text, const char *newText, SDL_Renderer *renderer);
 void changeTextSpeed(Window *win, void *data);
 
 /**
+ * @fn void cleanupText()
  * @brief Nettoie les objets texte.
  * 
  * Cette fonction nettoie les objets texte utilisés dans l'application.
  */
 void cleanupText();
 
-
+/**
+ * @fn void StayScaled(TTF_Font *font, Text *text, SDL_Rect *rect, SDL_Rect *initialRect)
+ * @brief Met à jour la taille d'un objet texte en fonction de la mise à l'échelle.
+ * 
+ * Cette fonction met à jour la taille de l'objet texte spécifié en fonction de la mise à l'échelle.
+ * 
+ * @param font La police utilisée pour rendre le texte.
+ * @param text Un pointeur vers l'objet Text.
+ * @param rect Le rectangle définissant la position et la taille du texte.
+ * @param initialRect Le rectangle initial pour les besoins de mise à l'échelle.
+ */
 void StayScaled(TTF_Font *font, Text *text, SDL_Rect *rect, SDL_Rect *initialRect);
 
 /**
+ * @fn ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int charDelay, SDL_Rect backgroundPosition, const char* backgroundPath, SDL_Renderer* renderer)
  * @brief Crée un nouvel objet de texte défilant.
  * 
  * Cette fonction crée un nouvel objet de texte défilant avec les paramètres spécifiés.
@@ -156,6 +175,7 @@ void StayScaled(TTF_Font *font, Text *text, SDL_Rect *rect, SDL_Rect *initialRec
 ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, int charDelay, SDL_Rect backgroundPosition, const char* backgroundPath, SDL_Renderer* renderer);
 
 /**
+ * @fn void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer)
  * @brief Met à jour un objet de texte défilant.
  * 
  * Cette fonction met à jour un objet de texte défilant avec les paramètres spécifiés.
@@ -166,6 +186,7 @@ ScrollingText* createScrollingText(char* text, TTF_Font* font, SDL_Color color, 
 void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer);
 
 /**
+ * @fn void renderScrollingText(ScrollingText* text, SDL_Renderer* renderer)
  * @brief Rend un objet de texte défilant.
  * 
  * Cette fonction rend un objet de texte défilant avec les paramètres spécifiés.
@@ -176,6 +197,7 @@ void updateScrollingText(ScrollingText* text, SDL_Renderer* renderer);
 void renderScrollingText(ScrollingText* text, SDL_Renderer* renderer);
 
 /**
+ * @fn void resetScrollingText(ScrollingText* text, const char* newText)
  * @brief Réinitialise un objet de texte défilant.
  * 
  * Cette fonction réinitialise un objet de texte défilant avec les paramètres spécifiés.
@@ -185,6 +207,7 @@ void renderScrollingText(ScrollingText* text, SDL_Renderer* renderer);
  */
 void resetScrollingText(ScrollingText* text, const char* newText);
 /**
+ * @fn void destroyScrollingText(ScrollingText* text)
  * @brief Détruit un objet de texte défilant.
  * 
  * Cette fonction détruit un objet de texte défilant avec les paramètres spécifiés.
@@ -194,6 +217,7 @@ void resetScrollingText(ScrollingText* text, const char* newText);
 void destroyScrollingText(ScrollingText* text);
 
 /**
+ * @fn void skipScrollingText(ScrollingText* text, SDL_Renderer* renderer)
  * @brief Passe à la suite un objet de texte défilant.
  * 
  * Cette fonction passe à la suite un objet de texte défilant avec les paramètres spécifiés.
@@ -204,6 +228,7 @@ void destroyScrollingText(ScrollingText* text);
 void skipScrollingText(ScrollingText* text, SDL_Renderer* renderer);
 
 /**
+ * @fn void cleanupScrollingText(ScrollingText** text)
  * @brief Nettoie un objet de texte défilant.
  * 
  * Cette fonction nettoie un objet de texte défilant avec les paramètres spécifiés.

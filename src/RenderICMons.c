@@ -116,6 +116,11 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
     }
     
     img->renderer = renderer;
+    // Initialize animation fields
+    img->entranceProgress = 0.0f;
+    img->isEntranceAnimating = 0;
+    img->isFromRight = (team == 0);  // Player's ICMon enters from right
+    
     // Construction du chemin de l'image
     char path[128];
     snprintf(path, sizeof(path), "assets/Monsters/New Versions/%s.png", poke->name);
@@ -183,11 +188,13 @@ IMG_ICMons *initICMonSprite(SDL_Renderer *renderer, SDL_Rect spriteRect, SDL_Rec
     for (int i = 0; i < poke->nb_move; i++) {
         char soundPath[128];
         snprintf(soundPath, sizeof(soundPath), "assets/audio/soundEffects/%d.mp3",(int) (poke->moveList[i].type));
-        Mix_Chunk *ICMonSound = Mix_LoadWAV(soundPath);
-        if (!ICMonSound) {
-            SDL_Log("❌ Failed to load ICMonSound: %s", Mix_GetError());
+        if (strlen(soundPath) > 0) {
+            Mix_Chunk *ICMonSound = Mix_LoadWAV(soundPath);
+            if (!ICMonSound) {
+                SDL_Log("❌ Failed to load ICMonSound: %s", Mix_GetError());
+            }
+            img->ICMonSound[i] = ICMonSound;
         }
-        img->ICMonSound[i] = ICMonSound;
     }
 
     return img;
@@ -222,6 +229,52 @@ static void updatePVBar(t_Poke *poke) {
     SDL_RenderFillRect(poke->img->renderer, &pvForeground);
 }
 
+/**
+ * @brief Start the entrance animation for an ICMon.
+ *
+ * This function initializes the entrance animation parameters for an ICMon.
+ * The animation will make the ICMon slide in from either the left or right side.
+ *
+ * @param poke The ICMon to animate.
+ */
+void startICMonEntranceAnimation(t_Poke *poke) {
+    if (!poke || !poke->img) return;
+    
+    poke->img->entranceProgress = 0.0f;
+    poke->img->isEntranceAnimating = 1;
+}
+
+/**
+ * @brief Update the entrance animation for an ICMon.
+ *
+ * This function updates the position of the ICMon during its entrance animation.
+ * The ICMon will slide in from either the left or right side.
+ *
+ * @param poke The ICMon being animated.
+ */
+void updateICMonEntranceAnimation(t_Poke *poke) {
+    if (!poke || !poke->img || !poke->img->isEntranceAnimating) return;
+    
+    float targetX = poke->img->initialRect.x;
+    float startX = poke->img->isFromRight ? 
+                  targetX + poke->img->initialRect.w * 2 : 
+                  targetX - poke->img->initialRect.w * 2;
+    
+    // Update progress
+    poke->img->entranceProgress += 0.025f;  // Adjust speed as needed
+    if (poke->img->entranceProgress > 1.0f) {
+        poke->img->entranceProgress = 1.0f;
+        poke->img->isEntranceAnimating = 0;
+    }
+    
+    // Calculate current position using easing
+    float t = poke->img->entranceProgress;
+    t = 1.0f - (1.0f - t) * (1.0f - t);  // Ease out quad
+    float currentX = startX + (targetX - startX) * t;
+    
+    // Update position
+    poke->img->rect.x = (int)currentX;
+}
 
 /**
  * @brief Rendu du sprite ICMon sur la fenêtre.
@@ -234,6 +287,9 @@ static void updatePVBar(t_Poke *poke) {
  */
 void renderICMonsSprite(Window *win, t_Poke *poke) {
     if (!poke || !poke->img) return;
+    
+    // Update entrance animation if active
+    updateICMonEntranceAnimation(poke);
     
     // Mise à jour du texte de PV avec les valeurs actuelles
     static char pvBuffer[32];
@@ -279,22 +335,34 @@ void renderICMonsSprite(Window *win, t_Poke *poke) {
 void destroyICMonsSprite(t_Poke *poke) {
     if (!poke->img) return;
     
-    if (poke->img->ICMonTexture)
+    if (poke->img->ICMonTexture){
         SDL_DestroyTexture(poke->img->ICMonTexture);
-    if (poke->img->PVbarTexture)
+        poke->img->ICMonTexture = NULL;
+    }
+    if (poke->img->PVbarTexture){
         SDL_DestroyTexture(poke->img->PVbarTexture);
-    if (poke->img->PVbarTextureBack)
+        poke->img->PVbarTexture = NULL;
+    }
+    if (poke->img->PVbarTextureBack){
         SDL_DestroyTexture(poke->img->PVbarTextureBack);
-    if (poke->img->nameTexture)
+        poke->img->PVbarTextureBack = NULL;
+    }
+    if (poke->img->nameTexture){
         SDL_DestroyTexture(poke->img->nameTexture);
-    if (poke->img->LvlText)
+        poke->img->nameTexture = NULL;
+    }
+    if (poke->img->LvlText){
         destroyText(poke->img->LvlText);
-    if (poke->img->PVText)
+        poke->img->LvlText = NULL;
+    }
+    if (poke->img->PVText){
         destroyText(poke->img->PVText);
-    
+        poke->img->PVText = NULL;
+    }
         
     for (int i = 0; i < poke->nb_move; i++) {
         Mix_FreeChunk(poke->img->ICMonSound[i]);
+        poke->img->ICMonSound[i] = NULL;
     }
     free(poke->img);
     poke->img = NULL;

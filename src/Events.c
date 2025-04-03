@@ -49,6 +49,11 @@ int initTeamSprites(Window *win, t_Team *teamSprite, float x_ratio, float y_rati
                 "❌ Failed to initialize sprite for %s team pokemon %d", (teamFlag == 0 ? "red" : "blue"), i);
             return -1;
         }
+        
+        // Start entrance animation only for the first Pokemon of each team
+        if (i == 0) {
+            startICMonEntranceAnimation(poke);
+        }
     }
     return 0;
 }
@@ -181,18 +186,8 @@ void handleWindowSizeChange(Window *win) {
     updateTextPosition(game.windowText, scaleX, scaleY);
 
     for (int i = 0; i < 3; i++) {
-         if (game.touche[i]) {
-            printf("Before resize - touche[%d]: x=%d,y=%d,w=%d,h=%d\n", 
-                i, game.touche[i]->rect.x, game.touche[i]->rect.y, 
-                game.touche[i]->rect.w, game.touche[i]->rect.h);
-            
+         if (game.touche[i]) {            
             updateImageSize(game.touche[i], scaleX, scaleY);
-            
-            printf("After resize - touche[%d]: x=%d,y=%d,w=%d,h=%d\n", 
-                i, game.touche[i]->rect.x, game.touche[i]->rect.y, 
-                game.touche[i]->rect.w, game.touche[i]->rect.h);
-        } else {
-            printf("Warning: game.touche[%d] is NULL\n", i);
         }
     }
     for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
@@ -248,12 +243,10 @@ void handleIntermediateEvent(Window *win, SDL_Event *event) {
 
     // Si le joueur appuie sur E, lancer le combat
     if (keyState[SDL_SCANCODE_E]) {
-        printf("Lancement du combat...\n");
         changeState(win, &game.stateHandlers[GAME].state); // Passer à l'état de combat
     }
     // Si le joueur appuie sur Échap, annuler l'interaction
     else if (keyState[SDL_SCANCODE_ESCAPE]) {
-        printf("Interaction annulée. Retour à la carte.\n");
         game.gameState.currentState = MAP; // Retourner à l'état de la carte
     }
     handleEvent(win, event);
@@ -476,7 +469,6 @@ void loadFile(Window *win, void *event){
         initData();
         char data[50];
         snprintf(data,50,"%s",(char*)event);
-        printf("data %s\n",data);
         if((charger(data, &game.battleState.rouge, &game.battleState.bleu))==-1){
             initStarters(win, event);
             return;
@@ -522,6 +514,7 @@ void handlePauseEvent(Window *win, SDL_Event *event) {
  *
  * Cette fonction vérifie les touches fléchées pour déplacer le joueur si le déplacement est autorisé,
  * met à jour la position cible et initialise l'animation du mouvement.
+ * Elle vérifie également si le joueur est sur une case spéciale pour changer de carte.
  *
  * @param win Pointeur sur la fenêtre.
  * @param event Pointeur sur l'événement SDL.
@@ -529,13 +522,29 @@ void handlePauseEvent(Window *win, SDL_Event *event) {
 void handlePlayerEvent(Window *win, SDL_Event *event) {
     (void)win;
     (void)event;
+    
+    // Si l'état du jeu n'est pas MAP, ne pas traiter les entrées de déplacement
+    if (game.gameState.currentState != MAP) {
+        return;
+    }
+    
+    // Vérifier si le joueur est sur une case de transition après un mouvement
+    if (!game.gameData.player->isMovingToTarget) {
+        Map *currentMap = game.gameData.maps[game.gameData.player->mapIndex];
+        if (currentMap) {
+                   
+            // Vérifier si une transition doit être effectuée
+            if (checkAndLoadNewMap(game.gameData.player, currentMap, game.gameData.camera, game.win->renderer)) {
+                return;
+            }
+        }
+    }
+    
     const Uint8 *keyState = SDL_GetKeyboardState(NULL);
     int newMatrixX = game.gameData.player->matrixX;
     int newMatrixY = game.gameData.player->matrixY;
     PlayerState newState = game.gameData.player->state;
     bool shouldMove = false;
-
-    
 
     if (keyState[SDL_SCANCODE_RIGHT]) {
         if (newMatrixX < MAP_WIDTH - 1 && !game.gameData.player->isMovingToTarget) {
@@ -571,11 +580,11 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
     else if (keyState[SDL_SCANCODE_DELETE]) {
         changeState(game.win, &game.stateHandlers[QUIT].state);
     }
-    else if (keyState[SDL_SCANCODE_E] && game.gameData.map->mat[newMatrixY-1][newMatrixX] == 6 && game.gameState.currentState == MAP) {
+    else if (keyState[SDL_SCANCODE_E] && game.gameData.maps[game.gameData.player->mapIndex]->mat[newMatrixY-1][newMatrixX] == 6 && game.gameState.currentState == MAP) {
             nextDuel(game.win, NULL);
     }
     
-    if (shouldMove && game.gameData.map->mat[newMatrixY][newMatrixX] != COLLISION && game.gameData.map->mat[newMatrixY][newMatrixX] != 6) {
+    if (shouldMove && game.gameData.maps[game.gameData.player->mapIndex]->mat[newMatrixY][newMatrixX] != COLLISION && game.gameData.maps[game.gameData.player->mapIndex]->mat[newMatrixY][newMatrixX] != DUEL) {
         game.gameData.player->startX = game.gameData.player->position.x;
         game.gameData.player->startY = game.gameData.player->position.y;
         game.gameData.player->targetMatrixX = newMatrixX;
@@ -586,7 +595,6 @@ void handlePlayerEvent(Window *win, SDL_Event *event) {
         game.gameData.player->isMovingToTarget = true;
         game.gameData.player->interpolationTime = 0.0f;
     }
-    
 }
 
 void handleBattleIntroEvent(Window *win, SDL_Event *event){

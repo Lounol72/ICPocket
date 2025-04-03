@@ -34,6 +34,7 @@ typedef struct {
 } UI_Elements;
 
 /**
+ * @fn SDL_Texture* loadTexture(const char *filePath, SDL_Renderer *renderer)
  * @brief Charge une texture à partir d'un fichier image.
  * 
  * Cette fonction charge une texture SDL à partir d'un fichier image spécifié.
@@ -45,6 +46,7 @@ typedef struct {
 SDL_Texture* loadTexture(const char *filePath, SDL_Renderer *renderer);
 
 /**
+ * @fn void logSDLError(const char *message)
  * @brief Affiche un message d'erreur SDL.
  * 
  * Cette fonction affiche un message d'erreur SDL dans la console.
