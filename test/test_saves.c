@@ -44,6 +44,13 @@ START_TEST(test_sauvegarder_charger) {
     ck_assert_int_eq(result, 1);
 }END_TEST
 
+START_TEST(test_detruire_sauvegarder) {
+    sauvegarder(&teamJ1, &teamJ2);
+    saveDestroy(&teamJ1);
+    FILE *fichier = fopen("data/save/Save_1.txt", "r");
+    ck_assert_ptr_null(fichier);
+}END_TEST
+
 Suite *save_suite(void) {
     Suite *s = suite_create("Save");
     TCase *tc_core = tcase_create("Core");
@@ -51,6 +58,7 @@ Suite *save_suite(void) {
     tcase_add_test(tc_core, test_sauvegarder);
     tcase_add_test(tc_core, test_charger);
     tcase_add_test(tc_core, test_sauvegarder_charger);
+    tcase_add_test(tc_core, test_detruire_sauvegarder);
     suite_add_tcase(s, tc_core);
     return s;
 }

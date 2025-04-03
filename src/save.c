@@ -136,8 +136,7 @@ int charger(char *nomSave, t_Team *joueur, t_Team *dresseur){
         return 1;
     }
 }
-void saveDestroy(t_Team * joueur){
-    char nomFichier[1024];
+
 /**
  * @fn void sauver(t_Team * teamJ1,int save,char * nomSave)
  * @brief Sauvegarde l'état du jeu dans un fichier.
@@ -148,6 +147,8 @@ void saveDestroy(t_Team * joueur){
  * @param save Indicateur de sauvegarde (0 pour une nouvelle sauvegarde, 1 pour écraser une sauvegarde existante).
  * @param nomSave Nom du fichier de sauvegarde.
  */
+void saveDestroy(t_Team * joueur){
+    char nomFichier[1024];
 
     snprintf(nomFichier, sizeof(nomFichier), "data/save/Save_%d.txt", joueur->id_save);
     FILE *fichier = fopen(nomFichier, "w+");
