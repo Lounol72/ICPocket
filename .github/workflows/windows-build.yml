@@ -1,8 +1,6 @@
 name: Windows Build at Midnight
 
 on:
-  schedule:
-    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
@@ -62,7 +60,7 @@ jobs:
       shell: msys2 {0}
       run: |
         mkdir -p bin/windows
-        
+
         gcc -o bin/windows/${{ env.PROJECT_NAME }}.exe \
             main.c src/*.c \
             -I./include \
