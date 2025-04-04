@@ -75,7 +75,7 @@ void generate_poke(t_Poke *p, int line)
 		p->exp = expCurve(p->lvl); /*This is to match the start of a random generated level*/
 		p->nature = rand() % 25;
 		/*IV et Moves*/
-		p->nb_move = rand() % 4 + 1;
+		p->nb_move = rand() % 3 + 2; //have minimum two moves
 		for (int i = 0; i < p->nb_move; i++)
 		{
 			p->moveList[i] = generateRandomMoveBetter(p);
@@ -88,17 +88,16 @@ void generate_poke(t_Poke *p, int line)
 }
 /**
 *@fn generatelvl(t_Team * joueur)   
-*@brief Renvois un entier en fonction du nombre d'adversaire battu
+*@brief Renvois un entier en fonction de la moyenne des niveaux de l'équipe du joueur
 *   @param joueur struct joueur
 */
 int generatelvl(t_Team * joueur){
-	int min,max;
-	if(joueur->nb_enemiBeat<3){min = 3 ; max = 5;}
-	else if(joueur->nb_enemiBeat<6){min = 5 ; max = 20;}
-	else if(joueur->nb_enemiBeat<10){min = 10 ; max = 50;}
-	else if(joueur->nb_enemiBeat<15){min = 50 ; max = 60;}
-	else{min = 60; max = 99;}
-	return min + rand()%(max-min+1);
+	int sum=0;
+	for(int i=0;i<joueur->nb_poke;i++){
+		sum+=joueur->team[i].lvl;
+	}
+	int avg=sum/joueur->nb_poke;
+	return avg-1+rand()%2;
 }
 
 /**

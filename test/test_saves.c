@@ -14,17 +14,21 @@ void teardown(void) {
 }
 
 START_TEST(test_sauvegarder) {
+    initTeam(&teamJ1, 1);
+    initBlueTeam(&teamJ2, &teamJ1);
     sauvegarder(&teamJ1, &teamJ2);
     // Vérifiez que le fichier de sauvegarde a été créé avec succès
-    FILE *fichier = fopen("data/save/Save_1.txt", "r");
+    FILE *fichier = fopen("data/save/Save_0.txt", "r");
     ck_assert_ptr_nonnull(fichier);
     fclose(fichier);
 }END_TEST
+
 START_TEST(test_charger) {
     // Vérifiez que le fichier de sauvegarde ne peut charger correctement
     int result = charger("2", &teamJ1, &teamJ2);
     ck_assert_int_eq(result, -1);
 }END_TEST
+
 START_TEST(test_sauvegarder_charger) {
     // Vérifiez que le fichier de sauvegarde peut charger correctement
     teamJ1.nb_poke = 1;

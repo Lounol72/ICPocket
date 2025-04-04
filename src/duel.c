@@ -709,7 +709,7 @@ void gainExp(t_Team * target, t_Poke * source){
 			// Calculate exp gain using constants for clarity
 			static const float TRAINER_BONUS = 1.5;
 			static const float EXP_BOOST = 1.5;
-			static const int BASE_EXP_MULTIPLIER = 2;
+			static const int BASE_EXP_MULTIPLIER = 3;
 			static const int EXP_DIVISOR = 7;
 			
 			exp_amount = (TRAINER_BONUS * EXP_BOOST * source->lvl * BASE_EXP_MULTIPLIER * (source->baseStats[PV])) / EXP_DIVISOR;
