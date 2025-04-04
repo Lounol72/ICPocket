@@ -3,7 +3,7 @@
   "short_name": "ICPocket",
   "icons": [
     {
-      "src": "img/android-chrome-192x192.png",
+      "src": "img/ICPocket.png",
       "sizes": "192x192",
       "type": "image/png"
     }
