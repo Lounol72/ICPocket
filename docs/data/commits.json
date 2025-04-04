@@ -1,5 +1,25 @@
 [
   {
+    "sha": "b9295b7c",
+    "message": "Remove .nojekyll file and update webmanifest icon source to ICPocket.png",
+    "date": "2025-04-04T12:02:19Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/b9295b7c19dc9ae23d1191bcb24b40bfecc1eae5"
+  },
+  {
+    "sha": "75ab2177",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-04T06:24:41Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/75ab217786ea02fed4015a1a04f4150450319014"
+  },
+  {
     "sha": "c3e9612c",
     "message": "📊 Update GitHub data",
     "date": "2025-04-04T01:19:37Z",
@@ -278,25 +298,5 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/cebb73b35deaa4e884292206c0c492adbe65ddd6"
-  },
-  {
-    "sha": "e01ccecd",
-    "message": "Fix string concatenation in loadPhrase and update map size assertions in tests",
-    "date": "2025-04-03T08:07:24Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/e01ccecdf706abf22947f9719730e99ac64d11d0"
-  },
-  {
-    "sha": "92b4a3e2",
-    "message": "Update src/GameEngine.c",
-    "date": "2025-04-03T08:03:59Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/92b4a3e281e96cff96117b5d29e4f50463f8a85b"
   }
 ]
