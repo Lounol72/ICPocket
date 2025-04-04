@@ -30,9 +30,9 @@
         Licence Informatique 2ème année\\
         Module 17UF02 Rapport de Projet\\
         \vspace{0.5cm}
-        \Large\textbf{Titre du projet}\\
+        \Large\textbf{ICPocket}\\
         \vspace{1cm}
-        {\large Noms des auteurs}\\
+        {\large Louis Subtil, Nathan Pasquier, Alban Borde, William Littre}\\
         \vspace{0.5cm}
         {\normalsize \today} 
     \end{center}
@@ -60,22 +60,22 @@ En troisième partie nous expliquerons la gestion des Icmons , comment ils ont �
 Puis nous aborderons la gestion de la carte, comment le joueur se déplace dans l'espace et comment la caméra le suit. et lorsqu'il rencontre un obstacle, une collision doit se produire.\\
 
 Et enfin nous mettre en évidence la rendu du jeu , les sprites que nous avons créer doivent être implémenté directement dans le code, le système de combat c’est a dire les points de vie décrémenter lorsqu’une attaque est subie ,devrait être cohérent avec ce que le joueur voit sur l’écran et pour finir l’interface par quel moyen l’interface du jeu a été conçu, de quelle façon le joueur change de fenêtre lorsque tel bouton est appuyé\\\\
-\lfoot\fancyfoot{\footnotesize *Pokemon:le jeu sera présenter dans la suite du rapport\\*Sprite: image 2D utilisé dans les jeux vidéos\\*ICmon: contraction de l'expression « Institut Claude chappe » et « Monstre »\\*Lore: histoire d'un jeu vidéo\\*deadline: date limite\\}
+\lfoot\fancyfoot{\footnotesize *Pokemon:le jeu sera présenter dans la suite du rapport\\*Sprite: image 2D utilisé dans les jeux vidéo\\*ICmon: contraction de l'expression « Institut Claude chappe » et « Monstre »\\*Lore: histoire d'un jeu vidéo\\*deadline: date limite\\}
 \newpage
 \section{Conception}
     \subsection{Présentation du jeu}
-        ICPocket est un jeu de rôle basé sur l'univers des jeux vidéos « Pokémon » développés par GAME FREAK et publiés par Nintendo.
+        ICPocket est un jeu de rôle basé sur l'univers des jeux vidéo « Pokémon » développés par GAME FREAK et publiés par Nintendo.
         Le jeu met le joueur dans la peau d'un étudiant de la faculté d'informatique du Mans et d'un dresseur de petites créatures nommées les \emph{ICMons}.
-        Cet étudiant, qui vient tout juste d'arriver au sein de l'institut Claude Chappe pour sa première année de license, choisit son premier partenaire parmi quatre ICmons offerts par Louis, Nathan, Alban et William.
-        \paragraph{}L'objectif du joueur est de devenir le maître de l'IC2 en remportant le tournoi annuel de la faculté : « le tournoi de l'IC2 », puis en faisant tombé son conseil des quatres et son champion. Pour cela, il devra se confronter à ses camarades et ses professeurs dans des duels d'ICMons : 
-        des combats de type joueur contre ordinateur en tour par tour dans lequelles chaque partie envoit un ICMons parmi un maximum de six se battre contre l'autre, jusqu'à ce que l'un des combattants n'est plus aucun ICMons apte à se battre.
+        Cet étudiant, qui vient tout juste d'arriver au sein de l'institut Claude Chappe pour sa première année de licence, choisit son premier partenaire parmi quatre ICmons offerts par Louis, Nathan, Alban et William.
+        \paragraph{}L'objectif du joueur est de devenir le maître de l'IC2 en remportant le tournoi annuel de la faculté : « le tournoi de l'IC2 », puis en faisant tomber son conseil des quatre et son champion. Pour cela, il devra se confronter à ses camarades et ses professeurs dans des duels d'ICMons : 
+        des combats de type joueur contre ordinateur en tour par tour dans lesquelles chaque partie envoie un ICMons parmi un maximum de six se battre contre l'autre, jusqu'à ce que l'un des combattants n'ait plus aucun ICMons apte à se battre.
         Ces affrontements tactiques et imprévisibles pousseront le joueur à découvrir les forces et faiblesses de son équipe et à mettre en place la meilleure stratégie pour parvenir à la victoire.
         Toutefois, cela ne sera pas une tâche aisée, puisque la moindre défaite signifie que le joueur sera éliminé du tournoi et devra donc recommencer du début.
 
     \subsection{Direction artistique}
-        En hommage aux jeux vidéos originaux de la série « Pokémon », nous avons fait le choix de nous inspirer de la direction artistique de la troisième génération de ces jeux : « Pokémon Rubis et Saphir ».
-        Cette direction artistique est basée sur la 2D, avec des sprites pixelisées. \paragraph{} Pour la réalisation de la carte, nous avons utilisé les assets libre de droit disponible sur le site \href{https://kenney.nl/assets}{kenney.nl}. La carte a ensuite été assemblé par Alban et Louis. La plupart des sprites des ICMons ont été dessiné par William, Loup Picault (le goat), et Nathan. Les sprites restants ont été dessiné par intelligence artificielle.
-        \paragraph{} Afin de limiter le nombre de sprites que nous avions à réaliser pour ce projet, nous nous sommes inspirés de la méthode d'affichage des sprites du fangame \href{https://infinitefusion.fandom.com/wiki/Pok%C3%A9mon_Infinite_Fusion_Wiki}{« Pokemon Infinite Fusion »}, dans lequelle durant un combat, les sprites de l'équipe du joueur sont retournés par symétrie axiale verticale, ce qui donne l'illusion d'un sprite \emph{de dos} tout en ayant qu'un seul sprite à utiliser.
+        En hommage aux jeux vidéo originaux de la série « Pokémon », nous avons fait le choix de nous inspirer de la direction artistique de la troisième génération de ces jeux : « Pokémon Rubis et Saphir ».
+        Cette direction artistique est basée sur la 2D, avec des sprites pixelisées. \paragraph{} Pour la réalisation de la carte, nous avons utilisé les assets libres de droit disponibles sur le site \href{https://kenney.nl/assets}{kenney.nl}. La carte a ensuite été assemblée par Alban et Louis. La plupart des sprites des ICMons ont été dessiné par William, Loup Picault, et Nathan. Les sprites restants ont été dessinés par intelligence artificielle.
+        \paragraph{} Afin de limiter le nombre de sprites que nous avions à réaliser pour ce projet, nous nous sommes inspirés de la méthode d'affichage des sprites du fangame \href{https://infinitefusion.fandom.com/wiki/Pok%C3%A9mon_Infinite_Fusion_Wiki}{« Pokemon Infinite Fusion »}, où durant un combat, les sprites de l'équipe du joueur sont retournés par symétrie axiale verticale, ce qui donne l'illusion d'un sprite \emph{de dos} tout en n'ayant qu'un seul sprite à utiliser.
         \begin{figure}[h!]
             \centering
             \includegraphics[width=0.22\textwidth]{../assets/Monsters/New Versions/A-ski.png}
@@ -86,15 +86,15 @@ Et enfin nous mettre en évidence la rendu du jeu , les sprites que nous avons c
     \subsection{Fonctionnalités}
         \emph{Dans cette partie, nous présenterons toutes les fonctionnalités disponibles dans le jeu} \\
         \paragraph{} Au lancement du jeu, le joueur peut personnaliser ses paramètres selon ses souhaits : les dimensions de la fenêtre d'écran, la vitesse du texte en jeu et le volume sonore. Après cela, il peut charger une partie déjà entamée, à condition qu'une telle partie existe dans les fichiers du jeu, ou bien débuter une nouvelle aventure. \paragraph{}
-        Dans le cas d'une nouvelle partie, le joueur se vera alors proposé quatre ICMons et choisira celui qu'il préfère, puis arrivera sur la carte, à l'entrée du bâtiment IC2. Le joueur peut alors explorer la carte comme il le souhaite : hall d'accueil, salle de TD et amphitéâtre. Le joueur trouvera également en bas de l'escalier principal un drôle de personnage nommé <Insérer nom ici>.
-        Le joueur peut discuter avec lui : <Insérer nom ici> proposera notamment au joueur de changer d'endroit pour commencer son prochain match du tournoi de l'IC2.
-        \paragraph{} Puis l'affrontement commence. Le joueur et son opposant, controlé par l'ordinateur, envoient au combat l'ICMons se trouvant en tête de leurs équipes respectives. Chaque tour, les deux protagonistes choisissent une action parmi les deux suivantes : utiliser l'une des quatres attaques connues de leur ICMon, ou bien remplacer le combattant actuel par un autre encore apte dans leur équipe.
-        Durant ce duel, différentes afflictions peuvent modifiées le cours de la partie. En effet, certaines attaques possèdent une chance plus ou moins grande d'empoisonner, de brûler, de rendre confus, d'apeurer ou d'altérer les forces du lanceur de la capacité et de l'adversaire. \paragraph{}
+        Dans le cas d'une nouvelle partie, le joueur se vera alors proposé quatre ICMons et choisira celui qu'il préfère, puis arrivera sur la carte, à l'entrée du bâtiment IC2. Le joueur peut alors explorer la carte comme il le souhaite : hall d'accueil, salle de TD et amphithéâtre. Le joueur trouvera également en bas de l'escalier principal un drôle de personnage.
+        Le joueur peut discuter avec lui : qui lui proposera notamment au joueur de changer d'endroit pour commencer son prochain match du tournoi de l'IC2.
+        \paragraph{} Puis l'affrontement commence. Le joueur et son opposant, contrôlé par l'ordinateur, envoient au combat l'ICMons se trouvant en tête de leurs équipes respectives. Chaque tour, les deux protagonistes choisissent une action parmi les deux suivantes : utiliser l'une des quatre attaques connues de leur ICMon, ou bien remplacer le combattant actuel par un autre encore apte dans leur équipe.
+        Durant ce duel, différentes afflictions peuvent modifier le cours de la partie. En effet, certaines attaques possèdent une chance plus ou moins grande d'empoisonner, de brûler, de rendre confus, d'apeurer ou d'altérer les forces du lanceur de la capacité et de l'adversaire. \paragraph{}
         Le combat continue jusqu'à ce que les ICMons d'un des dresseurs soient tous hors d'état de se battre. Si le joueur perd son duel, sa sauvegarde est supprimée et il doit recommencer une nouvelle partie pour tenter de battre son meilleur score, c'est-à-dire son nombre de victoire.
-        Dans le cas contraire, le joueur peut, si il le souhaite, récupérer l'un des ICMons que son adversaire avait dans son équipe et l'ajouter à la sienne. Enfin, le joueur retourne dans le hall du bâtiment IC2 pour se préparer au prochain affrontement.
+        Dans le cas contraire, le joueur peut, s'il le souhaite, récupérer l'un des ICMons que son adversaire avait dans son équipe et l'ajouter à la sienne. Enfin, le joueur retourne dans le hall du bâtiment IC2 pour se préparer au prochain affrontement.
         La partie en cours est sauvegardée à la fin de chaque duel, en cas de victoire du joueur, afin qu'il puisse mettre en pause son aventure et la reprendre plus tard. \paragraph{}
-        Au bout de quinze victoires consécutives, les cinqs derniers combats proposés au joueur seront contre le conseil des quatres, composé des quatres créateurs du jeu : Louis, Nathan, Alban et William, et l'affrontement ultime contre Mme Py, professeur à l'université du Mans en informatique et dans le cadre du jeu mâitresse de l'IC2.
-        Si le joueur parvient à faire chûter Mme Py de son trône, il remporte la partie. 
+        Au bout de quinze victoires consécutives, les cinq derniers combats proposés au joueur seront contre le conseil des quatre, composé des quatre créateurs du jeu : Louis, Nathan, Alban et William, et l'affrontement ultime contre Mme Py, professeur à l'université du Mans en informatique et dans le cadre du jeu mâitresse de l'IC2.
+        Si le joueur parvient à faire chuter Mme Py de son trône, il remporte la partie. 
 
 
 \newpage
@@ -133,12 +133,12 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
 \section{Developpement}
 \subsection{Gestions des ICMons}
 \paragraph{} \emph{Dans cette partie, nous décrivons les concepts et l'implémentation du gameplay d'ICPocket}
-    \subsubsection{structures de données}
+    \subsubsection{Structures de données}
         \paragraph{} L'objectif étant de réaliser un jeu vidéo de type \emph{Pokémon}, il est nécessaire de faire le point sur toutes les données qui doivent être implémentées dans le jeu.\\
         Les ICMons, c'est-à-dire notre version des petits monstres, sont composés de diverses informations. \\
         \begin{itemize}
             \item son nom
-            \item ses statistiques de bases
+            \item ses statistiques de base
             \item ses IVs
             \item son niveau et ses points d'expériences
             \item sa nature
@@ -147,22 +147,22 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
             \item ses attaques
         \end{itemize}
         \emph{Détaillons point par point ces attributs.}
-        \paragraph{Nom} Le nom attribué à l'ICMon stocké sous forme de chaine de caractère statique. Ce dernier est choisi par nos soins.
-        \paragraph{Statistiques de bases} Il s'agit d'un tableau de six entiers représentant les forces et faiblesses des ICMons dans chacune des statistiques de combats (Point de vie, attaque, défense, attaque spéciale, défense spéciale, vitesse. Ces statistiques seront expliquées dans la sous partie \emph{systèmes des combats}).
+        \paragraph{Nom} Le nom attribué à l'ICMon stocké sous forme de chaîne de caractères statique. Ce dernier est choisi par nos soins.
+        \paragraph{Statistiques de bases} Il s'agit d'un tableau de six entiers représentant les forces et faiblesses des ICMons dans chacune des statistiques de combats (Point de vie, attaque, défense, attaque spéciale, défense spéciale, vitesse. Ces statistiques seront expliquées dans la sous partie \emph{Systèmes des combats}).
         Plus un des entiers est grand, plus la statistique associée à cette valeur sera grande.
         \paragraph{IVs} IVs est la contraction de \emph{Individual Values}. Ce tableau de 6 valeurs, toutes comprises entre 0 et 31, défini pour chacune des statistiques de combats son écart de force avec les ICMons de son espèce. Une valeur à 0 dans une statistique signifie que cette statistique sera la plus basse possible pour cette espèce d'ICMon, et vice et versa pour une valeur à 31.
-        \paragraph{Niveau et expérience} Le niveau d'un ICMon est un entier entre 1 et 100 qui modifie chaque statistique sous forme de coefficient multiplicateur. Plus le niveau est élevé, plus les statistiques le sont. L'expérience quand à elle est un entier non signé qui détermine si le niveau d'un ICMon doit augmenter (voir \emph{systèmes des combats}).
+        \paragraph{Niveau et expérience} Le niveau d'un ICMon est un entier entre 1 et 100 qui modifie chaque statistique sous forme de coefficient multiplicateur. Plus le niveau est élevé, plus les statistiques le sont. L'expérience quand à elle est un entier non signé qui détermine si le niveau d'un ICMon doit augmenter (voir \emph{Systèmes des combats}).
         \paragraph{Nature} Tout ICMon possède une nature, choisie aléatoirement lors de sa première rencontre. Il y a vingt cinq natures différentes. Chaque nature augmente une statistique de combats de dix pour cent mais en diminue une de dix pour cent également. Les natures sont également toutes nommées (par exemple, la nature \emph{rigide} augmente l'attaque mais baisse l'attaque spéciale).\\
-        \paragraph{} Les quatres derniers attributs permettent de calculer les statistiques réelles de n'importe qu'elle ICMon grâce aux formules suivantes :
+        \paragraph{} Les quatre derniers attributs permettent de calculer les statistiques réelles de n'importe quel ICMon grâce aux formules suivantes :
         \begin{equation}
             \displaystyle{  Statistiques = \left \lfloor \left\lfloor \frac{(2 \times BaseStat + IV )\times Niveau }{100} +5 \right\rfloor \times Nature \right\rfloor  }
         \end{equation}
         \begin{equation}
             \displaystyle{  PointsDeVie = \left\lfloor \frac{(2 \times BaseStat + IV )\times Niveau}{100} \right\rfloor + Niveau + 10  }
         \end{equation}
-        \paragraph{Double type} Chaque ICMon possède un double type, une caractéristique le rendant plus ou moins puissant face aux différentes espèces d'ICMons. Par exemple, Surcadex est de type feu/malware. Les relations entre les types sont définies dans la table des types \emph{typeChart}, où un coefficient \emph{ligne/colonne} donne le bonus (ou malus) de dégats infligé par le type \emph{ligne} sur le type \emph{colonne}.
+        \paragraph{Double type} Chaque ICMon possède un double type, une caractéristique le rendant plus ou moins puissant face aux différentes espèces d'ICMons. Par exemple, Surcadex est de type feu/malware. Les relations entre les types sont définies dans la table des types \emph{typeChart}, où un coefficient \emph{ligne/colonne} donne le bonus (ou malus) de dégâts infligé par le type \emph{ligne} sur le type \emph{colonne}.
         \paragraph{Sprite} Les images sont gérées par SDL, l'utilisation de la bibliothèque SDL est détaillé dans la partie \emph{Rendu du jeu}. Ces images sont sauvegardées dans le dossier /assets/Monsters/New Version/ et chargées grâce aux noms des fichiers images, qui sont les mêmes que les noms des ICMons.
-        \paragraph{Attaques} Les attaques utilisables en combats sont implémentées par un tableau de quatres structures \emph{t\_Move}. Un ICMon dispose à tout instant de une à quatres attaques maximum.\\
+        \paragraph{Attaques} Les attaques utilisables en combats sont implémentées par un tableau de quatre structures \emph{t\_Move}. Un ICMon dispose à tout instant de une à quatre attaques maximum.\\
         La structure t\_Move contient les attributs suivants :
         \begin{itemize}
             \item son nom, implémenté de manière similaire à celui des ICMon.
@@ -171,13 +171,13 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
             \item sa précision, donnant le pourcentage de chance qu'une attaque touche sa cible.
             \item ses points de pouvoir (PP), un entier donnant le nombre maximal d'utilisation d'une attaque pour un combat.
             \item sa priorité, entier entre -7 et 8 qui détermine si une certaine attaque doit être effectuée avant une autre. Le zéro représente la priorité par défaut.
-            \item son eventuel effet secondaire, qui à une probabilité variable de s'activer après l'attaque.
+            \item son eventuel effet secondaire, qui a une probabilité variable de s'activer après l'attaque.
         \end{itemize}  
-    \subsubsection{systèmes de combats}
+    \subsubsection{Systèmes de combats}
         \emph{Dans cette section, l'implémentation des combats sera détaillé.}
-        \paragraph{} Maintenant que les structures nécessaires ont été explicitées, il faut désormais mettre en place le système de combat tour par tour à la \emph{Pokémon}. L'algorithme utilisé dans ces jeux vidéos est complexe, mais peut se résumer au suivant :\\
+        \paragraph{} Maintenant que les structures nécessaires ont été explicitées, il faut désormais mettre en place le système de combat tour par tour à la \emph{Pokémon}. L'algorithme utilisé dans ces jeux vidéo est complexe, mais peut se résumer au suivant :\\
         \begin{enumerate}
-            \item Le joueur et l'ordinateur choisissent l'action qu'ils souhaitent effectuée, qui sont soit une de leurs attaques disponibles, soit de remplacer l'ICMon courant par un de leur équipe (si celui ci est toujours en vie).
+            \item Le joueur et l'ordinateur choisissent l'action qu'ils souhaitent effectuer, qui sont soit une de leurs attaques disponibles, soit de remplacer l'ICMon courant par un de leur équipe (si celui ci est toujours en vie).
             \item L'ordre de passage des actions est déterminé.
             \item L'action numéro une est réalisée.
             \item L'action numéro deux est réalisée seulement si son auteur est toujours en vie.
@@ -186,25 +186,25 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
             \item Si un des participants n'a plus de tête d'équipe en vie, il la remplace si possible.
             \item On répète l'étape une jusqu'à ce que l'un des participants ne puisse plus réaliser l'étape sept.
         \end{enumerate}
-        \paragraph{Utilisation des statistiques} Les dégats infligés par une attaque sont calculés grâce à la formule suivante :
+        \paragraph{Utilisation des statistiques} Les dégâts infligés par une attaque sont calculés grâce à la formule suivante :
         \begin{equation}
             \displaystyle{  PV_{perdus} = \left \lfloor \left(\left\lfloor\frac{\left\lfloor\frac{\left\lfloor Niveau \times 0.4 +2 \right\rfloor \times StatOffense \times PuissanceAttaque}{StatDefense}\right\rfloor}{50} \right\rfloor +2 \right) \times CM \right \rfloor  }
         \end{equation}
         \begin{description}
-        \item[StatOffense]{est la statistique \emph{attaque} ou \emph{attaque spéciale} de l'attaquant. La différenciation attaque et attaque spéciale est déterminé grâce à la capacité choisie.}
+        \item[StatOffense]{est la statistique \emph{attaque} ou \emph{attaque spéciale} de l'attaquant. La différenciation attaque et attaque spéciale est déterminée grâce à la capacité choisie.}
         \item[StatDefense]{idem pour la défense et la défense spéciale.}
         \item[CM]{Le coefficient multiplicateur de la capacité est le produit des quatres valeurs suivantes :\\
             \begin{itemize}
-                \item Un nombre aléatoire entre 0,85 et 1, qui donne les dégats infligés parmi une fourchette de valeurs possibles
+                \item Un nombre aléatoire entre 0,85 et 1, qui donne les dégâts infligés parmi une fourchette de valeurs possibles
                 \item Le coefficient de la relation de type \emph{typeAttaque/typesDéfenseur}
-                \item Un bonus STAB (Same Type Attack Damage) qui augmente de cinquante pour cent les dégats si le type de l'attaque est aussi l'un des types du lanceur.
-                \item Un bonus coup critique qui à une chance sur vingt quatre d'augmenter les dégats de cinquante pour cent.
+                \item Un bonus STAB (Same Type Attack Damage) qui augmente de cinquante pour cent les dégâts si le type de l'attaque est aussi l'un des types du lanceur.
+                \item Un bonus coup critique qui à une chance sur vingt-quatre d'augmenter les dégâts de cinquante pour cent.
             \end{itemize}
         }
         \end{description}
-        \paragraph{Gain d'expérience} Lorsque l'ICMon de tête du joueur parvient à éliminer celui de l'ordinateur, touts les membres de son équipe gagne une quantité de points d'expérience qui s'ajoute à ceux que les ICMons possédaient.
+        \paragraph{Gain d'expérience} Lorsque l'ICMon de tête du joueur parvient à éliminer celui de l'ordinateur, tous les membres de son équipe gagne une quantité de points d'expérience qui s'ajoute à ceux que les ICMons possédaient.
         \begin{equation}
-            \displaystyle{ EXP = \dfrac {1.5 ^ 2 \times 2 \times BaseStatPV}{7} }
+            \displaystyle{ EXP = \dfrac {1.5 ^ 2 \times 3 \times BaseStatPV}{7} }
         \end{equation}
         Ensuite, la fonction \emph{ReachedNextLvl} vérifie en boucle jusqu'au premier échec si les points d'expérience d'un ICMon dépasse la quantité d'expérience renvoyée par l'appel \emph{expCurve(niveauICmon + 1)}. Dans ce cas, le niveau de l'ICMon progresse de un.\\
         La courbe d'expérience utilisée pour \emph{expCurve} est :
@@ -214,7 +214,7 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
 \newpage
 \subsection{Gestion des bases de données}
 \paragraph{} \emph{Dans cette partie, nous expliquons comment les progressions du jeu sont stockées et comment les ICMons sont générés.}
-    \subsubsection{sauvegardes}
+    \subsubsection{Sauvegardes}
      La gestion des données est primordiale: le joueur doit pouvoir sauvegarder sa progression et la reprendre ultérieurement sans perte d'informations.
      Pour cela, des boutons "play" et "load" sont mise à disposition dans le menu principal \emph{voir ci dessous},.\\
      Lorsque le joueur commence sa partie, le bouton execute la fonction \texttt{initStarters}, le renvoyant vers le choix de son premier ICMon et initialise le jeu en remplissant les structures d'équipes et pokemons.
@@ -256,7 +256,7 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
     \paragraph{charger}prend comme paramètres en plus du numéro de sauvegarde, possède la même signature que la sauvegarde. Elle ouvre le fichier CSV
     correspondant et lit les données ligne par ligne en suivant le format défini par la fonction précédente tout en affectant les données concordants aux structures d'équipes. Si le fichier est inexistant, vide ou ne respondant pas au format établi rendant la lecture impossible, la fonction renvoie une erreur et lance une nouvelle partie.
 
-    \subsubsection{base de données des icmons}
+    \subsubsection{Base de données des icmons}
     La base de données des ICMons est un fichier contenant leurs numéros d'identification, leurs statisques de bases et leurs types.
     Ils sont générés dans des structures d'équipes grâce aux fonctions \texttt{initTeam} et \texttt{initBlueTeam}, chaque équipe ne peut contenir qu'un maximum de six ICMons définis par leurs ID passés en paramètres dans la fonction \texttt{generate\_poke} et \texttt{generate\_poke\_ennemie} pour le pokemon adverse. Ces distinction de fonction de génération est due au traitements différents des gestions de niveau et l'equipe adverse utilise un autre fichier pour la remplir.\\
 
@@ -331,7 +331,7 @@ Cette approche multi-thread permet d'exécuter simultanément la logique du jeu 
 
 La gestion des images par seconde (FPS) est assurée par un mécanisme sophistiqué (manageFrameRate) qui ajuste dynamiquement le timing du rendu pour maintenir une cadence constante. Notre système vise un objectif de 60 FPS en calculant le temps écoulé depuis le début de la frame et en introduisant un délai approprié si nécessaire. Ce mécanisme garantit une expérience fluide tout en calculant précisément le deltaTime, une variable critique pour la synchronisation des animations et des mouvements indépendamment de la puissance de calcul disponible.
 
-\subsubsection{gestion de l'interface}
+\subsubsection{Gestion de l'interface}
 \paragraph{Système d'états} Notre interface utilisateur est gérée par un système d'états (définis dans l'énumération AppState) qui détermine quels éléments doivent être affichés à chaque instant. La fonction render orchestre l'affichage des différents composants en fonction de l'état actuel du jeu. Cette fonction conditionne le rendu selon des valeurs telles que MENU, NEWGAME, SWAP, LEARNMOVE ou STARTERS, appelant les fonctions de rendu appropriées pour chaque situation.
 
 \paragraph{Transitions et mises à jour} Les transitions entre ces différents états sont gérées par une fonction changeState qui assure la cohérence des données et prépare les ressources nécessaires au nouvel état. Cette fonction prend en compte à la fois l'état actuel et l'état cible pour effectuer les actions de transition appropriées, comme l'initialisation d'un combat lorsque l'on passe de l'exploration à un affrontement.
@@ -340,7 +340,7 @@ La gestion des images par seconde (FPS) est assurée par un mécanisme sophistiq
 
 \paragraph{Gestion des événements} La gestion des événements utilisateur est assurée par un ensemble de fonctions spécialisées pour chaque état du jeu, comme handleLoadGameEvent ou handlePauseEvent, qui interprètent les interactions et déclenchent les actions appropriées. Par exemple, la fonction de gestion des pauses vérifie si la touche Échap a été pressée et change l'état du jeu en conséquence.
 
-\subsubsection{gestion des combats avec SDL}
+\subsubsection{Gestion des combats avec SDL}
 \paragraph{Machine à états} Le système de combat repose sur une machine à états finie représentée par l'énumération BattleTurnState, qui définit les différentes phases d'un tour : initialisation (TURN\_INIT), attente des instructions du joueur (TURN\_WAIT\_TEXT), exécution des actions (TURN\_ACTION1 et TURN\_ACTION2), et finalisation (TURN\_FINISHED).
 
 \paragraph{Rendu des sprites} Le rendu des sprites des ICMons est géré par des fonctions spécialisées comme renderICMonsSprite, qui s'occupe de positionner et d'animer correctement les créatures à l'écran. L'initialisation des sprites est effectuée lors du chargement d'une partie par la fonction initTeamSprites, qui prend en compte le positionnement relatif des sprites sur l'écran, avec des ratios différents selon qu'il s'agit de l'équipe du joueur (BLUE SPRITE X RATIO, BLUE SPRITE Y RATIO) ou de l'adversaire (RED SPRITE X RATIO, RED SPRITE Y RATIO).
@@ -389,7 +389,7 @@ Avis des membres de l'équipe :
     \newline
     \item \textbf{Louis :} J'ai beaucoup aimé réaliser ce projet de fin d'année avec mon groupe. Nous qui étions déjà très proches, avons pu nous mettre d'accord sur les différentes parties du projet et nous avons pu nous entraider. J'ai également appris beaucoup de choses sur le développement de jeux vidéo, notamment sur le fait d'approfondir mes capacités en C et de découvrir la bibliothèque SDL. Si je devais recommencer ce projet, je changerais certaines choses, comme la gestion des threads et des ressources, afin de rendre le jeu encore plus fluide et performant, j'ai aussi appris à structurer correctement un projet petit à petit donc ce serait aussi une bonne chose à améliorer.
     \newline
-    \item \textbf{Nathan :} En tant que fan absolu de \emph{Pokémon}, j'ai personnellement adoré réaliser ce projet. La cohésion dans le groupe ne pouvait être meilleure, et par conséquent le résultat est parfaitement à la hauteur de mes attentes. De plus, ceci fût ma première expérience de réalisation de projet de grande envergure mais également de réalisation de jeux vidéos et de travail en équipe, ce qui m'a permis d'enrichir mes connaissances en vue de mon parcours professionnels à venir.
+    \item \textbf{Nathan :} En tant que fan absolu de \emph{Pokémon}, j'ai personnellement adoré réaliser ce projet. La cohésion dans le groupe n'aurait pas pu être meilleure, et par conséquent le résultat est parfaitement à la hauteur de mes attentes. De plus, cela a été ma première expérience de réalisation de projet de grande envergure mais également de réalisation de jeux vidéo et de travail en équipe, ce qui m'a permis d'enrichir mes connaissances en vue de mon parcours professionnel à venir.
     \newline
     \item \textbf{William :} Réaliser ce projet a été une expérience enrichissante, tant sur le plan technique que sur la gestion de l'organisation. La communication et la répartition des taches ont été facilitées car nous sommes tous au courant des compétences et limites de chacuns, puisque que nous nous entendions très bien en dehors des cours. Sur le plan personnel j'ai appris a utilisé github qui est un élément essentiel pour un développeur voulant travailler en équipe, j'ai aussi expérimenté les difficultés et les opportunités rencontrées lorsqu'une équipe créer un projet de cet envergure. Mes compétences en C ont été mises à l'épreuve pour une derniere fois avant la fin d'année, ce qui m'a permis de les améliorer considérablement.
     
