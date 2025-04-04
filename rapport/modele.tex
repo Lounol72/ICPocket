@@ -216,9 +216,9 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
 \paragraph{} \emph{Dans cette partie, nous expliquons comment les progressions du jeu sont stockées et comment les ICMons sont générés.}
     \subsubsection{sauvegardes}
      La gestion des données est primordiale: le joueur doit pouvoir sauvegarder sa progression et la reprendre ultérieurement sans perte d'informations.
-     Pour cela, nous avons utilisé un fichier de sauvegarde au format CSV, contenant toutes les informations nécessaires au joueur et au bon déroulement de la partie.\\
-     Ces fichiers contiennent une liste de tous les ICmons du joueur, ainsi que leurs caractéristiques : points de vie, attaques, défenses, etc.
-     Si un fichier de sauvegarde est invalide, c'est-à-dire inexistant, corrompu, vide ou mal formaté, une nouvelle partie se lance et un nouveau fichier de sauvegarde est créé.\\
+     Pour cela, des boutons "play" et "load" sont mise à disposition dans le menu principal \emph{voir ci dessous},.\\
+     Lorsque le joueur commence sa partie, le bouton execute la fonction \texttt{initStarters}, le renvoyant vers le choix de son premier ICMon et initialise le jeu en remplissant les structures d'équipes et pokemons.
+     Le second bouton permet de reprendre une partie, le joueur aura la possibilité de choisir entre 2 sauvegardes. Si une partie existe, l'initialisation du jeu se fera différement, c'est la fonction \texttt{loadfile} qui sera appelée , contenant l'appel d'une fonction de sauvegarde\\
      \subsubsection{Menus de sauvegarde}
      \begin{figure}[h!]
         \centering
@@ -237,17 +237,34 @@ En complément de ces ressources en ligne, nous avons tiré parti des outils d'i
         \end{minipage}
     \end{figure}
     \paragraph{} \emph{Dans le code, les fonctions de sauvegarde et de chargement se situent dans le fichier \texttt{save.c}.}
-    \paragraph{} \textbf{sauvegarder} prend comme paramètres des structures d'équipes , respectivement celui du joueur et celui de l'adversaire,
-    et cherche le fichier correspondant au numéro du bouton de sauvegarde appuyé. Ensuite , enregistre seulement les numéros d'identification des ICMons et leurs caractéristiques générés aléatoirement ou choisis par le joueur, telles que les IVs,niveaux de ICmon , le nombre et type d'attaque. Enfin,elle sauvegarde les données liées a la progression
-    comme le nombre de joueurs battus et leurs pseudo.
-    \paragraph{} \textbf{charger} prend comme paramètres le numéro de sauvegarde et la structure d'équipe du joueur. Elle ouvre le fichier CSV
-    correspondant et lit les données ligne par ligne en suivant le format défini par la fonction précédente. si 
+     La gestion des sauvegardes repose sur l'utilisation de fichiers au format CSV, qui stockent toutes les informations essentielles au joueur et ainsi au bon déroulement de la partie.\\
+
+     Ces fichiers contiennent une liste de tous les ICmons possédés par le joueur, ainsi que leurs caractéristiques.\\
+     Si un fichier de sauvegarde est invalide ou corrompu, une nouvelle partie est automatiquement lancée et un nouveau fichier de sauvegarde est créé.\\
+
+    \paragraph{sauvegarder}prend comme paramètres les structures représentant les équipes du joueur et de l'adversaire,
+    et identifie le fichier correspondant au numéro du bouton de sauvegarde sélectionné, puis enregistre uniquement les numéros d'identification des ICMons et leurs caractéristiques générés aléatoirement ou choisis par le joueur.\\
+    les informations sauvegardées incluent notamment:
+    \begin{itemize}
+        \item L'ID de chaque ICMons
+        \item Les IVs des ICMons
+        \item Leur niveau
+        \item Le nombre et type d'attaques
+        \item Les ICMons volés à l'adversaire
+        \item Les données liées à la progression du joueur, telles que le nombre d’adversaires vaincus et leurs pseudos.
+    \end{itemize}
+    \paragraph{charger}prend comme paramètres en plus du numéro de sauvegarde, possède la même signature que la sauvegarde. Elle ouvre le fichier CSV
+    correspondant et lit les données ligne par ligne en suivant le format défini par la fonction précédente tout en affectant les données concordants aux structures d'équipes. Si le fichier est inexistant, vide ou ne respondant pas au format établi rendant la lecture impossible, la fonction renvoie une erreur et lance une nouvelle partie.
 
     \subsubsection{base de données des icmons}
-    Toutes la gestion de base de données ont été fais dans des fichiers CSV situés dans le dossier \texttt{data/}
-    Les ICMons sont générés grâce a leurs ID leurs numéro d'identification, avec la fonction \texttt{generate\_poke} et \texttt{generate\_poke\_ennemie} qui prennent donc en paramètres les ID.
+    La base de données des ICMons est un fichier contenant leurs numéros d'identification, leurs statisques de bases et leurs types.
+    Ils sont générés dans des structures d'équipes grâce aux fonctions \texttt{initTeam} et \texttt{initBlueTeam}, chaque équipe ne peut contenir qu'un maximum de six ICMons définis par leurs ID passés en paramètres dans la fonction \texttt{generate\_poke} et \texttt{generate\_poke\_ennemie} pour le pokemon adverse. Ces distinction de fonction de génération est due au traitements différents des gestions de niveau et l'equipe adverse utilise un autre fichier pour la remplir.\\
 
-      
+    \paragraph{} La fonction \texttt{generateMoves} génère aléatoirement une attaque en choisissant parmi les attaques disponibles dans la base de données \texttt{dataMove} et la fonction s'assure que l'attaques générées n'est pas déja appris par la créature.
+    \paragraph{} Les fonctions \texttt{generate\_poke} et \texttt{generate\_poke\_ennemie} affectent les structures des ICMon avec leurs "BaseStat" , leurs niveaux et lui génere des attaques en bouclant la fonction \texttt{generateMoves} selon le nombre d'attaque de la créature.
+    \paragraph{} Les fonctions \texttt{initTeam} et \texttt{initBlueTeam} initialisent les équipes du joueur et de l'adversaire respectivement, ce n'est qu'une boucle de \texttt{generate\_poke}  selon le nombre de ICmon du joueur et calcul les statistiques réelles \emph{voir 4.1} de sa créature. C'est ici que les PV du joueurs seront calculer selon l'addition de ses ICMons .
+
+    \paragraph{} La fonction \texttt{initStarters} est la première fonction appelée lors du lancement du jeu, elle initialise les équipes du joueur et de l'adversaire, ainsi que les ICMons de départ.\\
 \newpage
 \subsection{Gestion de la map}
 
