@@ -1,5 +1,15 @@
 [
   {
+    "sha": "f6af6be1",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-07T06:25:38Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/f6af6be173cf13b34cab60703a698969b6bfcc5d"
+  },
+  {
     "sha": "cdea9b27",
     "message": "📊 Update GitHub data",
     "date": "2025-04-07T01:22:18Z",
@@ -288,15 +298,5 @@
       "username": "github-actions[bot]"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/87759c2fa55c303f2a0868317d9447b398db6d56"
-  },
-  {
-    "sha": "0fa84cbc",
-    "message": "🐛 Fix memory management issues in text and sprite destruction",
-    "date": "2025-04-03T09:40:51Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/0fa84cbc214c8717176c67e1ed7c5eda66f65edc"
   }
 ]
