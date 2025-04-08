@@ -1,5 +1,75 @@
 [
   {
+    "sha": "4f8c49c6",
+    "message": "Merge pull request #54 from Lounol72/26-latex",
+    "date": "2025-04-08T17:14:27Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/4f8c49c63537374d055681211af0b45e6f69e332"
+  },
+  {
+    "sha": "334545bc",
+    "message": "Merge pull request #55 from Lounol72/With-PNJ",
+    "date": "2025-04-08T17:07:38Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/334545bc8372f11c59055a384af062e46a621f7b"
+  },
+  {
+    "sha": "b935ea91",
+    "message": "Revert some changes",
+    "date": "2025-04-08T12:54:41Z",
+    "author": {
+      "name": "lOkaal1",
+      "username": "lOkaal1"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/b935ea9187cbd6d9d5b97199ff3b56e041815baa"
+  },
+  {
+    "sha": "e8224805",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-08T12:35:26Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/e82248056db8061ee68701def71ec089440a15b5"
+  },
+  {
+    "sha": "d4d0473f",
+    "message": "added debugging example",
+    "date": "2025-04-08T12:33:33Z",
+    "author": {
+      "name": "Natp24109",
+      "username": "Natp24109"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/d4d0473f5bc5fe10efc9a808e3ca7bc3a2213dbf"
+  },
+  {
+    "sha": "a2c468e6",
+    "message": "last fixes for LaTeX document",
+    "date": "2025-04-08T11:39:46Z",
+    "author": {
+      "name": "Natp24109",
+      "username": "Natp24109"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/a2c468e6076ab791395745c55d0c60964453a8d5"
+  },
+  {
+    "sha": "01439459",
+    "message": "PNJS Added",
+    "date": "2025-04-08T11:19:23Z",
+    "author": {
+      "name": "lOkaal11",
+      "username": "lOkaal1"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/014394598c6761a67a5699dfa199b635dd5391bc"
+  },
+  {
     "sha": "7bb13f30",
     "message": "📊 Update GitHub data",
     "date": "2025-04-08T06:25:37Z",
@@ -80,6 +150,16 @@
     "url": "https://github.com/Lounol72/ICPocket/commit/cb57f1a7970718503d30f2e47d2d4844987d5a40"
   },
   {
+    "sha": "5581ea33",
+    "message": "pdf compiled",
+    "date": "2025-04-04T17:58:45Z",
+    "author": {
+      "name": "lOkaal11",
+      "username": "lOkaal1"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/5581ea33a3463e0d6db4316c8d9f72dffe46c4d2"
+  },
+  {
     "sha": "2af82417",
     "message": "Merge pull request #53 from Lounol72/52-fairness-patch",
     "date": "2025-04-04T14:35:28Z",
@@ -90,6 +170,16 @@
     "url": "https://github.com/Lounol72/ICPocket/commit/2af8241734ace83c718c2781807eae112731587c"
   },
   {
+    "sha": "5084d5f3",
+    "message": "orthographe de mes parties + update formule + majuscules aux subsections",
+    "date": "2025-04-04T14:29:19Z",
+    "author": {
+      "name": "Natp24109",
+      "username": "Natp24109"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/5084d5f3e064eb18107259e35ca8ae12c4fbe2ea"
+  },
+  {
     "sha": "6dad7956",
     "message": "📊 Update GitHub data",
     "date": "2025-04-04T12:34:13Z",
@@ -98,6 +188,16 @@
       "username": "github-actions[bot]"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/6dad7956d8c1fb3033f077e634d3115f112ba040"
+  },
+  {
+    "sha": "0ed543ce",
+    "message": "Diagramme added",
+    "date": "2025-04-04T12:28:23Z",
+    "author": {
+      "name": "lOkaal11",
+      "username": "lOkaal1"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/0ed543ced6eda4d6c3e895b756947e7707a61991"
   },
   {
     "sha": "d6be2cc8",
@@ -120,6 +220,36 @@
     "url": "https://github.com/Lounol72/ICPocket/commit/b9295b7c19dc9ae23d1191bcb24b40bfecc1eae5"
   },
   {
+    "sha": "b8160a4e",
+    "message": "refactor: remove schemaDB image and update LaTeX document with new annexes and member feedback",
+    "date": "2025-04-04T11:45:04Z",
+    "author": {
+      "name": "AstroZr",
+      "username": "AstroZr"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/b8160a4ebd0c32d7dc962f9b4cc80ee88bcfd4e5"
+  },
+  {
+    "sha": "53543636",
+    "message": "update: revise document structure and update date in LaTeX files",
+    "date": "2025-04-04T11:23:15Z",
+    "author": {
+      "name": "AstroZr",
+      "username": "AstroZr"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/53543636344a801d68da78a4af95eb85fe6d9ff9"
+  },
+  {
+    "sha": "fef4a2dc",
+    "message": "Added BDD part",
+    "date": "2025-04-04T11:11:13Z",
+    "author": {
+      "name": "lOkaal11",
+      "username": "lOkaal1"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/fef4a2dc4170eb46f1d7572f8423d0c8d39fc4b2"
+  },
+  {
     "sha": "9bba46f8",
     "message": "refactor generate_lvl function and boosted exp gain for fairness, various moves changes + ensure the starters have at least two moves",
     "date": "2025-04-04T09:06:30Z",
@@ -128,6 +258,16 @@
       "username": "Natp24109"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/9bba46f86569e33f130b47af2f05bba9cb438895"
+  },
+  {
+    "sha": "933d0ae6",
+    "message": "William's feedback added",
+    "date": "2025-04-04T08:29:51Z",
+    "author": {
+      "name": "lOkaal11",
+      "username": "lOkaal1"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/933d0ae62931add6cfdccfb0b662bba423aa5634"
   },
   {
     "sha": "75ab2177",
@@ -158,145 +298,5 @@
       "username": "github-actions[bot]"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/445cf65599805ee5513c0284714d80907056552b"
-  },
-  {
-    "sha": "21046526",
-    "message": "FIX BUG HOW",
-    "date": "2025-04-03T20:02:59Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/21046526580527bfba1c69d7f1030b1e35ac16c9"
-  },
-  {
-    "sha": "0624dbc6",
-    "message": "Bug fix IDK how",
-    "date": "2025-04-03T19:32:40Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/0624dbc67bd6019e2b3dcf5f4b7265d83f43947f"
-  },
-  {
-    "sha": "734a913a",
-    "message": "📊 Update GitHub data",
-    "date": "2025-04-03T18:23:32Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/734a913a6c120a94f4c43f8ec2fd990919682b3c"
-  },
-  {
-    "sha": "2623a656",
-    "message": "Implement saveDestroy function and add unit test for save destruction",
-    "date": "2025-04-03T17:48:01Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/2623a6565047207728b582a71cf077244f586cde"
-  },
-  {
-    "sha": "c4b2af99",
-    "message": "Refactor render function for improved clarity and structure; add unit tests for save functionality",
-    "date": "2025-04-03T17:45:57Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/c4b2af9993c552c0a98867dec1b43396a7737d8e"
-  },
-  {
-    "sha": "e5628191",
-    "message": "Merge pull request #51 from Lounol72/test-windows-build",
-    "date": "2025-04-03T17:03:15Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/e5628191cce77bd5effa0903fa2bcf03e009fafe"
-  },
-  {
-    "sha": "de83fc4d",
-    "message": "📦 Windows build 2025-04-03",
-    "date": "2025-04-03T15:06:16Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/de83fc4dbd92d7ccd597101c7956f110cfc7854c"
-  },
-  {
-    "sha": "82612cbd",
-    "message": "Update Windows build workflow to simplify git push command",
-    "date": "2025-04-03T15:03:40Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/82612cbd40ae3ea788635df57c70febffb9f5335"
-  },
-  {
-    "sha": "b815df20",
-    "message": "Fix team initialization loop and add platform-specific directory creation for saves",
-    "date": "2025-04-03T14:59:57Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/b815df20cce2be5b0c3d9adbdf0c6e62529e3c82"
-  },
-  {
-    "sha": "0093853a",
-    "message": "removed scheduled Windows build",
-    "date": "2025-04-03T14:54:07Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/0093853a7121146983b7ef318d45e82800c4a77e"
-  },
-  {
-    "sha": "e41dbe6a",
-    "message": "Add scheduled Windows build and conditional execution based on today's commits",
-    "date": "2025-04-03T14:53:28Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/e41dbe6adea92f19089d88b82b310dcd44717f3e"
-  },
-  {
-    "sha": "69118aa9",
-    "message": "Fix state transition in nextDuel function to use MAP state instead of GAME state",
-    "date": "2025-04-03T14:49:03Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/69118aa9b7848a487edc73d691f7262d69eb4cfb"
-  },
-  {
-    "sha": "b04a3edf",
-    "message": "📦 Linux build 2025-04-03",
-    "date": "2025-04-03T13:45:10Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/b04a3edf60a33a7d90057839ca1d04cc711fb529"
-  },
-  {
-    "sha": "bf3df2e7",
-    "message": "Fix state transition in nextDuel function to use MAP state instead of GAME state",
-    "date": "2025-04-03T13:38:57Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/bf3df2e7da443dc3368a5735bcdaa4dd1ade2967"
   }
 ]
