@@ -1,5 +1,15 @@
 [
   {
+    "sha": "7bb13f30",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-08T06:25:37Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/7bb13f30c0c99d8dbda8d81f111172cc3e465d5c"
+  },
+  {
     "sha": "45518857",
     "message": "📊 Update GitHub data",
     "date": "2025-04-08T01:20:08Z",
@@ -288,15 +298,5 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/bf3df2e7da443dc3368a5735bcdaa4dd1ade2967"
-  },
-  {
-    "sha": "73dac9bd",
-    "message": "Merge pull request #50 from Lounol72/17-new-save-feature",
-    "date": "2025-04-03T13:34:05Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/73dac9bdee269852882c2568f8377d7ebafbd15a"
   }
 ]
