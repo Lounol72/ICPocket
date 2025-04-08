@@ -1,5 +1,15 @@
 [
   {
+    "sha": "85f74127",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-07T18:24:02Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/85f7412757f70cfc3ec07f993a5a1645212d43fd"
+  },
+  {
     "sha": "cdebe156",
     "message": "📊 Update GitHub data",
     "date": "2025-04-07T12:35:49Z",
@@ -288,15 +298,5 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/9bd4ff9b71c859d049e4770aaa0124bf758b419f"
-  },
-  {
-    "sha": "925b4304",
-    "message": "Add button initialization and update function; manage game state during events",
-    "date": "2025-04-03T13:27:30Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/925b430499f7ac8885c022036533b9b57ae517ba"
   }
 ]
