@@ -8,8 +8,10 @@
  * @param t Pointeur vers la structure de l'équipe à soigner.
  */
 void healTeam(t_Team * t){
+    t->effect=noEffect;
     for(int i=0;i<t->nb_poke;i++){
         t->team[i].current_pv=t->team[i].initial_pv;
+        t->team[i].main_effect=noEffect;
         for(int j=0;j<t->team[0].nb_move;j++){
             t->team[i].moveList[j].current_pp=t->team[i].moveList[j].max_pp;
         }

@@ -370,7 +370,7 @@ void changeIndexSwap(Window *win, void *data) {
  * @param data Données supplémentaires pour l'échange.
  */
 void validateSwap(Window *win, void *data) {
-    if(!gameStateTimerValidate(2000)) return;
+    if(!gameStateTimerValidate(1e6)) return;
     if(game.swappingIndex[0]<game.battleState.bleu.nb_poke){
         if(game.swappingIndex[1]<game.battleState.rouge.nb_poke){
             destroyICMonsSprite(&game.battleState.rouge.team[game.swappingIndex[1]]);
@@ -617,6 +617,7 @@ void nextDuel(Window *win, void *data) {
     // Soigner et réinitialiser
     healTeam(&game.battleState.rouge);
     initBlueTeam(&game.battleState.bleu, &game.battleState.rouge);
+    healTeam(&game.battleState.bleu);
     
     // Réinitialiser l'IA
     //game.battleState.ia = (t_AI){10, damageOnly, &game.battleState.bleu};
