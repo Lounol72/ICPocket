@@ -1,5 +1,15 @@
 [
   {
+    "sha": "9b2c8374",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-09T12:35:37Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/9b2c8374618fd1d57cb75b48f3703c432b4ec4d3"
+  },
+  {
     "sha": "2e4465f3",
     "message": "Remove frame delay during map transition rendering",
     "date": "2025-04-09T08:56:22Z",
@@ -288,15 +298,5 @@
       "username": "Natp24109"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/5084d5f3e064eb18107259e35ca8ae12c4fbe2ea"
-  },
-  {
-    "sha": "6dad7956",
-    "message": "📊 Update GitHub data",
-    "date": "2025-04-04T12:34:13Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/6dad7956d8c1fb3033f077e634d3115f112ba040"
   }
 ]
