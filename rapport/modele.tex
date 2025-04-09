@@ -30,9 +30,9 @@
         Licence Informatique 2ème année\\
         Module 17UF02 Rapport de Projet\\
         \vspace{0.5cm}
-        \Large\textbf{Titre du projet}\\
+        \Large\textbf{ICPocket}\\
         \vspace{1cm}
-        {\large Noms des auteurs}\\
+        {\large Louis Subtil, Nathan Pasquier, Alban Borde, William Littre}\\
         \vspace{0.5cm}
         {\normalsize \today} 
     \end{center}
@@ -41,92 +41,413 @@
 \newpage
 \tableofcontents
 \newpage
-\abstract{
-    Ceci est le texte de mon résumé...
-}
 \section{Introduction}
 
-\emph{Cette introduction présentera le sujet qui sera traité et le travail avec une présentation du plan adopté} \\
-    
-\section{Conception}
-    Dans cette première partie nous allons présenter .... . La figure 1 illustre .....
+\emph{Cette introduction présentera le sujet qui sera traité et le travail avec une présentation du plan adopté}\\
+Dans le cadre d'un projet de notre fin d'année de L2 informatique, le type de jeu vidéo créer est un jeu de rôle qui se joue en tour par tour en faisant affronter des créatures fantastiques a l’instar du jeu phare de Nintendo nommé « Pokemon ».\\
+Ce projet a été réaliser en langage C avec la librairie SDL et contrairement a son inspiration , le jeu ne se passe pas dans un pays tous droit sorti de l’imaginaire d’une personne mais bel et bien au sein du bâtiment de l’Institut Claude Chappe, Vous incarnerez un nouvel étudiant rentrant en première année et affronterez d'autres étudiants et enseignants chercheurs déjà installés dans le bâtiment a travers des duels de ICmon.\\ 
 
-    L’instruction \/begin figure [!h] force l’image à se positionner comme on le désire. Le positionnement de l’image dépend également de ses dimensions, si elle est située en bas de page, et qu’elle est trop grande, elle va se positionner sur la page suivante et le texte qui suit se retrouvera donc avant l’image. Il faudra réduire la taille. Ceci peut se faire avec l’option scale de includegraphics.
+En première partie, nous allons expliquer comment nous avons conçu le jeu, une présentation général et détaillé de l’univers dans lequel il se situe, son histoire ainsi que celui du joueur communément appeler son « lore » .
+Ensuite sa direction artistique c’est a dire tous l’aspect graphique seront expliciter , avec quels logiciels les sprites des Icmons, du joueur et des niveaux ont été esquisser et enfin toutes les possibilités offertes au joueur pendant son aventure.\\
+
+Puis nous parlerons de l’organisation, quelles missions a été confié pour chaque personne du groupe et sous quels deadline devaient-elles être rendu ,tous ceci a été planifié grâce a un diagramme de Gantt que nous avons réalisé.\\
+
+En troisième partie nous expliquerons la gestion des Icmons , comment ils ont été générés et comment la gestion des duels a été réalisé, puis nous parlerons de la gestion des bases de données, comment les données des Icmons et le jeu ont été sauvegardé puis chargé et ensuite réutiliser de nouveau.\\
+
+Puis nous aborderons la gestion de la carte, comment le joueur se déplace dans l'espace et comment la caméra le suit. et lorsqu'il rencontre un obstacle, une collision doit se produire.\\
+
+Et enfin nous mettre en évidence la rendu du jeu , les sprites que nous avons créer doivent être implémenté directement dans le code, le système de combat c’est a dire les points de vie décrémenter lorsqu’une attaque est subie ,devrait être cohérent avec ce que le joueur voit sur l’écran et pour finir l’interface par quel moyen l’interface du jeu a été conçu, de quelle façon le joueur change de fenêtre lorsque tel bouton est appuyé\\\\
+\lfoot\fancyfoot{\footnotesize *Pokemon:le jeu sera présenter dans la suite du rapport\\*Sprite: image 2D utilisé dans les jeux vidéo\\*ICmon: contraction de l'expression « Institut Claude chappe » et « Monstre »\\*Lore: histoire d'un jeu vidéo\\*deadline: date limite\\}
 \newpage
+\section{Conception}
+    \subsection{Présentation du jeu}
+        ICPocket est un jeu de rôle basé sur l'univers des jeux vidéo « Pokémon » développés par GAME FREAK et publiés par Nintendo.
+        Le jeu met le joueur dans la peau d'un étudiant de la faculté d'informatique du Mans et d'un dresseur de petites créatures nommées les \emph{ICMons}.
+        Cet étudiant, qui vient tout juste d'arriver au sein de l'institut Claude Chappe pour sa première année de licence, choisit son premier partenaire parmi quatre ICmons offerts par Louis, Nathan, Alban et William.
+        \paragraph{}L'objectif du joueur est de devenir le maître de l'IC2 en remportant le tournoi annuel de la faculté : « le tournoi de l'IC2 », puis en faisant tomber son conseil des quatre et son champion. Pour cela, il devra se confronter à ses camarades et ses professeurs dans des duels d'ICMons : 
+        des combats de type joueur contre ordinateur en tour par tour dans lesquelles chaque partie envoie un ICMons parmi un maximum de six se battre contre l'autre, jusqu'à ce que l'un des combattants n'ait plus aucun ICMons apte à se battre.
+        Ces affrontements tactiques et imprévisibles pousseront le joueur à découvrir les forces et faiblesses de son équipe et à mettre en place la meilleure stratégie pour parvenir à la victoire.
+        Toutefois, cela ne sera pas une tâche aisée, puisque la moindre défaite signifie que le joueur sera éliminé du tournoi et devra donc recommencer du début.
+
+    \subsection{Direction artistique}
+        En hommage aux jeux vidéo originaux de la série « Pokémon », nous avons fait le choix de nous inspirer de la direction artistique de la troisième génération de ces jeux : « Pokémon Rubis et Saphir ».
+        Cette direction artistique est basée sur la 2D, avec des sprites pixelisées. \paragraph{} Pour la réalisation de la carte, nous avons utilisé les assets libres de droit disponibles sur le site \href{https://kenney.nl/assets}{kenney.nl}. La carte a ensuite été assemblée par Alban et Louis. La plupart des sprites des ICMons ont été dessiné par William, Loup Picault, et Nathan. Les sprites restants ont été dessinés par intelligence artificielle.
+        \paragraph{} Afin de limiter le nombre de sprites que nous avions à réaliser pour ce projet, nous nous sommes inspirés de la méthode d'affichage des sprites du fangame \href{https://infinitefusion.fandom.com/wiki/Pok%C3%A9mon_Infinite_Fusion_Wiki}{« Pokemon Infinite Fusion »}, où durant un combat, les sprites de l'équipe du joueur sont retournés par symétrie axiale verticale, ce qui donne l'illusion d'un sprite \emph{de dos} tout en n'ayant qu'un seul sprite à utiliser.
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.22\textwidth]{../assets/Monsters/New Versions/A-ski.png}
+            \label{fig:ICMon}
+            \caption{Exemple de sprite pour un ICMon}
+        \end{figure} 
+
+    \subsection{Fonctionnalités}
+        \emph{Dans cette partie, nous présenterons toutes les fonctionnalités disponibles dans le jeu} \\
+        \paragraph{} Au lancement du jeu, le joueur peut personnaliser ses paramètres selon ses souhaits : les dimensions de la fenêtre d'écran, la vitesse du texte en jeu et le volume sonore. Après cela, il peut charger une partie déjà entamée, à condition qu'une telle partie existe dans les fichiers du jeu, ou bien débuter une nouvelle aventure. \paragraph{}
+        Dans le cas d'une nouvelle partie, le joueur se vera alors proposé quatre ICMons et choisira celui qu'il préfère, puis arrivera sur la carte, à l'entrée du bâtiment IC2. Le joueur peut alors explorer la carte comme il le souhaite : hall d'accueil, salle de TD et amphithéâtre. Le joueur trouvera également en bas de l'escalier principal un drôle de personnage.
+        Le joueur peut discuter avec lui : qui lui proposera notamment au joueur de changer d'endroit pour commencer son prochain match du tournoi de l'IC2.
+        \paragraph{} Puis l'affrontement commence. Le joueur et son opposant, contrôlé par l'ordinateur, envoient au combat l'ICMons se trouvant en tête de leurs équipes respectives. Chaque tour, les deux protagonistes choisissent une action parmi les deux suivantes : utiliser l'une des quatre attaques connues de leur ICMon, ou bien remplacer le combattant actuel par un autre encore apte dans leur équipe.
+        Durant ce duel, différentes afflictions peuvent modifier le cours de la partie. En effet, certaines attaques possèdent une chance plus ou moins grande d'empoisonner, de brûler, de rendre confus, d'apeurer ou d'altérer les forces du lanceur de la capacité et de l'adversaire. \paragraph{}
+        Le combat continue jusqu'à ce que les ICMons d'un des dresseurs soient tous hors d'état de se battre. Si le joueur perd son duel, sa sauvegarde est supprimée et il doit recommencer une nouvelle partie pour tenter de battre son meilleur score, c'est-à-dire son nombre de victoire.
+        Dans le cas contraire, le joueur peut, s'il le souhaite, récupérer l'un des ICMons que son adversaire avait dans son équipe et l'ajouter à la sienne. Enfin, le joueur retourne dans le hall du bâtiment IC2 pour se préparer au prochain affrontement.
+        La partie en cours est sauvegardée à la fin de chaque duel, en cas de victoire du joueur, afin qu'il puisse mettre en pause son aventure et la reprendre plus tard. \paragraph{}
+        Au bout de quinze victoires consécutives, les cinq derniers combats proposés au joueur seront contre le conseil des quatre, composé des quatre créateurs du jeu : Louis, Nathan, Alban et William, et l'affrontement ultime contre Mme Py, professeur à l'université du Mans en informatique et dans le cadre du jeu mâitresse de l'IC2.
+        Si le joueur parvient à faire chuter Mme Py de son trône, il remporte la partie. 
 
 
+\newpage
+\section{Organisation}
+Notre projet de jeu 2D a été développé selon une architecture modulaire rigoureuse, permettant une séparation claire des responsabilités entre les différents composants. Nous avons adopté un modèle de développement itératif, en commençant par implémenter les fonctionnalités essentielles du moteur de jeu avant d'ajouter progressivement des mécanismes plus complexes. L'organisation s'est articulée autour de trois axes principaux : la gestion du rendu graphique avec SDL, la logique de jeu et les structures de données, et enfin la synchronisation entre ces éléments via un gestionnaire de threads. Cette approche nous a permis de maintenir un code propre et maintenable, tout en facilitant le débogage et l'extension des fonctionnalités au cours du développement. Notre système de maps interconnectées avec mémorisation des positions du joueur illustre parfaitement cette approche modulaire, où chaque composant (Map, Player, Camera) remplit un rôle spécifique mais communique efficacement avec les autres.
+
+\subsection{Planning Prévisionnel}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{image.png}
-    \label{fig:logo}
+    \includegraphics[width=0.75\textwidth]{GANTT.png}
+    \label{fig:GANTT}
+    \caption{Diagramme de Gantt}
 \end{figure}
-\subsection{Présentation du jeu}
-\subsection{Direction artistique}
-\subsection{Fonctionnalités}
-\section{Organisation}
-\subsection{}
-\subsection{Sous partie 2}
-\section{Partie 2-Les tableaux en Latex}
 
-    Les algorithmes de \LaTeX pour mettre en forme les tableaux ont quelques imperfections. L’une d’entre elles est qu’il n’affiche pas automatiquement le texte sur plusieurs lignes dans les cellules, même si celui-ci déborde de la largeur de la page. Pour les colonnes qui contiendront une certaine quantité de texte, il est recommandé d’employer l’attribut p et d’indiquer la largeur désirée de la colonne (bien que cela puisse obliger à effectuer quelques ajustements avant d’obtenir le résultat souhaité) (figure2etfigure3oufigure 4)[3] [3]. ...
+Notre planning prévisionnel a été établi dès le début du projet pour garantir une progression cohérente et le respect des délais. Nous avons divisé le développement en plusieurs phases distinctes, chacune avec des objectifs spécifiques et des livrables clairement définis. Cette approche structurée nous a permis d'identifier rapidement les tâches critiques et d'allouer les ressources nécessaires en conséquence. Grâce à des points de contrôle réguliers, nous avons pu ajuster notre planification en fonction des difficultés rencontrées et des avancées réalisées, assurant ainsi une gestion efficace du temps disponible jusqu'à l'échéance finale.
 
-    Afin de mener à bien ce projet, nous avons suivi un planning prévisionnel qui nous a permis de nous organiser et de nous assurer que nous respections les dates limites. Nous avons donc dû faire un diagramme de Gantt pour nous aider à planifier nos tâches.
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=0.8\textwidth]{../../assets/Title Screen/BG.jpg}
-        \label{fig:GANTT}
-        \caption{Diagramme de Gantt}
-    \end{figure}
-\subsection{Planning Prévisionnel}
-\begin{table}[h]
-    \centering
-    \begin{tabular}{|c|c|c|}
-        \hline
-        Un titre de colonne & Un autre titre & Encore un \\
-        \hline
-        à gauche & au centre & à droite \\
-        \hline
-        d & au centre & à droite \\
-        \hline
-        Si j’écris plus de texte je dépasse la taille de la page & texte & texte \\
-        \hline
-    \end{tabular}
-    \vspace{1cm}
-    \caption{\emph{Un tableau simple}}
-    \label{tab:test}
-\end{table}
+L'élaboration de notre planning prévisionnel s'est appuyée sur une méthode d'estimation collaborative où chaque membre de l'équipe a évalué le temps nécessaire pour les tâches relevant de son domaine d'expertise. Pour les composants interdépendants comme le système de transition entre maps et la gestion des déplacements du joueur, nous avons organisé des sessions de planification poker où les estimations individuelles étaient discutées pour atteindre un consensus. Cette méthode nous a permis d'identifier dès le départ les zones de risque potentiel, comme la synchronisation des threads ou la gestion des collisions, qui ont bénéficié d'une marge temporelle supplémentaire dans notre planning.
+
+Notre diagramme de Gantt identifie clairement quatre jalons principaux : la finalisation de l'architecture de base (semaine 4), l'implémentation du système de combat (semaine 8), l'intégration complète des maps et des transitions (semaine 12), et les tests d'intégration finaux (semaine 15). Ces jalons ont servi de points d'ancrage pour nos réunions d'avancement et nous ont permis de mesurer objectivement notre progression par rapport aux objectifs initiaux. Une caractéristique importante de notre approche a été l'inclusion délibérée de périodes tampons après chaque jalon majeur, offrant la flexibilité nécessaire pour gérer les imprévus techniques inévitables dans le développement d'un jeu.
 
 \subsection{Répartition des tâches}
+La répartition des tâches s'est effectuée en fonction des compétences et des intérêts de chaque membre de l'équipe. Pour structurer notre travail et définir clairement les responsabilités, nous avons mis en place une matrice RACI complète. Cette matrice a permis d'identifier pour chaque tâche du projet qui était Responsable de son exécution, qui était tenu de rendre des comptes (Accountable), qui devait être Consulté et qui devait être simplement Informé des avancées. Par exemple, Louis a été désigné responsable des composants techniques comme la gestion de la caméra, le multi-threading et l'affichage des sprites, tandis que Nathan s'est chargé principalement de la logique de jeu avec les systèmes de combat et les effets secondaires. William a pris en charge les aspects liés à la gestion des données, notamment les bases de données des dresseurs et des attaques, tandis qu'Alban s'est concentré sur les interfaces utilisateur et les éléments graphiques.
+
+Notre planification temporelle s'est appuyée sur deux diagrammes de GANTT complémentaires. Le diagramme prévisionnel, établi en janvier, décomposait le projet en quatre phases principales : conception et mise en route, définition et planification, lancement et exécution, et enfin tests et rédaction. Nous avions initialement alloué deux semaines pour la mise en place du système de transition entre maps et l'implémentation de la caméra, mais ce calendrier s'est révélé optimiste. Le diagramme de GANTT actualisé, que nous avons maintenu tout au long du projet, montre que ces tâches ont finalement nécessité près de trois semaines, principalement en raison des problèmes de gestion de mémoire lors des changements de map qui ont causé des erreurs de segmentation.
+
+En revanche, certaines fonctionnalités ont été implémentées plus rapidement que prévu : l'interface des combats et le système de textes dynamiques, initialement prévus pour mi-mars, ont été terminés fin février. Cette avance nous a permis d'allouer plus de temps aux tests et à l'optimisation du système multi-thread, élément critique pour la fluidité du jeu. La comparaison entre nos deux diagrammes met en évidence l'importance d'une planification flexible et d'une communication constante entre les membres de l'équipe. Nos réunions hebdomadaires, documentées dans notre matrice RACI, nous ont permis d'ajuster en permanence nos priorités et d'optimiser l'allocation des ressources humaines en fonction des difficultés rencontrées et des avancées réalisées.
+
 \subsection{Outils}
+Pour mener à bien notre projet, nous avons utilisé plusieurs outils essentiels qui ont considérablement facilité notre développement. GitHub\footnote{Voir Annexe \ref{annexe:github}} a constitué le pilier central de notre collaboration, nous permettant de gérer efficacement le versionnage du code source, de suivre les modifications et de travailler simultanément sur différentes fonctionnalités sans conflits majeurs. Grâce aux pull requests et aux issues, nous avons pu organiser notre développement de manière transparente et documenter nos choix techniques. Stack Overflow\footnote{Voir Annexe \ref{annexe:stackoverflow}} s'est révélé être une ressource inestimable pour résoudre les problèmes techniques spécifiques à SDL et à la gestion de mémoire en C, notamment pour l'implémentation de notre système de transition entre maps.
+
+Pour la conception des mécaniques de jeu inspirées de Pokémon, nous nous sommes appuyés sur plusieurs ressources spécialisées. Bulbapedia\footnote{Voir Annexe \ref{annexe:bulbapedia}} a servi de référence encyclopédique pour comprendre les systèmes de combat et l'équilibrage des créatures, tandis que PokemonShowdown Calc\footnote{Voir Annexe \ref{annexe:showdown}} nous a permis d'affiner les formules de calcul des dégâts et statistiques pour nos ICMons. Le forum Developpez.net\footnote{Voir Annexe \ref{annexe:developpez}} a également été consulté régulièrement pour des questions spécifiques liées au développement en C et à l'optimisation des performances.
+
+En complément de ces ressources en ligne, nous avons tiré parti des outils d'intelligence artificielle comme GitHub Copilot\footnote{Voir Annexe \ref{annexe:copilot}} pour accélérer certaines phases de débogage et pour suggérer des optimisations dans notre code. Cette assistance a été particulièrement utile pour résoudre les problèmes complexes de gestion de mémoire qui causaient des erreurs de segmentation lors des transitions entre maps. L'ensemble de ces outils complémentaires nous a permis de maintenir une progression constante tout en assurant la qualité technique du projet final.
 \newpage
-\begin{center}
-\begin{tabular}{|c|p{8cm}|}
-\hline
-2 - 1 & On met un grand texte qui sera sur plusieurs lignes \\
-\hline
-\end{tabular}
-\end{center}
 
 \section{Developpement}
 \subsection{Gestions des ICMons}
-    \subsubsection{structures de données}
-    \subsubsection{systèmes de combats}
-
+\paragraph{} \emph{Dans cette partie, nous décrivons les concepts et l'implémentation du gameplay d'ICPocket}
+    \subsubsection{Structures de données}
+        \paragraph{} L'objectif étant de réaliser un jeu vidéo de type \emph{Pokémon}, il est nécessaire de faire le point sur toutes les données qui doivent être implémentées dans le jeu.\\
+        Les ICMons, c'est-à-dire notre version des petits monstres, sont composés de diverses informations. \\
+        \begin{itemize}
+            \item son nom
+            \item ses statistiques de base
+            \item ses IVs
+            \item son niveau et ses points d'expériences
+            \item sa nature
+            \item son double type
+            \item son sprite (image)
+            \item ses attaques
+        \end{itemize}
+        \emph{Détaillons point par point ces attributs.}
+        \paragraph{Nom} Le nom attribué à l'ICMon stocké sous forme de chaîne de caractères statique. Ce dernier est choisi par nos soins.
+        \paragraph{Statistiques de bases} Il s'agit d'un tableau de six entiers représentant les forces et faiblesses des ICMons dans chacune des statistiques de combats (Point de vie, attaque, défense, attaque spéciale, défense spéciale, vitesse. Ces statistiques seront expliquées dans la sous partie \emph{Systèmes des combats}).
+        Plus un des entiers est grand, plus la statistique associée à cette valeur sera grande.
+        \paragraph{IVs} IVs est la contraction de \emph{Individual Values}. Ce tableau de 6 valeurs, toutes comprises entre 0 et 31, défini pour chacune des statistiques de combats son écart de force avec les ICMons de son espèce. Une valeur à 0 dans une statistique signifie que cette statistique sera la plus basse possible pour cette espèce d'ICMon, et vice et versa pour une valeur à 31.
+        \paragraph{Niveau et expérience} Le niveau d'un ICMon est un entier entre 1 et 100 qui modifie chaque statistique sous forme de coefficient multiplicateur. Plus le niveau est élevé, plus les statistiques le sont. L'expérience quand à elle est un entier non signé qui détermine si le niveau d'un ICMon doit augmenter (voir \emph{Systèmes des combats}).
+        \paragraph{Nature} Tout ICMon possède une nature, choisie aléatoirement lors de sa première rencontre. Il y a vingt cinq natures différentes. Chaque nature augmente une statistique de combats de dix pour cent mais en diminue une de dix pour cent également. Les natures sont également toutes nommées (par exemple, la nature \emph{rigide} augmente l'attaque mais baisse l'attaque spéciale).\\
+        \paragraph{} Les quatre derniers attributs permettent de calculer les statistiques réelles de n'importe quel ICMon grâce aux formules suivantes :
+        \begin{equation}
+            \displaystyle{  Statistiques = \left \lfloor \left\lfloor \frac{(2 \times BaseStat + IV )\times Niveau }{100} +5 \right\rfloor \times Nature \right\rfloor  }
+        \end{equation}
+        \begin{equation}
+            \displaystyle{  PointsDeVie = \left\lfloor \frac{(2 \times BaseStat + IV )\times Niveau}{100} \right\rfloor + Niveau + 10  }
+        \end{equation}
+        \paragraph{Double type} Chaque ICMon possède un double type, une caractéristique le rendant plus ou moins puissant face aux différentes espèces d'ICMons. Par exemple, Surcadex est de type feu/malware. Les relations entre les types sont définies dans la table des types \emph{typeChart}, où un coefficient \emph{ligne/colonne} donne le bonus (ou malus) de dégâts infligé par le type \emph{ligne} sur le type \emph{colonne}.
+        \paragraph{Sprite} Les images sont gérées par SDL, l'utilisation de la bibliothèque SDL est détaillé dans la partie \emph{Rendu du jeu}. Ces images sont sauvegardées dans le dossier /assets/Monsters/New Version/ et chargées grâce aux noms des fichiers images, qui sont les mêmes que les noms des ICMons.
+        \paragraph{Attaques} Les attaques utilisables en combats sont implémentées par un tableau de quatre structures \emph{t\_Move}. Un ICMon dispose à tout instant de une à quatre attaques maximum.\\
+        La structure t\_Move contient les attributs suivants :
+        \begin{itemize}
+            \item son nom, implémenté de manière similaire à celui des ICMon.
+            \item sa puissance, un entier caractérisant la force de base d'une attaque
+            \item son type, reprenant le même fonctionnement que celui de la structure ICMon.
+            \item sa précision, donnant le pourcentage de chance qu'une attaque touche sa cible.
+            \item ses points de pouvoir (PP), un entier donnant le nombre maximal d'utilisation d'une attaque pour un combat.
+            \item sa priorité, entier entre -7 et 8 qui détermine si une certaine attaque doit être effectuée avant une autre. Le zéro représente la priorité par défaut.
+            \item son eventuel effet secondaire, qui a une probabilité variable de s'activer après l'attaque.
+        \end{itemize}  
+    \subsubsection{Systèmes de combats}
+        \emph{Dans cette section, l'implémentation des combats sera détaillé.}
+        \paragraph{} Maintenant que les structures nécessaires ont été explicitées, il faut désormais mettre en place le système de combat tour par tour à la \emph{Pokémon}. L'algorithme utilisé dans ces jeux vidéo est complexe, mais peut se résumer au suivant :\\
+        \begin{enumerate}
+            \item Le joueur et l'ordinateur choisissent l'action qu'ils souhaitent effectuer, qui sont soit une de leurs attaques disponibles, soit de remplacer l'ICMon courant par un de leur équipe (si celui ci est toujours en vie).
+            \item L'ordre de passage des actions est déterminé.
+            \item L'action numéro une est réalisée.
+            \item L'action numéro deux est réalisée seulement si son auteur est toujours en vie.
+            \item Les effets secondaires en cours sont traités.
+            \item L'équipe du joueur gagne de l'expérience si l'ICMon adverse n'est plus apte à se battre.
+            \item Si un des participants n'a plus de tête d'équipe en vie, il la remplace si possible.
+            \item On répète l'étape une jusqu'à ce que l'un des participants ne puisse plus réaliser l'étape sept.
+        \end{enumerate}
+        \paragraph{Utilisation des statistiques} Les dégâts infligés par une attaque sont calculés grâce à la formule suivante :
+        \begin{equation}
+            \displaystyle{  PV_{perdus} = \left \lfloor \left(\left\lfloor\frac{\left\lfloor\frac{\left\lfloor Niveau \times 0.4 +2 \right\rfloor \times StatOffense \times PuissanceAttaque}{StatDefense}\right\rfloor}{50} \right\rfloor +2 \right) \times CM \right \rfloor  }
+        \end{equation}
+        \begin{description}
+        \item[StatOffense]{est la statistique \emph{attaque} ou \emph{attaque spéciale} de l'attaquant. La différenciation attaque et attaque spéciale est déterminée grâce à la capacité choisie.}
+        \item[StatDefense]{idem pour la défense et la défense spéciale.}
+        \item[CM]{Le coefficient multiplicateur de la capacité est le produit des quatres valeurs suivantes :\\
+            \begin{itemize}
+                \item Un nombre aléatoire entre 0,85 et 1, qui donne les dégâts infligés parmi une fourchette de valeurs possibles
+                \item Le coefficient de la relation de type \emph{typeAttaque/typesDéfenseur}
+                \item Un bonus STAB (Same Type Attack Damage) qui augmente de cinquante pour cent les dégâts si le type de l'attaque est aussi l'un des types du lanceur.
+                \item Un bonus coup critique qui à une chance sur vingt-quatre d'augmenter les dégâts de cinquante pour cent.
+            \end{itemize}
+        }
+        \end{description}
+        \paragraph{Gain d'expérience} Lorsque l'ICMon de tête du joueur parvient à éliminer celui de l'ordinateur, tous les membres de son équipe gagne une quantité de points d'expérience qui s'ajoute à ceux que les ICMons possédaient.
+        \begin{equation}
+            \displaystyle{ EXP = \dfrac {1.5 ^ 2 \times 3 \times BaseStatPV}{7} }
+        \end{equation}
+        Ensuite, la fonction \emph{ReachedNextLvl} vérifie en boucle jusqu'au premier échec si les points d'expérience d'un ICMon dépasse la quantité d'expérience renvoyée par l'appel \emph{expCurve(niveauICmon + 1)}. Dans ce cas, le niveau de l'ICMon progresse de un.\\
+        La courbe d'expérience utilisée pour \emph{expCurve} est :
+        \begin{equation}
+            \displaystyle{ Seuil = Niveau ^ 3}
+        \end{equation}
 \subsection{Gestion des bases de données}
-    \subsubsection{sauvegarde}
-    \subsubsection{base de données des icmons}
+\paragraph{} \emph{Dans cette partie, nous expliquons comment les progressions du jeu sont stockées et comment les ICMons sont générés.}
+    \subsubsection{Sauvegardes}
+     La gestion des données est primordiale: le joueur doit pouvoir sauvegarder sa progression et la reprendre ultérieurement sans perte d'informations.
+     Pour cela, des boutons "play" et "load" sont mise à disposition dans le menu principal \emph{voir ci dessous},.\\
+     Lorsque le joueur commence sa partie, le bouton execute la fonction \texttt{initStarters}, le renvoyant vers le choix de son premier ICMon et initialise le jeu en remplissant les structures d'équipes et pokemons.
+     Le second bouton permet de reprendre une partie, le joueur aura la possibilité de choisir entre 2 sauvegardes. Si une partie existe, l'initialisation du jeu se fera différement, c'est la fonction \texttt{loadfile} qui sera appelée , contenant l'appel d'une fonction de sauvegarde\\
+     \subsubsection{Menus de sauvegarde}
+     \begin{figure}[h!]
+        \centering
+        \begin{minipage}[t]{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{menuicmonp.png}
+            \caption{Menu principal du jeu ICPocket}
+            \label{fig:menuicmonp}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[t]{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{menuload.png}
+            \caption{Menu de chargement du jeu ICPocket}
+            \label{fig:menuload}
+        \end{minipage}
+    \end{figure}
+    \paragraph{} \emph{Dans le code, les fonctions de sauvegarde et de chargement se situent dans le fichier \texttt{save.c}.}
+     La gestion des sauvegardes repose sur l'utilisation de fichiers au format CSV, qui stockent toutes les informations essentielles au joueur et ainsi au bon déroulement de la partie.\\
 
+     Ces fichiers contiennent une liste de tous les ICmons possédés par le joueur, ainsi que leurs caractéristiques.\\
+     Si un fichier de sauvegarde est invalide ou corrompu, une nouvelle partie est automatiquement lancée et un nouveau fichier de sauvegarde est créé.\\
+
+    \paragraph{sauvegarder}prend comme paramètres les structures représentant les équipes du joueur et de l'adversaire,
+    et identifie le fichier correspondant au numéro du bouton de sauvegarde sélectionné, puis enregistre uniquement les numéros d'identification des ICMons et leurs caractéristiques générés aléatoirement ou choisis par le joueur.\\
+    les informations sauvegardées incluent notamment:
+    \begin{itemize}
+        \item L'ID de chaque ICMons
+        \item Les IVs des ICMons
+        \item Leur niveau
+        \item Le nombre et type d'attaques
+        \item Les ICMons volés à l'adversaire
+        \item Les données liées à la progression du joueur, telles que le nombre d’adversaires vaincus et leurs pseudos.
+    \end{itemize}
+    \paragraph{charger}prend comme paramètres en plus du numéro de sauvegarde, possède la même signature que la sauvegarde. Elle ouvre le fichier CSV
+    correspondant et lit les données ligne par ligne en suivant le format défini par la fonction précédente tout en affectant les données concordants aux structures d'équipes. Si le fichier est inexistant, vide ou ne respondant pas au format établi rendant la lecture impossible, la fonction renvoie une erreur et lance une nouvelle partie.
+
+    \subsubsection{Base de données des icmons}
+    La base de données des ICMons est un fichier contenant leurs numéros d'identification, leurs statisques de bases et leurs types.
+    Ils sont générés dans des structures d'équipes grâce aux fonctions \texttt{initTeam} et \texttt{initBlueTeam}, chaque équipe ne peut contenir qu'un maximum de six ICMons définis par leurs ID passés en paramètres dans la fonction \texttt{generate\_poke} et \texttt{generate\_poke\_ennemie} pour le pokemon adverse. Ces distinction de fonction de génération est due au traitements différents des gestions de niveau et l'equipe adverse utilise un autre fichier pour la remplir.\\
+
+    \paragraph{} La fonction \texttt{generateMoves} génère aléatoirement une attaque en choisissant parmi les attaques disponibles dans la base de données \texttt{dataMove} et la fonction s'assure que l'attaques générées n'est pas déja appris par la créature.
+    \paragraph{} Les fonctions \texttt{generate\_poke} et \texttt{generate\_poke\_ennemie} affectent les structures des ICMon avec leurs "BaseStat" , leurs niveaux et lui génere des attaques en bouclant la fonction \texttt{generateMoves} selon le nombre d'attaque de la créature.
+    \paragraph{} Les fonctions \texttt{initTeam} et \texttt{initBlueTeam} initialisent les équipes du joueur et de l'adversaire respectivement, ce n'est qu'une boucle de \texttt{generate\_poke}  selon le nombre de ICmon du joueur et calcul les statistiques réelles \emph{voir 4.1} de sa créature. C'est ici que les PV du joueurs seront calculer selon l'addition de ses ICMons .
+
+    \paragraph{} La fonction \texttt{initStarters} est la première fonction appelée lors du lancement du jeu, elle initialise les équipes du joueur et de l'adversaire, ainsi que les ICMons de départ.\\
 \subsection{Gestion de la map}
-    \subsubsection{chargement de la map}
-    \subsubsection{caméra}
-    \subsubsection{deplacement}
+
+    \subsubsection{Chargement de la map}
+    \includegraphics[width=0.8\textwidth]{../docs/img/screenshots/screen2.png}
+    \newline
+    \paragraph{Analyse : }
+   
+    Pour améliorer le gameplay et rendre le jeu plus immersif, nous avons décidé de créer une carte en 2D qui représente le rez-de-chaussée de l'IC2. On y retrouve des zones existantes du bâtiment, comme l'amphithéâtre, visible sur l'image ci-dessus. Les collisions sont gérées grâce à des fichiers CSV : les cases avec le numéro 1 représentent des obstacles, les cases avec le numéro 0 sont des zones où le joueur peut se déplacer, et d'autres numéros permettent de passer d'une carte à une autre, comme du hall à l'amphithéâtre. Ces fichiers sont lus par le programme pour déterminer les interactions possibles. La carte donne plus de liberté au joueur, qui peut explorer le bâtiment. Nous avons aussi ajouté un PNJ (personnage non joueur) qui permet de lancer les combats dans un ordre précis.
+    \newline
+    \paragraph{Réalisation : }
+    Pour gérer la carte, nous avons défini des points de spawn avec le chiffre -1, les collisions avec le chiffre 1, et les zones libres avec le chiffre 0 dans les fichiers CSV. Voici un exemple de fichier CSV pour l'amphithéâtre :
+    \begin{center}
+    \includegraphics[width=0.5\textwidth]{hall.png}
+    \end{center}
+    \begin{center}
+        \small{-1=spawn 0=Air 1=collision 9=retour dans le hall.}
+    \end{center}
+    
+    Les fonctions principales pour gérer la carte sont `initMap`, qui initialise la carte en utilisant d'autres fonctions comme `initCollisionFromCSV` pour gérer les collisions à partir des fichiers CSV. Nous avons aussi créé `checkAndLoadNewMap`, qui vérifie si le joueur se trouve sur une case spéciale (par exemple, une case de transition entre deux cartes). Si c'est le cas, la fonction `loadNewMap` est appelée pour charger la nouvelle carte et positionner le joueur au bon endroit. Si le joueur revient sur une carte précédente, il est replacé à l'endroit où il était avant de changer de zone.
+
+    Pour créer les cartes, nous avons utilisé le logiciel Tiled, qui permet de concevoir des cartes facilement et de les exporter en CSV. Ensuite, nous avons utilisé Aseprite pour améliorer l'apparence des cartes en supprimant les imperfections. Ces outils nous ont beaucoup aidés à intégrer les cartes dans le jeu.
+    \subsubsection{Caméra}
+    La gestion de la caméra est essentielle pour rendre le jeu plus agréable à jouer. La caméra suit les déplacements du joueur et affiche une partie de la carte avec un zoom, ce qui est pratique pour les grandes cartes en 2D. Cela évite de montrer toute la carte à l'écran, ce qui pourrait être confus et ralentir le jeu.
+
+    \paragraph{Utilité de la caméra :} La caméra a plusieurs rôles :
+    - Suivre le joueur : Elle suit la position du joueur pour qu'il reste toujours visible à l'écran.
+    - Immersion : En limitant la vue à une zone spécifique, elle rend le jeu plus immersif.
+    - Performances : Elle améliore les performances en affichant seulement une partie de la carte.
+
+    \paragraph{Pourquoi l'avoir implémentée ?}
+
+    Sans caméra, il aurait été difficile de naviguer sur des grandes cartes, car tout serait affiché en même temps. La caméra permet de centrer l'écran sur le joueur et de cacher les zones inutiles. Nous avons utilisé un système d'interpolation linéaire pour que les déplacements soient fluides. La caméra s'adapte aussi à différentes tailles de fenêtres, ce qui la rend flexible.
+
+    \paragraph{Réalisation : }
+    Nous avons utilisé plusieurs fonctions pour gérer la caméra. Par exemple, `getWorldToScreenRect` convertit les coordonnées du monde en coordonnées écran, et `updateCameraViewport` met à jour la zone visible de la carte. La fonction `updateCamera` ajuste la position de la caméra en fonction des déplacements du joueur, en utilisant l'interpolation linéaire pour que tout soit fluide.
+
+    En résumé, la caméra est un élément important pour rendre le jeu plus agréable à jouer et plus performant. Nous avons utilisé des ressources comme Stack Overflow et Developpez.net pour comprendre et implémenter l'interpolation linéaire.
+    \subsubsection{Déplacement}
+
+    Les déplacements sont essentiels dans un jeu, car ils permettent au joueur d'explorer la carte.
+
+    \paragraph{Implémentation des fonctions : }
+
+    Pour gérer les déplacements, nous avons utilisé la fonction `createPlayer`, qui crée le joueur et son sprite (image) et définit comment il se déplace. Les déplacements sont calculés en modifiant les coordonnées du joueur, en vérifiant qu'il ne rencontre pas de collision. Le joueur peut se déplacer vers le haut, le bas, la gauche ou la droite.
+
+    Les fonctions `updatePlayerPosition` et `updatePlayerAnimation` sont utilisées pour rendre les déplacements fluides et animés. `updatePlayerPosition` met à jour la position du joueur en utilisant l'interpolation linéaire, ce qui rend les déplacements plus naturels. `updatePlayerAnimation` change le sprite du joueur en fonction de sa direction (haut, bas, gauche, droite) pour donner une impression de mouvement.
+
+    La fonction `renderPlayerWithCamera` affiche le joueur à l'écran en tenant compte de la position de la caméra, pour que le joueur reste visible même sur des grandes cartes.
+
+    Les déplacements sont aussi liés aux collisions. Le joueur ne peut se déplacer que sur des cases libres (définies dans la matrice de la carte). Cela est vérifié dans des fonctions comme `handlePlayerEvent`, qui détecte les touches appuyées par le joueur et met à jour sa position.
+
+    En ajoutant des déplacements et des animations, nous avons rendu le jeu plus interactif et immersif. Cela donne au joueur une vraie liberté d'exploration.
 
 \subsection{rendu du jeu}
-    \subsubsection{gestion de l'interface}
-    \subsubsection{gestion des combats avec SDL}
+Le système de rendu graphique constitue l'un des piliers fondamentaux de notre jeu, devant concilier performances optimales et cohérence visuelle.
 
+\paragraph{Architecture de base} Notre implémentation repose sur la bibliothèque SDL (Simple DirectMedia Layer) qui offre une couche d'abstraction multiplateforme pour l'accès au matériel graphique. Pour garantir une expérience fluide malgré la richesse visuelle du jeu, nous avons développé une architecture de rendu multi-niveaux qui sépare les différentes composantes graphiques.
 
+\paragraph{Gestion des threads} Une caractéristique notable de notre moteur de rendu est son intégration avec un système multi-thread. Notre gestionnaire de threads initialise plusieurs verrous mutex dédiés aux ressources partagées : l'audioMutex pour les opérations sonores, le physicsMutex pour les calculs de déplacement et collisions, et initialement un renderMutex pour les opérations graphiques (désactivé dans la version finale pour des raisons d'optimisation).
+
+Cette approche multi-thread permet d'exécuter simultanément la logique du jeu et le rendu graphique, optimisant ainsi l'utilisation des ressources système. Le rendu spécifique de la carte du monde est effectué dans une fonction dédiée (renderMap) qui synchronise l'accès aux données partagées à l'aide de mutex. Cette fonction verrouille d'abord le mutex physique, effectue les opérations de rendu de la carte et du joueur avec la caméra, puis déverrouille le mutex avant de présenter le résultat à l'écran.
+
+La gestion des images par seconde (FPS) est assurée par un mécanisme sophistiqué (manageFrameRate) qui ajuste dynamiquement le timing du rendu pour maintenir une cadence constante. Notre système vise un objectif de 60 FPS en calculant le temps écoulé depuis le début de la frame et en introduisant un délai approprié si nécessaire. Ce mécanisme garantit une expérience fluide tout en calculant précisément le deltaTime, une variable critique pour la synchronisation des animations et des mouvements indépendamment de la puissance de calcul disponible.
+
+\subsubsection{Gestion de l'interface}
+\paragraph{Système d'états} Notre interface utilisateur est gérée par un système d'états (définis dans l'énumération AppState) qui détermine quels éléments doivent être affichés à chaque instant. La fonction render orchestre l'affichage des différents composants en fonction de l'état actuel du jeu. Cette fonction conditionne le rendu selon des valeurs telles que MENU, NEWGAME, SWAP, LEARNMOVE ou STARTERS, appelant les fonctions de rendu appropriées pour chaque situation.
+
+\paragraph{Transitions et mises à jour} Les transitions entre ces différents états sont gérées par une fonction changeState qui assure la cohérence des données et prépare les ressources nécessaires au nouvel état. Cette fonction prend en compte à la fois l'état actuel et l'état cible pour effectuer les actions de transition appropriées, comme l'initialisation d'un combat lorsque l'on passe de l'exploration à un affrontement.
+
+\paragraph{Mise à jour des textes des boutons} La fonction updateICMonsButtonText parcourt l'équipe spécifiée et met à jour les textes des boutons correspondants dans l'interface utilisateur. Si un emplacement est vide, le bouton affiche un espace, sinon il affiche le nom de l'ICMon. Ce système permet de maintenir une cohérence visuelle même lorsque les données sous-jacentes changent, comme lors d'un échange d'ICMons ou de l'apprentissage de nouvelles capacités.
+
+\paragraph{Gestion des événements} La gestion des événements utilisateur est assurée par un ensemble de fonctions spécialisées pour chaque état du jeu, comme handleLoadGameEvent ou handlePauseEvent, qui interprètent les interactions et déclenchent les actions appropriées. Par exemple, la fonction de gestion des pauses vérifie si la touche Échap a été pressée et change l'état du jeu en conséquence.
+
+\subsubsection{Gestion des combats avec SDL}
+\paragraph{Machine à états} Le système de combat repose sur une machine à états finie représentée par l'énumération BattleTurnState, qui définit les différentes phases d'un tour : initialisation (TURN\_INIT), attente des instructions du joueur (TURN\_WAIT\_TEXT), exécution des actions (TURN\_ACTION1 et TURN\_ACTION2), et finalisation (TURN\_FINISHED).
+
+\paragraph{Rendu des sprites} Le rendu des sprites des ICMons est géré par des fonctions spécialisées comme renderICMonsSprite, qui s'occupe de positionner et d'animer correctement les créatures à l'écran. L'initialisation des sprites est effectuée lors du chargement d'une partie par la fonction initTeamSprites, qui prend en compte le positionnement relatif des sprites sur l'écran, avec des ratios différents selon qu'il s'agit de l'équipe du joueur (BLUE SPRITE X RATIO, BLUE SPRITE Y RATIO) ou de l'adversaire (RED SPRITE X RATIO, RED SPRITE Y RATIO).
+
+\subsubsection{Optimisation des performances}
+\paragraph{Gestion des ressources} Notre moteur de rendu inclut plusieurs mécanismes d'optimisation pour garantir des performances fluides. L'un des plus importants est la gestion des ressources lors des transitions entre états. Lorsqu'un joueur passe de l'exploration à un combat, ou lors d'un changement de map, nous devons libérer certaines ressources et en charger d'autres. Cette gestion est centralisée dans la fonction cleanupResources qui libère méthodiquement les textures, les textes, les contrôleurs et les structures de données comme la carte, le joueur et la caméra.
+
+\paragraph{Orchestration des threads} Un autre aspect critique de l'optimisation est l'orchestration des threads. En séparant la logique audio, la physique et le rendu dans des threads distincts, nous exploitons efficacement les architectures multi-cœurs modernes.
+
+La fonction principale du jeu (mainLoop) coordonne l'ensemble du processus de rendu en gérant les événements, en appelant les fonctions de rendu appropriées selon l'état du jeu, et en maintenant une cadence constante grâce à manageFrameRate. Cette boucle distingue le cas spécial de l'état MAP, où elle utilise renderMap, des autres états où elle effectue un rendu standard avec gestion des boutons et mise à jour du tour de combat si nécessaire.
+
+En conclusion, notre système de rendu combine une architecture multi-thread sophistiquée, une gestion d'états flexible et des mécanismes d'optimisation ciblés pour offrir une expérience visuelle riche tout en maintenant des performances fluides sur une variété de configurations matérielles. Ce système démontre l'efficacité de notre approche modulaire et la pertinence de nos choix techniques, notamment l'utilisation de SDL et la parallélisation des traitements.
+
+\subsubsection{Technologies graphiques et défis techniques}
+\paragraph{Synchronisation} L'implémentation de notre système de rendu a nécessité de relever plusieurs défis techniques spécifiques. L'un des plus complexes concernait la synchronisation entre le système de rendu et le système de physique, particulièrement critique lors des transitions entre maps. Nous avons conçu un mécanisme de verrouillage sélectif qui permet au thread physique de continuer à calculer les collisions et les déplacements pendant que le thread principal s'occupe du rendu, tout en évitant les problèmes de concurrence.
+
+\paragraph{Effets visuels} Le rendu des effets visuels dynamiques, comme les animations d'attaque ou les transitions entre états du jeu, a également posé des défis techniques significatifs. Nous avons implémenté un système de timers et de séquences qui permet de coordonner précisément les animations avec la logique du jeu. Ce système utilise le deltaTime calculé par notre gestionnaire de fréquence d'images pour garantir une vitesse d'animation cohérente quelle que soit la puissance de calcul disponible.
+
+\paragraph{Adaptabilité} Un autre aspect innovant de notre système graphique est la gestion adaptative de la qualité visuelle. Sur les configurations matérielles moins puissantes, notre moteur peut automatiquement réduire certains effets visuels pour maintenir une fréquence d'images acceptable. Cette adaptation dynamique est particulièrement importante pour notre jeu qui vise une large compatibilité matérielle.
+
+Le rendu des textes a également bénéficié d'une attention particulière, avec un système de mise en cache des textures de texte pour éviter de régénérer constamment les mêmes chaînes de caractères. Cette optimisation s'est révélée particulièrement efficace dans les écrans de combat où les mêmes messages peuvent apparaître à plusieurs reprises.
+
+Notre approche du rendu multi-couches, particulièrement visible dans les écrans de combat, permet de composer des scènes visuellement riches en combinant différents éléments (arrière-plans, sprites des créatures, interface utilisateur) avec un contrôle précis sur l'ordre de dessin. Cette technique garantit que les éléments sont toujours affichés dans le bon ordre, évitant les problèmes de superposition incorrecte.
+
+Pour conclure, l'architecture de notre système de rendu, bien que développée avec des technologies relativement simples comme SDL, démontre qu'une conception réfléchie et une implémentation soignée peuvent conduire à des résultats visuellement impressionnants et techniquement efficaces. Notre approche modulaire facilite également l'extension future du moteur avec de nouvelles fonctionnalités visuelles sans nécessiter de refonte majeure du système existant.
+\newpage
 \section{Bilan et résultats}
+
+\subsection{Bilan}
+Le projet a été un succès, tant sur le plan technique que sur le plan de l'expérience utilisateur. Nous avons réussi à créer un jeu 2D fonctionnel et agréable à jouer, avec une interface intuitive et des mécaniques de jeu inspirées de l'univers Pokémon. La gestion des ICMons, des combats et des déplacements a été bien intégrée, offrant une expérience fluide et immersive.
+La répartition des tâches a été efficace, chaque membre de l'équipe ayant pu contribuer selon ses compétences et ses intérêts. La communication constante entre les membres a permis d'identifier rapidement les problèmes et de trouver des solutions adaptées.
+Nous avons également appris à travailler avec des outils de développement modernes, tels que GitHub pour la gestion de version, et à utiliser des ressources en ligne pour résoudre des problèmes techniques. L'utilisation de GitHub Copilot a été un atout précieux pour nous aider lorsque nous étions en difficultés et afin de nous aider au bon développement du projet.
+
+\subsection{Résultats}
+Les résultats obtenus sont plus que satisfaisants grâce aux différents ajouts et améliorations apportés au projet. Nous avons ajouté de la liberté grâce à la carte et aux PNJ. Toutes les modifications apportées et l'avancement plus rapide du projet ont donc modifié notre Gantt prévisionnel pour en arriver au Gantt final ci-dessous.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{gantt finale.png}
+    \label{fig:GANTT}
+    \caption{Diagramme de Gantt}
+\end{figure}
+\subsection{Avis des membres de l'équipe sur le projet}
+Avis des membres de l'équipe :
+\begin{itemize}
+    \item \textbf{Alban :}  J'ai énormément apprécié réaliser ce projet avec mon groupe car nous avons eu une très bonne entente directement, que ce soit la répartition des tâches ou la communication entre nous. Nous avons tous su nous entraider et nous conseiller sur les différentes parties du projet. De plus, j'ai beaucoup appris sur le développement de jeux vidéo, notamment car cela m'as permis d'approfondir mes capacités en C et de découvrir la bibliothèque SDL. J'ai également appris à utiliser GitHub. Je suis très satisfait du résultat final et j'espère que nous pourrons continuer à développer d'autres projets ensemble.
+    \newline
+    \item \textbf{Louis :} J'ai beaucoup aimé réaliser ce projet de fin d'année avec mon groupe. Nous qui étions déjà très proches, avons pu nous mettre d'accord sur les différentes parties du projet et nous avons pu nous entraider. J'ai également appris beaucoup de choses sur le développement de jeux vidéo, notamment sur le fait d'approfondir mes capacités en C et de découvrir la bibliothèque SDL. Si je devais recommencer ce projet, je changerais certaines choses, comme la gestion des threads et des ressources, afin de rendre le jeu encore plus fluide et performant, j'ai aussi appris à structurer correctement un projet petit à petit donc ce serait aussi une bonne chose à améliorer.
+    \newline
+    \item \textbf{Nathan :} En tant que fan absolu de \emph{Pokémon}, j'ai personnellement adoré réaliser ce projet. La cohésion dans le groupe n'aurait pas pu être meilleure, et par conséquent le résultat est parfaitement à la hauteur de mes attentes. De plus, cela a été ma première expérience de réalisation de projet de grande envergure mais également de réalisation de jeux vidéo et de travail en équipe, ce qui m'a permis d'enrichir mes connaissances en vue de mon parcours professionnel à venir.
+    \newline
+    \item \textbf{William :} Réaliser ce projet a été une expérience enrichissante, tant sur le plan technique que sur la gestion de l'organisation. La communication et la répartition des taches ont été facilitées car nous sommes tous au courant des compétences et limites de chacuns, puisque que nous nous entendions très bien en dehors des cours. Sur le plan personnel j'ai appris a utilisé github qui est un élément essentiel pour un développeur voulant travailler en équipe, j'ai aussi expérimenté les difficultés et les opportunités rencontrées lorsqu'une équipe créer un projet de cet envergure. Mes compétences en C ont été mises à l'épreuve pour une derniere fois avant la fin d'année, ce qui m'a permis de les améliorer considérablement.
+    
+\end{itemize}
 \section{Références}
+\subsection{Outils de développement}
+\label{annexe:github}
+\textbf{GitHub :} \href{https://github.com/Lounol72/ICPocket}{github.com}
+
+\label{annexe:stackoverflow}
+\textbf{Stack Overflow :} \href{https://stackoverflow.com/questions/tagged/sdl}{stackoverflow.com}
+
+\label{annexe:bulbapedia}
+\textbf{Bulbapedia :} \href{https://bulbapedia.bulbagarden.net/wiki}{bulbapedia.bulbagarden.net}
+
+\label{annexe:showdown}
+\textbf{PokemonShowdown Calc :} \href{https://calc.pokemonshowdown.com}{calc.pokemonshowdown.com}
+
+\label{annexe:developpez}
+\textbf{Developpez.net :} \href{https://forum.developpez.com}{forum.developpez.com}
+
+\label{annexe:copilot}
+\textbf{GitHub Copilot :} \href{https://copilot.github.com/}{copilot.github.com}
+
+\label{annexe:aseprite}
+\textbf{Aseprite :} \href{https://www.aseprite.org/}{aseprite.org}
+
+\label{annexe:tiled}
+\textbf{Tiled :} \href{https://www.mapeditor.org/}{mapeditor.org}
+
+\label{annexe:pokepedia}
+\textbf{Poképédia :} \href{https://www.pokepedia.fr/}{pokepedia.fr}
+
 \section{Annexes}
+
+\subsection{Annexe : schéma de la base de données}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{schemaDB.png}
+    \caption{Schéma de la base de données}
+    \label{fig:dbschema}
+\end{figure}
+
+\subsection{Annexe : Tables des types}
+ \begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{DiagrammeType.png} % Augmenté à 90% de la largeur du texte
+    \caption{Table des types}
+    \label{fig:typetable}
+\end{figure}
+
+\subsection{Annexe : Glossaire}
+\begin{description}
+    \item[ICMon] Contraction de « Institut Claude Chappe » et « Monstre ».
+    \item[Sprite] Image 2D utilisée pour représenter un personnage ou un objet.
+    \item[STAB] Same Type Attack Bonus, bonus de dégâts pour une attaque du même type que l'ICMon.
+    \item[Lore] Histoire ou contexte narratif d'un jeu.
+\end{description}
+
+\subsection{Annexe : Crédits et Remerciements}
+Nous remercions :
+\begin{itemize}
+    \item \textbf{Le Mans Université} pour le soutien pédagogique.
+    \item \textbf{Bulbapedia} et \textbf{Poképédia} pour l'inspiration des mécaniques de jeu.
+    \item \textbf{Kenney.nl} pour les assets graphiques.
+\end{itemize}
 \end{document}

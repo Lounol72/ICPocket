@@ -11,7 +11,7 @@ float typeChart[typeNumber][typeNumber] = {
     /*electrique*/ {1.,  1.,     	1.,     1.,     0.5,        2.,      2.,     2.,		0.5	},
     /*malware*/ {1.,     0.5,    	2.,     1.,     0.5,        2.,      2.,     2.,		1.	},
     /*data*/    {1.,     2.,     	0.5,    0.5,    0.5,        0.5,     0.5,     2.,		1.	},
-    /*net*/     {1.,	 1,    		1,    	1,    	2,        	0.5,     0.5,    0.,		0.5	},
+    /*net*/     {1.,	 1,    		1,    	1,    	2,        	0.5,     0.5,    0.5,		0.5	},
 	/*waifu*/	{1.,	0.5,		1.,		1.,		1.,			1.,		1.,		2.,			2.	}
 };
 
@@ -75,7 +75,7 @@ void generate_poke(t_Poke *p, int line)
 		p->exp = expCurve(p->lvl); /*This is to match the start of a random generated level*/
 		p->nature = rand() % 25;
 		/*IV et Moves*/
-		p->nb_move = rand() % 3 + 2; //have minimum two moves
+		p->nb_move = rand()%3+2 ; //have minimum two moves
 		for (int i = 0; i < p->nb_move; i++)
 		{
 			p->moveList[i] = generateRandomMoveBetter(p);

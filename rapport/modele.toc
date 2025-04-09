@@ -1,30 +1,61 @@
-\babel@toc {french}{}\relax 
+\babel@toc {french}{}
 \contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
-\contentsline {section}{\numberline {2}Conception}{3}{section.2}%
+\contentsline {section}{\numberline {2}Conception}{4}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Présentation du jeu}{4}{subsection.2.1}%
+\contentsline {paragraph}{}{4}{section*.2}%
 \contentsline {subsection}{\numberline {2.2}Direction artistique}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Fonctionnalités}{4}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Organisation}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Sous partie 2}{4}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Partie 2-Les tableaux en Latex}{4}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Planning Prévisionnel}{4}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Répartition des tâches}{4}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Outils}{4}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Developpement}{6}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Gestions des ICMons}{6}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}structures de données}{6}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}systèmes de combats}{6}{subsubsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.2}Gestion des bases de données}{6}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}sauvegarde}{6}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}base de données des icmons}{6}{subsubsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.3}Gestion de la map}{6}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}chargement de la map}{6}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}caméra}{6}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}deplacement}{6}{subsubsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.4}rendu du jeu}{6}{subsection.5.4}%
-\contentsline {subsubsection}{\numberline {5.4.1}gestion de l'interface}{6}{subsubsection.5.4.1}%
-\contentsline {subsubsection}{\numberline {5.4.2}gestion des combats avec SDL}{6}{subsubsection.5.4.2}%
-\contentsline {section}{\numberline {6}Bilan et résultats}{6}{section.6}%
-\contentsline {section}{\numberline {7}Références}{6}{section.7}%
-\contentsline {section}{\numberline {8}Annexes}{6}{section.8}%
+\contentsline {paragraph}{}{4}{section*.3}%
+\contentsline {paragraph}{}{4}{section*.4}%
+\contentsline {subsection}{\numberline {2.3}Fonctionnalités}{5}{subsection.2.3}%
+\contentsline {paragraph}{}{5}{section*.5}%
+\contentsline {paragraph}{}{5}{section*.6}%
+\contentsline {paragraph}{}{5}{section*.7}%
+\contentsline {paragraph}{}{5}{section*.8}%
+\contentsline {paragraph}{}{5}{section*.9}%
+\contentsline {section}{\numberline {3}Organisation}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Planning Prévisionnel}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Répartition des tâches}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Outils}{8}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Développement}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Planning Prévisionnel}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Répartition des tâches}{9}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Outils}{9}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Developpement}{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Gestions des ICMons}{10}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}structures de données}{10}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}systèmes de combats}{10}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Gestion des bases de données}{10}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}sauvegarde}{10}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}base de données des icmons}{10}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}Gestion de la map}{11}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}chargement de la map}{11}{subsubsection.5.3.1}%
+\contentsline {paragraph}{Analyse : }{11}{section*.10}%
+\contentsline {paragraph}{Réalisation : }{11}{section*.11}%
+\contentsline {subsubsection}{\numberline {5.3.2}caméra}{12}{subsubsection.5.3.2}%
+\contentsline {paragraph}{Utilité de la caméra :}{12}{section*.12}%
+\contentsline {paragraph}{Pourquoi l'avoir implémentée ?}{12}{section*.13}%
+\contentsline {paragraph}{Réalisation : }{12}{section*.14}%
+\contentsline {subsubsection}{\numberline {5.3.3}deplacement}{13}{subsubsection.5.3.3}%
+\contentsline {paragraph}{Implémentation des fonctions : }{13}{section*.15}%
+\contentsline {subsection}{\numberline {5.4}rendu du jeu}{13}{subsection.5.4}%
+\contentsline {paragraph}{Architecture de base}{13}{section*.16}%
+\contentsline {paragraph}{Gestion des threads}{13}{section*.17}%
+\contentsline {subsubsection}{\numberline {5.4.1}gestion de l'interface}{14}{subsubsection.5.4.1}%
+\contentsline {paragraph}{Système d'états}{14}{section*.18}%
+\contentsline {paragraph}{Transitions et mises à jour}{14}{section*.19}%
+\contentsline {paragraph}{Mise à jour des textes des boutons}{14}{section*.20}%
+\contentsline {paragraph}{Gestion des événements}{14}{section*.21}%
+\contentsline {subsubsection}{\numberline {5.4.2}gestion des combats avec SDL}{14}{subsubsection.5.4.2}%
+\contentsline {paragraph}{Machine à états}{14}{section*.22}%
+\contentsline {paragraph}{Rendu des sprites}{15}{section*.23}%
+\contentsline {subsubsection}{\numberline {5.4.3}Optimisation des performances}{15}{subsubsection.5.4.3}%
+\contentsline {paragraph}{Gestion des ressources}{15}{section*.24}%
+\contentsline {paragraph}{Orchestration des threads}{15}{section*.25}%
+\contentsline {subsubsection}{\numberline {5.4.4}Technologies graphiques et défis techniques}{15}{subsubsection.5.4.4}%
+\contentsline {paragraph}{Synchronisation}{15}{section*.26}%
+\contentsline {paragraph}{Effets visuels}{15}{section*.27}%
+\contentsline {paragraph}{Adaptabilité}{16}{section*.28}%
+\contentsline {section}{\numberline {6}Bilan et résultats}{17}{section.6}%
+\contentsline {section}{\numberline {7}Références}{17}{section.7}%
+\contentsline {section}{\numberline {8}Annexes}{17}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Outils de développement}{17}{subsection.8.1}%
