@@ -1,5 +1,85 @@
 [
   {
+    "sha": "2e4465f3",
+    "message": "Remove frame delay during map transition rendering",
+    "date": "2025-04-09T08:56:22Z",
+    "author": {
+      "name": "Lounol72",
+      "username": "Lounol72"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/2e4465f37fc8ae4fdebd153e6079d9e40561acab"
+  },
+  {
+    "sha": "c5c608fd",
+    "message": "Merge pull request #56 from Lounol72/With-PNJ",
+    "date": "2025-04-09T08:40:29Z",
+    "author": {
+      "name": "lOkaal1",
+      "username": "lOkaal1"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/c5c608fde8ee57f26a966097b2d2c349f4f3b5e7"
+  },
+  {
+    "sha": "1a51f9af",
+    "message": "📦 Windows build 2025-04-09",
+    "date": "2025-04-09T07:30:43Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/1a51f9af3da6bd7ed07ea15f3904063e0c2f9fd9"
+  },
+  {
+    "sha": "0cab0f07",
+    "message": "📦 Linux build 2025-04-09",
+    "date": "2025-04-09T07:28:15Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/0cab0f075c207ae193b309066255863550941244"
+  },
+  {
+    "sha": "e56b93a6",
+    "message": "add 2 png",
+    "date": "2025-04-09T07:20:45Z",
+    "author": {
+      "name": "lOkaal1",
+      "username": "lOkaal1"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/e56b93a62d83f1abeeee1352a43c13df8465ebd1"
+  },
+  {
+    "sha": "e260631a",
+    "message": "Merge branch 'main' of https://github.com/Lounol72/ICPocket into main",
+    "date": "2025-04-09T07:08:17Z",
+    "author": {
+      "name": "Natp24109",
+      "username": "Natp24109"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/e260631a6a14f28a6870bad37df96ba6d829d706"
+  },
+  {
+    "sha": "d9614fd9",
+    "message": "fixes in databases and status resets after battles",
+    "date": "2025-04-09T07:08:11Z",
+    "author": {
+      "name": "Natp24109",
+      "username": "Natp24109"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/d9614fd9539b6ca7eb26b49049c79e22a1cfae54"
+  },
+  {
+    "sha": "3b2d0b27",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-09T06:25:41Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/3b2d0b27670ce0a4279149210c1bf04a6c9f4dbe"
+  },
+  {
     "sha": "1511baff",
     "message": "📊 Update GitHub data",
     "date": "2025-04-09T01:20:30Z",
@@ -218,85 +298,5 @@
       "username": "github-actions[bot]"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/6dad7956d8c1fb3033f077e634d3115f112ba040"
-  },
-  {
-    "sha": "0ed543ce",
-    "message": "Diagramme added",
-    "date": "2025-04-04T12:28:23Z",
-    "author": {
-      "name": "lOkaal11",
-      "username": "lOkaal1"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/0ed543ced6eda4d6c3e895b756947e7707a61991"
-  },
-  {
-    "sha": "d6be2cc8",
-    "message": "Fix save file path in tests and adjust success rate threshold",
-    "date": "2025-04-04T12:14:54Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/d6be2cc8d14025f813f984795f08c3edd1306875"
-  },
-  {
-    "sha": "b9295b7c",
-    "message": "Remove .nojekyll file and update webmanifest icon source to ICPocket.png",
-    "date": "2025-04-04T12:02:19Z",
-    "author": {
-      "name": "Lounol72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/b9295b7c19dc9ae23d1191bcb24b40bfecc1eae5"
-  },
-  {
-    "sha": "b8160a4e",
-    "message": "refactor: remove schemaDB image and update LaTeX document with new annexes and member feedback",
-    "date": "2025-04-04T11:45:04Z",
-    "author": {
-      "name": "AstroZr",
-      "username": "AstroZr"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/b8160a4ebd0c32d7dc962f9b4cc80ee88bcfd4e5"
-  },
-  {
-    "sha": "53543636",
-    "message": "update: revise document structure and update date in LaTeX files",
-    "date": "2025-04-04T11:23:15Z",
-    "author": {
-      "name": "AstroZr",
-      "username": "AstroZr"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/53543636344a801d68da78a4af95eb85fe6d9ff9"
-  },
-  {
-    "sha": "fef4a2dc",
-    "message": "Added BDD part",
-    "date": "2025-04-04T11:11:13Z",
-    "author": {
-      "name": "lOkaal11",
-      "username": "lOkaal1"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/fef4a2dc4170eb46f1d7572f8423d0c8d39fc4b2"
-  },
-  {
-    "sha": "9bba46f8",
-    "message": "refactor generate_lvl function and boosted exp gain for fairness, various moves changes + ensure the starters have at least two moves",
-    "date": "2025-04-04T09:06:30Z",
-    "author": {
-      "name": "Natp24109",
-      "username": "Natp24109"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/9bba46f86569e33f130b47af2f05bba9cb438895"
-  },
-  {
-    "sha": "933d0ae6",
-    "message": "William's feedback added",
-    "date": "2025-04-04T08:29:51Z",
-    "author": {
-      "name": "lOkaal11",
-      "username": "lOkaal1"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/933d0ae62931add6cfdccfb0b662bba423aa5634"
   }
 ]
