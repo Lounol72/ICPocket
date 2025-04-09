@@ -1,5 +1,25 @@
 [
   {
+    "sha": "66fbc6a7",
+    "message": "📚 Documentation update 2025-04-08",
+    "date": "2025-04-08T22:08:47Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/66fbc6a7720fcced1a23541e8def8a9e36e85686"
+  },
+  {
+    "sha": "1ca8687a",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-08T18:23:41Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/1ca8687aaea532ecea1cd14af52b052a448d3bac"
+  },
+  {
     "sha": "4f8c49c6",
     "message": "Merge pull request #54 from Lounol72/26-latex",
     "date": "2025-04-08T17:14:27Z",
@@ -278,25 +298,5 @@
       "username": "github-actions[bot]"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/75ab217786ea02fed4015a1a04f4150450319014"
-  },
-  {
-    "sha": "c3e9612c",
-    "message": "📊 Update GitHub data",
-    "date": "2025-04-04T01:19:37Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/c3e9612c5668487326525c10201bbe8bd5f1f366"
-  },
-  {
-    "sha": "445cf655",
-    "message": "📚 Documentation update 2025-04-03",
-    "date": "2025-04-03T22:08:28Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/445cf65599805ee5513c0284714d80907056552b"
   }
 ]
