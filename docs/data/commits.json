@@ -1,5 +1,15 @@
 [
   {
+    "sha": "1738d547",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-10T01:20:09Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/1738d5479b408cc6d761f3033f0e91b7e3dccf56"
+  },
+  {
     "sha": "57b96279",
     "message": "📚 Documentation update 2025-04-09",
     "date": "2025-04-09T22:08:52Z",
@@ -288,15 +298,5 @@
       "username": "github-actions[bot]"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/cb57f1a7970718503d30f2e47d2d4844987d5a40"
-  },
-  {
-    "sha": "5581ea33",
-    "message": "pdf compiled",
-    "date": "2025-04-04T17:58:45Z",
-    "author": {
-      "name": "lOkaal11",
-      "username": "lOkaal1"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/5581ea33a3463e0d6db4316c8d9f72dffe46c4d2"
   }
 ]
