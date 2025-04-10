@@ -1,5 +1,25 @@
 [
   {
+    "sha": "57b96279",
+    "message": "📚 Documentation update 2025-04-09",
+    "date": "2025-04-09T22:08:52Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/57b9627952c52d8df2e9efaac5c946b1c3e1e253"
+  },
+  {
+    "sha": "ac5aa6c4",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-09T18:24:28Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/ac5aa6c48bcca17aa81cb71ab7f88cf6819a18b4"
+  },
+  {
     "sha": "9b2c8374",
     "message": "📊 Update GitHub data",
     "date": "2025-04-09T12:35:37Z",
@@ -278,25 +298,5 @@
       "username": "lOkaal1"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/5581ea33a3463e0d6db4316c8d9f72dffe46c4d2"
-  },
-  {
-    "sha": "2af82417",
-    "message": "Merge pull request #53 from Lounol72/52-fairness-patch",
-    "date": "2025-04-04T14:35:28Z",
-    "author": {
-      "name": "Natp24109",
-      "username": "Natp24109"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/2af8241734ace83c718c2781807eae112731587c"
-  },
-  {
-    "sha": "5084d5f3",
-    "message": "orthographe de mes parties + update formule + majuscules aux subsections",
-    "date": "2025-04-04T14:29:19Z",
-    "author": {
-      "name": "Natp24109",
-      "username": "Natp24109"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/5084d5f3e064eb18107259e35ca8ae12c4fbe2ea"
   }
 ]
