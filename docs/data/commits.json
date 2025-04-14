@@ -1,5 +1,15 @@
 [
   {
+    "sha": "2b6c5127",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-14T06:27:04Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/2b6c5127f5747b7843721c5ec7a929113ca04849"
+  },
+  {
     "sha": "cfd85307",
     "message": "📊 Update GitHub data",
     "date": "2025-04-14T01:23:32Z",
@@ -288,15 +298,5 @@
       "username": "Natp24109"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/a2c468e6076ab791395745c55d0c60964453a8d5"
-  },
-  {
-    "sha": "01439459",
-    "message": "PNJS Added",
-    "date": "2025-04-08T11:19:23Z",
-    "author": {
-      "name": "lOkaal11",
-      "username": "lOkaal1"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/014394598c6761a67a5699dfa199b635dd5391bc"
   }
 ]
