@@ -816,6 +816,179 @@ void startBattleTurn(int moveRouge, int moveBleu) {
     game.battleState.turnState = TURN_INIT;
 }
 
+static inline void turnInit(void){
+    if (!game.battleState.text) {
+        char *msg =" ";
+        if (!msg) return;
+        game.battleState.text = createScrollingText(
+            msg,
+            game.win->LargeFont,
+            (SDL_Color){255, 255, 255, 255},
+            game.speed,     // Délai entre les caractères en ms
+            (SDL_Rect){game.win->width * 0.014, game.win->height *0.736
+            , game.win->width * 0.7, game.win->height * 0.27}, // Fond du texte
+            "assets/User Interface/Grey/button_rectangle_depth_flat.png", // Chemin de l'image de fond
+            game.win->renderer
+        );
+    }
+    if (game.battleState.text->isComplete) {
+        // Une fois le texte affiché, passez à l'action du premier pokémon
+        game.battleState.text->isComplete = false;
+        game.battleState.turnState = TURN_ACTION1;
+        game.battleState.hasAttacked = false;
+    }
+    
+}
+
+static inline void turnAction1(void){
+    if (game.battleState.hasAttacked == false){
+        // La fonction executeAction reprend la logique de playATurn pour une action
+        if(game.battleState.first) {
+            if (isTeamAlive(&game.battleState.rouge) && isAlive(&(game.battleState.rouge.team[0]))){
+                if(isAttacking(game.battleState.moveRouge))
+                    Mix_PlayChannel(2, game.battleState.rouge.team[0].img->ICMonSound[game.battleState.moveRouge], 0);
+                executeAction(&game.battleState.rouge, &game.battleState.bleu, game.battleState.moveRouge);
+                
+                if (!isAlive(&(game.battleState.bleu.team[0]))) gainExp(&game.battleState.rouge, &game.battleState.bleu.team[0]);
+            }
+        }
+        else {
+            if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {
+                int nb_valide = 0;
+                int liste_valide[game.battleState.bleu.nb_poke];
+                for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+                    if (isAlive(&game.battleState.bleu.team[i]))
+                        liste_valide[nb_valide++] = i + 10;
+                }
+                int x = rand() % nb_valide;
+                swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
+            } else if (isTeamAlive(&game.battleState.bleu)){
+                if(isAttacking(game.battleState.moveBleu))
+                    Mix_PlayChannel(3, game.battleState.bleu.team[0].img->ICMonSound[game.battleState.moveBleu], 0);
+                executeAction(&game.battleState.bleu, &game.battleState.rouge, game.battleState.moveBleu);
+            }
+        }
+        game.battleState.hasAttacked = true;
+    }
+    if((game.battleState.first && isAttacking(game.battleState.moveRouge)) || (!game.battleState.first && isAttacking(game.battleState.moveBleu))){
+        if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
+            char msg[60];
+            sprintf(msg,"Coup critique !");
+            criticalHitFlag=0;
+            resetScrollingText(game.battleState.text, msg);
+        }
+        
+        if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
+            char msg[60]="\0";
+            if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
+            else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
+            else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
+            moveEffectivenessFlag = -2;
+            if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
+        }
+    }
+    if (game.battleState.text->isComplete) {
+        game.battleState.text->isComplete = false;
+        game.battleState.turnState = TURN_ACTION2;
+        game.battleState.hasAttacked = false;
+    }
+}
+
+static inline void turnAction2(void){
+    if (game.battleState.hasAttacked == false) {
+        if(game.battleState.first) {
+            if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {
+                int nb_valide = 0;
+                int liste_valide[game.battleState.bleu.nb_poke];
+                for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+                    if (isAlive(&game.battleState.bleu.team[i]))
+                        liste_valide[nb_valide++] = i + 10;
+                }
+                int x = rand() % nb_valide;
+                swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
+            }
+            else if (isTeamAlive(&game.battleState.bleu)){
+                if(isAttacking(game.battleState.moveBleu))
+                    Mix_PlayChannel(3, game.battleState.bleu.team[0].img->ICMonSound[game.battleState.moveBleu], 0);
+                executeAction(&game.battleState.bleu, &game.battleState.rouge, game.battleState.moveBleu);
+            }
+        }
+        else {
+            if (isTeamAlive(&game.battleState.rouge) && isAlive(&(game.battleState.rouge.team[0]))){
+                if(isAttacking(game.battleState.moveRouge))
+                    Mix_PlayChannel(2, game.battleState.rouge.team[0].img->ICMonSound[game.battleState.moveRouge], 0);
+                executeAction(&game.battleState.rouge, &game.battleState.bleu, game.battleState.moveRouge);
+                if (!isAlive(&(game.battleState.bleu.team[0]))) gainExp(&game.battleState.rouge, &game.battleState.bleu.team[0]);
+            }
+        }
+        game.battleState.hasAttacked = true;
+    }
+    if((game.battleState.first && isAttacking(game.battleState.moveBleu)) || (!game.battleState.first && isAttacking(game.battleState.moveRouge))){
+        if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
+            char msg[60];
+            sprintf(msg,"Coup critique !");
+            criticalHitFlag=0;
+            resetScrollingText(game.battleState.text, msg);
+        }
+        
+        if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
+            
+            char msg[60]="\0";
+            if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
+            else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
+            else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
+            moveEffectivenessFlag = -2;
+            if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
+        }
+    }
+    if (game.battleState.text->isComplete) {
+        game.battleState.text->isComplete = false;
+        game.battleState.hasAttacked = false;
+        game.battleState.turnState = TURN_FINISHED;
+    }
+}
+/**
+ * @fn void turnFinished(void);
+ * @brief Gère la fin du tour de combat.
+ *
+ * Cette fonction met à jour l'état du jeu après la fin d'un tour de combat,
+ * en vérifiant si le tour est terminé et en mettant à jour les textes des Pokémon.
+ */
+static inline void turnFinished(void){
+    // Le tour est terminé
+    if (game.battleState.hasAttacked == false)
+    {finishApplyEffectDamage();game.battleState.hasAttacked = true;}
+
+    for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+        updateICMonText(&game.battleState.bleu.team[i]);
+    }
+    for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
+        updateICMonText(&game.battleState.rouge.team[i]);
+    }
+    if(lvl_up_buffer_size!=0 && game.gameState.currentState != LEARNMOVE) {
+        initLearningMove();
+    }
+    else if (lvl_up_buffer_size==0  && game.battleState.text->isComplete){
+        updateICButtons(game.win, &game.battleState.rouge);
+        if(!isAlive(&game.battleState.rouge.team[0]) && isTeamAlive(&game.battleState.rouge)) changeState(game.win, &game.stateHandlers[6].state);
+        if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {
+            int nb_valide = 0;
+            int liste_valide[game.battleState.bleu.nb_poke];
+            for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
+                if (isAlive(&game.battleState.bleu.team[i]))
+                    liste_valide[nb_valide++] = i + 10;
+            }
+            int x = rand() % nb_valide;
+            swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
+        }
+        if(!isAlive(&game.battleState.bleu.team[0]) &&  !isTeamAlive(&game.battleState.bleu)) changeState(game.win, &game.stateHandlers[7].state);
+        destroyScrollingText(game.battleState.text);
+        game.battleState.text = NULL;
+        
+        game.battleState.turnState = TURN_NONE;
+    }
+}
+
 /**
  * @fn void updateBattleTurn();
  * @brief Met à jour l'état du tour de combat.
@@ -828,173 +1001,21 @@ void updateBattleTurn() {
     switch (game.battleState.turnState) {
         case TURN_INIT: {
             // Création et affichage d'un texte annonçant le début du tour
-            if (!game.battleState.text) {
-                char *msg =" ";
-                if (!msg) return;
-                game.battleState.text = createScrollingText(
-                    msg,
-                    game.win->LargeFont,
-                    (SDL_Color){255, 255, 255, 255},
-                    game.speed,     // Délai entre les caractères en ms
-                    (SDL_Rect){game.win->width * 0.014, game.win->height *0.736
-                    , game.win->width * 0.7, game.win->height * 0.27}, // Fond du texte
-                    "assets/User Interface/Grey/button_rectangle_depth_flat.png", // Chemin de l'image de fond
-                    game.win->renderer
-                );
-            }
-            if (game.battleState.text->isComplete) {
-                // Une fois le texte affiché, passez à l'action du premier pokémon
-                game.battleState.text->isComplete = false;
-                game.battleState.turnState = TURN_ACTION1;
-                game.battleState.hasAttacked = false;
-            }
-            
+            turnInit();
             break;
         }
         case TURN_ACTION1: {
             // Exécuter l'action du pokémon rouge
-            if (game.battleState.hasAttacked == false){
-                // La fonction executeAction reprend la logique de playATurn pour une action
-                if(game.battleState.first) {
-                    if (isTeamAlive(&game.battleState.rouge) && isAlive(&(game.battleState.rouge.team[0]))){
-                        if(isAttacking(game.battleState.moveRouge))
-                            Mix_PlayChannel(2, game.battleState.rouge.team[0].img->ICMonSound[game.battleState.moveRouge], 0);
-                        executeAction(&game.battleState.rouge, &game.battleState.bleu, game.battleState.moveRouge);
-                        
-                        if (!isAlive(&(game.battleState.bleu.team[0]))) gainExp(&game.battleState.rouge, &game.battleState.bleu.team[0]);
-                    }
-                }
-                else {
-                    if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {
-                        int nb_valide = 0;
-                        int liste_valide[game.battleState.bleu.nb_poke];
-                        for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
-                            if (isAlive(&game.battleState.bleu.team[i]))
-                                liste_valide[nb_valide++] = i + 10;
-                        }
-                        int x = rand() % nb_valide;
-                        swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
-                    } else if (isTeamAlive(&game.battleState.bleu)){
-                        if(isAttacking(game.battleState.moveBleu))
-                            Mix_PlayChannel(3, game.battleState.bleu.team[0].img->ICMonSound[game.battleState.moveBleu], 0);
-                        executeAction(&game.battleState.bleu, &game.battleState.rouge, game.battleState.moveBleu);
-                    }
-                }
-                game.battleState.hasAttacked = true;
-            }
-            if((game.battleState.first && isAttacking(game.battleState.moveRouge)) || (!game.battleState.first && isAttacking(game.battleState.moveBleu))){
-                if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
-                    char msg[60];
-                    sprintf(msg,"Coup critique !");
-                    criticalHitFlag=0;
-                    resetScrollingText(game.battleState.text, msg);
-                }
-                
-                if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
-                    char msg[60]="\0";
-                    if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
-                    else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
-                    else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
-                    moveEffectivenessFlag = -2;
-                    if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
-                }
-            }
-            if (game.battleState.text->isComplete) {
-                game.battleState.text->isComplete = false;
-                game.battleState.turnState = TURN_ACTION2;
-                game.battleState.hasAttacked = false;
-            }
+            turnAction1();
             break;
         }
         case TURN_ACTION2: {
             // Si le pokémon bleu est toujours vivant, exécute son action
-            if (game.battleState.hasAttacked == false) {
-                if(game.battleState.first) {
-                    if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {
-                        int nb_valide = 0;
-                        int liste_valide[game.battleState.bleu.nb_poke];
-                        for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
-                            if (isAlive(&game.battleState.bleu.team[i]))
-                                liste_valide[nb_valide++] = i + 10;
-                        }
-                        int x = rand() % nb_valide;
-                        swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
-                    }
-                    else if (isTeamAlive(&game.battleState.bleu)){
-                        if(isAttacking(game.battleState.moveBleu))
-                            Mix_PlayChannel(3, game.battleState.bleu.team[0].img->ICMonSound[game.battleState.moveBleu], 0);
-                        executeAction(&game.battleState.bleu, &game.battleState.rouge, game.battleState.moveBleu);
-                    }
-                }
-                else {
-                    if (isTeamAlive(&game.battleState.rouge) && isAlive(&(game.battleState.rouge.team[0]))){
-                        if(isAttacking(game.battleState.moveRouge))
-                            Mix_PlayChannel(2, game.battleState.rouge.team[0].img->ICMonSound[game.battleState.moveRouge], 0);
-                        executeAction(&game.battleState.rouge, &game.battleState.bleu, game.battleState.moveRouge);
-                        if (!isAlive(&(game.battleState.bleu.team[0]))) gainExp(&game.battleState.rouge, &game.battleState.bleu.team[0]);
-                    }
-                }
-                game.battleState.hasAttacked = true;
-            }
-            if((game.battleState.first && isAttacking(game.battleState.moveBleu)) || (!game.battleState.first && isAttacking(game.battleState.moveRouge))){
-                if(game.battleState.hasAttacked && game.battleState.text->isComplete && criticalHitFlag){
-                    char msg[60];
-                    sprintf(msg,"Coup critique !");
-                    criticalHitFlag=0;
-                    resetScrollingText(game.battleState.text, msg);
-                }
-                
-                if(game.battleState.hasAttacked && game.battleState.text->isComplete && !(moveEffectivenessFlag<-1)){
-                    
-                    char msg[60]="\0";
-                    if(moveEffectivenessFlag==0) sprintf(msg,"Cela n'a aucun effet !");
-                    else if(moveEffectivenessFlag<=0.9) sprintf(msg,"Ce n'est pas très efficace !");
-                    else if(moveEffectivenessFlag>1.1) sprintf(msg,"C'est super efficace !");
-                    moveEffectivenessFlag = -2;
-                    if(msg[0]!='\0') resetScrollingText(game.battleState.text, msg);
-                }
-            }
-            if (game.battleState.text->isComplete) {
-                game.battleState.text->isComplete = false;
-                game.battleState.hasAttacked = false;
-                game.battleState.turnState = TURN_FINISHED;
-            }
+           turnAction2();
             break;
         }
         case TURN_FINISHED: {
-            // Le tour est terminé
-            if (game.battleState.hasAttacked == false)
-            {finishApplyEffectDamage();game.battleState.hasAttacked = true;}
-
-            for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
-                updateICMonText(&game.battleState.bleu.team[i]);
-            }
-            for (int i = 0; i < game.battleState.rouge.nb_poke; i++) {
-                updateICMonText(&game.battleState.rouge.team[i]);
-            }
-            if(lvl_up_buffer_size!=0 && game.gameState.currentState != LEARNMOVE) {
-                initLearningMove();
-            }
-            else if (lvl_up_buffer_size==0  && game.battleState.text->isComplete){
-                updateICButtons(game.win, &game.battleState.rouge);
-                if(!isAlive(&game.battleState.rouge.team[0]) && isTeamAlive(&game.battleState.rouge)) changeState(game.win, &game.stateHandlers[6].state);
-                if (isTeamAlive(&game.battleState.bleu) && !isAlive(&(game.battleState.bleu.team[0]))) {
-                    int nb_valide = 0;
-                    int liste_valide[game.battleState.bleu.nb_poke];
-                    for (int i = 0; i < game.battleState.bleu.nb_poke; i++) {
-                        if (isAlive(&game.battleState.bleu.team[i]))
-                            liste_valide[nb_valide++] = i + 10;
-                    }
-                    int x = rand() % nb_valide;
-                    swapActualAttacker(&game.battleState.bleu, liste_valide[x]);
-                }
-                if(!isAlive(&game.battleState.bleu.team[0]) &&  !isTeamAlive(&game.battleState.bleu)) changeState(game.win, &game.stateHandlers[7].state);
-                destroyScrollingText(game.battleState.text);
-                game.battleState.text = NULL;
-                
-                game.battleState.turnState = TURN_NONE;
-            }
-            
+            turnFinished();
             break;
         }
         case TURN_NONE:
@@ -1009,40 +1030,17 @@ void updateBattleTurn() {
 }
 
 /**
- * @fn void executeAction(t_Team *attacker, t_Team *defender, int move);
- * @brief Exécute l'action d'un Pokémon pendant un tour de combat.
+ * @fn static void attackHasEffects(t_Team *attacker, t_Team *defender, int move);
+ * @brief Gère les effets d'attaque d'un Pokémon.
  *
- * Cette fonction gère l'exécution de l'action choisie par le Pokémon attaquant
- * (attaque ou échange) et applique les effets correspondants sur le Pokémon défenseur.
+ * Cette fonction gère les effets d'attaque d'un Pokémon, y compris la peur, la paralysie et la confusion.
+ * Elle applique également les dégâts de l'attaque sur le défenseur.
  *
  * @param attacker Pointeur sur l'équipe du Pokémon attaquant.
  * @param defender Pointeur sur l'équipe du Pokémon défenseur.
  * @param move L'action choisie par le Pokémon attaquant.
- */
-void executeAction(t_Team *attacker, t_Team *defender, int move) {
-    char msg[60] = "";
-    // Si le Pokémon n'a plus de PP et qu'il attaque, forcer l'utilisation de Lutte.
-    if (!hasMoveLeft(&(attacker->team[0])) && isAttacking(move)) {
-        move = STRUGGLE;
-        sprintf(msg, "%s utilise Lutte !", attacker->team[0].name);
-        resetScrollingText(game.battleState.text, msg);
-        // Vous pouvez appliquer les dégâts de Lutte ici ou dans une étape ultérieure
-        affectDamage(attacker, defender, move);
-        return;
-    }
-
-    // Vérification de la validité de l'action
-    if (!testActionValidity(move, attacker)) {
-        sprintf(msg, "Action invalide !");
-        resetScrollingText(game.battleState.text, msg);
-        game.battleState.turnState = TURN_NONE;
-        cleanupScrollingText(&game.battleState.text);
-        return;
-    }
-
-    // Si l'action est une attaque
-    if (isAttacking(move)) {
-
+*/
+static void attackHasEffects(t_Team *attacker, t_Team *defender, int move, char *msg) {
         /*flinch check*/
         if(attacker->effect==flinch){
             sprintf(msg, "%s a peur, il ne peut pas attaquer !",attacker->team[0].name);
@@ -1089,6 +1087,42 @@ void executeAction(t_Team *attacker, t_Team *defender, int move) {
             sprintf(msg, "%s rate son attaque !", attacker->team[0].name);   
         }
         resetScrollingText(game.battleState.text, msg);
+}
+
+/**
+ * @fn void executeAction(t_Team *attacker, t_Team *defender, int move);
+ * @brief Exécute l'action d'un Pokémon pendant un tour de combat.
+ *
+ * Cette fonction gère l'exécution de l'action choisie par le Pokémon attaquant
+ * (attaque ou échange) et applique les effets correspondants sur le Pokémon défenseur.
+ *
+ * @param attacker Pointeur sur l'équipe du Pokémon attaquant.
+ * @param defender Pointeur sur l'équipe du Pokémon défenseur.
+ * @param move L'action choisie par le Pokémon attaquant.
+ */
+void executeAction(t_Team *attacker, t_Team *defender, int move) {
+    char msg[60] = "";
+    // Si le Pokémon n'a plus de PP et qu'il attaque, forcer l'utilisation de Lutte.
+    if (!hasMoveLeft(&(attacker->team[0])) && isAttacking(move)) {
+        move = STRUGGLE;
+        sprintf(msg, "%s utilise Lutte !", attacker->team[0].name);
+        resetScrollingText(game.battleState.text, msg);
+        // Vous pouvez appliquer les dégâts de Lutte ici ou dans une étape ultérieure
+        affectDamage(attacker, defender, move);
+        return;
+    }
+    // Vérification de la validité de l'action
+    if (!testActionValidity(move, attacker)) {
+        sprintf(msg, "Action invalide !");
+        resetScrollingText(game.battleState.text, msg);
+        game.battleState.turnState = TURN_NONE;
+        cleanupScrollingText(&game.battleState.text);
+        return;
+    }
+
+    // Si l'action est une attaque
+    if (isAttacking(move)) {
+        attackHasEffects(attacker, defender, move, msg);
     }
     // Si l'action est un échange
     else if (isSwitching(move)) {
@@ -1100,6 +1134,8 @@ void executeAction(t_Team *attacker, t_Team *defender, int move) {
 
 void finishApplyEffectDamage(){
     char msg[60] = "";
+    // Appliquer les effets de statut à la fin du tour
+
     if (isAlive(&(game.battleState.rouge.team[0])) && game.battleState.rouge.team[0].main_effect==burn){
         sprintf(msg,"%s souffre de sa brulûre !",game.battleState.rouge.team[0].name);
         resetScrollingText(game.battleState.text, msg);

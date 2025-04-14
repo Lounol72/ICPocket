@@ -138,7 +138,7 @@ int handleMapTransition(int mapId, Player *player, Camera *camera, SDL_Renderer 
         SDL_RenderFillRect(renderer, &fullScreen);
         
         SDL_RenderPresent(renderer);
-        //SDL_Delay(16); // ~60 FPS
+        SDL_Delay((Uint32)(game.deltaTime * 1000)); // Utiliser game.deltaTime pour ~60 FPS
     }
     
     // Changer de carte
@@ -172,7 +172,7 @@ int handleMapTransition(int mapId, Player *player, Camera *camera, SDL_Renderer 
         SDL_RenderFillRect(renderer, &fullScreen);
         
         SDL_RenderPresent(renderer);
-        //SDL_Delay(16); // ~60 FPS
+        SDL_Delay((Uint32)(game.deltaTime * 1000)); // Utiliser game.deltaTime pour ~60 FPS
     }
     
     SDL_Log("Transition de la carte %d à la carte %d réussie", oldMapIndex, mapId);
