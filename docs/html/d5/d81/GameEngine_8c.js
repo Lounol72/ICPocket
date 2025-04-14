@@ -1,5 +1,6 @@
 var GameEngine_8c =
 [
+    [ "attackHasEffects", "d5/d81/GameEngine_8c.html#a371f4e186e58de695f5746d0117b6134", null ],
     [ "attqButtonClicked", "d5/d81/GameEngine_8c.html#a8f8e57777ac436d2bfa2a87224c0eb8c", null ],
     [ "changeIndexSwap", "d5/d81/GameEngine_8c.html#aa7ee242cf4fc64c304a8df5b7253fc93", null ],
     [ "changeState", "d5/d81/GameEngine_8c.html#af8cfae382c83870e35b5825bc9da0a60", null ],
@@ -22,6 +23,10 @@ var GameEngine_8c =
     [ "renderMap", "d5/d81/GameEngine_8c.html#a782173c55bbd4cda663fe32ecd1eba75", null ],
     [ "selectOtherStarter", "d5/d81/GameEngine_8c.html#a41ed6a7fed402be7d7dc36542d6b2937", null ],
     [ "startBattleTurn", "d5/d81/GameEngine_8c.html#adabbbc541f65101aca7e21be011712ae", null ],
+    [ "turnAction1", "d5/d81/GameEngine_8c.html#af80839f216017bed570ace97f0adf2ab", null ],
+    [ "turnAction2", "d5/d81/GameEngine_8c.html#af662386fe1148d7b64fefd1460633f2a", null ],
+    [ "turnFinished", "d5/d81/GameEngine_8c.html#a5e129ac903e267514fbceebeab1b8662", null ],
+    [ "turnInit", "d5/d81/GameEngine_8c.html#a630ae785d24e6eed410e91a07a8fc067", null ],
     [ "updateBattleTurn", "d5/d81/GameEngine_8c.html#aeffafb56f1266491593b4e3e0fd3fb28", null ],
     [ "updateCurrentButton", "d5/d81/GameEngine_8c.html#aa35dc6fb12b09280f097e5781e5892e1", null ],
     [ "updateICButtons", "d5/d81/GameEngine_8c.html#aa9e620870df635719d54d19fd83bb423", null ],

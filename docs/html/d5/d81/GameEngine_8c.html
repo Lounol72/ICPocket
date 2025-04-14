@@ -308,9 +308,20 @@ Fonctions</h2></td></tr>
 <tr class="memitem:adabbbc541f65101aca7e21be011712ae" id="r_adabbbc541f65101aca7e21be011712ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/GameEngine_8c.html#adabbbc541f65101aca7e21be011712ae">startBattleTurn</a> (int moveRouge, int moveBleu)</td></tr>
 <tr class="memdesc:adabbbc541f65101aca7e21be011712ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le tour de combat avec les mouvements des Pokémon.  <br /></td></tr>
 <tr class="separator:adabbbc541f65101aca7e21be011712ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a630ae785d24e6eed410e91a07a8fc067" id="r_a630ae785d24e6eed410e91a07a8fc067"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/GameEngine_8c.html#a630ae785d24e6eed410e91a07a8fc067">turnInit</a> (void)</td></tr>
+<tr class="separator:a630ae785d24e6eed410e91a07a8fc067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af80839f216017bed570ace97f0adf2ab" id="r_af80839f216017bed570ace97f0adf2ab"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/GameEngine_8c.html#af80839f216017bed570ace97f0adf2ab">turnAction1</a> (void)</td></tr>
+<tr class="separator:af80839f216017bed570ace97f0adf2ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af662386fe1148d7b64fefd1460633f2a" id="r_af662386fe1148d7b64fefd1460633f2a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/GameEngine_8c.html#af662386fe1148d7b64fefd1460633f2a">turnAction2</a> (void)</td></tr>
+<tr class="separator:af662386fe1148d7b64fefd1460633f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e129ac903e267514fbceebeab1b8662" id="r_a5e129ac903e267514fbceebeab1b8662"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/GameEngine_8c.html#a5e129ac903e267514fbceebeab1b8662">turnFinished</a> (void)</td></tr>
+<tr class="memdesc:a5e129ac903e267514fbceebeab1b8662"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère la fin du tour de combat.  <br /></td></tr>
+<tr class="separator:a5e129ac903e267514fbceebeab1b8662"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeffafb56f1266491593b4e3e0fd3fb28" id="r_aeffafb56f1266491593b4e3e0fd3fb28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/GameEngine_8c.html#aeffafb56f1266491593b4e3e0fd3fb28">updateBattleTurn</a> ()</td></tr>
 <tr class="memdesc:aeffafb56f1266491593b4e3e0fd3fb28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour l'état du tour de combat.  <br /></td></tr>
 <tr class="separator:aeffafb56f1266491593b4e3e0fd3fb28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a371f4e186e58de695f5746d0117b6134" id="r_a371f4e186e58de695f5746d0117b6134"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/GameEngine_8c.html#a371f4e186e58de695f5746d0117b6134">attackHasEffects</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *attacker, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *defender, int move, char *msg)</td></tr>
+<tr class="separator:a371f4e186e58de695f5746d0117b6134"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f30ad9309996b75a4472a6235a17bd1" id="r_a0f30ad9309996b75a4472a6235a17bd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d81/GameEngine_8c.html#a0f30ad9309996b75a4472a6235a17bd1">executeAction</a> (<a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *attacker, <a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *defender, int move)</td></tr>
 <tr class="memdesc:a0f30ad9309996b75a4472a6235a17bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exécute l'action d'un Pokémon pendant un tour de combat.  <br /></td></tr>
 <tr class="separator:a0f30ad9309996b75a4472a6235a17bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -337,6 +348,54 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Moteur principal du jeu : gestion de la boucle de jeu, des ressources et des interactions. </p>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a371f4e186e58de695f5746d0117b6134" name="a371f4e186e58de695f5746d0117b6134"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a371f4e186e58de695f5746d0117b6134">&#9670;&#160;</a></span>attackHasEffects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void attackHasEffects </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *&#160;</td>
+          <td class="paramname"><em>attacker</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d63/structt__Team.html">t_Team</a> *&#160;</td>
+          <td class="paramname"><em>defender</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>move</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>msg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8f8e57777ac436d2bfa2a87224c0eb8c" name="a8f8e57777ac436d2bfa2a87224c0eb8c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8f8e57777ac436d2bfa2a87224c0eb8c">&#9670;&#160;</a></span>attqButtonClicked()</h2>
 
@@ -1179,6 +1238,113 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="af80839f216017bed570ace97f0adf2ab" name="af80839f216017bed570ace97f0adf2ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af80839f216017bed570ace97f0adf2ab">&#9670;&#160;</a></span>turnAction1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void turnAction1 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af662386fe1148d7b64fefd1460633f2a" name="af662386fe1148d7b64fefd1460633f2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af662386fe1148d7b64fefd1460633f2a">&#9670;&#160;</a></span>turnAction2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void turnAction2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5e129ac903e267514fbceebeab1b8662" name="a5e129ac903e267514fbceebeab1b8662"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e129ac903e267514fbceebeab1b8662">&#9670;&#160;</a></span>turnFinished()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void turnFinished </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gère la fin du tour de combat. </p>
+<p>Cette fonction met à jour l'état du jeu après la fin d'un tour de combat, en vérifiant si le tour est terminé et en mettant à jour les textes des Pokémon. </p>
+
+</div>
+</div>
+<a id="a630ae785d24e6eed410e91a07a8fc067" name="a630ae785d24e6eed410e91a07a8fc067"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630ae785d24e6eed410e91a07a8fc067">&#9670;&#160;</a></span>turnInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void turnInit </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

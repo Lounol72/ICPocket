@@ -1,5 +1,10 @@
 var NAVTREEINDEX3 =
 {
+"dc/d7b/structPlayer.html#af38c8900e62c2e65e2038114b67644ae":[12,0,15,16],
+"dc/d7b/structPlayer.html#afb60fdad921bce05783ef2709e849c27":[12,0,15,19],
+"dc/dae/Text_8c.html":[13,0,1,18],
+"dc/dae/Text_8c.html#a015ae8ec886baef9970798a86f682b27":[13,0,1,18,15],
+"dc/dae/Text_8c.html#a0a8e528a34a830bd97a8f89252c02d91":[13,0,1,18,9],
 "dc/dae/Text_8c.html#a0bc289fcd1d02a1ab742f93c882b5370":[13,0,1,18,10],
 "dc/dae/Text_8c.html#a1311acdef7d344c53fe43c83769610e9":[13,0,1,18,3],
 "dc/dae/Text_8c.html#a279a58d3ade7f4395fb329895f439ba0":[13,0,1,18,8],
@@ -203,8 +208,8 @@ var NAVTREEINDEX3 =
 "functions_t.html":[12,2,0,17],
 "functions_u.html":[12,2,0,18],
 "functions_v.html":[12,2,0,19],
-"functions_vars.html":[12,2,1],
 "functions_vars.html":[12,2,1,0],
+"functions_vars.html":[12,2,1],
 "functions_vars_b.html":[12,2,1,1],
 "functions_vars_c.html":[12,2,1,2],
 "functions_vars_d.html":[12,2,1,3],
@@ -244,10 +249,5 @@ var NAVTREEINDEX3 =
 "globals_func.html":[13,1,1],
 "globals_func_b.html":[13,1,1,1],
 "globals_func_c.html":[13,1,1,2],
-"globals_func_d.html":[13,1,1,3],
-"globals_func_e.html":[13,1,1,4],
-"globals_func_f.html":[13,1,1,5],
-"globals_func_g.html":[13,1,1,6],
-"globals_func_h.html":[13,1,1,7],
-"globals_func_i.html":[13,1,1,8]
+"globals_func_d.html":[13,1,1,3]
 };

@@ -64,9 +64,9 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "d3/ded/Window_8h.html#a416822946d800083b7b87337456d056ea883a94174463c7de6eef745a4122c7d9",
-"d7/d1f/GameEngine_8h.html#a4f4fd64e6dbdcdcd83fd46f43c35d9bf",
-"dc/dae/Text_8c.html#a0bc289fcd1d02a1ab742f93c882b5370",
-"globals_func_l.html"
+"d7/d1f/GameEngine_8h.html#a3a1f855c7a6cf6e4ce10b47e2609bc1fa3f0cca320edbedb96b0f0d32d557f6b7",
+"dc/d7b/structPlayer.html#af38c8900e62c2e65e2038114b67644ae",
+"globals_func_e.html"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';

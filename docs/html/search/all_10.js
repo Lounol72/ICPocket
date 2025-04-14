@@ -57,7 +57,7 @@ var searchData=
   ['structpoke_2eh_54',['structPoke.h',['../da/d71/structPoke_8h.html',1,'']]],
   ['structure_20du_20projet_55',['📁 Structure du projet',['../index.html#autotoc_md4',1,'']]],
   ['structures_2eh_56',['structures.h',['../dd/da3/structures_8h.html',1,'']]],
-  ['struggle_57',['struggle',['../d6/d8e/duel_8h.html#ad17fa6eb61b38334f7b136e02a78ff37',1,'STRUGGLE:&#160;duel.h'],['../da/d71/structPoke_8h.html#ad17fa6eb61b38334f7b136e02a78ff37',1,'STRUGGLE:&#160;structPoke.h'],['../d1/d18/duel_8c.html#a69f8229a1c94eb0a11e091d8b54570f3',1,'struggle:&#160;duel.c'],['../d6/d8e/duel_8h.html#a69f8229a1c94eb0a11e091d8b54570f3',1,'struggle:&#160;duel.c']]],
+  ['struggle_57',['struggle',['../d1/d18/duel_8c.html#a69f8229a1c94eb0a11e091d8b54570f3',1,'struggle:&#160;duel.c'],['../d6/d8e/duel_8h.html#a69f8229a1c94eb0a11e091d8b54570f3',1,'struggle:&#160;duel.c'],['../d6/d8e/duel_8h.html#ad17fa6eb61b38334f7b136e02a78ff37',1,'STRUGGLE:&#160;duel.h'],['../da/d71/structPoke_8h.html#ad17fa6eb61b38334f7b136e02a78ff37',1,'STRUGGLE:&#160;structPoke.h']]],
   ['surface_58',['surface',['../d2/dda/structText.html#a881e261364e0678ddcf6865bf9d668b9',1,'Text']]],
   ['swap_59',['SWAP',['../d3/ded/Window_8h.html#a416822946d800083b7b87337456d056eaaa826be4c1bbb2ee3d5f2e2fb6912a23',1,'Window.h']]],
   ['swapactualattacker_60',['swapactualattacker',['../d1/d18/duel_8c.html#a785cf59b04b080c32b51ca8300b62507',1,'swapActualAttacker(t_Team *t, int swapIndex):&#160;duel.c'],['../d6/d8e/duel_8h.html#ad567a4aec068790f989fb9ef909fcebb',1,'swapActualAttacker(t_Team *target, int swapIndex):&#160;duel.c']]],
