@@ -1,5 +1,15 @@
 [
   {
+    "sha": "dc4f5f3a",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-16T01:22:16Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/dc4f5f3ac7279f552c72113dd6fd97458fc1709e"
+  },
+  {
     "sha": "ecdc6445",
     "message": "📊 Update GitHub data",
     "date": "2025-04-15T18:22:42Z",
@@ -288,15 +298,5 @@
       "username": "lOkaal1"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/e56b93a62d83f1abeeee1352a43c13df8465ebd1"
-  },
-  {
-    "sha": "e260631a",
-    "message": "Merge branch 'main' of https://github.com/Lounol72/ICPocket into main",
-    "date": "2025-04-09T07:08:17Z",
-    "author": {
-      "name": "Natp24109",
-      "username": "Natp24109"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/e260631a6a14f28a6870bad37df96ba6d829d706"
   }
 ]
