@@ -1,5 +1,15 @@
 [
   {
+    "sha": "ecdc6445",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-15T18:22:42Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/ecdc644529b54d8d445c7a4a7a31ee46ff035d36"
+  },
+  {
     "sha": "fe66b144",
     "message": "📊 Update GitHub data",
     "date": "2025-04-15T12:35:16Z",
@@ -288,15 +298,5 @@
       "username": "Natp24109"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/e260631a6a14f28a6870bad37df96ba6d829d706"
-  },
-  {
-    "sha": "d9614fd9",
-    "message": "fixes in databases and status resets after battles",
-    "date": "2025-04-09T07:08:11Z",
-    "author": {
-      "name": "Natp24109",
-      "username": "Natp24109"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/d9614fd9539b6ca7eb26b49049c79e22a1cfae54"
   }
 ]
