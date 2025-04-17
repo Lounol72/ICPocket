@@ -1,5 +1,15 @@
 [
   {
+    "sha": "6f11e021",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-17T01:21:15Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/6f11e02186446b17b0ec7aea39b334255ddd98d9"
+  },
+  {
     "sha": "d3d64a9f",
     "message": "📊 Update GitHub data",
     "date": "2025-04-16T18:25:09Z",
@@ -288,15 +298,5 @@
       "username": "Lounol72"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/5c0c09ef9170672409800251ae349f56768e315a"
-  },
-  {
-    "sha": "c5c608fd",
-    "message": "Merge pull request #56 from Lounol72/With-PNJ",
-    "date": "2025-04-09T08:40:29Z",
-    "author": {
-      "name": "lOkaal1",
-      "username": "lOkaal1"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/c5c608fde8ee57f26a966097b2d2c349f4f3b5e7"
   }
 ]
