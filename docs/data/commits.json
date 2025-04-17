@@ -1,5 +1,15 @@
 [
   {
+    "sha": "d3d64a9f",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-16T18:25:09Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/d3d64a9fb7696179096c6ec1da02a453b9b1f9ae"
+  },
+  {
     "sha": "85718f73",
     "message": "📊 Update GitHub data",
     "date": "2025-04-16T12:35:38Z",
@@ -288,15 +298,5 @@
       "username": "lOkaal1"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/c5c608fde8ee57f26a966097b2d2c349f4f3b5e7"
-  },
-  {
-    "sha": "1a51f9af",
-    "message": "📦 Windows build 2025-04-09",
-    "date": "2025-04-09T07:30:43Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/1a51f9af3da6bd7ed07ea15f3904063e0c2f9fd9"
   }
 ]
