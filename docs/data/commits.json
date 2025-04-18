@@ -1,5 +1,15 @@
 [
   {
+    "sha": "d0849a9a",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-18T06:25:01Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/d0849a9acd37ab86c5549c7ea84200508a1fe0af"
+  },
+  {
     "sha": "bd66dbad",
     "message": "📊 Update GitHub data",
     "date": "2025-04-18T01:20:31Z",
@@ -288,15 +298,5 @@
       "username": "github-actions[bot]"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/1738d5479b408cc6d761f3033f0e91b7e3dccf56"
-  },
-  {
-    "sha": "57b96279",
-    "message": "📚 Documentation update 2025-04-09",
-    "date": "2025-04-09T22:08:52Z",
-    "author": {
-      "name": "github-actions[bot]",
-      "username": "github-actions[bot]"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/57b9627952c52d8df2e9efaac5c946b1c3e1e253"
   }
 ]
