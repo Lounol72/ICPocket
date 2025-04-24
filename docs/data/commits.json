@@ -1,5 +1,15 @@
 [
   {
+    "sha": "07ab884a",
+    "message": "📊 Update GitHub data",
+    "date": "2025-04-23T18:26:02Z",
+    "author": {
+      "name": "github-actions[bot]",
+      "username": "github-actions[bot]"
+    },
+    "url": "https://github.com/Lounol72/ICPocket/commit/07ab884af09b78dd24fa98585b4ed9a085f59f4e"
+  },
+  {
     "sha": "4d1b1533",
     "message": "📊 Update GitHub data",
     "date": "2025-04-23T12:35:51Z",
@@ -288,15 +298,5 @@
       "username": "github-actions[bot]"
     },
     "url": "https://github.com/Lounol72/ICPocket/commit/f39ebe5012f6520a60412d1ab9b884dd54307a56"
-  },
-  {
-    "sha": "10a653c5",
-    "message": "Merge branch 'main' of https://github.com/Lounol72/ICPocket",
-    "date": "2025-04-14T16:44:14Z",
-    "author": {
-      "name": "Lounol 72",
-      "username": "Lounol72"
-    },
-    "url": "https://github.com/Lounol72/ICPocket/commit/10a653c5cf26ac2bd3c0ff46c294698d56b8308f"
   }
 ]
